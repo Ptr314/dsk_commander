@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>MainWindow</name>
     <message>
@@ -17,37 +17,37 @@
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="145"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Помощь</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Open directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать директорию</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="164"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>О программе...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="31"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="31"/>
         <source>Error reading config file</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка чтения файла конфигурации</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="57"/>
         <source>Choose a directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите директорию</translation>
     </message>
 </context>
 </TS>

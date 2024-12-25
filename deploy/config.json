@@ -1,0 +1,36 @@
+{
+    "file_formats": [
+        {
+            "id":           "FILE_RAW_MSB",
+            "name":         "RAW image",
+            "extensions":   "*.img;*.ima;*.dsk;*.odi;*.trd;*.cpm",
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
+        },
+        {
+            "id":           "FILE_MFM_HFE",
+            "name":         "HFE MFM file",
+            "extensions":   "*.hfe",
+            "types":        ["TYPE_AGAT_140"]
+        },
+        {
+            "id":           "FILE_MFM_NIC",
+            "name":         "NIB MFM file",
+            "extensions":   "*.nib",
+            "types":        ["TYPE_AGAT_140"]
+        },
+        {
+            "id":           "FILE_MFM_NIC",
+            "name":         "NIC MFM file",
+            "extensions":   "*.nic",
+            "types":        ["TYPE_AGAT_140"]
+        }
+    ],
+    "file_types": {
+        "TYPE_AGAT_140": {
+            "name": "Agat 140K"
+        },
+        "TYPE_AGAT_840": {
+            "name": "Agat 840K"
+        }
+    }
+}
