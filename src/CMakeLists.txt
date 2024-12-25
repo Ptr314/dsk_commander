@@ -14,23 +14,37 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/dsk_tools/)
 
-set(TS_FILES i18n/en_us.ts)
+set(TS_FILES
+    i18n/en_us.ts
+    i18n/ru_ru.ts
+)
 
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        ../deploy/config.json
         ${TS_FILES}
 )
 
+set(RESOURCE_FILES
+    resources.qrc
+)
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    QT6_ADD_RESOURCES(PROJECT_RESOURCES
+        ${RESOURCE_FILES}
+    )
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ${PROJECT_RESOURCES}
     )
 
-    qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+    qt_add_translations(${PROJECT_NAME} TS_FILES
+        ${TS_FILES}
+    )
 else()
     add_executable(${PROJECT_NAME}
         ${PROJECT_SOURCES}
@@ -60,6 +74,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 include(GNUInstallDirs)
+
+configure_file(../deploy/dsk_com.ini ${CMAKE_BINARY_DIR}/dsk_com.ini COPYONLY)
+configure_file(../deploy/config.json ${CMAKE_BINARY_DIR}/config.json COPYONLY)
+
 install(TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
