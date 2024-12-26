@@ -8,6 +8,7 @@
 #include "./ui_mainwindow.h"
 
 #include "dsk_tools/dsk_tools.h"
+#include "dsk_tools/image_agat140.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -132,7 +133,7 @@ void MainWindow::load_file(QString file_name, QString file_format, QString file_
     if (check_result == FDD_LOAD_OK) {
         auto load_result = image->load();
         if (load_result == FDD_LOAD_OK) {
-            // TODO: Do something with the data
+            process_image();
         } else {
             QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error loading file"));
         }
@@ -140,4 +141,28 @@ void MainWindow::load_file(QString file_name, QString file_format, QString file_
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error checking file parameters"));
     }
 }
+
+void MainWindow::process_image()
+{
+    qDebug() << "Processing loaded image";
+    int open_res = image->open();
+
+    if (open_res != FDD_OPEN_OK) {
+        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Unrecognized disk format or disk is damaged!"));
+    }
+
+    // dsk_tools::Apple_DOS_VTOC * VTOC = reinterpret_cast<dsk_tools::Apple_DOS_VTOC *>(image->get_sector_data(0, 0x11, 0));
+    // qDebug() << "VTOC";
+    // qDebug() << "Catalog on track: " << VTOC->catalog_track;
+    // qDebug() << "Catalog on sector: " << VTOC->catalog_sector;
+    // qDebug() << "DOS release: " << VTOC->dos_release;
+    // qDebug() << "Volume: " << VTOC->volume;
+    // qDebug() << "Pairs on sector: " << VTOC->pairs_on_sector;
+    // qDebug() << "Last track: " << VTOC->last_track;
+    // qDebug() << "direction: " << VTOC->direction;
+    // qDebug() << "Tracks total: " << VTOC->tracks_total;
+    // qDebug() << "Sectors on track: " << VTOC->sectors_on_track;
+    // qDebug() << "Bytes per sector: " << static_cast<int>(VTOC->bytes_per_sector[1])*256 + VTOC->bytes_per_sector[0];
+}
+
 
