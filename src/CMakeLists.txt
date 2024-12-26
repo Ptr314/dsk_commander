@@ -79,6 +79,7 @@ include(GNUInstallDirs)
 
 configure_file(../deploy/dsk_com.ini ${CMAKE_BINARY_DIR}/dsk_com.ini COPYONLY)
 configure_file(../deploy/config.json ${CMAKE_BINARY_DIR}/config.json COPYONLY)
+configure_file(../deploy/koi8.chr ${CMAKE_BINARY_DIR}/koi8.chr COPYONLY)
 
 install(TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION .
