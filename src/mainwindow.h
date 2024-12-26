@@ -8,6 +8,7 @@
 #include <QJsonObject>
 
 #include "dsk_tools/disk_image.h"
+#include "dsk_tools/dsk_tools.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -49,6 +50,8 @@ private:
     void init_controls();
     void load_file(QString file_name, QString file_format, QString file_type);
     void process_image();
+
+    std::vector<dsk_tools::fileData> files;
 
 };
 #endif // MAINWINDOW_H
