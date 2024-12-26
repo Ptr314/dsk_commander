@@ -48,6 +48,7 @@ private:
     void load_config();
     void init_controls();
     void load_file(QString file_name, QString file_format, QString file_type);
+    void process_image();
 
 };
 #endif // MAINWINDOW_H

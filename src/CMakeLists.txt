@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(DSK_Commander VERSION 0.0.1 LANGUAGES CXX)
+project(DISKCommander VERSION 0.0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -25,6 +25,8 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         ../deploy/config.json
+        ../README.md
+        ../LINKS.md
         ${TS_FILES}
 )
 
