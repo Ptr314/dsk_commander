@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/icons">
         <file alias="folder_open">resources/icons/folder_yellow_open.png</file>
+        <file alias="convert">resources/icons/5floppy_mount.png</file>
+        <file alias="about">resources/icons/msbox_info.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="consolas">resources/fonts/Consolas.ttf</file>
+        <file alias="dos">resources/fonts/PxPlus_IBM_VGA9.ttf</file>
     </qresource>
 </RCC>
