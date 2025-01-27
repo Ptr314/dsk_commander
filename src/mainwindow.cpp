@@ -308,7 +308,7 @@ void MainWindow::on_rightFiles_doubleClicked(const QModelIndex &index)
     // QModelIndexList indexes = ui->rightFiles->selectionModel()->selectedIndexes();
 
     dsk_tools::fileData f = files[index.row()];
-    std::vector<uint8_t> data = image->get_file(f);
+    BYTES data = image->get_file(f);
 
     qDebug() << data.size();
 
@@ -352,6 +352,9 @@ void MainWindow::on_actionConvert_triggered()
     } else
     if (format_id == "FILE_HXC_MFM") {
         writer = new dsk_tools::WriterHxCMFM(format_id.toStdString(), image);
+    } else
+    if (format_id == "FILE_RAW_MSB") {
+        writer = new dsk_tools::WriterRAW(format_id.toStdString(), image);
     } else {
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not implemented!"));
         return;

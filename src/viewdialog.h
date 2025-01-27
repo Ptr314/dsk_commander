@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "dsk_tools/definitions.h"
+
 namespace Ui {
 class ViewDialog;
 }
@@ -12,7 +14,7 @@ class ViewDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ViewDialog(QWidget *parent, std::vector<uint8_t> data);
+    explicit ViewDialog(QWidget *parent, BYTES data);
     ~ViewDialog();
 
 private slots:
@@ -25,7 +27,7 @@ private slots:
 private:
     Ui::ViewDialog *ui;
 
-    std::vector<uint8_t> data;
+    BYTES data;
     void print_data();
 };
 

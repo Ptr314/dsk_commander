@@ -4,7 +4,7 @@
 #include "charmaps.h"
 #include <set>
 
-ViewDialog::ViewDialog(QWidget *parent, std::vector<uint8_t> data)
+ViewDialog::ViewDialog(QWidget *parent, BYTES data)
     : QDialog(parent)
     , ui(new Ui::ViewDialog)
 {
