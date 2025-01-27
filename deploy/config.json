@@ -11,28 +11,28 @@
         },
         {
             "id":           "FILE_HXC_MFM",
-            "name":         "HFE MFM file",
+            "name":         "HxC MFM file",
             "short_name":   "MFM",
             "source":       false,
             "target":       true,
             "extensions":   "*.mfm",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
+            "types":        ["TYPE_AGAT_140"]
         },
         {
             "id":           "FILE_HXC_HFE",
-            "name":         "HFE MFM file",
+            "name":         "HxC HFE file",
             "short_name":   "HFE",
             "source":       false,
             "target":       true,
             "extensions":   "*.hfe",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
+            "types":        ["TYPE_AGAT_840"]
         },
         {
             "id":           "FILE_MFM_NIC",
             "name":         "NIB MFM file",
             "short_name":   "NIB",
             "source":       false,
-            "target":       false,
+            "target":       true,
             "extensions":   "*.nib",
             "types":        ["TYPE_AGAT_140"]
         },
@@ -41,7 +41,7 @@
             "name":         "NIC MFM file",
             "short_name":   "NIC",
             "source":       false,
-            "target":       false,
+            "target":       true,
             "extensions":   "*.nic",
             "types":        ["TYPE_AGAT_140"]
         }
