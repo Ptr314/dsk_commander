@@ -5,8 +5,7 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "target":       true,
-            "extensions":   "*.img;*.ima;*.dsk;*.odi;*.trd;*.cpm",
+            "extensions":   "*.img;*.dsk",
             "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
         },
         {
@@ -14,7 +13,6 @@
             "name":         "HxC MFM file",
             "short_name":   "MFM",
             "source":       false,
-            "target":       true,
             "extensions":   "*.mfm",
             "types":        ["TYPE_AGAT_140"]
         },
@@ -23,16 +21,14 @@
             "name":         "HxC HFE file",
             "short_name":   "HFE",
             "source":       false,
-            "target":       true,
             "extensions":   "*.hfe",
             "types":        ["TYPE_AGAT_840"]
         },
         {
-            "id":           "FILE_MFM_NIC",
+            "id":           "FILE_MFM_NIB",
             "name":         "NIB MFM file",
             "short_name":   "NIB",
             "source":       false,
-            "target":       true,
             "extensions":   "*.nib",
             "types":        ["TYPE_AGAT_140"]
         },
@@ -41,17 +37,18 @@
             "name":         "NIC MFM file",
             "short_name":   "NIC",
             "source":       false,
-            "target":       true,
             "extensions":   "*.nic",
             "types":        ["TYPE_AGAT_140"]
         }
     ],
     "file_types": {
         "TYPE_AGAT_840": {
-            "name": "Agat 840K"
+            "name": "Agat 840K",
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"]
         },
         "TYPE_AGAT_140": {
-            "name": "Agat 140K"
+            "name": "Agat/Apple 140K"
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"]
         }
     }
 }
