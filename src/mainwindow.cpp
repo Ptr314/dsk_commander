@@ -1,3 +1,4 @@
+#include <set>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QJsonDocument>
@@ -347,11 +348,13 @@ void MainWindow::on_actionConvert_triggered()
 
     dsk_tools::Writer * writer;
 
-    if (format_id == "FILE_HXC_HFE") {
-        writer = new dsk_tools::WriterHxCHFE(format_id.toStdString(), image);
-    } else
-    if (format_id == "FILE_HXC_MFM") {
+    std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
+
+    if ( mfm_formats.find(format_id) != mfm_formats.end()) {
         writer = new dsk_tools::WriterHxCMFM(format_id.toStdString(), image);
+    } else
+        if (format_id == "FILE_HXC_HFE") {
+            writer = new dsk_tools::WriterHxCHFE(format_id.toStdString(), image);
     } else
     if (format_id == "FILE_RAW_MSB") {
         writer = new dsk_tools::WriterRAW(format_id.toStdString(), image);
