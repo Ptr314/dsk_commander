@@ -79,6 +79,26 @@
          </layout>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QComboBox" name="leftFilterCombo">
+            <property name="toolTip">
+             <string>Files to show</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <property name="leftMargin">
            <number>10</number>
@@ -87,10 +107,40 @@
            <number>10</number>
           </property>
           <item>
-           <widget class="QComboBox" name="leftFilterCombo"/>
+           <widget class="QComboBox" name="leftTypeCombo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Disk type</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="leftTypeCombo"/>
+           <widget class="QComboBox" name="filesystemCombo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Filesystem type</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="autoCheckBox">
+            <property name="toolTip">
+             <string>Detect Type &amp; Filesystem automatically</string>
+            </property>
+            <property name="text">
+             <string>Auto</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -173,7 +223,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

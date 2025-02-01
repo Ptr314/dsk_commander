@@ -54,8 +54,9 @@ private:
     QFileSystemModel leftFilesModel;
     QStandardItemModel rightFilesModel;
 
-    QJsonArray file_formats;
+    QJsonObject file_formats;
     QJsonObject file_types;
+    QJsonObject file_systems;
 
     dsk_tools::diskImage * image;
 
