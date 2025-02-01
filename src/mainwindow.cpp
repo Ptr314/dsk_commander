@@ -94,8 +94,9 @@ void MainWindow::load_config()
         return;
     }
     QJsonObject jsonRoot = jsonDoc.object();
-    file_formats = jsonRoot["file_formats"].toArray();
+    file_formats = jsonRoot["file_formats"].toObject();
     file_types = jsonRoot["file_types"].toObject();
+    file_systems = jsonRoot["file_systems"].toObject();
 }
 
 void MainWindow::init_controls()
@@ -107,20 +108,20 @@ void MainWindow::init_controls()
 
 
     ui->leftFilterCombo->clear();
-    foreach (const QJsonValue & value, file_formats) {
-        QJsonObject obj = value.toObject();
+    foreach (const QString & ff_id, file_formats.keys()) {
+        QJsonObject obj = file_formats[ff_id].toObject();
         if (obj["source"].toBool()) {
             ui->leftFilterCombo->addItem(
                 QString("%1 (%2)").arg(obj["name"].toString()).arg(obj["extensions"].toString().replace(";", "; ")),
-                obj["extensions"].toString()
+                ff_id
             );
         }
-        if (obj["target"].toBool()) {
-            ui->rightFormatCombo->addItem(
-                obj["short_name"].toString(),
-                obj["id"].toString()
-                );
-        }
+        // if (obj["target"].toBool()) {
+        //     ui->rightFormatCombo->addItem(
+        //         obj["short_name"].toString(),
+        //         obj["id"].toString()
+        //         );
+        // }
     }
     ui->leftFilterCombo->setCurrentIndex(filter_index);
     ui->leftTypeCombo->setCurrentIndex(type_index);
@@ -161,7 +162,8 @@ void MainWindow::on_openDirectoryBtn_clicked()
 void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
 {
     ui->leftTypeCombo->clear();
-    QJsonObject filter = file_formats[index].toObject();
+    QString ff_id = ui->leftFilterCombo->itemData(index).toString();
+    QJsonObject filter = file_formats[ff_id].toObject();
     QJsonArray types = filter["types"].toArray();
     foreach (const QJsonValue & value, types) {
         QString type_id = value.toString();
@@ -170,7 +172,7 @@ void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
         ui->leftTypeCombo->addItem(name, type_id);
     }
 
-    QStringList filters = ui->leftFilterCombo->itemData(index).toString().split(";");
+    QStringList filters = filter["extensions"].toString().split(";");
     leftFilesModel.setNameFilters(filters);
     leftFilesModel.setNameFilterDisables(false);
 
@@ -206,7 +208,7 @@ void MainWindow::on_leftFiles_doubleClicked(const QModelIndex &index)
     if (indexes.size() == 1) {
         QModelIndex selectedIndex = indexes.at(0);
         QFileInfo fileInfo = leftFilesModel.fileInfo(selectedIndex);
-        QString format_id = file_formats[ui->leftFilterCombo->currentIndex()].toObject()["id"].toString();
+        QString format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString();
         QString type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString();
         load_file(fileInfo.absoluteFilePath(), format_id, type_id);
     }
@@ -327,7 +329,20 @@ void MainWindow::on_rightFormatCombo_currentIndexChanged(int index)
 
 void MainWindow::on_leftTypeCombo_currentIndexChanged(int index)
 {
+    ui->filesystemCombo->clear();
     settings->setValue("directory/left_type_filter", index);
+    QString type_id = ui->leftTypeCombo->itemData(index).toString();
+    QJsonObject type = file_types[type_id].toObject();
+    foreach (const QJsonValue & fs_val, type["filesystems"].toArray()) {
+        QString fs_id = fs_val.toString();
+        QJsonObject fs = file_systems[fs_id].toObject();
+        ui->filesystemCombo->addItem(fs["name"].toString(), fs_id);
+    }
+
+    foreach (const QJsonValue & target_val, type["target"].toArray()) {
+        QString target_id = target_val.toString();
+
+    }
 }
 
 
