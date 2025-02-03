@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>View</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -24,6 +24,9 @@
          <height>0</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>View mode</string>
+       </property>
       </widget>
      </item>
      <item>
@@ -33,6 +36,9 @@
          <width>100</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="toolTip">
+        <string>Encoding</string>
        </property>
       </widget>
      </item>

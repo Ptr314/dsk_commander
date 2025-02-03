@@ -73,6 +73,7 @@ private:
     void init_controls();
     void load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type);
     void process_image(std::string filesystem_type);                                                       // Open selecteed image file and list its contents
+    void dir();
     void init_table();                                                          // Set columns etc. depending on image type
     void update_table();                                                        // Put file items to the table
 

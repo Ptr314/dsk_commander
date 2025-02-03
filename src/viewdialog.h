@@ -14,7 +14,7 @@ class ViewDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ViewDialog(QWidget *parent, BYTES data);
+    explicit ViewDialog(QWidget *parent, BYTES data, int preferred_type);
     ~ViewDialog();
 
 private slots:

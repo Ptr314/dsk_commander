@@ -14,9 +14,23 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/dsk_tools/)
 
+set(JSON_FILE ${CMAKE_SOURCE_DIR}/../deploy/config.json)
+set(QML_OUTPUT ${CMAKE_BINARY_DIR}/config.qml)
+
 set(TS_FILES
-    i18n/en_us.ts
-    i18n/ru_ru.ts
+    ${CMAKE_SOURCE_DIR}/i18n/en_us.ts
+    ${CMAKE_SOURCE_DIR}/i18n/ru_ru.ts
+)
+
+add_custom_command(
+    OUTPUT ${QML_OUTPUT}
+    COMMAND python ${CMAKE_SOURCE_DIR}/../.build/extract_json.py ${JSON_FILE} ${QML_OUTPUT}
+    DEPENDS ${JSON_FILE}
+)
+
+add_custom_target(update_translations
+    COMMAND Qt::lupdate ${CMAKE_SOURCE_DIR} ${QML_OUTPUT} -ts ${TS_FILES}
+    DEPENDS ${QML_OUTPUT}
 )
 
 set(PROJECT_SOURCES
