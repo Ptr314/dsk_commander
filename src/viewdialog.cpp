@@ -4,7 +4,7 @@
 #include "charmaps.h"
 #include <set>
 
-ViewDialog::ViewDialog(QWidget *parent, BYTES data)
+ViewDialog::ViewDialog(QWidget *parent, BYTES data, int preferred_type)
     : QDialog(parent)
     , ui(new Ui::ViewDialog)
 {
@@ -15,6 +15,9 @@ ViewDialog::ViewDialog(QWidget *parent, BYTES data)
     ui->modeCombo->addItem(ViewDialog::tr("Binary"), "bin");
     ui->modeCombo->addItem(ViewDialog::tr("Text"), "txt");
     //ui->modeCombo->addItem(ViewDialog::tr("Applesoft BASIC"), "abs");
+    if (preferred_type == PREFERRED_TEXT)
+        ui->modeCombo->setCurrentIndex(1);
+
 
     ui->encodingCombo->addItem("KOI7", "koi7");
     ui->encodingCombo->addItem("KOI8", "koi8");

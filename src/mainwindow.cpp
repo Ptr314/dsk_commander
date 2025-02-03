@@ -111,8 +111,9 @@ void MainWindow::init_controls()
     foreach (const QString & ff_id, file_formats.keys()) {
         QJsonObject obj = file_formats[ff_id].toObject();
         if (obj["source"].toBool()) {
+            QString name = QCoreApplication::translate("config", obj["name"].toString().toUtf8().constData());
             ui->leftFilterCombo->addItem(
-                QString("%1 (%2)").arg(obj["name"].toString(), obj["extensions"].toString().replace(";", "; ")),
+                QString("%1 (%2)").arg(name, obj["extensions"].toString().replace(";", "; ")),
                 ff_id
             );
         }
@@ -163,7 +164,8 @@ void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
     foreach (const QJsonValue & value, types) {
         QString type_id = value.toString();
         QJsonObject type = file_types[type_id].toObject();
-        QString name = type["name"].toString();
+        QString name = QCoreApplication::translate("config", type["name"].toString().toUtf8().constData());
+
         ui->leftTypeCombo->addItem(name, type_id);
     }
 
@@ -226,6 +228,22 @@ void MainWindow::on_leftFiles_doubleClicked(const QModelIndex &index)
     }
 }
 
+void MainWindow::dir()
+{
+    int dir_res = filesystem->dir(&files);
+    if (dir_res != FDD_OP_OK) {
+        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading files list!"));
+    }
+
+    std::sort(files.begin(), files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
+        if (a.is_dir != b.is_dir)
+            return a.is_dir > b.is_dir;
+        return a.name < b.name;
+    });
+
+    update_table();
+}
+
 void MainWindow::process_image(std::string filesystem_type)
 {
     qDebug() << "Processing loaded image";
@@ -239,19 +257,8 @@ void MainWindow::process_image(std::string filesystem_type)
             QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Unrecognized disk format or disk is damaged!"));
         }
 
-        int dir_res = filesystem->dir(&files);
-        if (dir_res != FDD_OP_OK) {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading files list!"));
-        }
-
-        qDebug() << "Got files: " << files.size();
-
-        // foreach (const dsk_tools::fileData & f, files) {
-        //     qDebug() << f.name;
-        // }
-
         init_table();
-        update_table();
+        dir();
     } else {
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File system initialization error!"));
     }
@@ -266,7 +273,7 @@ void MainWindow::init_table()
     rightFilesModel.clear();
     ui->rightFiles->horizontalHeader()->setMinimumSectionSize(20);
 
-    if (funcs & FILE_PRORECTION) {
+    if (funcs & FILE_PROTECTION) {
         rightFilesModel.setColumnCount(const_columns + columns + 1);
         rightFilesModel.setHeaderData(columns, Qt::Horizontal, MainWindow::tr("P"));
         rightFilesModel.horizontalHeaderItem(columns)->setToolTip(MainWindow::tr("Protection"));
@@ -301,7 +308,7 @@ void MainWindow::update_table()
     foreach (const dsk_tools::fileData & f, files) {
         QList<QStandardItem*> items;
 
-        if (funcs & FILE_PRORECTION) {
+        if (funcs & FILE_PROTECTION) {
             QStandardItem * protect_item = new QStandardItem();
             protect_item->setText((f.is_protected)?"*":"");
             protect_item->setTextAlignment(Qt::AlignCenter);
@@ -315,28 +322,50 @@ void MainWindow::update_table()
             items.append(type_item);
         }
 
+        QString file_name = QString::fromStdString(f.name);
+
         QStandardItem * size_item = new QStandardItem();
-        size_item->setText(QString::number(f.size));
+        size_item->setText((file_name != "..")?QString::number(f.size):"");
         size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         items.append(size_item);
 
-        items.append(new QStandardItem(( QString::fromStdString(f.name) )));
+        QStandardItem *nameItem;
+        if (f.is_dir) {
+            nameItem = new QStandardItem("<" + file_name + ">");
+            QFont dirFont;
+            dirFont.setBold(true);
+            if (f.is_deleted) dirFont.setStrikeOut(true);
+            nameItem->setFont(dirFont);
+            // nameItem->setForeground(QBrush(Qt::blue));
+        } else {
+            nameItem = new QStandardItem(file_name);
+            if (f.is_deleted) {
+                QFont fileFont;
+                fileFont.setStrikeOut(true);
+                nameItem->setFont(fileFont);
+            }
+        }
+        items.append(nameItem);
         rightFilesModel.appendRow( items );
     }
 }
 
 void MainWindow::on_rightFiles_doubleClicked(const QModelIndex &index)
 {
-    // QModelIndexList indexes = ui->rightFiles->selectionModel()->selectedIndexes();
-
     dsk_tools::fileData f = files[index.row()];
-    BYTES data = filesystem->get_file(f);
 
-    qDebug() << data.size();
+    if (f.is_dir){
+        filesystem->cd(f);
+        dir();
+    } else {
+        BYTES data = filesystem->get_file(f);
 
-    QDialog * w = new ViewDialog(this, data);
-    w->setAttribute(Qt::WA_DeleteOnClose);
-    w->show();
+        qDebug() << data.size();
+
+        QDialog * w = new ViewDialog(this, data, f.preferred_type);
+        w->setAttribute(Qt::WA_DeleteOnClose);
+        w->show();
+    }
 }
 
 
@@ -357,7 +386,8 @@ void MainWindow::on_leftTypeCombo_currentIndexChanged(int index)
     foreach (const QJsonValue & fs_val, type["filesystems"].toArray()) {
         QString fs_id = fs_val.toString();
         QJsonObject fs = file_systems[fs_id].toObject();
-        ui->filesystemCombo->addItem(fs["name"].toString(), fs_id);
+        QString name = QCoreApplication::translate("config", fs["name"].toString().toUtf8().constData());
+        ui->filesystemCombo->addItem(name, fs_id);
     }
 
     ui->rightFormatCombo->clear();
