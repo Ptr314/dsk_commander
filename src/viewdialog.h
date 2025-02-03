@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-#include "dsk_tools/definitions.h"
+#include "dsk_tools/dsk_tools.h"
 
 namespace Ui {
 class ViewDialog;

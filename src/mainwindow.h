@@ -7,9 +7,10 @@
 #include <QSettings>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QComboBox>
 
-#include "dsk_tools/disk_image.h"
 #include "dsk_tools/dsk_tools.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -46,6 +47,10 @@ private slots:
 
     void on_toolButton_clicked();
 
+    void on_autoCheckBox_checkStateChanged(const Qt::CheckState &arg1);
+
+    void on_filesystemCombo_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
 
@@ -58,13 +63,16 @@ private:
     QJsonObject file_types;
     QJsonObject file_systems;
 
-    dsk_tools::diskImage * image;
+    dsk_tools::diskImage * image = nullptr;
+    dsk_tools::fileSystem * filesystem = nullptr;
 
+    void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
+    void set_combos(QString format_id, QString type_id, QString filesystem_id);
     void set_directory(QString new_directory);
     void load_config();
     void init_controls();
-    void load_file(QString file_name, QString file_format, QString file_type);
-    void process_image();                                                       // Open selecteed image file and list its contents
+    void load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type);
+    void process_image(std::string filesystem_type);                                                       // Open selecteed image file and list its contents
     void init_table();                                                          // Set columns etc. depending on image type
     void update_table();                                                        // Put file items to the table
 
