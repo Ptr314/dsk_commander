@@ -10,7 +10,7 @@ FOR /F "tokens=* USEBACKQ" %%g IN (`findstr "PROJECT_VERSION" ..\src\globals.h`)
 for /f "tokens=3" %%G IN ("%VER%") DO (SET V=%%G)
 set _VERSION=%V:"=%
 
-SET _RELEASE_DIR=".\release\ecat-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%"
+SET _RELEASE_DIR=".\release\disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%"
 
 if not exist %_BUILD_DIR%\ (
     set CC=%_ROOT_MINGW%\gcc.exe
@@ -25,22 +25,15 @@ if not exist %_BUILD_DIR%\ (
 mkdir "%_RELEASE_DIR%"
 
 xcopy ..\deploy\* "%_RELEASE_DIR%" /E
-del %_RELEASE_DIR%\ecat.ini
-ren %_RELEASE_DIR%\.ecat.ini ecat.ini
+rem del %_RELEASE_DIR%\ecat.ini
+rem ren %_RELEASE_DIR%\.ecat.ini ecat.ini
 
-copy "%_BUILD_DIR%\ecat3.exe" "%_RELEASE_DIR%"
-copy "%SDL2_BIN%\SDL2.dll" "%_RELEASE_DIR%"
-
-rem copy "%_QT_PATH%\bin\Qt5Core.dll" "%_RELEASE_DIR%"
-rem copy "%_QT_PATH%\bin\Qt5Gui.dll" "%_RELEASE_DIR%"
-rem copy "%_QT_PATH%\bin\Qt5Widgets.dll" "%_RELEASE_DIR%"
+copy "%_BUILD_DIR%\DISKCommander.exe" "%_RELEASE_DIR%"
 
 copy "%_ROOT_MINGW%\libgcc_s_dw2-1.dll" "%_RELEASE_DIR%"
 copy "%_ROOT_MINGW%\libstdc++-6.dll" "%_RELEASE_DIR%"
 copy "%_ROOT_MINGW%\libwinpthread-1.dll" "%_RELEASE_DIR%"
 
-rem mkdir "%_RELEASE_DIR%\platforms"
-rem copy "%_QT_PATH%\plugins\platforms\qwindows.dll" "%_RELEASE_DIR%\platforms"
 
 
 

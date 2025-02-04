@@ -11,7 +11,7 @@ FOR /F "tokens=* USEBACKQ" %%g IN (`findstr "PROJECT_VERSION" ..\src\globals.h`)
 for /f "tokens=3" %%G IN ("%VER%") DO (SET V=%%G)
 set _VERSION=%V:"=%
 
-SET _RELEASE_DIR=.\release\ecat-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%
+SET _RELEASE_DIR=.\release\disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%
 
 if not exist %_BUILD_DIR%\ (
     call "%_ROOT_STATIC_BIN%\qt-cmake" -S ../src -B "%_BUILD_DIR%" -G Ninja
@@ -25,9 +25,9 @@ if not exist %_BUILD_DIR%\ (
 mkdir "%_RELEASE_DIR%"
 
 xcopy ..\deploy\* "%_RELEASE_DIR%" /E
-del %_RELEASE_DIR%\ecat.ini
-ren %_RELEASE_DIR%\.ecat.ini ecat.ini
+rem del %_RELEASE_DIR%\ecat.ini
+rem ren %_RELEASE_DIR%\.ecat.ini ecat.ini
 
-copy "%_BUILD_DIR%\ecat3.exe" "%_RELEASE_DIR%"
+copy "%_BUILD_DIR%\DISKCommander.exe" "%_RELEASE_DIR%"
 
 
