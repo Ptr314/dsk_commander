@@ -8,6 +8,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QComboBox>
+#include <qtranslator.h>
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -51,8 +52,16 @@ private slots:
 
     void on_filesystemCombo_currentIndexChanged(int index);
 
+    void on_actionAbout_triggered();
+
+    void on_actionParent_directory_triggered();
+
+    void on_toolButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    QTranslator translator;
 
     QString directory;
     QSettings * settings;
@@ -71,6 +80,8 @@ private:
     void set_directory(QString new_directory);
     void load_config();
     void init_controls();
+    void add_languages();
+    void switch_language(const QString &lang);
     void load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type);
     void process_image(std::string filesystem_type);                                                       // Open selecteed image file and list its contents
     void dir();

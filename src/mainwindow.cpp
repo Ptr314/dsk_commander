@@ -1,3 +1,4 @@
+#include <qtranslator.h>
 #include <set>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -11,8 +12,11 @@
 #include "viewdialog.h"
 
 #include "./ui_mainwindow.h"
+#include "./ui_aboutdlg.h"
 
 #include "dsk_tools/dsk_tools.h"
+
+#include "globals.h"
 
 #define INI_FILE_NAME "/dsk_com.ini"
 
@@ -24,8 +28,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     QFontDatabase::addApplicationFont(":/fonts/consolas");
     QFontDatabase::addApplicationFont(":/fonts/dos");
-
-    ui->setupUi(this);
 
     QString app_path = QApplication::applicationDirPath();
     QString current_path = QDir::currentPath();
@@ -62,10 +64,30 @@ MainWindow::MainWindow(QWidget *parent)
 #else
 #error "Unknown platform"
 #endif
+
     settings = new QSettings(ini_file, QSettings::IniFormat);
 
+    QString ini_lang = settings->value("interface/language", "").toString();
+
+    if (ini_lang.length() == 0) {
+        const QStringList uiLanguages = QLocale::system().uiLanguages();
+        for (const QString &locale : uiLanguages) {
+            const QString baseName = QLocale(locale).name().toLower();
+            if (translator.load(":/i18n/" + baseName)) {
+                qApp->installTranslator(&translator);
+                break;
+            }
+        }
+    } else {
+        if (translator.load(":/i18n/" + ini_lang)) {
+            qApp->installTranslator(&translator);
+        }
+    }
+
+    ui->setupUi(this);
+
     leftFilesModel.setReadOnly(true);
-    leftFilesModel.setFilter(QDir::Files | QDir::Hidden | QDir::NoDot);
+    leftFilesModel.setFilter(QDir::Files | QDir::Hidden | QDir::NoDotAndDotDot | QDir::AllDirs);
     ui->leftFiles->setModel(&leftFilesModel);
     ui->leftFiles->header()->hideSection(2);
     ui->leftFiles->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
@@ -74,8 +96,36 @@ MainWindow::MainWindow(QWidget *parent)
     // ui->rightFiles->setFont(QFont("PxPlus IBM VGA9", 12, 400));
     ui->rightFiles->setFont(QFont("Consolas", 10, 400));
 
+    add_languages();
     load_config();
     init_controls();
+}
+
+void MainWindow::switch_language(const QString & lang)
+{
+    if (translator.load(":/i18n/" + lang)) {
+        qApp->installTranslator(&translator);
+        ui->retranslateUi(this);
+        init_controls();
+        settings->setValue("interface/language", lang);
+    } else {
+        QMessageBox::warning(this, MainWindow::tr("Error"), MainWindow::tr("Failed to load language file for: ") + lang);
+    }
+}
+
+void MainWindow::add_languages()
+{
+    QAction *langsAction = ui->actionLanguage;
+
+    QMenu *subMenu = new QMenu(MainWindow::tr("Languages"), this);
+
+    QAction *subAction1 = subMenu->addAction(QIcon(":/icons/ru"), MainWindow::tr("Русский"));
+    connect(subAction1, &QAction::triggered, this, [this]() { switch_language("ru_ru"); });
+
+    QAction *subAction2 = subMenu->addAction(QIcon(":/icons/en"), MainWindow::tr("English"));
+    connect(subAction2, &QAction::triggered, this, [this]() { switch_language("en_us"); });
+
+    langsAction->setMenu(subMenu);
 }
 
 void MainWindow::load_config()
@@ -178,7 +228,6 @@ void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
 
 void MainWindow::load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type)
 {
-    qDebug() << "Loading" << file_name << file_format << file_type;
     if (image != nullptr) delete image;
     image = dsk_tools::prepare_image(file_name, file_format, file_type);
 
@@ -210,21 +259,24 @@ void MainWindow::on_leftFiles_doubleClicked(const QModelIndex &index)
     if (indexes.size() == 1) {
         QModelIndex selectedIndex = indexes.at(0);
         QFileInfo fileInfo = leftFilesModel.fileInfo(selectedIndex);
-        if (ui->autoCheckBox->isChecked()) {
-            int res = dsk_tools::detect_fdd_type(fileInfo.absoluteFilePath().toStdString(), format_id, type_id, filesystem_id);
-            if (res != FDD_DETECT_OK ) {
-                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
-                return;
-            } else {
-                set_combos(QString::fromStdString(format_id), QString::fromStdString(type_id), QString::fromStdString(filesystem_id));
-            }
+        if (fileInfo.isDir()) {
+            set_directory(fileInfo.absoluteFilePath());
         } else {
-            format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
-            type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
-            filesystem_id = ui->leftTypeCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
+            if (ui->autoCheckBox->isChecked()) {
+                int res = dsk_tools::detect_fdd_type(fileInfo.absoluteFilePath().toStdString(), format_id, type_id, filesystem_id);
+                if (res != FDD_DETECT_OK ) {
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
+                    return;
+                } else {
+                    set_combos(QString::fromStdString(format_id), QString::fromStdString(type_id), QString::fromStdString(filesystem_id));
+                }
+            } else {
+                format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
+                type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
+                filesystem_id = ui->leftTypeCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
+            }
+            load_file(fileInfo.absoluteFilePath().toStdString(), format_id, type_id, filesystem_id);
         }
-        load_file(fileInfo.absoluteFilePath().toStdString(), format_id, type_id, filesystem_id);
-
     }
 }
 
@@ -487,5 +539,41 @@ void MainWindow::set_combos(QString format_id, QString type_id, QString filesyst
     setComboBoxByItemData(ui->leftTypeCombo, type_id);
     setComboBoxByItemData(ui->filesystemCombo, filesystem_id);
 }
+
+
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QDialog * about = new QDialog(this);
+
+    Ui_About aboutUi;
+    aboutUi.setupUi(about);
+
+    aboutUi.info_label->setText(
+        aboutUi.info_label->text()
+            .replace("{$PROJECT_VERSION}", PROJECT_VERSION)
+            .replace("{$BUILD_ARCHITECTURE}", QSysInfo::buildCpuArchitecture())
+            .replace("{$OS}", QSysInfo::productType())
+            .replace("{$OS_VERSION}", QSysInfo::productVersion())
+            .replace("{$CPU_ARCHITECTURE}", QSysInfo::currentCpuArchitecture())
+        );
+
+    about->exec();
+}
+
+
+void MainWindow::on_toolButton_2_clicked()
+{
+    on_actionParent_directory_triggered();
+}
+
+
+void MainWindow::on_actionParent_directory_triggered()
+{
+    QDir dir = leftFilesModel.rootDirectory();
+    dir.cdUp();
+    set_directory(dir.absolutePath());
+}
+
 
 

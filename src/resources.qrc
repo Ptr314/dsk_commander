@@ -3,6 +3,12 @@
         <file alias="folder_open">resources/icons/folder_yellow_open.png</file>
         <file alias="convert">resources/icons/5floppy_mount.png</file>
         <file alias="about">resources/icons/msbox_info.png</file>
+        <file alias="logo">resources/icons/Emuverse3.png</file>
+        <file alias="en">resources/icons/en.png</file>
+        <file alias="ru">resources/icons/ru.png</file>
+        <file alias="lang">resources/icons/browser.png</file>
+        <file alias="up">resources/icons/up.png</file>
+        <file alias="icon">resources/icons/3floppy_unmount.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>
