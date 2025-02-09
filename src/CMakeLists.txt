@@ -41,6 +41,7 @@ set(PROJECT_SOURCES
         mainwindow.h mainwindow.cpp mainwindow.ui
         viewdialog.h viewdialog.cpp viewdialog.ui
         aboutdlg.ui
+        fileinfodialog.ui
         charmaps.h
         ../deploy/config.json
         ../README.md

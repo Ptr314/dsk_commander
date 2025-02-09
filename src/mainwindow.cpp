@@ -13,6 +13,7 @@
 
 #include "./ui_mainwindow.h"
 #include "./ui_aboutdlg.h"
+#include "./ui_fileinfodialog.h"
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -576,4 +577,27 @@ void MainWindow::on_actionParent_directory_triggered()
 }
 
 
+
+
+void MainWindow::on_actionFile_info_triggered()
+{
+    QDialog * file_info = new QDialog(this);
+
+    Ui_FileInfo fileinfoUi;
+    fileinfoUi.setupUi(file_info);
+
+    // aboutUi.info_label->setText(
+    //     aboutUi.info_label->text()
+    //         .replace("{$PROJECT_VERSION}", PROJECT_VERSION)
+    //         .replace("{$BUILD_ARCHITECTURE}", QSysInfo::buildCpuArchitecture())
+    //         .replace("{$OS}", QSysInfo::productType())
+    //         .replace("{$OS_VERSION}", QSysInfo::productVersion())
+    //         .replace("{$CPU_ARCHITECTURE}", QSysInfo::currentCpuArchitecture())
+    //     );
+
+    fileinfoUi.textBox->setPlainText("Text");
+
+    file_info->exec();
+
+}
 
