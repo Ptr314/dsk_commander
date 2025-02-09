@@ -58,6 +58,8 @@ private slots:
 
     void on_toolButton_2_clicked();
 
+    void on_actionFile_info_triggered();
+
 private:
     Ui::MainWindow *ui;
 
