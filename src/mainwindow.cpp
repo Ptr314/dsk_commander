@@ -577,8 +577,6 @@ void MainWindow::on_actionParent_directory_triggered()
 }
 
 
-
-
 void MainWindow::on_actionFile_info_triggered()
 {
     QDialog * file_info = new QDialog(this);
@@ -586,18 +584,34 @@ void MainWindow::on_actionFile_info_triggered()
     Ui_FileInfo fileinfoUi;
     fileinfoUi.setupUi(file_info);
 
-    // aboutUi.info_label->setText(
-    //     aboutUi.info_label->text()
-    //         .replace("{$PROJECT_VERSION}", PROJECT_VERSION)
-    //         .replace("{$BUILD_ARCHITECTURE}", QSysInfo::buildCpuArchitecture())
-    //         .replace("{$OS}", QSysInfo::productType())
-    //         .replace("{$OS_VERSION}", QSysInfo::productVersion())
-    //         .replace("{$CPU_ARCHITECTURE}", QSysInfo::currentCpuArchitecture())
-    //     );
+    QItemSelectionModel * selection = ui->rightFiles->selectionModel();
+    if (selection->hasSelection()) {
+        QModelIndexList rows = selection->selectedRows();
+        if (rows.size() == 1) {
+            QModelIndex selectedIndex = rows.at(0);
 
-    fileinfoUi.textBox->setPlainText("Text");
+            dsk_tools::fileData f = files[selectedIndex.row()];
 
-    file_info->exec();
+            QString info = QString::fromStdString(filesystem->file_info(f))
+                .replace("{$FILE_NAME}", MainWindow::tr("File name"))
+                .replace("{$SIZE}", MainWindow::tr("File size"))
+                .replace("{$BYTES}", MainWindow::tr("byte(s)"))
+                .replace("{$ATTRIBUTES}", MainWindow::tr("Attributes"))
+                .replace("{$DATE}", MainWindow::tr("Date"))
+            ;
 
+            fileinfoUi.textBox->setPlainText(info);
+            file_info->exec();
+
+        }
+    }
+
+
+}
+
+
+void MainWindow::on_viewButton_clicked()
+{
+    on_rightFiles_doubleClicked(ui->rightFiles->currentIndex());
 }
 

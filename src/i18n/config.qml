@@ -1,6 +1,7 @@
 import QtQuick 2.0
 Item {
     property string FILE_RAW_MSB_name: qsTr("RAW image")
+    property string FILE_AIM_name: qsTr("Agat AIM")
     property string FILE_HXC_MFM_name: qsTr("HxC MFM file")
     property string FILE_HXC_HFE_name: qsTr("HxC HFE file")
     property string FILE_MFM_NIB_name: qsTr("NIB MFM file")
