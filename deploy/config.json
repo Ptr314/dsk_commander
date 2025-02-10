@@ -7,6 +7,13 @@
             "extensions":   "*.img;*.dsk",
             "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
         },
+        "FILE_AIM": {
+            "name":         "Agat AIM",
+            "short_name":   "AIM",
+            "source":       true,
+            "extensions":   "*.aim",
+            "types":        ["TYPE_AGAT_840"]
+        },
         "FILE_HXC_MFM": {
             "name":         "HxC MFM file",
             "short_name":   "MFM",

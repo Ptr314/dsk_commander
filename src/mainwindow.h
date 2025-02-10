@@ -60,6 +60,8 @@ private slots:
 
     void on_actionFile_info_triggered();
 
+    void on_viewButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
