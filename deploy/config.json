@@ -41,6 +41,27 @@
             "source":       false,
             "extensions":   "*.nic",
             "types":        ["TYPE_AGAT_140"]
+        },
+        "FILE_BINARY": {
+            "name":         "Binary File",
+            "short_name":   "BIN",
+            "source":       false,
+            "extensions":   "*.*",
+            "types":        []
+        },
+        "FILE_FIL": {
+            "name":         "Agat FIL",
+            "short_name":   "FIL",
+            "source":       false,
+            "extensions":   "*.fil",
+            "types":        []
+        },
+        "FILE_SOS": {
+            "name":         "Agat Sprite OS File",
+            "short_name":   "SOS",
+            "source":       false,
+            "extensions":   "*.sos",
+            "types":        []
         }
     },
     "file_types": {
