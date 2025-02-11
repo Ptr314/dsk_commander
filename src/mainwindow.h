@@ -62,6 +62,8 @@ private slots:
 
     void on_viewButton_clicked();
 
+    void on_actionSave_to_file_triggered();
+
 private:
     Ui::MainWindow *ui;
 

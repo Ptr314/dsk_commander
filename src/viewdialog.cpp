@@ -19,8 +19,7 @@ ViewDialog::ViewDialog(QWidget *parent, BYTES data, int preferred_type)
         ui->modeCombo->setCurrentIndex(1);
 
 
-    ui->encodingCombo->addItem("KOI7", "koi7");
-    ui->encodingCombo->addItem("KOI8", "koi8");
+    ui->encodingCombo->addItem("Agat", "agat");
 
     this->data = data;
 
@@ -40,14 +39,14 @@ void ViewDialog::on_closeBtn_clicked()
 void ViewDialog::print_data()
 {
     if (data.size() != 0) {
-        QString charmap;
+        static const std::string (*charmap)[256];
+
         std::set<uint8_t> crlf;
-        if (ui->encodingCombo->currentData() == "koi7") {
-            charmap = koi7map;
+        if (ui->encodingCombo->currentData() == "agat") {
+            charmap = &dsk_tools::agat_charmap;
             crlf = {0x8d, 0x13};
         } else {
-            charmap = koi8map;
-            crlf = {0x13};
+            // TODO: Other encodings;
         }
 
         QString out;
@@ -61,7 +60,7 @@ void ViewDialog::print_data()
                     text = "    ";
                 }
                 out += QString(" %1").arg(data.at(a), 2, 16, QChar('0')).toUpper();
-                text += charmap[data.at(a)];
+                text += QString::fromStdString((*charmap)[data.at(a)]);
             }
             out += text;
             ui->textBox->setWordWrapMode(QTextOption::NoWrap);
@@ -73,11 +72,12 @@ void ViewDialog::print_data()
                 if (crlf.find(c) != crlf.end())
                     out += "\r";
                 else
-                    out += charmap[data.at(a)];
+                    out += QString::fromStdString((*charmap)[data.at(a)]);
             }
             ui->textBox->setWordWrapMode(QTextOption::WordWrap);
         } else
         if (ui->modeCombo->currentData() == "abs") {
+            // TODO: implement
             int a=0;
             int declared_size = (int)data.at(a) + (int)data.at(a+1)*256; a +=2;
             out += QString("Size: $%1\n").arg(declared_size, 4, 16);

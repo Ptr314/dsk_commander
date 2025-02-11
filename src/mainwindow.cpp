@@ -615,3 +615,38 @@ void MainWindow::on_viewButton_clicked()
     on_rightFiles_doubleClicked(ui->rightFiles->currentIndex());
 }
 
+
+void MainWindow::on_actionSave_to_file_triggered()
+{
+    QString file_name;
+    QItemSelectionModel * selection = ui->rightFiles->selectionModel();
+    if (selection->hasSelection()) {
+        QModelIndexList rows = selection->selectedRows();
+        if (rows.size() == 1) {
+            QModelIndex selectedIndex = rows.at(0);
+            dsk_tools::fileData f = files[selectedIndex.row()];
+            file_name = QString::fromStdString(f.name);
+
+            std::vector<std::string> formats = filesystem->get_save_file_formats();
+
+            QString filters = "";
+
+            std::map<QString, QString> fil_map;
+
+            foreach (const std::string & v, formats) {
+                QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
+                if (filters.length() != 0) filters += ";;";
+                QString filter_name = QString("%1 (%2)").arg(fil["name"].toString(), fil["extensions"].toString().replace(";", " "));
+                filters += filter_name;
+                fil_map[filter_name] = QString::fromStdString(v);
+            }
+            QString selected_filter;
+            file_name = QFileDialog::getSaveFileName(this, MainWindow::tr("Export as"), file_name, filters, &selected_filter);
+
+            // qDebug() << file_name << fil_map[selected_filter];
+            filesystem->save_file(fil_map[selected_filter].toStdString(), file_name.toStdString(), f);
+
+        }
+    }
+}
+

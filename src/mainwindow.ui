@@ -212,7 +212,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="toolButton_3">
+           <widget class="QToolButton" name="saveFileButton">
             <property name="toolTip">
              <string>Export file</string>
             </property>
@@ -311,7 +311,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -321,6 +321,7 @@
     <addaction name="actionOpen_directory"/>
     <addaction name="actionConvert"/>
     <addaction name="actionFile_info"/>
+    <addaction name="actionSave_to_file"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -390,6 +391,15 @@
     <string>File info</string>
    </property>
   </action>
+  <action name="actionSave_to_file">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/extract</normaloff>:/icons/extract</iconset>
+   </property>
+   <property name="text">
+    <string>Save to file</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="resources.qrc"/>
@@ -404,6 +414,22 @@
     <hint type="sourcelabel">
      <x>430</x>
      <y>56</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveFileButton</sender>
+   <signal>clicked()</signal>
+   <receiver>actionSave_to_file</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>463</x>
+     <y>52</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>
