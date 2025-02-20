@@ -131,7 +131,7 @@ void MainWindow::add_languages()
 
 void MainWindow::load_config()
 {
-    QFile file(QApplication::applicationDirPath().append("/config.json"));
+    QFile file(":/files/config");
     if (!file.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(0, MainWindow::tr("Error"), MainWindow::tr("Error reading config file"));
         return;

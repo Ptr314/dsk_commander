@@ -17,4 +17,7 @@
         <file alias="consolas">resources/fonts/Consolas.ttf</file>
         <file alias="dos">resources/fonts/PxPlus_IBM_VGA9.ttf</file>
     </qresource>
+    <qresource prefix="/files">
+        <file alias="config">resources/files/config.json</file>
+    </qresource>
 </RCC>
