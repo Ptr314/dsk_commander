@@ -636,7 +636,8 @@ void MainWindow::on_actionSave_to_file_triggered()
             foreach (const std::string & v, formats) {
                 QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
                 if (filters.length() != 0) filters += ";;";
-                QString filter_name = QString("%1 (%2)").arg(fil["name"].toString(), fil["extensions"].toString().replace(";", " "));
+                QString name = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
+                QString filter_name = QString("%1 (%2)").arg(name, fil["extensions"].toString().replace(";", " "));
                 filters += filter_name;
                 fil_map[filter_name] = QString::fromStdString(v);
             }
