@@ -23,7 +23,7 @@ set(TS_FILES
 )
 
 # Добаввляем строки из файла конфигурации в файлы для перевода
-set(JSON_FILE ${CMAKE_SOURCE_DIR}/../deploy/config.json)
+set(JSON_FILE ${CMAKE_SOURCE_DIR}/resources/files/config.json)
 set(QML_OUTPUT ${CMAKE_SOURCE_DIR}/i18n/config.qml)
 add_custom_command(
     OUTPUT ${QML_OUTPUT}
@@ -43,7 +43,7 @@ set(PROJECT_SOURCES
         aboutdlg.ui
         fileinfodialog.ui
         charmaps.h
-        ../deploy/config.json
+        resources/files/config.json
         ../README.md
         ../LINKS.md
 )
@@ -122,7 +122,6 @@ include(GNUInstallDirs)
 # С помощью этого файла передаем номер версии приложения
 configure_file (globals.h.in ${CMAKE_CURRENT_SOURCE_DIR}/globals.h @ONLY)
 configure_file(../deploy/dsk_com.ini ${CMAKE_BINARY_DIR}/dsk_com.ini COPYONLY)
-configure_file(../deploy/config.json ${CMAKE_BINARY_DIR}/config.json COPYONLY)
 
 install(TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION .
