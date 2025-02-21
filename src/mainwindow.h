@@ -40,7 +40,7 @@ private slots:
 
     void on_rightFiles_doubleClicked(const QModelIndex &index);
 
-    void on_rightFormatCombo_currentIndexChanged(int index);
+    // void on_rightFormatCombo_currentIndexChanged(int index);
 
     void on_leftTypeCombo_currentIndexChanged(int index);
 
@@ -93,6 +93,7 @@ private:
     void dir();
     void init_table();                                                          // Set columns etc. depending on image type
     void update_table();                                                        // Put file items to the table
+    void setup_buttons(bool disabled);
 
     std::vector<dsk_tools::fileData> files;
 

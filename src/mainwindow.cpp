@@ -9,6 +9,7 @@
 #include <QFontDatabase>
 
 #include "mainwindow.h"
+#include "convertdialog.h"
 #include "viewdialog.h"
 
 #include "./ui_mainwindow.h"
@@ -152,11 +153,9 @@ void MainWindow::load_config()
 
 void MainWindow::init_controls()
 {
-    int filter_index = settings->value("directory/left_file_filter", 1).toInt();
-    int type_index = settings->value("directory/left_type_filter", 0).toInt();
-
-    int target_index = settings->value("directory/right_type_filter", 0).toInt();
-
+    QString filter_def = settings->value("directory/left_file_filter", "").toString();
+    QString type_def = settings->value("directory/left_type_filter", "").toString();
+    QString filesystem_def = settings->value("directory/left_filesystem", "").toString();
 
     ui->leftFilterCombo->clear();
     foreach (const QString & ff_id, file_formats.keys()) {
@@ -169,13 +168,16 @@ void MainWindow::init_controls()
             );
         }
     }
-    ui->leftFilterCombo->setCurrentIndex(filter_index);
-    ui->leftTypeCombo->setCurrentIndex(type_index);
-    ui->rightFormatCombo->setCurrentIndex(target_index);
+    setComboBoxByItemData(ui->leftFilterCombo, filter_def);
+    setComboBoxByItemData(ui->leftTypeCombo, type_def);
+    setComboBoxByItemData(ui->filesystemCombo, filesystem_def);
+
     ui->autoCheckBox->setChecked(settings->value("directory/left_auto", 0).toInt()==1);
 
     QString new_dir = settings->value("directory/left", QApplication::applicationDirPath()).toString();
     set_directory(new_dir);
+
+    setup_buttons(true);
 }
 
 MainWindow::~MainWindow()
@@ -229,6 +231,8 @@ void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
 
 void MainWindow::load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type)
 {
+    setup_buttons(true);
+
     if (image != nullptr) delete image;
     image = dsk_tools::prepare_image(file_name, file_format, file_type);
 
@@ -299,8 +303,6 @@ void MainWindow::dir()
 
 void MainWindow::process_image(std::string filesystem_type)
 {
-    qDebug() << "Processing loaded image";
-
     if (filesystem != nullptr) delete filesystem;
     filesystem = dsk_tools::prepare_filesystem(image, filesystem_type);
     if (filesystem != nullptr) {
@@ -312,6 +314,7 @@ void MainWindow::process_image(std::string filesystem_type)
 
         init_table();
         dir();
+        setup_buttons(false);
     } else {
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File system initialization error!"));
     }
@@ -422,11 +425,11 @@ void MainWindow::on_rightFiles_doubleClicked(const QModelIndex &index)
 }
 
 
-void MainWindow::on_rightFormatCombo_currentIndexChanged(int index)
-{
-    QString target_id = ui->rightFormatCombo->itemData(index).toString();
-    settings->setValue("directory/right_type_filter", target_id);
-}
+// void MainWindow::on_rightFormatCombo_currentIndexChanged(int index)
+// {
+//     QString target_id = ui->rightFormatCombo->itemData(index).toString();
+//     settings->setValue("directory/right_type_filter", target_id);
+// }
 
 
 void MainWindow::on_leftTypeCombo_currentIndexChanged(int index)
@@ -443,12 +446,12 @@ void MainWindow::on_leftTypeCombo_currentIndexChanged(int index)
         ui->filesystemCombo->addItem(name, fs_id);
     }
 
-    ui->rightFormatCombo->clear();
-    foreach (const QJsonValue & target_val, type["targets"].toArray()) {
-        QString target_id = target_val.toString();
-        QJsonObject target = file_formats[target_id].toObject();
-        ui->rightFormatCombo->addItem(target["short_name"].toString(), target_id);
-    }
+    // ui->rightFormatCombo->clear();
+    // foreach (const QJsonValue & target_val, type["targets"].toArray()) {
+    //     QString target_id = target_val.toString();
+    //     QJsonObject target = file_formats[target_id].toObject();
+    //     ui->rightFormatCombo->addItem(target["short_name"].toString(), target_id);
+    // }
 }
 
 
@@ -457,59 +460,6 @@ void MainWindow::on_toolButton_clicked()
     on_actionConvert_triggered();
 }
 
-
-void MainWindow::on_actionConvert_triggered()
-{
-
-    int index = ui->rightFormatCombo->currentIndex();
-    QString format_id = ui->rightFormatCombo->itemData(index).toString();
-    QString source_file = QString::fromStdString(image->file_name());
-
-    QFileInfo fi(source_file);
-
-    dsk_tools::Writer * writer;
-
-    std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
-
-    if ( mfm_formats.find(format_id) != mfm_formats.end()) {
-        writer = new dsk_tools::WriterHxCMFM(format_id.toStdString(), image);
-    } else
-        if (format_id == "FILE_HXC_HFE") {
-            writer = new dsk_tools::WriterHxCHFE(format_id.toStdString(), image);
-    } else
-    if (format_id == "FILE_RAW_MSB") {
-        writer = new dsk_tools::WriterRAW(format_id.toStdString(), image);
-    } else {
-        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not implemented!"));
-        return;
-    }
-
-    QString new_ext = QString::fromStdString(writer->get_default_ext());
-
-    QString filter = "";
-
-    foreach (const QJsonValue & value, file_formats) {
-        QJsonObject obj = value.toObject();
-        if (obj["id"].toString() == format_id) {
-            filter = QString("%1 (%2)").arg(obj["name"].toString(), obj["extensions"].toString().replace(";", " "));
-        }
-    }
-
-    QString file_name = QString("%1/%2.%3").arg(fi.dir().absolutePath(), fi.completeBaseName(), new_ext);
-
-    file_name = QFileDialog::getSaveFileName(this, MainWindow::tr("Export as"), file_name, filter);
-
-    if (!file_name.isEmpty()) {
-
-        int result = writer->write(file_name.toStdString());
-
-        if (result != FDD_WRITE_OK) {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error writing file"));
-        }
-    }
-
-    delete writer;
-}
 
 void MainWindow::on_filesystemCombo_currentIndexChanged(int index)
 {
@@ -605,8 +555,6 @@ void MainWindow::on_actionFile_info_triggered()
 
         }
     }
-
-
 }
 
 
@@ -651,3 +599,67 @@ void MainWindow::on_actionSave_to_file_triggered()
     }
 }
 
+void MainWindow::setup_buttons(bool disabled)
+{
+    ui->convertButton->setDisabled(disabled);
+    ui->infoButton->setDisabled(disabled);
+    ui->viewButton->setDisabled(disabled);
+    ui->saveFileButton->setDisabled(disabled);
+}
+
+void MainWindow::on_actionConvert_triggered()
+{
+    QString type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString();
+
+    ConvertDialog dialog(this, settings, &file_types, &file_formats, image, type_id);
+    dialog.exec();
+
+    // int index = ui->rightFormatCombo->currentIndex();
+    // QString format_id = ui->rightFormatCombo->itemData(index).toString();
+    // QString source_file = QString::fromStdString(image->file_name());
+
+    // QFileInfo fi(source_file);
+
+    // dsk_tools::Writer * writer;
+
+    // std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
+
+    // if ( mfm_formats.find(format_id) != mfm_formats.end()) {
+    //     writer = new dsk_tools::WriterHxCMFM(format_id.toStdString(), image);
+    // } else
+    //     if (format_id == "FILE_HXC_HFE") {
+    //         writer = new dsk_tools::WriterHxCHFE(format_id.toStdString(), image);
+    // } else
+    // if (format_id == "FILE_RAW_MSB") {
+    //     writer = new dsk_tools::WriterRAW(format_id.toStdString(), image);
+    // } else {
+    //     QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not implemented!"));
+    //     return;
+    // }
+
+    // QString new_ext = QString::fromStdString(writer->get_default_ext());
+
+    // QString filter = "";
+
+    // foreach (const QJsonValue & value, file_formats) {
+    //     QJsonObject obj = value.toObject();
+    //     if (obj["id"].toString() == format_id) {
+    //         filter = QString("%1 (%2)").arg(obj["name"].toString(), obj["extensions"].toString().replace(";", " "));
+    //     }
+    // }
+
+    // QString file_name = QString("%1/%2.%3").arg(fi.dir().absolutePath(), fi.completeBaseName(), new_ext);
+
+    // file_name = QFileDialog::getSaveFileName(this, MainWindow::tr("Export as"), file_name, filter);
+
+    // if (!file_name.isEmpty()) {
+
+        //     int result = writer->write(file_name.toStdString());
+
+    //     if (result != FDD_WRITE_OK) {
+    //         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error writing file"));
+    //     }
+    // }
+
+    // delete writer;
+}
