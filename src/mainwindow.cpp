@@ -38,13 +38,6 @@ MainWindow::MainWindow(QWidget *parent)
 #if defined(__linux__)
     ini_path = QString(getenv("HOME")) + "/.config";
     ini_file = ini_path + INI_FILE_NAME;
-    if (!std::filesystem::exists(ini_file.toStdString())) {
-        if (std::filesystem::exists(QString(emulator_root + INI_FILE_NAME).toStdString())) {
-            std::filesystem::copy_file(QString(emulator_root + INI_FILE_NAME).toStdString(), ini_file.toStdString());
-        } else {
-            std::filesystem::copy_file(QString(current_path + INI_FILE_NAME).toStdString(), ini_file.toStdString());
-        }
-    }
 #elif defined(__APPLE__)
     ini_path = QString(getenv("HOME"));
     ini_file = ini_path + INI_FILE_NAME;
