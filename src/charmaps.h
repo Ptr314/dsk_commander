@@ -1,7 +1,7 @@
 #ifndef CHARMAPS_H
 #define CHARMAPS_H
 
-#include <Qstring>
+#include <QString>
 
 static const QString koi8map =
                                 "................"
