@@ -122,7 +122,6 @@ include(GNUInstallDirs)
 
 # С помощью этого файла передаем номер версии приложения
 configure_file (globals.h.in ${CMAKE_CURRENT_SOURCE_DIR}/globals.h @ONLY)
-configure_file(../deploy/dsk_com.ini ${CMAKE_BINARY_DIR}/dsk_com.ini COPYONLY)
 
 install(TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION .
