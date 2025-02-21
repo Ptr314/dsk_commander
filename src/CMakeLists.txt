@@ -31,7 +31,7 @@ add_custom_command(
     DEPENDS ${JSON_FILE}
 )
 add_custom_target(update_translations
-    COMMAND Qt::lupdate ${CMAKE_SOURCE_DIR} ${QML_OUTPUT} -ts ${TS_FILES}
+    COMMAND Qt::lupdate ${CMAKE_SOURCE_DIR} ${QML_OUTPUT} -ts ${TS_FILES} -noobsolete
     DEPENDS ${QML_OUTPUT}
 )
 
@@ -40,6 +40,7 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.h mainwindow.cpp mainwindow.ui
         viewdialog.h viewdialog.cpp viewdialog.ui
+        convertdialog.h convertdialog.cpp convertdialog.ui
         aboutdlg.ui
         fileinfodialog.ui
         charmaps.h

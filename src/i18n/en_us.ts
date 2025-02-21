@@ -17,6 +17,91 @@
     </message>
 </context>
 <context>
+    <name>ConvertDialog</name>
+    <message>
+        <location filename="../convertdialog.ui" line="14"/>
+        <source>Convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="20"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="154"/>
+        <source>Output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="26"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="156"/>
+        <source>Output file format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="33"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="159"/>
+        <source>Output file name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="40"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="162"/>
+        <source>Set output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="43"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="164"/>
+        <source>Choose directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="59"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="165"/>
+        <source>Track substitution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="67"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="166"/>
+        <source>Use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="74"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="168"/>
+        <source>Tracks number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="87"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="170"/>
+        <source>tracks from a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="94"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="172"/>
+        <source>Set template file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="97"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="174"/>
+        <source>Choose a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.ui" line="112"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="176"/>
+        <source>Template file name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="153"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="14"/>
@@ -28,12 +113,12 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../mainwindow.cpp" line="144"/>
+        <location filename="../mainwindow.cpp" line="145"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="144"/>
+        <location filename="../mainwindow.cpp" line="145"/>
         <source>Config parse error: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,154 +127,146 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="66"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="321"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="315"/>
         <source>Choose a folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="46"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="320"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="314"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="116"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="323"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="317"/>
         <source>Files to show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="326"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="320"/>
         <source>Disk type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="152"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="329"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="323"/>
         <source>Filesystem type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="332"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="326"/>
         <source>Detect Type &amp; Filesystem automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="162"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="334"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="328"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="177"/>
         <location filename="../mainwindow.ui" line="180"/>
-        <location filename="../mainwindow.ui" line="391"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="318"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="336"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="338"/>
+        <location filename="../mainwindow.ui" line="384"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="312"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="330"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="332"/>
         <source>File info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="197"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="340"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="334"/>
         <source>View file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="200"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="342"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="336"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="217"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="344"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="338"/>
         <source>Export file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="220"/>
-        <location filename="../mainwindow.ui" line="400"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="319"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="346"/>
+        <location filename="../mainwindow.ui" line="393"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="313"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="340"/>
         <source>Save to file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="250"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="348"/>
-        <source>Export format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="269"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="351"/>
+        <location filename="../mainwindow.ui" line="262"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="342"/>
         <source>Export disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="272"/>
-        <location filename="../mainwindow.ui" line="361"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="315"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="353"/>
+        <location filename="../mainwindow.ui" line="265"/>
+        <location filename="../mainwindow.ui" line="354"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="309"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="344"/>
         <source>Convert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="319"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="354"/>
+        <location filename="../mainwindow.ui" line="312"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="345"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="328"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="355"/>
+        <location filename="../mainwindow.ui" line="321"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="346"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="343"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="313"/>
+        <location filename="../mainwindow.ui" line="336"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="307"/>
         <source>Open directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="352"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="314"/>
+        <location filename="../mainwindow.ui" line="345"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="308"/>
         <source>About...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="370"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="316"/>
+        <location filename="../mainwindow.ui" line="363"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="310"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="379"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="317"/>
+        <location filename="../mainwindow.ui" line="372"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="311"/>
         <source>Parent directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="113"/>
-        <location filename="../mainwindow.cpp" line="136"/>
+        <location filename="../mainwindow.cpp" line="114"/>
+        <location filename="../mainwindow.cpp" line="137"/>
         <location filename="../mainwindow.cpp" line="241"/>
         <location filename="../mainwindow.cpp" line="244"/>
         <location filename="../mainwindow.cpp" line="269"/>
         <location filename="../mainwindow.cpp" line="288"/>
         <location filename="../mainwindow.cpp" line="310"/>
         <location filename="../mainwindow.cpp" line="316"/>
-        <location filename="../mainwindow.cpp" line="483"/>
-        <location filename="../mainwindow.cpp" line="507"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="136"/>
+        <location filename="../mainwindow.cpp" line="137"/>
         <source>Error reading config file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -219,22 +296,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="113"/>
+        <location filename="../mainwindow.cpp" line="114"/>
         <source>Failed to load language file for: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="121"/>
+        <location filename="../mainwindow.cpp" line="122"/>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="123"/>
+        <location filename="../mainwindow.cpp" line="124"/>
         <source>Русский</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="126"/>
+        <location filename="../mainwindow.cpp" line="127"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
@@ -289,43 +366,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="483"/>
-        <source>Not implemented!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="500"/>
-        <location filename="../mainwindow.cpp" line="644"/>
+        <location filename="../mainwindow.cpp" line="590"/>
         <source>Export as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="507"/>
-        <source>Error writing file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="596"/>
+        <location filename="../mainwindow.cpp" line="543"/>
         <source>File name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="597"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>File size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="598"/>
+        <location filename="../mainwindow.cpp" line="545"/>
         <source>byte(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="599"/>
+        <location filename="../mainwindow.cpp" line="546"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="600"/>
+        <location filename="../mainwindow.cpp" line="547"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>

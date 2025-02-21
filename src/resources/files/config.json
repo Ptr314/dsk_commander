@@ -4,7 +4,7 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.img;*.dsk",
+            "extensions":   "*.dsk;*.img",
             "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
         },
         "FILE_AIM": {

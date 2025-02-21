@@ -245,14 +245,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QComboBox" name="rightFormatCombo">
-            <property name="toolTip">
-             <string>Export format</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton">
+           <widget class="QToolButton" name="convertButton">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -429,6 +422,22 @@
    <hints>
     <hint type="sourcelabel">
      <x>463</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>convertButton</sender>
+   <signal>clicked()</signal>
+   <receiver>actionConvert</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>768</x>
      <y>52</y>
     </hint>
     <hint type="destinationlabel">
