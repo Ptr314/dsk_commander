@@ -536,11 +536,21 @@ void MainWindow::on_actionFile_info_triggered()
             dsk_tools::fileData f = files[selectedIndex.row()];
 
             QString info = QString::fromStdString(filesystem->file_info(f))
-                .replace("{$FILE_NAME}", MainWindow::tr("File name"))
-                .replace("{$SIZE}", MainWindow::tr("File size"))
+                .replace("{$DIRECTORY_ENTRY}", MainWindow::tr("Directory Entry"))
+                .replace("{$FILE_NAME}", MainWindow::tr("File Name"))
+                .replace("{$SIZE}", MainWindow::tr("File Size"))
                 .replace("{$BYTES}", MainWindow::tr("byte(s)"))
+                .replace("{$SECTORS}", MainWindow::tr("sector(s)"))
                 .replace("{$ATTRIBUTES}", MainWindow::tr("Attributes"))
                 .replace("{$DATE}", MainWindow::tr("Date"))
+                .replace("{$TYPE}", MainWindow::tr("Type"))
+                .replace("{$PROTECTED}", MainWindow::tr("Protected"))
+                .replace("{$YES}", MainWindow::tr("Yes"))
+                .replace("{$NO}", MainWindow::tr("No"))
+                .replace("{$TS_LIST_LOCATION}", MainWindow::tr("T/S List Location"))
+                .replace("{$INCORRECT_TS_DATA}", MainWindow::tr("Incorrect T/S data, stopping iterations"))
+                .replace("{$NEXT_TS}", MainWindow::tr("Next T/S List Location"))
+                .replace("{$FILE_END_REACHED}", MainWindow::tr("File End Reached"))
             ;
 
             fileinfoUi.textBox->setPlainText(info);
