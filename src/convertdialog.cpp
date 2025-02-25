@@ -3,6 +3,7 @@
 #include <QJsonArray>
 #include <QFileInfo>
 #include <QDir>
+#include <QMessageBox>
 
 ConvertDialog::ConvertDialog(QWidget *parent)
     : QDialog(parent)
@@ -11,13 +12,14 @@ ConvertDialog::ConvertDialog(QWidget *parent)
     ui->setupUi(this);
 }
 
-ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject * file_types, QJsonObject * file_formats, dsk_tools::diskImage * image, const QString & type_id):
+ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject * file_types, QJsonObject * file_formats, QJsonObject *interleavings, dsk_tools::diskImage * image, const QString & type_id):
     ConvertDialog(parent)
 {
     m_type_id = type_id;
     m_settings = settings;
     m_file_types = file_types;
     m_file_formats = file_formats;
+    m_interleavings = interleavings;
     m_image = image;
 
     ui->volumeIDEdit->setMaximumWidth(ui->volumeIDEdit->fontMetrics().horizontalAdvance("WWW") + 5);
@@ -34,12 +36,15 @@ ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject 
         if (target_id == target_def) ui->formatCombo->setCurrentIndex(ui->formatCombo->count() - 1);
     }
     set_output();
+    set_controls();
 }
+
 
 ConvertDialog::~ConvertDialog()
 {
     delete ui;
 }
+
 
 void ConvertDialog::set_output()
 {
@@ -58,15 +63,44 @@ void ConvertDialog::set_output()
 
     qDebug() << output_file_name;
 
-
-
-
 }
+
+
+void ConvertDialog::set_controls()
+{
+    QString target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
+
+    if (target_id == "FILE_RAW_MSB") {
+        ui->volumeIDGroup->setEnabled(false);
+        ui->interleavingGroup->setEnabled(false);
+    } else
+    if (target_id == "FILE_HXC_MFM") {
+        ui->volumeIDGroup->setEnabled(true);
+        ui->interleavingGroup->setEnabled(true);
+    } else
+    if (target_id == "FILE_MFM_NIB") {
+        ui->volumeIDGroup->setEnabled(true);
+        ui->interleavingGroup->setEnabled(true);
+    } else
+    if (target_id == "FILE_MFM_NIC") {
+        ui->volumeIDGroup->setEnabled(true);
+        ui->interleavingGroup->setEnabled(true);
+    } else
+        QMessageBox::critical(0, ConvertDialog::tr("Error"), ConvertDialog::tr("Configuration error!"));
+
+    ui->interleavingCombo->clear();
+    foreach (const QJsonValue & int_obj, (*m_file_types)[m_type_id].toObject()["interleaving"].toArray()) {
+        QString int_id = int_obj.toString();
+        QString int_name = QCoreApplication::translate("config", (*m_interleavings)[int_id].toObject()["name"].toString().toUtf8().constData());
+        ui->interleavingCombo->addItem(int_name, int_id);
+    }
+}
+
 
 void ConvertDialog::on_formatCombo_currentIndexChanged(int index)
 {
     QString target_id = ui->formatCombo->itemData(index).toString();
     m_settings->setValue("directory/target_format", target_id);
     set_output();
+    set_controls();
 }
-

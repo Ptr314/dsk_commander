@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>298</height>
+    <height>371</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -145,7 +145,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="volumeIDGroup">
      <property name="title">
       <string notr="true">Volume ID</string>
      </property>
@@ -178,10 +178,10 @@
          </size>
         </property>
         <property name="inputMask">
-         <string>HH</string>
+         <string notr="true">HH</string>
         </property>
         <property name="text">
-         <string>FE</string>
+         <string notr="true">FE</string>
         </property>
         <property name="maxLength">
          <number>2</number>
@@ -206,6 +206,18 @@
          </size>
         </property>
        </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="interleavingGroup">
+     <property name="title">
+      <string>Sector Interleaving</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QComboBox" name="interleavingCombo"/>
       </item>
      </layout>
     </widget>

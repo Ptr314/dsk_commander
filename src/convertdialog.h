@@ -17,7 +17,14 @@ class ConvertDialog : public QDialog
 
 public:
     explicit ConvertDialog(QWidget *parent = nullptr);
-    explicit ConvertDialog(QWidget *parent, QSettings *settings, QJsonObject * file_types, QJsonObject * file_formats, dsk_tools::diskImage * image, const QString & type_id);
+    explicit ConvertDialog(QWidget *parent,
+                           QSettings *settings,
+                           QJsonObject * file_types,
+                           QJsonObject * file_formats,
+                           QJsonObject * interleavings,
+                           dsk_tools::diskImage * image,
+                           const QString & type_id
+    );
 
     ~ConvertDialog();
 
@@ -31,11 +38,14 @@ private:
     QSettings * m_settings;
     QJsonObject * m_file_types;
     QJsonObject * m_file_formats;
+    QJsonObject * m_interleavings;
     dsk_tools::diskImage * m_image;
 
     QString output_file_name;
 
     void set_output();
+    void set_controls();
+
 
 };
 

@@ -5,7 +5,7 @@
             "short_name":   "DSK",
             "source":       true,
             "extensions":   "*.dsk;*.img",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI", "TYPE_AGAT_840"]
         },
         "FILE_AIM": {
             "name":         "Agat AIM",
@@ -19,7 +19,7 @@
             "short_name":   "MFM",
             "source":       false,
             "extensions":   "*.mfm",
-            "types":        ["TYPE_AGAT_140"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI"]
         },
         "FILE_HXC_HFE": {
             "name":         "HxC HFE file",
@@ -33,14 +33,14 @@
             "short_name":   "NIB",
             "source":       false,
             "extensions":   "*.nib",
-            "types":        ["TYPE_AGAT_140"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI"]
         },
         "FILE_MFM_NIC": {
             "name":         "NIC MFM file",
             "short_name":   "NIC",
             "source":       false,
             "extensions":   "*.nic",
-            "types":        ["TYPE_AGAT_140"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI"]
         },
         "FILE_BINARY": {
             "name":         "Binary File",
@@ -64,15 +64,27 @@
             "types":        []
         }
     },
+    "interleaving" : {
+        "INTERLEAVING_DOS33": {
+            "name": "Agat/Apple 140K Interleaving",
+            "raw2logic": [0, 13, 11, 9, 7, 5, 3, 1, 14, 12, 10, 8, 6, 4, 2, 15]
+        },
+        "INTERLEAVING_OFF": {
+            "name": "No Interleaving",
+            "raw2logic": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        }
+    },
     "file_types": {
         "TYPE_AGAT_840": {
             "name": "Agat 840K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
+            "interleaving": ["INTERLEAVING_OFF"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS"]
         },
         "TYPE_AGAT_140": {
             "name": "Agat/Apple 140K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"],
+            "interleaving": ["INTERLEAVING_DOS33", "INTERLEAVING_OFF"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS"]
         }
     },
