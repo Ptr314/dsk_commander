@@ -142,6 +142,7 @@ void MainWindow::load_config()
     file_formats = jsonRoot["file_formats"].toObject();
     file_types = jsonRoot["file_types"].toObject();
     file_systems = jsonRoot["file_systems"].toObject();
+    interleavings = jsonRoot["interleaving"].toObject();
 }
 
 void MainWindow::init_controls()
@@ -331,7 +332,7 @@ void MainWindow::init_table()
     }
     if (funcs & FILE_TYPE) {
         rightFilesModel.setColumnCount(const_columns + columns + 1);
-        rightFilesModel.setHeaderData(columns, Qt::Horizontal, MainWindow::tr("F"));
+        rightFilesModel.setHeaderData(columns, Qt::Horizontal, MainWindow::tr("T"));
         rightFilesModel.horizontalHeaderItem(columns)->setToolTip(MainWindow::tr("Type"));
         ui->rightFiles->setColumnWidth(columns, 30);
         columns++;
@@ -341,7 +342,7 @@ void MainWindow::init_table()
     rightFilesModel.setHeaderData(columns, Qt::Horizontal, MainWindow::tr("Size"));
     rightFilesModel.horizontalHeaderItem(columns++)->setToolTip(MainWindow::tr("Size in bytes"));
 
-    ui->rightFiles->setColumnWidth(columns, 250);
+    ui->rightFiles->setColumnWidth(columns, 230);
     rightFilesModel.setHeaderData(columns, Qt::Horizontal, MainWindow::tr("Name"));
     rightFilesModel.horizontalHeaderItem(columns++)->setToolTip(MainWindow::tr("Name of the file"));
 
@@ -409,11 +410,13 @@ void MainWindow::on_rightFiles_doubleClicked(const QModelIndex &index)
     } else {
         BYTES data = filesystem->get_file(f);
 
-        qDebug() << data.size();
-
-        QDialog * w = new ViewDialog(this, data, f.preferred_type);
-        w->setAttribute(Qt::WA_DeleteOnClose);
-        w->show();
+        if (data.size() > 0) {
+            QDialog * w = new ViewDialog(this, data, f.preferred_type);
+            w->setAttribute(Qt::WA_DeleteOnClose);
+            w->show();
+        } else {
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File reading error!"));
+        }
     }
 }
 
@@ -551,6 +554,7 @@ void MainWindow::on_actionFile_info_triggered()
                 .replace("{$INCORRECT_TS_DATA}", MainWindow::tr("Incorrect T/S data, stopping iterations"))
                 .replace("{$NEXT_TS}", MainWindow::tr("Next T/S List Location"))
                 .replace("{$FILE_END_REACHED}", MainWindow::tr("File End Reached"))
+                .replace("{$FILE_DELETED}", MainWindow::tr("File Is Deleted"))
             ;
 
             fileinfoUi.textBox->setPlainText(info);
@@ -614,7 +618,7 @@ void MainWindow::on_actionConvert_triggered()
 {
     QString type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString();
 
-    ConvertDialog dialog(this, settings, &file_types, &file_formats, image, type_id);
+    ConvertDialog dialog(this, settings, &file_types, &file_formats, &interleavings, image, type_id);
     dialog.exec();
 
     // int index = ui->rightFormatCombo->currentIndex();

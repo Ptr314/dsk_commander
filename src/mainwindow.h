@@ -77,6 +77,7 @@ private:
     QJsonObject file_formats;
     QJsonObject file_types;
     QJsonObject file_systems;
+    QJsonObject interleavings;
 
     dsk_tools::diskImage * image = nullptr;
     dsk_tools::fileSystem * filesystem = nullptr;
