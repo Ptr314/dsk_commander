@@ -27,9 +27,17 @@ public:
     );
 
     ~ConvertDialog();
+protected:
+    void accept() override;
 
 private slots:
     void on_formatCombo_currentIndexChanged(int index);
+
+    void on_actionChoose_Output_triggered();
+
+    void on_useCheck_checkStateChanged(const Qt::CheckState &arg1);
+
+    void on_actionChoose_Template_triggered();
 
 private:
     Ui::ConvertDialog *ui;
@@ -42,9 +50,11 @@ private:
     dsk_tools::diskImage * m_image;
 
     QString output_file_name;
+    QString template_file_name;
 
     void set_output();
     void set_controls();
+    void save_setup();
 
 
 };
