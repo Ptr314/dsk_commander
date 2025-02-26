@@ -4,6 +4,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QMessageBox>
+#include <QFileDialog>
 
 ConvertDialog::ConvertDialog(QWidget *parent)
     : QDialog(parent)
@@ -24,10 +25,11 @@ ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject 
 
     ui->volumeIDEdit->setMaximumWidth(ui->volumeIDEdit->fontMetrics().horizontalAdvance("WWW") + 5);
 
-    QString target_def = m_settings->value("directory/target_format", "").toString();
+    QString target_def = m_settings->value("export/target_format", "").toString();
 
     QJsonObject type = (*m_file_types)[type_id].toObject();
 
+    ui->formatCombo->blockSignals(true);
     ui->formatCombo->clear();
     foreach (const QJsonValue & target_val, type["targets"].toArray()) {
         QString target_id = target_val.toString();
@@ -35,8 +37,16 @@ ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject 
         ui->formatCombo->addItem(target["short_name"].toString(), target_id);
         if (target_id == target_def) ui->formatCombo->setCurrentIndex(ui->formatCombo->count() - 1);
     }
-    set_output();
-    set_controls();
+    ui->formatCombo->blockSignals(false);
+    on_formatCombo_currentIndexChanged(ui->formatCombo->currentIndex());
+
+    ui->useCheck->setCheckState((m_settings->value("export/use_tracks", 0).toInt() != 0)?Qt::Checked:Qt::Unchecked);
+    ui->tracksCounter->setValue(m_settings->value("export/tracks_count", 2).toInt());
+
+    template_file_name = m_settings->value("export/template", "").toString();
+    ui->templateText->setText(template_file_name);
+
+    ui->volumeIDEdit->setText(m_settings->value("export/volume_id", "FE").toString());
 }
 
 
@@ -53,7 +63,7 @@ void ConvertDialog::set_output()
 
     QString source_file = QString::fromStdString(m_image->file_name());
     QFileInfo fi(source_file);
-    QString target_dir = m_settings->value("directory/target_directory", fi.dir().absolutePath()).toString();
+    QString target_dir = m_settings->value("export/target_directory", fi.dir().absolutePath()).toString();
 
     QString exts = target["extensions"].toString();
     QStringList exts_list = exts.split(";");
@@ -61,8 +71,7 @@ void ConvertDialog::set_output()
 
     output_file_name = QString("%1/%2.%3").arg(target_dir, fi.completeBaseName(), ext);
 
-    qDebug() << output_file_name;
-
+    ui->outputText->setText(output_file_name);
 }
 
 
@@ -88,6 +97,18 @@ void ConvertDialog::set_controls()
     } else
         QMessageBox::critical(0, ConvertDialog::tr("Error"), ConvertDialog::tr("Configuration error!"));
 
+    if (ui->useCheck->checkState()) {
+        ui->tracksCounter->setEnabled(true);
+        ui->templateBtn->setEnabled(true);
+        ui->templateText->setEnabled(true);
+        ui->useLabel->setEnabled(true);
+    } else {
+        ui->tracksCounter->setEnabled(false);
+        ui->templateBtn->setEnabled(false);
+        ui->templateText->setEnabled(false);
+        ui->useLabel->setEnabled(false);
+    }
+
     ui->interleavingCombo->clear();
     foreach (const QJsonValue & int_obj, (*m_file_types)[m_type_id].toObject()["interleaving"].toArray()) {
         QString int_id = int_obj.toString();
@@ -99,8 +120,88 @@ void ConvertDialog::set_controls()
 
 void ConvertDialog::on_formatCombo_currentIndexChanged(int index)
 {
-    QString target_id = ui->formatCombo->itemData(index).toString();
-    m_settings->setValue("directory/target_format", target_id);
     set_output();
     set_controls();
 }
+
+void ConvertDialog::on_actionChoose_Output_triggered()
+{
+    QString target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
+
+    QJsonObject target = (*m_file_formats)[target_id].toObject();
+    QString exts = target["extensions"].toString();
+    QStringList exts_list = exts.split(";");
+    QString ext = exts_list.at(0); //
+    QString new_ext = ext.right(exts_list.at(0).size()-2);
+
+    QString filter = QString("%1 (%2)").arg(target["name"].toString(), ext);
+
+    QString source_file = QString::fromStdString(m_image->file_name());
+    QFileInfo fi(source_file);
+
+    QString file_name = QString("%1/%2.%3").arg(fi.dir().absolutePath(), fi.completeBaseName(), new_ext);
+
+    file_name = QFileDialog::getSaveFileName(this, ConvertDialog::tr("Choose file"), file_name, filter, nullptr, QFileDialog::DontConfirmOverwrite);
+
+    if (file_name.size() > 0) {
+        output_file_name = file_name;
+        ui->outputText->setText(output_file_name);
+    }
+}
+
+
+void ConvertDialog::on_useCheck_checkStateChanged(const Qt::CheckState &arg1)
+{
+    set_controls();
+}
+
+
+void ConvertDialog::accept()
+{
+    save_setup();
+    QDialog::accept();
+}
+
+
+void ConvertDialog::save_setup()
+{
+    QString target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
+    m_settings->setValue("export/target_format", target_id);
+
+    QFileInfo fi(output_file_name);
+    m_settings->setValue("export/target_directory", fi.dir().absolutePath());
+
+    m_settings->setValue("export/use_tracks", (ui->useCheck->checkState() == Qt::Checked)?1:0);
+    m_settings->setValue("export/tracks_count", ui->tracksCounter->value());
+
+    m_settings->setValue("export/template", template_file_name);
+
+    m_settings->setValue("export/volume_id", ui->volumeIDEdit->text());
+}
+
+
+void ConvertDialog::on_actionChoose_Template_triggered()
+{
+    QString dir;
+    if (template_file_name.size() > 0) {
+        QFileInfo fi(template_file_name);
+        dir = fi.dir().absolutePath();
+    } else {
+        QFileInfo fi(output_file_name);
+        dir = fi.dir().absolutePath();
+    }
+
+    QString target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
+
+    QJsonObject target = (*m_file_formats)[target_id].toObject();
+    QString exts = target["extensions"].toString().replace(";", " ");
+    QString filter = QString("%1 (%2)").arg(target["name"].toString(), exts);
+
+    QString file_name = QFileDialog::getOpenFileName(this, ConvertDialog::tr("Choose template"), dir, filter);
+
+    if (file_name.size() > 0) {
+        template_file_name = file_name;
+        ui->templateText->setText(template_file_name);
+    }
+}
+
