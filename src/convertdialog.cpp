@@ -158,6 +158,11 @@ void ConvertDialog::on_useCheck_checkStateChanged(const Qt::CheckState &arg1)
 
 void ConvertDialog::accept()
 {
+    QFileInfo fi(output_file_name);
+    if (fi.exists()) {
+        QMessageBox::StandardButton res = QMessageBox::question(this, ConvertDialog::tr("File exists"), ConvertDialog::tr("File already exists. Overwrite?"));
+        if (res != QMessageBox::Yes) return;
+    }
     save_setup();
     QDialog::accept();
 }
@@ -205,3 +210,25 @@ void ConvertDialog::on_actionChoose_Template_triggered()
     }
 }
 
+
+int ConvertDialog::exec(QString &target_id, QString & output_file, QString & template_file, int &numtracks, uint8_t &volume_id, QString &interleaving_id)
+{
+    int res = QDialog::exec();
+    if (res == QDialog::Accepted) {
+        target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
+        output_file = output_file_name;
+        template_file = template_file_name;
+        if (ui->useCheck->isChecked())
+            numtracks = ui->tracksCounter->value();
+        else
+            numtracks = 0;
+        QString volume_is_str = ui->volumeIDEdit->text();
+        if (volume_is_str.size() > 0)
+            volume_id = static_cast<uint8_t>(std::stoi(volume_is_str.toStdString(), nullptr, 16));
+        else
+            volume_id = 0;
+
+        interleaving_id = ui->interleavingCombo->itemData(ui->interleavingCombo->currentIndex()).toString();
+    }
+    return res;
+}

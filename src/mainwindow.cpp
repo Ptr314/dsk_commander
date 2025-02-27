@@ -41,13 +41,6 @@ MainWindow::MainWindow(QWidget *parent)
 #elif defined(__APPLE__)
     ini_path = QString(getenv("HOME"));
     ini_file = ini_path + INI_FILE_NAME;
-    if (!std::filesystem::exists(ini_file.toStdString())) {
-        if (std::filesystem::exists(QString(emulator_root + INI_FILE_NAME).toStdString())) {
-            std::filesystem::copy_file(QString(emulator_root + INI_FILE_NAME).toStdString(), ini_file.toStdString());
-        } else {
-            std::filesystem::copy_file(QString(current_path + INI_FILE_NAME).toStdString(), ini_file.toStdString());
-        }
-    }
 #elif defined(_WIN32)
     QFileInfo ini_fi(current_path + INI_FILE_NAME);
     if (ini_fi.exists() && ini_fi.isFile()) {
@@ -68,15 +61,11 @@ MainWindow::MainWindow(QWidget *parent)
         const QStringList uiLanguages = QLocale::system().uiLanguages();
         for (const QString &locale : uiLanguages) {
             const QString baseName = QLocale(locale).name().toLower();
-            if (translator.load(":/i18n/" + baseName)) {
-                qApp->installTranslator(&translator);
-                break;
-            }
+            switch_language(baseName, true);
+            break;
         }
     } else {
-        if (translator.load(":/i18n/" + ini_lang)) {
-            qApp->installTranslator(&translator);
-        }
+        switch_language(ini_lang, true);
     }
 
     ui->setupUi(this);
@@ -96,17 +85,25 @@ MainWindow::MainWindow(QWidget *parent)
     init_controls();
 }
 
-void MainWindow::switch_language(const QString & lang)
+void MainWindow::switch_language(const QString & lang, bool init)
 {
     if (translator.load(":/i18n/" + lang)) {
         qApp->installTranslator(&translator);
-        ui->retranslateUi(this);
-        init_controls();
-        settings->setValue("interface/language", lang);
+
+        QString t = QString(":/i18n/qtbase_%1.qm").arg(lang.split("_")[0]);
+        if (qtTranslator.load(t)) {
+            qApp->installTranslator(&qtTranslator);
+        }
+        if (!init) {
+            ui->retranslateUi(this);
+            init_controls();
+            settings->setValue("interface/language", lang);
+        }
     } else {
         QMessageBox::warning(this, MainWindow::tr("Error"), MainWindow::tr("Failed to load language file for: ") + lang);
     }
 }
+
 
 void MainWindow::add_languages()
 {
@@ -115,13 +112,14 @@ void MainWindow::add_languages()
     QMenu *subMenu = new QMenu(MainWindow::tr("Languages"), this);
 
     QAction *subAction1 = subMenu->addAction(QIcon(":/icons/ru"), MainWindow::tr("Русский"));
-    connect(subAction1, &QAction::triggered, this, [this]() { switch_language("ru_ru"); });
+    connect(subAction1, &QAction::triggered, this, [this]() { switch_language("ru_ru", false); });
 
     QAction *subAction2 = subMenu->addAction(QIcon(":/icons/en"), MainWindow::tr("English"));
-    connect(subAction2, &QAction::triggered, this, [this]() { switch_language("en_us"); });
+    connect(subAction2, &QAction::triggered, this, [this]() { switch_language("en_us", false); });
 
     langsAction->setMenu(subMenu);
 }
+
 
 void MainWindow::load_config()
 {
@@ -144,6 +142,7 @@ void MainWindow::load_config()
     file_systems = jsonRoot["file_systems"].toObject();
     interleavings = jsonRoot["interleaving"].toObject();
 }
+
 
 void MainWindow::init_controls()
 {
@@ -174,11 +173,13 @@ void MainWindow::init_controls()
     setup_buttons(true);
 }
 
+
 MainWindow::~MainWindow()
 {
     // delete settings;
     delete ui;
 }
+
 
 void MainWindow::set_directory(QString new_directory)
 {
@@ -188,11 +189,12 @@ void MainWindow::set_directory(QString new_directory)
     settings->setValue("directory/left", directory);
 }
 
+
 void MainWindow::on_actionOpen_directory_triggered()
 {
-    QUrl dir_object = QFileDialog::getExistingDirectoryUrl(this, MainWindow::tr("Choose a directory"), directory);
-    if (!dir_object.isEmpty()) {
-        set_directory(dir_object.toLocalFile());
+    QString new_directory = QFileDialog::getExistingDirectory(this, MainWindow::tr("Choose a directory"), directory);
+    if (!new_directory.isEmpty()) {
+        set_directory(new_directory);
     }
 }
 
@@ -226,6 +228,7 @@ void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
 void MainWindow::load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type)
 {
     setup_buttons(true);
+    rightFilesModel.removeRows(0, rightFilesModel.rowCount());
 
     if (image != nullptr) delete image;
     image = dsk_tools::prepare_image(file_name, file_format, file_type);
@@ -236,7 +239,7 @@ void MainWindow::load_file(std::string file_name, std::string file_format, std::
         if (load_result == FDD_LOAD_OK) {
             process_image(filesystem_type);
         } else {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error loading file"));
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File loading error. Check your disk type settings or try auto-detection."));
         }
     } else {
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error checking file parameters"));
@@ -272,7 +275,7 @@ void MainWindow::on_leftFiles_doubleClicked(const QModelIndex &index)
             } else {
                 format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
                 type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
-                filesystem_id = ui->leftTypeCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
+                filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
             }
             load_file(fileInfo.absoluteFilePath().toStdString(), format_id, type_id, filesystem_id);
         }
@@ -617,56 +620,45 @@ void MainWindow::setup_buttons(bool disabled)
 void MainWindow::on_actionConvert_triggered()
 {
     QString type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString();
+    QString target_id;
+    QString output_file;
+    QString template_file;
+    int numtracks;
+    uint8_t volume_id;
+    QString interleaving_id;
 
     ConvertDialog dialog(this, settings, &file_types, &file_formats, &interleavings, image, type_id);
-    dialog.exec();
+    if (dialog.exec(target_id, output_file, template_file, numtracks, volume_id, interleaving_id) == QDialog::Accepted){
+        qDebug() << target_id;
+        qDebug() << output_file;
+        qDebug() << numtracks;
+        qDebug() << volume_id;
+        qDebug() << interleaving_id;
 
-    // int index = ui->rightFormatCombo->currentIndex();
-    // QString format_id = ui->rightFormatCombo->itemData(index).toString();
-    // QString source_file = QString::fromStdString(image->file_name());
+        dsk_tools::Writer * writer;
 
-    // QFileInfo fi(source_file);
+        std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
 
-    // dsk_tools::Writer * writer;
+        if ( mfm_formats.find(target_id) != mfm_formats.end()) {
+            writer = new dsk_tools::WriterHxCMFM(target_id.toStdString(), image);
+        } else
+            if (target_id == "FILE_HXC_HFE") {
+                writer = new dsk_tools::WriterHxCHFE(target_id.toStdString(), image);
+        } else
+        if (target_id == "FILE_RAW_MSB") {
+            writer = new dsk_tools::WriterRAW(target_id.toStdString(), image);
+        } else {
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not implemented!"));
+            return;
+        }
 
-    // std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
+        int result = writer->write(output_file.toStdString());
 
-    // if ( mfm_formats.find(format_id) != mfm_formats.end()) {
-    //     writer = new dsk_tools::WriterHxCMFM(format_id.toStdString(), image);
-    // } else
-    //     if (format_id == "FILE_HXC_HFE") {
-    //         writer = new dsk_tools::WriterHxCHFE(format_id.toStdString(), image);
-    // } else
-    // if (format_id == "FILE_RAW_MSB") {
-    //     writer = new dsk_tools::WriterRAW(format_id.toStdString(), image);
-    // } else {
-    //     QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not implemented!"));
-    //     return;
-    // }
+        if (result != FDD_WRITE_OK) {
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error writing file"));
+        }
 
-    // QString new_ext = QString::fromStdString(writer->get_default_ext());
+        delete writer;
+    }
 
-    // QString filter = "";
-
-    // foreach (const QJsonValue & value, file_formats) {
-    //     QJsonObject obj = value.toObject();
-    //     if (obj["id"].toString() == format_id) {
-    //         filter = QString("%1 (%2)").arg(obj["name"].toString(), obj["extensions"].toString().replace(";", " "));
-    //     }
-    // }
-
-    // QString file_name = QString("%1/%2.%3").arg(fi.dir().absolutePath(), fi.completeBaseName(), new_ext);
-
-    // file_name = QFileDialog::getSaveFileName(this, MainWindow::tr("Export as"), file_name, filter);
-
-    // if (!file_name.isEmpty()) {
-
-        //     int result = writer->write(file_name.toStdString());
-
-    //     if (result != FDD_WRITE_OK) {
-    //         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error writing file"));
-    //     }
-    // }
-
-    // delete writer;
 }
