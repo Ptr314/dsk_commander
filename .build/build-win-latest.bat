@@ -24,10 +24,6 @@ if not exist %_BUILD_DIR%\ (
 
 mkdir "%_RELEASE_DIR%"
 
-xcopy ..\deploy\* "%_RELEASE_DIR%" /E
-rem del %_RELEASE_DIR%\ecat.ini
-rem ren %_RELEASE_DIR%\.ecat.ini ecat.ini
-
 copy "%_BUILD_DIR%\DISKCommander.exe" "%_RELEASE_DIR%"
 
 

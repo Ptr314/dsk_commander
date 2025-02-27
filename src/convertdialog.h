@@ -27,6 +27,10 @@ public:
     );
 
     ~ConvertDialog();
+    QString output_file_name;
+    QString template_file_name;
+    int exec(QString & target_id, QString & output_file, QString & template_file, int & numtracks, uint8_t & volume_id, QString & interleaving_id);
+
 protected:
     void accept() override;
 
@@ -48,9 +52,6 @@ private:
     QJsonObject * m_file_formats;
     QJsonObject * m_interleavings;
     dsk_tools::diskImage * m_image;
-
-    QString output_file_name;
-    QString template_file_name;
 
     void set_output();
     void set_controls();

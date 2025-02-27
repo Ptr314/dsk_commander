@@ -5,7 +5,7 @@
             "short_name":   "DSK",
             "source":       true,
             "extensions":   "*.dsk;*.img",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI", "TYPE_AGAT_840"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
         },
         "FILE_AIM": {
             "name":         "Agat AIM",
@@ -19,7 +19,7 @@
             "short_name":   "MFM",
             "source":       false,
             "extensions":   "*.mfm",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI"]
+            "types":        ["TYPE_AGAT_140"]
         },
         "FILE_HXC_HFE": {
             "name":         "HxC HFE file",
@@ -33,14 +33,14 @@
             "short_name":   "NIB",
             "source":       false,
             "extensions":   "*.nib",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI"]
+            "types":        ["TYPE_AGAT_140"]
         },
         "FILE_MFM_NIC": {
             "name":         "NIC MFM file",
             "short_name":   "NIC",
             "source":       false,
             "extensions":   "*.nic",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_140_NI"]
+            "types":        ["TYPE_AGAT_140"]
         },
         "FILE_BINARY": {
             "name":         "Binary File",

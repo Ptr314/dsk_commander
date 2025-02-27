@@ -17,6 +17,7 @@ set(ENABLE_DSK_TOOLS OFF CACHE BOOL "Disable command line tools from the library
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/dsk_tools/)
 
 # Основные файлы с переводами
+set(SUPPORTED_LANGUAGES ru en)
 set(TS_FILES
     ${CMAKE_SOURCE_DIR}/i18n/en_us.ts
     ${CMAKE_SOURCE_DIR}/i18n/ru_ru.ts
@@ -49,8 +50,37 @@ set(PROJECT_SOURCES
         ../LINKS.md
 )
 
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED Core)
+if(NOT ${Qt6Core_DIR} STREQUAL "")
+    set(QT_TRANSLATIONS_DIR "${Qt6Core_DIR}/../../../translations")
+else()
+    set(QT_TRANSLATIONS_DIR "${Qt5Core_DIR}/../../../translations")
+endif()
+
+set(QT_TRANSLATION_FILES "")
+foreach(LANG ${SUPPORTED_LANGUAGES})
+    set(QT_TRANSLATION_FILE "${QT_TRANSLATIONS_DIR}/qtbase_${LANG}.qm")
+    if(EXISTS ${QT_TRANSLATION_FILE})
+        list(APPEND QT_TRANSLATION_FILES ${QT_TRANSLATION_FILE})
+    else()
+        message(WARNING "Файл перевода Qt (qtbase_${LANG}.qm) не найден: ${QT_TRANSLATION_FILE}")
+    endif()
+endforeach()
+
+if(QT_TRANSLATION_FILES STREQUAL "")
+    message(FATAL_ERROR "Не найдено ни одного файла перевода Qt! Проверьте установку.")
+endif()
+
+file(WRITE ${CMAKE_BINARY_DIR}/qt_base.qrc "<RCC>\n  <qresource prefix=\"/i18n\">\n")
+foreach(FILE ${QT_TRANSLATION_FILES})
+    get_filename_component(FILENAME ${FILE} NAME)
+    file(APPEND ${CMAKE_BINARY_DIR}/qt_base.qrc "    <file alias=\"${FILENAME}\">${FILE}</file>\n")
+endforeach()
+file(APPEND ${CMAKE_BINARY_DIR}/qt_base.qrc "  </qresource>\n</RCC>\n")
+
 set(RESOURCE_FILES
     resources.qrc
+    ${CMAKE_BINARY_DIR}/qt_base.qrc
 )
 
 # Собираем в зависимости от версии Qt
