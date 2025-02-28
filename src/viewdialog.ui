@@ -68,6 +68,11 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QPlainTextEdit" name="textBox">
+       <property name="font">
+        <font>
+         <family>Iosevka Fixed Extended</family>
+        </font>
+       </property>
        <property name="lineWrapMode">
         <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
        </property>

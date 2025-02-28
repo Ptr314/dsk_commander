@@ -41,7 +41,7 @@ ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject 
     on_formatCombo_currentIndexChanged(ui->formatCombo->currentIndex());
 
     ui->useCheck->setCheckState((m_settings->value("export/use_tracks", 0).toInt() != 0)?Qt::Checked:Qt::Unchecked);
-    ui->tracksCounter->setValue(m_settings->value("export/tracks_count", 2).toInt());
+    ui->tracksCounter->setValue(m_settings->value("export/tracks_count", 1).toInt());
 
     template_file_name = m_settings->value("export/template", "").toString();
     ui->templateText->setText(template_file_name);
@@ -158,6 +158,33 @@ void ConvertDialog::on_useCheck_checkStateChanged(const Qt::CheckState &arg1)
 
 void ConvertDialog::accept()
 {
+    if (ui->useCheck->isChecked()) {
+        // Check is template is expected but not selected
+        if (template_file_name.isEmpty()) {
+            QMessageBox::critical(this, ConvertDialog::tr("Error"), ConvertDialog::tr("No template file selected."));
+            return;
+        }
+
+        // Check template type
+        QFileInfo tf(template_file_name);
+        QString target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
+        QJsonObject target = (*m_file_formats)[target_id].toObject();
+        QString exts = target["extensions"].toString();
+        QStringList exts_list = exts.split(";");
+
+        bool found = false;
+        foreach (const QString & ext, exts_list) {
+            if (tf.suffix() == ext.right(ext.size()-2)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            QMessageBox::critical(this, ConvertDialog::tr("Error"), ConvertDialog::tr("The template file type must be the same as the selected export format."));
+            return;
+        }
+
+    }
     QFileInfo fi(output_file_name);
     if (fi.exists()) {
         QMessageBox::StandardButton res = QMessageBox::question(this, ConvertDialog::tr("File exists"), ConvertDialog::tr("File already exists. Overwrite?"));
