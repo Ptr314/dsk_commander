@@ -1,5 +1,7 @@
-#include <qtranslator.h>
+#include <fstream>
 #include <set>
+
+#include <QTranslator>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QJsonDocument>
@@ -77,8 +79,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->leftFiles->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
 
     ui->rightFiles->setModel(&rightFilesModel);
-    // ui->rightFiles->setFont(QFont("PxPlus IBM VGA9", 12, 400));
-    ui->rightFiles->setFont(QFont("Consolas", 10, 400));
+
+    // QFont font("PxPlus IBM VGA9", 12, 400);
+    QFont font("Consolas", 10, 400);
+    // QFont font("Iosevka Fixed", 10, 400);
+    // font.setStretch(QFont::Expanded);
+
+    ui->rightFiles->setFont(font);
 
     add_languages();
     load_config();
@@ -640,10 +647,10 @@ void MainWindow::on_actionConvert_triggered()
         std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
 
         if ( mfm_formats.find(target_id) != mfm_formats.end()) {
-            writer = new dsk_tools::WriterHxCMFM(target_id.toStdString(), image);
+            writer = new dsk_tools::WriterHxCMFM(target_id.toStdString(), image, volume_id, interleaving_id.toStdString());
         } else
             if (target_id == "FILE_HXC_HFE") {
-                writer = new dsk_tools::WriterHxCHFE(target_id.toStdString(), image);
+                writer = new dsk_tools::WriterHxCHFE(target_id.toStdString(), image, volume_id, interleaving_id.toStdString());
         } else
         if (target_id == "FILE_RAW_MSB") {
             writer = new dsk_tools::WriterRAW(target_id.toStdString(), image);
@@ -652,10 +659,54 @@ void MainWindow::on_actionConvert_triggered()
             return;
         }
 
-        int result = writer->write(output_file.toStdString());
+        BYTES buffer;
+        int result = writer->write(buffer);
 
         if (result != FDD_WRITE_OK) {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error writing file"));
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error generating file"));
+        }
+
+        if (numtracks > 0) {
+
+            BYTES tmplt;
+
+            std::ifstream tf(template_file.toStdString(), std::ios::binary);
+            if (!tf.good()) {
+                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error opening template file"));
+                delete writer;
+                return;
+            }
+            tf.seekg (0, tf.end);
+            auto tfsize = tf.tellg();
+            tf.seekg (0, tf.beg);
+            tmplt.resize(tfsize);
+            tf.read(reinterpret_cast<char*>(tmplt.data()), tfsize);
+            if (!tf.good()) {
+                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading template file"));
+                delete writer;
+                return;
+            }
+
+            result = writer->substitute_tracks(buffer, tmplt, numtracks);
+            if (result != FDD_WRITE_OK) {
+                if (result == FDD_WRITE_INCORECT_TEMPLATE)
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("The selected template cannot be used - it must be the same type and size as the target."));
+                else
+                if (result == FDD_WRITE_INCORECT_SOURCE)
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Incorrect source data for tracks replacement."));
+                else
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error inserting tracks from template"));
+                delete writer;
+                return;
+            }
+        }
+
+        std::ofstream file(output_file.toStdString(), std::ios::binary);
+
+        if (file.good()) {
+            file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
+        } else {
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error writing file to disk"));
         }
 
         delete writer;

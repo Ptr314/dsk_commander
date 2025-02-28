@@ -10,7 +10,10 @@ ViewDialog::ViewDialog(QWidget *parent, BYTES data, int preferred_type)
 {
     ui->setupUi(this);
 
-    ui->textBox->setFont(QFont("Consolas", 10, 400));
+    // QFont font("Iosevka Fixed", 10, 400);
+    // font.setStretch(QFont::Expanded);
+    QFont font("Consolas", 10, 400);
+    ui->textBox->setFont(font);
 
     ui->modeCombo->addItem(ViewDialog::tr("Binary"), "bin");
     ui->modeCombo->addItem(ViewDialog::tr("Text"), "txt");
@@ -19,7 +22,9 @@ ViewDialog::ViewDialog(QWidget *parent, BYTES data, int preferred_type)
         ui->modeCombo->setCurrentIndex(1);
 
 
-    ui->encodingCombo->addItem("Agat", "agat");
+    ui->encodingCombo->addItem(ViewDialog::tr("Agat"), "agat");
+    ui->encodingCombo->addItem(ViewDialog::tr("Apple II"), "apple2");
+    ui->encodingCombo->addItem(ViewDialog::tr("Apple //c"), "apple2c");
 
     this->data = data;
 
@@ -44,6 +49,14 @@ void ViewDialog::print_data()
         std::set<uint8_t> crlf;
         if (ui->encodingCombo->currentData() == "agat") {
             charmap = &dsk_tools::agat_charmap;
+            crlf = {0x8d, 0x13};
+        } else
+        if (ui->encodingCombo->currentData() == "apple2") {
+            charmap = &dsk_tools::apple2_charmap;
+            crlf = {0x8d, 0x13};
+        } else
+        if (ui->encodingCombo->currentData() == "apple2c") {
+            charmap = &dsk_tools::apple2c_charmap;
             crlf = {0x8d, 0x13};
         } else {
             // TODO: Other encodings;

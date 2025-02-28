@@ -44,7 +44,6 @@ set(PROJECT_SOURCES
         convertdialog.h convertdialog.cpp convertdialog.ui
         aboutdlg.ui
         fileinfodialog.ui
-        charmaps.h
         resources/files/config.json
         ../README.md
         ../LINKS.md
