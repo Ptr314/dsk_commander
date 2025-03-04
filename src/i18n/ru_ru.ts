@@ -116,6 +116,8 @@
     </message>
     <message>
         <location filename="../convertdialog.cpp" line="98"/>
+        <location filename="../convertdialog.cpp" line="164"/>
+        <location filename="../convertdialog.cpp" line="183"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -130,17 +132,27 @@
         <translation>Выберите Файл</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="163"/>
+        <location filename="../convertdialog.cpp" line="164"/>
+        <source>No template file selected.</source>
+        <translation>Не выбран файл-образец.</translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.cpp" line="183"/>
+        <source>The template file type must be the same as the selected export format.</source>
+        <translation>Тип файла-образца должен совпадать с выбранным типом для записи.</translation>
+    </message>
+    <message>
+        <location filename="../convertdialog.cpp" line="190"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="163"/>
+        <location filename="../convertdialog.cpp" line="190"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="206"/>
+        <location filename="../convertdialog.cpp" line="232"/>
         <source>Choose template</source>
         <translation>Выберите файл-образец</translation>
     </message>
@@ -157,12 +169,12 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../mainwindow.cpp" line="136"/>
+        <location filename="../mainwindow.cpp" line="143"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="136"/>
+        <location filename="../mainwindow.cpp" line="143"/>
         <source>Config parse error: %1</source>
         <translation>Ошибка в файле конфигурации: %1</translation>
     </message>
@@ -298,201 +310,249 @@
         <translation>Родительская дирекотрия</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
-        <location filename="../mainwindow.cpp" line="128"/>
-        <location filename="../mainwindow.cpp" line="242"/>
-        <location filename="../mainwindow.cpp" line="245"/>
-        <location filename="../mainwindow.cpp" line="270"/>
-        <location filename="../mainwindow.cpp" line="289"/>
-        <location filename="../mainwindow.cpp" line="309"/>
+        <location filename="../mainwindow.cpp" line="110"/>
+        <location filename="../mainwindow.cpp" line="135"/>
+        <location filename="../mainwindow.cpp" line="249"/>
+        <location filename="../mainwindow.cpp" line="252"/>
+        <location filename="../mainwindow.cpp" line="277"/>
+        <location filename="../mainwindow.cpp" line="296"/>
         <location filename="../mainwindow.cpp" line="316"/>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="323"/>
+        <location filename="../mainwindow.cpp" line="428"/>
+        <location filename="../mainwindow.cpp" line="644"/>
+        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="661"/>
+        <location filename="../mainwindow.cpp" line="671"/>
+        <location filename="../mainwindow.cpp" line="679"/>
+        <location filename="../mainwindow.cpp" line="682"/>
+        <location filename="../mainwindow.cpp" line="684"/>
+        <location filename="../mainwindow.cpp" line="695"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="128"/>
+        <location filename="../mainwindow.cpp" line="135"/>
         <source>Error reading config file</source>
         <translation>Ошибка чтения файла конфигурации</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="195"/>
+        <location filename="../mainwindow.cpp" line="202"/>
         <source>Choose a directory</source>
         <translation>Выберите директорию</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
+        <location filename="../mainwindow.cpp" line="252"/>
         <source>Error checking file parameters</source>
         <translation>Ошибка проверки параметров файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="309"/>
+        <location filename="../mainwindow.cpp" line="316"/>
         <source>Unrecognized disk format or disk is damaged!</source>
         <translation>Формат диска не распознан или диск повреждён!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="289"/>
+        <location filename="../mainwindow.cpp" line="296"/>
         <source>Error reading files list!</source>
         <translation>Ошибка чтения списка файлов!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
+        <location filename="../mainwindow.cpp" line="110"/>
         <source>Failed to load language file for: </source>
         <translation>Не удалось переключить язык: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="112"/>
+        <location filename="../mainwindow.cpp" line="119"/>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="114"/>
+        <location filename="../mainwindow.cpp" line="121"/>
         <source>Русский</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="117"/>
+        <location filename="../mainwindow.cpp" line="124"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="242"/>
+        <location filename="../mainwindow.cpp" line="249"/>
         <source>File loading error. Check your disk type settings or try auto-detection.</source>
         <translation>Ошибка загрузки файла. Проверьте, правильно ли установлен тип диска или попробуйте автоматическое определение.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="270"/>
+        <location filename="../mainwindow.cpp" line="277"/>
         <source>Can&apos;t detect type of the file automatically</source>
         <translation>Не удалось автоматически определить тип файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="316"/>
+        <location filename="../mainwindow.cpp" line="323"/>
         <source>File system initialization error!</source>
         <translation>Ошибка инициализации файловой системы!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="331"/>
+        <location filename="../mainwindow.cpp" line="338"/>
         <source>P</source>
         <translation>З</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="332"/>
+        <location filename="../mainwindow.cpp" line="339"/>
         <source>Protection</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="339"/>
-        <location filename="../mainwindow.cpp" line="552"/>
+        <location filename="../mainwindow.cpp" line="346"/>
+        <location filename="../mainwindow.cpp" line="545"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="345"/>
+        <location filename="../mainwindow.cpp" line="352"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="346"/>
+        <location filename="../mainwindow.cpp" line="353"/>
         <source>Size in bytes</source>
         <translation>Размер в байтах</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="349"/>
+        <location filename="../mainwindow.cpp" line="356"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="350"/>
+        <location filename="../mainwindow.cpp" line="357"/>
         <source>Name of the file</source>
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="428"/>
         <source>File reading error!</source>
         <translation>Ошибка чтения файла!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="545"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>Directory Entry</source>
         <translation>Элемент каталога</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="546"/>
+        <location filename="../mainwindow.cpp" line="539"/>
         <source>File Name</source>
         <translation>Имя Файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="547"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>File Size</source>
         <translation>Размер Файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="549"/>
+        <location filename="../mainwindow.cpp" line="542"/>
         <source>sector(s)</source>
         <translation>сектор(ов)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="553"/>
+        <location filename="../mainwindow.cpp" line="546"/>
         <source>Protected</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="554"/>
+        <location filename="../mainwindow.cpp" line="547"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="555"/>
+        <location filename="../mainwindow.cpp" line="548"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="556"/>
+        <location filename="../mainwindow.cpp" line="549"/>
         <source>T/S List Location</source>
         <translation>Расположение таблицы секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="557"/>
+        <location filename="../mainwindow.cpp" line="550"/>
         <source>Incorrect T/S data, stopping iterations</source>
         <translation>Данные в таблице секторов некорректны, обработка прервана</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="558"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>Next T/S List Location</source>
         <translation>Следующая таблица секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="559"/>
+        <location filename="../mainwindow.cpp" line="552"/>
         <source>File End Reached</source>
         <translation>Конец файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="560"/>
+        <location filename="../mainwindow.cpp" line="553"/>
         <source>File Is Deleted</source>
         <translation>Файл удалён</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="603"/>
+        <location filename="../mainwindow.cpp" line="596"/>
         <source>Export as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="548"/>
+        <location filename="../mainwindow.cpp" line="644"/>
+        <source>Not implemented!</source>
+        <translation>Функция не реализована!</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="652"/>
+        <source>Error generating file</source>
+        <translation>Ошибка генерации файла</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="661"/>
+        <source>Error opening template file</source>
+        <translation>Ошибка открытия файла-образца</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="671"/>
+        <source>Error reading template file</source>
+        <translation>Ошибка чтения файла-образца</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="679"/>
+        <source>The selected template cannot be used - it must be the same type and size as the target.</source>
+        <translation>Выбранный образец не может быть использован - его тип и размер должны совпадать с целевым форматом.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="682"/>
+        <source>Incorrect source data for tracks replacement.</source>
+        <translation>Некорректные данные для замены треков.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="684"/>
+        <source>Error inserting tracks from template</source>
+        <translation>Ошибка замены треков</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="695"/>
+        <source>Error writing file to disk</source>
+        <translation>Ошибка записи файла</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="541"/>
         <source>byte(s)</source>
         <translation>байт(ов)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="345"/>
         <source>T</source>
         <translation>Т</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="543"/>
         <source>Attributes</source>
         <translation>Атрибуты</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="551"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
@@ -501,37 +561,52 @@
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="89"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="92"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="28"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="91"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="94"/>
         <source>View mode</source>
         <translation>Режим просмотра</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="41"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="94"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="97"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="61"/>
-        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="96"/>
+        <location filename="../build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="99"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="15"/>
+        <location filename="../viewdialog.cpp" line="21"/>
         <source>Binary</source>
         <translation>Двоичный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="16"/>
+        <location filename="../viewdialog.cpp" line="22"/>
         <source>Text</source>
         <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="30"/>
+        <source>Agat</source>
+        <translation>Агат</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="31"/>
+        <source>Apple II</source>
+        <translation>Apple II</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="32"/>
+        <source>Apple //c</source>
+        <translation>Apple //c</translation>
     </message>
 </context>
 <context>
