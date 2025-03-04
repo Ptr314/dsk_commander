@@ -4,10 +4,12 @@
 #include "charmaps.h"
 #include <set>
 
-ViewDialog::ViewDialog(QWidget *parent, BYTES data, int preferred_type)
+ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BYTES &data, int preferred_type)
     : QDialog(parent)
     , ui(new Ui::ViewDialog)
+    , m_settings(settings)
 {
+    m_data = data;
     ui->setupUi(this);
 
     // QFont font("Iosevka Fixed", 10, 400);
@@ -15,18 +17,21 @@ ViewDialog::ViewDialog(QWidget *parent, BYTES data, int preferred_type)
     QFont font("Consolas", 10, 400);
     ui->textBox->setFont(font);
 
+    ui->modeCombo->blockSignals(true);
     ui->modeCombo->addItem(ViewDialog::tr("Binary"), "bin");
     ui->modeCombo->addItem(ViewDialog::tr("Text"), "txt");
     //ui->modeCombo->addItem(ViewDialog::tr("Applesoft BASIC"), "abs");
     if (preferred_type == PREFERRED_TEXT)
         ui->modeCombo->setCurrentIndex(1);
+    ui->modeCombo->blockSignals(false);
 
 
+    ui->encodingCombo->blockSignals(true);
     ui->encodingCombo->addItem(ViewDialog::tr("Agat"), "agat");
     ui->encodingCombo->addItem(ViewDialog::tr("Apple II"), "apple2");
     ui->encodingCombo->addItem(ViewDialog::tr("Apple //c"), "apple2c");
-
-    this->data = data;
+    ui->encodingCombo->setCurrentIndex(settings->value("viewer/encoding", 0).toInt());
+    ui->encodingCombo->blockSignals(false);
 
     print_data();
 }
@@ -43,7 +48,7 @@ void ViewDialog::on_closeBtn_clicked()
 
 void ViewDialog::print_data()
 {
-    if (data.size() != 0) {
+    if (m_data.size() != 0) {
         static const std::string (*charmap)[256];
 
         std::set<uint8_t> crlf;
@@ -66,35 +71,35 @@ void ViewDialog::print_data()
 
         if (ui->modeCombo->currentData() == "bin") {
             QString text = "    ";
-            for (int a=0; a < data.size(); a++) {
+            for (int a=0; a < m_data.size(); a++) {
                 if (a % 16 == 0)  {
                     if (a != 0) out += text + "\n";
                     out += QString("%1").arg(a, 4, 16, QChar('0')).toUpper() + " ";
                     text = "    ";
                 }
-                out += QString(" %1").arg(data.at(a), 2, 16, QChar('0')).toUpper();
-                text += QString::fromStdString((*charmap)[data.at(a)]);
+                out += QString(" %1").arg(m_data.at(a), 2, 16, QChar('0')).toUpper();
+                text += QString::fromStdString((*charmap)[m_data.at(a)]);
             }
             out += text;
             ui->textBox->setWordWrapMode(QTextOption::NoWrap);
 
         } else
         if (ui->modeCombo->currentData() == "txt") {
-            for (int a=0; a < data.size(); a++) {
-                char c = (char)data.at(a);
+            for (int a=0; a < m_data.size(); a++) {
+                uint8_t c = m_data.at(a);
                 if (crlf.find(c) != crlf.end())
                     out += "\r";
                 else
-                    out += QString::fromStdString((*charmap)[data.at(a)]);
+                    out += QString::fromStdString((*charmap)[c]);
             }
             ui->textBox->setWordWrapMode(QTextOption::WordWrap);
         } else
         if (ui->modeCombo->currentData() == "abs") {
             // TODO: implement
             int a=0;
-            int declared_size = (int)data.at(a) + (int)data.at(a+1)*256; a +=2;
+            int declared_size = (int)m_data.at(a) + (int)m_data.at(a+1)*256; a +=2;
             out += QString("Size: $%1\n").arg(declared_size, 4, 16);
-            int lv_size = (int)data.at(declared_size-2) + (int)data.at(declared_size-1)*256;
+            int lv_size = (int)m_data.at(declared_size-2) + (int)m_data.at(declared_size-1)*256;
             out += QString("LV Size: $%1\n").arg(lv_size, 4, 16);
 
             auto lv_start = declared_size-2-lv_size-1;
@@ -127,6 +132,7 @@ void ViewDialog::on_modeCombo_currentIndexChanged(int index)
 
 void ViewDialog::on_encodingCombo_currentTextChanged(const QString &arg1)
 {
+    m_settings->setValue("viewer/encoding", ui->encodingCombo->currentIndex());
     print_data();
 }
 

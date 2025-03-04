@@ -418,10 +418,10 @@ void MainWindow::on_rightFiles_doubleClicked(const QModelIndex &index)
         filesystem->cd(f);
         dir();
     } else {
-        BYTES data = filesystem->get_file(f);
+        dsk_tools::BYTES data = filesystem->get_file(f);
 
         if (data.size() > 0) {
-            QDialog * w = new ViewDialog(this, data, f.preferred_type);
+            QDialog * w = new ViewDialog(this, settings, data, f.preferred_type);
             w->setAttribute(Qt::WA_DeleteOnClose);
             w->show();
         } else {
@@ -429,13 +429,6 @@ void MainWindow::on_rightFiles_doubleClicked(const QModelIndex &index)
         }
     }
 }
-
-
-// void MainWindow::on_rightFormatCombo_currentIndexChanged(int index)
-// {
-//     QString target_id = ui->rightFormatCombo->itemData(index).toString();
-//     settings->setValue("directory/right_type_filter", target_id);
-// }
 
 
 void MainWindow::on_leftTypeCombo_currentIndexChanged(int index)
@@ -451,13 +444,6 @@ void MainWindow::on_leftTypeCombo_currentIndexChanged(int index)
         QString name = QCoreApplication::translate("config", fs["name"].toString().toUtf8().constData());
         ui->filesystemCombo->addItem(name, fs_id);
     }
-
-    // ui->rightFormatCombo->clear();
-    // foreach (const QJsonValue & target_val, type["targets"].toArray()) {
-    //     QString target_id = target_val.toString();
-    //     QJsonObject target = file_formats[target_id].toObject();
-    //     ui->rightFormatCombo->addItem(target["short_name"].toString(), target_id);
-    // }
 }
 
 
@@ -659,7 +645,7 @@ void MainWindow::on_actionConvert_triggered()
             return;
         }
 
-        BYTES buffer;
+        dsk_tools::BYTES buffer;
         int result = writer->write(buffer);
 
         if (result != FDD_WRITE_OK) {
@@ -668,7 +654,7 @@ void MainWindow::on_actionConvert_triggered()
 
         if (numtracks > 0) {
 
-            BYTES tmplt;
+            dsk_tools::BYTES tmplt;
 
             std::ifstream tf(template_file.toStdString(), std::ios::binary);
             if (!tf.good()) {
