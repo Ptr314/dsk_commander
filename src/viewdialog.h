@@ -2,6 +2,7 @@
 #define VIEWDIALOG_H
 
 #include <QDialog>
+#include <QSettings>
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -14,7 +15,7 @@ class ViewDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ViewDialog(QWidget *parent, BYTES data, int preferred_type);
+    explicit ViewDialog(QWidget *parent, QSettings  *settings, const dsk_tools::BYTES &data, int preferred_type);
     ~ViewDialog();
 
 private slots:
@@ -27,7 +28,8 @@ private slots:
 private:
     Ui::ViewDialog *ui;
 
-    BYTES data;
+    dsk_tools::BYTES m_data;
+    QSettings *m_settings;
     void print_data();
 };
 
