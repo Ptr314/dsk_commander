@@ -2,16 +2,20 @@
     <qresource prefix="/icons">
         <file alias="folder_open">resources/icons/folder_yellow_open.png</file>
         <file alias="extract">resources/icons/5floppy_mount.png</file>
-        <file alias="info">resources/icons/msbox_info.png</file>
+        <file>resources/icons/msbox_info.png</file>
         <file alias="logo">resources/icons/Emuverse3.png</file>
         <file alias="en">resources/icons/en.png</file>
         <file alias="ru">resources/icons/ru.png</file>
         <file alias="lang">resources/icons/browser.png</file>
         <file alias="up">resources/icons/up.png</file>
         <file alias="icon">resources/icons/3floppy_unmount.png</file>
-        <file alias="convert">resources/icons/hdd_unmount.png</file>
+        <file>resources/icons/hdd_unmount.png</file>
         <file alias="help">resources/icons/help.png</file>
         <file alias="view">resources/icons/binary.png</file>
+        <file alias="convert">resources/icons/cdimage.png</file>
+        <file alias="info">resources/icons/info.png</file>
+        <file alias="add_file">resources/icons/patch.png</file>
+        <file alias="image_info">resources/icons/viewmag.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>

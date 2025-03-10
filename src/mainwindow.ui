@@ -77,6 +77,26 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QToolButton" name="imageInfoBtn">
+            <property name="toolTip">
+             <string>Image info</string>
+            </property>
+            <property name="text">
+             <string notr="true">Image info</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/icons/image_info</normaloff>:/icons/image_info</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item>
@@ -232,6 +252,29 @@
            </widget>
           </item>
           <item>
+           <widget class="QToolButton" name="addFileBtn">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string>Add a file</string>
+            </property>
+            <property name="text">
+             <string notr="true">Add a file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/icons/add_file</normaloff>:/icons/add_file</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
@@ -282,6 +325,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
            <widget class="QTableView" name="rightFiles">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="editTriggers">
              <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
             </property>
@@ -312,6 +358,7 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen_directory"/>
+    <addaction name="actionImage_Info"/>
     <addaction name="actionConvert"/>
     <addaction name="actionFile_info"/>
     <addaction name="actionSave_to_file"/>
@@ -393,6 +440,15 @@
     <string>Save to file</string>
    </property>
   </action>
+  <action name="actionImage_Info">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/image_info</normaloff>:/icons/image_info</iconset>
+   </property>
+   <property name="text">
+    <string>Image Info</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="resources.qrc"/>
@@ -438,6 +494,22 @@
    <hints>
     <hint type="sourcelabel">
      <x>768</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>imageInfoBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>actionImage_Info</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>405</x>
      <y>52</y>
     </hint>
     <hint type="destinationlabel">
