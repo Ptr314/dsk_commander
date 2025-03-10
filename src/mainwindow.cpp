@@ -240,16 +240,20 @@ void MainWindow::load_file(std::string file_name, std::string file_format, std::
     if (image != nullptr) delete image;
     image = dsk_tools::prepare_image(file_name, file_format, file_type);
 
-    auto check_result = image->check();
-    if (check_result == FDD_LOAD_OK) {
-        auto load_result = image->load();
-        if (load_result == FDD_LOAD_OK) {
-            process_image(filesystem_type);
+    if (image != nullptr) {
+        auto check_result = image->check();
+        if (check_result == FDD_LOAD_OK) {
+            auto load_result = image->load();
+            if (load_result == FDD_LOAD_OK) {
+                process_image(filesystem_type);
+            } else {
+                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File loading error. Check your disk type settings or try auto-detection."));
+            }
         } else {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File loading error. Check your disk type settings or try auto-detection."));
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error checking file parameters"));
         }
     } else {
-        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error checking file parameters"));
+        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error preparing image data"));
     }
 }
 
@@ -312,11 +316,13 @@ void MainWindow::process_image(std::string filesystem_type)
     if (filesystem != nullptr) {
         int open_res = filesystem->open();
 
+        init_table();
+
         if (open_res != FDD_OPEN_OK) {
             QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Unrecognized disk format or disk is damaged!"));
+            return;
         }
 
-        init_table();
         dir();
         setup_buttons(false);
     } else {
@@ -519,6 +525,58 @@ void MainWindow::on_actionParent_directory_triggered()
 }
 
 
+QString MainWindow::replace_placeholders(const QString & in)
+{
+    return QString(in)
+        .replace("{$DIRECTORY_ENTRY}", MainWindow::tr("Directory Entry"))
+        .replace("{$FILE_NAME}", MainWindow::tr("File Name"))
+        .replace("{$SIZE}", MainWindow::tr("File Size"))
+        .replace("{$BYTES}", MainWindow::tr("byte(s)"))
+        .replace("{$SIDES}", MainWindow::tr("Sides"))
+        .replace("{$TRACKS}", MainWindow::tr("Tracks"))
+        .replace("{$SECTORS}", MainWindow::tr("sector(s)"))
+        .replace("{$ATTRIBUTES}", MainWindow::tr("Attributes"))
+        .replace("{$DATE}", MainWindow::tr("Date"))
+        .replace("{$TYPE}", MainWindow::tr("Type"))
+        .replace("{$PROTECTED}", MainWindow::tr("Protected"))
+        .replace("{$YES}", MainWindow::tr("Yes"))
+        .replace("{$NO}", MainWindow::tr("No"))
+        .replace("{$TS_LIST_LOCATION}", MainWindow::tr("T/S List Location"))
+        .replace("{$INCORRECT_TS_DATA}", MainWindow::tr("Incorrect T/S data, stopping iterations"))
+        .replace("{$NEXT_TS}", MainWindow::tr("Next T/S List Location"))
+        .replace("{$FILE_END_REACHED}", MainWindow::tr("File End Reached"))
+        .replace("{$FILE_DELETED}", MainWindow::tr("File Is Deleted"))
+        .replace("{$ERROR_PARSING}", MainWindow::tr("File parsing error"))
+        .replace("{$TRACK}", MainWindow::tr("Track"))
+        .replace("{$TRACK_SHORT}", MainWindow::tr("T"))
+        .replace("{$PHYSICAL_SECTOR}", MainWindow::tr("S"))
+        .replace("{$LOGICAL_SECTOR}", MainWindow::tr("S"))
+        .replace("{$PARSING_FINISHED}", MainWindow::tr("Parsing finished"))
+        .replace("{$VOLUME_ID}", MainWindow::tr("V"))
+        .replace("{$SECTOR_INDEX}", MainWindow::tr("Index"))
+        .replace("{$INDEX_MARK}", MainWindow::tr("Index Mark"))
+        .replace("{$DATA_MARK}", MainWindow::tr("Data Mark"))
+        .replace("{$DATA_FIELD}", MainWindow::tr("Sector Data"))
+        .replace("{$SECTOR_INDEX_END_OK}", MainWindow::tr("End Mark: OK"))
+        .replace("{$SECTOR_INDEX_END_ERROR}", MainWindow::tr("End Mark: Not Detected"))
+        .replace("{$SECTOR_CRC_OK}", MainWindow::tr("CRC: OK"))
+        .replace("{$SECTOR_CRC_ERROR}", MainWindow::tr("CRC: Error"))
+        .replace("{$CRC_EXPECTED}", MainWindow::tr("Expected"))
+        .replace("{$CRC_FOUND}", MainWindow::tr("Found"))
+        .replace("{$SECTOR_ERROR}", MainWindow::tr("Data Error"))
+        .replace("{$INDEX_CRC_OK}", MainWindow::tr("CRC: OK"))
+        .replace("{$INDEX_CRC_ERROR}", MainWindow::tr("CRC: Error"))
+        .replace("{$INDEX_EPILOGUE_OK}", MainWindow::tr("Epilogue: OK"))
+        .replace("{$INDEX_EPILOGUE_ERROR}", MainWindow::tr("Epilogue: Error"))
+        .replace("{$DATA_EPILOGUE_OK}", MainWindow::tr("Epilogue: OK"))
+        .replace("{$DATA_EPILOGUE_ERROR}", MainWindow::tr("Epilogue: Error"))
+        .replace("{$TRACKLIST_OFFSET}", MainWindow::tr("Track List Offset"))
+        .replace("{$TRACK_OFFSET}", MainWindow::tr("Track Offset"))
+        .replace("{$TRACK_SIZE}", MainWindow::tr("Track Size"))
+    ;
+}
+
+
 void MainWindow::on_actionFile_info_triggered()
 {
     QDialog * file_info = new QDialog(this);
@@ -534,24 +592,7 @@ void MainWindow::on_actionFile_info_triggered()
 
             dsk_tools::fileData f = files[selectedIndex.row()];
 
-            QString info = QString::fromStdString(filesystem->file_info(f))
-                .replace("{$DIRECTORY_ENTRY}", MainWindow::tr("Directory Entry"))
-                .replace("{$FILE_NAME}", MainWindow::tr("File Name"))
-                .replace("{$SIZE}", MainWindow::tr("File Size"))
-                .replace("{$BYTES}", MainWindow::tr("byte(s)"))
-                .replace("{$SECTORS}", MainWindow::tr("sector(s)"))
-                .replace("{$ATTRIBUTES}", MainWindow::tr("Attributes"))
-                .replace("{$DATE}", MainWindow::tr("Date"))
-                .replace("{$TYPE}", MainWindow::tr("Type"))
-                .replace("{$PROTECTED}", MainWindow::tr("Protected"))
-                .replace("{$YES}", MainWindow::tr("Yes"))
-                .replace("{$NO}", MainWindow::tr("No"))
-                .replace("{$TS_LIST_LOCATION}", MainWindow::tr("T/S List Location"))
-                .replace("{$INCORRECT_TS_DATA}", MainWindow::tr("Incorrect T/S data, stopping iterations"))
-                .replace("{$NEXT_TS}", MainWindow::tr("Next T/S List Location"))
-                .replace("{$FILE_END_REACHED}", MainWindow::tr("File End Reached"))
-                .replace("{$FILE_DELETED}", MainWindow::tr("File Is Deleted"))
-            ;
+            QString info = replace_placeholders(QString::fromStdString(filesystem->file_info(f)));
 
             fileinfoUi.textBox->setPlainText(info);
             file_info->exec();
@@ -699,3 +740,39 @@ void MainWindow::on_actionConvert_triggered()
     }
 
 }
+
+void MainWindow::on_actionImage_Info_triggered()
+{
+    QModelIndexList indexes = ui->leftFiles->selectionModel()->selectedIndexes();
+    if (indexes.size() == 1) {
+        QModelIndex selectedIndex = indexes.at(0);
+        QFileInfo fi = leftFilesModel.fileInfo(selectedIndex);
+        if (!fi.isDir()) {
+            std::string format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
+            dsk_tools::Loader * loader;
+
+            if (format_id == "FILE_RAW_MSB") {
+                loader = new dsk_tools::LoaderRAW(fi.absoluteFilePath().toStdString(), format_id, "", true);
+            } else
+            if (format_id == "FILE_AIM") {
+                loader = new dsk_tools::LoaderAIM(fi.absoluteFilePath().toStdString(), format_id, "");
+            } else
+            if (format_id == "FILE_MFM_NIC" || format_id == "FILE_MFM_NIB" || format_id == "FILE_HXC_MFM") {
+                loader = new dsk_tools::LoaderGCR(fi.absoluteFilePath().toStdString(), format_id, "");
+            } else {
+                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not supported yet"));
+            return;
+            }
+            QDialog * file_info = new QDialog(this);
+
+            Ui_FileInfo fileinfoUi;
+            fileinfoUi.setupUi(file_info);
+
+            QString info = replace_placeholders(QString::fromStdString(loader->file_info()));
+            fileinfoUi.textBox->setPlainText(info);
+            file_info->exec();
+        }
+    }
+
+}
+

@@ -64,6 +64,8 @@ private slots:
 
     void on_actionSave_to_file_triggered();
 
+    void on_actionImage_Info_triggered();
+
 private:
     Ui::MainWindow *ui;
 
@@ -96,7 +98,7 @@ private:
     void init_table();                                                          // Set columns etc. depending on image type
     void update_table();                                                        // Put file items to the table
     void setup_buttons(bool disabled);
-
+    QString replace_placeholders(const QString & in);
     std::vector<dsk_tools::fileData> files;
 
 };
