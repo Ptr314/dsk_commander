@@ -549,6 +549,7 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$ERROR_PARSING}", MainWindow::tr("File parsing error"))
         .replace("{$TRACK}", MainWindow::tr("Track"))
         .replace("{$TRACK_SHORT}", MainWindow::tr("T"))
+        .replace("{$SIDE_SHORT}", MainWindow::tr("H"))
         .replace("{$PHYSICAL_SECTOR}", MainWindow::tr("S"))
         .replace("{$LOGICAL_SECTOR}", MainWindow::tr("S"))
         .replace("{$PARSING_FINISHED}", MainWindow::tr("Parsing finished"))
@@ -573,6 +574,7 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$TRACKLIST_OFFSET}", MainWindow::tr("Track List Offset"))
         .replace("{$TRACK_OFFSET}", MainWindow::tr("Track Offset"))
         .replace("{$TRACK_SIZE}", MainWindow::tr("Track Size"))
+        .replace("{$HEADER}", MainWindow::tr("Header"))
     ;
 }
 
@@ -757,11 +759,17 @@ void MainWindow::on_actionImage_Info_triggered()
             if (format_id == "FILE_AIM") {
                 loader = new dsk_tools::LoaderAIM(fi.absoluteFilePath().toStdString(), format_id, "");
             } else
-            if (format_id == "FILE_MFM_NIC" || format_id == "FILE_MFM_NIB" || format_id == "FILE_HXC_MFM") {
-                loader = new dsk_tools::LoaderGCR(fi.absoluteFilePath().toStdString(), format_id, "");
+            if (format_id == "FILE_MFM_NIC") {
+                loader = new dsk_tools::LoaderGCR_NIC(fi.absoluteFilePath().toStdString(), format_id, "");
+            } else
+            if (format_id == "FILE_MFM_NIB") {
+                loader = new dsk_tools::LoaderGCR_NIB(fi.absoluteFilePath().toStdString(), format_id, "");
+            } else
+            if (format_id == "FILE_HXC_MFM") {
+                loader = new dsk_tools::LoaderGCR_MFM(fi.absoluteFilePath().toStdString(), format_id, "");
             } else {
                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not supported yet"));
-            return;
+                return;
             }
             QDialog * file_info = new QDialog(this);
 
