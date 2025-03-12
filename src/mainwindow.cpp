@@ -575,6 +575,9 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$TRACK_OFFSET}", MainWindow::tr("Track Offset"))
         .replace("{$TRACK_SIZE}", MainWindow::tr("Track Size"))
         .replace("{$HEADER}", MainWindow::tr("Header"))
+        .replace("{$SIGNATURE}", MainWindow::tr("Signature"))
+        .replace("{$NO_SIGNATURE}", MainWindow::tr("No known signature found, aborting"))
+        .replace("{$FORMAT_REVISION}", MainWindow::tr("Format revision"))
     ;
 }
 
@@ -767,6 +770,9 @@ void MainWindow::on_actionImage_Info_triggered()
             } else
             if (format_id == "FILE_HXC_MFM") {
                 loader = new dsk_tools::LoaderGCR_MFM(fi.absoluteFilePath().toStdString(), format_id, "");
+            } else
+            if (format_id == "FILE_HXC_HFE") {
+                loader = new dsk_tools::LoaderHXC_HFE(fi.absoluteFilePath().toStdString(), format_id, "");
             } else {
                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not supported yet"));
                 return;

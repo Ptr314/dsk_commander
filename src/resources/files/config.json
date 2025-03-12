@@ -24,7 +24,7 @@
         "FILE_HXC_HFE": {
             "name":         "HxC HFE file",
             "short_name":   "HFE",
-            "source":       false,
+            "source":       true,
             "extensions":   "*.hfe",
             "types":        ["TYPE_AGAT_840"]
         },
