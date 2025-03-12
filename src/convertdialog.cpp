@@ -87,6 +87,10 @@ void ConvertDialog::set_controls()
         ui->volumeIDGroup->setEnabled(true);
         ui->interleavingGroup->setEnabled(true);
     } else
+    if (target_id == "FILE_HXC_HFE") {
+        ui->volumeIDGroup->setEnabled(true);
+        ui->interleavingGroup->setEnabled(true);
+    } else
     if (target_id == "FILE_MFM_NIB") {
         ui->volumeIDGroup->setEnabled(true);
         ui->interleavingGroup->setEnabled(true);
