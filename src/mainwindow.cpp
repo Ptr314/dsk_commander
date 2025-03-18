@@ -578,6 +578,7 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$SIGNATURE}", MainWindow::tr("Signature"))
         .replace("{$NO_SIGNATURE}", MainWindow::tr("No known signature found, aborting"))
         .replace("{$FORMAT_REVISION}", MainWindow::tr("Format revision"))
+        .replace("{$SIDE}", MainWindow::tr("Side"))
     ;
 }
 

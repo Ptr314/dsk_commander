@@ -133,44 +133,44 @@
         <translation>Чередование секторов</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="98"/>
-        <location filename="../convertdialog.cpp" line="164"/>
-        <location filename="../convertdialog.cpp" line="183"/>
+        <location filename="../convertdialog.cpp" line="102"/>
+        <location filename="../convertdialog.cpp" line="168"/>
+        <location filename="../convertdialog.cpp" line="187"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="98"/>
+        <location filename="../convertdialog.cpp" line="102"/>
         <source>Configuration error!</source>
         <translation>Ошибка конфигурации!</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="144"/>
+        <location filename="../convertdialog.cpp" line="148"/>
         <source>Choose file</source>
         <translation>Выберите Файл</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="164"/>
+        <location filename="../convertdialog.cpp" line="168"/>
         <source>No template file selected.</source>
         <translation>Не выбран файл-образец.</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="183"/>
+        <location filename="../convertdialog.cpp" line="187"/>
         <source>The template file type must be the same as the selected export format.</source>
         <translation>Тип файла-образца должен совпадать с выбранным типом для записи.</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="190"/>
+        <location filename="../convertdialog.cpp" line="194"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="190"/>
+        <location filename="../convertdialog.cpp" line="194"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="232"/>
+        <location filename="../convertdialog.cpp" line="236"/>
         <source>Choose template</source>
         <translation>Выберите файл-образец</translation>
     </message>
@@ -384,15 +384,15 @@
         <location filename="../mainwindow.cpp" line="322"/>
         <location filename="../mainwindow.cpp" line="329"/>
         <location filename="../mainwindow.cpp" line="434"/>
-        <location filename="../mainwindow.cpp" line="686"/>
-        <location filename="../mainwindow.cpp" line="694"/>
-        <location filename="../mainwindow.cpp" line="703"/>
-        <location filename="../mainwindow.cpp" line="713"/>
-        <location filename="../mainwindow.cpp" line="721"/>
-        <location filename="../mainwindow.cpp" line="724"/>
+        <location filename="../mainwindow.cpp" line="691"/>
+        <location filename="../mainwindow.cpp" line="699"/>
+        <location filename="../mainwindow.cpp" line="708"/>
+        <location filename="../mainwindow.cpp" line="718"/>
         <location filename="../mainwindow.cpp" line="726"/>
-        <location filename="../mainwindow.cpp" line="737"/>
-        <location filename="../mainwindow.cpp" line="770"/>
+        <location filename="../mainwindow.cpp" line="729"/>
+        <location filename="../mainwindow.cpp" line="731"/>
+        <location filename="../mainwindow.cpp" line="742"/>
+        <location filename="../mainwindow.cpp" line="778"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -525,7 +525,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="536"/>
         <source>Tracks</source>
-        <translation>Треки</translation>
+        <translation>Дорожки</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="537"/>
@@ -584,156 +584,181 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="552"/>
+        <source>H</source>
+        <translation>H</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="553"/>
+        <location filename="../mainwindow.cpp" line="554"/>
         <source>S</source>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="554"/>
+        <location filename="../mainwindow.cpp" line="555"/>
         <source>Parsing finished</source>
         <translation>Анализ завершён</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="555"/>
+        <location filename="../mainwindow.cpp" line="556"/>
         <source>V</source>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="556"/>
+        <location filename="../mainwindow.cpp" line="557"/>
         <source>Index</source>
         <translation>Индекс</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="557"/>
+        <location filename="../mainwindow.cpp" line="558"/>
         <source>Index Mark</source>
         <translation>Метка индекса</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="558"/>
+        <location filename="../mainwindow.cpp" line="559"/>
         <source>Data Mark</source>
         <translation>Метка данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="559"/>
+        <location filename="../mainwindow.cpp" line="560"/>
         <source>Sector Data</source>
         <translation>Данные сектора</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="560"/>
+        <location filename="../mainwindow.cpp" line="561"/>
         <source>End Mark: OK</source>
         <translation>Конец индекса: ОК</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="561"/>
+        <location filename="../mainwindow.cpp" line="562"/>
         <source>End Mark: Not Detected</source>
         <translation>Конец индекса: Не найден</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="562"/>
-        <location filename="../mainwindow.cpp" line="567"/>
+        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="568"/>
         <source>CRC: OK</source>
         <translation>CRC: OK</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="563"/>
-        <location filename="../mainwindow.cpp" line="568"/>
+        <location filename="../mainwindow.cpp" line="564"/>
+        <location filename="../mainwindow.cpp" line="569"/>
         <source>CRC: Error</source>
         <translation>CRC: Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="564"/>
+        <location filename="../mainwindow.cpp" line="565"/>
         <source>Expected</source>
         <translation>Ожидание</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="565"/>
+        <location filename="../mainwindow.cpp" line="566"/>
         <source>Found</source>
         <translation>Прочитано</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="566"/>
+        <location filename="../mainwindow.cpp" line="567"/>
         <source>Data Error</source>
         <translation>Ошибка данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="569"/>
-        <location filename="../mainwindow.cpp" line="571"/>
+        <location filename="../mainwindow.cpp" line="570"/>
+        <location filename="../mainwindow.cpp" line="572"/>
         <source>Epilogue: OK</source>
         <translation>Эпилог: ОК</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="570"/>
-        <location filename="../mainwindow.cpp" line="572"/>
+        <location filename="../mainwindow.cpp" line="571"/>
+        <location filename="../mainwindow.cpp" line="573"/>
         <source>Epilogue: Error</source>
         <translation>Эпилог: Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="573"/>
+        <location filename="../mainwindow.cpp" line="574"/>
         <source>Track List Offset</source>
         <translation>Список дорожек</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="574"/>
+        <location filename="../mainwindow.cpp" line="575"/>
         <source>Track Offset</source>
         <translation>Смещение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="575"/>
+        <location filename="../mainwindow.cpp" line="576"/>
         <source>Track Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="576"/>
+        <location filename="../mainwindow.cpp" line="577"/>
         <source>Header</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="578"/>
+        <source>Signature</source>
+        <translation>Сигнатура</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="579"/>
+        <source>No known signature found, aborting</source>
+        <translation>Сигнатура формата не найдена. обработка прервана</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="580"/>
+        <source>Format revision</source>
+        <translation>Версия формата</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="581"/>
+        <source>Side</source>
+        <translation>Сторона</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="643"/>
         <source>Export as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="686"/>
+        <location filename="../mainwindow.cpp" line="691"/>
         <source>Not implemented!</source>
         <translation>Функция не реализована!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="694"/>
+        <location filename="../mainwindow.cpp" line="699"/>
         <source>Error generating file</source>
         <translation>Ошибка генерации файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="703"/>
+        <location filename="../mainwindow.cpp" line="708"/>
         <source>Error opening template file</source>
         <translation>Ошибка открытия файла-образца</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="713"/>
+        <location filename="../mainwindow.cpp" line="718"/>
         <source>Error reading template file</source>
         <translation>Ошибка чтения файла-образца</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="721"/>
+        <location filename="../mainwindow.cpp" line="726"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation>Выбранный образец не может быть использован - его тип и размер должны совпадать с целевым форматом.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="724"/>
+        <location filename="../mainwindow.cpp" line="729"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation>Некорректные данные для замены треков.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="726"/>
+        <location filename="../mainwindow.cpp" line="731"/>
         <source>Error inserting tracks from template</source>
         <translation>Ошибка замены треков</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="737"/>
+        <location filename="../mainwindow.cpp" line="742"/>
         <source>Error writing file to disk</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="770"/>
+        <location filename="../mainwindow.cpp" line="778"/>
         <source>Not supported yet</source>
         <translation>Поддержка функции еще не реализована</translation>
     </message>
