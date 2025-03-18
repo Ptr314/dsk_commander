@@ -275,8 +275,14 @@ void MainWindow::on_leftFiles_doubleClicked(const QModelIndex &index)
         if (fileInfo.isDir()) {
             set_directory(fileInfo.absoluteFilePath());
         } else {
+            #ifdef _WIN32
+                std::string file_name = fileInfo.absoluteFilePath().toLocal8Bit().constData();
+            #else
+                std::string file_name = fileInfo.absoluteFilePath().toUtf8().constData();
+            #endif
+
             if (ui->autoCheckBox->isChecked()) {
-                int res = dsk_tools::detect_fdd_type(fileInfo.absoluteFilePath().toStdString(), format_id, type_id, filesystem_id);
+                int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
                 if (res != FDD_DETECT_OK ) {
                     QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
                     return;
@@ -288,7 +294,8 @@ void MainWindow::on_leftFiles_doubleClicked(const QModelIndex &index)
                 type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
                 filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
             }
-            load_file(fileInfo.absoluteFilePath().toStdString(), format_id, type_id, filesystem_id);
+
+            load_file(file_name, format_id, type_id, filesystem_id);
         }
     }
 }
@@ -758,7 +765,7 @@ void MainWindow::on_actionImage_Info_triggered()
             dsk_tools::Loader * loader;
 
             if (format_id == "FILE_RAW_MSB") {
-                loader = new dsk_tools::LoaderRAW(fi.absoluteFilePath().toStdString(), format_id, "", true);
+                loader = new dsk_tools::LoaderRAW(fi.absoluteFilePath().toStdString(), format_id, "");
             } else
             if (format_id == "FILE_AIM") {
                 loader = new dsk_tools::LoaderAIM(fi.absoluteFilePath().toStdString(), format_id, "");
