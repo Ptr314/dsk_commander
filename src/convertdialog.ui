@@ -69,7 +69,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QGroupBox" name="groupBox_2">
+      <widget class="QGroupBox" name="substitutionGroup">
        <property name="title">
         <string>Track substitution</string>
        </property>
@@ -158,7 +158,7 @@
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string notr="true">0x</string>
+           <string notr="true">$</string>
           </property>
          </widget>
         </item>
