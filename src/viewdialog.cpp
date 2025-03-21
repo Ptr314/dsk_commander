@@ -4,7 +4,7 @@
 #include "charmaps.h"
 #include <set>
 
-ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BYTES &data, int preferred_type)
+ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BYTES &data, int preferred_type, bool deleted)
     : QDialog(parent)
     , ui(new Ui::ViewDialog)
     , m_settings(settings)
@@ -32,6 +32,8 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     ui->encodingCombo->addItem(ViewDialog::tr("Apple //c"), "apple2c");
     ui->encodingCombo->setCurrentIndex(settings->value("viewer/encoding", 0).toInt());
     ui->encodingCombo->blockSignals(false);
+
+    ui->deletedLabel->setVisible(deleted);
 
     print_data();
 }

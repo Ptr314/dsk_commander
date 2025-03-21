@@ -90,6 +90,8 @@ MainWindow::MainWindow(QWidget *parent)
     add_languages();
     load_config();
     init_controls();
+
+    ui->tabWidget->setCurrentIndex(0);
 }
 
 void MainWindow::switch_language(const QString & lang, bool init)
@@ -205,12 +207,6 @@ void MainWindow::on_actionOpen_directory_triggered()
     }
 }
 
-void MainWindow::on_openDirectoryBtn_clicked()
-{
-    on_actionOpen_directory_triggered();
-}
-
-
 void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
 {
     ui->leftTypeCombo->clear();
@@ -262,44 +258,6 @@ void MainWindow::on_leftFiles_clicked(const QModelIndex &index)
     //TODO: Do something
 }
 
-void MainWindow::on_leftFiles_doubleClicked(const QModelIndex &index)
-{
-    std::string format_id;
-    std::string type_id;
-    std::string filesystem_id;
-
-    QModelIndexList indexes = ui->leftFiles->selectionModel()->selectedIndexes();
-    if (indexes.size() == 1) {
-        QModelIndex selectedIndex = indexes.at(0);
-        QFileInfo fileInfo = leftFilesModel.fileInfo(selectedIndex);
-        if (fileInfo.isDir()) {
-            set_directory(fileInfo.absoluteFilePath());
-        } else {
-            #ifdef _WIN32
-                std::string file_name = fileInfo.absoluteFilePath().toLocal8Bit().constData();
-            #else
-                std::string file_name = fileInfo.absoluteFilePath().toUtf8().constData();
-            #endif
-
-            if (ui->autoCheckBox->isChecked()) {
-                int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
-                if (res != FDD_DETECT_OK ) {
-                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
-                    return;
-                } else {
-                    set_combos(QString::fromStdString(format_id), QString::fromStdString(type_id), QString::fromStdString(filesystem_id));
-                }
-            } else {
-                format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
-                type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
-                filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
-            }
-
-            load_file(file_name, format_id, type_id, filesystem_id);
-        }
-    }
-}
-
 void MainWindow::dir()
 {
     int dir_res = filesystem->dir(&files);
@@ -314,6 +272,12 @@ void MainWindow::dir()
     });
 
     update_table();
+}
+
+void MainWindow::update_info()
+{
+    auto info = replace_placeholders(QString::fromStdString(filesystem->information()));
+    ui->informationText->setPlainText(info);
 }
 
 void MainWindow::process_image(std::string filesystem_type)
@@ -331,7 +295,9 @@ void MainWindow::process_image(std::string filesystem_type)
         }
 
         dir();
+        update_info();
         setup_buttons(false);
+        ui->tabWidget->setCurrentIndex(0);
     } else {
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File system initialization error!"));
     }
@@ -420,26 +386,6 @@ void MainWindow::update_table()
         }
         items.append(nameItem);
         rightFilesModel.appendRow( items );
-    }
-}
-
-void MainWindow::on_rightFiles_doubleClicked(const QModelIndex &index)
-{
-    dsk_tools::fileData f = files[index.row()];
-
-    if (f.is_dir){
-        filesystem->cd(f);
-        dir();
-    } else {
-        dsk_tools::BYTES data = filesystem->get_file(f);
-
-        if (data.size() > 0) {
-            QDialog * w = new ViewDialog(this, settings, data, f.preferred_type);
-            w->setAttribute(Qt::WA_DeleteOnClose);
-            w->show();
-        } else {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File reading error!"));
-        }
     }
 }
 
@@ -552,7 +498,7 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$INCORRECT_TS_DATA}", MainWindow::tr("Incorrect T/S data, stopping iterations"))
         .replace("{$NEXT_TS}", MainWindow::tr("Next T/S List Location"))
         .replace("{$FILE_END_REACHED}", MainWindow::tr("File End Reached"))
-        .replace("{$FILE_DELETED}", MainWindow::tr("File Is Deleted"))
+        .replace("{$FILE_DELETED}", MainWindow::tr("The file is marked as deleted, the data below may be incorrect"))
         .replace("{$ERROR_PARSING}", MainWindow::tr("File parsing error"))
         .replace("{$TRACK}", MainWindow::tr("Track"))
         .replace("{$TRACK_SHORT}", MainWindow::tr("T"))
@@ -586,6 +532,31 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$NO_SIGNATURE}", MainWindow::tr("No known signature found, aborting"))
         .replace("{$FORMAT_REVISION}", MainWindow::tr("Format revision"))
         .replace("{$SIDE}", MainWindow::tr("Side"))
+        .replace("{$CUSTOM_DATA}", MainWindow::tr("Custom Data"))
+        .replace("{$VTOC_FOUND}", MainWindow::tr("DOS 3.3 VTOC found"))
+        .replace("{$VTOC_NOT_FOUND}", MainWindow::tr("DOS 3.3 VTOC not found"))
+        .replace("{$VTOC_CATALOG_TRACK}", MainWindow::tr("Root Catalog Track"))
+        .replace("{$VTOC_CATALOG_SECTOR}", MainWindow::tr("Root Catalog Sector"))
+        .replace("{$VTOC_DOS_RELEASE}", MainWindow::tr("DOS Release"))
+        .replace("{$VTOC_VOLUME_ID}", MainWindow::tr("Volume ID"))
+        .replace("{$VTOC_VOLUME_NAME}", MainWindow::tr("Volume name"))
+        .replace("{$VTOC_PAIRS_ON_SECTOR}", MainWindow::tr("Pairs per T/S list"))
+        .replace("{$VTOC_LAST_TRACK}", MainWindow::tr("Last track"))
+        .replace("{$VTOC_DIRECTION}", MainWindow::tr("Direction"))
+        .replace("{$VTOC_TRACKS_TOTAL}", MainWindow::tr("Tracks total"))
+        .replace("{$VTOC_SECTORS_ON_TRACK}", MainWindow::tr("Sectors on track"))
+        .replace("{$VTOC_BYTES_PER_SECTOR}", MainWindow::tr("Bytes per sector"))
+        .replace("{$ERROR_OPENING}", MainWindow::tr("Error opening the file"))
+        .replace("{$ERROR_LOADING}", MainWindow::tr("Error loading, check if the file type is correct"))
+
+        .replace("{$DPB_INFO}", MainWindow::tr("DPB Information"))
+        .replace("{$DPB_VOLUME_ID}", MainWindow::tr("Volume ID"))
+        .replace("{$DPB_TYPE}", MainWindow::tr("Device type"))
+        .replace("{$DPB_DSIDE}", MainWindow::tr("DSIDE"))
+        .replace("{$DPB_TSIZE}", MainWindow::tr("Blocks on track"))
+        .replace("{$DPB_DSIZE}", MainWindow::tr("Tracks on disk"))
+        .replace("{$DPB_MAXBLOK}", MainWindow::tr("Last block"))
+        .replace("{$DPB_VTOCADR}", MainWindow::tr("VTOC block"))
     ;
 }
 
@@ -612,12 +583,6 @@ void MainWindow::on_actionFile_info_triggered()
 
         }
     }
-}
-
-
-void MainWindow::on_viewButton_clicked()
-{
-    on_rightFiles_doubleClicked(ui->rightFiles->currentIndex());
 }
 
 
@@ -674,7 +639,7 @@ void MainWindow::on_actionConvert_triggered()
     uint8_t volume_id;
     QString interleaving_id;
 
-    ConvertDialog dialog(this, settings, &file_types, &file_formats, &interleavings, image, type_id);
+    ConvertDialog dialog(this, settings, &file_types, &file_formats, &interleavings, image, type_id, filesystem->get_volume_id());
     if (dialog.exec(target_id, output_file, template_file, numtracks, volume_id, interleaving_id) == QDialog::Accepted){
         qDebug() << target_id;
         qDebug() << output_file;
@@ -762,25 +727,33 @@ void MainWindow::on_actionImage_Info_triggered()
         QFileInfo fi = leftFilesModel.fileInfo(selectedIndex);
         if (!fi.isDir()) {
             std::string format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
+            std::string type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
             dsk_tools::Loader * loader;
 
+            #ifdef _WIN32
+                std::string file_name = fi.absoluteFilePath().toLocal8Bit().constData();
+            #else
+                std::string file_name = fi.absoluteFilePath().toUtf8().constData();
+            #endif
+
+
             if (format_id == "FILE_RAW_MSB") {
-                loader = new dsk_tools::LoaderRAW(fi.absoluteFilePath().toStdString(), format_id, "");
+                loader = new dsk_tools::LoaderRAW(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_AIM") {
-                loader = new dsk_tools::LoaderAIM(fi.absoluteFilePath().toStdString(), format_id, "");
+                loader = new dsk_tools::LoaderAIM(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIC") {
-                loader = new dsk_tools::LoaderGCR_NIC(fi.absoluteFilePath().toStdString(), format_id, "");
+                loader = new dsk_tools::LoaderGCR_NIC(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIB") {
-                loader = new dsk_tools::LoaderGCR_NIB(fi.absoluteFilePath().toStdString(), format_id, "");
+                loader = new dsk_tools::LoaderGCR_NIB(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_MFM") {
-                loader = new dsk_tools::LoaderGCR_MFM(fi.absoluteFilePath().toStdString(), format_id, "");
+                loader = new dsk_tools::LoaderGCR_MFM(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_HFE") {
-                loader = new dsk_tools::LoaderHXC_HFE(fi.absoluteFilePath().toStdString(), format_id, "");
+                loader = new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
             } else {
                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Not supported yet"));
                 return;
@@ -793,6 +766,67 @@ void MainWindow::on_actionImage_Info_triggered()
             QString info = replace_placeholders(QString::fromStdString(loader->file_info()));
             fileinfoUi.textBox->setPlainText(info);
             file_info->exec();
+        }
+    }
+}
+
+
+void MainWindow::on_actionOpen_Image_triggered()
+{
+    std::string format_id;
+    std::string type_id;
+    std::string filesystem_id;
+
+    QModelIndexList indexes = ui->leftFiles->selectionModel()->selectedIndexes();
+    if (indexes.size() == 1) {
+        QModelIndex selectedIndex = indexes.at(0);
+        QFileInfo fileInfo = leftFilesModel.fileInfo(selectedIndex);
+        if (fileInfo.isDir()) {
+            set_directory(fileInfo.absoluteFilePath());
+        } else {
+            #ifdef _WIN32
+                std::string file_name = fileInfo.absoluteFilePath().toLocal8Bit().constData();
+            #else
+                std::string file_name = fileInfo.absoluteFilePath().toUtf8().constData();
+            #endif
+
+            if (ui->autoCheckBox->isChecked()) {
+                int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
+                if (res != FDD_DETECT_OK ) {
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
+                    return;
+                } else {
+                    set_combos(QString::fromStdString(format_id), QString::fromStdString(type_id), QString::fromStdString(filesystem_id));
+                }
+            } else {
+                format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
+                type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
+                filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
+            }
+
+            load_file(file_name, format_id, type_id, filesystem_id);
+        }
+    }
+
+}
+
+void MainWindow::on_actionView_triggered()
+{
+    QModelIndex index = ui->rightFiles->currentIndex();
+    dsk_tools::fileData f = files[index.row()];
+
+    if (f.is_dir){
+        filesystem->cd(f);
+        dir();
+    } else {
+        dsk_tools::BYTES data = filesystem->get_file(f);
+
+        if (data.size() > 0) {
+            QDialog * w = new ViewDialog(this, settings, data, f.preferred_type, f.is_deleted);
+            w->setAttribute(Qt::WA_DeleteOnClose);
+            w->show();
+        } else {
+            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File reading error!"));
         }
     }
 

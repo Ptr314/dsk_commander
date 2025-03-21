@@ -13,7 +13,7 @@ ConvertDialog::ConvertDialog(QWidget *parent)
     ui->setupUi(this);
 }
 
-ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject * file_types, QJsonObject * file_formats, QJsonObject *interleavings, dsk_tools::diskImage * image, const QString & type_id):
+ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject * file_types, QJsonObject * file_formats, QJsonObject *interleavings, dsk_tools::diskImage * image, const QString & type_id, int fs_volume_id):
     ConvertDialog(parent)
 {
     m_type_id = type_id;
@@ -22,6 +22,7 @@ ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject 
     m_file_formats = file_formats;
     m_interleavings = interleavings;
     m_image = image;
+    m_fs_volume_id = fs_volume_id;
 
     ui->volumeIDEdit->setMaximumWidth(ui->volumeIDEdit->fontMetrics().horizontalAdvance("WWW") + 5);
 
@@ -79,7 +80,10 @@ void ConvertDialog::set_controls()
 {
     QString target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
 
+    ui->substitutionGroup->setEnabled(false);
+
     if (target_id == "FILE_RAW_MSB") {
+        ui->substitutionGroup->setEnabled(true);
         ui->volumeIDGroup->setEnabled(false);
         ui->interleavingGroup->setEnabled(false);
     } else
@@ -194,6 +198,24 @@ void ConvertDialog::accept()
         QMessageBox::StandardButton res = QMessageBox::question(this, ConvertDialog::tr("File exists"), ConvertDialog::tr("File already exists. Overwrite?"));
         if (res != QMessageBox::Yes) return;
     }
+
+    uint8_t volume_id;
+    QString volume_id_str = ui->volumeIDEdit->text();
+    if (volume_id_str.size() > 0)
+        volume_id = static_cast<uint8_t>(std::stoi(volume_id_str.toStdString(), nullptr, 16));
+    else
+        volume_id = 0;
+
+    if (m_fs_volume_id > 0 && m_fs_volume_id != volume_id) {
+        QMessageBox::StandardButton res = QMessageBox::question(
+                                            this,
+                                            ConvertDialog::tr("Different Volume IDs"),
+                                            ConvertDialog::tr("Different Volume IDs. %1. Contunue?")
+                                                .arg("$"+QString::fromStdString(dsk_tools::int_to_hex(static_cast<uint8_t>(m_fs_volume_id))))
+        );
+        if (res != QMessageBox::Yes) return;
+    }
+
     save_setup();
     QDialog::accept();
 }
@@ -249,13 +271,13 @@ int ConvertDialog::exec(QString &target_id, QString & output_file, QString & tem
         target_id = ui->formatCombo->itemData(ui->formatCombo->currentIndex()).toString();
         output_file = output_file_name;
         template_file = template_file_name;
-        if (ui->useCheck->isChecked())
+        if (ui->substitutionGroup->isEnabled() && ui->useCheck->isChecked())
             numtracks = ui->tracksCounter->value();
         else
             numtracks = 0;
-        QString volume_is_str = ui->volumeIDEdit->text();
-        if (volume_is_str.size() > 0)
-            volume_id = static_cast<uint8_t>(std::stoi(volume_is_str.toStdString(), nullptr, 16));
+        QString volume_id_str = ui->volumeIDEdit->text();
+        if (volume_id_str.size() > 0)
+            volume_id = static_cast<uint8_t>(std::stoi(volume_id_str.toStdString(), nullptr, 16));
         else
             volume_id = 0;
 

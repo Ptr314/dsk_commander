@@ -30,17 +30,9 @@ public:
 private slots:
     void on_actionOpen_directory_triggered();
 
-    void on_openDirectoryBtn_clicked();
-
     void on_leftFilterCombo_currentIndexChanged(int index);
 
     void on_leftFiles_clicked(const QModelIndex &index);
-
-    void on_leftFiles_doubleClicked(const QModelIndex &index);
-
-    void on_rightFiles_doubleClicked(const QModelIndex &index);
-
-    // void on_rightFormatCombo_currentIndexChanged(int index);
 
     void on_leftTypeCombo_currentIndexChanged(int index);
 
@@ -60,11 +52,13 @@ private slots:
 
     void on_actionFile_info_triggered();
 
-    void on_viewButton_clicked();
-
     void on_actionSave_to_file_triggered();
 
     void on_actionImage_Info_triggered();
+
+    void on_actionOpen_Image_triggered();
+
+    void on_actionView_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -95,6 +89,7 @@ private:
     void load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type);
     void process_image(std::string filesystem_type);                                                       // Open selecteed image file and list its contents
     void dir();
+    void update_info();
     void init_table();                                                          // Set columns etc. depending on image type
     void update_table();                                                        // Put file items to the table
     void setup_buttons(bool disabled);
