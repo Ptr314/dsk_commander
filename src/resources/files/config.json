@@ -64,31 +64,15 @@
             "types":        []
         }
     },
-    "interleaving" : {
-        "INTERLEAVING_OFF": {
-            "name": "No Interleaving",
-            "raw2logic": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-        },
-        "INTERLEAVING_DOS33": {
-            "name": "Agat 140k / Apple DOS 3.3 Interleaving",
-            "raw2logic": [0, 7, 14, 6, 13, 5, 12, 4, 11, 3, 10, 2, 9, 1, 8, 15]
-        },
-        "INTERLEAVING_PRODOS": {
-            "name": "Apple ProDOS Interleaving",
-            "raw2logic": [0, 8, 1, 9, 2, 10, 3, 11, 4, 12, 5, 13, 6, 14, 7, 15]
-        }
-    },
     "file_types": {
         "TYPE_AGAT_840": {
             "name": "Agat 840K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
-            "interleaving": ["INTERLEAVING_OFF"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS"]
         },
         "TYPE_AGAT_140": {
             "name": "Agat/Apple 140K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"],
-            "interleaving": ["INTERLEAVING_OFF", "INTERLEAVING_DOS33", "INTERLEAVING_PRODOS"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS"]
         }
     },

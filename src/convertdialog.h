@@ -21,7 +21,6 @@ public:
                            QSettings *settings,
                            QJsonObject * file_types,
                            QJsonObject * file_formats,
-                           QJsonObject * interleavings,
                            dsk_tools::diskImage * image,
                            const QString & type_id,
                            int fs_volume_id
@@ -30,7 +29,7 @@ public:
     ~ConvertDialog();
     QString output_file_name;
     QString template_file_name;
-    int exec(QString & target_id, QString & output_file, QString & template_file, int & numtracks, uint8_t & volume_id, QString & interleaving_id);
+    int exec(QString & target_id, QString & output_file, QString & template_file, int & numtracks, uint8_t & volume_id);
 
 protected:
     void accept() override;
@@ -51,7 +50,6 @@ private:
     QSettings * m_settings;
     QJsonObject * m_file_types;
     QJsonObject * m_file_formats;
-    QJsonObject * m_interleavings;
     dsk_tools::diskImage * m_image;
     int m_fs_volume_id;
 
