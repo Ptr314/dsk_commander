@@ -149,7 +149,6 @@ void MainWindow::load_config()
     file_formats = jsonRoot["file_formats"].toObject();
     file_types = jsonRoot["file_types"].toObject();
     file_systems = jsonRoot["file_systems"].toObject();
-    interleavings = jsonRoot["interleaving"].toObject();
 }
 
 
@@ -637,25 +636,23 @@ void MainWindow::on_actionConvert_triggered()
     QString template_file;
     int numtracks;
     uint8_t volume_id;
-    QString interleaving_id;
 
-    ConvertDialog dialog(this, settings, &file_types, &file_formats, &interleavings, image, type_id, filesystem->get_volume_id());
-    if (dialog.exec(target_id, output_file, template_file, numtracks, volume_id, interleaving_id) == QDialog::Accepted){
+    ConvertDialog dialog(this, settings, &file_types, &file_formats, image, type_id, filesystem->get_volume_id());
+    if (dialog.exec(target_id, output_file, template_file, numtracks, volume_id) == QDialog::Accepted){
         qDebug() << target_id;
         qDebug() << output_file;
         qDebug() << numtracks;
         qDebug() << volume_id;
-        qDebug() << interleaving_id;
 
         dsk_tools::Writer * writer;
 
         std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
 
         if ( mfm_formats.find(target_id) != mfm_formats.end()) {
-            writer = new dsk_tools::WriterHxCMFM(target_id.toStdString(), image, volume_id, interleaving_id.toStdString());
+            writer = new dsk_tools::WriterHxCMFM(target_id.toStdString(), image, volume_id);
         } else
             if (target_id == "FILE_HXC_HFE") {
-                writer = new dsk_tools::WriterHxCHFE(target_id.toStdString(), image, volume_id, interleaving_id.toStdString());
+                writer = new dsk_tools::WriterHxCHFE(target_id.toStdString(), image, volume_id);
         } else
         if (target_id == "FILE_RAW_MSB") {
             writer = new dsk_tools::WriterRAW(target_id.toStdString(), image);

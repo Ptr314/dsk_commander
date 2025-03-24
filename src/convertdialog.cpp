@@ -13,14 +13,13 @@ ConvertDialog::ConvertDialog(QWidget *parent)
     ui->setupUi(this);
 }
 
-ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject * file_types, QJsonObject * file_formats, QJsonObject *interleavings, dsk_tools::diskImage * image, const QString & type_id, int fs_volume_id):
+ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject * file_types, QJsonObject * file_formats, dsk_tools::diskImage * image, const QString & type_id, int fs_volume_id):
     ConvertDialog(parent)
 {
     m_type_id = type_id;
     m_settings = settings;
     m_file_types = file_types;
     m_file_formats = file_formats;
-    m_interleavings = interleavings;
     m_image = image;
     m_fs_volume_id = fs_volume_id;
 
@@ -85,23 +84,18 @@ void ConvertDialog::set_controls()
     if (target_id == "FILE_RAW_MSB") {
         ui->substitutionGroup->setEnabled(true);
         ui->volumeIDGroup->setEnabled(false);
-        ui->interleavingGroup->setEnabled(false);
     } else
     if (target_id == "FILE_HXC_MFM") {
         ui->volumeIDGroup->setEnabled(true);
-        ui->interleavingGroup->setEnabled(true);
     } else
     if (target_id == "FILE_HXC_HFE") {
         ui->volumeIDGroup->setEnabled(true);
-        ui->interleavingGroup->setEnabled(true);
     } else
     if (target_id == "FILE_MFM_NIB") {
         ui->volumeIDGroup->setEnabled(true);
-        ui->interleavingGroup->setEnabled(true);
     } else
     if (target_id == "FILE_MFM_NIC") {
         ui->volumeIDGroup->setEnabled(true);
-        ui->interleavingGroup->setEnabled(true);
     } else
         QMessageBox::critical(0, ConvertDialog::tr("Error"), ConvertDialog::tr("Configuration error!"));
 
@@ -115,13 +109,6 @@ void ConvertDialog::set_controls()
         ui->templateBtn->setEnabled(false);
         ui->templateText->setEnabled(false);
         ui->useLabel->setEnabled(false);
-    }
-
-    ui->interleavingCombo->clear();
-    foreach (const QJsonValue & int_obj, (*m_file_types)[m_type_id].toObject()["interleaving"].toArray()) {
-        QString int_id = int_obj.toString();
-        QString int_name = QCoreApplication::translate("config", (*m_interleavings)[int_id].toObject()["name"].toString().toUtf8().constData());
-        ui->interleavingCombo->addItem(int_name, int_id);
     }
 }
 
@@ -264,7 +251,7 @@ void ConvertDialog::on_actionChoose_Template_triggered()
 }
 
 
-int ConvertDialog::exec(QString &target_id, QString & output_file, QString & template_file, int &numtracks, uint8_t &volume_id, QString &interleaving_id)
+int ConvertDialog::exec(QString &target_id, QString & output_file, QString & template_file, int &numtracks, uint8_t &volume_id)
 {
     int res = QDialog::exec();
     if (res == QDialog::Accepted) {
@@ -280,8 +267,6 @@ int ConvertDialog::exec(QString &target_id, QString & output_file, QString & tem
             volume_id = static_cast<uint8_t>(std::stoi(volume_id_str.toStdString(), nullptr, 16));
         else
             volume_id = 0;
-
-        interleaving_id = ui->interleavingCombo->itemData(ui->interleavingCombo->currentIndex()).toString();
     }
     return res;
 }
