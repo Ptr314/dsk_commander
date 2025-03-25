@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.21)
 
 project(DISKCommander VERSION 0.1.0 LANGUAGES CXX)
 
@@ -47,8 +47,11 @@ set(PROJECT_SOURCES
         resources/files/config.json
         ../README.md
         ../LINKS.md
+        ../MANUAL.md
+        ../BUILD.md
 )
 
+# Добавляем переводы интерфейса из Qt
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED Core)
 if(NOT ${Qt6Core_DIR} STREQUAL "")
     set(QT_TRANSLATIONS_DIR "${Qt6Core_DIR}/../../../translations")
@@ -146,6 +149,11 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
+
+if(APPLE)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum macOS deployment version" FORCE)
+    set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal binary for macOS" FORCE)
+endif()
 
 include(GNUInstallDirs)
 
