@@ -45,6 +45,7 @@ set(PROJECT_SOURCES
         aboutdlg.ui
         fileinfodialog.ui
         resources/files/config.json
+        resources/files/Info.plist
         ../README.md
         ../LINKS.md
         ../MANUAL.md
@@ -138,22 +139,30 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 # Настройки для правильной генерации исполняемого файла под разные платформы
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.${PROJECT_NAME})
+
+if(APPLE)
+    if(${QT_VERSION} VERSION_LESS 6.1.0)
+      set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.${PROJECT_NAME})
+    endif()
+
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15" CACHE STRING "Minimum macOS deployment version" FORCE)
+    set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal binary for macOS" FORCE)
+    set(ICON_FILE "${CMAKE_CURRENT_SOURCE_DIR}/resources/files/DISKCommander.icns")
+    set(PLIST_FILE "${CMAKE_CURRENT_SOURCE_DIR}/resources/files/Info.plist")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        ${BUNDLE_ID_OPTION}
+        MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+        MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+        MACOSX_BUNDLE TRUE
+        MACOSX_BUNDLE_ICON_FILE "DISKCommander.icns"
+        MACOSX_BUNDLE_INFO_PLIST "${PLIST_FILE}"
+    )
+  target_sources(${PROJECT_NAME} PRIVATE ${ICON_FILE})
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    ${BUNDLE_ID_OPTION}
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
-
-if(APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum macOS deployment version" FORCE)
-    set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal binary for macOS" FORCE)
-endif()
 
 include(GNUInstallDirs)
 
