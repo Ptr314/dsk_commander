@@ -141,7 +141,14 @@ cd /tmp
 tar xf ~/Downloads/qt-everywhere-src-6.8.2.tar.xz
 mkdir -p ~/dev/qt-build
 cd ~/dev/qt-build
-/tmp/qt-everywhere-src-6.8.2/configure -static -static-runtime -release -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64" -make libs -prefix /usr/local/Qt-6.8.2-static
+/tmp/qt-everywhere-src-6.8.2/configure \
+    -static -release -nomake tests -nomake examples \
+    -opensource -confirm-license \
+    -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64" \
+    -platform macx-clang \
+    -no-rpath \
+    -prefix /usr/local/Qt-6.8.2-static \
+    -silent
 cmake --build . --parallel
 sudo cmake --install .
 ```
