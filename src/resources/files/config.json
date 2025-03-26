@@ -73,7 +73,7 @@
         "TYPE_AGAT_140": {
             "name": "Agat/Apple 140K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"],
-            "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS"]
+            "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS", "FILESYSTEM_CPM"]
         }
     },
     "file_systems": {
@@ -82,6 +82,9 @@
         },
         "FILESYSTEM_SPRITE_OS": {
             "name": "Agat Sprite OS"
+        },
+        "FILESYSTEM_CPM": {
+            "name": "Apple CP/M"
         }
     }
 }
