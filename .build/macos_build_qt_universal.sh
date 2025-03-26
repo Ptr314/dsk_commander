@@ -28,8 +28,8 @@ extract_sources() {
     tar xf "$QT_SRC_TAR" -C /tmp
 }
 
-build_universal() {
-    echo "Building universal Qt..."
+configure_universal() {
+    echo "Configuring universal Qt..."
     mkdir -p "$BUILD_BASE"
     cd "$BUILD_BASE"
 
@@ -41,10 +41,15 @@ build_universal() {
         -prefix $INSTALL_BASE \
         -- \
         -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+}
 
+build_universal() {
+    echo "Building universal Qt..."
+    cd "$BUILD_BASE"
     cmake --build . --parallel
     cmake --install .
 }
+
 
 install_to_system() {
     echo "Installing to $SYSTEM_PREFIX..."
@@ -69,27 +74,30 @@ menu() {
     while true; do
         echo "\n==== Qt Build Menu ===="
         echo "1) Extract sources"
-        echo "2) Build universal (arm64 + x86_64)"
-        echo "3) Install to system path"
-        echo "4) Update environment variables"
-        echo "5) Run everything sequentially"
-        echo "6) Exit"
+        echo "2) Configure universal (arm64 + x86_64)"
+        echo "3) Build universal (arm64 + x86_64)"
+        echo "4) Install to system path"
+        echo "5) Update environment variables"
+        echo "6) Run everything sequentially"
+        echo "7) Exit"
         echo "======================="
 
-        read -p "Choose an operation [1-6]: " REPLY
+        read -p "Choose an operation [1-7]: " REPLY
 
         case $REPLY in
             1) extract_sources ;;
-            2) build_universal ;;
-            3) install_to_system ;;
-            4) update_env ;;
-            5)
+            2) configure_universal ;;
+            3) build_universal ;;
+            4) install_to_system ;;
+            5) update_env ;;
+            6)
                 extract_sources
+                configure_universal
                 build_universal
                 install_to_system
                 update_env
                 ;;
-            6) echo "Exiting..."; break ;;
+            7) echo "Exiting..."; break ;;
             *) echo "Invalid choice" ;;
         esac
     done
