@@ -556,6 +556,8 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$DPB_DSIZE}", MainWindow::tr("Tracks on disk"))
         .replace("{$DPB_MAXBLOK}", MainWindow::tr("Last block"))
         .replace("{$DPB_VTOCADR}", MainWindow::tr("VTOC block"))
+
+        .replace("{$EXTENT}", MainWindow::tr("Extent"))
     ;
 }
 

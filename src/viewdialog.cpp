@@ -30,6 +30,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     ui->encodingCombo->addItem(ViewDialog::tr("Agat"), "agat");
     ui->encodingCombo->addItem(ViewDialog::tr("Apple II"), "apple2");
     ui->encodingCombo->addItem(ViewDialog::tr("Apple //c"), "apple2c");
+    ui->encodingCombo->addItem(ViewDialog::tr("ASCII"), "ascii");
     ui->encodingCombo->setCurrentIndex(settings->value("viewer/encoding", 0).toInt());
     ui->encodingCombo->blockSignals(false);
 
@@ -54,17 +55,27 @@ void ViewDialog::print_data()
         static const std::string (*charmap)[256];
 
         std::set<uint8_t> crlf;
+        std::set<uint8_t> ignore = {};
+        std::set<uint8_t> txt_end = {};
+        int tab = 0;
         if (ui->encodingCombo->currentData() == "agat") {
             charmap = &dsk_tools::agat_charmap;
-            crlf = {0x8d, 0x13};
+            crlf = {0x8d, 0x0D};
         } else
         if (ui->encodingCombo->currentData() == "apple2") {
             charmap = &dsk_tools::apple2_charmap;
-            crlf = {0x8d, 0x13};
+            crlf = {0x8d, 0x0D};
         } else
         if (ui->encodingCombo->currentData() == "apple2c") {
             charmap = &dsk_tools::apple2c_charmap;
-            crlf = {0x8d, 0x13};
+            crlf = {0x8d, 0x0D};
+        } else
+        if (ui->encodingCombo->currentData() == "ascii") {
+            charmap = &dsk_tools::ascii_charmap;
+            crlf = {0x0D};
+            ignore = {0x0A};
+            txt_end = {0x1A};
+            tab = 8;
         } else {
             // TODO: Other encodings;
         }
@@ -87,12 +98,23 @@ void ViewDialog::print_data()
 
         } else
         if (ui->modeCombo->currentData() == "txt") {
+            int last_size = 0;
             for (int a=0; a < m_data.size(); a++) {
                 uint8_t c = m_data.at(a);
-                if (crlf.find(c) != crlf.end())
-                    out += "\r";
-                else
-                    out += QString::fromStdString((*charmap)[c]);
+                if (ignore.find(c) == ignore.end()) {
+                    if (crlf.find(c) != crlf.end()) {
+                        out += "\r";
+                        last_size = out.size();
+                    } else
+                    if (tab > 0 && c == 0x09) {
+                        int line_size = out.size() - last_size;
+                        for (int i=0; i< tab - line_size % tab; i++) out += " ";
+                    } else
+                    if (txt_end.find(c) != txt_end.end()) {
+                        break;
+                    } else
+                        out += QString::fromStdString((*charmap)[c]);
+                }
             }
             ui->textBox->setWordWrapMode(QTextOption::WordWrap);
         } else
