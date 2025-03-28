@@ -202,7 +202,7 @@ void ViewDialog::print_data()
                 int line_num =  (int)m_data[a] + (int)m_data[a+1]*256; a +=2;
                 line += std::to_string(line_num) + " ";
                 uint8_t c = m_data[a++];
-                // if (c == 0) break;
+                if (c == 0) break;
                 while (a < m_data.size() && c != 0) {
                     switch (c) {
                         case 0x0B: {
@@ -279,9 +279,12 @@ void ViewDialog::print_data()
                             if (c & 0x80)
                                 // Token
                                 if (c == 0xFF) {
-                                    uint8_t cc = m_data[a++];
+                                    uint8_t cc = m_data[a++] & 0x7F;
                                     // line += ((line[line.size()-1] != ' ')?" ":"") + std::string(dsk_tools::MBASIC_extended_tokens[cc & 0x7F]) +" ";
-                                    line += std::string(dsk_tools::MBASIC_extended_tokens[cc & 0x7F]);
+                                    if (cc < dsk_tools::MBASIC_extended_tokens.size())
+                                        line += std::string(dsk_tools::MBASIC_extended_tokens[cc & 0x7F]);
+                                    else
+                                        line += "?<" + dsk_tools::int_to_hex(cc) + ">?";
                                 } else
                                     // line += ((line[line.size()-1] != ' ')?" ":"") + std::string(dsk_tools::MBASIC_main_tokens[c & 0x7F]) +" ";
                                     line += std::string(dsk_tools::MBASIC_main_tokens[c & 0x7F]);

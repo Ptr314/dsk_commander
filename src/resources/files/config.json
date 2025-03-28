@@ -4,7 +4,7 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.dsk;*.img",
+            "extensions":   "*.dsk;*.do;*.po;*.cpm",
             "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
         },
         "FILE_AIM": {
@@ -73,7 +73,7 @@
         "TYPE_AGAT_140": {
             "name": "Agat/Apple 140K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"],
-            "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS", "FILESYSTEM_CPM"]
+            "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS", "FILESYSTEM_CPM_DOS", "FILESYSTEM_CPM_PRODOS", "FILESYSTEM_CPM_RAW"]
         }
     },
     "file_systems": {
@@ -83,8 +83,14 @@
         "FILESYSTEM_SPRITE_OS": {
             "name": "Agat Sprite OS"
         },
-        "FILESYSTEM_CPM": {
-            "name": "CP/M"
+        "FILESYSTEM_CPM_DOS": {
+            "name": "CP/M (DOS 3.3 skew)"
+        },
+        "FILESYSTEM_CPM_PRODOS": {
+            "name": "CP/M (ProDOS skew)"
+        },
+        "FILESYSTEM_CPM_RAW": {
+            "name": "CP/M (No sector skew)"
         }
     }
 }
