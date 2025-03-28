@@ -1,10 +1,11 @@
 #!/bin/bash
 
-PLATFORM="macos"
 QT_PATH="${HOME}/Qt-6.8.2-static-universal"
+
+PLATFORM="macos"
+APP_NAME="DISKCommander"
 BUILD_DIR="./build/${PLATFORM}"
 RELEASE_DIR="./release"
-RESOURCES=./DISKCommander.app/Contents/Resources
 
 VERSION=`cat ../src/globals.h | grep 'PROJECT_VERSION' | awk '{printf $3}' | tr -d '"\n\r'`
 
@@ -14,7 +15,8 @@ cwd=$(pwd)
 cd "$BUILD_DIR"
 ninja
 
-${QT_PATH}/bin/macdeployqt DISKCommander.app -dmg
+${QT_PATH}/bin/macdeployqt ${APP_NAME}.app -dmg
+
 cd $cwd
 mkdir $RELEASE_DIR
-cp ${BUILD_DIR}/DISKCommander.dmg ${RELEASE_DIR}/disk_commander-${VERSION}-${PLATFORM}.dmg
+cp ${BUILD_DIR}/${APP_NAME}.dmg ${RELEASE_DIR}/disk_commander-${VERSION}-${PLATFORM}.dmg

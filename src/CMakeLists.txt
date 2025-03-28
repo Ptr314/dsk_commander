@@ -158,6 +158,10 @@ if(APPLE)
         MACOSX_BUNDLE_INFO_PLIST "${PLIST_FILE}"
     )
   target_sources(${PROJECT_NAME} PRIVATE ${ICON_FILE})
+  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_BUNDLE_DIR:${PROJECT_NAME}>/Contents/Resources"
+    COMMAND ${CMAKE_COMMAND} -E copy "${ICON_FILE}" "$<TARGET_BUNDLE_DIR:${PROJECT_NAME}>/Contents/Resources/"
+  )
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
