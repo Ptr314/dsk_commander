@@ -23,7 +23,12 @@ ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject 
     m_image = image;
     m_fs_volume_id = fs_volume_id;
 
-    ui->volumeIDEdit->setMaximumWidth(ui->volumeIDEdit->fontMetrics().horizontalAdvance("WWW") + 5);
+    #if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
+        ui->volumeIDEdit->setMaximumWidth(ui->volumeIDEdit->fontMetrics().width(QString(3, QChar('W'))));
+    #else
+        ui->volumeIDEdit->setMaximumWidth(ui->volumeIDEdit->fontMetrics().horizontalAdvance("WWW") + 5);
+    #endif
+
 
     QString target_def = m_settings->value("export/target_format", "").toString();
 
