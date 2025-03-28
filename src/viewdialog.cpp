@@ -187,7 +187,7 @@ void ViewDialog::print_data()
                     c = m_data[a++];
                 }
                 line += "\n";
-                out += line;
+                out += QString::fromStdString(line);
             } while (a < m_data.size());
         } else
         if (ui->modeCombo->currentData() == "mbasic") {
@@ -304,7 +304,7 @@ void ViewDialog::print_data()
                     c = m_data[a++];
                 }
                 line += "\n";
-                out += line;
+                out += QString::fromStdString(line);
             } while (a < m_data.size());
         }
 
