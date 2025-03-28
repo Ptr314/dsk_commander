@@ -72,6 +72,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
+    setWindowTitle(windowTitle() + " " + PROJECT_VERSION);
+
     leftFilesModel.setReadOnly(true);
     leftFilesModel.setFilter(QDir::Files | QDir::Hidden | QDir::NoDotAndDotDot | QDir::AllDirs);
     ui->leftFiles->setModel(&leftFilesModel);

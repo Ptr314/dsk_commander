@@ -134,37 +134,23 @@ sudo xcodebuild -license
 
 ### 5. Собрать статическую версию Qt
 
-https://doc.qt.io/qt-6/macos-building.html
-
-```
-cd /tmp
-tar xf ~/Downloads/qt-everywhere-src-6.8.2.tar.xz
-mkdir -p ~/dev/qt-build
-cd ~/dev/qt-build
-/tmp/qt-everywhere-src-6.8.2/configure \
-    -static -release -nomake tests -nomake examples \
-    -opensource -confirm-license \
-    -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64" \
-    -platform macx-clang \
-    -no-rpath \
-    -prefix /usr/local/Qt-6.8.2-static \
-    -silent
-cmake --build . --parallel
-sudo cmake --install .
-```
+Для сборки универсальной версии Qt x86_64+arm64 используйте скрипт `.build/macos_build_qt_universal.sh`. Данный скрипт исходит из следующих условий:
+* Архив с исходными доками лежит в `~/Downloads/`.
+* Распаковка происходит в `/tmp`.
+* Установка происходит в `~/Qt-$QT_VERSION-static-universal`.
+* После установки можно отдельно скопировать Qt в `/usr/local` и установить системные пути при необъодимости.
 
 После перезагрузки системы `/tmp` очищается, поэтому для повторного запуска надо распаковывать исходники заново.
 
 ### 6. Добавить Kit в Qt Creator 
 
-Из папки `/usr/local/Qt-X.X.X-static` (включить отображение скрытых папок при необходимости).
+Из папки `~/Qt-$QT_VERSION-static-universal` или `/usr/local/Qt-X.X.X-static` (включить отображение скрытых папок при необходимости).
 
 #### 7. Сборка приложения
 
 Для сборки приложения используется скрипт `.build/build-macos.sh`. Перед первым запуском необходимо актуализировать следующе переменные: QT_PATH.
 
 На выходе должен быть получен файл `.dmg`.
-
 
 ---
 ## Ubuntu 20.04
