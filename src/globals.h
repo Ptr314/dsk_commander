@@ -4,7 +4,7 @@
 #define PROJECT_NAME "DISKCommander"
 #define VERSION_MAJOR "0"
 #define VERSION_MINOR "1"
-#define VERSION_PATCH "1"
-#define PROJECT_VERSION "0.1.1"
+#define VERSION_PATCH "2"
+#define PROJECT_VERSION "0.1.2"
 
 #endif // GLOBALS_H_IN
