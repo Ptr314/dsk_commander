@@ -266,11 +266,13 @@ void MainWindow::dir()
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading files list!"));
     }
 
-    std::sort(files.begin(), files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
-        if (a.is_dir != b.is_dir)
-            return a.is_dir > b.is_dir;
-        return a.name < b.name;
-    });
+    if (false) {
+        std::sort(files.begin(), files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
+            if (a.is_dir != b.is_dir)
+                return a.is_dir > b.is_dir;
+            return a.name < b.name;
+        });
+    }
 
     update_table();
 }
