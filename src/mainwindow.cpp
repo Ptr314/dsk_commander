@@ -266,11 +266,13 @@ void MainWindow::dir()
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading files list!"));
     }
 
-    std::sort(files.begin(), files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
-        if (a.is_dir != b.is_dir)
-            return a.is_dir > b.is_dir;
-        return a.name < b.name;
-    });
+    if (ui->sortBtn->isChecked()) {
+        std::sort(files.begin(), files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
+            if (a.is_dir != b.is_dir)
+                return a.is_dir > b.is_dir;
+            return a.name < b.name;
+        });
+    }
 
     update_table();
 }
@@ -345,48 +347,52 @@ void MainWindow::update_table()
 
     rightFilesModel.removeRows(0, rightFilesModel.rowCount());
 
+    bool show_deleted = ui->deletedBtn->isChecked();
+
     foreach (const dsk_tools::fileData & f, files) {
-        QList<QStandardItem*> items;
+        if (!f.is_deleted || show_deleted) {
+            QList<QStandardItem*> items;
 
-        if (funcs & FILE_PROTECTION) {
-            QStandardItem * protect_item = new QStandardItem();
-            protect_item->setText((f.is_protected)?"*":"");
-            protect_item->setTextAlignment(Qt::AlignCenter);
-            items.append(protect_item);
-        }
-
-        if (funcs & FILE_TYPE) {
-            QStandardItem * type_item = new QStandardItem();
-            type_item->setText(QString::fromStdString(f.type_str_short));
-            type_item->setTextAlignment(Qt::AlignCenter);
-            items.append(type_item);
-        }
-
-        QString file_name = QString::fromStdString(f.name);
-
-        QStandardItem * size_item = new QStandardItem();
-        size_item->setText((file_name != "..")?QString::number(f.size):"");
-        size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        items.append(size_item);
-
-        QStandardItem *nameItem;
-        if (f.is_dir) {
-            nameItem = new QStandardItem("<" + file_name + ">");
-            QFont dirFont;
-            dirFont.setBold(true);
-            if (f.is_deleted) dirFont.setStrikeOut(true);
-            nameItem->setFont(dirFont);
-            // nameItem->setForeground(QBrush(Qt::blue));
-        } else {
-            nameItem = new QStandardItem(file_name);
-            if (f.is_deleted) {
-                QFont fileFont;
-                fileFont.setStrikeOut(true);
-                nameItem->setFont(fileFont);
+            if (funcs & FILE_PROTECTION) {
+                QStandardItem * protect_item = new QStandardItem();
+                protect_item->setText((f.is_protected)?"*":"");
+                protect_item->setTextAlignment(Qt::AlignCenter);
+                items.append(protect_item);
             }
-        }
-        items.append(nameItem);
-        rightFilesModel.appendRow( items );
+
+            if (funcs & FILE_TYPE) {
+                QStandardItem * type_item = new QStandardItem();
+                type_item->setText(QString::fromStdString(f.type_str_short));
+                type_item->setTextAlignment(Qt::AlignCenter);
+                items.append(type_item);
+            }
+
+            QString file_name = QString::fromStdString(f.name);
+
+            QStandardItem * size_item = new QStandardItem();
+            size_item->setText((file_name != "..")?QString::number(f.size):"");
+            size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+            items.append(size_item);
+
+            QStandardItem *nameItem;
+            if (f.is_dir) {
+                nameItem = new QStandardItem("<" + file_name + ">");
+                QFont dirFont;
+                dirFont.setBold(true);
+                if (f.is_deleted) dirFont.setStrikeOut(true);
+                nameItem->setFont(dirFont);
+                // nameItem->setForeground(QBrush(Qt::blue));
+            } else {
+                nameItem = new QStandardItem(file_name);
+                if (f.is_deleted) {
+                    QFont fileFont;
+                    fileFont.setStrikeOut(true);
+                    nameItem->setFont(fileFont);
+                }
+            }
+            items.append(nameItem);
+            rightFilesModel.appendRow( items );
+        } // show_deleted
     }
 }
 
@@ -826,5 +832,24 @@ void MainWindow::on_actionView_triggered()
         }
     }
 
+}
+
+
+void MainWindow::on_imageUpBtn_clicked()
+{
+    filesystem->cd_up();
+    dir();
+}
+
+
+void MainWindow::on_sortBtn_clicked()
+{
+    dir();
+}
+
+
+void MainWindow::on_deletedBtn_clicked()
+{
+    dir();
 }
 
