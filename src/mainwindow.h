@@ -60,6 +60,12 @@ private slots:
 
     void on_actionView_triggered();
 
+    void on_imageUpBtn_clicked();
+
+    void on_sortBtn_clicked();
+
+    void on_deletedBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 
