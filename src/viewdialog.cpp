@@ -22,6 +22,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     ui->modeCombo->blockSignals(true);
     ui->modeCombo->addItem(ViewDialog::tr("Binary"), "bin");
     ui->modeCombo->addItem(ViewDialog::tr("Text"), "txt");
+    ui->modeCombo->addItem(ViewDialog::tr("Agat BASIC"), "agatbs");
     ui->modeCombo->addItem(ViewDialog::tr("Applesoft BASIC"), "abs");
     ui->modeCombo->addItem(ViewDialog::tr("MBASIC"), "mbasic");
     if (preferred_type == PREFERRED_TEXT)
@@ -92,7 +93,9 @@ void ViewDialog::print_data()
 
         QString out;
 
-        if (ui->modeCombo->currentData() == "bin") {
+        auto mode = ui->modeCombo->currentData();
+
+        if (mode == "bin") {
             QString text = "    ";
             for (int a=0; a < m_data.size(); a++) {
                 if (a % 16 == 0)  {
@@ -107,7 +110,7 @@ void ViewDialog::print_data()
             ui->textBox->setWordWrapMode(QTextOption::NoWrap);
 
         } else
-        if (ui->modeCombo->currentData() == "txt") {
+        if (mode == "txt") {
             int last_size = 0;
             for (int a=0; a < m_data.size(); a++) {
                 uint8_t c = m_data[a];
@@ -128,7 +131,7 @@ void ViewDialog::print_data()
             }
             ui->textBox->setWordWrapMode(QTextOption::WordWrap);
         } else
-        if (ui->modeCombo->currentData() == "abs") {
+        if (mode == "abs" || mode== "agatbs") {
             int a=0;
             int declared_size = (int)m_data[a] + (int)m_data[a+1]*256; a +=2;
             int lv_size = (int)m_data[declared_size-2] + (int)m_data[declared_size-1]*256;
@@ -174,10 +177,11 @@ void ViewDialog::print_data()
                         // Unknown special char
                         line += " ??"+std::to_string(c)+"??";
                     } else
-                    if (c & 0x80)
+                    if (c & 0x80) {
                         // Token
-                        line += ((line[line.size()-1] != ' ')?" ":"") + std::string(dsk_tools::ABS_tokens[c & 0x7F]) +" ";
-                    else
+                        auto tokens = (mode=="abs")?dsk_tools::ABS_tokens:dsk_tools::Agat_tokens;
+                        line += ((line[line.size()-1] != ' ')?" ":"") + std::string(tokens[c & 0x7F]) +" ";
+                    } else
                         // Ordinal char
                         if (cm_name == "agat")
                             line += (*charmap)[c + 0x80];
@@ -190,7 +194,7 @@ void ViewDialog::print_data()
                 out += QString::fromStdString(line);
             } while (a < m_data.size());
         } else
-        if (ui->modeCombo->currentData() == "mbasic") {
+        if (mode == "mbasic") {
             // http://justsolve.archiveteam.org/wiki/MBASIC_tokenized_file
             // https://www.chebucto.ns.ca/~af380/GW-BASIC-tokens.html
             int a=0;
