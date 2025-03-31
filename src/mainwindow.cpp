@@ -566,6 +566,8 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$DPB_VTOCADR}", MainWindow::tr("VTOC block"))
 
         .replace("{$EXTENT}", MainWindow::tr("Extent"))
+        .replace("{$FREE_SECTORS}", MainWindow::tr("Free sectors"))
+        .replace("{$FREE_BYTES}", MainWindow::tr("Free bytes"))
     ;
 }
 
@@ -636,6 +638,14 @@ void MainWindow::setup_buttons(bool disabled)
     ui->infoButton->setDisabled(disabled);
     ui->viewButton->setDisabled(disabled);
     ui->saveFileButton->setDisabled(disabled);
+    if (disabled) {
+        ui->addFileBtn->setDisabled(disabled);
+        ui->deleteFileBtn->setDisabled(disabled);
+    } else {
+        int funcs = filesystem->get_capabilities();
+        ui->addFileBtn->setDisabled((funcs & FILE_ADD) == 0);
+        ui->deleteFileBtn->setDisabled((funcs & FILE_DELETE) == 0);
+    }
 }
 
 void MainWindow::on_actionConvert_triggered()
