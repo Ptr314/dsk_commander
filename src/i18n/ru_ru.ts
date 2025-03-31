@@ -1046,31 +1046,36 @@
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="25"/>
+        <source>Agat BASIC</source>
+        <translation>Агат BASIC</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="26"/>
         <source>Applesoft BASIC</source>
         <translation>Applesoft BASIC</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="26"/>
+        <location filename="../viewdialog.cpp" line="27"/>
         <source>MBASIC</source>
         <translation>MBASIC</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="39"/>
+        <location filename="../viewdialog.cpp" line="40"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="40"/>
+        <location filename="../viewdialog.cpp" line="41"/>
         <source>Apple II</source>
         <translation>Apple II</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="41"/>
+        <location filename="../viewdialog.cpp" line="42"/>
         <source>Apple //c</source>
         <translation>Apple //c</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="42"/>
+        <location filename="../viewdialog.cpp" line="43"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
     </message>
