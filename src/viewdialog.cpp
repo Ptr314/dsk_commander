@@ -28,11 +28,14 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     if (preferred_type == PREFERRED_TEXT)
         ui->modeCombo->setCurrentIndex(1);
     else
-    if (preferred_type == PREFERRED_ABS)
+    if (preferred_type == PREFERRED_AGATBASIC)
         ui->modeCombo->setCurrentIndex(2);
     else
-    if (preferred_type == PREFERRED_MBASIC)
+    if (preferred_type == PREFERRED_ABS)
         ui->modeCombo->setCurrentIndex(3);
+    else
+    if (preferred_type == PREFERRED_MBASIC)
+        ui->modeCombo->setCurrentIndex(4);
     ui->modeCombo->blockSignals(false);
 
 
@@ -132,6 +135,9 @@ void ViewDialog::print_data()
             ui->textBox->setWordWrapMode(QTextOption::WordWrap);
         } else
         if (mode == "abs" || mode== "agatbs") {
+
+            auto tokens = (mode=="abs")?dsk_tools::ABS_tokens:dsk_tools::Agat_tokens;
+
             int a=0;
             int declared_size = (int)m_data[a] + (int)m_data[a+1]*256; a +=2;
             int lv_size = (int)m_data[declared_size-2] + (int)m_data[declared_size-1]*256;
@@ -179,7 +185,6 @@ void ViewDialog::print_data()
                     } else
                     if (c & 0x80) {
                         // Token
-                        auto tokens = (mode=="abs")?dsk_tools::ABS_tokens:dsk_tools::Agat_tokens;
                         line += ((line[line.size()-1] != ' ')?" ":"") + std::string(tokens[c & 0x7F]) +" ";
                     } else
                         // Ordinal char
@@ -284,13 +289,11 @@ void ViewDialog::print_data()
                                 // Token
                                 if (c == 0xFF) {
                                     uint8_t cc = m_data[a++] & 0x7F;
-                                    // line += ((line[line.size()-1] != ' ')?" ":"") + std::string(dsk_tools::MBASIC_extended_tokens[cc & 0x7F]) +" ";
                                     if (cc < dsk_tools::MBASIC_extended_tokens.size())
                                         line += std::string(dsk_tools::MBASIC_extended_tokens[cc & 0x7F]);
                                     else
                                         line += "?<" + dsk_tools::int_to_hex(cc) + ">?";
                                 } else
-                                    // line += ((line[line.size()-1] != ' ')?" ":"") + std::string(dsk_tools::MBASIC_main_tokens[c & 0x7F]) +" ";
                                     line += std::string(dsk_tools::MBASIC_main_tokens[c & 0x7F]);
                             else
                             if ((c == 0x3A) && (a+2 < m_data.size()) && (m_data[a] == 0x8F) && (m_data[a+1] == 0xEA)) {

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>906</width>
+    <width>934</width>
     <height>600</height>
    </rect>
   </property>
@@ -511,7 +511,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>906</width>
+     <width>934</width>
      <height>21</height>
     </rect>
    </property>
@@ -538,6 +538,7 @@
     <addaction name="actionFile_info"/>
     <addaction name="actionSave_to_file"/>
     <addaction name="actionView"/>
+    <addaction name="actionDelete"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFiles"/>
@@ -635,6 +636,15 @@
    </property>
    <property name="text">
     <string>View</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/delete</normaloff>:/icons/delete</iconset>
+   </property>
+   <property name="text">
+    <string>Delete</string>
    </property>
   </action>
  </widget>
@@ -795,6 +805,22 @@
     <hint type="sourcelabel">
      <x>39</x>
      <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deleteFileBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>actionDelete</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>706</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>
