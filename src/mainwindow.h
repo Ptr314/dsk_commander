@@ -66,6 +66,10 @@ private slots:
 
     void on_deletedBtn_clicked();
 
+    void on_actionDelete_triggered();
+
+    void on_tabWidget_currentChanged(int index);
+
 private:
     Ui::MainWindow *ui;
 
