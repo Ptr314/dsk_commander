@@ -881,3 +881,49 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     if (index == 1) update_info();
 }
 
+
+void MainWindow::on_actionAdd_files_triggered()
+{
+    dir();
+    QString filters = "";
+
+    std::vector<std::string> formats = filesystem->get_add_file_formats();
+    std::map<QString, QString> fil_map;
+
+    foreach (const std::string & v, formats) {
+        QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
+        if (filters.length() != 0) filters += ";;";
+        QString name = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
+        QString filter_name = QString("%1 (%2)").arg(name, fil["extensions"].toString().replace(";", " "));
+        filters += filter_name;
+        fil_map[filter_name] = QString::fromStdString(v);
+    }
+    QString selected_filter;
+    QString open_dir = settings->value("directory/add", directory).toString();
+    QStringList files = QFileDialog::getOpenFileNames(this, MainWindow::tr("Add files"), open_dir, filters, &selected_filter);
+
+    if (files.size() > 0) {
+        QFileInfo fi(files[0]);
+        settings->setValue("directory/add", fi.absolutePath());
+        int res;
+        foreach (const QString & fn, files) {
+            #ifdef _WIN32
+                std::string file_name = fn.toLocal8Bit().constData();
+            #else
+                std::string file_name = fn.toUtf8().constData();
+            #endif
+            res = filesystem->file_add(file_name, fil_map[selected_filter].toStdString());
+            if (res != FILE_ADD_OK) {
+                if (res == FILE_ADD_ERROR_SPACE)
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding file. Not enough free disk space"));
+                else
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding file"));
+                break;
+            }
+        };
+        if (res == FILE_ADD_OK)
+            QMessageBox::information(this, MainWindow::tr("Success"), MainWindow::tr("Successfully added %1 file(s)").arg(files.size()));
+        dir();
+    }
+}
+

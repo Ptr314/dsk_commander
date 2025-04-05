@@ -70,6 +70,8 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_actionAdd_files_triggered();
+
 private:
     Ui::MainWindow *ui;
 
