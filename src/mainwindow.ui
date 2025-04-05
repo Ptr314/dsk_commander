@@ -539,6 +539,7 @@
     <addaction name="actionSave_to_file"/>
     <addaction name="actionView"/>
     <addaction name="actionDelete"/>
+    <addaction name="actionAdd_files"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFiles"/>
@@ -645,6 +646,15 @@
    </property>
    <property name="text">
     <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionAdd_files">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/add_file</normaloff>:/icons/add_file</iconset>
+   </property>
+   <property name="text">
+    <string>Add files</string>
    </property>
   </action>
  </widget>
@@ -820,6 +830,22 @@
    <hints>
     <hint type="sourcelabel">
      <x>706</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addFileBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>actionAdd_files</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>668</x>
      <y>86</y>
     </hint>
     <hint type="destinationlabel">
