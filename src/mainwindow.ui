@@ -372,6 +372,13 @@
                  </widget>
                 </item>
                 <item>
+                 <widget class="Line" name="line_2">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <widget class="QToolButton" name="addFileBtn">
                   <property name="enabled">
                    <bool>true</bool>
@@ -536,10 +543,11 @@
      <string>Files</string>
     </property>
     <addaction name="actionFile_info"/>
-    <addaction name="actionSave_to_file"/>
     <addaction name="actionView"/>
-    <addaction name="actionDelete"/>
+    <addaction name="actionSave_to_file"/>
+    <addaction name="separator"/>
     <addaction name="actionAdd_files"/>
+    <addaction name="actionDelete"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFiles"/>
