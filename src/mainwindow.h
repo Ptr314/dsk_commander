@@ -72,6 +72,8 @@ private slots:
 
     void on_actionAdd_files_triggered();
 
+    void on_actionAdd_directory_triggered();
+
 private:
     Ui::MainWindow *ui;
 

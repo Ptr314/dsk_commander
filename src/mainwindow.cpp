@@ -639,8 +639,10 @@ void MainWindow::setup_buttons(bool disabled)
     if (disabled) {
         ui->addFileBtn->setDisabled(disabled);
         ui->deleteFileBtn->setDisabled(disabled);
+        ui->addDirBtn->setDisabled(disabled);
     } else {
         int funcs = filesystem->get_capabilities();
+        ui->addDirBtn->setDisabled((funcs & FILE_DIRECTORIES) == 0);
         ui->addFileBtn->setDisabled((funcs & FILE_ADD) == 0);
         ui->deleteFileBtn->setDisabled((funcs & FILE_DELETE) == 0);
     }
@@ -925,5 +927,11 @@ void MainWindow::on_actionAdd_files_triggered()
             QMessageBox::information(this, MainWindow::tr("Success"), MainWindow::tr("Successfully added %1 file(s)").arg(files.size()));
         dir();
     }
+}
+
+
+void MainWindow::on_actionAdd_directory_triggered()
+{
+    // TODO: Implement
 }
 
