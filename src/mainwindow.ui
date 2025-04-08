@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1036</width>
-    <height>600</height>
+    <width>1190</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <normaloff>:/icons/icon</normaloff>:/icons/icon</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
@@ -29,6 +29,9 @@
       </property>
       <widget class="QWidget" name="verticalLayoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="sizeConstraint">
@@ -306,6 +309,12 @@
                 </item>
                 <item>
                  <widget class="Line" name="line">
+                  <property name="minimumSize">
+                   <size>
+                    <width>20</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="orientation">
                    <enum>Qt::Orientation::Vertical</enum>
                   </property>
@@ -373,6 +382,12 @@
                 </item>
                 <item>
                  <widget class="Line" name="line_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>20</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="orientation">
                    <enum>Qt::Orientation::Vertical</enum>
                   </property>
@@ -389,6 +404,26 @@
                   <property name="icon">
                    <iconset resource="resources.qrc">
                     <normaloff>:/icons/new_dir</normaloff>:/icons/new_dir</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QToolButton" name="renameFileBtn">
+                  <property name="toolTip">
+                   <string>Rename &amp; Edit metadata</string>
+                  </property>
+                  <property name="text">
+                   <string>Edit metadata</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resources.qrc">
+                    <normaloff>:/icons/rename</normaloff>:/icons/rename</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -448,11 +483,24 @@
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>40</width>
+                    <width>0</width>
                     <height>20</height>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item>
+                 <widget class="Line" name="line_3">
+                  <property name="minimumSize">
+                   <size>
+                    <width>20</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                 </widget>
                 </item>
                 <item>
                  <widget class="QToolButton" name="convertButton">
@@ -538,7 +586,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1036</width>
+     <width>1190</width>
      <height>21</height>
     </rect>
    </property>
@@ -564,6 +612,7 @@
     </property>
     <addaction name="actionFile_info"/>
     <addaction name="actionView"/>
+    <addaction name="actionRename"/>
     <addaction name="actionSave_to_file"/>
     <addaction name="separator"/>
     <addaction name="actionAdd_directory"/>
@@ -693,6 +742,15 @@
    </property>
    <property name="text">
     <string>Add directory</string>
+   </property>
+  </action>
+  <action name="actionRename">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/rename</normaloff>:/icons/rename</iconset>
+   </property>
+   <property name="text">
+    <string>Edit metadata</string>
    </property>
   </action>
  </widget>
@@ -900,6 +958,22 @@
    <hints>
     <hint type="sourcelabel">
      <x>678</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameFileBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>actionRename</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>635</x>
      <y>86</y>
     </hint>
     <hint type="destinationlabel">

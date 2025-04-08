@@ -21,6 +21,7 @@
         <file alias="deleted">resources/icons/trashcan_full.png</file>
         <file alias="delete">resources/icons/delete.png</file>
         <file alias="new_dir">resources/icons/folder_new.png</file>
+        <file alias="rename">resources/icons/package_editors.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>

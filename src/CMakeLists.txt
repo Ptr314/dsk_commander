@@ -39,9 +39,11 @@ add_custom_target(update_translations
 # Основные файлы проекта
 set(PROJECT_SOURCES
         main.cpp
+        mainutils.h
         mainwindow.h mainwindow.cpp mainwindow.ui
         viewdialog.h viewdialog.cpp viewdialog.ui
         convertdialog.h convertdialog.cpp convertdialog.ui
+        fileparamdialog.h fileparamdialog.cpp
         aboutdlg.ui
         fileinfodialog.ui
         resources/files/config.json

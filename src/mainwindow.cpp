@@ -9,9 +9,11 @@
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QFontDatabase>
+#include <QInputDialog>
 
 #include "mainwindow.h"
 #include "convertdialog.h"
+#include "fileparamdialog.h"
 #include "viewdialog.h"
 
 #include "./ui_mainwindow.h"
@@ -21,6 +23,7 @@
 #include "dsk_tools/dsk_tools.h"
 
 #include "globals.h"
+#include "mainutils.h"
 
 #define INI_FILE_NAME "/dsk_com.ini"
 
@@ -72,6 +75,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
+    resize(1000, 600);
+
+    QList<int> sizes;
+    int halfWidth = this->width() / 2;
+    sizes << halfWidth << halfWidth;
+    ui->splitter->setSizes(sizes);
+
     setWindowTitle(windowTitle() + " " + PROJECT_VERSION);
 
     leftFilesModel.setReadOnly(true);
@@ -94,6 +104,9 @@ MainWindow::MainWindow(QWidget *parent)
     init_controls();
 
     ui->tabWidget->setCurrentIndex(0);
+
+    connect(ui->rightFiles->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &MainWindow::onSelectionChanged);
 }
 
 void MainWindow::switch_language(const QString & lang, bool init)
@@ -277,6 +290,7 @@ void MainWindow::dir()
     }
 
     update_table();
+    setup_buttons(false);
 }
 
 void MainWindow::update_info()
@@ -341,6 +355,8 @@ void MainWindow::init_table()
     rightFilesModel.horizontalHeaderItem(columns++)->setToolTip(MainWindow::tr("Name of the file"));
 
     ui->rightFiles->verticalHeader()->setDefaultSectionSize(8);
+
+    ui->rightFiles->horizontalHeader()->setStretchLastSection(true);
 }
 
 void MainWindow::update_table()
@@ -566,6 +582,11 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$EXTENT}", MainWindow::tr("Extent"))
         .replace("{$FREE_SECTORS}", MainWindow::tr("Free sectors"))
         .replace("{$FREE_BYTES}", MainWindow::tr("Free bytes"))
+
+        .replace("{$META_FILENAME}", MainWindow::tr("File Name"))
+        .replace("{$META_PROTECTED}", MainWindow::tr("Protected"))
+        .replace("{$META_TYPE}", MainWindow::tr("Type"))
+        .replace("{$META_EXTENDED}", MainWindow::tr("Extended"))
     ;
 }
 
@@ -633,18 +654,32 @@ void MainWindow::on_actionSave_to_file_triggered()
 void MainWindow::setup_buttons(bool disabled)
 {
     ui->convertButton->setDisabled(disabled);
-    ui->infoButton->setDisabled(disabled);
-    ui->viewButton->setDisabled(disabled);
-    ui->saveFileButton->setDisabled(disabled);
     if (disabled) {
+        ui->infoButton->setDisabled(disabled);
+        ui->viewButton->setDisabled(disabled);
+        ui->saveFileButton->setDisabled(disabled);
+        ui->renameFileBtn->setDisabled(disabled);
         ui->addFileBtn->setDisabled(disabled);
         ui->deleteFileBtn->setDisabled(disabled);
         ui->addDirBtn->setDisabled(disabled);
+        ui->imageUpBtn->setDisabled(disabled);
     } else {
         int funcs = filesystem->get_capabilities();
         ui->addDirBtn->setDisabled((funcs & FILE_DIRECTORIES) == 0);
         ui->addFileBtn->setDisabled((funcs & FILE_ADD) == 0);
-        ui->deleteFileBtn->setDisabled((funcs & FILE_DELETE) == 0);
+        ui->imageUpBtn->setDisabled(filesystem->is_root());
+
+        QItemSelectionModel * selection = ui->rightFiles->selectionModel();
+        int mode = 0; // None selected
+        if (selection->hasSelection()) {
+            QModelIndexList rows = selection->selectedRows();
+            mode = (rows.size()==1)?1:2;
+        }
+        ui->infoButton->setDisabled(mode != 1);
+        ui->viewButton->setDisabled(mode != 1);
+        ui->saveFileButton->setDisabled(mode != 1);
+        ui->renameFileBtn->setDisabled(mode != 1 || (funcs & FILE_RENAME) == 0);
+        ui->deleteFileBtn->setDisabled(mode == 0 || (funcs & FILE_DELETE) == 0);
     }
 }
 
@@ -742,12 +777,7 @@ void MainWindow::on_actionImage_Info_triggered()
             std::string type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
             dsk_tools::Loader * loader;
 
-            #ifdef _WIN32
-                std::string file_name = fi.absoluteFilePath().toLocal8Bit().constData();
-            #else
-                std::string file_name = fi.absoluteFilePath().toUtf8().constData();
-            #endif
-
+            std::string file_name = _toStdString(fi.absoluteFilePath())            ;
 
             if (format_id == "FILE_RAW_MSB") {
                 loader = new dsk_tools::LoaderRAW(file_name, format_id, type_id);
@@ -796,12 +826,7 @@ void MainWindow::on_actionOpen_Image_triggered()
         if (fileInfo.isDir()) {
             set_directory(fileInfo.absoluteFilePath());
         } else {
-            #ifdef _WIN32
-                std::string file_name = fileInfo.absoluteFilePath().toLocal8Bit().constData();
-            #else
-                std::string file_name = fileInfo.absoluteFilePath().toUtf8().constData();
-            #endif
-
+            std::string file_name = _toStdString(fileInfo.absoluteFilePath());
             if (ui->autoCheckBox->isChecked()) {
                 int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
                 if (res != FDD_DETECT_OK ) {
@@ -909,11 +934,7 @@ void MainWindow::on_actionAdd_files_triggered()
         settings->setValue("directory/add", fi.absolutePath());
         int res;
         foreach (const QString & fn, files) {
-            #ifdef _WIN32
-                std::string file_name = fn.toLocal8Bit().constData();
-            #else
-                std::string file_name = fn.toUtf8().constData();
-            #endif
+            std::string file_name = _toStdString(fn);
             res = filesystem->file_add(file_name, fil_map[selected_filter].toStdString());
             if (res != FILE_ADD_OK) {
                 if (res == FILE_ADD_ERROR_SPACE)
@@ -932,6 +953,76 @@ void MainWindow::on_actionAdd_files_triggered()
 
 void MainWindow::on_actionAdd_directory_triggered()
 {
-    // TODO: Implement
+    int funcs = filesystem->get_capabilities();
+
+    if ((funcs & FILE_DIRECTORIES) != 0) {
+        bool ok{};
+        QString text = QInputDialog::getText(this, MainWindow::tr("Add a directory"),
+                                             MainWindow::tr("Directory name:"),
+                                             QLineEdit::Normal,
+                                             "New",
+                                             &ok);
+        if (ok && !text.isEmpty()) {
+            int res = filesystem->mkdir(text.toStdString());
+            if (res != FDD_DIR_OK) {
+                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding new catalog"));
+            }
+            dir();
+        }
+    }
 }
+
+void MainWindow::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+{
+    setup_buttons(false);
+}
+
+void MainWindow::on_actionRename_triggered()
+{
+    // QItemSelectionModel * selection = ui->rightFiles->selectionModel();
+    // if (selection->hasSelection()) {
+    //     QModelIndexList rows = selection->selectedRows();
+    //     if (rows.size() == 1) {
+    //         QModelIndex selectedIndex = rows.at(0);
+    //         dsk_tools::fileData f = files[selectedIndex.row()];
+    //         QString old_name = QString::fromStdString(f.name);
+    //         bool ok{};
+    //         QString new_name = QInputDialog::getText(this, MainWindow::tr("Rename"),
+    //                                              MainWindow::tr("New name:"),
+    //                                              QLineEdit::Normal,
+    //                                              old_name,
+    //                                              &ok);
+    //         if (ok && !new_name.isEmpty()) {
+    //             int res = filesystem->file_rename(f, new_name.toStdString());
+    //             if (res != FILE_RENAME_OK) {
+    //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error renaming the file"));
+    //             }
+    //             dir();
+    //         }
+    //     }
+    // }
+
+    QItemSelectionModel * selection = ui->rightFiles->selectionModel();
+    if (selection->hasSelection()) {
+        QModelIndexList rows = selection->selectedRows();
+        if (rows.size() == 1) {
+            QModelIndex selectedIndex = rows.at(0);
+            dsk_tools::fileData fd = files[selectedIndex.row()];
+            std::vector<dsk_tools::ParameterDescription> params = filesystem->file_get_metadata(fd);
+
+            for (int i = 0; i < static_cast<int>(params.size()); ++i) {
+                params[i].name = replace_placeholders(QString::fromStdString(params[i].name)).toStdString();
+            }
+
+            FileParamDialog dialog(params);
+            if (dialog.exec() == QDialog::Accepted) {
+                auto values = dialog.getParameters();
+                filesystem->file_set_metadata(fd, values);
+                dir();
+            }
+        }
+    }
+}
+
+
 
