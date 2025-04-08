@@ -8,7 +8,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QComboBox>
-#include <qtranslator.h>
+#include <QTranslator>
+#include <QItemSelection>
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -74,6 +75,11 @@ private slots:
 
     void on_actionAdd_directory_triggered();
 
+    void on_actionRename_triggered();
+
+    void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
+
+
 private:
     Ui::MainWindow *ui;
 
@@ -108,6 +114,7 @@ private:
     void setup_buttons(bool disabled);
     QString replace_placeholders(const QString & in);
     std::vector<dsk_tools::fileData> files;
+
 
 };
 #endif // MAINWINDOW_H

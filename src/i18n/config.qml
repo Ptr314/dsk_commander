@@ -9,6 +9,7 @@ Item {
     property string FILE_BINARY_name: qsTr("Binary File")
     property string FILE_FIL_name: qsTr("Agat FIL")
     property string FILE_SOS_name: qsTr("Agat Sprite OS File")
+    property string FILE_ANY_name: qsTr("All Files")
     property string TYPE_AGAT_840_name: qsTr("Agat 840K")
     property string TYPE_AGAT_140_name: qsTr("Agat/Apple 140K")
     property string FILESYSTEM_DOS33_name: qsTr("Agat/Apple DOS33")

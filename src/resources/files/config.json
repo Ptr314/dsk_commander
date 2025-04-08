@@ -62,6 +62,13 @@
             "source":       false,
             "extensions":   "*.sos",
             "types":        []
+        },
+        "FILE_ANY": {
+            "name":         "All Files",
+            "short_name":   "ALL",
+            "source":       false,
+            "extensions":   "*.*",
+            "types":        []
         }
     },
     "file_types": {
