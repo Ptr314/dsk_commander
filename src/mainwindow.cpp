@@ -897,7 +897,14 @@ void MainWindow::on_actionDelete_triggered()
         for (int i=0; i<rows.size(); i++) {
             QModelIndex selectedIndex = rows.at(i);
             dsk_tools::fileData f = files[selectedIndex.row()];
-            filesystem->file_delete(f);
+            int res = filesystem->file_delete(f);
+            if (res != FILE_DELETE_OK) {
+                if (res == FDD_DIR_NOT_EMPTY)
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error deleting directory. It must be empty to be deleted"));
+                else
+                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error deleting file"));
+                break;
+            }
         }
         dir();
     }

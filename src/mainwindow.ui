@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1190</width>
-    <height>619</height>
+    <height>621</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -311,7 +311,7 @@
                  <widget class="Line" name="line">
                   <property name="minimumSize">
                    <size>
-                    <width>20</width>
+                    <width>10</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -384,7 +384,7 @@
                  <widget class="Line" name="line_2">
                   <property name="minimumSize">
                    <size>
-                    <width>20</width>
+                    <width>10</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -493,7 +493,7 @@
                  <widget class="Line" name="line_3">
                   <property name="minimumSize">
                    <size>
-                    <width>20</width>
+                    <width>10</width>
                     <height>0</height>
                    </size>
                   </property>
