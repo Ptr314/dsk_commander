@@ -13,7 +13,7 @@
 
 Левая панель:
 
-* <img src="src/resources/icons/up.png" width="30"> &ndash; перейди вверх на один уровень;
+* <img src="src/resources/icons/up.png" width="30"> &ndash; перейти вверх на один уровень;
 * <img src="src/resources/icons/folder_yellow_open.png" width="30"> &ndash; открыть директорию;
 * <img src="src/resources/icons/viewmag.png" width="30"> &ndash; анализ выбранного файла;
 * <img src="src/resources/icons/5floppy_mount.png" width="30"> &ndash; открыть образ. Операцию также можно выполнить двойным кликом мышью.
@@ -21,18 +21,24 @@
 
 Правая панель:
 * Блок &laquo;Список файлов&raquo;
-    * <img src="src/resources/icons/up.png" width="30"> &ndash; перейди вверх на один уровень;
+    * <img src="src/resources/icons/up.png" width="30"> &ndash; перейти вверх на один уровень;
     * <img src="src/resources/icons/folder_font.png" width="30"> &ndash; включение/отключение алфавитной сортировки списка файлов;
     * <img src="src/resources/icons/trashcan_full.png" width="30"> &ndash; включение/отключение отображения удаленных файлов.
+
+
 * Блок &laquo;Чтение и информация&raquo;
     * <img src="src/resources/icons/msbox_info.png" width="30"> &ndash; информация о выбранном файле;
     * <img src="src/resources/icons/binary.png" width="30"> &ndash; просмотр файла. Операцию также можно выполнить двойным кликом мышью.;
     * <img src="src/resources/icons/3floppy_unmount.png" width="30"> &ndash; сохранить файл на диск.
+
+  
 * Блок &laquo;Редактирование&raquo;
     * <img src="src/resources/icons/folder_new.png" width="30"> &ndash; создание директории;
     * <img src="src/resources/icons/package_editors.png" width="30"> &ndash; переименование файла, редактирование атрибутов и метаданных;
-    * <img src="src/resources/icons/patch.png" width="30"> &ndash; добавление новых файлов;
-    * <img src="src/resources/icons/delete.png" width="30"> &ndash; удаление файлов.
+    * <img src="src/resources/icons/patch.png" width="30"> &ndash; добавление новых файлов. Добавлять можно сразу несколько файлов, выделив их в окне выбора;
+    * <img src="src/resources/icons/delete.png" width="30"> &ndash; удаление файлов и директорий. Удалять можно сразу несколько файлов, выделив их в таблице.
+
+
 * Блок &laquo;Экспорт&raquo;
     * <img src="src/resources/icons/cdimage.png" width="30"> &ndash; экспорт диска целиком.
 

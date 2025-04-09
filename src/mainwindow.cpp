@@ -653,6 +653,8 @@ void MainWindow::on_actionSave_to_file_triggered()
 
 void MainWindow::setup_buttons(bool disabled)
 {
+    ui->sortBtn->setDisabled(disabled);
+    ui->deletedBtn->setDisabled(disabled);
     ui->convertButton->setDisabled(disabled);
     if (disabled) {
         ui->infoButton->setDisabled(disabled);
