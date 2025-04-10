@@ -276,7 +276,13 @@ void MainWindow::dir()
 {
     bool show_deleted = ui->deletedBtn->isChecked();
 
-    int dir_res = filesystem->dir(&files, show_deleted);
+    int dir_res;
+    try {
+        dir_res = filesystem->dir(&files, show_deleted);
+    } catch (...) {
+        dir_res = FDD_OP_ERROR;
+    }
+
     if (dir_res != FDD_OP_OK) {
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading files list!"));
     }
@@ -408,6 +414,11 @@ void MainWindow::update_table()
         items.append(nameItem);
         rightFilesModel.appendRow( items );
     }
+    #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+        for (int row = 0; row < ui->rightFiles->model()->rowCount(); ++row) {
+            ui->rightFiles->setRowHeight(row, 24);
+        }
+    #endif
 }
 
 
@@ -656,6 +667,8 @@ void MainWindow::setup_buttons(bool disabled)
     ui->sortBtn->setDisabled(disabled);
     ui->deletedBtn->setDisabled(disabled);
     ui->convertButton->setDisabled(disabled);
+    ui->actionConvert->setDisabled(disabled);
+
     if (disabled) {
         ui->infoButton->setDisabled(disabled);
         ui->viewButton->setDisabled(disabled);
@@ -665,6 +678,14 @@ void MainWindow::setup_buttons(bool disabled)
         ui->deleteFileBtn->setDisabled(disabled);
         ui->addDirBtn->setDisabled(disabled);
         ui->imageUpBtn->setDisabled(disabled);
+
+        ui->actionFile_info->setDisabled(disabled);
+        ui->actionView->setDisabled(disabled);
+        ui->actionRename->setDisabled(disabled);
+        ui->actionSave_to_file->setDisabled(disabled);
+        ui->actionAdd_directory->setDisabled(disabled);
+        ui->actionAdd_files->setDisabled(disabled);
+        ui->actionDelete->setDisabled(disabled);
     } else {
         int funcs = filesystem->get_capabilities();
         ui->addDirBtn->setDisabled((funcs & FILE_DIRECTORIES) == 0);
@@ -682,6 +703,15 @@ void MainWindow::setup_buttons(bool disabled)
         ui->saveFileButton->setDisabled(mode != 1);
         ui->renameFileBtn->setDisabled(mode != 1 || (funcs & FILE_RENAME) == 0);
         ui->deleteFileBtn->setDisabled(mode == 0 || (funcs & FILE_DELETE) == 0);
+
+        ui->actionFile_info->setDisabled(mode != 1);
+        ui->actionView->setDisabled(mode != 1);
+        ui->actionRename->setDisabled(mode != 1 || (funcs & FILE_RENAME) == 0);
+        ui->actionSave_to_file->setDisabled(mode != 1);
+
+        ui->actionAdd_directory->setDisabled((funcs & FILE_DIRECTORIES) == 0);
+        ui->actionAdd_files->setDisabled((funcs & FILE_ADD) == 0);
+        ui->actionDelete->setDisabled(mode == 0 || (funcs & FILE_DELETE) == 0);
     }
 }
 
@@ -842,7 +872,6 @@ void MainWindow::on_actionOpen_Image_triggered()
                 type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
                 filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
             }
-
             load_file(file_name, format_id, type_id, filesystem_id);
         }
     }
