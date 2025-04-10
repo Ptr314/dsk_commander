@@ -52,9 +52,9 @@
         "FILE_FIL": {
             "name":         "Agat FIL",
             "short_name":   "FIL",
-            "source":       false,
+            "source":       true,
             "extensions":   "*.fil",
-            "types":        []
+            "types":        ["TYPE_FIL"]
         },
         "FILE_SOS": {
             "name":         "Agat Sprite OS File",
@@ -81,6 +81,11 @@
             "name": "Agat/Apple 140K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS", "FILESYSTEM_CPM_DOS", "FILESYSTEM_CPM_PRODOS", "FILESYSTEM_CPM_RAW"]
+        },
+        "TYPE_FIL": {
+            "name": "Agat .FIL container",
+            "targets": [],
+            "filesystems": ["FILESYSTEM_FIL"]
         }
     },
     "file_systems": {
@@ -89,6 +94,9 @@
         },
         "FILESYSTEM_SPRITE_OS": {
             "name": "Agat Sprite OS"
+        },
+        "FILESYSTEM_FIL": {
+            "name": "Single .FIL"
         },
         "FILESYSTEM_CPM_DOS": {
             "name": "CP/M (DOS 3.3 skew)"
