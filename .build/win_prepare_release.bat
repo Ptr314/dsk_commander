@@ -1,58 +1,59 @@
 @echo off
 setlocal enabledelayedexpansion
+chcp 65001 >nul
 
-:: === Пути ===
+:: === РџСѓС‚Рё ===
 set ROOT_DIR=..
 set SRC_DIR=%ROOT_DIR%\src
 set LIB_DIR=%SRC_DIR%\libs\dsk_tools
 set CMAKE_FILE=%SRC_DIR%\CMakeLists.txt
 
-:: === Чтение версии из CMakeLists.txt ===
+:: === Р§С‚РµРЅРёРµ РІРµСЂСЃРёРё РёР· CMakeLists.txt ===
 for /f "tokens=3 delims= " %%v in ('findstr /R /C:"project(.* VERSION .* LANGUAGES" %CMAKE_FILE%') do (
     set "TAG_NAME=%%v"
 )
 
 if "%TAG_NAME%"=="" (
-    echo Ошибка: не удалось извлечь версию из CMakeLists.txt
+    echo РћС€РёР±РєР°: РЅРµ СѓРґР°Р»РѕСЃСЊ РёР·РІР»РµС‡СЊ РІРµСЂСЃРёСЋ РёР· CMakeLists.txt
     exit /b 1
 )
 
-echo Обнаружена версия: %TAG_NAME%
+echo РћР±РЅР°СЂСѓР¶РµРЅР° РІРµСЂСЃРёСЏ: %TAG_NAME%
 
-:: === Проверка текущей ветки основной репы ===
+:: === РџСЂРѕРІРµСЂРєР° С‚РµРєСѓС‰РµР№ РІРµС‚РєРё РѕСЃРЅРѕРІРЅРѕР№ СЂРµРїС‹ ===
 for /f "delims=" %%b in ('git -C %ROOT_DIR% rev-parse --abbrev-ref HEAD') do set CURRENT_BRANCH=%%b
 
 if /I NOT "!CURRENT_BRANCH!"=="dev" (
-    echo Ошибка: текущая ветка "!CURRENT_BRANCH!" (нужна dev)
+    echo РћС€РёР±РєР°: С‚РµРєСѓС‰Р°СЏ РІРµС‚РєР° "!CURRENT_BRANCH!" (РЅСѓР¶РЅР° dev)
     exit /b 1
 )
 
-:: === Проверка на незакоммиченные изменения ===
+:: === РџСЂРѕРІРµСЂРєР° РЅР° РЅРµР·Р°РєРѕРјРјРёС‡РµРЅРЅС‹Рµ РёР·РјРµРЅРµРЅРёСЏ ===
 git -C %ROOT_DIR% diff-index --quiet HEAD --
 if errorlevel 1 (
-    echo Ошибка: есть незакоммиченные изменения в основном проекте. Заверши коммиты или сделай stash.
+    echo РћС€РёР±РєР°: РµСЃС‚СЊ РЅРµР·Р°РєРѕРјРјРёС‡РµРЅРЅС‹Рµ РёР·РјРµРЅРµРЅРёСЏ РІ РѕСЃРЅРѕРІРЅРѕРј РїСЂРѕРµРєС‚Рµ. Р—Р°РІРµСЂС€Рё РєРѕРјРјРёС‚С‹ РёР»Рё СЃРґРµР»Р°Р№ stash.
     exit /b 1
 )
 
-:: === Проверка существования тега ===
+:: === РџСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ С‚РµРіР° ===
 git -C %ROOT_DIR% fetch --tags >nul
 git -C %ROOT_DIR% tag | findstr /x "%TAG_NAME%" >nul
 if not errorlevel 1 (
-    echo Ошибка: тег "%TAG_NAME%" уже существует.
+    echo РћС€РёР±РєР°: С‚РµРі "%TAG_NAME%" СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.
     exit /b 1
 )
 
-:: === Работа с подмодулем ===
-echo === Работа с библиотекой ===
+:: === Р Р°Р±РѕС‚Р° СЃ РїРѕРґРјРѕРґСѓР»РµРј ===
+echo === Р Р°Р±РѕС‚Р° СЃ Р±РёР±Р»РёРѕС‚РµРєРѕР№ ===
 cd %LIB_DIR%
 
 for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD') do set LIB_BRANCH=%%b
 if /I NOT "!LIB_BRANCH!"=="dev" (
-    echo Переключение на ветку dev в библиотеке...
+    echo РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РЅР° РІРµС‚РєСѓ dev РІ Р±РёР±Р»РёРѕС‚РµРєРµ...
     git checkout dev
 )
 
-echo Получение обновлений и мерж библиотеки...
+echo РџРѕР»СѓС‡РµРЅРёРµ РѕР±РЅРѕРІР»РµРЅРёР№ Рё РјРµСЂР¶ Р±РёР±Р»РёРѕС‚РµРєРё...
 git fetch origin
 git checkout master
 git merge origin/dev -m "Merge dev into master for release"
@@ -60,7 +61,7 @@ git push origin master
 
 cd %ROOT_DIR%
 
-:: === Обновление подмодуля в основном проекте ===
+:: === РћР±РЅРѕРІР»РµРЅРёРµ РїРѕРґРјРѕРґСѓР»СЏ РІ РѕСЃРЅРѕРІРЅРѕРј РїСЂРѕРµРєС‚Рµ ===
 cd %LIB_DIR%
 git checkout master
 cd %ROOT_DIR%
@@ -68,22 +69,22 @@ cd %ROOT_DIR%
 git add %LIB_DIR%
 git commit -m "Update dsk_tools submodule to master for release %TAG_NAME%"
 
-:: === Мержим dev > master в основном проекте ===
-echo Мерж ветки dev в master...
+:: === РњРµСЂР¶РёРј dev > master РІ РѕСЃРЅРѕРІРЅРѕРј РїСЂРѕРµРєС‚Рµ ===
+echo РњРµСЂР¶ РІРµС‚РєРё dev РІ master...
 git -C %ROOT_DIR% checkout master
 git -C %ROOT_DIR% merge dev -m "Merge dev into master for release %TAG_NAME%"
 git -C %ROOT_DIR% push origin master
 
-:: === Финальный коммит submodule (на master) ===
+:: === Р¤РёРЅР°Р»СЊРЅС‹Р№ РєРѕРјРјРёС‚ submodule (РЅР° master) ===
 git add %LIB_DIR%
 git commit -m "Finalize submodule state for %TAG_NAME%"
 git push origin master
 
-:: === Создание и пуш тега ===
-echo Создание тега %TAG_NAME%...
+:: === РЎРѕР·РґР°РЅРёРµ Рё РїСѓС€ С‚РµРіР° ===
+echo РЎРѕР·РґР°РЅРёРµ С‚РµРіР° %TAG_NAME%...
 git tag -a %TAG_NAME% -m "Release %TAG_NAME%"
 git push origin %TAG_NAME%
 
-echo Релиз %TAG_NAME% завершён успешно.
+echo Р РµР»РёР· %TAG_NAME% Р·Р°РІРµСЂС€С‘РЅ СѓСЃРїРµС€РЅРѕ.
 
 exit /b 0
