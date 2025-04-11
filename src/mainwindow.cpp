@@ -725,7 +725,13 @@ void MainWindow::on_actionSave_to_file_triggered()
             QString selected_filter;
             file_name = QFileDialog::getSaveFileName(this, MainWindow::tr("Export as"), file_name, filters, &selected_filter);
 
-            // qDebug() << file_name << fil_map[selected_filter];
+            #ifndef _WIN32
+                    QJsonObject sel_filt = file_formats[fil_map[selected_filter]].toObject();
+                    QStringList ffs = sel_filt["extensions"].toString().split(";");
+                    QString filter_str = ffs[0];
+                    QString ext = filter_str.split("*")[1];
+                    if (ext != ".") file_name += ext;
+            #endif
             filesystem->save_file(fil_map[selected_filter].toStdString(), file_name.toStdString(), f);
 
         }
