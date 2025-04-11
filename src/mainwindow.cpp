@@ -105,8 +105,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tabWidget->setCurrentIndex(0);
 
+    connect(ui->leftFiles->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &MainWindow::onLeftSelectionChanged);
+
     connect(ui->rightFiles->selectionModel(), &QItemSelectionModel::selectionChanged,
-            this, &MainWindow::onSelectionChanged);
+            this, &MainWindow::onRightSelectionChanged);
 }
 
 void MainWindow::switch_language(const QString & lang, bool init)
@@ -164,6 +167,31 @@ void MainWindow::load_config()
     file_formats = jsonRoot["file_formats"].toObject();
     file_types = jsonRoot["file_types"].toObject();
     file_systems = jsonRoot["file_systems"].toObject();
+
+    // Fill FILE_ANY
+
+    QString all_filters = "";
+    foreach (const QString & ff_id, file_formats.keys()) {
+        QJsonObject format = file_formats[ff_id].toObject();
+        if (format["source"].toBool()) {
+            if (ff_id != "FILE_ANY") {
+                if (all_filters.size() > 0) all_filters += ";";
+                all_filters += format["extensions"].toString();
+            }
+        }
+    }
+
+    QJsonArray all_types;
+    const QStringList &all_types_sl = file_types.keys();
+    for (const auto &str : all_types_sl) {
+        all_types.append(str);
+    }
+
+    // Update FILE_ANY
+    QJsonObject fileAny = file_formats["FILE_ANY"].toObject();
+    fileAny["extensions"] = all_filters;
+    fileAny["types"] = all_types;
+    file_formats["FILE_ANY"] = fileAny;
 }
 
 
@@ -174,7 +202,26 @@ void MainWindow::init_controls()
     QString filesystem_def = settings->value("directory/left_filesystem", "").toString();
 
     ui->leftFilterCombo->clear();
-    foreach (const QString & ff_id, file_formats.keys()) {
+
+    QVector<QPair<QString, QJsonObject>> entries;
+
+    const QStringList keys = file_formats.keys();
+    for (const QString& key : keys) {
+        entries.append(qMakePair(key, file_formats[key].toObject()));
+    }
+
+    std::sort(entries.begin(), entries.end(), [](const QPair<QString, QJsonObject>& a, const QPair<QString, QJsonObject>& b) {
+        int orderA = a.second["order"].toInt();
+        int orderB = b.second["order"].toInt();
+        if (orderA != orderB)
+            return orderA < orderB;
+
+        return a.second["name"].toString().toLower() < b.second["name"].toString().toLower();
+    });
+
+
+    for (const auto& pair : entries) {
+        QString ff_id = pair.first;
         QJsonObject obj = file_formats[ff_id].toObject();
         if (obj["source"].toBool()) {
             QString name = QCoreApplication::translate("config", obj["name"].toString().toUtf8().constData());
@@ -192,6 +239,11 @@ void MainWindow::init_controls()
 
     QString new_dir = settings->value("directory/left", QApplication::applicationDirPath()).toString();
     set_directory(new_dir);
+
+    ui->actionOpen_Image->setDisabled(true);
+    ui->actionImage_Info->setDisabled(true);
+    ui->imageInfoBtn->setDisabled(true);
+    ui->openBtn->setDisabled(true);
 
     setup_buttons(true);
 }
@@ -296,13 +348,15 @@ void MainWindow::dir()
     }
 
     update_table();
-    setup_buttons(false);
+    // setup_buttons(false);
 }
 
 void MainWindow::update_info()
 {
-    auto info = replace_placeholders(QString::fromStdString(filesystem->information()));
-    ui->informationText->setPlainText(info);
+    if (is_loaded) {
+        auto info = replace_placeholders(QString::fromStdString(filesystem->information()));
+        ui->informationText->setPlainText(info);
+    }
 }
 
 void MainWindow::process_image(std::string filesystem_type)
@@ -323,6 +377,7 @@ void MainWindow::process_image(std::string filesystem_type)
         // update_info();
         setup_buttons(false);
         ui->tabWidget->setCurrentIndex(0);
+        is_loaded = true;
     } else {
         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File system initialization error!"));
     }
@@ -414,11 +469,27 @@ void MainWindow::update_table()
         items.append(nameItem);
         rightFilesModel.appendRow( items );
     }
+
     #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         for (int row = 0; row < ui->rightFiles->model()->rowCount(); ++row) {
             ui->rightFiles->setRowHeight(row, 24);
         }
     #endif
+
+    int rowCount = rightFilesModel.rowCount();
+    if (rowCount == 1) {
+        QModelIndex index = rightFilesModel.index(0, 0);
+        if (index.isValid()) {
+            ui->rightFiles->setCurrentIndex(index);
+            ui->rightFiles->selectionModel()->select(
+                index,
+                QItemSelectionModel::Select | QItemSelectionModel::Rows
+                );
+            ui->rightFiles->setFocus(Qt::OtherFocusReason);
+        }
+    } else {
+        setup_buttons(false);
+    }
 }
 
 
@@ -457,7 +528,7 @@ void MainWindow::on_autoCheckBox_checkStateChanged(const Qt::CheckState &arg1)
 
 
 void MainWindow::setComboBoxByItemData(QComboBox* comboBox, const QVariant& value) {
-    if (!comboBox) return;  // Защита от nullptr
+    if (!comboBox || value.toString().isEmpty()) return;  // Защита от nullptr
 
     for (int i = 0; i < comboBox->count(); ++i) {
         if (comboBox->itemData(i) == value) {
@@ -621,7 +692,6 @@ void MainWindow::on_actionFile_info_triggered()
 
             fileinfoUi.textBox->setPlainText(info);
             file_info->exec();
-
         }
     }
 }
@@ -669,6 +739,9 @@ void MainWindow::setup_buttons(bool disabled)
     ui->convertButton->setDisabled(disabled);
     ui->actionConvert->setDisabled(disabled);
 
+    ui->tabFiles->setDisabled(disabled);
+    ui->tabInfo->setDisabled(disabled);
+
     if (disabled) {
         ui->infoButton->setDisabled(disabled);
         ui->viewButton->setDisabled(disabled);
@@ -686,6 +759,7 @@ void MainWindow::setup_buttons(bool disabled)
         ui->actionAdd_directory->setDisabled(disabled);
         ui->actionAdd_files->setDisabled(disabled);
         ui->actionDelete->setDisabled(disabled);
+
     } else {
         int funcs = filesystem->get_capabilities();
         ui->addDirBtn->setDisabled((funcs & FILE_DIRECTORIES) == 0);
@@ -805,11 +879,16 @@ void MainWindow::on_actionImage_Info_triggered()
         QModelIndex selectedIndex = indexes.at(0);
         QFileInfo fi = leftFilesModel.fileInfo(selectedIndex);
         if (!fi.isDir()) {
+            std::string file_name = _toStdString(fi.absoluteFilePath());
+            std::string type_id = "";
+            std::string  filesystem_id = "";
             std::string format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
-            std::string type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
-            dsk_tools::Loader * loader;
+            if (format_id == "FILE_ANY") {
+                int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+            }
+            if (type_id.size()==0) type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
 
-            std::string file_name = _toStdString(fi.absoluteFilePath())            ;
+            dsk_tools::Loader * loader;
 
             if (format_id == "FILE_RAW_MSB") {
                 loader = new dsk_tools::LoaderRAW(file_name, format_id, type_id);
@@ -859,18 +938,34 @@ void MainWindow::on_actionOpen_Image_triggered()
             set_directory(fileInfo.absoluteFilePath());
         } else {
             std::string file_name = _toStdString(fileInfo.absoluteFilePath());
+            QString selected_format = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString();
             if (ui->autoCheckBox->isChecked()) {
                 int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
                 if (res != FDD_DETECT_OK ) {
                     QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
                     return;
                 } else {
-                    set_combos(QString::fromStdString(format_id), QString::fromStdString(type_id), QString::fromStdString(filesystem_id));
+                    set_combos(
+                        (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"",
+                        QString::fromStdString(type_id),
+                        QString::fromStdString(filesystem_id)
+                    );
                 }
             } else {
-                format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
-                type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
-                filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
+                type_id = "";
+                filesystem_id = "";
+                if (selected_format != "FILE_ANY") {
+                    format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
+                } else {
+                    int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+                    if (res != FDD_DETECT_OK) {
+                        type_id = "";
+                        filesystem_id = "";
+                    }
+                };
+                if (type_id.size() == 0) type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
+                if (filesystem_id.size() == 0) filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
+
             }
             load_file(file_name, format_id, type_id, filesystem_id);
         }
@@ -1010,7 +1105,21 @@ void MainWindow::on_actionAdd_directory_triggered()
     }
 }
 
-void MainWindow::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void MainWindow::onLeftSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+{
+    QModelIndexList indexes = ui->leftFiles->selectionModel()->selectedIndexes();
+    if (indexes.size() == 1) {
+        QModelIndex selectedIndex = indexes.at(0);
+        QFileInfo fi = leftFilesModel.fileInfo(selectedIndex);
+        bool disabled = fi.isDir();
+        ui->actionOpen_Image->setDisabled(disabled);
+        ui->actionImage_Info->setDisabled(disabled);
+        ui->imageInfoBtn->setDisabled(disabled);
+        ui->openBtn->setDisabled(disabled);
+    }
+}
+
+void MainWindow::onRightSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
     setup_buttons(false);
 }

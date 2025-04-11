@@ -77,7 +77,8 @@ private slots:
 
     void on_actionRename_triggered();
 
-    void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
+    void onLeftSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
+    void onRightSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
 
 private:
@@ -97,6 +98,8 @@ private:
 
     dsk_tools::diskImage * image = nullptr;
     dsk_tools::fileSystem * filesystem = nullptr;
+
+    bool is_loaded = false;
 
     void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
     void set_combos(QString format_id, QString type_id, QString filesystem_id);

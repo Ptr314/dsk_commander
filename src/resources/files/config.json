@@ -1,6 +1,7 @@
 {
     "file_formats": {
         "FILE_RAW_MSB": {
+            "order":        10,
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
@@ -8,6 +9,7 @@
             "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
         },
         "FILE_AIM": {
+            "order":        20,
             "name":         "Agat AIM",
             "short_name":   "AIM",
             "source":       true,
@@ -15,6 +17,7 @@
             "types":        ["TYPE_AGAT_840"]
         },
         "FILE_HXC_MFM": {
+            "order":        30,
             "name":         "HxC MFM file",
             "short_name":   "MFM",
             "source":       true,
@@ -22,6 +25,7 @@
             "types":        ["TYPE_AGAT_140"]
         },
         "FILE_HXC_HFE": {
+            "order":        30,
             "name":         "HxC HFE file",
             "short_name":   "HFE",
             "source":       true,
@@ -29,6 +33,7 @@
             "types":        ["TYPE_AGAT_840"]
         },
         "FILE_MFM_NIB": {
+            "order":        30,
             "name":         "NIB MFM file",
             "short_name":   "NIB",
             "source":       true,
@@ -36,6 +41,7 @@
             "types":        ["TYPE_AGAT_140"]
         },
         "FILE_MFM_NIC": {
+            "order":        30,
             "name":         "NIC MFM file",
             "short_name":   "NIC",
             "source":       true,
@@ -43,6 +49,7 @@
             "types":        ["TYPE_AGAT_140"]
         },
         "FILE_BINARY": {
+            "order":        30,
             "name":         "Binary File",
             "short_name":   "BIN",
             "source":       false,
@@ -50,6 +57,7 @@
             "types":        []
         },
         "FILE_FIL": {
+            "order":        20,
             "name":         "Agat FIL",
             "short_name":   "FIL",
             "source":       true,
@@ -57,6 +65,7 @@
             "types":        ["TYPE_FIL"]
         },
         "FILE_SOS": {
+            "order":        30,
             "name":         "Agat Sprite OS File",
             "short_name":   "SOS",
             "source":       false,
@@ -64,9 +73,10 @@
             "types":        []
         },
         "FILE_ANY": {
+            "order":        0,
             "name":         "All Files",
             "short_name":   "ALL",
-            "source":       false,
+            "source":       true,
             "extensions":   "*.*",
             "types":        []
         }
