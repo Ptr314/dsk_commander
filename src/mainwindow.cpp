@@ -240,10 +240,10 @@ void MainWindow::init_controls()
     QString new_dir = settings->value("directory/left", QApplication::applicationDirPath()).toString();
     set_directory(new_dir);
 
-    ui->actionOpen_Image->setDisabled(true);
+    // ui->actionOpen_Image->setDisabled(true);
     ui->actionImage_Info->setDisabled(true);
     ui->imageInfoBtn->setDisabled(true);
-    ui->openBtn->setDisabled(true);
+    // ui->openBtn->setDisabled(true);
 
     setup_buttons(true);
 }
@@ -1118,10 +1118,10 @@ void MainWindow::onLeftSelectionChanged(const QItemSelection &selected, const QI
         QModelIndex selectedIndex = indexes.at(0);
         QFileInfo fi = leftFilesModel.fileInfo(selectedIndex);
         bool disabled = fi.isDir();
-        ui->actionOpen_Image->setDisabled(disabled);
+        // ui->actionOpen_Image->setDisabled(disabled);
         ui->actionImage_Info->setDisabled(disabled);
         ui->imageInfoBtn->setDisabled(disabled);
-        ui->openBtn->setDisabled(disabled);
+        // ui->openBtn->setDisabled(disabled);
     }
 }
 
