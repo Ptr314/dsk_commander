@@ -509,12 +509,6 @@ void MainWindow::on_leftTypeCombo_currentIndexChanged(int index)
 }
 
 
-void MainWindow::on_toolButton_clicked()
-{
-    on_actionConvert_triggered();
-}
-
-
 void MainWindow::on_filesystemCombo_currentIndexChanged(int index)
 {
     QString fs_id = ui->filesystemCombo->itemData(index).toString();
@@ -564,12 +558,6 @@ void MainWindow::on_actionAbout_triggered()
         );
 
     about->exec();
-}
-
-
-void MainWindow::on_toolButton_2_clicked()
-{
-    on_actionParent_directory_triggered();
 }
 
 
