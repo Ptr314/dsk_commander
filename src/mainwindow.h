@@ -39,8 +39,6 @@ private slots:
 
     void on_actionConvert_triggered();
 
-    void on_toolButton_clicked();
-
     void on_autoCheckBox_checkStateChanged(const Qt::CheckState &arg1);
 
     void on_filesystemCombo_currentIndexChanged(int index);
@@ -48,8 +46,6 @@ private slots:
     void on_actionAbout_triggered();
 
     void on_actionParent_directory_triggered();
-
-    void on_toolButton_2_clicked();
 
     void on_actionFile_info_triggered();
 
