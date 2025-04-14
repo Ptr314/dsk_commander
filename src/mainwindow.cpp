@@ -892,13 +892,13 @@ void MainWindow::on_actionImage_Info_triggered()
                 loader = new dsk_tools::LoaderAIM(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIC") {
-                loader = new dsk_tools::LoaderGCR_NIC(file_name, format_id, type_id);
+                loader = new dsk_tools::LoaderNIC(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIB") {
-                loader = new dsk_tools::LoaderGCR_NIB(file_name, format_id, type_id);
+                loader = new dsk_tools::LoaderNIB(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_MFM") {
-                loader = new dsk_tools::LoaderGCR_MFM(file_name, format_id, type_id);
+                loader = new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_HFE") {
                 loader = new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
