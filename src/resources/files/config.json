@@ -38,7 +38,7 @@
             "short_name":   "NIB",
             "source":       true,
             "extensions":   "*.nib",
-            "types":        ["TYPE_AGAT_140"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
         },
         "FILE_MFM_NIC": {
             "order":        30,
