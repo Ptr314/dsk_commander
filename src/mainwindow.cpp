@@ -958,10 +958,10 @@ void MainWindow::on_actionOpen_Image_triggered()
                     format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
                 } else {
                     int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
-                    if (res != FDD_DETECT_OK) {
+                    // if (res != FDD_DETECT_OK) {
                         type_id = "";
                         filesystem_id = "";
-                    }
+                    // }
                 };
                 if (type_id.size() == 0) type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
                 if (filesystem_id.size() == 0) filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
