@@ -173,6 +173,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 include(GNUInstallDirs)
 
 # С помощью этого файла передаем номер версии приложения
+set(CMAKE_CONFIGURE_FILE_CONTENT_NEWLINE_STYLE UNIX)
 configure_file (globals.h.in ${CMAKE_CURRENT_SOURCE_DIR}/globals.h @ONLY)
 
 install(TARGETS ${PROJECT_NAME}
