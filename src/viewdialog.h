@@ -30,12 +30,16 @@ private slots:
 
     void on_encodingCombo_currentTextChanged(const QString &arg1);
 
+    void on_subtypeCombo_currentTextChanged(const QString &arg1);
+
 private:
     Ui::ViewDialog *ui;
 
     dsk_tools::BYTES m_data;
     QSettings *m_settings;
+    bool use_subtypes;
     void print_data();
+    void update_subtypes(const QString &preferred = "");
 };
 
 #endif // VIEWDIALOG_H
