@@ -3,15 +3,9 @@
 // Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander
 // Description: A QDialog subclass for viewing files
 
-#include <set>
-
-#include <QMessageBox>
-
 #include "viewdialog.h"
 #include "ui_viewdialog.h"
 
-#include "charmaps.h"
-#include "bas_tokens.h"
 #include "dsk_tools/dsk_tools.h"
 
 ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BYTES &data, int preferred_type, bool deleted)
