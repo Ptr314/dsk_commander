@@ -32,14 +32,25 @@ private slots:
 
     void on_subtypeCombo_currentTextChanged(const QString &arg1);
 
+    void on_scaleSlider_valueChanged(int value);
+
+    void on_optionsCombo_currentIndexChanged(int index);
+
 private:
     Ui::ViewDialog *ui;
 
     dsk_tools::BYTES m_data;
     QSettings *m_settings;
+    int m_scaleFactor;
+    QImage m_image;
+    int m_opt = 0;
+    dsk_tools::BYTES m_imageData;
     bool use_subtypes;
     void print_data();
     void update_subtypes(const QString &preferred = "");
+    void update_image();
+    void fill_options();
+    QString replace_placeholders(const QString & in);
 };
 
 #endif // VIEWDIALOG_H

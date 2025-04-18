@@ -5,7 +5,6 @@
     <name>About</name>
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="142"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>About</source>
@@ -13,7 +12,6 @@
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="144"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
         <source>Copyright</source>
@@ -24,7 +22,6 @@
     <name>ConvertDialog</name>
     <message>
         <location filename="../convertdialog.ui" line="20"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="204"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
@@ -32,7 +29,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="26"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
@@ -40,7 +36,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="38"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="209"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
@@ -48,7 +43,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="45"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="212"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
@@ -56,7 +50,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="55"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="215"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
@@ -64,7 +57,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="58"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="217"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
@@ -72,7 +64,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="124"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
@@ -80,7 +71,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="132"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
@@ -88,7 +78,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="145"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="221"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
@@ -96,7 +85,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="158"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="223"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
@@ -104,7 +92,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="179"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="228"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
@@ -112,7 +99,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="182"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="230"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
@@ -120,7 +106,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="210"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
@@ -128,7 +113,6 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="218"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
@@ -136,61 +120,60 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="169"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="225"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation>Имя файла-образца</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="105"/>
-        <location filename="../convertdialog.cpp" line="164"/>
-        <location filename="../convertdialog.cpp" line="183"/>
+        <location filename="../convertdialog.cpp" line="110"/>
+        <location filename="../convertdialog.cpp" line="169"/>
+        <location filename="../convertdialog.cpp" line="188"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="105"/>
+        <location filename="../convertdialog.cpp" line="110"/>
         <source>Configuration error!</source>
         <translation>Ошибка конфигурации!</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="144"/>
+        <location filename="../convertdialog.cpp" line="149"/>
         <source>Choose file</source>
         <translation>Выберите Файл</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="164"/>
+        <location filename="../convertdialog.cpp" line="169"/>
         <source>No template file selected.</source>
         <translation>Не выбран файл-образец.</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="183"/>
+        <location filename="../convertdialog.cpp" line="188"/>
         <source>The template file type must be the same as the selected export format.</source>
         <translation>Тип файла-образца должен совпадать с выбранным типом для записи.</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="190"/>
+        <location filename="../convertdialog.cpp" line="195"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="190"/>
+        <location filename="../convertdialog.cpp" line="195"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="204"/>
+        <location filename="../convertdialog.cpp" line="209"/>
         <source>Different Volume IDs</source>
         <translation>Несовпадение метки тома</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="205"/>
+        <location filename="../convertdialog.cpp" line="210"/>
         <source>Different Volume IDs. %1. Contunue?</source>
         <translation>Выбранная метка тома не совпадает с указанной в файловой системе (%1). Использование этого значения может вести к неработоспособности диска. Продолжить?</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="250"/>
+        <location filename="../convertdialog.cpp" line="255"/>
         <source>Choose template</source>
         <translation>Выберите файл-образец</translation>
     </message>
@@ -199,7 +182,6 @@
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="14"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_fileinfodialog.h" line="76"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
         <source>File Info</source>
@@ -209,22 +191,22 @@
 <context>
     <name>FileParamDialog</name>
     <message>
-        <location filename="../fileparamdialog.cpp" line="26"/>
+        <location filename="../fileparamdialog.cpp" line="31"/>
         <source>Hex ($XX)</source>
         <translation>Hex ($XX)</translation>
     </message>
     <message>
-        <location filename="../fileparamdialog.cpp" line="39"/>
+        <location filename="../fileparamdialog.cpp" line="44"/>
         <source>Edit metadata</source>
         <translation>Редактирование метаданных файла</translation>
     </message>
     <message>
-        <location filename="../fileparamdialog.cpp" line="86"/>
+        <location filename="../fileparamdialog.cpp" line="91"/>
         <source>Parameter</source>
         <translation>Параметр</translation>
     </message>
     <message>
-        <location filename="../fileparamdialog.cpp" line="86"/>
+        <location filename="../fileparamdialog.cpp" line="91"/>
         <source>Value</source>
         <translation>Значение</translation>
     </message>
@@ -232,12 +214,12 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../mainwindow.cpp" line="160"/>
+        <location filename="../mainwindow.cpp" line="168"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="160"/>
+        <location filename="../mainwindow.cpp" line="168"/>
         <source>Config parse error: %1</source>
         <translation>Ошибка в файле конфигурации: %1</translation>
     </message>
@@ -246,7 +228,6 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="72"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
         <source>Choose a folder</source>
@@ -256,9 +237,6 @@
         <location filename="../mainwindow.ui" line="49"/>
         <location filename="../mainwindow.ui" line="52"/>
         <location filename="../mainwindow.ui" line="250"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="531"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="533"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="561"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="531"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="533"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="561"/>
@@ -270,7 +248,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="69"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
         <source>Choose directory</source>
@@ -278,7 +255,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="92"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
         <source>Image info</source>
@@ -288,9 +264,6 @@
         <location filename="../mainwindow.ui" line="112"/>
         <location filename="../mainwindow.ui" line="115"/>
         <location filename="../mainwindow.ui" line="708"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="524"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="542"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="544"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="524"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="542"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="544"/>
@@ -302,7 +275,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="165"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
         <source>Files to show</source>
@@ -310,7 +282,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="188"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
         <source>Disk type</source>
@@ -318,7 +289,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="201"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
         <source>Filesystem type</source>
@@ -326,7 +296,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="208"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
         <source>Detect Type &amp; Filesystem automatically</source>
@@ -334,7 +303,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="211"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
         <source>Auto</source>
@@ -342,7 +310,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="239"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="602"/>
         <source>List of files</source>
@@ -350,7 +317,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="247"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
         <source>Directory up</source>
@@ -358,7 +324,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="267"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
         <source>Sort by name</source>
@@ -366,7 +331,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="270"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
         <source>Sort</source>
@@ -374,7 +338,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="290"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
         <source>Show deleted files</source>
@@ -382,7 +345,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="293"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
         <source>Deleted</source>
@@ -392,9 +354,6 @@
         <location filename="../mainwindow.ui" line="326"/>
         <location filename="../mainwindow.ui" line="329"/>
         <location filename="../mainwindow.ui" line="681"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="521"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="571"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="573"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="521"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="571"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="573"/>
@@ -406,7 +365,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="346"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
         <source>View file</source>
@@ -415,8 +373,6 @@
     <message>
         <location filename="../mainwindow.ui" line="349"/>
         <location filename="../mainwindow.ui" line="717"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
@@ -426,7 +382,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="366"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
         <source>Export file</source>
@@ -435,8 +390,6 @@
     <message>
         <location filename="../mainwindow.ui" line="369"/>
         <location filename="../mainwindow.ui" line="690"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
@@ -446,18 +399,15 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="399"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
-        <location filename="../mainwindow.cpp" line="1042"/>
+        <location filename="../mainwindow.cpp" line="1093"/>
         <source>Add a directory</source>
         <translation>Создать директорию</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="402"/>
         <location filename="../mainwindow.ui" line="744"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
@@ -467,7 +417,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="419"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
         <source>Rename &amp; Edit metadata</source>
@@ -476,8 +425,6 @@
     <message>
         <location filename="../mainwindow.ui" line="422"/>
         <location filename="../mainwindow.ui" line="753"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
@@ -487,7 +434,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="442"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
         <source>Add a file</source>
@@ -495,7 +441,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="462"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
         <source>Delete file</source>
@@ -504,8 +449,6 @@
     <message>
         <location filename="../mainwindow.ui" line="465"/>
         <location filename="../mainwindow.ui" line="726"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
@@ -515,7 +458,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="520"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
         <source>Export disk</source>
@@ -524,8 +466,6 @@
     <message>
         <location filename="../mainwindow.ui" line="523"/>
         <location filename="../mainwindow.ui" line="651"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
@@ -535,7 +475,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="556"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
         <source>Information</source>
@@ -543,7 +482,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="559"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="604"/>
         <source>File System Information</source>
@@ -551,7 +489,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
         <source>Image</source>
@@ -559,7 +496,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="610"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="610"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="606"/>
         <source>Help</source>
@@ -567,18 +503,15 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="735"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
-        <location filename="../mainwindow.cpp" line="1012"/>
+        <location filename="../mainwindow.cpp" line="1063"/>
         <source>Add files</source>
         <translation>Добавить файл(ы)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="236"/>
         <location filename="../mainwindow.ui" line="611"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
@@ -588,7 +521,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="633"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
         <source>Open directory</source>
@@ -596,7 +528,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="642"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
         <source>About...</source>
@@ -604,7 +535,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="660"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
         <source>Language</source>
@@ -612,7 +542,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="669"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
         <source>Parent directory</source>
@@ -620,603 +549,602 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="699"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
         <source>Image Info</source>
         <translation>Анализ файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="127"/>
-        <location filename="../mainwindow.cpp" line="152"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="307"/>
-        <location filename="../mainwindow.cpp" line="310"/>
-        <location filename="../mainwindow.cpp" line="331"/>
-        <location filename="../mainwindow.cpp" line="362"/>
-        <location filename="../mainwindow.cpp" line="371"/>
-        <location filename="../mainwindow.cpp" line="786"/>
-        <location filename="../mainwindow.cpp" line="794"/>
-        <location filename="../mainwindow.cpp" line="803"/>
-        <location filename="../mainwindow.cpp" line="813"/>
-        <location filename="../mainwindow.cpp" line="821"/>
+        <location filename="../mainwindow.cpp" line="135"/>
+        <location filename="../mainwindow.cpp" line="160"/>
+        <location filename="../mainwindow.cpp" line="317"/>
+        <location filename="../mainwindow.cpp" line="320"/>
+        <location filename="../mainwindow.cpp" line="323"/>
+        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="377"/>
+        <location filename="../mainwindow.cpp" line="387"/>
+        <location filename="../mainwindow.cpp" line="816"/>
         <location filename="../mainwindow.cpp" line="824"/>
-        <location filename="../mainwindow.cpp" line="826"/>
-        <location filename="../mainwindow.cpp" line="837"/>
-        <location filename="../mainwindow.cpp" line="876"/>
-        <location filename="../mainwindow.cpp" line="909"/>
-        <location filename="../mainwindow.cpp" line="941"/>
-        <location filename="../mainwindow.cpp" line="978"/>
-        <location filename="../mainwindow.cpp" line="980"/>
-        <location filename="../mainwindow.cpp" line="1023"/>
-        <location filename="../mainwindow.cpp" line="1025"/>
-        <location filename="../mainwindow.cpp" line="1050"/>
+        <location filename="../mainwindow.cpp" line="833"/>
+        <location filename="../mainwindow.cpp" line="843"/>
+        <location filename="../mainwindow.cpp" line="851"/>
+        <location filename="../mainwindow.cpp" line="854"/>
+        <location filename="../mainwindow.cpp" line="856"/>
+        <location filename="../mainwindow.cpp" line="867"/>
+        <location filename="../mainwindow.cpp" line="911"/>
+        <location filename="../mainwindow.cpp" line="945"/>
+        <location filename="../mainwindow.cpp" line="992"/>
+        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1031"/>
+        <location filename="../mainwindow.cpp" line="1074"/>
+        <location filename="../mainwindow.cpp" line="1076"/>
+        <location filename="../mainwindow.cpp" line="1101"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="152"/>
+        <location filename="../mainwindow.cpp" line="160"/>
         <source>Error reading config file</source>
         <translation>Ошибка чтения файла конфигурации</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
+        <location filename="../mainwindow.cpp" line="275"/>
         <source>Choose a directory</source>
         <translation>Выберите директорию</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>Error checking file parameters</source>
         <translation>Ошибка проверки параметров файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="377"/>
         <source>Unrecognized disk format or disk is damaged!</source>
         <translation>Формат диска не распознан или диск повреждён!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="331"/>
+        <location filename="../mainwindow.cpp" line="344"/>
         <source>Error reading files list!</source>
         <translation>Ошибка чтения списка файлов!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="127"/>
+        <location filename="../mainwindow.cpp" line="135"/>
         <source>Failed to load language file for: </source>
         <translation>Не удалось переключить язык: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="136"/>
+        <location filename="../mainwindow.cpp" line="144"/>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="138"/>
+        <location filename="../mainwindow.cpp" line="146"/>
         <source>Русский</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="141"/>
+        <location filename="../mainwindow.cpp" line="149"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="317"/>
         <source>File loading error. Check your disk type settings or try auto-detection.</source>
         <translation>Ошибка загрузки файла. Проверьте, правильно ли установлен тип диска или попробуйте автоматическое определение.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="323"/>
         <source>Error preparing image data</source>
         <translation>Ошибка подготовки данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="909"/>
+        <location filename="../mainwindow.cpp" line="945"/>
         <source>Can&apos;t detect type of the file automatically</source>
         <translation>Не удалось автоматически определить тип файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="371"/>
+        <location filename="../mainwindow.cpp" line="387"/>
         <source>File system initialization error!</source>
         <translation>Ошибка инициализации файловой системы!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="402"/>
         <source>P</source>
         <translation>З</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="387"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>Protection</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="394"/>
-        <location filename="../mainwindow.cpp" line="569"/>
-        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="410"/>
+        <location filename="../mainwindow.cpp" line="589"/>
+        <location filename="../mainwindow.cpp" line="663"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="400"/>
+        <location filename="../mainwindow.cpp" line="416"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="401"/>
+        <location filename="../mainwindow.cpp" line="417"/>
         <source>Size in bytes</source>
         <translation>Размер в байтах</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="404"/>
+        <location filename="../mainwindow.cpp" line="420"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="405"/>
+        <location filename="../mainwindow.cpp" line="421"/>
         <source>Name of the file</source>
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="612"/>
+        <location filename="../mainwindow.cpp" line="632"/>
         <source>DOS 3.3 VTOC found</source>
         <translation>Найден DOS 3.3 VTOC</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="941"/>
+        <location filename="../mainwindow.cpp" line="992"/>
         <source>File reading error!</source>
         <translation>Ошибка чтения файла!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="560"/>
+        <location filename="../mainwindow.cpp" line="580"/>
         <source>Directory Entry</source>
         <translation>Элемент каталога</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="561"/>
-        <location filename="../mainwindow.cpp" line="641"/>
+        <location filename="../mainwindow.cpp" line="581"/>
+        <location filename="../mainwindow.cpp" line="661"/>
         <source>File Name</source>
         <translation>Имя Файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="562"/>
+        <location filename="../mainwindow.cpp" line="582"/>
         <source>File Size</source>
         <translation>Размер Файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="564"/>
+        <location filename="../mainwindow.cpp" line="584"/>
         <source>Sides</source>
         <translation>Стороны</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="565"/>
+        <location filename="../mainwindow.cpp" line="585"/>
         <source>Tracks</source>
         <translation>Дорожки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="566"/>
+        <location filename="../mainwindow.cpp" line="586"/>
         <source>sector(s)</source>
         <translation>сектор(ов)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="570"/>
-        <location filename="../mainwindow.cpp" line="642"/>
+        <location filename="../mainwindow.cpp" line="590"/>
+        <location filename="../mainwindow.cpp" line="662"/>
         <source>Protected</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="571"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="572"/>
+        <location filename="../mainwindow.cpp" line="592"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="573"/>
+        <location filename="../mainwindow.cpp" line="593"/>
         <source>T/S List Location</source>
         <translation>Расположение таблицы секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="574"/>
+        <location filename="../mainwindow.cpp" line="594"/>
         <source>Incorrect T/S data, stopping iterations</source>
         <translation>Данные в таблице секторов некорректны, обработка прервана</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="575"/>
+        <location filename="../mainwindow.cpp" line="595"/>
         <source>Next T/S List Location</source>
         <translation>Следующая таблица секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="576"/>
+        <location filename="../mainwindow.cpp" line="596"/>
         <source>File End Reached</source>
         <translation>Конец файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="577"/>
+        <location filename="../mainwindow.cpp" line="597"/>
         <source>The file is marked as deleted, the data below may be incorrect</source>
         <translation>Файл помечен как удаленный, данные ниже могут быть некорректны</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="578"/>
+        <location filename="../mainwindow.cpp" line="598"/>
         <source>File parsing error</source>
         <translation>При анализе файла найдены ошибки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="579"/>
+        <location filename="../mainwindow.cpp" line="599"/>
         <source>Track</source>
         <translation>Дорожка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="581"/>
+        <location filename="../mainwindow.cpp" line="601"/>
         <source>H</source>
         <translation>H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="582"/>
-        <location filename="../mainwindow.cpp" line="583"/>
+        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="603"/>
         <source>S</source>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="584"/>
+        <location filename="../mainwindow.cpp" line="604"/>
         <source>Parsing finished</source>
         <translation>Анализ завершён</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="585"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>V</source>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Index</source>
         <translation>Индекс</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="587"/>
+        <location filename="../mainwindow.cpp" line="607"/>
         <source>Index Mark</source>
         <translation>Метка индекса</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="588"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Data Mark</source>
         <translation>Метка данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="589"/>
+        <location filename="../mainwindow.cpp" line="609"/>
         <source>Sector Data</source>
         <translation>Данные сектора</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="590"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>End Mark: OK</source>
         <translation>Конец индекса: ОК</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="591"/>
+        <location filename="../mainwindow.cpp" line="611"/>
         <source>End Mark: Not Detected</source>
         <translation>Конец индекса: Не найден</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
-        <location filename="../mainwindow.cpp" line="597"/>
+        <location filename="../mainwindow.cpp" line="612"/>
+        <location filename="../mainwindow.cpp" line="617"/>
         <source>CRC: OK</source>
         <translation>CRC: OK</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="593"/>
-        <location filename="../mainwindow.cpp" line="598"/>
+        <location filename="../mainwindow.cpp" line="613"/>
+        <location filename="../mainwindow.cpp" line="618"/>
         <source>CRC: Error</source>
         <translation>CRC: Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="594"/>
+        <location filename="../mainwindow.cpp" line="614"/>
         <source>Expected</source>
         <translation>Ожидание</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="595"/>
+        <location filename="../mainwindow.cpp" line="615"/>
         <source>Found</source>
         <translation>Прочитано</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="596"/>
+        <location filename="../mainwindow.cpp" line="616"/>
         <source>Data Error</source>
         <translation>Ошибка данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="599"/>
-        <location filename="../mainwindow.cpp" line="601"/>
+        <location filename="../mainwindow.cpp" line="619"/>
+        <location filename="../mainwindow.cpp" line="621"/>
         <source>Epilogue: OK</source>
         <translation>Эпилог: ОК</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="600"/>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="620"/>
+        <location filename="../mainwindow.cpp" line="622"/>
         <source>Epilogue: Error</source>
         <translation>Эпилог: Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="603"/>
+        <location filename="../mainwindow.cpp" line="623"/>
         <source>Track List Offset</source>
         <translation>Список дорожек</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>Track Offset</source>
         <translation>Смещение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="625"/>
         <source>Track Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="606"/>
+        <location filename="../mainwindow.cpp" line="626"/>
         <source>Header</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="627"/>
         <source>Signature</source>
         <translation>Сигнатура</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="608"/>
+        <location filename="../mainwindow.cpp" line="628"/>
         <source>No known signature found, aborting</source>
         <translation>Сигнатура формата не найдена. обработка прервана</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Format revision</source>
         <translation>Версия формата</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="610"/>
+        <location filename="../mainwindow.cpp" line="630"/>
         <source>Side</source>
         <translation>Сторона</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="611"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Custom Data</source>
         <translation>Расширенные атрибуты файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="613"/>
+        <location filename="../mainwindow.cpp" line="633"/>
         <source>DOS 3.3 VTOC not found</source>
         <translation>DOS 3.3 VTOC не найден</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="614"/>
+        <location filename="../mainwindow.cpp" line="634"/>
         <source>Root Catalog Track</source>
         <translation>Корневой каталог, дорожка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="615"/>
+        <location filename="../mainwindow.cpp" line="635"/>
         <source>Root Catalog Sector</source>
         <translation>Корневой каталог, сектор</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="616"/>
+        <location filename="../mainwindow.cpp" line="636"/>
         <source>DOS Release</source>
         <translation>Версия DOS</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
-        <location filename="../mainwindow.cpp" line="629"/>
+        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="649"/>
         <source>Volume ID</source>
         <translation>Номер тома (Volume ID)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="618"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>Volume name</source>
         <translation>Метка тома</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="619"/>
+        <location filename="../mainwindow.cpp" line="639"/>
         <source>Pairs per T/S list</source>
         <translation>Пар T/S в списке</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="620"/>
+        <location filename="../mainwindow.cpp" line="640"/>
         <source>Last track</source>
         <translation>Последняя занятая дорожка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="621"/>
+        <location filename="../mainwindow.cpp" line="641"/>
         <source>Direction</source>
         <translation>Направление заполнения</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="622"/>
+        <location filename="../mainwindow.cpp" line="642"/>
         <source>Tracks total</source>
         <translation>Дорожек всего</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="643"/>
         <source>Sectors on track</source>
         <translation>Количество секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="624"/>
+        <location filename="../mainwindow.cpp" line="644"/>
         <source>Bytes per sector</source>
         <translation>Размер сектора в байтах</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="625"/>
+        <location filename="../mainwindow.cpp" line="645"/>
         <source>Error opening the file</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="626"/>
+        <location filename="../mainwindow.cpp" line="646"/>
         <source>Error loading, check if the file type is correct</source>
         <translation>Ошибка загрузки файла, проверьте, правильно ли установлен формат</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="648"/>
         <source>DPB Information</source>
         <translation>Информация по DPB</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Device type</source>
         <translation>Тип устройства</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="631"/>
+        <location filename="../mainwindow.cpp" line="651"/>
         <source>DSIDE</source>
         <translation>DSIDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="632"/>
+        <location filename="../mainwindow.cpp" line="652"/>
         <source>Blocks on track</source>
         <translation>Блоков на дорожке</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="633"/>
+        <location filename="../mainwindow.cpp" line="653"/>
         <source>Tracks on disk</source>
         <translation>Дорожек на устройстве</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="634"/>
+        <location filename="../mainwindow.cpp" line="654"/>
         <source>Last block</source>
         <translation>Последний блок</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="635"/>
+        <location filename="../mainwindow.cpp" line="655"/>
         <source>VTOC block</source>
         <translation>Блок VTOC</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="657"/>
         <source>Extent</source>
         <translation>Экстент</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="658"/>
         <source>Free sectors</source>
         <translation>Незанятых секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="639"/>
+        <location filename="../mainwindow.cpp" line="659"/>
         <source>Free bytes</source>
         <translation>Свободных байт</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="644"/>
+        <location filename="../mainwindow.cpp" line="664"/>
         <source>Extended</source>
         <translation>Расш. атрибут</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="700"/>
+        <location filename="../mainwindow.cpp" line="719"/>
         <source>Export as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="786"/>
+        <location filename="../mainwindow.cpp" line="816"/>
         <source>Not implemented!</source>
         <translation>Функция не реализована!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="794"/>
+        <location filename="../mainwindow.cpp" line="824"/>
         <source>Error generating file</source>
         <translation>Ошибка генерации файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="803"/>
+        <location filename="../mainwindow.cpp" line="833"/>
         <source>Error opening template file</source>
         <translation>Ошибка открытия файла-образца</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="813"/>
+        <location filename="../mainwindow.cpp" line="843"/>
         <source>Error reading template file</source>
         <translation>Ошибка чтения файла-образца</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="821"/>
+        <location filename="../mainwindow.cpp" line="851"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation>Выбранный образец не может быть использован - его тип и размер должны совпадать с целевым форматом.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="824"/>
+        <location filename="../mainwindow.cpp" line="854"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation>Некорректные данные для замены треков.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="826"/>
+        <location filename="../mainwindow.cpp" line="856"/>
         <source>Error inserting tracks from template</source>
         <translation>Ошибка замены треков</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="837"/>
+        <location filename="../mainwindow.cpp" line="867"/>
         <source>Error writing file to disk</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="876"/>
+        <location filename="../mainwindow.cpp" line="911"/>
         <source>Not supported yet</source>
         <translation>Поддержка функции еще не реализована</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="978"/>
+        <location filename="../mainwindow.cpp" line="1029"/>
         <source>Error deleting directory. It must be empty to be deleted</source>
         <translation>Ошибка удаления. Директория должны быть пустой</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="980"/>
+        <location filename="../mainwindow.cpp" line="1031"/>
         <source>Error deleting file</source>
         <translation>Ошибка удаления файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1023"/>
+        <location filename="../mainwindow.cpp" line="1074"/>
         <source>Error adding file. Not enough free disk space</source>
         <translation>Ошибка добавления файла. На диске недостаточно свободного места</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1025"/>
+        <location filename="../mainwindow.cpp" line="1076"/>
         <source>Error adding file</source>
         <translation>Ошибка добавления файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1030"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Success</source>
         <translation>Успешное выполнение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1030"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Successfully added %1 file(s)</source>
         <translation>Успешно добавлено %1 файл(ов)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1043"/>
+        <location filename="../mainwindow.cpp" line="1094"/>
         <source>Directory name:</source>
         <translation>Название директории:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1050"/>
+        <location filename="../mainwindow.cpp" line="1101"/>
         <source>Error adding new catalog</source>
         <translation>Ошибка добавления каталога</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="583"/>
         <source>byte(s)</source>
         <translation>байт(ов)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
-        <location filename="../mainwindow.cpp" line="580"/>
+        <location filename="../mainwindow.cpp" line="409"/>
+        <location filename="../mainwindow.cpp" line="600"/>
         <source>T</source>
         <translation>Т</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="567"/>
+        <location filename="../mainwindow.cpp" line="587"/>
         <source>Attributes</source>
         <translation>Атрибуты</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="568"/>
+        <location filename="../mainwindow.cpp" line="588"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
@@ -1225,88 +1153,100 @@
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="139"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="139"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="142"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="308"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="196"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="62"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="142"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="142"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="145"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="311"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="199"/>
         <source>View mode</source>
         <translation>Режим просмотра</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="125"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="146"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="146"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="149"/>
+        <location filename="../viewdialog.ui" line="110"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="315"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="203"/>
+        <source>Subtype</source>
+        <translation>Вариант</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.ui" line="173"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="318"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="206"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="141"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="148"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="148"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="151"/>
+        <location filename="../viewdialog.ui" line="189"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="320"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="208"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation>Удаленный файл. Данные могут быть неверны.</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="161"/>
-        <location filename="../build/Desktop_Qt_5_15_2_MinGW_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="149"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="149"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="152"/>
+        <location filename="../viewdialog.ui" line="209"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="321"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="209"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="23"/>
+        <location filename="../viewdialog.cpp" line="35"/>
         <source>Binary</source>
         <translation>Двоичный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="24"/>
+        <location filename="../viewdialog.cpp" line="36"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="25"/>
-        <source>Agat BASIC</source>
-        <translation>Агат BASIC</translation>
+        <location filename="../viewdialog.cpp" line="37"/>
+        <source>BASIC</source>
+        <translation>Бейсик</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="26"/>
-        <source>Applesoft BASIC</source>
-        <translation>Applesoft BASIC</translation>
+        <location filename="../viewdialog.cpp" line="38"/>
+        <source>Agat pictures</source>
+        <translation>Изображения Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="27"/>
-        <source>MBASIC</source>
-        <translation>MBASIC</translation>
-    </message>
-    <message>
-        <location filename="../viewdialog.cpp" line="43"/>
+        <location filename="../viewdialog.cpp" line="68"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="44"/>
+        <location filename="../viewdialog.cpp" line="69"/>
         <source>Apple II</source>
         <translation>Apple II</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="45"/>
+        <location filename="../viewdialog.cpp" line="70"/>
         <source>Apple //c</source>
         <translation>Apple //c</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="46"/>
+        <location filename="../viewdialog.cpp" line="71"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="125"/>
+        <source>Main palette</source>
+        <translation>Основная палитра</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="126"/>
+        <source>Alt palette</source>
+        <translation>Альтернативная</translation>
+    </message>
+    <message>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="323"/>
+        <source>100%</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
