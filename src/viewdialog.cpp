@@ -35,7 +35,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
                             .replace("BINARY", ViewDialog::tr("Binary"))
                             .replace("TEXT", ViewDialog::tr("Text"))
                             .replace("BASIC", ViewDialog::tr("BASIC"))
-                            .replace("PICTURE", ViewDialog::tr("Image"));
+                            .replace("PICTURE_AGAT", ViewDialog::tr("Agat pictures"));
         ui->modeCombo->addItem(type_str, QString::fromStdString(type));
         type_map[type] = c++;
     }
@@ -56,7 +56,9 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
         ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
         preferred_subtype = "MBASIC";
     } else {
-        ui->modeCombo->setCurrentIndex(type_map["BINARY"]);
+        std::pair<std::string, std::string> suggested = dsk_tools::suggest_file_type(m_data);
+        ui->modeCombo->setCurrentIndex(type_map[suggested.first]);
+        preferred_subtype = QString::fromStdString(suggested.second);
     }
     ui->modeCombo->blockSignals(false);
 
@@ -71,6 +73,10 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     ui->encodingCombo->blockSignals(false);
 
     ui->deletedLabel->setVisible(deleted);
+
+    m_scaleFactor = 1;
+
+    fill_options();
 
     print_data();
 }
@@ -89,14 +95,9 @@ void ViewDialog::update_subtypes(const QString & preferred)
 
         ui->subtypeCombo->blockSignals(true);
         ui->subtypeCombo->clear();
-        for (const auto& subtype : subtypes) {
-            QString subtype_str = QString::fromStdString(subtype)
-                                   .replace("AGAT", ViewDialog::tr("Agat BASIC"))
-                                   .replace("APPLE", ViewDialog::tr("Apple BASIC"))
-                                   .replace("MBASIC", ViewDialog::tr("CP/M MBASIC"));
-            ui->subtypeCombo->addItem(subtype_str, QString::fromStdString(subtype));
-
-            if (subtype == preferred.toStdString())
+        for (const auto& pair : subtypes) {
+            ui->subtypeCombo->addItem(QString::fromStdString(pair.second), QString::fromStdString(pair.first));
+            if (pair.first == preferred.toStdString())
                 ui->subtypeCombo->setCurrentIndex(ui->subtypeCombo->count()-1);
         }
         ui->subtypeCombo->blockSignals(false);
@@ -120,6 +121,15 @@ void ViewDialog::on_closeBtn_clicked()
     close();
 }
 
+QString ViewDialog::replace_placeholders(const QString & in)
+{
+    return QString(in)
+        .replace("{$MAIN_PALETTE}", ViewDialog::tr("Main palette"))
+        .replace("{$ALT_PALETTE}", ViewDialog::tr("Alt palette"))
+        ;
+}
+
+
 void ViewDialog::print_data()
 {
     if (m_data.size() != 0) {
@@ -137,12 +147,34 @@ void ViewDialog::print_data()
             ui->textBox->setWordWrapMode(QTextOption::NoWrap);
 
             ui->textBox->setPlainText(QString::fromStdString(out));
+            ui->viewArea->setCurrentIndex(0);
         } else
         if (output_type == VIEWER_OUTPUT_PICTURE) {
-            // TODO: Implement
+            int sx, sy;
+            if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(viewer.get())) {
+                m_imageData = picViewer->process_picture(m_data, sx, sy, m_opt);
+                m_image = QImage(m_imageData.data(), sx, sy, QImage::Format_RGBA8888);
+                update_image();
+            }
+            ui->viewArea->setCurrentIndex(1);
         }
     }
 }
+
+
+void ViewDialog::update_image()
+{
+    // QSize labelSize = ui->picLabel->size();
+    QImage scaledImage = m_image.scaled(
+        m_image.width() * m_scaleFactor,
+        m_image.height() * m_scaleFactor,
+        Qt::KeepAspectRatio,
+        Qt::FastTransformation
+        );
+    QPixmap pixmap = QPixmap::fromImage(scaledImage);
+    ui->picLabel->setPixmap(pixmap);
+}
+
 
 void ViewDialog::on_modeCombo_currentIndexChanged(int index)
 {
@@ -158,8 +190,50 @@ void ViewDialog::on_encodingCombo_currentTextChanged(const QString &arg1)
 }
 
 
+void ViewDialog::fill_options()
+{
+    auto type = ui->modeCombo->currentData().toString().toStdString();
+    auto subtype = (use_subtypes)?ui->subtypeCombo->currentData().toString().toStdString():"";
+    auto viewer = dsk_tools::ViewerManager::instance().create(type, subtype);
+    auto output_type = viewer->get_output_type();
+    if (output_type == VIEWER_OUTPUT_PICTURE) {
+        if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(viewer.get())) {
+            auto options = picViewer->get_options();
+            if (options.size() > 0) {
+                ui->optionsCombo->blockSignals(true);
+                ui->optionsCombo->clear();
+                for (const auto& opt : options) {
+                    ui->optionsCombo->addItem(replace_placeholders(QString::fromStdString(opt.second)), opt.first);
+                }
+                ui->optionsCombo->blockSignals(false);
+                ui->optionsCombo->setVisible(true);
+            } else {
+                ui->optionsCombo->setVisible(false);
+                m_opt = 0;
+            }
+        }
+    }
+}
+
+
 void ViewDialog::on_subtypeCombo_currentTextChanged(const QString &arg1)
 {
+    fill_options();
+    print_data();
+}
+
+
+void ViewDialog::on_scaleSlider_valueChanged(int value)
+{
+    ui->scaleLabel->setText(QString("%1%").arg(value*100));
+    m_scaleFactor = value;
+    update_image();
+}
+
+
+void ViewDialog::on_optionsCombo_currentIndexChanged(int index)
+{
+    m_opt = ui->optionsCombo->itemData(index).toInt();
     print_data();
 }
 
