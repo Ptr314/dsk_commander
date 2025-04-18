@@ -96,7 +96,7 @@ void ViewDialog::update_subtypes(const QString & preferred)
                                    .replace("MBASIC", ViewDialog::tr("CP/M MBASIC"));
             ui->subtypeCombo->addItem(subtype_str, QString::fromStdString(subtype));
 
-            if (subtype == preferred)
+            if (subtype == preferred.toStdString())
                 ui->subtypeCombo->setCurrentIndex(ui->subtypeCombo->count()-1);
         }
         ui->subtypeCombo->blockSignals(false);
