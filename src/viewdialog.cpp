@@ -82,7 +82,12 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     ui->propsCombo->setCurrentIndex(settings->value("viewer/proportions", 0).toInt());
     ui->propsCombo->blockSignals(false);
 
-    m_scaleFactor = 1;
+    m_scaleFactor = settings->value("viewer/scale", 1).toInt();
+
+    ui->scaleSlider->blockSignals(true);
+    ui->scaleSlider->setValue(m_scaleFactor);
+    ui->scaleLabel->setText(QString("%1%").arg(m_scaleFactor*100));
+    ui->scaleSlider->blockSignals(false);
 
     fill_options();
 
@@ -140,6 +145,9 @@ QString ViewDialog::replace_placeholders(const QString & in)
     return QString(in)
         .replace("{$MAIN_PALETTE}", ViewDialog::tr("Main palette"))
         .replace("{$ALT_PALETTE}", ViewDialog::tr("Alt palette"))
+        .replace("{$NTSC_AGAT_IMPROVED}", ViewDialog::tr("Agat Improved"))
+        .replace("{$NTSC_APPLE_IMPROVED}", ViewDialog::tr("Apple Improved"))
+        .replace("{$NTSC_APPLE_ORIGINAL}", ViewDialog::tr("Apple NTSC Original"))
         ;
 }
 
@@ -198,14 +206,18 @@ void ViewDialog::update_image()
         double ratio = (double)m_image.width() / m_image.height();
         scaledImage = m_image.scaled(
             m_image.width() * m_scaleFactor / ratio,
-            m_image.height() * m_scaleFactor
+            m_image.height() * m_scaleFactor,
+            Qt::IgnoreAspectRatio,
+            Qt::FastTransformation
         );
     } else {
         // 43
         double ratio = ((double)m_image.width() / m_image.height()) * 3 / 4;
         scaledImage = m_image.scaled(
             m_image.width() * m_scaleFactor / ratio,
-            m_image.height() * m_scaleFactor
+            m_image.height() * m_scaleFactor,
+            Qt::IgnoreAspectRatio,
+            Qt::FastTransformation
         );
     };
 
@@ -244,8 +256,10 @@ void ViewDialog::fill_options()
                     ui->optionsCombo->addItem(replace_placeholders(QString::fromStdString(opt.second)), opt.first);
                 }
                 ui->optionsCombo->blockSignals(false);
+                ui->optionsLabel->setVisible(true);
                 ui->optionsCombo->setVisible(true);
             } else {
+                ui->optionsLabel->setVisible(false);
                 ui->optionsCombo->setVisible(false);
                 m_opt = 0;
             }
@@ -256,6 +270,7 @@ void ViewDialog::fill_options()
 
 void ViewDialog::on_scaleSlider_valueChanged(int value)
 {
+    m_settings->setValue("viewer/scale", value);
     ui->scaleLabel->setText(QString("%1%").arg(value*100));
     m_scaleFactor = value;
     update_image();

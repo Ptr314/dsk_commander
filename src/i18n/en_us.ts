@@ -1234,28 +1234,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="77"/>
+        <location filename="../viewdialog.cpp" line="79"/>
         <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="78"/>
+        <location filename="../viewdialog.cpp" line="80"/>
         <source>Square screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="79"/>
+        <location filename="../viewdialog.cpp" line="81"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="131"/>
+        <location filename="../viewdialog.cpp" line="141"/>
         <source>Main palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="132"/>
+        <location filename="../viewdialog.cpp" line="142"/>
         <source>Alt palette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="143"/>
+        <source>Agat Improved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="144"/>
+        <source>Apple Improved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="145"/>
+        <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

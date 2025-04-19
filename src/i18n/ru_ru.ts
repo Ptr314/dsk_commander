@@ -1234,29 +1234,44 @@
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="77"/>
+        <location filename="../viewdialog.cpp" line="79"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="78"/>
+        <location filename="../viewdialog.cpp" line="80"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="79"/>
+        <location filename="../viewdialog.cpp" line="81"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="131"/>
+        <location filename="../viewdialog.cpp" line="141"/>
         <source>Main palette</source>
         <translation>Основная палитра</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="132"/>
+        <location filename="../viewdialog.cpp" line="142"/>
         <source>Alt palette</source>
         <translation>Альтернативная</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="143"/>
+        <source>Agat Improved</source>
+        <translation>Агат исправленный</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="144"/>
+        <source>Apple Improved</source>
+        <translation>Apple исправленный</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="145"/>
+        <source>Apple NTSC Original</source>
+        <translation>NTSC оригинальный</translation>
     </message>
 </context>
 <context>
