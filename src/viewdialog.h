@@ -30,11 +30,13 @@ private slots:
 
     void on_encodingCombo_currentTextChanged(const QString &arg1);
 
-    void on_subtypeCombo_currentTextChanged(const QString &arg1);
-
     void on_scaleSlider_valueChanged(int value);
 
     void on_optionsCombo_currentIndexChanged(int index);
+
+    void on_propsCombo_currentIndexChanged(int index);
+
+    void on_subtypeCombo_currentIndexChanged(int index);
 
 private:
     Ui::ViewDialog *ui;
@@ -46,6 +48,7 @@ private:
     int m_opt = 0;
     dsk_tools::BYTES m_imageData;
     bool use_subtypes;
+    std::map<std::string, int> last_subtypes;
     void print_data();
     void update_subtypes(const QString &preferred = "");
     void update_image();

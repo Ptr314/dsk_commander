@@ -74,6 +74,14 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
 
     ui->deletedLabel->setVisible(deleted);
 
+
+    ui->propsCombo->blockSignals(true);
+    ui->propsCombo->addItem(ViewDialog::tr("Square pixels"), "sqp");
+    ui->propsCombo->addItem(ViewDialog::tr("Square screen"), "sqs");
+    ui->propsCombo->addItem(ViewDialog::tr("4:3"), "43");
+    ui->propsCombo->setCurrentIndex(settings->value("viewer/proportions", 0).toInt());
+    ui->propsCombo->blockSignals(false);
+
     m_scaleFactor = 1;
 
     fill_options();
@@ -97,8 +105,14 @@ void ViewDialog::update_subtypes(const QString & preferred)
         ui->subtypeCombo->clear();
         for (const auto& pair : subtypes) {
             ui->subtypeCombo->addItem(QString::fromStdString(pair.second), QString::fromStdString(pair.first));
-            if (pair.first == preferred.toStdString())
-                ui->subtypeCombo->setCurrentIndex(ui->subtypeCombo->count()-1);
+            if (pair.first == preferred.toStdString()) {
+                int index = ui->subtypeCombo->count()-1;
+                last_subtypes[mode] = index;
+                ui->subtypeCombo->setCurrentIndex(index);
+            }
+        }
+        if (preferred.isEmpty() && last_subtypes.find(mode) != last_subtypes.end()) {
+            ui->subtypeCombo->setCurrentIndex(last_subtypes[mode]);
         }
         ui->subtypeCombo->blockSignals(false);
         use_subtypes = true;
@@ -140,6 +154,9 @@ void ViewDialog::print_data()
 
         auto output_type = viewer->get_output_type();
         if (output_type == VIEWER_OUTPUT_TEXT) {
+            ui->encodingCombo->setVisible(true);
+            ui->encodingLabel->setVisible(true);
+
             auto cm_name = ui->encodingCombo->currentData().toString().toStdString();
             auto out = viewer->process_as_text(m_data, cm_name);
 
@@ -150,6 +167,8 @@ void ViewDialog::print_data()
             ui->viewArea->setCurrentIndex(0);
         } else
         if (output_type == VIEWER_OUTPUT_PICTURE) {
+            ui->encodingCombo->setVisible(false);
+            ui->encodingLabel->setVisible(false);
             int sx, sy;
             if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(viewer.get())) {
                 m_imageData = picViewer->process_picture(m_data, sx, sy, m_opt);
@@ -165,12 +184,31 @@ void ViewDialog::print_data()
 void ViewDialog::update_image()
 {
     // QSize labelSize = ui->picLabel->size();
-    QImage scaledImage = m_image.scaled(
-        m_image.width() * m_scaleFactor,
-        m_image.height() * m_scaleFactor,
-        Qt::KeepAspectRatio,
-        Qt::FastTransformation
+    QString scr_mode = ui->propsCombo->itemData(ui->propsCombo->currentIndex()).toString();
+    QImage scaledImage;
+    if (scr_mode == "sqp" || (scr_mode == "sqs" && m_image.width()==m_image.height())) {
+        scaledImage = m_image.scaled(
+            m_image.width() * m_scaleFactor,
+            m_image.height() * m_scaleFactor,
+            Qt::KeepAspectRatio,
+            Qt::FastTransformation
         );
+    } else
+    if (scr_mode == "sqs") {
+        double ratio = (double)m_image.width() / m_image.height();
+        scaledImage = m_image.scaled(
+            m_image.width() * m_scaleFactor / ratio,
+            m_image.height() * m_scaleFactor
+        );
+    } else {
+        // 43
+        double ratio = ((double)m_image.width() / m_image.height()) * 3 / 4;
+        scaledImage = m_image.scaled(
+            m_image.width() * m_scaleFactor / ratio,
+            m_image.height() * m_scaleFactor
+        );
+    };
+
     QPixmap pixmap = QPixmap::fromImage(scaledImage);
     ui->picLabel->setPixmap(pixmap);
 }
@@ -216,13 +254,6 @@ void ViewDialog::fill_options()
 }
 
 
-void ViewDialog::on_subtypeCombo_currentTextChanged(const QString &arg1)
-{
-    fill_options();
-    print_data();
-}
-
-
 void ViewDialog::on_scaleSlider_valueChanged(int value)
 {
     ui->scaleLabel->setText(QString("%1%").arg(value*100));
@@ -234,6 +265,23 @@ void ViewDialog::on_scaleSlider_valueChanged(int value)
 void ViewDialog::on_optionsCombo_currentIndexChanged(int index)
 {
     m_opt = ui->optionsCombo->itemData(index).toInt();
+    print_data();
+}
+
+
+void ViewDialog::on_propsCombo_currentIndexChanged(int index)
+{
+    m_settings->setValue("viewer/proportions", ui->propsCombo->currentIndex());
+    update_image();
+}
+
+
+void ViewDialog::on_subtypeCombo_currentIndexChanged(int index)
+{
+    auto mode = ui->modeCombo->currentData().toString().toStdString();
+    last_subtypes[mode] = index;
+
+    fill_options();
     print_data();
 }
 

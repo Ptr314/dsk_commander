@@ -1153,43 +1153,43 @@
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="308"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="196"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="338"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="315"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="62"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="311"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="199"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="341"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="318"/>
         <source>View mode</source>
         <translation>Режим просмотра</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="110"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="315"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="203"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="345"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="322"/>
         <source>Subtype</source>
         <translation>Вариант</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="173"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="318"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="206"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="325"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="189"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="320"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="208"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="327"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation>Удаленный файл. Данные могут быть неверны.</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="321"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="209"/>
+        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="328"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -1211,7 +1211,7 @@
     <message>
         <location filename="../viewdialog.cpp" line="38"/>
         <source>Agat pictures</source>
-        <translation>Изображения Агат</translation>
+        <translation>Графика Агат</translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="68"/>
@@ -1234,19 +1234,29 @@
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="125"/>
+        <location filename="../viewdialog.cpp" line="77"/>
+        <source>Square pixels</source>
+        <translation>Квадратные пиксели</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="78"/>
+        <source>Square screen</source>
+        <translation>Квадратный экран</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="79"/>
+        <source>4:3</source>
+        <translation>4:3</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="131"/>
         <source>Main palette</source>
         <translation>Основная палитра</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="126"/>
+        <location filename="../viewdialog.cpp" line="132"/>
         <source>Alt palette</source>
         <translation>Альтернативная</translation>
-    </message>
-    <message>
-        <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="323"/>
-        <source>100%</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
