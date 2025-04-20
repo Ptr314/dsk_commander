@@ -26,9 +26,12 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
 
     dsk_tools::ViewerManager& manager = dsk_tools::ViewerManager::instance();
     auto all_types = manager.list_types();
-    for (const auto& type : manager.list_types()) {
+    for (const auto& type : all_types) {
         std::vector<std::pair<std::string, std::string>> subtypes = manager.list_subtypes(type);
-        for (const auto& [subtype_id, _] : subtypes) {
+
+        for (const std::pair<std::string, std::string>& subtype : subtypes) {
+            const std::string& subtype_id = subtype.first;
+
             std::unique_ptr<dsk_tools::Viewer> viewer = manager.create(type, subtype_id);
             if (viewer && viewer->fits(data)) {
                 m_subtypes[type].push_back(subtype_id);
