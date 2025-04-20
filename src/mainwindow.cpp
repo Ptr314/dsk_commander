@@ -240,7 +240,7 @@ void MainWindow::init_controls()
     setComboBoxByItemData(ui->leftTypeCombo, type_def);
     setComboBoxByItemData(ui->filesystemCombo, filesystem_def);
 
-    ui->autoCheckBox->setChecked(settings->value("directory/left_auto", 0).toInt()==1);
+    ui->autoCheckBox->setChecked(settings->value("directory/left_auto", 1).toInt()==1);
 
     QString new_dir = settings->value("directory/left", QApplication::applicationDirPath()).toString();
     set_directory(new_dir);
