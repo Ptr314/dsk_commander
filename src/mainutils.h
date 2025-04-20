@@ -1,8 +1,8 @@
-#ifndef MAINUTILS_H
-#define MAINUTILS_H
+#pragma once
 
 #include <QString>
 #include <string>
+#include <QComboBox>
 
 inline std::string _toStdString(const QString& text) {
     #ifdef _WIN32
@@ -12,5 +12,4 @@ inline std::string _toStdString(const QString& text) {
     #endif
 }
 
-
-#endif // MAINUTILS_H
+void adjustComboBoxWidth(QComboBox* comboBox);

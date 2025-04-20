@@ -4,6 +4,7 @@
 // Description: A QDialog subclass for viewing files
 
 #include "viewdialog.h"
+#include "mainutils.h"
 #include "ui_viewdialog.h"
 
 #include "dsk_tools/dsk_tools.h"
@@ -41,6 +42,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
         ui->modeCombo->addItem(type_str, QString::fromStdString(type));
         type_map[type] = c++;
     }
+    adjustComboBoxWidth(ui->modeCombo);
 
     QString preferred_subtype = "";
     if (preferred_type == PREFERRED_TEXT) {
@@ -72,6 +74,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     ui->encodingCombo->addItem(ViewDialog::tr("Apple //c"), "apple2c");
     ui->encodingCombo->addItem(ViewDialog::tr("ASCII"), "ascii");
     ui->encodingCombo->setCurrentIndex(settings->value("viewer/encoding", 0).toInt());
+    adjustComboBoxWidth(ui->encodingCombo);
     ui->encodingCombo->blockSignals(false);
 
     ui->deletedLabel->setVisible(deleted);
@@ -82,6 +85,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     ui->propsCombo->addItem(ViewDialog::tr("Square screen"), "sqs");
     ui->propsCombo->addItem(ViewDialog::tr("4:3"), "43");
     ui->propsCombo->setCurrentIndex(settings->value("viewer/proportions", 0).toInt());
+    adjustComboBoxWidth(ui->propsCombo);
     ui->propsCombo->blockSignals(false);
 
     m_scaleFactor = settings->value("viewer/scale", 1).toInt();
@@ -121,6 +125,7 @@ void ViewDialog::update_subtypes(const QString & preferred)
         if (preferred.isEmpty() && last_subtypes.find(mode) != last_subtypes.end()) {
             ui->subtypeCombo->setCurrentIndex(last_subtypes[mode]);
         }
+        adjustComboBoxWidth(ui->subtypeCombo);
         ui->subtypeCombo->blockSignals(false);
         use_subtypes = true;
     } else {
@@ -258,6 +263,7 @@ void ViewDialog::fill_options()
                 for (const auto& opt : options) {
                     ui->optionsCombo->addItem(replace_placeholders(QString::fromStdString(opt.second)), opt.first);
                 }
+                adjustComboBoxWidth(ui->optionsCombo);
                 ui->optionsCombo->blockSignals(false);
                 ui->optionsLabel->setVisible(true);
                 ui->optionsCombo->setVisible(true);
