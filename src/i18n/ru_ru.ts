@@ -1154,42 +1154,42 @@
     <message>
         <location filename="../viewdialog.ui" line="14"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="338"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="315"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="341"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="62"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="341"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="318"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="344"/>
         <source>View mode</source>
         <translation>Режим просмотра</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="110"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="345"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="322"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
         <source>Subtype</source>
         <translation>Вариант</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="173"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="325"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="189"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="327"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation>Удаленный файл. Данные могут быть неверны.</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="328"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -1214,62 +1214,67 @@
         <translation>Графика Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="68"/>
+        <location filename="../viewdialog.cpp" line="39"/>
+        <source>Apple pictures</source>
+        <translation>Графика Apple</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="70"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="69"/>
+        <location filename="../viewdialog.cpp" line="71"/>
         <source>Apple II</source>
         <translation>Apple II</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="70"/>
+        <location filename="../viewdialog.cpp" line="72"/>
         <source>Apple //c</source>
         <translation>Apple //c</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="71"/>
+        <location filename="../viewdialog.cpp" line="73"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="79"/>
+        <location filename="../viewdialog.cpp" line="81"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="80"/>
+        <location filename="../viewdialog.cpp" line="82"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="81"/>
+        <location filename="../viewdialog.cpp" line="83"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="141"/>
+        <location filename="../viewdialog.cpp" line="148"/>
         <source>Main palette</source>
         <translation>Основная палитра</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="142"/>
+        <location filename="../viewdialog.cpp" line="149"/>
         <source>Alt palette</source>
         <translation>Альтернативная</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="143"/>
+        <location filename="../viewdialog.cpp" line="150"/>
         <source>Agat Improved</source>
         <translation>Агат исправленный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="144"/>
+        <location filename="../viewdialog.cpp" line="151"/>
         <source>Apple Improved</source>
         <translation>Apple исправленный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="145"/>
+        <location filename="../viewdialog.cpp" line="152"/>
         <source>Apple NTSC Original</source>
         <translation>NTSC оригинальный</translation>
     </message>

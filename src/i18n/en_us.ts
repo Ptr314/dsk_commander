@@ -1154,42 +1154,42 @@
     <message>
         <location filename="../viewdialog.ui" line="14"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="338"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="315"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="341"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="62"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="341"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="318"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="344"/>
         <source>View mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="110"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="345"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="322"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
         <source>Subtype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="173"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="325"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="189"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="327"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="328"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1214,62 +1214,67 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="68"/>
-        <source>Agat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../viewdialog.cpp" line="69"/>
-        <source>Apple II</source>
+        <location filename="../viewdialog.cpp" line="39"/>
+        <source>Apple pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="70"/>
-        <source>Apple //c</source>
+        <source>Agat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="71"/>
+        <source>Apple II</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="72"/>
+        <source>Apple //c</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="73"/>
         <source>ASCII</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="79"/>
+        <location filename="../viewdialog.cpp" line="81"/>
         <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="80"/>
+        <location filename="../viewdialog.cpp" line="82"/>
         <source>Square screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="81"/>
+        <location filename="../viewdialog.cpp" line="83"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="141"/>
+        <location filename="../viewdialog.cpp" line="148"/>
         <source>Main palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="142"/>
+        <location filename="../viewdialog.cpp" line="149"/>
         <source>Alt palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="143"/>
+        <location filename="../viewdialog.cpp" line="150"/>
         <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="144"/>
+        <location filename="../viewdialog.cpp" line="151"/>
         <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="145"/>
+        <location filename="../viewdialog.cpp" line="152"/>
         <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
