@@ -35,7 +35,9 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
                             .replace("BINARY", ViewDialog::tr("Binary"))
                             .replace("TEXT", ViewDialog::tr("Text"))
                             .replace("BASIC", ViewDialog::tr("BASIC"))
-                            .replace("PICTURE_AGAT", ViewDialog::tr("Agat pictures"));
+                            .replace("PICTURE_AGAT", ViewDialog::tr("Agat pictures"))
+                            .replace("PICTURE_APPLE", ViewDialog::tr("Apple pictures"))
+        ;
         ui->modeCombo->addItem(type_str, QString::fromStdString(type));
         type_map[type] = c++;
     }
@@ -229,6 +231,7 @@ void ViewDialog::update_image()
 void ViewDialog::on_modeCombo_currentIndexChanged(int index)
 {
     update_subtypes();
+    fill_options();
     print_data();
 }
 
