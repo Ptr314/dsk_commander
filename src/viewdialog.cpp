@@ -24,14 +24,26 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
 
     dsk_tools::register_all_viewers();
 
-    auto all_types = dsk_tools::ViewerManager::instance().list_types();
+    dsk_tools::ViewerManager& manager = dsk_tools::ViewerManager::instance();
+    auto all_types = manager.list_types();
+    for (const auto& type : manager.list_types()) {
+        std::vector<std::pair<std::string, std::string>> subtypes = manager.list_subtypes(type);
+        for (const auto& [subtype_id, _] : subtypes) {
+            std::unique_ptr<dsk_tools::Viewer> viewer = manager.create(type, subtype_id);
+            if (viewer && viewer->fits(data)) {
+                m_subtypes[type].push_back(subtype_id);
+            }
+        }
+    }
+
+    std::vector<std::string> fit_types = get_types_from_map(m_subtypes);
 
     ui->modeCombo->blockSignals(true);
 
     std::map<std::string, int> type_map;
 
     int c = 0;
-    for (const auto& type : all_types) {
+    for (const auto& type : fit_types) {
         QString type_str = QString::fromStdString(type)
                             .replace("BINARY", ViewDialog::tr("Binary"))
                             .replace("TEXT", ViewDialog::tr("Text"))
@@ -104,9 +116,19 @@ void ViewDialog::update_subtypes(const QString & preferred)
 {
 
     auto mode = ui->modeCombo->currentData().toString().toStdString();
-    auto subtypes = dsk_tools::ViewerManager::instance().list_subtypes(mode);
+    auto all_subtypes = dsk_tools::ViewerManager::instance().list_subtypes(mode);
 
-    if (subtypes.size() > 1) {
+    std::vector<std::pair<std::string, std::string>> subtypes;
+    auto it = m_subtypes.find(mode);
+    const auto& allowed_subtypes = it->second;
+    for (const auto& pair : all_subtypes) {
+        if (std::find(allowed_subtypes.begin(), allowed_subtypes.end(), pair.first) != allowed_subtypes.end()) {
+            subtypes.push_back(pair);
+        }
+    }
+
+    int l = subtypes.size();
+    if ( l > 1 || (l==1 && subtypes[0].first.size()!=0)) {
         ui->subtypeCombo->setDisabled(false);
         ui->subtypeCombo->setVisible(true);
         ui->subtypeLabel->setVisible(true);

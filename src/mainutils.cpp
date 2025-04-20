@@ -16,3 +16,11 @@ void adjustComboBoxWidth(QComboBox* comboBox) {
     maxWidth += 30;
     comboBox->setMinimumWidth(maxWidth);
 }
+
+std::vector<std::string> get_types_from_map(const std::map<std::string, std::vector<std::string>>& m_subtypes) {
+    std::vector<std::string> types;
+    for (const auto& pair : m_subtypes) {
+        types.push_back(pair.first);
+    }
+    return types;
+}

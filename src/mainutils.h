@@ -13,3 +13,5 @@ inline std::string _toStdString(const QString& text) {
 }
 
 void adjustComboBoxWidth(QComboBox* comboBox);
+
+std::vector<std::string> get_types_from_map(const std::map<std::string, std::vector<std::string>>& m_subtypes);

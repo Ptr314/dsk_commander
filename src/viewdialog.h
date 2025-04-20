@@ -49,6 +49,7 @@ private:
     dsk_tools::BYTES m_imageData;
     bool use_subtypes;
     std::map<std::string, int> last_subtypes;
+    std::map<std::string, std::vector<std::string>> m_subtypes;
     void print_data();
     void update_subtypes(const QString &preferred = "");
     void update_image();
