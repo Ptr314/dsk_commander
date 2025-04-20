@@ -3,9 +3,6 @@
 // Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander
 // Description: A QDialog subclass for changing file metadata
 
-#ifndef FILEPARAMDIALOG_H
-#define FILEPARAMDIALOG_H
-
 #pragma once
 
 #include <QDialog>
@@ -43,5 +40,3 @@ private:
     bool hexMode_ = true;
     bool initialized_ = false;
 };
-
-#endif // FILEPARAMDIALOG_H

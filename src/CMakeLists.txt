@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(DISKCommander VERSION 1.3.1 LANGUAGES CXX)
+project(DISKCommander VERSION 1.3.2 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -39,10 +39,10 @@ add_custom_target(update_translations
 # Основные файлы проекта
 set(PROJECT_SOURCES
         main.cpp
-        mainutils.h
-        mainwindow.h mainwindow.cpp mainwindow.ui
-        viewdialog.h viewdialog.cpp viewdialog.ui
-        convertdialog.h convertdialog.cpp convertdialog.ui
+        mainutils.h       mainutils.cpp
+        mainwindow.h      mainwindow.cpp      mainwindow.ui
+        viewdialog.h      viewdialog.cpp      viewdialog.ui
+        convertdialog.h   convertdialog.cpp   convertdialog.ui
         fileparamdialog.h fileparamdialog.cpp
         aboutdlg.ui
         fileinfodialog.ui
