@@ -4,6 +4,7 @@
 // Description: A QDialog subclass for viewing files
 
 #include <QTimer>
+#include <QMessageBox>
 
 #include "viewdialog.h"
 #include "mainutils.h"
@@ -184,8 +185,11 @@ void ViewDialog::on_closeBtn_clicked()
 QString ViewDialog::replace_placeholders(const QString & in)
 {
     return QString(in)
-        .replace("{$MAIN_PALETTE}", ViewDialog::tr("Main palette"))
-        .replace("{$ALT_PALETTE}", ViewDialog::tr("Alt palette"))
+        .replace("{$PALETTE}", ViewDialog::tr("Palette"))
+        .replace("{$CUSTOM_PALETTE}", ViewDialog::tr("Custom palette"))
+
+        .replace("{$FONT_LOADING_ERROR}", ViewDialog::tr("Custom font loading error"))
+
         .replace("{$NTSC_AGAT_IMPROVED}", ViewDialog::tr("Agat Improved"))
         .replace("{$NTSC_APPLE_IMPROVED}", ViewDialog::tr("Apple Improved"))
         .replace("{$NTSC_APPLE_ORIGINAL}", ViewDialog::tr("Apple NTSC Original"))
@@ -229,16 +233,22 @@ void ViewDialog::print_data()
             ui->encodingLabel->setVisible(false);
             int sx, sy;
             if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get())) {
-                picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem);
-                m_imageData = picViewer->process_picture(m_data, sx, sy, m_opt, m_pic_frame++);
-                m_image = QImage(m_imageData.data(), sx, sy, QImage::Format_RGBA8888);
-                update_image();
+                // std::string error_msg;
+                // int res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
+                // if (res == PREPARE_PIC_OK) {
+                    m_imageData = picViewer->process_picture(m_data, sx, sy, m_opt, m_pic_frame++);
+                    m_image = QImage(m_imageData.data(), sx, sy, QImage::Format_RGBA8888);
+                    update_image();
 
-                int delay = picViewer->get_frame_delay();
-                if (delay > 0) {
-                    m_pic_timer.setSingleShot(true);
-                    m_pic_timer.start(delay);
-                }
+                    int delay = picViewer->get_frame_delay();
+                    if (delay > 0) {
+                        m_pic_timer.setSingleShot(true);
+                        m_pic_timer.start(delay);
+                    }
+                // } else {
+                //     QString msg = replace_placeholders(QString::fromStdString(error_msg));
+                //     QMessageBox::critical(this, ViewDialog::tr("Error"), msg);
+                // }
             }
             ui->viewArea->setCurrentIndex(1);
         }
@@ -310,6 +320,13 @@ void ViewDialog::fill_options()
     auto output_type = m_viewer->get_output_type();
     if (output_type == VIEWER_OUTPUT_PICTURE) {
         if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get())) {
+            std::string error_msg;
+            int res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
+            if (res != PREPARE_PIC_OK) {
+                QString msg = replace_placeholders(QString::fromStdString(error_msg));
+                QMessageBox::critical(this, ViewDialog::tr("Error"), msg);
+            }
+
             auto options = picViewer->get_options();
             if (options.size() > 0) {
                 int suggested = picViewer->suggest_option(m_data);

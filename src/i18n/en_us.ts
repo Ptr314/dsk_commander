@@ -1194,113 +1194,123 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="55"/>
+        <location filename="../viewdialog.cpp" line="56"/>
         <source>Binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="56"/>
+        <location filename="../viewdialog.cpp" line="57"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="57"/>
+        <location filename="../viewdialog.cpp" line="58"/>
         <source>BASIC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="58"/>
+        <location filename="../viewdialog.cpp" line="59"/>
         <source>Agat pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="59"/>
+        <location filename="../viewdialog.cpp" line="60"/>
         <source>Apple pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="91"/>
+        <location filename="../viewdialog.cpp" line="92"/>
         <source>Agat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="92"/>
+        <location filename="../viewdialog.cpp" line="93"/>
         <source>Apple II</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="93"/>
+        <location filename="../viewdialog.cpp" line="94"/>
         <source>Apple //c</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="94"/>
+        <location filename="../viewdialog.cpp" line="95"/>
         <source>ASCII</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="103"/>
+        <location filename="../viewdialog.cpp" line="104"/>
         <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="104"/>
+        <location filename="../viewdialog.cpp" line="105"/>
         <source>Square screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="105"/>
+        <location filename="../viewdialog.cpp" line="106"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="187"/>
-        <source>Main palette</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../viewdialog.cpp" line="188"/>
-        <source>Alt palette</source>
+        <source>Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="189"/>
-        <source>Agat Improved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../viewdialog.cpp" line="190"/>
-        <source>Apple Improved</source>
+        <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="191"/>
-        <source>Apple NTSC Original</source>
+        <source>Custom font loading error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="193"/>
-        <source>Agat-7 classic font</source>
+        <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="194"/>
-        <source>Agat-7 enchanced font</source>
+        <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="195"/>
-        <source>Agat-9 classic font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../viewdialog.cpp" line="196"/>
-        <source>GARNIZON custom font</source>
+        <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="197"/>
+        <source>Agat-7 classic font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="198"/>
+        <source>Agat-7 enchanced font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="199"/>
+        <source>Agat-9 classic font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="200"/>
+        <source>GARNIZON custom font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="201"/>
         <source>Loaded custom font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="250"/>
+        <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

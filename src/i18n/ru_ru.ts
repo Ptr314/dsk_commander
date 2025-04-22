@@ -1194,114 +1194,124 @@
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="55"/>
+        <location filename="../viewdialog.cpp" line="56"/>
         <source>Binary</source>
         <translation>Двоичный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="56"/>
+        <location filename="../viewdialog.cpp" line="57"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="57"/>
+        <location filename="../viewdialog.cpp" line="58"/>
         <source>BASIC</source>
         <translation>Бейсик</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="58"/>
+        <location filename="../viewdialog.cpp" line="59"/>
         <source>Agat pictures</source>
         <translation>Графика Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="59"/>
+        <location filename="../viewdialog.cpp" line="60"/>
         <source>Apple pictures</source>
         <translation>Графика Apple</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="91"/>
+        <location filename="../viewdialog.cpp" line="92"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="92"/>
+        <location filename="../viewdialog.cpp" line="93"/>
         <source>Apple II</source>
         <translation>Apple II</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="93"/>
+        <location filename="../viewdialog.cpp" line="94"/>
         <source>Apple //c</source>
         <translation>Apple //c</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="94"/>
+        <location filename="../viewdialog.cpp" line="95"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="103"/>
+        <location filename="../viewdialog.cpp" line="104"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="104"/>
+        <location filename="../viewdialog.cpp" line="105"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="105"/>
+        <location filename="../viewdialog.cpp" line="106"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="187"/>
-        <source>Main palette</source>
-        <translation>Основная палитра</translation>
-    </message>
-    <message>
         <location filename="../viewdialog.cpp" line="188"/>
-        <source>Alt palette</source>
-        <translation>Альтернативная</translation>
+        <source>Palette</source>
+        <translation>Палитра</translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="189"/>
+        <source>Custom palette</source>
+        <translation>Загружаемая палитра</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="191"/>
+        <source>Custom font loading error</source>
+        <translation>Загружаемый шрифт не найден</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="193"/>
         <source>Agat Improved</source>
         <translation>Агат исправленный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="190"/>
+        <location filename="../viewdialog.cpp" line="194"/>
         <source>Apple Improved</source>
         <translation>Apple исправленный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="191"/>
+        <location filename="../viewdialog.cpp" line="195"/>
         <source>Apple NTSC Original</source>
         <translation>NTSC оригинальный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="193"/>
+        <location filename="../viewdialog.cpp" line="197"/>
         <source>Agat-7 classic font</source>
         <translation>ZG7 : Classic</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="194"/>
+        <location filename="../viewdialog.cpp" line="198"/>
         <source>Agat-7 enchanced font</source>
         <translation>ZG7 : 256</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="195"/>
+        <location filename="../viewdialog.cpp" line="199"/>
         <source>Agat-9 classic font</source>
         <translation>ZG9 : Classic</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="196"/>
+        <location filename="../viewdialog.cpp" line="200"/>
         <source>GARNIZON custom font</source>
         <translation>ZG9 : GARNIZON</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="197"/>
+        <location filename="../viewdialog.cpp" line="201"/>
         <source>Loaded custom font</source>
         <translation>Загружаемый шрифт</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="250"/>
+        <source>Error</source>
+        <translation>Ошибка</translation>
     </message>
 </context>
 <context>
