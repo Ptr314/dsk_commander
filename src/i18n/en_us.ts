@@ -1264,52 +1264,57 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="191"/>
+        <location filename="../viewdialog.cpp" line="190"/>
+        <source>b/w</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="192"/>
         <source>Custom font loading error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="193"/>
+        <location filename="../viewdialog.cpp" line="194"/>
         <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="194"/>
+        <location filename="../viewdialog.cpp" line="195"/>
         <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="195"/>
+        <location filename="../viewdialog.cpp" line="196"/>
         <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="197"/>
+        <location filename="../viewdialog.cpp" line="198"/>
         <source>Agat-7 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="198"/>
+        <location filename="../viewdialog.cpp" line="199"/>
         <source>Agat-7 enchanced font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="199"/>
+        <location filename="../viewdialog.cpp" line="200"/>
         <source>Agat-9 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="200"/>
+        <location filename="../viewdialog.cpp" line="201"/>
         <source>GARNIZON custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="201"/>
+        <location filename="../viewdialog.cpp" line="202"/>
         <source>Loaded custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="250"/>
+        <location filename="../viewdialog.cpp" line="328"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
