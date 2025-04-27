@@ -15,7 +15,7 @@
 
 * <img src="src/resources/icons/up.png" width="30"> &ndash; перейти вверх на один уровень;
 * <img src="src/resources/icons/folder_yellow_open.png" width="30"> &ndash; открыть директорию;
-* <img src="src/resources/icons/viewmag.png" width="30"> &ndash; анализ выбранного файла;
+* <img src="src/resources/icons/filetypes.png" width="30"> &ndash; анализ выбранного файла;
 * <img src="src/resources/icons/5floppy_mount.png" width="30"> &ndash; открыть образ. Операцию также можно выполнить двойным кликом мышью.
 * &laquo;Авто&raquo; &ndash; при открытии образа программа попытается определить параметры автоматически.
 
