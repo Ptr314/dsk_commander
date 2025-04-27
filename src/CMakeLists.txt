@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(DISKCommander VERSION 1.3.5 LANGUAGES CXX)
+project(DISKCommander VERSION 1.3.6 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
