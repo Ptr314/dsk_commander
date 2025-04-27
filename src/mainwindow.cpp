@@ -591,6 +591,7 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$YES}", MainWindow::tr("Yes"))
         .replace("{$NO}", MainWindow::tr("No"))
         .replace("{$TS_LIST_LOCATION}", MainWindow::tr("T/S List Location"))
+        .replace("{$TS_LIST_DATA}", MainWindow::tr("T/S List Contents"))
         .replace("{$INCORRECT_TS_DATA}", MainWindow::tr("Incorrect T/S data, stopping iterations"))
         .replace("{$NEXT_TS}", MainWindow::tr("Next T/S List Location"))
         .replace("{$FILE_END_REACHED}", MainWindow::tr("File End Reached"))
@@ -662,7 +663,20 @@ QString MainWindow::replace_placeholders(const QString & in)
         .replace("{$META_PROTECTED}", MainWindow::tr("Protected"))
         .replace("{$META_TYPE}", MainWindow::tr("Type"))
         .replace("{$META_EXTENDED}", MainWindow::tr("Extended"))
-    ;
+
+        .replace("{$AGAT_VR_FOUND}", MainWindow::tr("Agat image VR block found"))
+        .replace("{$AGAT_VR_MODE}", MainWindow::tr("Video mode"))
+        .replace("{$AGAT_VR_AGAT_GMODES}", MainWindow::tr("Agat graphic"))
+        .replace("{$AGAT_VR_AGAT_TMODES}", MainWindow::tr("Agat text"))
+        .replace("{$AGAT_VR_A2_MODES}", MainWindow::tr("Apple II modes"))
+        .replace("{$AGAT_VR_GIGA_MODES}", MainWindow::tr("Agat GigaScreen"))
+        .replace("{$AGAT_VR_MAIN_PALETTE}", MainWindow::tr("Main palette"))
+        .replace("{$AGAT_VR_ATL_PALETTE}", MainWindow::tr("Alternative palette"))
+        .replace("{$AGAT_VR_CUSTOM_PALETTE}", MainWindow::tr("Custom palette"))
+        .replace("{$AGAT_VR_COMMENT}", MainWindow::tr("Comment block"))
+        .replace("{$AGAT_VR_FONT}", MainWindow::tr("Font ID"))
+        .replace("{$AGAT_VR_CUSTOM_FONT}", MainWindow::tr("Custom font"))
+        ;
 }
 
 
@@ -683,6 +697,8 @@ void MainWindow::on_actionFile_info_triggered()
 
             QString info = replace_placeholders(QString::fromStdString(filesystem->file_info(f)));
 
+            QFont font("Consolas", 10, 400);
+            fileinfoUi.textBox->setFont(font);
             fileinfoUi.textBox->setPlainText(info);
             file_info->exec();
         }
@@ -917,6 +933,8 @@ void MainWindow::on_actionImage_Info_triggered()
             fileinfoUi.setupUi(file_info);
 
             QString info = replace_placeholders(QString::fromStdString(loader->file_info()));
+            QFont font("Consolas", 10, 400);
+            fileinfoUi.textBox->setFont(font);
             fileinfoUi.textBox->setPlainText(info);
             file_info->exec();
         }

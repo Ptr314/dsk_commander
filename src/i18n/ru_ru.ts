@@ -401,7 +401,7 @@
         <location filename="../mainwindow.ui" line="399"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
-        <location filename="../mainwindow.cpp" line="1093"/>
+        <location filename="../mainwindow.cpp" line="1111"/>
         <source>Add a directory</source>
         <translation>Создать директорию</translation>
     </message>
@@ -505,7 +505,7 @@
         <location filename="../mainwindow.ui" line="735"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
-        <location filename="../mainwindow.cpp" line="1063"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Add files</source>
         <translation>Добавить файл(ы)</translation>
     </message>
@@ -563,22 +563,22 @@
         <location filename="../mainwindow.cpp" line="344"/>
         <location filename="../mainwindow.cpp" line="377"/>
         <location filename="../mainwindow.cpp" line="387"/>
-        <location filename="../mainwindow.cpp" line="816"/>
-        <location filename="../mainwindow.cpp" line="824"/>
-        <location filename="../mainwindow.cpp" line="833"/>
-        <location filename="../mainwindow.cpp" line="843"/>
-        <location filename="../mainwindow.cpp" line="851"/>
-        <location filename="../mainwindow.cpp" line="854"/>
-        <location filename="../mainwindow.cpp" line="856"/>
+        <location filename="../mainwindow.cpp" line="832"/>
+        <location filename="../mainwindow.cpp" line="840"/>
+        <location filename="../mainwindow.cpp" line="849"/>
+        <location filename="../mainwindow.cpp" line="859"/>
         <location filename="../mainwindow.cpp" line="867"/>
-        <location filename="../mainwindow.cpp" line="911"/>
-        <location filename="../mainwindow.cpp" line="945"/>
-        <location filename="../mainwindow.cpp" line="992"/>
-        <location filename="../mainwindow.cpp" line="1029"/>
-        <location filename="../mainwindow.cpp" line="1031"/>
-        <location filename="../mainwindow.cpp" line="1074"/>
-        <location filename="../mainwindow.cpp" line="1076"/>
-        <location filename="../mainwindow.cpp" line="1101"/>
+        <location filename="../mainwindow.cpp" line="870"/>
+        <location filename="../mainwindow.cpp" line="872"/>
+        <location filename="../mainwindow.cpp" line="883"/>
+        <location filename="../mainwindow.cpp" line="927"/>
+        <location filename="../mainwindow.cpp" line="963"/>
+        <location filename="../mainwindow.cpp" line="1010"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
+        <location filename="../mainwindow.cpp" line="1049"/>
+        <location filename="../mainwindow.cpp" line="1092"/>
+        <location filename="../mainwindow.cpp" line="1094"/>
+        <location filename="../mainwindow.cpp" line="1119"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -638,7 +638,7 @@
         <translation>Ошибка подготовки данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="945"/>
+        <location filename="../mainwindow.cpp" line="963"/>
         <source>Can&apos;t detect type of the file automatically</source>
         <translation>Не удалось автоматически определить тип файла</translation>
     </message>
@@ -660,7 +660,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="410"/>
         <location filename="../mainwindow.cpp" line="589"/>
-        <location filename="../mainwindow.cpp" line="663"/>
+        <location filename="../mainwindow.cpp" line="664"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
@@ -685,12 +685,12 @@
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="632"/>
+        <location filename="../mainwindow.cpp" line="633"/>
         <source>DOS 3.3 VTOC found</source>
         <translation>Найден DOS 3.3 VTOC</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="992"/>
+        <location filename="../mainwindow.cpp" line="1010"/>
         <source>File reading error!</source>
         <translation>Ошибка чтения файла!</translation>
     </message>
@@ -701,7 +701,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="581"/>
-        <location filename="../mainwindow.cpp" line="661"/>
+        <location filename="../mainwindow.cpp" line="662"/>
         <source>File Name</source>
         <translation>Имя Файла</translation>
     </message>
@@ -727,7 +727,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="590"/>
-        <location filename="../mainwindow.cpp" line="662"/>
+        <location filename="../mainwindow.cpp" line="663"/>
         <source>Protected</source>
         <translation>Защита</translation>
     </message>
@@ -748,382 +748,447 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="594"/>
+        <source>T/S List Contents</source>
+        <translation>Таблица секторов</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="595"/>
         <source>Incorrect T/S data, stopping iterations</source>
         <translation>Данные в таблице секторов некорректны, обработка прервана</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="595"/>
+        <location filename="../mainwindow.cpp" line="596"/>
         <source>Next T/S List Location</source>
         <translation>Следующая таблица секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="596"/>
+        <location filename="../mainwindow.cpp" line="597"/>
         <source>File End Reached</source>
         <translation>Конец файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="597"/>
+        <location filename="../mainwindow.cpp" line="598"/>
         <source>The file is marked as deleted, the data below may be incorrect</source>
         <translation>Файл помечен как удаленный, данные ниже могут быть некорректны</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="598"/>
+        <location filename="../mainwindow.cpp" line="599"/>
         <source>File parsing error</source>
         <translation>При анализе файла найдены ошибки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="599"/>
+        <location filename="../mainwindow.cpp" line="600"/>
         <source>Track</source>
         <translation>Дорожка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="601"/>
+        <location filename="../mainwindow.cpp" line="602"/>
         <source>H</source>
         <translation>H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
         <location filename="../mainwindow.cpp" line="603"/>
+        <location filename="../mainwindow.cpp" line="604"/>
         <source>S</source>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Parsing finished</source>
         <translation>Анализ завершён</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>V</source>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="606"/>
+        <location filename="../mainwindow.cpp" line="607"/>
         <source>Index</source>
         <translation>Индекс</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Index Mark</source>
         <translation>Метка индекса</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="608"/>
+        <location filename="../mainwindow.cpp" line="609"/>
         <source>Data Mark</source>
         <translation>Метка данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>Sector Data</source>
         <translation>Данные сектора</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="610"/>
+        <location filename="../mainwindow.cpp" line="611"/>
         <source>End Mark: OK</source>
         <translation>Конец индекса: ОК</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="611"/>
+        <location filename="../mainwindow.cpp" line="612"/>
         <source>End Mark: Not Detected</source>
         <translation>Конец индекса: Не найден</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="612"/>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="613"/>
+        <location filename="../mainwindow.cpp" line="618"/>
         <source>CRC: OK</source>
         <translation>CRC: OK</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="613"/>
-        <location filename="../mainwindow.cpp" line="618"/>
+        <location filename="../mainwindow.cpp" line="614"/>
+        <location filename="../mainwindow.cpp" line="619"/>
         <source>CRC: Error</source>
         <translation>CRC: Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="614"/>
+        <location filename="../mainwindow.cpp" line="615"/>
         <source>Expected</source>
         <translation>Ожидание</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="615"/>
+        <location filename="../mainwindow.cpp" line="616"/>
         <source>Found</source>
         <translation>Прочитано</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="616"/>
+        <location filename="../mainwindow.cpp" line="617"/>
         <source>Data Error</source>
         <translation>Ошибка данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="619"/>
-        <location filename="../mainwindow.cpp" line="621"/>
+        <location filename="../mainwindow.cpp" line="620"/>
+        <location filename="../mainwindow.cpp" line="622"/>
         <source>Epilogue: OK</source>
         <translation>Эпилог: ОК</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="620"/>
-        <location filename="../mainwindow.cpp" line="622"/>
+        <location filename="../mainwindow.cpp" line="621"/>
+        <location filename="../mainwindow.cpp" line="623"/>
         <source>Epilogue: Error</source>
         <translation>Эпилог: Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>Track List Offset</source>
         <translation>Список дорожек</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="624"/>
+        <location filename="../mainwindow.cpp" line="625"/>
         <source>Track Offset</source>
         <translation>Смещение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="625"/>
+        <location filename="../mainwindow.cpp" line="626"/>
         <source>Track Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="626"/>
+        <location filename="../mainwindow.cpp" line="627"/>
         <source>Header</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="627"/>
+        <location filename="../mainwindow.cpp" line="628"/>
         <source>Signature</source>
         <translation>Сигнатура</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>No known signature found, aborting</source>
         <translation>Сигнатура формата не найдена. обработка прервана</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="629"/>
+        <location filename="../mainwindow.cpp" line="630"/>
         <source>Format revision</source>
         <translation>Версия формата</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Side</source>
         <translation>Сторона</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="631"/>
+        <location filename="../mainwindow.cpp" line="632"/>
         <source>Custom Data</source>
         <translation>Расширенные атрибуты файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="633"/>
+        <location filename="../mainwindow.cpp" line="634"/>
         <source>DOS 3.3 VTOC not found</source>
         <translation>DOS 3.3 VTOC не найден</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="634"/>
+        <location filename="../mainwindow.cpp" line="635"/>
         <source>Root Catalog Track</source>
         <translation>Корневой каталог, дорожка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="635"/>
+        <location filename="../mainwindow.cpp" line="636"/>
         <source>Root Catalog Sector</source>
         <translation>Корневой каталог, сектор</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="636"/>
+        <location filename="../mainwindow.cpp" line="637"/>
         <source>DOS Release</source>
         <translation>Версия DOS</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Volume ID</source>
         <translation>Номер тома (Volume ID)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="639"/>
         <source>Volume name</source>
         <translation>Метка тома</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="639"/>
+        <location filename="../mainwindow.cpp" line="640"/>
         <source>Pairs per T/S list</source>
         <translation>Пар T/S в списке</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="640"/>
+        <location filename="../mainwindow.cpp" line="641"/>
         <source>Last track</source>
         <translation>Последняя занятая дорожка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="641"/>
+        <location filename="../mainwindow.cpp" line="642"/>
         <source>Direction</source>
         <translation>Направление заполнения</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="642"/>
+        <location filename="../mainwindow.cpp" line="643"/>
         <source>Tracks total</source>
         <translation>Дорожек всего</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="644"/>
         <source>Sectors on track</source>
         <translation>Количество секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="644"/>
+        <location filename="../mainwindow.cpp" line="645"/>
         <source>Bytes per sector</source>
         <translation>Размер сектора в байтах</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="645"/>
+        <location filename="../mainwindow.cpp" line="646"/>
         <source>Error opening the file</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="646"/>
+        <location filename="../mainwindow.cpp" line="647"/>
         <source>Error loading, check if the file type is correct</source>
         <translation>Ошибка загрузки файла, проверьте, правильно ли установлен формат</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="648"/>
+        <location filename="../mainwindow.cpp" line="649"/>
         <source>DPB Information</source>
         <translation>Информация по DPB</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="650"/>
+        <location filename="../mainwindow.cpp" line="651"/>
         <source>Device type</source>
         <translation>Тип устройства</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="651"/>
+        <location filename="../mainwindow.cpp" line="652"/>
         <source>DSIDE</source>
         <translation>DSIDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="653"/>
         <source>Blocks on track</source>
         <translation>Блоков на дорожке</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="653"/>
+        <location filename="../mainwindow.cpp" line="654"/>
         <source>Tracks on disk</source>
         <translation>Дорожек на устройстве</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="654"/>
+        <location filename="../mainwindow.cpp" line="655"/>
         <source>Last block</source>
         <translation>Последний блок</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="655"/>
+        <location filename="../mainwindow.cpp" line="656"/>
         <source>VTOC block</source>
         <translation>Блок VTOC</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="657"/>
+        <location filename="../mainwindow.cpp" line="658"/>
         <source>Extent</source>
         <translation>Экстент</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="658"/>
+        <location filename="../mainwindow.cpp" line="659"/>
         <source>Free sectors</source>
         <translation>Незанятых секторов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="659"/>
+        <location filename="../mainwindow.cpp" line="660"/>
         <source>Free bytes</source>
         <translation>Свободных байт</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="664"/>
+        <location filename="../mainwindow.cpp" line="665"/>
         <source>Extended</source>
         <translation>Расш. атрибут</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="719"/>
+        <location filename="../mainwindow.cpp" line="667"/>
+        <source>Agat image VR block found</source>
+        <translation>Найден VR-блок изображений Агат</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="668"/>
+        <source>Video mode</source>
+        <translation>Режим экрана</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="669"/>
+        <source>Agat graphic</source>
+        <translation>Графика Агат</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="670"/>
+        <source>Agat text</source>
+        <translation>Текст Агат</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="671"/>
+        <source>Apple II modes</source>
+        <translation>Режимы Apple II</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="672"/>
+        <source>Agat GigaScreen</source>
+        <translation>Агат GigaScreen</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="673"/>
+        <source>Main palette</source>
+        <translation>Основная палитра</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="674"/>
+        <source>Alternative palette</source>
+        <translation>Дополнительная палитра</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="675"/>
+        <source>Custom palette</source>
+        <translation>Загружаемая палитра</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="676"/>
+        <source>Comment block</source>
+        <translation>Комментарий</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="677"/>
+        <source>Font ID</source>
+        <translation>Знакогенератор</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="678"/>
+        <source>Custom font</source>
+        <translation>Загружаемый шрифт</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="735"/>
         <source>Export as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="816"/>
+        <location filename="../mainwindow.cpp" line="832"/>
         <source>Not implemented!</source>
         <translation>Функция не реализована!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="824"/>
+        <location filename="../mainwindow.cpp" line="840"/>
         <source>Error generating file</source>
         <translation>Ошибка генерации файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="833"/>
+        <location filename="../mainwindow.cpp" line="849"/>
         <source>Error opening template file</source>
         <translation>Ошибка открытия файла-образца</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="843"/>
+        <location filename="../mainwindow.cpp" line="859"/>
         <source>Error reading template file</source>
         <translation>Ошибка чтения файла-образца</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="851"/>
+        <location filename="../mainwindow.cpp" line="867"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation>Выбранный образец не может быть использован - его тип и размер должны совпадать с целевым форматом.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="854"/>
+        <location filename="../mainwindow.cpp" line="870"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation>Некорректные данные для замены треков.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="856"/>
+        <location filename="../mainwindow.cpp" line="872"/>
         <source>Error inserting tracks from template</source>
         <translation>Ошибка замены треков</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="867"/>
+        <location filename="../mainwindow.cpp" line="883"/>
         <source>Error writing file to disk</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="911"/>
+        <location filename="../mainwindow.cpp" line="927"/>
         <source>Not supported yet</source>
         <translation>Поддержка функции еще не реализована</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
         <source>Error deleting directory. It must be empty to be deleted</source>
         <translation>Ошибка удаления. Директория должны быть пустой</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1031"/>
+        <location filename="../mainwindow.cpp" line="1049"/>
         <source>Error deleting file</source>
         <translation>Ошибка удаления файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1074"/>
+        <location filename="../mainwindow.cpp" line="1092"/>
         <source>Error adding file. Not enough free disk space</source>
         <translation>Ошибка добавления файла. На диске недостаточно свободного места</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1076"/>
+        <location filename="../mainwindow.cpp" line="1094"/>
         <source>Error adding file</source>
         <translation>Ошибка добавления файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1081"/>
+        <location filename="../mainwindow.cpp" line="1099"/>
         <source>Success</source>
         <translation>Успешное выполнение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1081"/>
+        <location filename="../mainwindow.cpp" line="1099"/>
         <source>Successfully added %1 file(s)</source>
         <translation>Успешно добавлено %1 файл(ов)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1094"/>
+        <location filename="../mainwindow.cpp" line="1112"/>
         <source>Directory name:</source>
         <translation>Название директории:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1101"/>
+        <location filename="../mainwindow.cpp" line="1119"/>
         <source>Error adding new catalog</source>
         <translation>Ошибка добавления каталога</translation>
     </message>
@@ -1134,7 +1199,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="409"/>
-        <location filename="../mainwindow.cpp" line="600"/>
+        <location filename="../mainwindow.cpp" line="601"/>
         <source>T</source>
         <translation>Т</translation>
     </message>
