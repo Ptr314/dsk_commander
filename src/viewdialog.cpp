@@ -279,10 +279,18 @@ void ViewDialog::update_image()
         );
     } else
     if (scr_mode == "sqs") {
-        double ratio = (double)m_image.width() / m_image.height();
+        double ratio_w, ratio_h;
+        if (m_image.width() > m_image.height()) {
+            ratio_w = 1;
+            ratio_h = (double)m_image.width() / m_image.height();
+        } else {
+            ratio_w = (double)m_image.height() / m_image.width();
+            ratio_h = 1;
+
+        }
         scaledImage = m_image.scaled(
-            m_image.width() * m_scaleFactor / ratio,
-            m_image.height() * m_scaleFactor,
+            m_image.width() * m_scaleFactor * ratio_w,
+            m_image.height() * m_scaleFactor * ratio_h,
             Qt::IgnoreAspectRatio,
             Qt::FastTransformation
         );
