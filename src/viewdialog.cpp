@@ -81,8 +81,22 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
         preferred_subtype = "MBASIC";
     } else {
         std::pair<std::string, std::string> suggested = dsk_tools::suggest_file_type(m_data);
-        ui->modeCombo->setCurrentIndex(type_map[suggested.first]);
-        preferred_subtype = QString::fromStdString(suggested.second);
+        if (suggested.first == "BINARY") {
+            auto stored_type = m_settings->value("viewer/type", "BINARY").toString();
+            if (stored_type != "BINARY") {
+                auto stored_subtype = m_settings->value("viewer/subtype_" + stored_type, "").toString();
+                if (stored_subtype != "") {
+                    suggested = {stored_type.toStdString(), stored_subtype.toStdString()};
+                }
+            }
+        }
+        if (type_map.count(suggested.first)) {
+            ui->modeCombo->setCurrentIndex(type_map[suggested.first]);
+            preferred_subtype = QString::fromStdString(suggested.second);
+        } else {
+            ui->modeCombo->setCurrentIndex(type_map["BINARY"]);
+            preferred_subtype = "";
+        }
     }
     ui->modeCombo->blockSignals(false);
 
@@ -291,6 +305,10 @@ void ViewDialog::update_image()
 void ViewDialog::on_modeCombo_currentIndexChanged(int index)
 {
     recreate_viewer = true;
+
+    auto type = ui->modeCombo->currentData().toString();
+    m_settings->setValue("viewer/type", type);
+
     update_subtypes();
     fill_options();
     print_data();
@@ -377,8 +395,12 @@ void ViewDialog::on_propsCombo_currentIndexChanged(int index)
 void ViewDialog::on_subtypeCombo_currentIndexChanged(int index)
 {
     recreate_viewer = true;
-    auto mode = ui->modeCombo->currentData().toString().toStdString();
-    last_subtypes[mode] = index;
+    auto type = ui->modeCombo->currentData().toString().toStdString();
+    if (use_subtypes) {
+        auto subtype = ui->subtypeCombo->currentData().toString();
+        m_settings->setValue("viewer/subtype_" + type, subtype);
+    }
+    last_subtypes[type] = index;
 
     fill_options();
     print_data();
