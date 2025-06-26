@@ -2,7 +2,7 @@
 
 [![GitHub Release](https://img.shields.io/github/release/ptr314/dsk_commander.svg?style=flat)]() 
 
-DISK Commander &ndash; программа для просмотра, анализа и конвертации файлов образов дискет ретро-компьютеров.
+DISK Commander &ndash; программа для просмотра, редактирования, анализа и конвертации файлов образов дискет ретро-компьютеров.
 
 
 * [Скачать последнюю версию](https://github.com/Ptr314/dsk_commander/releases)
