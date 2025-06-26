@@ -108,12 +108,13 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BY
     adjustComboBoxWidth(ui->propsCombo);
     ui->propsCombo->blockSignals(false);
 
-    m_scaleFactor = settings->value("viewer/scale", 1).toInt();
+    m_scaleFactor = 1;
+    // m_scaleFactor = settings->value("viewer/scale", 1).toInt();
 
-    ui->scaleSlider->blockSignals(true);
-    ui->scaleSlider->setValue(m_scaleFactor);
-    ui->scaleLabel->setText(QString("%1%").arg(m_scaleFactor*100));
-    ui->scaleSlider->blockSignals(false);
+    // ui->scaleSlider->blockSignals(true);
+    // ui->scaleSlider->setValue(m_scaleFactor);
+    // ui->scaleLabel->setText(QString("%1%").arg(m_scaleFactor*100));
+    // ui->scaleSlider->blockSignals(false);
 
 
     connect(&m_pic_timer, &QTimer::timeout, this, &ViewDialog::pic_timer_proc);
@@ -234,22 +235,15 @@ void ViewDialog::print_data()
             ui->encodingLabel->setVisible(false);
             int sx, sy;
             if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get())) {
-                // std::string error_msg;
-                // int res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
-                // if (res == PREPARE_PIC_OK) {
-                    m_imageData = picViewer->process_picture(m_data, sx, sy, m_opt, m_pic_frame++);
-                    m_image = QImage(m_imageData.data(), sx, sy, QImage::Format_RGBA8888);
-                    update_image();
+                m_imageData = picViewer->process_picture(m_data, sx, sy, m_opt, m_pic_frame++);
+                m_image = QImage(m_imageData.data(), sx, sy, QImage::Format_RGBA8888);
+                update_image();
 
-                    int delay = picViewer->get_frame_delay();
-                    if (delay > 0) {
-                        m_pic_timer.setSingleShot(true);
-                        m_pic_timer.start(delay);
-                    }
-                // } else {
-                //     QString msg = replace_placeholders(QString::fromStdString(error_msg));
-                //     QMessageBox::critical(this, ViewDialog::tr("Error"), msg);
-                // }
+                int delay = picViewer->get_frame_delay();
+                if (delay > 0) {
+                    m_pic_timer.setSingleShot(true);
+                    m_pic_timer.start(delay);
+                }
             }
             ui->viewArea->setCurrentIndex(1);
         }
@@ -320,6 +314,7 @@ void ViewDialog::fill_options()
     }
     auto output_type = m_viewer->get_output_type();
     if (output_type == VIEWER_OUTPUT_PICTURE) {
+        restore_scale();
         if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get())) {
             std::string error_msg;
             int res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
@@ -356,7 +351,8 @@ void ViewDialog::fill_options()
 
 void ViewDialog::on_scaleSlider_valueChanged(int value)
 {
-    m_settings->setValue("viewer/scale", value);
+    store_scale(value);
+
     ui->scaleLabel->setText(QString("%1%").arg(value*100));
     m_scaleFactor = value;
     update_image();
@@ -388,7 +384,29 @@ void ViewDialog::on_subtypeCombo_currentIndexChanged(int index)
     print_data();
 }
 
+
 void ViewDialog::pic_timer_proc()
 {
     print_data();
+}
+
+
+void ViewDialog::store_scale(int value)
+{
+    auto type = ui->modeCombo->currentData().toString();
+    auto subtype = (use_subtypes)?ui->subtypeCombo->currentData().toString():"";
+
+    m_settings->setValue("viewer/scale_" + type + "_" + subtype, value);
+}
+
+
+void ViewDialog::restore_scale()
+{
+    auto type = ui->modeCombo->currentData().toString();
+    auto subtype = (use_subtypes)?ui->subtypeCombo->currentData().toString():"";
+    m_scaleFactor = m_settings->value("viewer/scale_" + type + "_" + subtype, 1).toInt();
+    ui->scaleSlider->blockSignals(true);
+    ui->scaleSlider->setValue(m_scaleFactor);
+    ui->scaleLabel->setText(QString("%1%").arg(m_scaleFactor*100));
+    ui->scaleSlider->blockSignals(false);
 }

@@ -64,6 +64,9 @@ private:
     void update_image();
     void fill_options();
     QString replace_placeholders(const QString & in);
+
+    void store_scale(int value);
+    void restore_scale();
 };
 
 #endif // VIEWDIALOG_H
