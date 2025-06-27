@@ -416,12 +416,12 @@ void ViewDialog::on_propsCombo_currentIndexChanged(int index)
 void ViewDialog::on_subtypeCombo_currentIndexChanged(int index)
 {
     recreate_viewer = true;
-    auto type = ui->modeCombo->currentData().toString().toStdString();
+    auto type = ui->modeCombo->currentData().toString();
     if (use_subtypes) {
         auto subtype = ui->subtypeCombo->currentData().toString();
         m_settings->setValue("viewer/subtype_" + type, subtype);
     }
-    last_subtypes[type] = index;
+    last_subtypes[type.toStdString()] = index;
 
     fill_options();
     print_data();
