@@ -745,7 +745,7 @@ void MainWindow::on_actionSave_to_file_triggered()
                     QString ext = filter_str.split("*")[1];
                     if (ext != ".") file_name += ext;
                 #endif
-                filesystem->save_file(fil_map[selected_filter].toStdString(), file_name.toStdString(), f);
+                filesystem->save_file(fil_map[selected_filter].toStdString(), _toStdString(file_name), f);
                 QFileInfo fi(file_name);
                 QString new_dir = fi.absolutePath();
                 settings->setValue("directory/save_to_file", new_dir);
