@@ -81,7 +81,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
         ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
         preferred_subtype = "MBASIC";
     } else {
-        std::pair<std::string, std::string> suggested = dsk_tools::suggest_file_type(m_data);
+        std::pair<std::string, std::string> suggested = dsk_tools::suggest_file_type(_toStdString(m_file_name), m_data);
         if (suggested.first == "BINARY") {
             auto stored_type = m_settings->value("viewer/type", "BINARY").toString();
             if (stored_type != "BINARY") {
