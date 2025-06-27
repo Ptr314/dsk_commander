@@ -732,7 +732,10 @@ void MainWindow::on_actionSave_to_file_triggered()
                 fil_map[filter_name] = QString::fromStdString(v);
             }
             QString selected_filter;
-            file_name = QFileDialog::getSaveFileName(this, MainWindow::tr("Export as"), file_name, filters, &selected_filter);
+
+            QString dir = settings->value("directory/save_to_file", directory).toString() + "/";
+
+            file_name = QFileDialog::getSaveFileName(this, MainWindow::tr("Export as"), dir + file_name, filters, &selected_filter);
 
             if (!file_name.isEmpty()) {
                 #ifdef __linux__
@@ -743,6 +746,9 @@ void MainWindow::on_actionSave_to_file_triggered()
                     if (ext != ".") file_name += ext;
                 #endif
                 filesystem->save_file(fil_map[selected_filter].toStdString(), file_name.toStdString(), f);
+                QFileInfo fi(file_name);
+                QString new_dir = fi.absolutePath();
+                settings->setValue("directory/save_to_file", new_dir);
             }
         }
     }
