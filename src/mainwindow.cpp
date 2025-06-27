@@ -1009,7 +1009,7 @@ void MainWindow::on_actionView_triggered()
         dsk_tools::BYTES data = filesystem->get_file(f);
 
         if (data.size() > 0) {
-            QDialog * w = new ViewDialog(this, settings, data, f.preferred_type, f.is_deleted, image, filesystem);
+            QDialog * w = new ViewDialog(this, settings, QString::fromStdString(f.name), data, f.preferred_type, f.is_deleted, image, filesystem);
             w->setAttribute(Qt::WA_DeleteOnClose);
             w->setWindowTitle(w->windowTitle() + " (" + QString::fromStdString(f.name) + ")");
             w->show();

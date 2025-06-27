@@ -12,10 +12,11 @@
 
 #include "dsk_tools/dsk_tools.h"
 
-ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const dsk_tools::BYTES &data, int preferred_type, bool deleted, dsk_tools::diskImage * disk_image, dsk_tools::fileSystem * filesystem)
+ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_name, const dsk_tools::BYTES &data, int preferred_type, bool deleted, dsk_tools::diskImage * disk_image, dsk_tools::fileSystem * filesystem)
     : QDialog(parent)
     , ui(new Ui::ViewDialog)
     , m_settings(settings)
+    , m_file_name(file_name)
     , m_disk_image(disk_image)
     , m_filesystem(filesystem)
 {
@@ -165,7 +166,7 @@ void ViewDialog::update_subtypes(const QString & preferred)
         ui->subtypeCombo->blockSignals(true);
         ui->subtypeCombo->clear();
         for (const auto& pair : subtypes) {
-            ui->subtypeCombo->addItem(QString::fromStdString(pair.second), QString::fromStdString(pair.first));
+            ui->subtypeCombo->addItem(replace_placeholders(QString::fromStdString(pair.second)), QString::fromStdString(pair.first));
             if (pair.first == preferred.toStdString()) {
                 int index = ui->subtypeCombo->count()-1;
                 last_subtypes[mode] = index;
@@ -215,6 +216,9 @@ QString ViewDialog::replace_placeholders(const QString & in)
         .replace("{$AGAT_FONT_A9_CLASSIC}", ViewDialog::tr("Agat-9 classic font"))
         .replace("{$AGAT_FONT_CUSTOM_GARNIZON}", ViewDialog::tr("GARNIZON custom font"))
         .replace("{$AGAT_FONT_CUSTOM_LOADED}", ViewDialog::tr("Loaded custom font"))
+        .replace("{$FONT_A9}", ViewDialog::tr("Agat-9 Font"))
+        .replace("{$FONT_A7}", ViewDialog::tr("Agat-7 Font"))
+        .replace("{$FONT_FILE}", ViewDialog::tr("Font file"))
         ;
 }
 
@@ -360,7 +364,7 @@ void ViewDialog::fill_options()
 
             auto options = picViewer->get_options();
             if (options.size() > 0) {
-                int suggested = picViewer->suggest_option(m_data);
+                int suggested = picViewer->suggest_option(_toStdString(m_file_name), m_data);
                 ui->optionsCombo->blockSignals(true);
                 ui->optionsCombo->clear();
                 for (const auto& opt : options) {

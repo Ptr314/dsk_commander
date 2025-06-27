@@ -21,7 +21,7 @@ class ViewDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ViewDialog(QWidget *parent, QSettings  *settings, const dsk_tools::BYTES &data, int preferred_type, bool deleted, dsk_tools::diskImage * image, dsk_tools::fileSystem * filesystem);
+    explicit ViewDialog(QWidget *parent, QSettings  *settings, const QString file_name, const dsk_tools::BYTES &data, int preferred_type, bool deleted, dsk_tools::diskImage * image, dsk_tools::fileSystem * filesystem);
     ~ViewDialog();
 
 private slots:
@@ -44,6 +44,7 @@ private slots:
 private:
     Ui::ViewDialog *ui;
 
+    QString m_file_name;
     dsk_tools::BYTES m_data;
     dsk_tools::diskImage * m_disk_image;
     dsk_tools::fileSystem * m_filesystem;
