@@ -233,6 +233,9 @@ void ViewDialog::print_data()
 
         if (recreate_viewer) {
             m_viewer = dsk_tools::ViewerManager::instance().create(type, subtype);
+            auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get());
+            std::string error_msg;
+            int res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
             recreate_viewer = false;
         }
 
