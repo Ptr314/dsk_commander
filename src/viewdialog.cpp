@@ -202,6 +202,8 @@ QString ViewDialog::replace_placeholders(const QString & in)
 {
     return QString(in)
         .replace("{$PALETTE}", ViewDialog::tr("Palette"))
+        .replace("{$COLOR}", ViewDialog::tr("Color"))
+        .replace("{$MONOCHROME}", ViewDialog::tr("Monochrome"))
         .replace("{$CUSTOM_PALETTE}", ViewDialog::tr("Custom palette"))
         .replace("{$BW}", ViewDialog::tr("b/w"))
 
