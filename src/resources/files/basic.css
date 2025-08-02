@@ -1,0 +1,31 @@
+body {
+    font-family: 'Consolas', monospace;
+    font-size: 12pt;
+    white-space: pre-wrap;
+    background-color: white;
+    color: black;
+}
+
+.line {
+    margin: 0;
+}
+
+.line-number {
+    color: #606060;
+}
+
+.variable {
+    color: #c400c2;
+}
+
+.token {
+    color: #0713c0;
+}
+
+.rem {
+    background-color: #e0e0e0;
+}
+
+.string {
+    color: #985793;
+}

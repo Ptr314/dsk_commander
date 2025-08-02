@@ -97,6 +97,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         ${PROJECT_RESOURCES}
+        resources/files/basic.css
     )
 
     qt_add_translations(${PROJECT_NAME} TS_FILES

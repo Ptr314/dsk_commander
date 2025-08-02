@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>751</width>
+    <width>804</width>
     <height>614</height>
    </rect>
   </property>
@@ -230,6 +230,16 @@
            </property>
            <property name="lineWrapMode">
             <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="textEdit">
+           <property name="lineWrapMode">
+            <enum>QTextEdit::LineWrapMode::NoWrap</enum>
            </property>
            <property name="readOnly">
             <bool>true</bool>
@@ -507,8 +517,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>729</width>
-              <height>528</height>
+              <width>83</width>
+              <height>39</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
