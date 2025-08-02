@@ -5,6 +5,7 @@
 
 #include <QTimer>
 #include <QMessageBox>
+#include <qdir.h>
 
 #include "viewdialog.h"
 #include "mainutils.h"
@@ -251,6 +252,19 @@ void ViewDialog::print_data()
             ui->textBox->setWordWrapMode(QTextOption::NoWrap);
 
             ui->textBox->setPlainText(QString::fromStdString(out));
+
+            QFile css_file(":/files/basic.css");
+            if (css_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                QTextStream stream(&css_file);
+                QString css = stream.readAll();
+                ui->textEdit->document()->setDefaultStyleSheet(css);
+                css_file.close();
+            } else {
+                qWarning() << "Failed to load CSS file";
+            }
+
+            ui->textEdit->setHtml(QString::fromStdString(out));
+
             ui->viewArea->setCurrentIndex(0);
         } else
         if (output_type == VIEWER_OUTPUT_PICTURE) {

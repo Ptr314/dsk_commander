@@ -33,5 +33,6 @@
     </qresource>
     <qresource prefix="/files">
         <file alias="config">resources/files/config.json</file>
+        <file alias="basic.css">resources/files/basic.css</file>
     </qresource>
 </RCC>
