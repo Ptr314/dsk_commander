@@ -41,6 +41,10 @@ private slots:
 
     void pic_timer_proc();
 
+    void on_copyButton_clicked();
+
+    void on_saveButton_clicked();
+
 private:
     Ui::ViewDialog *ui;
 
