@@ -175,6 +175,62 @@
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer_11">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>10</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QToolButton" name="copyButton">
+       <property name="toolTip">
+        <string>Copy text to clipboard</string>
+       </property>
+       <property name="text">
+        <string>Copy</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/icons/text_copy</normaloff>:/icons/text_copy</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="saveButton">
+       <property name="toolTip">
+        <string>Save to file</string>
+       </property>
+       <property name="text">
+        <string>Save to file</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/icons/icon</normaloff>:/icons/icon</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="deletedLabel">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -219,23 +275,11 @@
      </property>
      <item>
       <widget class="QStackedWidget" name="viewArea">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
        <widget class="QWidget" name="page">
         <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QPlainTextEdit" name="textBox">
-           <property name="font">
-            <font>
-             <family>Iosevka Fixed Extended</family>
-            </font>
-           </property>
-           <property name="lineWrapMode">
-            <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item>
           <widget class="QTextEdit" name="textEdit">
            <property name="lineWrapMode">
@@ -517,8 +561,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>83</width>
-              <height>39</height>
+              <width>786</width>
+              <height>530</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">

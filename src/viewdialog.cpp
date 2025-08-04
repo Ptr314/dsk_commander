@@ -6,6 +6,9 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <qdir.h>
+#include <QClipboard>
+#include <QMimeData>
+#include <QFileDialog>
 
 #include "viewdialog.h"
 #include "mainutils.h"
@@ -24,10 +27,12 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
     m_data = data;
     ui->setupUi(this);
 
+    setWindowFlags(windowFlags() | Qt::WindowMaximizeButtonHint);
+
     // QFont font("Iosevka Fixed", 10, 400);
     // font.setStretch(QFont::Expanded);
-    QFont font("Consolas", 10, 400);
-    ui->textBox->setFont(font);
+    // QFont font("Consolas", 10, 400);
+    // ui->textBox->setFont(font);
 
     dsk_tools::register_all_viewers();
 
@@ -248,11 +253,6 @@ void ViewDialog::print_data()
             auto cm_name = ui->encodingCombo->currentData().toString().toStdString();
             auto out = m_viewer->process_as_text(m_data, cm_name);
 
-            // ui->textBox->setWordWrapMode(QTextOption::WordWrap);
-            ui->textBox->setWordWrapMode(QTextOption::NoWrap);
-
-            ui->textBox->setPlainText(QString::fromStdString(out));
-
             QFile css_file(":/files/basic.css");
             if (css_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 QTextStream stream(&css_file);
@@ -263,9 +263,13 @@ void ViewDialog::print_data()
                 qWarning() << "Failed to load CSS file";
             }
 
+            out = "<body>" + out + "</body>";
             ui->textEdit->setHtml(QString::fromStdString(out));
 
             ui->viewArea->setCurrentIndex(0);
+
+            ui->copyButton->setVisible(true);
+            ui->saveButton->setVisible(true);
         } else
         if (output_type == VIEWER_OUTPUT_PICTURE) {
             ui->encodingCombo->setVisible(false);
@@ -283,6 +287,8 @@ void ViewDialog::print_data()
                 }
             }
             ui->viewArea->setCurrentIndex(1);
+            ui->copyButton->setVisible(false);
+            ui->saveButton->setVisible(false);
         }
     }
 }
@@ -472,3 +478,51 @@ void ViewDialog::restore_scale()
     ui->scaleLabel->setText(QString("%1%").arg(m_scaleFactor*100));
     ui->scaleSlider->blockSignals(false);
 }
+
+void ViewDialog::on_copyButton_clicked()
+{
+    QString html = ui->textEdit->toHtml();
+    QMimeData *mimeData = new QMimeData();
+    mimeData->setHtml(html);
+    mimeData->setText(ui->textEdit->toPlainText());
+    QClipboard *clipboard = QApplication::clipboard();
+    clipboard->setMimeData(mimeData);
+}
+
+
+void ViewDialog::on_saveButton_clicked()
+{
+    QString file_name = m_file_name;
+
+    QStringList filters = {"HTML (*.html)", "TXT (*.txt)"};
+    QString filters_str = filters.join(";;");
+    QString selected_filter = m_settings->value("viewer/txt_filter", filters[0]).toString();
+
+    QString dir = m_settings->value("viewer/txt_save_dir", m_settings->value("directory/save_to_file").toString()).toString() + "/";
+
+    file_name = QFileDialog::getSaveFileName(this, ViewDialog::tr("Save as"), dir + file_name, filters_str, &selected_filter);
+
+    if (!file_name.isEmpty()) {
+    #ifdef __linux__
+        QJsonObject sel_filt = file_formats[fil_map[selected_filter]].toObject();
+        QStringList ffs = sel_filt["extensions"].toString().split(";");
+        QString filter_str = ffs[0];
+        QString ext = filter_str.split("*")[1];
+        if (ext != ".") file_name += ext;
+    #endif
+        QFile file(file_name);
+        file.open(QIODevice::WriteOnly);
+        if (selected_filter.startsWith("HTML"))
+            file.write(ui->textEdit->toHtml().toUtf8());
+        else
+            file.write(ui->textEdit->toPlainText().toUtf8());
+        file.close();
+
+        QFileInfo fi(file_name);
+        QString new_dir = fi.absolutePath();
+        m_settings->setValue("directory/save_to_file", new_dir);
+        m_settings->setValue("viewer/txt_filter", selected_filter);
+    }
+
+}
+

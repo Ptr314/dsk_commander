@@ -1,6 +1,6 @@
 body {
     font-family: 'Consolas', monospace;
-    font-size: 12pt;
+    font-size: 11pt;
     white-space: pre-wrap;
     background-color: white;
     color: black;
@@ -28,4 +28,16 @@ body {
 
 .string {
     color: #985793;
+}
+
+.number {
+    color: #A00000;
+}
+
+.asm {
+    color: #05225e;
+}
+
+.asm-label {
+    color: #866c00;
 }
