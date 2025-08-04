@@ -15,7 +15,7 @@ body {
 }
 
 .variable {
-    color: #008000;
+    color: #007000;
 }
 
 .token {
@@ -35,9 +35,9 @@ body {
 }
 
 .asm {
-    color: #05225e;
+    color: #05709f;
 }
 
 .asm-label {
-    color: #866c00;
+    color: #614e00;
 }
