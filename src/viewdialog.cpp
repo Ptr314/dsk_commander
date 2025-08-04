@@ -3,12 +3,19 @@
 // Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander
 // Description: A QDialog subclass for viewing files
 
+#include <iostream>
+#include <fstream>
+
+#include <regex>
+
 #include <QTimer>
 #include <QMessageBox>
 #include <qdir.h>
 #include <QClipboard>
 #include <QMimeData>
 #include <QFileDialog>
+#include <QTextStream>
+#include <qDebug>
 
 #include "viewdialog.h"
 #include "mainutils.h"
@@ -260,7 +267,7 @@ void ViewDialog::print_data()
                 ui->textEdit->document()->setDefaultStyleSheet(css);
                 css_file.close();
             } else {
-                qWarning() << "Failed to load CSS file";
+                qDebug() << "Failed to load CSS file";
             }
 
             out = "<body>" + out + "</body>";
@@ -510,14 +517,20 @@ void ViewDialog::on_saveButton_clicked()
         QString ext = filter_str.split("*")[1];
         if (ext != ".") file_name += ext;
     #endif
-        QFile file(file_name);
-        file.open(QIODevice::WriteOnly);
-        if (selected_filter.startsWith("HTML"))
-            file.write(ui->textEdit->toHtml().toUtf8());
-        else
-            file.write(ui->textEdit->toPlainText().toUtf8());
-        file.close();
-
+        std::ofstream file(file_name.toStdString(), std::ios::binary);
+        if (file.good()) {
+            std::string buffer;
+            if (selected_filter.startsWith("HTML")) {
+                buffer = ui->textEdit->toHtml().toUtf8().toStdString();
+                #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+                    std::regex pattern(R"(font-family:'Consolas,monospace')");
+                    buffer = std::regex_replace(buffer, pattern, "font-family:'Consolas','monospace'");
+                #endif
+            }
+            else
+                buffer = ui->textEdit->toPlainText().toUtf8().toStdString();
+            file.write(buffer.data(), buffer.size());
+        }
         QFileInfo fi(file_name);
         QString new_dir = fi.absolutePath();
         m_settings->setValue("directory/save_to_file", new_dir);
