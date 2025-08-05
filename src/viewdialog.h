@@ -72,6 +72,9 @@ private:
 
     void store_scale(int value);
     void restore_scale();
+
+    QString m_saved_css;
+    QString m_saved_html;
 };
 
 #endif // VIEWDIALOG_H
