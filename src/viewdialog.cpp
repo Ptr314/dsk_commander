@@ -503,16 +503,26 @@ void ViewDialog::on_saveButton_clicked()
 
     QString dir = m_settings->value("viewer/txt_save_dir", m_settings->value("directory/save_to_file").toString()).toString() + "/";
 
-    file_name = QFileDialog::getSaveFileName(this, ViewDialog::tr("Save as"), dir + file_name, filters_str, &selected_filter);
+
+    #ifdef __linux__
+        file_name = QFileDialog::getSaveFileName(this, ViewDialog::tr("Save as"), dir + file_name, filters_str, &selected_filter, QFileDialog::DontConfirmOverwrite);
+    #else
+        file_name = QFileDialog::getSaveFileName(this, ViewDialog::tr("Save as"), dir + file_name, filters_str, &selected_filter);
+    #endif
 
     if (!file_name.isEmpty()) {
-    #ifdef __linux__
-        QJsonObject sel_filt = file_formats[fil_map[selected_filter]].toObject();
-        QStringList ffs = sel_filt["extensions"].toString().split(";");
-        QString filter_str = ffs[0];
-        QString ext = filter_str.split("*")[1];
-        if (ext != ".") file_name += ext;
-    #endif
+        #ifdef __linux__
+            QString ext = selected_filter.split("*")[1].split(")")[0];
+            if (ext != ".") file_name += ext;
+        #endif
+        QFileInfo fi(file_name);
+        #ifdef __linux__
+            // In Linux FileSaveDialog works with extensions incorrectly, so we have to check the existence manually
+            if (fi.exists()) {
+                QMessageBox::StandardButton res = QMessageBox::question(this, ViewDialog::tr("File exists"), ViewDialog::tr("File already exists. Overwrite?"));
+                if (res != QMessageBox::Yes) return;
+            }
+        #endif
         std::ofstream file(file_name.toStdString(), std::ios::binary);
         if (file.good()) {
             std::string buffer;
@@ -529,7 +539,6 @@ void ViewDialog::on_saveButton_clicked()
                 buffer = ui->textEdit->toPlainText().toUtf8().toStdString();
             file.write(buffer.data(), buffer.size());
         }
-        QFileInfo fi(file_name);
         QString new_dir = fi.absolutePath();
         m_settings->setValue("directory/save_to_file", new_dir);
         m_settings->setValue("viewer/txt_filter", selected_filter);
