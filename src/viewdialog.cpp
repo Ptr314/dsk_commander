@@ -6,8 +6,6 @@
 #include <iostream>
 #include <fstream>
 
-#include <regex>
-
 #include <QTimer>
 #include <QMessageBox>
 #include <qdir.h>
@@ -263,15 +261,14 @@ void ViewDialog::print_data()
             QFile css_file(":/files/basic.css");
             if (css_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 QTextStream stream(&css_file);
-                QString css = stream.readAll();
-                ui->textEdit->document()->setDefaultStyleSheet(css);
+                m_saved_css = stream.readAll();
+                ui->textEdit->document()->setDefaultStyleSheet(m_saved_css);
                 css_file.close();
             } else {
                 qDebug() << "Failed to load CSS file";
             }
-
-            out = "<body>" + out + "</body>";
-            ui->textEdit->setHtml(QString::fromStdString(out));
+            m_saved_html = QString::fromStdString(out);
+            ui->textEdit->setHtml("<body>" + m_saved_html + "</body>");
 
             ui->viewArea->setCurrentIndex(0);
 
@@ -521,11 +518,13 @@ void ViewDialog::on_saveButton_clicked()
         if (file.good()) {
             std::string buffer;
             if (selected_filter.startsWith("HTML")) {
-                buffer = ui->textEdit->toHtml().toUtf8().toStdString();
-                #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                    std::regex pattern(R"(font-family:'Consolas,monospace')");
-                    buffer = std::regex_replace(buffer, pattern, "font-family:'Consolas','monospace'");
-                #endif
+                QString html =  "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\r\n"
+                                "<html><head><meta charset=\"utf-8\" /><style type=\"text/css\">" +
+                                m_saved_css +
+                                "</style></head><body><div style=\"display: flex; flex-direction: column; gap: 0\">" +
+                                m_saved_html +
+                                "</div></body></html>";
+                buffer = html.toUtf8().toStdString();
             }
             else
                 buffer = ui->textEdit->toPlainText().toUtf8().toStdString();
