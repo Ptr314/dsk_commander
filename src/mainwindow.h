@@ -15,6 +15,9 @@
 #include <QComboBox>
 #include <QTranslator>
 #include <QItemSelection>
+#include <QLabel>
+
+#include "FilePanel.h"
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -81,6 +84,17 @@ private slots:
     void onLeftSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void onRightSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
+private slots:
+    void onView();
+    void onCopy();
+    void onMove();
+    void onMkdir();
+    void onDelete();
+    void onExit();
+
+    void setActivePanel(FilePanel* panel);
+    void updateStatusBarInfo();
+    void updateViewButtonState();
 
 private:
     Ui::MainWindow *ui;
@@ -119,6 +133,22 @@ private:
     QString replace_placeholders(const QString & in);
     std::vector<dsk_tools::fileData> files;
 
+private:
+    FilePanel* leftPanel {nullptr};
+    FilePanel* rightPanel {nullptr};
+    FilePanel* activePanel {nullptr};
 
+    QAction* actView {nullptr};
+    QAction* actCopy {nullptr};
+    QAction* actMove {nullptr};
+    QAction* actMkdir {nullptr};
+    QAction* actDelete {nullptr};
+    QAction* actExit {nullptr};
+
+    QLabel* statusLabel {nullptr};
+
+    void createActions();
+    QWidget* createBottomPanel();
+    FilePanel* otherPanel() const;
 };
 #endif // MAINWINDOW_H
