@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(DISKCommander VERSION 1.5.2 LANGUAGES CXX)
+project(DISKCommander VERSION 2.0.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
-# Добаввляем библиотеку, но отключаем компиляцию утилит командногй строки
+# Добавляем библиотеку, но отключаем компиляцию утилит командногй строки
 set(ENABLE_DSK_TOOLS OFF CACHE BOOL "Disable command line tools from the library")
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/dsk_tools/)
 
@@ -23,7 +23,7 @@ set(TS_FILES
     ${CMAKE_SOURCE_DIR}/i18n/ru_ru.ts
 )
 
-# Добаввляем строки из файла конфигурации в файлы для перевода
+# Добавляем строки из файла конфигурации в файлы для перевода
 set(JSON_FILE ${CMAKE_SOURCE_DIR}/resources/files/config.json)
 set(QML_OUTPUT ${CMAKE_SOURCE_DIR}/i18n/config.qml)
 add_custom_command(
@@ -39,11 +39,14 @@ add_custom_target(update_translations
 # Основные файлы проекта
 set(PROJECT_SOURCES
         main.cpp
-        mainutils.h       mainutils.cpp
-        mainwindow.h      mainwindow.cpp      mainwindow.ui
-        viewdialog.h      viewdialog.cpp      viewdialog.ui
-        convertdialog.h   convertdialog.cpp   convertdialog.ui
-        fileparamdialog.h fileparamdialog.cpp
+        mainutils.h                 mainutils.cpp
+        mainwindow.h                mainwindow.cpp          mainwindow.ui
+        viewdialog.h                viewdialog.cpp          viewdialog.ui
+        convertdialog.h             convertdialog.cpp       convertdialog.ui
+        fileparamdialog.h           fileparamdialog.cpp
+        CustomFileSystemModel.cpp   CustomFileSystemModel.h
+        CustomSortProxyModel.cpp    CustomSortProxyModel.h
+        FilePanel.cpp               FilePanel.h
         aboutdlg.ui
         fileinfodialog.ui
         resources/files/config.json

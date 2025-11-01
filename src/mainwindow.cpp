@@ -15,7 +15,18 @@
 #include <QJsonValue>
 #include <QFontDatabase>
 #include <QInputDialog>
-
+#include <QSplitter>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QDir>
+#include <QDirIterator>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QStatusBar>
+#include <QToolButton>
 #include "mainwindow.h"
 #include "convertdialog.h"
 #include "fileparamdialog.h"
@@ -115,6 +126,39 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->rightFiles->selectionModel(), &QItemSelectionModel::selectionChanged,
             this, &MainWindow::onRightSelectionChanged);
+
+// New interface
+    auto *central = new QWidget(this);
+    auto *layout = new QVBoxLayout(central);
+    auto *splitter = new QSplitter(Qt::Horizontal, this);
+
+    leftPanel = new FilePanel(this);
+    rightPanel = new FilePanel(this);
+
+    connect(leftPanel,  &FilePanel::activated, this, &MainWindow::setActivePanel);
+    connect(rightPanel, &FilePanel::activated, this, &MainWindow::setActivePanel);
+
+    splitter->addWidget(leftPanel);
+    splitter->addWidget(rightPanel);
+    splitter->setStretchFactor(0, 1);
+    splitter->setStretchFactor(1, 1);
+
+    createActions();
+    layout->addWidget(splitter);
+    layout->addWidget(createBottomPanel());
+    layout->setStretch(0, 1); // file panels stretch
+    layout->setStretch(1, 0); // bottom panel takes minimum space
+    setCentralWidget(central);
+
+    statusLabel = new QLabel(this);
+    statusLabel->setText("Готово");
+    statusBar()->addWidget(statusLabel);
+
+    // setWindowTitle("Двухпанельный файловый менеджер (Qt6)");
+    // resize(1200, 700);
+
+    setActivePanel(leftPanel);
+    updateViewButtonState();
 }
 
 void MainWindow::switch_language(const QString & lang, bool init)
@@ -1196,5 +1240,156 @@ void MainWindow::on_actionRename_triggered()
     }
 }
 
+// New interface elements ---------------------------
+
+void MainWindow::createActions() {
+    actView   = new QAction(MainWindow::tr("F3 View"), this);
+    actCopy   = new QAction(MainWindow::tr("F5 Copy"), this);
+    actMove   = new QAction(MainWindow::tr("F6 Move"), this);
+    actMkdir  = new QAction(MainWindow::tr("F7 MkDir"), this);
+    actDelete = new QAction(MainWindow::tr("F8 Delete"), this);
+    actExit   = new QAction(MainWindow::tr("F10 Exit"), this);
+
+    actView->setShortcut(Qt::Key_F3);
+    actCopy->setShortcut(Qt::Key_F5);
+    actMove->setShortcut(Qt::Key_F6);
+    actMkdir->setShortcut(Qt::Key_F7);
+    actDelete->setShortcut(Qt::Key_F8);
+    actExit->setShortcut(Qt::Key_F10);
+
+    connect(actView,   &QAction::triggered, this, &MainWindow::onView);
+    connect(actCopy,   &QAction::triggered, this, &MainWindow::onCopy);
+    connect(actMove,   &QAction::triggered, this, &MainWindow::onMove);
+    connect(actMkdir,  &QAction::triggered, this, &MainWindow::onMkdir);
+    connect(actDelete, &QAction::triggered, this, &MainWindow::onDelete);
+    connect(actExit,   &QAction::triggered, this, &MainWindow::onExit);
+
+    addActions({actView, actCopy, actMove, actMkdir, actDelete, actExit});
+}
+
+QWidget* MainWindow::createBottomPanel() {
+    auto *panel = new QWidget(this);
+    auto *layout = new QHBoxLayout(panel);
+
+    layout->setContentsMargins(5, 5, 5, 5);
+    layout->setSpacing(10);
+
+    // Expand to the window
+    panel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    QList<QToolButton*> buttons;
+
+    auto makeButton = [&](QAction* act) {
+        auto *btn = new QToolButton(this);
+        btn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+        btn->setDefaultAction(act);
+        btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        layout->addWidget(btn);
+        buttons << btn;
+    };
+
+    makeButton(actView);   // F3
+    makeButton(actCopy);   // F5
+    makeButton(actMove);   // F6
+    makeButton(actMkdir);  // F7
+    makeButton(actDelete); // F8
+    makeButton(actExit);   // F10
+
+    // buttons have equal widths
+    for (int i = 0; i < buttons.size(); ++i)
+        layout->setStretch(i, 1);
+
+    // Expand panel to the window
+    layout->setAlignment(Qt::AlignJustify);
+
+    return panel;
+}
+
+
+void MainWindow::setActivePanel(FilePanel* panel) {
+    if (!panel) return;
+    activePanel = panel;
+    leftPanel->setActive(leftPanel == activePanel);
+    rightPanel->setActive(rightPanel == activePanel);
+
+    if (activePanel->tableSelectionModel()) {
+        // Status bar is upadted from the active panel
+        connect(activePanel->tableSelectionModel(), &QItemSelectionModel::selectionChanged,
+                this, &MainWindow::updateStatusBarInfo);
+        // Bottom panel buttons are upadted from the active panel
+        connect(activePanel->tableSelectionModel(), &QItemSelectionModel::selectionChanged,
+                this, &MainWindow::updateViewButtonState);
+    }
+    // Force updating after changing panels
+    updateStatusBarInfo();
+    updateViewButtonState();
+}
+
+void MainWindow::updateStatusBarInfo() {
+    if (!activePanel) {
+        statusLabel->setText(MainWindow::tr("No active panel"));
+        return;
+    }
+    const QString dir = activePanel->currentDir();
+    const int selCount = activePanel->selectedPaths().size();
+    statusLabel->setText(QString(MainWindow::tr("Active panel: %1 | Selected: %2")).arg(dir).arg(selCount));
+}
+
+void MainWindow::updateViewButtonState() {
+    if (!activePanel) {
+        actView->setEnabled(false);
+        return;
+    }
+
+    const QStringList paths = activePanel->selectedPaths();
+
+    // If one element choosen only
+    if (paths.size() == 1) {
+        QFileInfo info(paths.first());
+        // and it's not a dir
+        actView->setEnabled(info.isFile());
+    } else {
+        // Nothing or more than one
+        actView->setEnabled(false);
+    }
+}
+
+void MainWindow::onView() {
+    if (!activePanel) return;
+    // TODO: View
+    qDebug() << "--> View";
+}
+
+void MainWindow::onCopy() {
+    if (!activePanel) return;
+    // TODO: Copy
+    qDebug() << "--> Copy";
+}
+
+void MainWindow::onMove() {
+    if (!activePanel) return;
+    // TODO: Move
+    qDebug() << "--> Move";
+}
+
+void MainWindow::onMkdir() {
+    if (!activePanel) return;
+    // TODO: MkDir
+    qDebug() << "--> MkDir";
+}
+
+void MainWindow::onDelete() {
+    if (!activePanel) return;
+    // TODO: Delete
+    qDebug() << "--> Delete";
+}
+
+void MainWindow::onExit() {
+    close();
+}
+
+FilePanel* MainWindow::otherPanel() const {
+    return (activePanel == leftPanel) ? rightPanel : leftPanel;
+}
 
 
