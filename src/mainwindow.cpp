@@ -132,8 +132,8 @@ MainWindow::MainWindow(QWidget *parent)
     auto *layout = new QVBoxLayout(central);
     auto *splitter = new QSplitter(Qt::Horizontal, this);
 
-    leftPanel = new FilePanel(this);
-    rightPanel = new FilePanel(this);
+    leftPanel = new FilePanel(this, settings, "left", file_formats, file_types, file_systems);
+    rightPanel = new FilePanel(this, settings, "right", file_formats, file_types, file_systems);
 
     connect(leftPanel,  &FilePanel::activated, this, &MainWindow::setActivePanel);
     connect(rightPanel, &FilePanel::activated, this, &MainWindow::setActivePanel);
@@ -1244,6 +1244,7 @@ void MainWindow::on_actionRename_triggered()
 
 void MainWindow::createActions() {
     actView   = new QAction(MainWindow::tr("F3 View"), this);
+    actEdit   = new QAction(MainWindow::tr("F4 Edit"), this);
     actCopy   = new QAction(MainWindow::tr("F5 Copy"), this);
     actMove   = new QAction(MainWindow::tr("F6 Move"), this);
     actMkdir  = new QAction(MainWindow::tr("F7 MkDir"), this);
@@ -1251,6 +1252,7 @@ void MainWindow::createActions() {
     actExit   = new QAction(MainWindow::tr("F10 Exit"), this);
 
     actView->setShortcut(Qt::Key_F3);
+    actEdit->setShortcut(Qt::Key_F4);
     actCopy->setShortcut(Qt::Key_F5);
     actMove->setShortcut(Qt::Key_F6);
     actMkdir->setShortcut(Qt::Key_F7);
@@ -1258,13 +1260,14 @@ void MainWindow::createActions() {
     actExit->setShortcut(Qt::Key_F10);
 
     connect(actView,   &QAction::triggered, this, &MainWindow::onView);
+    connect(actEdit,   &QAction::triggered, this, &MainWindow::onEdit);
     connect(actCopy,   &QAction::triggered, this, &MainWindow::onCopy);
     connect(actMove,   &QAction::triggered, this, &MainWindow::onMove);
     connect(actMkdir,  &QAction::triggered, this, &MainWindow::onMkdir);
     connect(actDelete, &QAction::triggered, this, &MainWindow::onDelete);
     connect(actExit,   &QAction::triggered, this, &MainWindow::onExit);
 
-    addActions({actView, actCopy, actMove, actMkdir, actDelete, actExit});
+    addActions({actView, actEdit, actCopy, actMove, actMkdir, actDelete, actExit});
 }
 
 QWidget* MainWindow::createBottomPanel() {
@@ -1289,6 +1292,7 @@ QWidget* MainWindow::createBottomPanel() {
     };
 
     makeButton(actView);   // F3
+    makeButton(actEdit);   // F4
     makeButton(actCopy);   // F5
     makeButton(actMove);   // F6
     makeButton(actMkdir);  // F7
@@ -1343,14 +1347,16 @@ void MainWindow::updateViewButtonState() {
 
     const QStringList paths = activePanel->selectedPaths();
 
-    // If one element choosen only
+    // If one element choosen
     if (paths.size() == 1) {
         QFileInfo info(paths.first());
         // and it's not a dir
-        actView->setEnabled(info.isFile());
+        actView->setEnabled(true);
+        actEdit->setEnabled(info.isFile());
     } else {
         // Nothing or more than one
         actView->setEnabled(false);
+        actEdit->setEnabled(false);
     }
 }
 
@@ -1358,6 +1364,12 @@ void MainWindow::onView() {
     if (!activePanel) return;
     // TODO: View
     qDebug() << "--> View";
+}
+
+void MainWindow::onEdit() {
+    if (!activePanel) return;
+    // TODO: Edit
+    qDebug() << "--> Edit";
 }
 
 void MainWindow::onCopy() {

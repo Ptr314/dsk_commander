@@ -86,6 +86,7 @@ private slots:
 
 private slots:
     void onView();
+    void onEdit();
     void onCopy();
     void onMove();
     void onMkdir();
@@ -139,6 +140,7 @@ private:
     FilePanel* activePanel {nullptr};
 
     QAction* actView {nullptr};
+    QAction* actEdit {nullptr};
     QAction* actCopy {nullptr};
     QAction* actMove {nullptr};
     QAction* actMkdir {nullptr};
