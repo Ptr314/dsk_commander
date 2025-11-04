@@ -13,6 +13,7 @@
 #include <QFileSystemModel>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QToolButton>
 #include <QDir>
 #include <QSettings>
 #include <QJsonObject>
@@ -46,6 +47,9 @@ public:
         return tableView ? tableView->selectionModel() : nullptr;
     }
 
+    void onView();
+    void onEdit();
+
 signals:
     void activated(FilePanel* self);
 
@@ -68,8 +72,8 @@ private:
     QComboBox* typeCombo {nullptr};
     QComboBox* fsCombo {nullptr};
     QCheckBox* autoCheck {nullptr};
-    QPushButton* dirButton {nullptr};
-    QPushButton* upButton {nullptr};
+    QToolButton* dirButton {nullptr};
+    QToolButton* upButton {nullptr};
     QLineEdit* dirEdit {nullptr};
     CustomFileSystemModel * host_model {nullptr};
     CustomSortProxyModel * host_proxy {nullptr};
@@ -96,10 +100,10 @@ private:
     bool eventFilter(QObject* obj, QEvent* ev) override;
     void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
     int openImage(QString path);
-    int loadFile(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type);
     void processImage(std::string filesystem_type);
-    void initTable();
     void updateTable();
+    void setMode(panelMode new_mode);
     void dir();
+    QString replace_placeholders(const QString & in);
 
 };
