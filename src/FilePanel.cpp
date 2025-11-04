@@ -11,9 +11,13 @@
 #include <QCoreApplication>
 #include <QJsonArray>
 #include <QMessageBox>
+#include <QIcon>
+
+#include "./ui_fileinfodialog.h"
 
 #include "FilePanel.h"
 #include "mainutils.h"
+#include "viewdialog.h"
 
 FilePanel::FilePanel(QWidget *parent, QSettings *settings, QString ini_label, const QJsonObject & file_formats, const QJsonObject & file_types, const QJsonObject & file_systems) :
       QWidget(parent)
@@ -47,49 +51,43 @@ void FilePanel::setupPanel() {
 
     // Upper tooldar
     topToolBar = new QToolBar(this);
-    upButton = new QPushButton("⬆️ Вверх", this);
+
+    upButton = new QToolButton(this);
+    upButton->setText(FilePanel::tr("Up"));
+    upButton->setIcon(QIcon(":/icons/up"));
+    upButton->setToolTip(FilePanel::tr("Up"));
+    upButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    upButton->setIconSize(QSize(24, 24));
+
     dirEdit = new QLineEdit(this);
-    dirEdit->setPlaceholderText("Введите путь и нажмите Enter…");
-    dirButton = new QPushButton("Выбрать...", this);
+    dirEdit->setPlaceholderText(FilePanel::tr("Enter path and press Enter..."));
 
-    topToolBar->addWidget(upButton);
-    topToolBar->addWidget(dirEdit);
-    topToolBar->addWidget(dirButton);
+    dirButton = new QToolButton(this);
+    dirButton->setText(FilePanel::tr("Choose..."));
+    dirButton->setIcon(QIcon(":/icons/folder_open"));
+    dirButton->setToolTip(FilePanel::tr("Choose..."));
+    dirButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    dirButton->setIconSize(QSize(24, 24));
 
-    connect(upButton,  &QPushButton::clicked, this, &FilePanel::onGoUp);
-    connect(dirButton, &QPushButton::clicked, this, &FilePanel::chooseDirectory);
+    auto *topContainer = new QWidget(topToolBar);
+    auto *topLayout = new QHBoxLayout(topContainer);
+    topLayout->setContentsMargins(0, 0, 0, 0);
+    topLayout->setSpacing(10);
+    topLayout->addWidget(upButton);
+    topLayout->addWidget(dirEdit, 1);
+    topLayout->addWidget(dirButton);
+
+    topToolBar->addWidget(topContainer);
+
+    connect(upButton,  &QToolButton::clicked, this, &FilePanel::onGoUp);
+    connect(dirButton, &QToolButton::clicked, this, &FilePanel::chooseDirectory);
     connect(dirEdit,   &QLineEdit::returnPressed, this, &FilePanel::onPathEntered);
 
     // Main table with files
     tableView = new QTableView(this);
     tableView->setFont(font);
-    tableView->setModel(host_proxy);
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    tableView->setAlternatingRowColors(true);
-    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableView->setShowGrid(false);
-    tableView->verticalHeader()->hide();
 
-    tableView->setSortingEnabled(true);
-    tableView->sortByColumn(0, Qt::AscendingOrder);
-
-    // Columns
-    tableView->setColumnHidden(2, true);  // Hide "Type"
-    QHeaderView* hh = tableView->horizontalHeader();
-    hh->setStretchLastSection(false);             // Manual mode
-    hh->setSectionResizeMode(0, QHeaderView::Stretch); // Name - expanded
-    hh->setSectionResizeMode(1, QHeaderView::Fixed);   // Size — fixed
-    hh->setSectionResizeMode(3, QHeaderView::Fixed);   // Date — fixed
-
-    const int colSizeWidth = 120;
-    const int colDateWidth = 180;
-    tableView->setColumnWidth(1, colSizeWidth);
-    tableView->setColumnWidth(3, colDateWidth);
-
-    // Hiding horizontal scrollbar
-    tableView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    tableView->setTextElideMode(Qt::ElideRight);
+    setMode(panelMode::Host);
 
     connect(tableView, &QTableView::doubleClicked, this, &FilePanel::onItemDoubleClicked);
 
@@ -215,8 +213,8 @@ void FilePanel::setDirectory(const QString& path) {
     QModelIndex proxyRoot  = host_proxy->mapFromSource(sourceRoot);
     tableView->setRootIndex(proxyRoot);
 
-    tableView->setColumnWidth(1, 120);
-    tableView->setColumnWidth(3, 180);
+    // tableView->setColumnWidth(1, 120);
+    // tableView->setColumnWidth(3, 180);
 
     m_settings->setValue("directory/"+m_ini_label, currentPath);
 }
@@ -295,8 +293,18 @@ void FilePanel::onAutoChanged(Qt::CheckState checked)
 
 void FilePanel::onGoUp() {
     emit activated(this);
-    QDir dir(currentPath);
-    if (dir.cdUp()) setDirectory(dir.absolutePath());
+    if (mode==panelMode::Host) {
+        QDir dir(currentPath);
+        if (dir.cdUp()) setDirectory(dir.absolutePath());
+    } else {
+        if (m_filesystem->is_root()) {
+            setMode(panelMode::Host);
+            setDirectory(currentPath);
+        } else {
+            m_filesystem->cd_up();
+            dir();
+        }
+    }
 }
 
 void FilePanel::onPathEntered() {
@@ -337,12 +345,30 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
             }
         }
     } else {
+        QModelIndex index = tableView->currentIndex();
+        dsk_tools::fileData f = m_files[index.row()];
 
+        if (f.is_dir){
+            m_filesystem->cd(f);
+            dir();
+        } else {
+            dsk_tools::BYTES data = m_filesystem->get_file(f);
+
+            if (data.size() > 0) {
+                QDialog * w = new ViewDialog(this, m_settings, QString::fromStdString(f.name), data, f.preferred_type, f.is_deleted, m_image, m_filesystem);
+                w->setAttribute(Qt::WA_DeleteOnClose);
+                w->setWindowTitle(w->windowTitle() + " (" + QString::fromStdString(f.name) + ")");
+                w->show();
+            } else {
+                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("File reading error!"));
+            }
+        }
     }
 }
 
 int FilePanel::openImage(QString path)
 {
+    // Detecting formats if necessary
     std::string format_id;
     std::string type_id;
     std::string filesystem_id;
@@ -373,24 +399,20 @@ int FilePanel::openImage(QString path)
         if (filesystem_id.size() == 0) filesystem_id = fsCombo->itemData(fsCombo->currentIndex()).toString().toStdString();
 
     }
-    loadFile(file_name, format_id, type_id, filesystem_id);
-    return FDD_LOAD_OK;
-}
 
-int FilePanel::loadFile(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type)
-{
-    // setup_buttons(true);
+    // Load file
+
     image_model->removeRows(0, image_model->rowCount());
 
     if (m_image != nullptr) delete m_image;
-    m_image = dsk_tools::prepare_image(file_name, file_format, file_type);
+    m_image = dsk_tools::prepare_image(file_name, format_id, type_id);
 
     if (m_image != nullptr) {
         auto check_result = m_image->check();
         if (check_result == FDD_LOAD_OK) {
             auto load_result = m_image->load();
             if (load_result == FDD_LOAD_OK) {
-                processImage(filesystem_type);
+                processImage(filesystem_id);
             } else {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("File loading error. Check your disk type settings or try auto-detection."));
                 return FDD_LOAD_ERROR;
@@ -414,60 +436,89 @@ void FilePanel::processImage(std::string filesystem_type)
     if (m_filesystem != nullptr) {
         int open_res = m_filesystem->open();
 
-        initTable();
-
         if (open_res != FDD_OPEN_OK) {
             QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Unrecognized disk format or disk is damaged!"));
             return;
         }
 
+        setMode(panelMode::Image);
+
         dir();
-        // update_info();
-        // setup_buttons(false);
-        // ui->tabWidget->setCurrentIndex(0);
-        // is_loaded = true;
         tableView->setModel(image_model);
-        mode = panelMode::Image;
     } else {
         QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("File system initialization error!"));
     }
 }
 
-void FilePanel::initTable()
+void FilePanel::setMode(panelMode new_mode)
 {
-    int const_columns = 2;
-    int columns = 0;
-    int funcs = m_filesystem->get_capabilities();
+    mode = new_mode;
+    if (mode==panelMode::Host) {
+        tableView->setModel(host_proxy);
 
-    image_model->clear();
-    tableView->horizontalHeader()->setMinimumSectionSize(20);
+        tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+        tableView->setAlternatingRowColors(true);
+        tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tableView->setShowGrid(false);
+        tableView->verticalHeader()->hide();
 
-    if (funcs & FILE_PROTECTION) {
-        image_model->setColumnCount(const_columns + columns + 1);
-        image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("P"));
-        image_model->horizontalHeaderItem(columns)->setToolTip(FilePanel::tr("Protection"));
-        tableView->setColumnWidth(columns, 20);
-        columns++;
+        tableView->setSortingEnabled(true);
+        tableView->sortByColumn(0, Qt::AscendingOrder);
+
+        // Columns
+        tableView->setColumnHidden(2, true);  // Hide "Type"
+        QHeaderView* hh = tableView->horizontalHeader();
+        // hh->setStretchLastSection(false);             // Manual mode
+        hh->setSectionResizeMode(0, QHeaderView::Stretch); // Name - expanded
+        // hh->setSectionResizeMode(1, QHeaderView::Fixed);   // Size — fixed
+        // hh->setSectionResizeMode(3, QHeaderView::Fixed);   // Date — fixed
+
+        // const int colSizeWidth = 80;
+        // const int colDateWidth = 150;
+        // tableView->setColumnWidth(1, colSizeWidth);
+        // tableView->setColumnWidth(3, colDateWidth);
+
+        // Hiding horizontal scrollbar
+        // tableView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        // tableView->setTextElideMode(Qt::ElideRight);
+    } else {
+        tableView->setModel(image_model);
+
+        int const_columns = 2;
+        int columns = 0;
+        int funcs = m_filesystem->get_capabilities();
+
+        image_model->clear();
+        tableView->horizontalHeader()->setMinimumSectionSize(20);
+
+        if (funcs & FILE_PROTECTION) {
+            image_model->setColumnCount(const_columns + columns + 1);
+            image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("P"));
+            image_model->horizontalHeaderItem(columns)->setToolTip(FilePanel::tr("Protection"));
+            tableView->setColumnWidth(columns, 20);
+            columns++;
+        }
+        if (funcs & FILE_TYPE) {
+            image_model->setColumnCount(const_columns + columns + 1);
+            image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("T"));
+            image_model->horizontalHeaderItem(columns)->setToolTip(FilePanel::tr("Type"));
+            tableView->setColumnWidth(columns, 30);
+            columns++;
+        }
+
+        tableView->setColumnWidth(columns, 60);
+        image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("Size"));
+        image_model->horizontalHeaderItem(columns++)->setToolTip(FilePanel::tr("Size in bytes"));
+
+        tableView->setColumnWidth(columns, 230);
+        image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("Name"));
+        image_model->horizontalHeaderItem(columns++)->setToolTip(FilePanel::tr("Name of the file"));
+
+        tableView->verticalHeader()->setDefaultSectionSize(8);
+
+        tableView->horizontalHeader()->setStretchLastSection(true);
     }
-    if (funcs & FILE_TYPE) {
-        image_model->setColumnCount(const_columns + columns + 1);
-        image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("T"));
-        image_model->horizontalHeaderItem(columns)->setToolTip(FilePanel::tr("Type"));
-        tableView->setColumnWidth(columns, 30);
-        columns++;
-    }
-
-    tableView->setColumnWidth(columns, 60);
-    image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("Size"));
-    image_model->horizontalHeaderItem(columns++)->setToolTip(FilePanel::tr("Size in bytes"));
-
-    tableView->setColumnWidth(columns, 230);
-    image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("Name"));
-    image_model->horizontalHeaderItem(columns++)->setToolTip(FilePanel::tr("Name of the file"));
-
-    tableView->verticalHeader()->setDefaultSectionSize(8);
-
-    tableView->horizontalHeader()->setStretchLastSection(true);
 }
 
 void FilePanel::updateTable()
@@ -601,4 +652,174 @@ bool FilePanel::eventFilter(QObject* obj, QEvent* ev) {
     if ((ev->type() == QEvent::FocusIn || ev->type() == QEvent::MouseButtonPress))
         emit activated(this);
     return QWidget::eventFilter(obj, ev);
+}
+
+QString FilePanel::replace_placeholders(const QString & in)
+{
+    return QString(in)
+    .replace("{$DIRECTORY_ENTRY}", FilePanel::tr("Directory Entry"))
+        .replace("{$FILE_NAME}", FilePanel::tr("File Name"))
+        .replace("{$SIZE}", FilePanel::tr("File Size"))
+        .replace("{$BYTES}", FilePanel::tr("byte(s)"))
+        .replace("{$SIDES}", FilePanel::tr("Sides"))
+        .replace("{$TRACKS}", FilePanel::tr("Tracks"))
+        .replace("{$SECTORS}", FilePanel::tr("sector(s)"))
+        .replace("{$ATTRIBUTES}", FilePanel::tr("Attributes"))
+        .replace("{$DATE}", FilePanel::tr("Date"))
+        .replace("{$TYPE}", FilePanel::tr("Type"))
+        .replace("{$PROTECTED}", FilePanel::tr("Protected"))
+        .replace("{$YES}", FilePanel::tr("Yes"))
+        .replace("{$NO}", FilePanel::tr("No"))
+        .replace("{$TS_LIST_LOCATION}", FilePanel::tr("T/S List Location"))
+        .replace("{$TS_LIST_DATA}", FilePanel::tr("T/S List Contents"))
+        .replace("{$INCORRECT_TS_DATA}", FilePanel::tr("Incorrect T/S data, stopping iterations"))
+        .replace("{$NEXT_TS}", FilePanel::tr("Next T/S List Location"))
+        .replace("{$FILE_END_REACHED}", FilePanel::tr("File End Reached"))
+        .replace("{$FILE_DELETED}", FilePanel::tr("The file is marked as deleted, the data below may be incorrect"))
+        .replace("{$ERROR_PARSING}", FilePanel::tr("File parsing error"))
+        .replace("{$TRACK}", FilePanel::tr("Track"))
+        .replace("{$TRACK_SHORT}", FilePanel::tr("T"))
+        .replace("{$SIDE_SHORT}", FilePanel::tr("H"))
+        .replace("{$PHYSICAL_SECTOR}", FilePanel::tr("S"))
+        .replace("{$LOGICAL_SECTOR}", FilePanel::tr("S"))
+        .replace("{$PARSING_FINISHED}", FilePanel::tr("Parsing finished"))
+        .replace("{$VOLUME_ID}", FilePanel::tr("V"))
+        .replace("{$SECTOR_INDEX}", FilePanel::tr("Index"))
+        .replace("{$INDEX_MARK}", FilePanel::tr("Index Mark"))
+        .replace("{$DATA_MARK}", FilePanel::tr("Data Mark"))
+        .replace("{$DATA_FIELD}", FilePanel::tr("Sector Data"))
+        .replace("{$SECTOR_INDEX_END_OK}", FilePanel::tr("End Mark: OK"))
+        .replace("{$SECTOR_INDEX_END_ERROR}", FilePanel::tr("End Mark: Not Detected"))
+        .replace("{$SECTOR_CRC_OK}", FilePanel::tr("CRC: OK"))
+        .replace("{$SECTOR_CRC_ERROR}", FilePanel::tr("CRC: Error"))
+        .replace("{$CRC_EXPECTED}", FilePanel::tr("Expected"))
+        .replace("{$CRC_FOUND}", FilePanel::tr("Found"))
+        .replace("{$SECTOR_ERROR}", FilePanel::tr("Data Error"))
+        .replace("{$INDEX_CRC_OK}", FilePanel::tr("CRC: OK"))
+        .replace("{$INDEX_CRC_ERROR}", FilePanel::tr("CRC: Error"))
+        .replace("{$INDEX_EPILOGUE_OK}", FilePanel::tr("Epilogue: OK"))
+        .replace("{$INDEX_EPILOGUE_ERROR}", FilePanel::tr("Epilogue: Error"))
+        .replace("{$DATA_EPILOGUE_OK}", FilePanel::tr("Epilogue: OK"))
+        .replace("{$DATA_EPILOGUE_ERROR}", FilePanel::tr("Epilogue: Error"))
+        .replace("{$TRACKLIST_OFFSET}", FilePanel::tr("Track List Offset"))
+        .replace("{$TRACK_OFFSET}", FilePanel::tr("Track Offset"))
+        .replace("{$TRACK_SIZE}", FilePanel::tr("Track Size"))
+        .replace("{$HEADER}", FilePanel::tr("Header"))
+        .replace("{$SIGNATURE}", FilePanel::tr("Signature"))
+        .replace("{$NO_SIGNATURE}", FilePanel::tr("No known signature found, aborting"))
+        .replace("{$FORMAT_REVISION}", FilePanel::tr("Format revision"))
+        .replace("{$SIDE}", FilePanel::tr("Side"))
+        .replace("{$CUSTOM_DATA}", FilePanel::tr("Custom Data"))
+        .replace("{$VTOC_FOUND}", FilePanel::tr("DOS 3.3 VTOC found"))
+        .replace("{$VTOC_NOT_FOUND}", FilePanel::tr("DOS 3.3 VTOC not found"))
+        .replace("{$VTOC_CATALOG_TRACK}", FilePanel::tr("Root Catalog Track"))
+        .replace("{$VTOC_CATALOG_SECTOR}", FilePanel::tr("Root Catalog Sector"))
+        .replace("{$VTOC_DOS_RELEASE}", FilePanel::tr("DOS Release"))
+        .replace("{$VTOC_VOLUME_ID}", FilePanel::tr("Volume ID"))
+        .replace("{$VTOC_VOLUME_NAME}", FilePanel::tr("Volume name"))
+        .replace("{$VTOC_PAIRS_ON_SECTOR}", FilePanel::tr("Pairs per T/S list"))
+        .replace("{$VTOC_LAST_TRACK}", FilePanel::tr("Last track"))
+        .replace("{$VTOC_DIRECTION}", FilePanel::tr("Direction"))
+        .replace("{$VTOC_TRACKS_TOTAL}", FilePanel::tr("Tracks total"))
+        .replace("{$VTOC_SECTORS_ON_TRACK}", FilePanel::tr("Sectors on track"))
+        .replace("{$VTOC_BYTES_PER_SECTOR}", FilePanel::tr("Bytes per sector"))
+        .replace("{$ERROR_OPENING}", FilePanel::tr("Error opening the file"))
+        .replace("{$ERROR_LOADING}", FilePanel::tr("Error loading, check if the file type is correct"))
+
+        .replace("{$DPB_INFO}", FilePanel::tr("DPB Information"))
+        .replace("{$DPB_VOLUME_ID}", FilePanel::tr("Volume ID"))
+        .replace("{$DPB_TYPE}", FilePanel::tr("Device type"))
+        .replace("{$DPB_DSIDE}", FilePanel::tr("DSIDE"))
+        .replace("{$DPB_TSIZE}", FilePanel::tr("Blocks on track"))
+        .replace("{$DPB_DSIZE}", FilePanel::tr("Tracks on disk"))
+        .replace("{$DPB_MAXBLOK}", FilePanel::tr("Last block"))
+        .replace("{$DPB_VTOCADR}", FilePanel::tr("VTOC block"))
+
+        .replace("{$EXTENT}", FilePanel::tr("Extent"))
+        .replace("{$FREE_SECTORS}", FilePanel::tr("Free sectors"))
+        .replace("{$FREE_BYTES}", FilePanel::tr("Free bytes"))
+
+        .replace("{$META_FILENAME}", FilePanel::tr("File Name"))
+        .replace("{$META_PROTECTED}", FilePanel::tr("Protected"))
+        .replace("{$META_TYPE}", FilePanel::tr("Type"))
+        .replace("{$META_EXTENDED}", FilePanel::tr("Extended"))
+
+        .replace("{$AGAT_VR_FOUND}", FilePanel::tr("Agat image VR block found"))
+        .replace("{$AGAT_VR_MODE}", FilePanel::tr("Video mode"))
+        .replace("{$AGAT_VR_AGAT_GMODES}", FilePanel::tr("Agat graphic"))
+        .replace("{$AGAT_VR_AGAT_TMODES}", FilePanel::tr("Agat text"))
+        .replace("{$AGAT_VR_A2_MODES}", FilePanel::tr("Apple II modes"))
+        .replace("{$AGAT_VR_GIGA_MODES}", FilePanel::tr("Agat GigaScreen"))
+        .replace("{$AGAT_VR_MAIN_PALETTE}", FilePanel::tr("Main palette"))
+        .replace("{$AGAT_VR_ATL_PALETTE}", FilePanel::tr("Alternative palette"))
+        .replace("{$AGAT_VR_CUSTOM_PALETTE}", FilePanel::tr("Custom palette"))
+        .replace("{$AGAT_VR_COMMENT}", FilePanel::tr("Comment block"))
+        .replace("{$AGAT_VR_FONT}", FilePanel::tr("Font ID"))
+        .replace("{$AGAT_VR_CUSTOM_FONT}", FilePanel::tr("Custom font"))
+        ;
+}
+
+void FilePanel::onView()
+{
+    if (mode==panelMode::Host) {
+        const QStringList paths = selectedPaths();
+        if (paths.size() == 1) {
+            QFileInfo fi(paths.at(0));
+            if (!fi.isDir()) {
+                std::string file_name = _toStdString(fi.absoluteFilePath());
+                std::string type_id = "";
+                std::string  filesystem_id = "";
+                std::string format_id = filterCombo->itemData(filterCombo->currentIndex()).toString().toStdString();
+                if (format_id == "FILE_ANY") {
+                    int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+                }
+                if (type_id.size()==0) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
+
+                dsk_tools::Loader * loader;
+
+                if (format_id == "FILE_RAW_MSB") {
+                    loader = new dsk_tools::LoaderRAW(file_name, format_id, type_id);
+                } else
+                if (format_id == "FILE_AIM") {
+                    loader = new dsk_tools::LoaderAIM(file_name, format_id, type_id);
+                } else
+                if (format_id == "FILE_MFM_NIC") {
+                    loader = new dsk_tools::LoaderNIC(file_name, format_id, type_id);
+                } else
+                if (format_id == "FILE_MFM_NIB") {
+                    loader = new dsk_tools::LoaderNIB(file_name, format_id, type_id);
+                } else
+                if (format_id == "FILE_HXC_MFM") {
+                    loader = new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
+                } else
+                if (format_id == "FILE_HXC_HFE") {
+                    loader = new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
+                } else {
+                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
+                    return;
+                }
+                QDialog * file_info = new QDialog(this);
+
+                Ui_FileInfo fileinfoUi;
+                fileinfoUi.setupUi(file_info);
+
+                QString info = replace_placeholders(QString::fromStdString(loader->file_info()));
+                QFont font("Consolas", 10, 400);
+                fileinfoUi.textBox->setFont(font);
+                fileinfoUi.textBox->setPlainText(info);
+                file_info->exec();
+            }
+        }
+    } else {
+
+    }
+}
+
+void FilePanel::onEdit()
+{
+    if (mode==panelMode::Host) {
+
+    } else {
+
+    }
 }

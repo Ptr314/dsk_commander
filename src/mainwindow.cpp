@@ -1340,36 +1340,34 @@ void MainWindow::updateStatusBarInfo() {
 }
 
 void MainWindow::updateViewButtonState() {
-    if (!activePanel) {
-        actView->setEnabled(false);
-        return;
-    }
+    // if (!activePanel) {
+    //     actView->setEnabled(false);
+    //     return;
+    // }
 
-    const QStringList paths = activePanel->selectedPaths();
+    // const QStringList paths = activePanel->selectedPaths();
 
-    // If one element choosen
-    if (paths.size() == 1) {
-        QFileInfo info(paths.first());
-        // and it's not a dir
-        actView->setEnabled(true);
-        actEdit->setEnabled(info.isFile());
-    } else {
-        // Nothing or more than one
-        actView->setEnabled(false);
-        actEdit->setEnabled(false);
-    }
+    // // If one element choosen
+    // if (paths.size() == 1) {
+    //     QFileInfo info(paths.first());
+    //     // and it's not a dir
+    //     actView->setEnabled(true);
+    //     actEdit->setEnabled(info.isFile());
+    // } else {
+    //     // Nothing or more than one
+    //     actView->setEnabled(false);
+    //     actEdit->setEnabled(false);
+    // }
 }
 
 void MainWindow::onView() {
     if (!activePanel) return;
-    // TODO: View
-    qDebug() << "--> View";
+    activePanel->onView();
 }
 
 void MainWindow::onEdit() {
     if (!activePanel) return;
-    // TODO: Edit
-    qDebug() << "--> Edit";
+    activePanel->onEdit();
 }
 
 void MainWindow::onCopy() {
