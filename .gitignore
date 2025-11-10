@@ -1,2 +1,5 @@
 .idea/
 docs/
+.vscode/
+.claude/
+CLAUDE.md
