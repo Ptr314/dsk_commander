@@ -18,6 +18,7 @@
 #include <QSettings>
 #include <QJsonObject>
 #include <QStandardItemModel>
+#include <QTimer>
 
 #include "CustomFileSystemModel.h"
 #include "CustomSortProxyModel.h"
@@ -52,6 +53,7 @@ public:
 
 signals:
     void activated(FilePanel* self);
+    void switchPanelRequested();
 
 private slots:
     void chooseDirectory();
@@ -93,6 +95,9 @@ private:
     dsk_tools::fileSystem * m_filesystem {nullptr};
     std::vector<dsk_tools::fileData> m_files;
 
+    // Track clicks for double-click detection
+    QTimer* m_clickTimer {nullptr};
+    QModelIndex m_pendingClickIndex;
 
     void setupPanel();
     void setupFilters();

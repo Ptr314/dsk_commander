@@ -27,6 +27,8 @@
 #include <QUrl>
 #include <QStatusBar>
 #include <QToolButton>
+#include <QDebug>
+
 #include "mainwindow.h"
 #include "convertdialog.h"
 #include "fileparamdialog.h"
@@ -137,6 +139,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(leftPanel,  &FilePanel::activated, this, &MainWindow::setActivePanel);
     connect(rightPanel, &FilePanel::activated, this, &MainWindow::setActivePanel);
+
+    // Handle Tab key to switch between panels
+    connect(leftPanel, &FilePanel::switchPanelRequested, this, [this]() {
+        FilePanel* target = otherPanel();
+        setActivePanel(target);
+        target->focusList();
+    });
+    connect(rightPanel, &FilePanel::switchPanelRequested, this, [this]() {
+        FilePanel* target = otherPanel();
+        setActivePanel(target);
+        target->focusList();
+    });
 
     splitter->addWidget(leftPanel);
     splitter->addWidget(rightPanel);

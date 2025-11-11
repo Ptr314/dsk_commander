@@ -7,6 +7,7 @@
 #include <QSortFilterProxyModel>
 #include <QFileSystemModel>
 #include <QFileInfo>
+#include <QDateTime>
 
 class CustomSortProxyModel : public QSortFilterProxyModel {
     Q_OBJECT
