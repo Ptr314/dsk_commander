@@ -13,6 +13,7 @@
 #include <QMimeData>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QDebug>
 
 #include "viewdialog.h"
 #include "mainutils.h"
