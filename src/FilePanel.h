@@ -9,7 +9,6 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <QCheckBox>
-#include <QTableView>
 #include <QFileSystemModel>
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -18,8 +17,8 @@
 #include <QSettings>
 #include <QJsonObject>
 #include <QStandardItemModel>
-#include <QTimer>
 
+#include "FileTable.h"
 #include "CustomFileSystemModel.h"
 #include "CustomSortProxyModel.h"
 #include "dsk_tools/dsk_tools.h"
@@ -69,7 +68,7 @@ private:
     QToolBar* topToolBar {nullptr};
     QToolBar* filterToolBar {nullptr};
     QToolBar* typeToolBar {nullptr};
-    QTableView* tableView {nullptr};
+    FileTable* tableView {nullptr};
     QComboBox* filterCombo {nullptr};
     QComboBox* typeCombo {nullptr};
     QComboBox* fsCombo {nullptr};
@@ -94,10 +93,6 @@ private:
     dsk_tools::diskImage * m_image {nullptr};
     dsk_tools::fileSystem * m_filesystem {nullptr};
     std::vector<dsk_tools::fileData> m_files;
-
-    // Track clicks for double-click detection
-    QTimer* m_clickTimer {nullptr};
-    QModelIndex m_pendingClickIndex;
 
     void setupPanel();
     void setupFilters();

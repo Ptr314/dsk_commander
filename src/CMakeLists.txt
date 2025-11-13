@@ -47,6 +47,7 @@ set(PROJECT_SOURCES
         CustomFileSystemModel.cpp   CustomFileSystemModel.h
         CustomSortProxyModel.cpp    CustomSortProxyModel.h
         FilePanel.cpp               FilePanel.h
+        FileTable.cpp               FileTable.h
         aboutdlg.ui
         fileinfodialog.ui
         resources/files/config.json
