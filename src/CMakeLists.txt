@@ -189,3 +189,17 @@ install(TARGETS ${PROJECT_NAME}
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(${PROJECT_NAME})
 endif()
+
+if(WIN32)
+    # Get Qt paths
+    get_target_property(QT_QMAKE_EXECUTABLE Qt${QT_VERSION_MAJOR}::qmake IMPORTED_LOCATION)
+    get_filename_component(QT_BIN_DIR "${QT_QMAKE_EXECUTABLE}" DIRECTORY)
+
+    # Use windeployqt for automatic Qt deployment
+    add_custom_command(TARGET DISKCommander POST_BUILD
+            COMMAND "${QT_BIN_DIR}/windeployqt.exe"
+            --no-compiler-runtime
+            "$<TARGET_FILE:DISKCommander>"
+            COMMENT "Running windeployqt..."
+    )
+endif()
