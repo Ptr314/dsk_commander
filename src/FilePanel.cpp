@@ -15,6 +15,7 @@
 #include <QJsonArray>
 #include <QMessageBox>
 #include <QIcon>
+#include <QDebug>
 
 #include "./ui_fileinfodialog.h"
 
@@ -30,20 +31,6 @@ FilePanel::FilePanel(QWidget *parent, QSettings *settings, QString ini_label, co
     , m_file_types(file_types)
     , m_file_systems(file_systems)
 {
-    // Create timer for single-click detection
-    m_clickTimer = new QTimer(this);
-    m_clickTimer->setSingleShot(true);
-    connect(m_clickTimer, &QTimer::timeout, this, [this]() {
-        // Timer fired - this was a single click, not a double click
-        // Just move focus to the pending index without changing selection
-        if (m_pendingClickIndex.isValid() && tableView && tableView->selectionModel()) {
-            tableView->selectionModel()->setCurrentIndex(
-                m_pendingClickIndex,
-                QItemSelectionModel::NoUpdate
-            );
-        }
-    });
-
     setupPanel();
 }
 
@@ -100,13 +87,16 @@ void FilePanel::setupPanel() {
     connect(dirButton, &QToolButton::clicked, this, &FilePanel::chooseDirectory);
     connect(dirEdit,   &QLineEdit::returnPressed, this, &FilePanel::onPathEntered);
 
-    // Main table with files
-    tableView = new QTableView(this);
+    // Main table with files using custom FileTable
+    tableView = new FileTable(this);
     tableView->setFont(font);
 
-    setMode(panelMode::Host);
+    // Connect FileTable signals to FilePanel slots
+    connect(tableView, &FileTable::focusReceived, this, [this]() { emit activated(this); });
+    connect(tableView, &FileTable::switchPanelRequested, this, &FilePanel::switchPanelRequested);
+    connect(tableView, &FileTable::doubleClicked, this, &FilePanel::onItemDoubleClicked);
 
-    connect(tableView, &QTableView::doubleClicked, this, &FilePanel::onItemDoubleClicked);
+    setMode(panelMode::Host);
 
     // Bottom toolbar
     filterToolBar = new QToolBar(this);
@@ -477,75 +467,10 @@ void FilePanel::setMode(panelMode new_mode)
     mode = new_mode;
     if (mode==panelMode::Host) {
         tableView->setModel(host_proxy);
-
-        tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-        tableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-        tableView->setAlternatingRowColors(true);
-        tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        tableView->setShowGrid(false);
-        tableView->verticalHeader()->hide();
-
-        // Disable tab/backtab navigation between cells
-        tableView->setTabKeyNavigation(false);
-
-        tableView->setSortingEnabled(true);
-        tableView->sortByColumn(0, Qt::AscendingOrder);
-
-        // Columns
-        tableView->setColumnHidden(2, true);  // Hide "Type"
-        QHeaderView* hh = tableView->horizontalHeader();
-        // hh->setStretchLastSection(false);             // Manual mode
-        hh->setSectionResizeMode(0, QHeaderView::Stretch); // Name - expanded
-        // hh->setSectionResizeMode(1, QHeaderView::Fixed);   // Size — fixed
-        // hh->setSectionResizeMode(3, QHeaderView::Fixed);   // Date — fixed
-
-        // const int colSizeWidth = 80;
-        // const int colDateWidth = 150;
-        // tableView->setColumnWidth(1, colSizeWidth);
-        // tableView->setColumnWidth(3, colDateWidth);
-
-        // Hiding horizontal scrollbar
-        // tableView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        // tableView->setTextElideMode(Qt::ElideRight);
+        tableView->setupForHostMode();
     } else {
         tableView->setModel(image_model);
-
-        tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-        tableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-
-        int const_columns = 2;
-        int columns = 0;
-        int funcs = m_filesystem->get_capabilities();
-
-        image_model->clear();
-        tableView->horizontalHeader()->setMinimumSectionSize(20);
-
-        if (funcs & FILE_PROTECTION) {
-            image_model->setColumnCount(const_columns + columns + 1);
-            image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("P"));
-            image_model->horizontalHeaderItem(columns)->setToolTip(FilePanel::tr("Protection"));
-            tableView->setColumnWidth(columns, 20);
-            columns++;
-        }
-        if (funcs & FILE_TYPE) {
-            image_model->setColumnCount(const_columns + columns + 1);
-            image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("T"));
-            image_model->horizontalHeaderItem(columns)->setToolTip(FilePanel::tr("Type"));
-            tableView->setColumnWidth(columns, 30);
-            columns++;
-        }
-
-        tableView->setColumnWidth(columns, 60);
-        image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("Size"));
-        image_model->horizontalHeaderItem(columns++)->setToolTip(FilePanel::tr("Size in bytes"));
-
-        tableView->setColumnWidth(columns, 230);
-        image_model->setHeaderData(columns, Qt::Horizontal, FilePanel::tr("Name"));
-        image_model->horizontalHeaderItem(columns++)->setToolTip(FilePanel::tr("Name of the file"));
-
-        tableView->verticalHeader()->setDefaultSectionSize(8);
-
-        tableView->horizontalHeader()->setStretchLastSection(true);
+        tableView->setupForImageMode(m_filesystem->get_capabilities());
     }
 }
 
@@ -654,6 +579,7 @@ void FilePanel::dir()
 
 QStringList FilePanel::selectedPaths() const {
     QStringList paths;
+    if (mode != panelMode::Host) return paths;  // Only works in Host mode
     if (!tableView->selectionModel()) return paths;
     const auto rows = tableView->selectionModel()->selectedRows(0);
     for (const auto& idx : rows) {
@@ -668,8 +594,9 @@ void FilePanel::refresh() {
 }
 
 void FilePanel::setActive(bool active) {
-    // TODO: check why is not working
-    setStyleSheet(active ? "FilePanel { border: 2px solid red; }" : "");
+    if (tableView) {
+        tableView->setActive(active);
+    }
 }
 
 void FilePanel::focusList() {
@@ -677,295 +604,13 @@ void FilePanel::focusList() {
 }
 
 bool FilePanel::eventFilter(QObject* obj, QEvent* ev) {
-    if ((ev->type() == QEvent::FocusIn || ev->type() == QEvent::MouseButtonPress))
-        emit activated(this);
-
-    // Handle double-click events - cancel timer since this is a double-click
-    if (ev->type() == QEvent::MouseButtonDblClick) {
-        if (obj == tableView->viewport()) {
-            m_clickTimer->stop();  // Cancel single-click timer
-        }
-        // Let Qt handle the double-click normally
-        return QWidget::eventFilter(obj, ev);
-    }
-
-    // Handle mouse clicks in table view
-    if (ev->type() == QEvent::MouseButtonPress) {
-        if (obj == tableView->viewport()) {
-            QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(ev);
-            QModelIndex clickedIndex = tableView->indexAt(mouseEvent->pos());
-
-            if (clickedIndex.isValid()) {
-                if (mouseEvent->button() == Qt::LeftButton) {
-                    // Store the clicked index and start timer for single-click handling
-                    m_pendingClickIndex = clickedIndex;
-
-                    // Start timer - if it fires, it was a single click
-                    // If double-click occurs, the timer will be cancelled
-                    m_clickTimer->start(QApplication::doubleClickInterval());
-
-                    // Let Qt handle the event normally (for double-click detection)
-                    // but selection will be adjusted by timer if it's a single click
-                    return QWidget::eventFilter(obj, ev);
-
-                } else if (mouseEvent->button() == Qt::RightButton) {
-                    // Right click: toggle selection of the clicked row
-                    tableView->selectionModel()->select(
-                        clickedIndex,
-                        QItemSelectionModel::Toggle | QItemSelectionModel::Rows
-                    );
-                    // Also move current index to right-clicked item
-                    tableView->selectionModel()->setCurrentIndex(
-                        clickedIndex,
-                        QItemSelectionModel::NoUpdate
-                    );
-                    return true; // Block default behavior
-                }
-            }
-        }
-    }
-
-    // Handle keyboard navigation and selection in table view
-    if (ev->type() == QEvent::KeyPress) {
-        QKeyEvent* keyEvent = static_cast<QKeyEvent*>(ev);
-
-        // Handle arrow keys
-        if (keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                QModelIndex currentIndex = tableView->currentIndex();
-                if (currentIndex.isValid()) {
-                    int nextRow;
-                    if (keyEvent->key() == Qt::Key_Up) {
-                        nextRow = currentIndex.row() - 1;
-                        if (nextRow < 0) return true; // At top, block event
-                    } else { // Down
-                        nextRow = currentIndex.row() + 1;
-                        int maxRow = tableView->model()->rowCount(tableView->rootIndex()) - 1;
-                        if (nextRow > maxRow) return true; // At bottom, block event
-                    }
-
-                    QModelIndex nextIndex = tableView->model()->index(
-                        nextRow, currentIndex.column(), tableView->rootIndex()
-                    );
-
-                    // Move current index WITHOUT changing selection
-                    tableView->selectionModel()->setCurrentIndex(
-                        nextIndex,
-                        QItemSelectionModel::NoUpdate  // Don't modify selection!
-                    );
-
-                    // Ensure visibility
-                    tableView->scrollTo(nextIndex);
-
-                    return true; // Event handled, block default behavior
-                }
-            }
-        }
-
-        // Handle Insert key
-        if (keyEvent->key() == Qt::Key_Insert) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                QModelIndex currentIndex = tableView->currentIndex();
-                if (currentIndex.isValid()) {
-                    // Toggle selection of current row
-                    tableView->selectionModel()->select(
-                        currentIndex,
-                        QItemSelectionModel::Toggle | QItemSelectionModel::Rows
-                    );
-
-                    // Move down one line WITHOUT changing selection
-                    int nextRow = currentIndex.row() + 1;
-                    int maxRow = tableView->model()->rowCount(tableView->rootIndex()) - 1;
-                    if (nextRow <= maxRow) {
-                        QModelIndex nextIndex = tableView->model()->index(nextRow, currentIndex.column(), tableView->rootIndex());
-                        tableView->selectionModel()->setCurrentIndex(
-                            nextIndex,
-                            QItemSelectionModel::NoUpdate
-                        );
-                        tableView->scrollTo(nextIndex);
-                    }
-                }
-                return true; // Event handled
-            }
-        }
-
-        // Handle Home key
-        if (keyEvent->key() == Qt::Key_Home) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                QModelIndex currentIndex = tableView->currentIndex();
-                if (currentIndex.isValid()) {
-                    // Move to first row WITHOUT changing selection
-                    QModelIndex firstIndex = tableView->model()->index(0, currentIndex.column(), tableView->rootIndex());
-                    if (firstIndex.isValid()) {
-                        tableView->selectionModel()->setCurrentIndex(
-                            firstIndex,
-                            QItemSelectionModel::NoUpdate
-                        );
-                        tableView->scrollTo(firstIndex);
-                    }
-                }
-                return true; // Event handled
-            }
-        }
-
-        // Handle End key
-        if (keyEvent->key() == Qt::Key_End) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                QModelIndex currentIndex = tableView->currentIndex();
-                if (currentIndex.isValid()) {
-                    // Move to last row WITHOUT changing selection
-                    int lastRow = tableView->model()->rowCount(tableView->rootIndex()) - 1;
-                    if (lastRow >= 0) {
-                        QModelIndex lastIndex = tableView->model()->index(lastRow, currentIndex.column(), tableView->rootIndex());
-                        if (lastIndex.isValid()) {
-                            tableView->selectionModel()->setCurrentIndex(
-                                lastIndex,
-                                QItemSelectionModel::NoUpdate
-                            );
-                            tableView->scrollTo(lastIndex);
-                        }
-                    }
-                }
-                return true; // Event handled
-            }
-        }
-
-        // Handle PageUp key
-        if (keyEvent->key() == Qt::Key_PageUp) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                QModelIndex currentIndex = tableView->currentIndex();
-                if (currentIndex.isValid()) {
-                    // Calculate how many rows fit in viewport
-                    int rowHeight = tableView->rowHeight(0);
-                    if (rowHeight <= 0) rowHeight = 24; // Default if not set
-                    int viewportHeight = tableView->viewport()->height();
-                    int pageSize = viewportHeight / rowHeight;
-                    if (pageSize < 1) pageSize = 1;
-
-                    // Move up by one page
-                    int newRow = currentIndex.row() - pageSize;
-                    if (newRow < 0) newRow = 0;
-
-                    QModelIndex newIndex = tableView->model()->index(newRow, currentIndex.column(), tableView->rootIndex());
-                    if (newIndex.isValid()) {
-                        tableView->selectionModel()->setCurrentIndex(
-                            newIndex,
-                            QItemSelectionModel::NoUpdate
-                        );
-                        tableView->scrollTo(newIndex);
-                    }
-                }
-                return true; // Event handled
-            }
-        }
-
-        // Handle PageDown key
-        if (keyEvent->key() == Qt::Key_PageDown) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                QModelIndex currentIndex = tableView->currentIndex();
-                if (currentIndex.isValid()) {
-                    // Calculate how many rows fit in viewport
-                    int rowHeight = tableView->rowHeight(0);
-                    if (rowHeight <= 0) rowHeight = 24; // Default if not set
-                    int viewportHeight = tableView->viewport()->height();
-                    int pageSize = viewportHeight / rowHeight;
-                    if (pageSize < 1) pageSize = 1;
-
-                    // Move down by one page
-                    int maxRow = tableView->model()->rowCount(tableView->rootIndex()) - 1;
-                    int newRow = currentIndex.row() + pageSize;
-                    if (newRow > maxRow) newRow = maxRow;
-
-                    QModelIndex newIndex = tableView->model()->index(newRow, currentIndex.column(), tableView->rootIndex());
-                    if (newIndex.isValid()) {
-                        tableView->selectionModel()->setCurrentIndex(
-                            newIndex,
-                            QItemSelectionModel::NoUpdate
-                        );
-                        tableView->scrollTo(newIndex);
-                    }
-                }
-                return true; // Event handled
-            }
-        }
-
-        // Handle selection shortcuts: +, -, *
-        QString keyText = keyEvent->text();
-        if (!keyText.isEmpty()) {
-            QChar keyChar = keyText[0];
-
-            // Plus key - select all
-            if (keyChar == '+' || keyEvent->key() == Qt::Key_Plus) {
-                if (obj == tableView || obj == tableView->viewport()) {
-                    if (tableView->selectionModel()) {
-                        tableView->selectionModel()->select(
-                            QItemSelection(
-                                tableView->model()->index(0, 0, tableView->rootIndex()),
-                                tableView->model()->index(
-                                    tableView->model()->rowCount(tableView->rootIndex()) - 1,
-                                    tableView->model()->columnCount(tableView->rootIndex()) - 1,
-                                    tableView->rootIndex()
-                                )
-                            ),
-                            QItemSelectionModel::Select | QItemSelectionModel::Rows
-                        );
-                    }
-                    return true;
-                }
-            }
-
-            // Minus key - clear selection
-            if (keyChar == '-' || keyEvent->key() == Qt::Key_Minus) {
-                if (obj == tableView || obj == tableView->viewport()) {
-                    if (tableView->selectionModel()) {
-                        tableView->selectionModel()->clearSelection();
-                    }
-                    return true;
-                }
-            }
-
-            // Asterisk key - invert selection
-            if (keyChar == '*' || keyEvent->key() == Qt::Key_Asterisk) {
-                if (obj == tableView || obj == tableView->viewport()) {
-                    if (tableView->selectionModel()) {
-                        int rowCount = tableView->model()->rowCount(tableView->rootIndex());
-                        for (int row = 0; row < rowCount; ++row) {
-                            QModelIndex idx = tableView->model()->index(row, 0, tableView->rootIndex());
-                            tableView->selectionModel()->select(
-                                idx,
-                                QItemSelectionModel::Toggle | QItemSelectionModel::Rows
-                            );
-                        }
-                    }
-                    return true;
-                }
-            }
-        }
-
-        // Handle Tab key - switch to the other panel
-        if (keyEvent->key() == Qt::Key_Tab) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                emit switchPanelRequested();
-                return true; // Event handled
-            }
-        }
-
-        // Handle Enter/Return key - same as double-click
-        if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                QModelIndex currentIndex = tableView->currentIndex();
-                if (currentIndex.isValid()) {
-                    onItemDoubleClicked(currentIndex);
-                }
-                return true; // Event handled
-            }
-        }
-
-        // Block Left and Right arrow keys - they have no effect in row-based navigation
-        if (keyEvent->key() == Qt::Key_Left || keyEvent->key() == Qt::Key_Right) {
-            if (obj == tableView || obj == tableView->viewport()) {
-                return true; // Block the event, do nothing
-            }
+    // Handle activation events for non-table controls
+    // FileView handles its own events internally
+    if ((ev->type() == QEvent::FocusIn || ev->type() == QEvent::MouseButtonPress)) {
+        // Only emit activated for controls other than tableView
+        // (tableView emits its own activated signal)
+        if (obj != tableView && obj != tableView->viewport()) {
+            emit activated(this);
         }
     }
 

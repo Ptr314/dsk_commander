@@ -7,6 +7,20 @@
 // #include <QLocale>
 
 QVariant CustomFileSystemModel::data(const QModelIndex &index, int role) const {
+    // Remove file icons, but keep directory icons
+    if (role == Qt::DecorationRole) {
+        return QVariant();  // No icon for files
+    }
+
+    // Add square brackets to directory names in the name column
+    if (index.column() == 0 && role == Qt::DisplayRole) {
+        QFileInfo info = fileInfo(index);
+        if (info.isDir()) {
+            QString name = QFileSystemModel::data(index, role).toString();
+            return "[" + name + "]";
+        }
+    }
+
     // Show <DIR> for directories, bytes for files with space separator
     if (index.column() == 1 && role == Qt::DisplayRole) {
         QFileInfo info = fileInfo(index);
