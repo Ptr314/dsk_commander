@@ -5,23 +5,95 @@
 
 #include <QFileDialog>
 #include <QHeaderView>
-#include <QEvent>
-#include <QKeyEvent>
-#include <QMouseEvent>
-#include <QDesktopServices>
 #include <QUrl>
-#include <QCoreApplication>
-#include <QApplication>
 #include <QJsonArray>
 #include <QMessageBox>
 #include <QIcon>
 #include <QDebug>
+#include <QJsonObject>
 
 #include "./ui_fileinfodialog.h"
 
 #include "FilePanel.h"
 #include "mainutils.h"
 #include "viewdialog.h"
+
+QVariant CustomFileSystemModel::data(const QModelIndex &index, int role) const {
+    // Remove file icons, but keep directory icons
+    if (role == Qt::DecorationRole) {
+        return QVariant();  // No icon for files
+    }
+
+    // Add square brackets to directory names in the name column
+    if (index.column() == 0 && role == Qt::DisplayRole) {
+        QFileInfo info = fileInfo(index);
+        if (info.isDir()) {
+            QString name = QFileSystemModel::data(index, role).toString();
+            return "[" + name + "]";
+        }
+    }
+
+    // Show <DIR> for directories, bytes for files with space separator
+    if (index.column() == 1 && role == Qt::DisplayRole) {
+        QFileInfo info = fileInfo(index);
+        if (info.isDir())
+            return QStringLiteral("<DIR>");
+        else {
+            QString numStr = QString::number(info.size());
+            QString result;
+            int count = 0;
+            for (int i = numStr.length() - 1; i >= 0; --i) {
+                if (count == 3) {
+                    result.prepend(' ');
+                    count = 0;
+                }
+                result.prepend(numStr[i]);
+                count++;
+            }
+            return result;
+        }
+    }
+
+    // Right-align date column
+    if (index.column() == 3 && role == Qt::TextAlignmentRole) {
+        return QVariant(Qt::AlignRight | Qt::AlignVCenter);
+    }
+
+    return QFileSystemModel::data(index, role);
+}
+
+bool CustomSortProxyModel::lessThan(const QModelIndex &source_left,
+                                   const QModelIndex &source_right) const
+{
+    const QFileSystemModel* model =
+        qobject_cast<const QFileSystemModel*>(sourceModel());
+    if (!model)
+        return QSortFilterProxyModel::lessThan(source_left, source_right);
+
+    QFileInfo leftInfo  = model->fileInfo(source_left);
+    QFileInfo rightInfo = model->fileInfo(source_right);
+
+    const bool leftIsDir  = leftInfo.isDir();
+    const bool rightIsDir = rightInfo.isDir();
+
+    // Dirs have more precedence
+    if (leftIsDir != rightIsDir)
+        return leftIsDir;
+
+    // Sorting
+    int column = sortColumn();
+    switch (column) {
+        case 0: // Name
+            return QString::localeAwareCompare(leftInfo.fileName(), rightInfo.fileName()) < 0;
+        case 1: // Size
+            return leftInfo.size() < rightInfo.size();
+        case 3: // Date
+            return leftInfo.lastModified() < rightInfo.lastModified();
+        default:
+            return QSortFilterProxyModel::lessThan(source_left, source_right);
+    }
+}
+
 
 FilePanel::FilePanel(QWidget *parent, QSettings *settings, QString ini_label, const QJsonObject & file_formats, const QJsonObject & file_types, const QJsonObject & file_systems) :
       QWidget(parent)
@@ -357,7 +429,6 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
             }
         }
     } else {
-        QModelIndex index = tableView->currentIndex();
         dsk_tools::fileData f = m_files[index.row()];
 
         if (f.is_dir){

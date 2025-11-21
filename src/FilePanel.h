@@ -9,21 +9,34 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <QCheckBox>
-#include <QFileSystemModel>
-#include <QVBoxLayout>
-#include <QPushButton>
 #include <QToolButton>
 #include <QDir>
 #include <QSettings>
-#include <QJsonObject>
 #include <QStandardItemModel>
+#include <QFileSystemModel>
+#include <QSortFilterProxyModel>
 
 #include "FileTable.h"
-#include "CustomFileSystemModel.h"
-#include "CustomSortProxyModel.h"
 #include "dsk_tools/dsk_tools.h"
 
 enum class panelMode {Host, Image};
+
+class CustomFileSystemModel : public QFileSystemModel {
+    Q_OBJECT
+public:
+    using QFileSystemModel::QFileSystemModel;
+
+    QVariant data(const QModelIndex &index, int role) const override;
+};
+
+class CustomSortProxyModel : public QSortFilterProxyModel {
+    Q_OBJECT
+public:
+    using QSortFilterProxyModel::QSortFilterProxyModel;
+
+protected:
+    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
+};
 
 class FilePanel : public QWidget {
     Q_OBJECT

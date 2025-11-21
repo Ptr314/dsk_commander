@@ -44,8 +44,6 @@ set(PROJECT_SOURCES
         viewdialog.h                viewdialog.cpp          viewdialog.ui
         convertdialog.h             convertdialog.cpp       convertdialog.ui
         fileparamdialog.h           fileparamdialog.cpp
-        CustomFileSystemModel.cpp   CustomFileSystemModel.h
-        CustomSortProxyModel.cpp    CustomSortProxyModel.h
         FilePanel.cpp               FilePanel.h
         FileTable.cpp               FileTable.h
         aboutdlg.ui
