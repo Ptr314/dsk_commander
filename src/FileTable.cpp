@@ -81,6 +81,25 @@ void CurrentRowDelegate::paint(QPainter* painter, const QStyleOptionViewItem& op
         // Calculate text rectangle with padding
         QRect textRect = option.rect.adjusted(4, 0, -4, 0);
 
+        // Check for and render icon decoration
+        QVariant decoration = index.data(Qt::DecorationRole);
+        if (decoration.isValid()) {
+            QIcon icon = qvariant_cast<QIcon>(decoration);
+            if (!icon.isNull()) {
+                // Icon size: 16x16 pixels
+                QSize iconSize(16, 16);
+                // Center icon vertically in the cell
+                int iconY = textRect.top() + (textRect.height() - iconSize.height()) / 2;
+                QRect iconRect(textRect.left(), iconY, iconSize.width(), iconSize.height());
+
+                // Paint the icon
+                icon.paint(painter, iconRect);
+
+                // Adjust text rectangle to start after the icon with 4px spacing
+                textRect.setLeft(iconRect.right() + 4);
+            }
+        }
+
         // Draw the text with alignment from the model
         Qt::Alignment alignment = Qt::AlignLeft | Qt::AlignVCenter;
         QVariant alignData = index.data(Qt::TextAlignmentRole);

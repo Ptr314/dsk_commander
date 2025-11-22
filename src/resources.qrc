@@ -27,6 +27,7 @@
         <file alias="palette">resources/icons/package_graphics.png</file>
         <file alias="screen_proportions">resources/icons/tv.png</file>
         <file alias="text_copy">resources/icons/window_list.png</file>
+        <file alias="file_image">resources/icons/5floppy_unmount.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>
