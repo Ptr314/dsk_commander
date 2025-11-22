@@ -13,29 +13,42 @@
 #include <QDir>
 #include <QSettings>
 #include <QStandardItemModel>
-#include <QFileSystemModel>
-#include <QSortFilterProxyModel>
 
 #include "FileTable.h"
 #include "dsk_tools/dsk_tools.h"
 
 enum class panelMode {Host, Image};
 
-class CustomFileSystemModel : public QFileSystemModel {
+class HostModel : public QStandardItemModel {
     Q_OBJECT
 public:
-    using QFileSystemModel::QFileSystemModel;
+    enum SortOrder {
+        ByName,
+        BySize,
+        NoOrder
+    };
 
-    QVariant data(const QModelIndex &index, int role) const override;
-};
+    explicit HostModel(QObject *parent = nullptr);
 
-class CustomSortProxyModel : public QSortFilterProxyModel {
-    Q_OBJECT
-public:
-    using QSortFilterProxyModel::QSortFilterProxyModel;
+    void setRootPath(const QString& path);
+    void setNameFilters(const QStringList& filters);
+    void setSortOrder(SortOrder order);
+    void refresh();
+    void goUp();
+    QString currentPath() const { return m_currentPath; }
+    QString filePath(const QModelIndex& index) const;
+    QFileInfo fileInfo(const QModelIndex& index) const;
+    bool isDir(const QModelIndex& index) const;
 
-protected:
-    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
+private:
+    QString m_currentPath;
+    QStringList m_nameFilters;
+    SortOrder m_sortOrder {ByName};
+    bool m_isRoot {false};
+
+    void populateModel();
+    QString formatSize(qint64 size) const;
+    QString formatDate(const QDateTime& dt) const;
 };
 
 class FilePanel : public QWidget {
@@ -89,8 +102,7 @@ private:
     QToolButton* dirButton {nullptr};
     QToolButton* upButton {nullptr};
     QLineEdit* dirEdit {nullptr};
-    CustomFileSystemModel * host_model {nullptr};
-    CustomSortProxyModel * host_proxy {nullptr};
+    HostModel * host_model {nullptr};
     QStandardItemModel * image_model {nullptr};
 
     QString currentPath;
