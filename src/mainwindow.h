@@ -28,6 +28,12 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
+struct PanelMenuActions {
+    QAction *sortByName;
+    QAction *sortBySize;
+    QAction *noSort;
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -97,6 +103,13 @@ private slots:
     void updateStatusBarInfo();
     void updateViewButtonState();
 
+    // New menu system slots
+    void onGoUp(FilePanel* panel);
+    void onOpenDirectory(FilePanel* panel);
+    void onSetSorting(FilePanel* panel, HostModel::SortOrder order);
+    void updateSortingMenu(FilePanel* panel);
+    void onAbout();
+
 private:
     Ui::MainWindow *ui;
 
@@ -134,6 +147,8 @@ private:
     QString replace_placeholders(const QString & in);
     std::vector<dsk_tools::fileData> files;
 
+    void initializeMainMenu();
+
 private:
     FilePanel* leftPanel {nullptr};
     FilePanel* rightPanel {nullptr};
@@ -148,6 +163,9 @@ private:
     QAction* actExit {nullptr};
 
     QLabel* statusLabel {nullptr};
+
+    PanelMenuActions leftMenuActions;
+    PanelMenuActions rightMenuActions;
 
     void createActions();
     QWidget* createBottomPanel();

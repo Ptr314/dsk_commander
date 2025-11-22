@@ -39,6 +39,7 @@ public:
     QString filePath(const QModelIndex& index) const;
     QFileInfo fileInfo(const QModelIndex& index) const;
     bool isDir(const QModelIndex& index) const;
+    SortOrder sortOrder() const { return m_sortOrder; }
 
 private:
     QString m_currentPath;
@@ -75,18 +76,23 @@ public:
 
     void onView();
     void onEdit();
+    void onGoUp();
+    void chooseDirectory();
+
+    // Sorting methods
+    void setSortOrder(HostModel::SortOrder order);
+    int getSortOrder() const;
 
 signals:
     void activated(FilePanel* self);
     void switchPanelRequested();
+    void sortOrderChanged(int order);
 
 private slots:
-    void chooseDirectory();
     void onFilterChanged(int index);
     void onTypeChanged(int index);
     void onFsChanged(int index);
     void onAutoChanged(Qt::CheckState checked);
-    void onGoUp();
     void onPathEntered();
     void onItemDoubleClicked(const QModelIndex& index);
 

@@ -28,6 +28,8 @@
 #include <QStatusBar>
 #include <QToolButton>
 #include <QDebug>
+#include <QActionGroup>
+#include <QMenu>
 
 #include "mainwindow.h"
 #include "convertdialog.h"
@@ -173,6 +175,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     setActivePanel(leftPanel);
     updateViewButtonState();
+
+    // Initialize new menu system
+    initializeMainMenu();
+
+    // Connect panel sorting signals to update menu checkmarks
+    connect(leftPanel, &FilePanel::sortOrderChanged, this, [this]() {
+        updateSortingMenu(leftPanel);
+    });
+    connect(rightPanel, &FilePanel::sortOrderChanged, this, [this]() {
+        updateSortingMenu(rightPanel);
+    });
 }
 
 void MainWindow::switch_language(const QString & lang, bool init)
@@ -1323,6 +1336,120 @@ QWidget* MainWindow::createBottomPanel() {
     return panel;
 }
 
+void MainWindow::initializeMainMenu() {
+    // Clear existing menu
+    menuBar()->clear();
+
+    // === LEFT PANEL MENU ===
+    QMenu *leftMenu = menuBar()->addMenu(MainWindow::tr("Left panel"));
+
+    QAction *leftGoUp = leftMenu->addAction(QIcon(":/icons/up"), MainWindow::tr("Go Up"));
+    connect(leftGoUp, &QAction::triggered, this, [this]() { onGoUp(leftPanel); });
+
+    QAction *leftOpenDir = leftMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Open directory..."));
+    connect(leftOpenDir, &QAction::triggered, this, [this]() { onOpenDirectory(leftPanel); });
+
+    leftMenu->addSeparator();
+
+    QMenu *leftSortMenu = leftMenu->addMenu(MainWindow::tr("Sorting"));
+    QActionGroup *leftSortGroup = new QActionGroup(this);
+    leftSortGroup->setExclusive(true);
+
+    leftMenuActions.sortByName = leftSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by name"));
+    leftMenuActions.sortByName->setCheckable(true);
+    leftMenuActions.sortByName->setActionGroup(leftSortGroup);
+    connect(leftMenuActions.sortByName, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::ByName); });
+
+    leftMenuActions.sortBySize = leftSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by size"));
+    leftMenuActions.sortBySize->setCheckable(true);
+    leftMenuActions.sortBySize->setActionGroup(leftSortGroup);
+    connect(leftMenuActions.sortBySize, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::BySize); });
+
+    leftMenuActions.noSort = leftSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("No sorting"));
+    leftMenuActions.noSort->setCheckable(true);
+    leftMenuActions.noSort->setActionGroup(leftSortGroup);
+    connect(leftMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::NoOrder); });
+
+    // === FILES MENU ===
+    QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
+
+    QAction *viewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("F3 View"));
+    viewAction->setShortcut(Qt::Key_F3);
+    connect(viewAction, &QAction::triggered, this, &MainWindow::onView);
+
+    QAction *editAction = filesMenu->addAction(QIcon(":/icons/view"), MainWindow::tr("F4 Edit"));
+    editAction->setShortcut(Qt::Key_F4);
+    connect(editAction, &QAction::triggered, this, &MainWindow::onEdit);
+
+    QAction *copyAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F5 Copy"));
+    copyAction->setShortcut(Qt::Key_F5);
+    connect(copyAction, &QAction::triggered, this, &MainWindow::onCopy);
+
+    QAction *moveAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F6 Move"));
+    moveAction->setShortcut(Qt::Key_F6);
+    connect(moveAction, &QAction::triggered, this, &MainWindow::onMove);
+
+    QAction *mkdirAction = filesMenu->addAction(QIcon(":/icons/new_dir"), MainWindow::tr("F7 Make dir"));
+    mkdirAction->setShortcut(Qt::Key_F7);
+    connect(mkdirAction, &QAction::triggered, this, &MainWindow::onMkdir);
+
+    QAction *deleteAction = filesMenu->addAction(QIcon(":/icons/delete"), MainWindow::tr("F8 Delete"));
+    deleteAction->setShortcut(Qt::Key_F8);
+    connect(deleteAction, &QAction::triggered, this, &MainWindow::onDelete);
+
+    // === OPTIONS MENU ===
+    QMenu *optionsMenu = menuBar()->addMenu(MainWindow::tr("Options"));
+
+    // Language submenu (reuse add_languages logic)
+    QAction *langAction = optionsMenu->addAction(QIcon(":/icons/lang"), MainWindow::tr("Language"));
+    QMenu *langSubmenu = new QMenu(MainWindow::tr("Languages"), this);
+
+    QAction *langRu = langSubmenu->addAction(QIcon(":/icons/ru"), MainWindow::tr("Русский"));
+    connect(langRu, &QAction::triggered, this, [this]() { switch_language("ru_ru", false); });
+
+    QAction *langEn = langSubmenu->addAction(QIcon(":/icons/en"), MainWindow::tr("English"));
+    connect(langEn, &QAction::triggered, this, [this]() { switch_language("en_us", false); });
+
+    langAction->setMenu(langSubmenu);
+
+    QAction *aboutAction = optionsMenu->addAction(QIcon(":/icons/help"), MainWindow::tr("About..."));
+    connect(aboutAction, &QAction::triggered, this, &MainWindow::onAbout);
+
+    // === RIGHT PANEL MENU ===
+    QMenu *rightMenu = menuBar()->addMenu(MainWindow::tr("Right panel"));
+
+    QAction *rightGoUp = rightMenu->addAction(QIcon(":/icons/up"), MainWindow::tr("Go Up"));
+    connect(rightGoUp, &QAction::triggered, this, [this]() { onGoUp(rightPanel); });
+
+    QAction *rightOpenDir = rightMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Open directory..."));
+    connect(rightOpenDir, &QAction::triggered, this, [this]() { onOpenDirectory(rightPanel); });
+
+    rightMenu->addSeparator();
+
+    QMenu *rightSortMenu = rightMenu->addMenu(MainWindow::tr("Sorting"));
+    QActionGroup *rightSortGroup = new QActionGroup(this);
+    rightSortGroup->setExclusive(true);
+
+    rightMenuActions.sortByName = rightSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by name"));
+    rightMenuActions.sortByName->setCheckable(true);
+    rightMenuActions.sortByName->setActionGroup(rightSortGroup);
+    connect(rightMenuActions.sortByName, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::ByName); });
+
+    rightMenuActions.sortBySize = rightSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by size"));
+    rightMenuActions.sortBySize->setCheckable(true);
+    rightMenuActions.sortBySize->setActionGroup(rightSortGroup);
+    connect(rightMenuActions.sortBySize, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::BySize); });
+
+    rightMenuActions.noSort = rightSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("No sorting"));
+    rightMenuActions.noSort->setCheckable(true);
+    rightMenuActions.noSort->setActionGroup(rightSortGroup);
+    connect(rightMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::NoOrder); });
+
+    // Initialize sorting menu states
+    updateSortingMenu(leftPanel);
+    updateSortingMenu(rightPanel);
+}
+
 
 void MainWindow::setActivePanel(FilePanel* panel) {
     if (!panel) return;
@@ -1410,6 +1537,74 @@ void MainWindow::onDelete() {
 
 void MainWindow::onExit() {
     close();
+}
+
+void MainWindow::onAbout() {
+    QDialog * about = new QDialog(this);
+
+    Ui_About aboutUi;
+    aboutUi.setupUi(about);
+
+    aboutUi.info_label->setText(
+        aboutUi.info_label->text()
+            .replace("{$PROJECT_VERSION}", PROJECT_VERSION)
+            .replace("{$BUILD_ARCHITECTURE}", QSysInfo::buildCpuArchitecture())
+            .replace("{$OS}", QSysInfo::productType())
+            .replace("{$OS_VERSION}", QSysInfo::productVersion())
+            .replace("{$CPU_ARCHITECTURE}", QSysInfo::currentCpuArchitecture())
+        );
+
+    about->exec();
+}
+
+// Universal panel methods
+void MainWindow::onGoUp(FilePanel* panel) {
+    if (panel) {
+        panel->onGoUp();
+    }
+}
+
+void MainWindow::onOpenDirectory(FilePanel* panel) {
+    if (panel) {
+        panel->chooseDirectory();
+    }
+}
+
+void MainWindow::onSetSorting(FilePanel* panel, HostModel::SortOrder order) {
+    if (panel) {
+        panel->setSortOrder(order);
+    }
+}
+
+void MainWindow::updateSortingMenu(FilePanel* panel) {
+    if (!panel) return;
+
+    int sortOrder = panel->getSortOrder();
+    PanelMenuActions* actions = nullptr;
+
+    // Determine which panel's menu to update
+    if (panel == leftPanel) {
+        actions = &leftMenuActions;
+    } else if (panel == rightPanel) {
+        actions = &rightMenuActions;
+    }
+
+    if (!actions) return;
+
+    // Update checkmarks based on current sort order
+    switch (sortOrder) {
+        case 0: // HostModel::ByName
+            if (actions->sortByName) actions->sortByName->setChecked(true);
+            break;
+        case 1: // HostModel::BySize
+            if (actions->sortBySize) actions->sortBySize->setChecked(true);
+            break;
+        case 2: // HostModel::NoOrder
+            if (actions->noSort) actions->noSort->setChecked(true);
+            break;
+        default:
+            break;
+    }
 }
 
 FilePanel* MainWindow::otherPanel() const {
