@@ -106,6 +106,7 @@ private:
     QStandardItemModel * image_model {nullptr};
 
     QString currentPath;
+    QString m_lastDirName;  // Track last entered directory for cursor restoration
     panelMode mode {panelMode::Host};
 
     QSettings * m_settings;
@@ -121,7 +122,7 @@ private:
 
     void setupPanel();
     void setupFilters();
-    void setDirectory(const QString& path);
+    void setDirectory(const QString& path, bool restoreCursor = false);
     bool eventFilter(QObject* obj, QEvent* ev) override;
     void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
     int openImage(QString path);

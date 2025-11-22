@@ -410,15 +410,49 @@ void FilePanel::setupFilters()
     autoCheck->setChecked(m_settings->value("directory/"+m_ini_label+"_auto", 1).toInt()==1);
 }
 
-void FilePanel::setDirectory(const QString& path) {
+void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     if (path.isEmpty()) return;
     QDir dir(path);
     if (!dir.exists()) return;
+
+    QString oldDirName;
+    if (restoreCursor && !m_lastDirName.isEmpty()) {
+        oldDirName = m_lastDirName;
+        m_lastDirName.clear();
+    }
 
     currentPath = dir.absolutePath();
     dirEdit->setText(currentPath);
     host_model->setRootPath(currentPath);
     tableView->setRootIndex(QModelIndex());  // QStandardItemModel doesn't use root index
+
+    // Restore cursor position or set to first item
+    if (!oldDirName.isEmpty()) {
+        // Search for the directory we came from
+        for (int row = 0; row < host_model->rowCount(); ++row) {
+            QModelIndex idx = host_model->index(row, 0);
+            QString displayName = host_model->data(idx, Qt::DisplayRole).toString();
+            // Remove brackets from directory name: [dirname] -> dirname
+            if (displayName.startsWith("[") && displayName.endsWith("]")) {
+                QString dirName = displayName.mid(1, displayName.length() - 2);
+                if (dirName == oldDirName && dirName != "..") {
+                    // Clear selection and set cursor without selecting
+                    tableView->selectionModel()->clearSelection();
+                    tableView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
+                    tableView->scrollTo(idx);
+                    break;
+                }
+            }
+        }
+    } else {
+        // Default: set cursor to first item
+        QModelIndex firstIndex = host_model->index(0, 0);
+        if (firstIndex.isValid()) {
+            // Clear selection and set cursor without selecting
+            tableView->selectionModel()->clearSelection();
+            tableView->selectionModel()->setCurrentIndex(firstIndex, QItemSelectionModel::NoUpdate);
+        }
+    }
 
     m_settings->setValue("directory/"+m_ini_label, currentPath);
 }
@@ -499,7 +533,11 @@ void FilePanel::onGoUp() {
     emit activated(this);
     if (mode==panelMode::Host) {
         QDir dir(currentPath);
-        if (dir.cdUp()) setDirectory(dir.absolutePath());
+        if (dir.cdUp()) {
+            // Store current directory name for cursor restoration
+            m_lastDirName = QDir(currentPath).dirName();
+            setDirectory(dir.absolutePath(), true);
+        }
     } else {
         if (m_filesystem->is_root()) {
             setMode(panelMode::Host);
@@ -529,10 +567,30 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
 
         // Process [..] navigation
         if (displayName == "[..]") {
+            // Store current directory name for cursor restoration
+            m_lastDirName = QDir(currentPath).dirName();
             host_model->goUp();
             currentPath = host_model->currentPath();
             dirEdit->setText(currentPath);
             m_settings->setValue("directory/"+m_ini_label, currentPath);
+
+            // Restore cursor position to the directory we came from
+            for (int row = 0; row < host_model->rowCount(); ++row) {
+                QModelIndex idx = host_model->index(row, 0);
+                QString checkName = host_model->data(idx, Qt::DisplayRole).toString();
+                // Remove brackets from directory name: [dirname] -> dirname
+                if (checkName.startsWith("[") && checkName.endsWith("]")) {
+                    QString dirName = checkName.mid(1, checkName.length() - 2);
+                    if (dirName == m_lastDirName && dirName != "..") {
+                        // Clear selection and set cursor without selecting
+                        tableView->selectionModel()->clearSelection();
+                        tableView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
+                        tableView->scrollTo(idx);
+                        m_lastDirName.clear();
+                        break;
+                    }
+                }
+            }
             return;
         }
 
