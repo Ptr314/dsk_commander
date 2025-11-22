@@ -1038,3 +1038,19 @@ void FilePanel::onEdit()
 
     }
 }
+
+void FilePanel::setSortOrder(HostModel::SortOrder order)
+{
+    if (mode == panelMode::Host && host_model) {
+        host_model->setSortOrder(order);
+        emit sortOrderChanged(order);
+    }
+}
+
+int FilePanel::getSortOrder() const
+{
+    if (mode == panelMode::Host && host_model) {
+        return static_cast<int>(host_model->sortOrder());
+    }
+    return -1;
+}
