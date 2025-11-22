@@ -106,6 +106,7 @@ void HostModel::populateModel() {
         nameItem->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         nameItem->setData(QString(), Qt::UserRole);  // Empty path for [..]
         nameItem->setData(true, Qt::UserRole + 1);   // Mark as directory
+        nameItem->setData(QIcon(":/icons/folder_open"), Qt::DecorationRole);  // Folder icon
         items.append(nameItem);
 
         // Column 1: Size (empty for [..])
@@ -163,6 +164,7 @@ void HostModel::populateModel() {
         nameItem->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         nameItem->setData(info.absoluteFilePath(), Qt::UserRole);
         nameItem->setData(true, Qt::UserRole + 1);
+        nameItem->setData(QIcon(":/icons/folder_open"), Qt::DecorationRole);  // Folder icon
         items.append(nameItem);
 
         // Column 1: Size
@@ -187,6 +189,7 @@ void HostModel::populateModel() {
         nameItem->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         nameItem->setData(info.absoluteFilePath(), Qt::UserRole);
         nameItem->setData(false, Qt::UserRole + 1);
+        nameItem->setData(QIcon(":/icons/file_image"), Qt::DecorationRole);  // File icon
         items.append(nameItem);
 
         // Column 1: Size
