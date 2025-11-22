@@ -7,6 +7,10 @@
         <location filename="../aboutdlg.ui" line="14"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14,6 +18,10 @@
         <location filename="../aboutdlg.ui" line="90"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24,6 +32,10 @@
         <location filename="../convertdialog.ui" line="20"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation type="unfinished"></translation>
     </message>
@@ -31,6 +43,10 @@
         <location filename="../convertdialog.ui" line="26"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -38,6 +54,10 @@
         <location filename="../convertdialog.ui" line="38"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation type="unfinished"></translation>
     </message>
@@ -45,6 +65,10 @@
         <location filename="../convertdialog.ui" line="45"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -52,6 +76,10 @@
         <location filename="../convertdialog.ui" line="55"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -59,6 +87,10 @@
         <location filename="../convertdialog.ui" line="58"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -66,6 +98,10 @@
         <location filename="../convertdialog.ui" line="124"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation type="unfinished"></translation>
     </message>
@@ -73,6 +109,10 @@
         <location filename="../convertdialog.ui" line="132"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation type="unfinished"></translation>
     </message>
@@ -80,6 +120,10 @@
         <location filename="../convertdialog.ui" line="145"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation type="unfinished"></translation>
     </message>
@@ -87,6 +131,10 @@
         <location filename="../convertdialog.ui" line="158"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -94,6 +142,10 @@
         <location filename="../convertdialog.ui" line="179"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -101,6 +153,10 @@
         <location filename="../convertdialog.ui" line="182"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -108,6 +164,10 @@
         <location filename="../convertdialog.ui" line="210"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation type="unfinished"></translation>
     </message>
@@ -115,6 +175,10 @@
         <location filename="../convertdialog.ui" line="218"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -122,6 +186,10 @@
         <location filename="../convertdialog.ui" line="169"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -184,7 +252,549 @@
         <location filename="../fileinfodialog.ui" line="14"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FilePanel</name>
+    <message>
+        <location filename="../FilePanel.cpp" line="31"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="32"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="33"/>
+        <location filename="../FilePanel.cpp" line="883"/>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="256"/>
+        <location filename="../FilePanel.cpp" line="258"/>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="263"/>
+        <source>Enter path and press Enter...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="266"/>
+        <location filename="../FilePanel.cpp" line="268"/>
+        <source>Choose...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="378"/>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="463"/>
+        <source>Choose a path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="607"/>
+        <location filename="../FilePanel.cpp" line="625"/>
+        <location filename="../FilePanel.cpp" line="679"/>
+        <location filename="../FilePanel.cpp" line="683"/>
+        <location filename="../FilePanel.cpp" line="687"/>
+        <location filename="../FilePanel.cpp" line="702"/>
+        <location filename="../FilePanel.cpp" line="711"/>
+        <location filename="../FilePanel.cpp" line="813"/>
+        <location filename="../FilePanel.cpp" line="1013"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="607"/>
+        <source>Can&apos;t detect type of the file automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="625"/>
+        <source>File reading error!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="679"/>
+        <source>File loading error. Check your disk type settings or try auto-detection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="683"/>
+        <source>Error checking file parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="687"/>
+        <source>Error preparing image data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="702"/>
+        <source>Unrecognized disk format or disk is damaged!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="711"/>
+        <source>File system initialization error!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="813"/>
+        <source>Error reading files list!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="875"/>
+        <source>Directory Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="876"/>
+        <location filename="../FilePanel.cpp" line="957"/>
+        <source>File Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="877"/>
+        <source>File Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="878"/>
+        <source>byte(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="879"/>
+        <source>Sides</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="880"/>
+        <source>Tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="881"/>
+        <source>sector(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="882"/>
+        <source>Attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="884"/>
+        <location filename="../FilePanel.cpp" line="959"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="885"/>
+        <location filename="../FilePanel.cpp" line="958"/>
+        <source>Protected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="886"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="887"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="888"/>
+        <source>T/S List Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="889"/>
+        <source>T/S List Contents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="890"/>
+        <source>Incorrect T/S data, stopping iterations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="891"/>
+        <source>Next T/S List Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="892"/>
+        <source>File End Reached</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="893"/>
+        <source>The file is marked as deleted, the data below may be incorrect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="894"/>
+        <source>File parsing error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="895"/>
+        <source>Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="896"/>
+        <source>T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="897"/>
+        <source>H</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="898"/>
+        <location filename="../FilePanel.cpp" line="899"/>
+        <source>S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="900"/>
+        <source>Parsing finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="901"/>
+        <source>V</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="902"/>
+        <source>Index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="903"/>
+        <source>Index Mark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="904"/>
+        <source>Data Mark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="905"/>
+        <source>Sector Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="906"/>
+        <source>End Mark: OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="907"/>
+        <source>End Mark: Not Detected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="908"/>
+        <location filename="../FilePanel.cpp" line="913"/>
+        <source>CRC: OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="909"/>
+        <location filename="../FilePanel.cpp" line="914"/>
+        <source>CRC: Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="910"/>
+        <source>Expected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="911"/>
+        <source>Found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="912"/>
+        <source>Data Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="915"/>
+        <location filename="../FilePanel.cpp" line="917"/>
+        <source>Epilogue: OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="916"/>
+        <location filename="../FilePanel.cpp" line="918"/>
+        <source>Epilogue: Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="919"/>
+        <source>Track List Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="920"/>
+        <source>Track Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="921"/>
+        <source>Track Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="922"/>
+        <source>Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="923"/>
+        <source>Signature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="924"/>
+        <source>No known signature found, aborting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="925"/>
+        <source>Format revision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="926"/>
+        <source>Side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="927"/>
+        <source>Custom Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="928"/>
+        <source>DOS 3.3 VTOC found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="929"/>
+        <source>DOS 3.3 VTOC not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="930"/>
+        <source>Root Catalog Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="931"/>
+        <source>Root Catalog Sector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="932"/>
+        <source>DOS Release</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="933"/>
+        <location filename="../FilePanel.cpp" line="945"/>
+        <source>Volume ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="934"/>
+        <source>Volume name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="935"/>
+        <source>Pairs per T/S list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="936"/>
+        <source>Last track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="937"/>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="938"/>
+        <source>Tracks total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="939"/>
+        <source>Sectors on track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="940"/>
+        <source>Bytes per sector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="941"/>
+        <source>Error opening the file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="942"/>
+        <source>Error loading, check if the file type is correct</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="944"/>
+        <source>DPB Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="946"/>
+        <source>Device type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="947"/>
+        <source>DSIDE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="948"/>
+        <source>Blocks on track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="949"/>
+        <source>Tracks on disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="950"/>
+        <source>Last block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="951"/>
+        <source>VTOC block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="953"/>
+        <source>Extent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="954"/>
+        <source>Free sectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="955"/>
+        <source>Free bytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="960"/>
+        <source>Extended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="962"/>
+        <source>Agat image VR block found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="963"/>
+        <source>Video mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="964"/>
+        <source>Agat graphic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="965"/>
+        <source>Agat text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="966"/>
+        <source>Apple II modes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="967"/>
+        <source>Agat GigaScreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="968"/>
+        <source>Main palette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="969"/>
+        <source>Alternative palette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="970"/>
+        <source>Custom palette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="971"/>
+        <source>Comment block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="972"/>
+        <source>Font ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="973"/>
+        <source>Custom font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1013"/>
+        <source>Not supported yet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -212,14 +822,57 @@
     </message>
 </context>
 <context>
+    <name>FileTable</name>
+    <message>
+        <location filename="../FileTable.cpp" line="205"/>
+        <source>P</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="206"/>
+        <source>Protection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="212"/>
+        <source>T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="213"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="219"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="220"/>
+        <source>Size in bytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="223"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="224"/>
+        <source>Name of the file</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Main</name>
     <message>
-        <location filename="../mainwindow.cpp" line="168"/>
+        <location filename="../mainwindow.cpp" line="239"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="168"/>
+        <location filename="../mainwindow.cpp" line="239"/>
         <source>Config parse error: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -230,6 +883,10 @@
         <location filename="../mainwindow.ui" line="72"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="537"/>
         <source>Choose a folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -243,6 +900,18 @@
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="531"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="533"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="561"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="531"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="533"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="561"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="531"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="533"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="561"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="531"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="533"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="561"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="531"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="533"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="561"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -250,6 +919,10 @@
         <location filename="../mainwindow.ui" line="69"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="535"/>
         <source>Choose directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -257,6 +930,10 @@
         <location filename="../mainwindow.ui" line="92"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="539"/>
         <source>Image info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -270,6 +947,18 @@
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="524"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="542"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="544"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="524"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="542"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="544"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="524"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="542"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="544"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="524"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="542"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="544"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="524"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="542"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="544"/>
         <source>Open Image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -277,6 +966,10 @@
         <location filename="../mainwindow.ui" line="165"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="546"/>
         <source>Files to show</source>
         <translation type="unfinished"></translation>
     </message>
@@ -284,6 +977,10 @@
         <location filename="../mainwindow.ui" line="188"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="549"/>
         <source>Disk type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -291,6 +988,10 @@
         <location filename="../mainwindow.ui" line="201"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="552"/>
         <source>Filesystem type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -298,6 +999,10 @@
         <location filename="../mainwindow.ui" line="208"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="555"/>
         <source>Detect Type &amp; Filesystem automatically</source>
         <translation type="unfinished"></translation>
     </message>
@@ -305,6 +1010,10 @@
         <location filename="../mainwindow.ui" line="211"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="557"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
@@ -312,6 +1021,10 @@
         <location filename="../mainwindow.ui" line="239"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="602"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="602"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
         <source>List of files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -319,6 +1032,10 @@
         <location filename="../mainwindow.ui" line="247"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="559"/>
         <source>Directory up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -326,6 +1043,12 @@
         <location filename="../mainwindow.ui" line="267"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
+        <location filename="../mainwindow.cpp" line="1358"/>
+        <location filename="../mainwindow.cpp" line="1433"/>
         <source>Sort by name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -333,6 +1056,10 @@
         <location filename="../mainwindow.ui" line="270"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="565"/>
         <source>Sort</source>
         <translation type="unfinished"></translation>
     </message>
@@ -340,6 +1067,10 @@
         <location filename="../mainwindow.ui" line="290"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="567"/>
         <source>Show deleted files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -347,6 +1078,10 @@
         <location filename="../mainwindow.ui" line="293"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="569"/>
         <source>Deleted</source>
         <translation type="unfinished"></translation>
     </message>
@@ -360,6 +1095,18 @@
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="521"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="571"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="573"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="521"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="571"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="573"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="521"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="571"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="573"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="521"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="571"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="573"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="521"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="571"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="573"/>
         <source>File info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -367,6 +1114,10 @@
         <location filename="../mainwindow.ui" line="346"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="575"/>
         <source>View file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -377,6 +1128,14 @@
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="525"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="577"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -384,6 +1143,10 @@
         <location filename="../mainwindow.ui" line="366"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="579"/>
         <source>Export file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -394,6 +1157,14 @@
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="522"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="581"/>
         <source>Save to file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -401,7 +1172,11 @@
         <location filename="../mainwindow.ui" line="399"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
-        <location filename="../mainwindow.cpp" line="1118"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
+        <location filename="../mainwindow.cpp" line="1189"/>
         <source>Add a directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -412,6 +1187,14 @@
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="528"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="585"/>
         <source>Add directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -419,6 +1202,10 @@
         <location filename="../mainwindow.ui" line="419"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="587"/>
         <source>Rename &amp; Edit metadata</source>
         <translation type="unfinished"></translation>
     </message>
@@ -429,6 +1216,14 @@
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="529"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="589"/>
         <source>Edit metadata</source>
         <translation type="unfinished"></translation>
     </message>
@@ -436,6 +1231,10 @@
         <location filename="../mainwindow.ui" line="442"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="591"/>
         <source>Add a file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -443,6 +1242,10 @@
         <location filename="../mainwindow.ui" line="462"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="594"/>
         <source>Delete file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -453,6 +1256,14 @@
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="526"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="596"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -460,6 +1271,10 @@
         <location filename="../mainwindow.ui" line="520"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="598"/>
         <source>Export disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -470,6 +1285,14 @@
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="518"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="600"/>
         <source>Convert</source>
         <translation type="unfinished"></translation>
     </message>
@@ -477,6 +1300,10 @@
         <location filename="../mainwindow.ui" line="556"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="603"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -484,6 +1311,10 @@
         <location filename="../mainwindow.ui" line="559"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="604"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="604"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
         <source>File System Information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -491,6 +1322,10 @@
         <location filename="../mainwindow.ui" line="595"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
         <source>Image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -498,6 +1333,10 @@
         <location filename="../mainwindow.ui" line="604"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="610"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="606"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="610"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="606"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="610"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="610"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
@@ -505,7 +1344,11 @@
         <location filename="../mainwindow.ui" line="735"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
-        <location filename="../mainwindow.cpp" line="1088"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
+        <location filename="../mainwindow.cpp" line="1159"/>
         <source>Add files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -516,6 +1359,15 @@
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="607"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
+        <location filename="../mainwindow.cpp" line="1374"/>
         <source>Files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -523,6 +1375,10 @@
         <location filename="../mainwindow.ui" line="633"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="516"/>
         <source>Open directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -530,6 +1386,11 @@
         <location filename="../mainwindow.ui" line="642"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
+        <location filename="../mainwindow.cpp" line="1415"/>
         <source>About...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -537,6 +1398,11 @@
         <location filename="../mainwindow.ui" line="660"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
+        <location filename="../mainwindow.cpp" line="1404"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -544,6 +1410,10 @@
         <location filename="../mainwindow.ui" line="669"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="520"/>
         <source>Parent directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -551,665 +1421,772 @@
         <location filename="../mainwindow.ui" line="699"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
         <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="523"/>
         <source>Image Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="135"/>
-        <location filename="../mainwindow.cpp" line="160"/>
-        <location filename="../mainwindow.cpp" line="317"/>
-        <location filename="../mainwindow.cpp" line="320"/>
-        <location filename="../mainwindow.cpp" line="323"/>
-        <location filename="../mainwindow.cpp" line="344"/>
-        <location filename="../mainwindow.cpp" line="377"/>
-        <location filename="../mainwindow.cpp" line="387"/>
-        <location filename="../mainwindow.cpp" line="838"/>
-        <location filename="../mainwindow.cpp" line="846"/>
-        <location filename="../mainwindow.cpp" line="855"/>
-        <location filename="../mainwindow.cpp" line="865"/>
-        <location filename="../mainwindow.cpp" line="873"/>
-        <location filename="../mainwindow.cpp" line="876"/>
-        <location filename="../mainwindow.cpp" line="878"/>
-        <location filename="../mainwindow.cpp" line="889"/>
-        <location filename="../mainwindow.cpp" line="933"/>
-        <location filename="../mainwindow.cpp" line="969"/>
-        <location filename="../mainwindow.cpp" line="1017"/>
-        <location filename="../mainwindow.cpp" line="1054"/>
-        <location filename="../mainwindow.cpp" line="1056"/>
-        <location filename="../mainwindow.cpp" line="1099"/>
-        <location filename="../mainwindow.cpp" line="1101"/>
-        <location filename="../mainwindow.cpp" line="1126"/>
+        <location filename="../mainwindow.cpp" line="206"/>
+        <location filename="../mainwindow.cpp" line="231"/>
+        <location filename="../mainwindow.cpp" line="388"/>
+        <location filename="../mainwindow.cpp" line="391"/>
+        <location filename="../mainwindow.cpp" line="394"/>
+        <location filename="../mainwindow.cpp" line="415"/>
+        <location filename="../mainwindow.cpp" line="448"/>
+        <location filename="../mainwindow.cpp" line="458"/>
+        <location filename="../mainwindow.cpp" line="909"/>
+        <location filename="../mainwindow.cpp" line="917"/>
+        <location filename="../mainwindow.cpp" line="926"/>
+        <location filename="../mainwindow.cpp" line="936"/>
+        <location filename="../mainwindow.cpp" line="944"/>
+        <location filename="../mainwindow.cpp" line="947"/>
+        <location filename="../mainwindow.cpp" line="949"/>
+        <location filename="../mainwindow.cpp" line="960"/>
+        <location filename="../mainwindow.cpp" line="1004"/>
+        <location filename="../mainwindow.cpp" line="1040"/>
+        <location filename="../mainwindow.cpp" line="1088"/>
+        <location filename="../mainwindow.cpp" line="1125"/>
+        <location filename="../mainwindow.cpp" line="1127"/>
+        <location filename="../mainwindow.cpp" line="1170"/>
+        <location filename="../mainwindow.cpp" line="1172"/>
+        <location filename="../mainwindow.cpp" line="1197"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="160"/>
+        <location filename="../mainwindow.cpp" line="231"/>
         <source>Error reading config file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="275"/>
+        <location filename="../mainwindow.cpp" line="346"/>
         <source>Choose a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="320"/>
+        <location filename="../mainwindow.cpp" line="391"/>
         <source>Error checking file parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="377"/>
+        <location filename="../mainwindow.cpp" line="448"/>
         <source>Unrecognized disk format or disk is damaged!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="415"/>
         <source>Error reading files list!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="135"/>
+        <location filename="../mainwindow.cpp" line="206"/>
         <source>Failed to load language file for: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="144"/>
+        <location filename="../mainwindow.cpp" line="215"/>
+        <location filename="../mainwindow.cpp" line="1405"/>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="146"/>
+        <location filename="../mainwindow.cpp" line="217"/>
+        <location filename="../mainwindow.cpp" line="1407"/>
         <source>Русский</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="149"/>
+        <location filename="../mainwindow.cpp" line="220"/>
+        <location filename="../mainwindow.cpp" line="1410"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="317"/>
+        <location filename="../mainwindow.cpp" line="388"/>
         <source>File loading error. Check your disk type settings or try auto-detection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="323"/>
+        <location filename="../mainwindow.cpp" line="394"/>
         <source>Error preparing image data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="969"/>
+        <location filename="../mainwindow.cpp" line="1040"/>
         <source>Can&apos;t detect type of the file automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="387"/>
+        <location filename="../mainwindow.cpp" line="458"/>
         <source>File system initialization error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="402"/>
+        <location filename="../mainwindow.cpp" line="473"/>
         <source>P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="403"/>
+        <location filename="../mainwindow.cpp" line="474"/>
         <source>Protection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="410"/>
-        <location filename="../mainwindow.cpp" line="589"/>
-        <location filename="../mainwindow.cpp" line="664"/>
+        <location filename="../mainwindow.cpp" line="481"/>
+        <location filename="../mainwindow.cpp" line="660"/>
+        <location filename="../mainwindow.cpp" line="735"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="416"/>
+        <location filename="../mainwindow.cpp" line="487"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="417"/>
+        <location filename="../mainwindow.cpp" line="488"/>
         <source>Size in bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="491"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="492"/>
         <source>Name of the file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="633"/>
+        <location filename="../mainwindow.cpp" line="704"/>
         <source>DOS 3.3 VTOC found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1017"/>
+        <location filename="../mainwindow.cpp" line="1088"/>
         <source>File reading error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="580"/>
+        <location filename="../mainwindow.cpp" line="651"/>
         <source>Directory Entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="581"/>
-        <location filename="../mainwindow.cpp" line="662"/>
+        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="733"/>
         <source>File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="582"/>
+        <location filename="../mainwindow.cpp" line="653"/>
         <source>File Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="584"/>
+        <location filename="../mainwindow.cpp" line="655"/>
         <source>Sides</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="585"/>
+        <location filename="../mainwindow.cpp" line="656"/>
         <source>Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="657"/>
         <source>sector(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="590"/>
-        <location filename="../mainwindow.cpp" line="663"/>
+        <location filename="../mainwindow.cpp" line="661"/>
+        <location filename="../mainwindow.cpp" line="734"/>
         <source>Protected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="591"/>
+        <location filename="../mainwindow.cpp" line="662"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
+        <location filename="../mainwindow.cpp" line="663"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="593"/>
+        <location filename="../mainwindow.cpp" line="664"/>
         <source>T/S List Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="594"/>
+        <location filename="../mainwindow.cpp" line="665"/>
         <source>T/S List Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="595"/>
+        <location filename="../mainwindow.cpp" line="666"/>
         <source>Incorrect T/S data, stopping iterations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="596"/>
+        <location filename="../mainwindow.cpp" line="667"/>
         <source>Next T/S List Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="597"/>
+        <location filename="../mainwindow.cpp" line="668"/>
         <source>File End Reached</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="598"/>
+        <location filename="../mainwindow.cpp" line="669"/>
         <source>The file is marked as deleted, the data below may be incorrect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="599"/>
+        <location filename="../mainwindow.cpp" line="670"/>
         <source>File parsing error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="600"/>
+        <location filename="../mainwindow.cpp" line="671"/>
         <source>Track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="673"/>
         <source>H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="603"/>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="674"/>
+        <location filename="../mainwindow.cpp" line="675"/>
         <source>S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="676"/>
         <source>Parsing finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="606"/>
+        <location filename="../mainwindow.cpp" line="677"/>
         <source>V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="678"/>
         <source>Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="608"/>
+        <location filename="../mainwindow.cpp" line="679"/>
         <source>Index Mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="680"/>
         <source>Data Mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="610"/>
+        <location filename="../mainwindow.cpp" line="681"/>
         <source>Sector Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="611"/>
+        <location filename="../mainwindow.cpp" line="682"/>
         <source>End Mark: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="612"/>
+        <location filename="../mainwindow.cpp" line="683"/>
         <source>End Mark: Not Detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="613"/>
-        <location filename="../mainwindow.cpp" line="618"/>
+        <location filename="../mainwindow.cpp" line="684"/>
+        <location filename="../mainwindow.cpp" line="689"/>
         <source>CRC: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="614"/>
-        <location filename="../mainwindow.cpp" line="619"/>
+        <location filename="../mainwindow.cpp" line="685"/>
+        <location filename="../mainwindow.cpp" line="690"/>
         <source>CRC: Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="615"/>
+        <location filename="../mainwindow.cpp" line="686"/>
         <source>Expected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="616"/>
+        <location filename="../mainwindow.cpp" line="687"/>
         <source>Found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="688"/>
         <source>Data Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="620"/>
-        <location filename="../mainwindow.cpp" line="622"/>
+        <location filename="../mainwindow.cpp" line="691"/>
+        <location filename="../mainwindow.cpp" line="693"/>
         <source>Epilogue: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="621"/>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="692"/>
+        <location filename="../mainwindow.cpp" line="694"/>
         <source>Epilogue: Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="624"/>
+        <location filename="../mainwindow.cpp" line="695"/>
         <source>Track List Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="625"/>
+        <location filename="../mainwindow.cpp" line="696"/>
         <source>Track Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="626"/>
+        <location filename="../mainwindow.cpp" line="697"/>
         <source>Track Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="627"/>
+        <location filename="../mainwindow.cpp" line="698"/>
         <source>Header</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="699"/>
         <source>Signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="629"/>
+        <location filename="../mainwindow.cpp" line="700"/>
         <source>No known signature found, aborting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="701"/>
         <source>Format revision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="631"/>
+        <location filename="../mainwindow.cpp" line="702"/>
         <source>Side</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="632"/>
+        <location filename="../mainwindow.cpp" line="703"/>
         <source>Custom Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="634"/>
+        <location filename="../mainwindow.cpp" line="705"/>
         <source>DOS 3.3 VTOC not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="635"/>
+        <location filename="../mainwindow.cpp" line="706"/>
         <source>Root Catalog Track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="636"/>
+        <location filename="../mainwindow.cpp" line="707"/>
         <source>Root Catalog Sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="708"/>
         <source>DOS Release</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
-        <location filename="../mainwindow.cpp" line="650"/>
+        <location filename="../mainwindow.cpp" line="709"/>
+        <location filename="../mainwindow.cpp" line="721"/>
         <source>Volume ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="639"/>
+        <location filename="../mainwindow.cpp" line="710"/>
         <source>Volume name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="640"/>
+        <location filename="../mainwindow.cpp" line="711"/>
         <source>Pairs per T/S list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="641"/>
+        <location filename="../mainwindow.cpp" line="712"/>
         <source>Last track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="642"/>
+        <location filename="../mainwindow.cpp" line="713"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="714"/>
         <source>Tracks total</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="644"/>
+        <location filename="../mainwindow.cpp" line="715"/>
         <source>Sectors on track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="645"/>
+        <location filename="../mainwindow.cpp" line="716"/>
         <source>Bytes per sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="646"/>
+        <location filename="../mainwindow.cpp" line="717"/>
         <source>Error opening the file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="647"/>
+        <location filename="../mainwindow.cpp" line="718"/>
         <source>Error loading, check if the file type is correct</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="720"/>
         <source>DPB Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="651"/>
+        <location filename="../mainwindow.cpp" line="722"/>
         <source>Device type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="723"/>
         <source>DSIDE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="653"/>
+        <location filename="../mainwindow.cpp" line="724"/>
         <source>Blocks on track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="654"/>
+        <location filename="../mainwindow.cpp" line="725"/>
         <source>Tracks on disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="655"/>
+        <location filename="../mainwindow.cpp" line="726"/>
         <source>Last block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="656"/>
+        <location filename="../mainwindow.cpp" line="727"/>
         <source>VTOC block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="658"/>
+        <location filename="../mainwindow.cpp" line="729"/>
         <source>Extent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="659"/>
+        <location filename="../mainwindow.cpp" line="730"/>
         <source>Free sectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="660"/>
+        <location filename="../mainwindow.cpp" line="731"/>
         <source>Free bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="665"/>
+        <location filename="../mainwindow.cpp" line="736"/>
         <source>Extended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="667"/>
+        <location filename="../mainwindow.cpp" line="738"/>
         <source>Agat image VR block found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="668"/>
+        <location filename="../mainwindow.cpp" line="739"/>
         <source>Video mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="669"/>
+        <location filename="../mainwindow.cpp" line="740"/>
         <source>Agat graphic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="670"/>
+        <location filename="../mainwindow.cpp" line="741"/>
         <source>Agat text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="671"/>
+        <location filename="../mainwindow.cpp" line="742"/>
         <source>Apple II modes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="672"/>
+        <location filename="../mainwindow.cpp" line="743"/>
         <source>Agat GigaScreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="673"/>
+        <location filename="../mainwindow.cpp" line="744"/>
         <source>Main palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="674"/>
+        <location filename="../mainwindow.cpp" line="745"/>
         <source>Alternative palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="675"/>
+        <location filename="../mainwindow.cpp" line="746"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="676"/>
+        <location filename="../mainwindow.cpp" line="747"/>
         <source>Comment block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="677"/>
+        <location filename="../mainwindow.cpp" line="748"/>
         <source>Font ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="678"/>
+        <location filename="../mainwindow.cpp" line="749"/>
         <source>Custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="738"/>
+        <location filename="../mainwindow.cpp" line="809"/>
         <source>Export as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="838"/>
+        <location filename="../mainwindow.cpp" line="909"/>
         <source>Not implemented!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="846"/>
+        <location filename="../mainwindow.cpp" line="917"/>
         <source>Error generating file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="855"/>
+        <location filename="../mainwindow.cpp" line="926"/>
         <source>Error opening template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="865"/>
+        <location filename="../mainwindow.cpp" line="936"/>
         <source>Error reading template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="873"/>
+        <location filename="../mainwindow.cpp" line="944"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="876"/>
+        <location filename="../mainwindow.cpp" line="947"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="878"/>
+        <location filename="../mainwindow.cpp" line="949"/>
         <source>Error inserting tracks from template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="889"/>
+        <location filename="../mainwindow.cpp" line="960"/>
         <source>Error writing file to disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="933"/>
+        <location filename="../mainwindow.cpp" line="1004"/>
         <source>Not supported yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1054"/>
+        <location filename="../mainwindow.cpp" line="1125"/>
         <source>Error deleting directory. It must be empty to be deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1056"/>
+        <location filename="../mainwindow.cpp" line="1127"/>
         <source>Error deleting file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1099"/>
+        <location filename="../mainwindow.cpp" line="1170"/>
         <source>Error adding file. Not enough free disk space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1101"/>
+        <location filename="../mainwindow.cpp" line="1172"/>
         <source>Error adding file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1106"/>
+        <location filename="../mainwindow.cpp" line="1177"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1106"/>
+        <location filename="../mainwindow.cpp" line="1177"/>
         <source>Successfully added %1 file(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1119"/>
+        <location filename="../mainwindow.cpp" line="1190"/>
         <source>Directory name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1126"/>
+        <location filename="../mainwindow.cpp" line="1197"/>
         <source>Error adding new catalog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="583"/>
+        <location filename="../mainwindow.cpp" line="1273"/>
+        <location filename="../mainwindow.cpp" line="1376"/>
+        <source>F3 View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1274"/>
+        <location filename="../mainwindow.cpp" line="1380"/>
+        <source>F4 Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1275"/>
+        <location filename="../mainwindow.cpp" line="1384"/>
+        <source>F5 Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1276"/>
+        <location filename="../mainwindow.cpp" line="1388"/>
+        <source>F6 Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1277"/>
+        <source>F7 MkDir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1278"/>
+        <location filename="../mainwindow.cpp" line="1396"/>
+        <source>F8 Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1279"/>
+        <source>F10 Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1344"/>
+        <source>Left panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1346"/>
+        <location filename="../mainwindow.cpp" line="1421"/>
+        <source>Go Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1349"/>
+        <location filename="../mainwindow.cpp" line="1424"/>
+        <source>Open directory...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1354"/>
+        <location filename="../mainwindow.cpp" line="1429"/>
+        <source>Sorting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1363"/>
+        <location filename="../mainwindow.cpp" line="1438"/>
+        <source>Sort by size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1368"/>
+        <location filename="../mainwindow.cpp" line="1443"/>
+        <source>No sorting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1392"/>
+        <source>F7 Make dir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1401"/>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1419"/>
+        <source>Right panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1475"/>
+        <source>No active panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1480"/>
+        <source>Active panel: %1 | Selected: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="654"/>
         <source>byte(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="409"/>
-        <location filename="../mainwindow.cpp" line="601"/>
+        <location filename="../mainwindow.cpp" line="480"/>
+        <location filename="../mainwindow.cpp" line="672"/>
         <source>T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="587"/>
+        <location filename="../mainwindow.cpp" line="658"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="588"/>
+        <location filename="../mainwindow.cpp" line="659"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1219,40 +2196,66 @@
     <message>
         <location filename="../viewdialog.ui" line="14"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="341"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="62"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="344"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <source>View mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="110"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <source>Subtype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="173"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="376"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="376"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="196"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <source>Copy text to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="199"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1261,176 +2264,205 @@
         <location filename="../viewdialog.ui" line="219"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
         <source>Save to file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="245"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="386"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="386"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="265"/>
         <location filename="../build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="387"/>
+        <location filename="../cmake-build-debug/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="387"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="61"/>
+        <location filename="../viewdialog.cpp" line="68"/>
         <source>Binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="62"/>
+        <location filename="../viewdialog.cpp" line="69"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="63"/>
+        <location filename="../viewdialog.cpp" line="70"/>
         <source>BASIC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="64"/>
+        <location filename="../viewdialog.cpp" line="71"/>
         <source>Agat pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="65"/>
+        <location filename="../viewdialog.cpp" line="72"/>
         <source>Apple pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="111"/>
+        <location filename="../viewdialog.cpp" line="118"/>
         <source>Agat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="112"/>
+        <location filename="../viewdialog.cpp" line="119"/>
         <source>Apple II</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="113"/>
+        <location filename="../viewdialog.cpp" line="120"/>
         <source>Apple //c</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="114"/>
+        <location filename="../viewdialog.cpp" line="121"/>
         <source>ASCII</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="123"/>
+        <location filename="../viewdialog.cpp" line="130"/>
         <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="124"/>
+        <location filename="../viewdialog.cpp" line="131"/>
         <source>Square screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="125"/>
+        <location filename="../viewdialog.cpp" line="132"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="208"/>
+        <location filename="../viewdialog.cpp" line="215"/>
         <source>Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="209"/>
+        <location filename="../viewdialog.cpp" line="216"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="210"/>
+        <location filename="../viewdialog.cpp" line="217"/>
         <source>Monochrome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="211"/>
+        <location filename="../viewdialog.cpp" line="218"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="212"/>
+        <location filename="../viewdialog.cpp" line="219"/>
         <source>b/w</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="214"/>
+        <location filename="../viewdialog.cpp" line="221"/>
         <source>Custom font loading error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="216"/>
+        <location filename="../viewdialog.cpp" line="223"/>
         <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="217"/>
+        <location filename="../viewdialog.cpp" line="224"/>
         <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="218"/>
+        <location filename="../viewdialog.cpp" line="225"/>
         <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="220"/>
+        <location filename="../viewdialog.cpp" line="227"/>
         <source>Agat-7 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="221"/>
+        <location filename="../viewdialog.cpp" line="228"/>
         <source>Agat-7 enchanced font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="222"/>
+        <location filename="../viewdialog.cpp" line="229"/>
         <source>Agat-9 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="223"/>
+        <location filename="../viewdialog.cpp" line="230"/>
         <source>GARNIZON custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="224"/>
+        <location filename="../viewdialog.cpp" line="231"/>
         <source>Loaded custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="225"/>
+        <location filename="../viewdialog.cpp" line="232"/>
         <source>Agat-9 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="226"/>
+        <location filename="../viewdialog.cpp" line="233"/>
         <source>Agat-7 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="227"/>
+        <location filename="../viewdialog.cpp" line="234"/>
         <source>Font file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="385"/>
+        <location filename="../viewdialog.cpp" line="391"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="501"/>
+        <location filename="../viewdialog.cpp" line="509"/>
+        <location filename="../viewdialog.cpp" line="511"/>
         <source>Save as</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="523"/>
+        <source>File exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="523"/>
+        <source>File already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
