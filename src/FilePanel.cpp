@@ -11,6 +11,7 @@
 #include <QIcon>
 #include <QDebug>
 #include <QJsonObject>
+#include <QLocale>
 
 #include "./ui_fileinfodialog.h"
 
@@ -18,80 +19,207 @@
 #include "mainutils.h"
 #include "viewdialog.h"
 
-QVariant CustomFileSystemModel::data(const QModelIndex &index, int role) const {
-    // Remove file icons, but keep directory icons
-    if (role == Qt::DecorationRole) {
-        return QVariant();  // No icon for files
-    }
+// ============================================================================
+// HostModel implementation
+// ============================================================================
 
-    // Add square brackets to directory names in the name column
-    if (index.column() == 0 && role == Qt::DisplayRole) {
-        QFileInfo info = fileInfo(index);
-        if (info.isDir()) {
-            QString name = QFileSystemModel::data(index, role).toString();
-            return "[" + name + "]";
-        }
-    }
-
-    // Show <DIR> for directories, bytes for files with space separator
-    if (index.column() == 1 && role == Qt::DisplayRole) {
-        QFileInfo info = fileInfo(index);
-        if (info.isDir())
-            return QStringLiteral("<DIR>");
-        else {
-            QString numStr = QString::number(info.size());
-            QString result;
-            int count = 0;
-            for (int i = numStr.length() - 1; i >= 0; --i) {
-                if (count == 3) {
-                    result.prepend(' ');
-                    count = 0;
-                }
-                result.prepend(numStr[i]);
-                count++;
-            }
-            return result;
-        }
-    }
-
-    // Right-align date column
-    if (index.column() == 3 && role == Qt::TextAlignmentRole) {
-        return QVariant(Qt::AlignRight | Qt::AlignVCenter);
-    }
-
-    return QFileSystemModel::data(index, role);
+HostModel::HostModel(QObject *parent)
+    : QStandardItemModel(parent)
+{
+    // Set up 3 columns with translatable headers
+    setColumnCount(3);
+    setHorizontalHeaderItem(0, new QStandardItem(FilePanel::tr("Name")));
+    setHorizontalHeaderItem(1, new QStandardItem(FilePanel::tr("Size")));
+    setHorizontalHeaderItem(2, new QStandardItem(FilePanel::tr("Date")));
 }
 
-bool CustomSortProxyModel::lessThan(const QModelIndex &source_left,
-                                   const QModelIndex &source_right) const
-{
-    const QFileSystemModel* model =
-        qobject_cast<const QFileSystemModel*>(sourceModel());
-    if (!model)
-        return QSortFilterProxyModel::lessThan(source_left, source_right);
+void HostModel::setRootPath(const QString& path) {
+    QDir dir(path);
+    if (!dir.exists()) return;
 
-    QFileInfo leftInfo  = model->fileInfo(source_left);
-    QFileInfo rightInfo = model->fileInfo(source_right);
+    m_currentPath = dir.absolutePath();
 
-    const bool leftIsDir  = leftInfo.isDir();
-    const bool rightIsDir = rightInfo.isDir();
+    // Check if we're at a root directory
+    QDir parentDir = dir;
+    m_isRoot = !parentDir.cdUp();
 
-    // Dirs have more precedence
-    if (leftIsDir != rightIsDir)
-        return leftIsDir;
+    populateModel();
+}
 
-    // Sorting
-    int column = sortColumn();
-    switch (column) {
-        case 0: // Name
-            return QString::localeAwareCompare(leftInfo.fileName(), rightInfo.fileName()) < 0;
-        case 1: // Size
-            return leftInfo.size() < rightInfo.size();
-        case 3: // Date
-            return leftInfo.lastModified() < rightInfo.lastModified();
-        default:
-            return QSortFilterProxyModel::lessThan(source_left, source_right);
+void HostModel::setNameFilters(const QStringList& filters) {
+    m_nameFilters = filters;
+}
+
+void HostModel::setSortOrder(SortOrder order) {
+    m_sortOrder = order;
+    refresh();
+}
+
+void HostModel::refresh() {
+    populateModel();
+}
+
+void HostModel::goUp() {
+    if (m_isRoot) return;
+
+    QDir dir(m_currentPath);
+    if (dir.cdUp()) {
+        setRootPath(dir.absolutePath());
     }
+}
+
+QString HostModel::filePath(const QModelIndex& index) const {
+    if (!index.isValid()) return QString();
+
+    QStandardItem* item = itemFromIndex(this->index(index.row(), 0));
+    if (!item) return QString();
+
+    return item->data(Qt::UserRole).toString();
+}
+
+QFileInfo HostModel::fileInfo(const QModelIndex& index) const {
+    QString path = filePath(index);
+    return QFileInfo(path);
+}
+
+bool HostModel::isDir(const QModelIndex& index) const {
+    if (!index.isValid()) return false;
+
+    QStandardItem* item = itemFromIndex(this->index(index.row(), 0));
+    if (!item) return false;
+
+    return item->data(Qt::UserRole + 1).toBool();
+}
+
+void HostModel::populateModel() {
+    // Clear existing rows
+    removeRows(0, rowCount());
+
+    QDir dir(m_currentPath);
+
+    // Add [..] entry if not at root
+    if (!m_isRoot) {
+        QList<QStandardItem*> items;
+
+        // Column 0: Name [..]
+        QStandardItem* nameItem = new QStandardItem("[..]");
+        nameItem->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        nameItem->setData(QString(), Qt::UserRole);  // Empty path for [..]
+        nameItem->setData(true, Qt::UserRole + 1);   // Mark as directory
+        items.append(nameItem);
+
+        // Column 1: Size (empty for [..])
+        QStandardItem* sizeItem = new QStandardItem("");
+        sizeItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        items.append(sizeItem);
+
+        // Column 2: Date (empty for [..])
+        QStandardItem* dateItem = new QStandardItem("");
+        dateItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        items.append(dateItem);
+
+        appendRow(items);
+    }
+
+    // Get directory contents
+    QDir::Filters filters = QDir::Files | QDir::Hidden | QDir::NoDotAndDotDot | QDir::AllDirs;
+    QFileInfoList entries = dir.entryInfoList(m_nameFilters, filters, QDir::NoSort);
+
+    // Separate directories and files
+    QFileInfoList directories;
+    QFileInfoList files;
+
+    for (const QFileInfo& info : entries) {
+        if (info.isDir()) {
+            directories.append(info);
+        } else {
+            files.append(info);
+        }
+    }
+
+    // Sort directories and files separately
+    auto sortByName = [](const QFileInfo& a, const QFileInfo& b) {
+        return QString::localeAwareCompare(a.fileName(), b.fileName()) < 0;
+    };
+    auto sortBySize = [](const QFileInfo& a, const QFileInfo& b) {
+        return a.size() < b.size();
+    };
+
+    if (m_sortOrder == ByName) {
+        std::sort(directories.begin(), directories.end(), sortByName);
+        std::sort(files.begin(), files.end(), sortByName);
+    } else if (m_sortOrder == BySize) {
+        std::sort(directories.begin(), directories.end(), sortByName);  // Dirs still by name
+        std::sort(files.begin(), files.end(), sortBySize);
+    }
+    // For NoOrder, use filesystem order (don't sort)
+
+    // Add directories first
+    for (const QFileInfo& info : directories) {
+        QList<QStandardItem*> items;
+
+        // Column 0: Name
+        QStandardItem* nameItem = new QStandardItem("[" + info.fileName() + "]");
+        nameItem->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        nameItem->setData(info.absoluteFilePath(), Qt::UserRole);
+        nameItem->setData(true, Qt::UserRole + 1);
+        items.append(nameItem);
+
+        // Column 1: Size
+        QStandardItem* sizeItem = new QStandardItem("<DIR>");
+        sizeItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        items.append(sizeItem);
+
+        // Column 2: Date
+        QStandardItem* dateItem = new QStandardItem(formatDate(info.lastModified()));
+        dateItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        items.append(dateItem);
+
+        appendRow(items);
+    }
+
+    // Then add files
+    for (const QFileInfo& info : files) {
+        QList<QStandardItem*> items;
+
+        // Column 0: Name
+        QStandardItem* nameItem = new QStandardItem(info.fileName());
+        nameItem->setTextAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        nameItem->setData(info.absoluteFilePath(), Qt::UserRole);
+        nameItem->setData(false, Qt::UserRole + 1);
+        items.append(nameItem);
+
+        // Column 1: Size
+        QStandardItem* sizeItem = new QStandardItem(formatSize(info.size()));
+        sizeItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        items.append(sizeItem);
+
+        // Column 2: Date
+        QStandardItem* dateItem = new QStandardItem(formatDate(info.lastModified()));
+        dateItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        items.append(dateItem);
+
+        appendRow(items);
+    }
+}
+
+QString HostModel::formatSize(qint64 size) const {
+    QString numStr = QString::number(size);
+    QString result;
+    int count = 0;
+    for (int i = numStr.length() - 1; i >= 0; --i) {
+        if (count == 3) {
+            result.prepend(' ');
+            count = 0;
+        }
+        result.prepend(numStr[i]);
+        count++;
+    }
+    return result;
+}
+
+QString HostModel::formatDate(const QDateTime& dt) const {
+    return QLocale().toString(dt, QLocale::ShortFormat);
 }
 
 
@@ -114,14 +242,7 @@ void FilePanel::setupPanel() {
     layout->setSpacing(3);
 
     // Model for the file system
-    host_model = new CustomFileSystemModel(this);
-    host_model->setFilter(QDir::Files | QDir::Hidden | QDir::NoDotAndDotDot | QDir::AllDirs);
-    host_model->setReadOnly(true);
-
-    // A proxy for custom sorting
-    host_proxy = new CustomSortProxyModel(this);
-    host_proxy->setSourceModel(host_model);
-    host_proxy->setDynamicSortFilter(true);
+    host_model = new HostModel(this);
 
     image_model = new QStandardItemModel(this);
 
@@ -293,12 +414,8 @@ void FilePanel::setDirectory(const QString& path) {
 
     currentPath = dir.absolutePath();
     dirEdit->setText(currentPath);
-    QModelIndex sourceRoot = host_model->setRootPath(currentPath);
-    QModelIndex proxyRoot  = host_proxy->mapFromSource(sourceRoot);
-    tableView->setRootIndex(proxyRoot);
-
-    // tableView->setColumnWidth(1, 120);
-    // tableView->setColumnWidth(3, 180);
+    host_model->setRootPath(currentPath);
+    tableView->setRootIndex(QModelIndex());  // QStandardItemModel doesn't use root index
 
     m_settings->setValue("directory/"+m_ini_label, currentPath);
 }
@@ -328,7 +445,7 @@ void FilePanel::onFilterChanged(int index)
 
     QStringList filters = filter["extensions"].toString().split(";");
     host_model->setNameFilters(filters);
-    host_model->setNameFilterDisables(false);
+    host_model->refresh();  // Refresh to apply new filters
 
     m_settings->setValue("directory/"+m_ini_label+"_file_filter", ff_id);
 }
@@ -405,24 +522,25 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
         return;
 
     if (mode == panelMode::Host) {
-        QString displayName = host_proxy->data(index, Qt::DisplayRole).toString();
+        QString displayName = host_model->data(index, Qt::DisplayRole).toString();
 
-        // Process upper directory
-        // if (displayName == "..") {
-        //     QDir dir(currentPath);
-        //     if (dir.cdUp())
-        //         setDirectory(dir.absolutePath());
-        //     return;
-        // }
+        // Process [..] navigation
+        if (displayName == "[..]") {
+            host_model->goUp();
+            currentPath = host_model->currentPath();
+            dirEdit->setText(currentPath);
+            m_settings->setValue("directory/"+m_ini_label, currentPath);
+            return;
+        }
 
-        QModelIndex srcIndex = host_proxy->mapToSource(index);
-        QString path = host_model->filePath(srcIndex);
+        QString path = host_model->filePath(index);
+        if (path.isEmpty()) return;
+
         QFileInfo info(path);
 
         if (info.isDir()) {
             setDirectory(path);
         } else {
-            // QDesktopServices::openUrl(QUrl::fromLocalFile(path));
             int res = openImage(path);
             if (res != 0 ) {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Can't detect type of the file automatically"));
@@ -537,7 +655,7 @@ void FilePanel::setMode(panelMode new_mode)
 {
     mode = new_mode;
     if (mode==panelMode::Host) {
-        tableView->setModel(host_proxy);
+        tableView->setModel(host_model);
         tableView->setupForHostMode();
     } else {
         tableView->setModel(image_model);
@@ -654,8 +772,10 @@ QStringList FilePanel::selectedPaths() const {
     if (!tableView->selectionModel()) return paths;
     const auto rows = tableView->selectionModel()->selectedRows(0);
     for (const auto& idx : rows) {
-        QModelIndex srcIdx = host_proxy->mapToSource(idx);
-        paths << host_model->filePath(srcIdx);
+        QString path = host_model->filePath(idx);
+        if (!path.isEmpty()) {  // Skip [..] entry which has empty path
+            paths << path;
+        }
     }
     return paths;
 }

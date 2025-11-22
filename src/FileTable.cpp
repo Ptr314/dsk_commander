@@ -163,7 +163,6 @@ void FileTable::setupForHostMode() {
     setSortingEnabled(true);
     sortByColumn(0, Qt::AscendingOrder);
 
-    setColumnHidden(2, true);  // Hide "Type"
     QHeaderView* hh = horizontalHeader();
     hh->setSectionResizeMode(0, QHeaderView::Stretch); // Name - expanded
 
