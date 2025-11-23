@@ -85,10 +85,14 @@ public:
     void setSortOrder(HostModel::SortOrder order);
     int getSortOrder() const;
 
+    // Mode getter
+    panelMode getMode() const { return mode; }
+
 signals:
     void activated(FilePanel* self);
     void switchPanelRequested();
     void sortOrderChanged(int order);
+    void panelModeChanged(panelMode newMode);
 
 private slots:
     void onFilterChanged(int index);

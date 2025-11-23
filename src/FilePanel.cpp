@@ -723,6 +723,7 @@ void FilePanel::setMode(panelMode new_mode)
         tableView->setModel(image_model);
         tableView->setupForImageMode(m_filesystem->get_capabilities());
     }
+    emit panelModeChanged(mode);
 }
 
 void FilePanel::updateTable()

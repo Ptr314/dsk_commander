@@ -186,6 +186,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(rightPanel, &FilePanel::sortOrderChanged, this, [this]() {
         updateSortingMenu(rightPanel);
     });
+
+    // Connect panel mode change signals to update button states
+    connect(leftPanel, &FilePanel::panelModeChanged, this, &MainWindow::updateViewButtonState);
+    connect(rightPanel, &FilePanel::panelModeChanged, this, &MainWindow::updateViewButtonState);
 }
 
 void MainWindow::switch_language(const QString & lang, bool init)
@@ -1380,11 +1384,11 @@ void MainWindow::initializeMainMenu() {
     // === FILES MENU ===
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
-    QAction *viewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("F3 View"));
-    connect(viewAction, &QAction::triggered, this, &MainWindow::onView);
+    menuViewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("F3 View"));
+    connect(menuViewAction, &QAction::triggered, this, &MainWindow::onView);
 
-    QAction *editAction = filesMenu->addAction(QIcon(":/icons/view"), MainWindow::tr("F4 Edit"));
-    connect(editAction, &QAction::triggered, this, &MainWindow::onEdit);
+    menuEditAction = filesMenu->addAction(QIcon(":/icons/view"), MainWindow::tr("F4 Edit"));
+    connect(menuEditAction, &QAction::triggered, this, &MainWindow::onEdit);
 
     QAction *copyAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F5 Copy"));
     connect(copyAction, &QAction::triggered, this, &MainWindow::onCopy);
@@ -1482,24 +1486,27 @@ void MainWindow::updateStatusBarInfo() {
 }
 
 void MainWindow::updateViewButtonState() {
-    // if (!activePanel) {
-    //     actView->setEnabled(false);
-    //     return;
-    // }
+    if (!activePanel) return;
 
-    // const QStringList paths = activePanel->selectedPaths();
+    // Get the current panel mode
+    panelMode mode = activePanel->getMode();
 
-    // // If one element choosen
-    // if (paths.size() == 1) {
-    //     QFileInfo info(paths.first());
-    //     // and it's not a dir
-    //     actView->setEnabled(true);
-    //     actEdit->setEnabled(info.isFile());
-    // } else {
-    //     // Nothing or more than one
-    //     actView->setEnabled(false);
-    //     actEdit->setEnabled(false);
-    // }
+    // Update button and menu action text based on mode
+    if (mode == panelMode::Host) {
+        // Host mode: F3 Info, F4 Open
+        actView->setText(MainWindow::tr("F3 Info"));
+        actEdit->setText(MainWindow::tr("F4 Open"));
+
+        if (menuViewAction) menuViewAction->setText(MainWindow::tr("F3 Info"));
+        if (menuEditAction) menuEditAction->setText(MainWindow::tr("F4 Open"));
+    } else {
+        // Image mode: F3 View, F4 Meta
+        actView->setText(MainWindow::tr("F3 View"));
+        actEdit->setText(MainWindow::tr("F4 Meta"));
+
+        if (menuViewAction) menuViewAction->setText(MainWindow::tr("F3 View"));
+        if (menuEditAction) menuEditAction->setText(MainWindow::tr("F4 Meta"));
+    }
 }
 
 void MainWindow::onView() {
