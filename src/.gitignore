@@ -2,3 +2,4 @@ build/
 cmake-build-*/
 CMakeLists.txt.user*
 nul
+.qtcreator

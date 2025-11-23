@@ -11,6 +11,7 @@
 #include <QCheckBox>
 #include <QToolButton>
 #include <QDir>
+#include <QDateTime>
 #include <QSettings>
 #include <QStandardItemModel>
 
