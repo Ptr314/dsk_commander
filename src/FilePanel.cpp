@@ -1068,7 +1068,11 @@ void FilePanel::onView()
             file_info->exec();
         }
     } else {
-
+        // Image mode: behave like double-click/Enter
+        QModelIndex index = tableView->currentIndex();
+        if (index.isValid()) {
+            onItemDoubleClicked(index);
+        }
     }
 }
 
