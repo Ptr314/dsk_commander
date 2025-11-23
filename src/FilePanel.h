@@ -67,6 +67,7 @@ public:
 
     QString currentDir() const { return currentPath; }
     QStringList selectedPaths() const;
+    QString currentFilePath() const;
     void refresh();
     void setActive(bool active);
     void focusList();
