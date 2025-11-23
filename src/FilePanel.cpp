@@ -20,6 +20,9 @@
 #include "mainutils.h"
 #include "viewdialog.h"
 #include "fileparamdialog.h"
+#include "fs_host.h"
+
+#include "dsk_tools/dsk_tools.h"
 
 // ============================================================================
 // HostModel implementation
@@ -841,7 +844,22 @@ QStringList FilePanel::selectedPaths() const {
             paths << path;
         }
     }
+    if (paths.empty()) {
+        QModelIndex current = tableView->currentIndex();
+        if (current.isValid())
+            paths << host_model->filePath(current);
+    }
     return paths;
+}
+
+int FilePanel::selectedCount() const {
+    if (mode == panelMode::Host) {
+        auto selected_count = selectedPaths().size();
+        if (selected_count > 0) return selected_count;
+        QModelIndex current = tableView->currentIndex();
+        return current.isValid()?1:0;
+    }
+    return 0;
 }
 
 QString FilePanel::currentFilePath() const {
@@ -1069,10 +1087,26 @@ void FilePanel::onView()
             file_info->exec();
         }
     } else {
-        // Image mode: behave like double-click/Enter
+        // // Image mode: behave like double-click/Enter
+        // QModelIndex index = tableView->currentIndex();
+        // if (index.isValid()) {
+        //     onItemDoubleClicked(index);
+        // }
+        auto file_info = new QDialog(this);
+
+        Ui_FileInfo fileinfoUi;
+        fileinfoUi.setupUi(file_info);
+
         QModelIndex index = tableView->currentIndex();
         if (index.isValid()) {
-            onItemDoubleClicked(index);
+            auto f = m_files[index.row()];
+
+            auto info = replace_placeholders(QString::fromStdString(m_filesystem->file_info(f)));
+
+            QFont font("Consolas", 10, 400);
+            fileinfoUi.textBox->setFont(font);
+            fileinfoUi.textBox->setPlainText(info);
+            file_info->exec();
         }
     }
 }
@@ -1125,4 +1159,61 @@ int FilePanel::getSortOrder() const
         return static_cast<int>(host_model->sortOrder());
     }
     return -1;
+}
+
+bool FilePanel::allowPutFiles() const {
+    return getMode() == panelMode::Host || (m_filesystem->get_capabilities() | FILE_ADD) != 0;
+}
+
+dsk_tools::Files FilePanel::getSelectedFiles()
+{
+    dsk_tools::Files files;
+
+    if (mode == panelMode::Host) {
+        auto host_fs = new dsk_tools::fsHost(nullptr);
+
+        QStringList paths = selectedPaths();
+        foreach (const QString & path, paths) {
+            QFileInfo fi(path);
+            if (fi.isDir()) {
+                // TODO: Dirs processing
+            } else {
+                std::string fn = _toStdString(fi.fileName());
+                dsk_tools::UniversalFile f;
+
+                f.fs = dsk_tools::FS::Host;
+                f.name = fn;
+                f.size = fi.size();
+                f.is_dir = false;
+                f.is_protected = false;
+                f.is_deleted = false;
+                f.type = dsk_tools::PreferredType::Binary;
+
+                f.original_name = dsk_tools::strToBytes(fn);
+                f.attributes = 0;
+
+                // Metadata stores a full path
+                f.metadata = dsk_tools::strToBytes(_toStdString(path));
+
+                files.push_back(f);
+            }
+        }
+
+    } else {
+        // TODO: image processing
+    }
+
+    return files;
+}
+
+void FilePanel::putFiles(const dsk_tools::Files & files, const bool copy)
+{
+    if (mode == panelMode::Host) {
+        foreach (const dsk_tools::UniversalFile & f, files) {
+            QString path = QString::fromStdString(dsk_tools::bytesToString(f.metadata));
+            qDebug() << "Copy " << path;
+        }
+    } else {
+
+    }
 }

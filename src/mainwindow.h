@@ -99,6 +99,8 @@ private slots:
     void onDelete();
     void onExit();
 
+    void doCopy(bool copy);
+
     void setActivePanel(FilePanel* panel);
     void updateStatusBarInfo();
     void updateViewButtonState();

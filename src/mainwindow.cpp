@@ -1274,8 +1274,8 @@ void MainWindow::on_actionRename_triggered()
 // New interface elements ---------------------------
 
 void MainWindow::createActions() {
-    actView   = new QAction(MainWindow::tr("F3 View"), this);
-    actEdit   = new QAction(MainWindow::tr("F4 Edit"), this);
+    actView   = new QAction(MainWindow::tr("F3 Information"), this);
+    actEdit   = new QAction(MainWindow::tr("F4 Open"), this);
     actCopy   = new QAction(MainWindow::tr("F5 Copy"), this);
     actMove   = new QAction(MainWindow::tr("F6 Move"), this);
     actMkdir  = new QAction(MainWindow::tr("F7 MkDir"), this);
@@ -1499,6 +1499,9 @@ void MainWindow::updateViewButtonState() {
 
         if (menuViewAction) menuViewAction->setText(MainWindow::tr("F3 Info"));
         if (menuEditAction) menuEditAction->setText(MainWindow::tr("F4 Open"));
+
+        qDebug() << activePanel->currentFilePath();
+        // actView->setEnabled(activePanel->currentFilePath().
     } else {
         // Image mode: F3 View, F4 Meta
         actView->setText(MainWindow::tr("F3 View"));
@@ -1520,15 +1523,36 @@ void MainWindow::onEdit() {
 }
 
 void MainWindow::onCopy() {
-    if (!activePanel) return;
-    // TODO: Copy
-    qDebug() << "--> Copy";
+    doCopy(true);
 }
 
-void MainWindow::onMove() {
-    if (!activePanel) return;
-    // TODO: Move
-    qDebug() << "--> Move";
+void MainWindow::onMove()
+{
+    doCopy(false);
+}
+
+void MainWindow::doCopy(bool copy)
+{
+    if (!activePanel || !otherPanel()->allowPutFiles()) return;
+
+    QMessageBox::StandardButton reply;
+    if (copy) {
+        reply = QMessageBox::question(this,
+                                    MainWindow::tr("Copying files"),
+                                    MainWindow::tr("Copy %1 files?").arg(activePanel->selectedCount()),
+                                    QMessageBox::Yes|QMessageBox::No
+                );
+    } else {
+        reply = QMessageBox::question(this,
+                                    MainWindow::tr("Moving files"),
+                                    MainWindow::tr("Move %1 files?").arg(activePanel->selectedCount()),
+                                    QMessageBox::Yes|QMessageBox::No
+                );
+    }
+    if (reply == QMessageBox::Yes) {
+        dsk_tools::Files files = activePanel->getSelectedFiles();
+        otherPanel()->putFiles(files, copy);
+    }
 }
 
 void MainWindow::onMkdir() {

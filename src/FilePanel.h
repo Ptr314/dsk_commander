@@ -72,6 +72,10 @@ public:
     void setActive(bool active);
     void focusList();
 
+    int selectedCount() const;
+
+    bool allowPutFiles() const;
+
     QItemSelectionModel* tableSelectionModel() const {
         return tableView ? tableView->selectionModel() : nullptr;
     }
@@ -87,6 +91,9 @@ public:
 
     // Mode getter
     panelMode getMode() const { return mode; }
+
+    dsk_tools::Files getSelectedFiles();
+    void putFiles(const dsk_tools::Files & files, const bool copy);
 
 signals:
     void activated(FilePanel* self);
