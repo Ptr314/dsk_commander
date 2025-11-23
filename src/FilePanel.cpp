@@ -12,6 +12,7 @@
 #include <QDebug>
 #include <QJsonObject>
 #include <QLocale>
+#include <QDesktopServices>
 
 #include "./ui_fileinfodialog.h"
 
@@ -1078,8 +1079,12 @@ void FilePanel::onEdit()
         QString path = currentFilePath();
         if (path.isEmpty()) return;  // Skip [..] entry or invalid index
 
-        // TODO: Implement file/directory editing functionality for host mode
-        // This could open a properties dialog or external editor
+        // Open file with system default application
+        QUrl fileUrl = QUrl::fromLocalFile(path);
+        if (!QDesktopServices::openUrl(fileUrl)) {
+            QMessageBox::warning(this, FilePanel::tr("Error"),
+                               FilePanel::tr("Could not open file with system default application"));
+        }
     } else {
         // TODO: Implement file metadata editing for image mode
         // This could use FileParamDialog or similar to edit DOS 3.3 file attributes
