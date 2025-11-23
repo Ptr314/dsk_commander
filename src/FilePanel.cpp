@@ -19,6 +19,7 @@
 #include "FilePanel.h"
 #include "mainutils.h"
 #include "viewdialog.h"
+#include "fileparamdialog.h"
 
 // ============================================================================
 // HostModel implementation
@@ -1091,8 +1092,22 @@ void FilePanel::onEdit()
                                FilePanel::tr("Could not open file with system default application"));
         }
     } else {
-        // TODO: Implement file metadata editing for image mode
-        // This could use FileParamDialog or similar to edit DOS 3.3 file attributes
+        QModelIndex index = tableView->currentIndex();
+        if (index.isValid()) {
+            dsk_tools::fileData f = m_files[index.row()];
+            std::vector<dsk_tools::ParameterDescription> params = m_filesystem->file_get_metadata(f);
+
+            for (auto & param : params) {
+                param.name = replace_placeholders(QString::fromStdString(param.name)).toStdString();
+            }
+
+            FileParamDialog dialog(params);
+            if (dialog.exec() == QDialog::Accepted) {
+                auto values = dialog.getParameters();
+                m_filesystem->file_set_metadata(f, values);
+                dir();
+            }
+        }
     }
 }
 
