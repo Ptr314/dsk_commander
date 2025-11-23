@@ -162,6 +162,9 @@ private:
     QAction* actDelete {nullptr};
     QAction* actExit {nullptr};
 
+    QAction* menuViewAction {nullptr};
+    QAction* menuEditAction {nullptr};
+
     QLabel* statusLabel {nullptr};
 
     PanelMenuActions leftMenuActions;
