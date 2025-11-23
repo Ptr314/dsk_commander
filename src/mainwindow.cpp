@@ -1279,12 +1279,19 @@ void MainWindow::createActions() {
     actExit   = new QAction(MainWindow::tr("F10 Exit"), this);
 
     actView->setShortcut(Qt::Key_F3);
+    actView->setShortcutContext(Qt::WindowShortcut);
     actEdit->setShortcut(Qt::Key_F4);
+    actEdit->setShortcutContext(Qt::WindowShortcut);
     actCopy->setShortcut(Qt::Key_F5);
+    actCopy->setShortcutContext(Qt::WindowShortcut);
     actMove->setShortcut(Qt::Key_F6);
+    actMove->setShortcutContext(Qt::WindowShortcut);
     actMkdir->setShortcut(Qt::Key_F7);
+    actMkdir->setShortcutContext(Qt::WindowShortcut);
     actDelete->setShortcut(Qt::Key_F8);
+    actDelete->setShortcutContext(Qt::WindowShortcut);
     actExit->setShortcut(Qt::Key_F10);
+    actExit->setShortcutContext(Qt::WindowShortcut);
 
     connect(actView,   &QAction::triggered, this, &MainWindow::onView);
     connect(actEdit,   &QAction::triggered, this, &MainWindow::onEdit);
@@ -1374,27 +1381,21 @@ void MainWindow::initializeMainMenu() {
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
     QAction *viewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("F3 View"));
-    viewAction->setShortcut(Qt::Key_F3);
     connect(viewAction, &QAction::triggered, this, &MainWindow::onView);
 
     QAction *editAction = filesMenu->addAction(QIcon(":/icons/view"), MainWindow::tr("F4 Edit"));
-    editAction->setShortcut(Qt::Key_F4);
     connect(editAction, &QAction::triggered, this, &MainWindow::onEdit);
 
     QAction *copyAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F5 Copy"));
-    copyAction->setShortcut(Qt::Key_F5);
     connect(copyAction, &QAction::triggered, this, &MainWindow::onCopy);
 
     QAction *moveAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F6 Move"));
-    moveAction->setShortcut(Qt::Key_F6);
     connect(moveAction, &QAction::triggered, this, &MainWindow::onMove);
 
     QAction *mkdirAction = filesMenu->addAction(QIcon(":/icons/new_dir"), MainWindow::tr("F7 Make dir"));
-    mkdirAction->setShortcut(Qt::Key_F7);
     connect(mkdirAction, &QAction::triggered, this, &MainWindow::onMkdir);
 
     QAction *deleteAction = filesMenu->addAction(QIcon(":/icons/delete"), MainWindow::tr("F8 Delete"));
-    deleteAction->setShortcut(Qt::Key_F8);
     connect(deleteAction, &QAction::triggered, this, &MainWindow::onDelete);
 
     // === OPTIONS MENU ===
