@@ -841,6 +841,16 @@ QStringList FilePanel::selectedPaths() const {
     return paths;
 }
 
+QString FilePanel::currentFilePath() const {
+    if (mode != panelMode::Host) return QString();  // Only works in Host mode
+    if (!tableView->selectionModel()) return QString();
+
+    QModelIndex current = tableView->currentIndex();
+    if (!current.isValid()) return QString();
+
+    return host_model->filePath(current);
+}
+
 void FilePanel::refresh() {
     setDirectory(currentPath);
 }
@@ -976,54 +986,84 @@ QString FilePanel::replace_placeholders(const QString & in)
 
 void FilePanel::onView()
 {
+    emit activated(this);
+
     if (mode==panelMode::Host) {
-        const QStringList paths = selectedPaths();
-        if (paths.size() == 1) {
-            QFileInfo fi(paths.at(0));
-            if (!fi.isDir()) {
-                std::string file_name = _toStdString(fi.absoluteFilePath());
-                std::string type_id = "";
-                std::string  filesystem_id = "";
-                std::string format_id = filterCombo->itemData(filterCombo->currentIndex()).toString().toStdString();
-                if (format_id == "FILE_ANY") {
-                    int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
-                }
-                if (type_id.size()==0) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
+        QString path = currentFilePath();
+        if (path.isEmpty()) return;  // Skip [..] entry or invalid index
 
-                dsk_tools::Loader * loader;
+        QFileInfo fi(path);
 
-                if (format_id == "FILE_RAW_MSB") {
-                    loader = new dsk_tools::LoaderRAW(file_name, format_id, type_id);
-                } else
-                if (format_id == "FILE_AIM") {
-                    loader = new dsk_tools::LoaderAIM(file_name, format_id, type_id);
-                } else
-                if (format_id == "FILE_MFM_NIC") {
-                    loader = new dsk_tools::LoaderNIC(file_name, format_id, type_id);
-                } else
-                if (format_id == "FILE_MFM_NIB") {
-                    loader = new dsk_tools::LoaderNIB(file_name, format_id, type_id);
-                } else
-                if (format_id == "FILE_HXC_MFM") {
-                    loader = new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
-                } else
-                if (format_id == "FILE_HXC_HFE") {
-                    loader = new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
+        if (fi.isDir()) {
+            // Show directory information
+            QDir dir(path);
+            QFileInfoList entries = dir.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden);
+
+            int fileCount = 0;
+            int dirCount = 0;
+            qint64 totalSize = 0;
+
+            for (const QFileInfo& entry : entries) {
+                if (entry.isDir()) {
+                    dirCount++;
                 } else {
-                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
-                    return;
+                    fileCount++;
+                    totalSize += entry.size();
                 }
-                QDialog * file_info = new QDialog(this);
-
-                Ui_FileInfo fileinfoUi;
-                fileinfoUi.setupUi(file_info);
-
-                QString info = replace_placeholders(QString::fromStdString(loader->file_info()));
-                QFont font("Consolas", 10, 400);
-                fileinfoUi.textBox->setFont(font);
-                fileinfoUi.textBox->setPlainText(info);
-                file_info->exec();
             }
+
+            QString info = FilePanel::tr("Directory: %1\n\n").arg(fi.fileName());
+            info += FilePanel::tr("Path: %1\n").arg(fi.absoluteFilePath());
+            info += FilePanel::tr("Subdirectories: %1\n").arg(dirCount);
+            info += FilePanel::tr("Files: %1\n").arg(fileCount);
+            info += FilePanel::tr("Total size: %1 bytes\n").arg(totalSize);
+            info += FilePanel::tr("Last modified: %1").arg(QLocale().toString(fi.lastModified(), QLocale::ShortFormat));
+
+            QMessageBox::information(this, FilePanel::tr("Directory Information"), info);
+        } else {
+            // Show file information
+            std::string file_name = _toStdString(fi.absoluteFilePath());
+            std::string type_id = "";
+            std::string  filesystem_id = "";
+            std::string format_id = filterCombo->itemData(filterCombo->currentIndex()).toString().toStdString();
+            if (format_id == "FILE_ANY") {
+                int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+            }
+            if (type_id.size()==0) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
+
+            dsk_tools::Loader * loader;
+
+            if (format_id == "FILE_RAW_MSB") {
+                loader = new dsk_tools::LoaderRAW(file_name, format_id, type_id);
+            } else
+            if (format_id == "FILE_AIM") {
+                loader = new dsk_tools::LoaderAIM(file_name, format_id, type_id);
+            } else
+            if (format_id == "FILE_MFM_NIC") {
+                loader = new dsk_tools::LoaderNIC(file_name, format_id, type_id);
+            } else
+            if (format_id == "FILE_MFM_NIB") {
+                loader = new dsk_tools::LoaderNIB(file_name, format_id, type_id);
+            } else
+            if (format_id == "FILE_HXC_MFM") {
+                loader = new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
+            } else
+            if (format_id == "FILE_HXC_HFE") {
+                loader = new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
+            } else {
+                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
+                return;
+            }
+            QDialog * file_info = new QDialog(this);
+
+            Ui_FileInfo fileinfoUi;
+            fileinfoUi.setupUi(file_info);
+
+            QString info = replace_placeholders(QString::fromStdString(loader->file_info()));
+            QFont font("Consolas", 10, 400);
+            fileinfoUi.textBox->setFont(font);
+            fileinfoUi.textBox->setPlainText(info);
+            file_info->exec();
         }
     } else {
 
@@ -1032,10 +1072,17 @@ void FilePanel::onView()
 
 void FilePanel::onEdit()
 {
+    emit activated(this);
+
     if (mode==panelMode::Host) {
+        QString path = currentFilePath();
+        if (path.isEmpty()) return;  // Skip [..] entry or invalid index
 
+        // TODO: Implement file/directory editing functionality for host mode
+        // This could open a properties dialog or external editor
     } else {
-
+        // TODO: Implement file metadata editing for image mode
+        // This could use FileParamDialog or similar to edit DOS 3.3 file attributes
     }
 }
 
