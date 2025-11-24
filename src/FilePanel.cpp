@@ -431,6 +431,11 @@ void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     host_model->setRootPath(currentPath);
     tableView->setRootIndex(QModelIndex());  // QStandardItemModel doesn't use root index
 
+    // Update filesystem if it's an fsHost instance
+    if (m_filesystem && m_filesystem->getFS() == dsk_tools::FS::Host) {
+        m_filesystem->cd(_toStdString(currentPath));
+    }
+
     // Restore cursor position or set to first item
     if (!oldDirName.isEmpty()) {
         // Search for the directory we came from
@@ -728,6 +733,8 @@ void FilePanel::setMode(panelMode new_mode)
     if (mode==panelMode::Host) {
         tableView->setModel(host_model);
         tableView->setupForHostMode();
+        if (m_filesystem != nullptr) delete m_filesystem;
+        m_filesystem = new dsk_tools::fsHost(nullptr);
     } else {
         tableView->setModel(image_model);
         tableView->setupForImageMode(m_filesystem->getCaps());
@@ -878,7 +885,11 @@ QString FilePanel::currentFilePath() const {
 }
 
 void FilePanel::refresh() {
-    setDirectory(currentPath);
+    if (mode == panelMode::Host) {
+        setDirectory(currentPath);
+    } else {
+        dir();
+    }
 }
 
 void FilePanel::setActive(bool active) {
@@ -1211,14 +1222,22 @@ dsk_tools::Files FilePanel::getSelectedFiles()
     return files;
 }
 
-void FilePanel::putFiles(const dsk_tools::Files & files, const bool copy)
+void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const bool copy)
 {
     if (mode == panelMode::Host) {
         foreach (const dsk_tools::UniversalFile & f, files) {
-            QString path = QString::fromStdString(dsk_tools::bytesToString(f.metadata));
-            qDebug() << "Copy " << path;
+            if (f.is_dir) {
+                // TODO: Processing dirs
+            } else {
+                dsk_tools::BYTES data;
+                auto get_result = sourceFs->get_file(f, data);
+                if (get_result) {
+                    auto put_result = m_filesystem->put_file(f, data);
+                }
+            }
         }
+        refresh();
     } else {
-
+        // TODO: Image mode not implemented
     }
 }
