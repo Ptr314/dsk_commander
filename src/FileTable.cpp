@@ -190,7 +190,7 @@ void FileTable::setupForHostMode() {
     connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &FileTable::onCurrentIndexChanged);
 }
 
-void FileTable::setupForImageMode(int capabilities) {
+void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setSelectionMode(QAbstractItemView::ExtendedSelection);
 
@@ -200,14 +200,14 @@ void FileTable::setupForImageMode(int capabilities) {
 
     image_model->clear();
 
-    if (capabilities & FILE_PROTECTION) {
+    if (dsk_tools::hasFlag(capabilities, dsk_tools::FSCaps::Protect)) {
         image_model->setColumnCount(const_columns + columns + 1);
         image_model->setHeaderData(columns, Qt::Horizontal, FileTable::tr("P"));
         image_model->horizontalHeaderItem(columns)->setToolTip(FileTable::tr("Protection"));
         setColumnWidth(columns, 20);
         columns++;
     }
-    if (capabilities & FILE_TYPE) {
+    if (dsk_tools::hasFlag(capabilities, dsk_tools::FSCaps::Types)) {
         image_model->setColumnCount(const_columns + columns + 1);
         image_model->setHeaderData(columns, Qt::Horizontal, FileTable::tr("T"));
         image_model->horizontalHeaderItem(columns)->setToolTip(FileTable::tr("Type"));
