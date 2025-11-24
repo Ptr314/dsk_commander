@@ -1224,20 +1224,62 @@ dsk_tools::Files FilePanel::getSelectedFiles()
 
 void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const bool copy)
 {
-    if (mode == panelMode::Host) {
-        foreach (const dsk_tools::UniversalFile & f, files) {
-            if (f.is_dir) {
-                // TODO: Processing dirs
-            } else {
-                dsk_tools::BYTES data;
-                auto get_result = sourceFs->get_file(f, data);
-                if (get_result) {
-                    auto put_result = m_filesystem->put_file(f, data);
+    foreach (const dsk_tools::UniversalFile & f, files) {
+        if (f.is_dir) {
+            // TODO: Processing dirs
+        } else {
+            dsk_tools::BYTES data;
+            auto get_result = sourceFs->get_file(f, data);
+            if (get_result) {
+                auto put_result = m_filesystem->put_file(f, data);
+                if (!put_result) {
+                    // Check if file already exists
+                    if (put_result.code == dsk_tools::ErrorCode::FileAlreadyExists) {
+                        const QMessageBox::StandardButton res = QMessageBox::question(
+                            this,
+                            FilePanel::tr("File exists"),
+                            FilePanel::tr("File '%1' already exists. Overwrite?").arg(QString::fromStdString(f.name)),
+                            QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel
+                        );
+
+                        if (res == QMessageBox::Yes) {
+                            // Retry with force_replace flag
+                            put_result = m_filesystem->put_file(f, data, true);
+                            if (!put_result) {
+                                QMessageBox::critical(
+                                    this,
+                                    FilePanel::tr("Error"),
+                                    FilePanel::tr("Error writing file '%1'").arg(QString::fromStdString(f.name))
+                                );
+                            }
+                        } else if (res == QMessageBox::Cancel) {
+                            // Stop all operations
+                            break;
+                        }
+                        // If No: continue to next file (implicit - loop continues)
+                    } else if (put_result.code == dsk_tools::ErrorCode::NotImplementedYet) {
+                        QMessageBox::critical(
+                            this,
+                            FilePanel::tr("Error"),
+                            FilePanel::tr("Writing for this type of file system is not implemented yet")
+                        );
+                        break;
+                    } else {
+                        QMessageBox::critical(
+                        this,
+                        FilePanel::tr("Error"),
+                        FilePanel::tr("Error writing file '%1'").arg(QString::fromStdString(f.name))
+                        );
+                    }
                 }
+            } else {
+                QMessageBox::critical(
+                    this,
+                    FilePanel::tr("Error"),
+                    FilePanel::tr("Error reading file '%1'").arg(QString::fromStdString(f.name))
+                );
             }
         }
-        refresh();
-    } else {
-        // TODO: Image mode not implemented
     }
+    refresh();
 }
