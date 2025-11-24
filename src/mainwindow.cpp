@@ -467,19 +467,19 @@ void MainWindow::init_table()
 {
     int const_columns = 2;
     int columns = 0;
-    int funcs = filesystem->get_capabilities();
+    dsk_tools::FSCaps funcs = filesystem->getCaps();
 
     rightFilesModel.clear();
     ui->rightFiles->horizontalHeader()->setMinimumSectionSize(20);
 
-    if (funcs & FILE_PROTECTION) {
+    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Protect)) {
         rightFilesModel.setColumnCount(const_columns + columns + 1);
         rightFilesModel.setHeaderData(columns, Qt::Horizontal, MainWindow::tr("P"));
         rightFilesModel.horizontalHeaderItem(columns)->setToolTip(MainWindow::tr("Protection"));
         ui->rightFiles->setColumnWidth(columns, 20);
         columns++;
     }
-    if (funcs & FILE_TYPE) {
+    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Types)) {
         rightFilesModel.setColumnCount(const_columns + columns + 1);
         rightFilesModel.setHeaderData(columns, Qt::Horizontal, MainWindow::tr("T"));
         rightFilesModel.horizontalHeaderItem(columns)->setToolTip(MainWindow::tr("Type"));
@@ -502,21 +502,21 @@ void MainWindow::init_table()
 
 void MainWindow::update_table()
 {
-    int funcs = filesystem->get_capabilities();
+    dsk_tools::FSCaps funcs = filesystem->getCaps();
 
     rightFilesModel.removeRows(0, rightFilesModel.rowCount());
 
     foreach (const dsk_tools::fileData & f, files) {
         QList<QStandardItem*> items;
 
-        if (funcs & FILE_PROTECTION) {
+        if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Protect)) {
             QStandardItem * protect_item = new QStandardItem();
             protect_item->setText((f.is_protected)?"*":"");
             protect_item->setTextAlignment(Qt::AlignCenter);
             items.append(protect_item);
         }
 
-        if (funcs & FILE_TYPE) {
+        if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Types)) {
             QStandardItem * type_item = new QStandardItem();
             type_item->setText(QString::fromStdString(f.type_str_short));
             type_item->setTextAlignment(Qt::AlignCenter);
@@ -858,9 +858,9 @@ void MainWindow::setup_buttons(bool disabled)
         ui->actionDelete->setDisabled(disabled);
 
     } else {
-        int funcs = filesystem->get_capabilities();
-        ui->addDirBtn->setDisabled((funcs & FILE_DIRECTORIES) == 0);
-        ui->addFileBtn->setDisabled((funcs & FILE_ADD) == 0);
+        dsk_tools::FSCaps funcs = filesystem->getCaps();
+        ui->addDirBtn->setDisabled(!dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Dirs));
+        ui->addFileBtn->setDisabled(!dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Add));
         ui->imageUpBtn->setDisabled(filesystem->is_root());
 
         QItemSelectionModel * selection = ui->rightFiles->selectionModel();
@@ -872,17 +872,17 @@ void MainWindow::setup_buttons(bool disabled)
         ui->infoButton->setDisabled(mode != 1);
         ui->viewButton->setDisabled(mode != 1);
         ui->saveFileButton->setDisabled(mode != 1);
-        ui->renameFileBtn->setDisabled(mode != 1 || (funcs & FILE_RENAME) == 0);
-        ui->deleteFileBtn->setDisabled(mode == 0 || (funcs & FILE_DELETE) == 0);
+        ui->renameFileBtn->setDisabled(mode != 1 || !dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Rename));
+        ui->deleteFileBtn->setDisabled(mode == 0 || !dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Delete));
 
         ui->actionFile_info->setDisabled(mode != 1);
         ui->actionView->setDisabled(mode != 1);
-        ui->actionRename->setDisabled(mode != 1 || (funcs & FILE_RENAME) == 0);
+        ui->actionRename->setDisabled(mode != 1 || !dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Rename));
         ui->actionSave_to_file->setDisabled(mode != 1);
 
-        ui->actionAdd_directory->setDisabled((funcs & FILE_DIRECTORIES) == 0);
-        ui->actionAdd_files->setDisabled((funcs & FILE_ADD) == 0);
-        ui->actionDelete->setDisabled(mode == 0 || (funcs & FILE_DELETE) == 0);
+        ui->actionAdd_directory->setDisabled(!dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Dirs));
+        ui->actionAdd_files->setDisabled(!dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Add));
+        ui->actionDelete->setDisabled(mode == 0 || !dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Delete));
     }
 }
 
@@ -1186,9 +1186,9 @@ void MainWindow::on_actionAdd_files_triggered()
 
 void MainWindow::on_actionAdd_directory_triggered()
 {
-    int funcs = filesystem->get_capabilities();
+    dsk_tools::FSCaps funcs = filesystem->getCaps();
 
-    if ((funcs & FILE_DIRECTORIES) != 0) {
+    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Dirs)) {
         bool ok{};
         QString text = QInputDialog::getText(this, MainWindow::tr("Add a directory"),
                                              MainWindow::tr("Directory name:"),

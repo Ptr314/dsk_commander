@@ -12,6 +12,8 @@
 #include <QTimer>
 #include <QModelIndex>
 
+#include "libs/dsk_tools/src/definitions.h"
+
 // Forward declarations
 class QEvent;
 class QMouseEvent;
@@ -41,7 +43,7 @@ public:
 
     // Setup methods for different display modes
     void setupForHostMode();
-    void setupForImageMode(int capabilities);
+    void setupForImageMode(dsk_tools::FSCaps capabilities);
 
     // Active state management
     void setActive(bool active);

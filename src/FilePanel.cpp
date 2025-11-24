@@ -725,28 +725,28 @@ void FilePanel::setMode(panelMode new_mode)
         tableView->setupForHostMode();
     } else {
         tableView->setModel(image_model);
-        tableView->setupForImageMode(m_filesystem->get_capabilities());
+        tableView->setupForImageMode(m_filesystem->getCaps());
     }
     emit panelModeChanged(mode);
 }
 
 void FilePanel::updateTable()
 {
-    int funcs = m_filesystem->get_capabilities();
+    dsk_tools::FSCaps funcs = m_filesystem->getCaps();
 
     image_model->removeRows(0, image_model->rowCount());
 
     foreach (const dsk_tools::fileData & f, m_files) {
         QList<QStandardItem*> items;
 
-        if (funcs & FILE_PROTECTION) {
+        if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Protect)) {
             QStandardItem * protect_item = new QStandardItem();
             protect_item->setText((f.is_protected)?"*":"");
             protect_item->setTextAlignment(Qt::AlignCenter);
             items.append(protect_item);
         }
 
-        if (funcs & FILE_TYPE) {
+        if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Types)) {
             QStandardItem * type_item = new QStandardItem();
             type_item->setText(QString::fromStdString(f.type_str_short));
             type_item->setTextAlignment(Qt::AlignCenter);
@@ -1162,7 +1162,7 @@ int FilePanel::getSortOrder() const
 }
 
 bool FilePanel::allowPutFiles() const {
-    return getMode() == panelMode::Host || (m_filesystem->get_capabilities() | FILE_ADD) != 0;
+    return getMode() == panelMode::Host || dsk_tools::hasFlag(m_filesystem->getCaps(), dsk_tools::FSCaps::Add);
 }
 
 dsk_tools::Files FilePanel::getSelectedFiles()
