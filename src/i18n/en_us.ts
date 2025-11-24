@@ -263,585 +263,615 @@
 <context>
     <name>FilePanel</name>
     <message>
-        <location filename="../FilePanel.cpp" line="33"/>
+        <location filename="../FilePanel.cpp" line="36"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="34"/>
+        <location filename="../FilePanel.cpp" line="37"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="35"/>
-        <location filename="../FilePanel.cpp" line="896"/>
+        <location filename="../FilePanel.cpp" line="38"/>
+        <location filename="../FilePanel.cpp" line="930"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="258"/>
-        <location filename="../FilePanel.cpp" line="260"/>
+        <location filename="../FilePanel.cpp" line="261"/>
+        <location filename="../FilePanel.cpp" line="263"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="265"/>
+        <location filename="../FilePanel.cpp" line="268"/>
         <source>Enter path and press Enter...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="268"/>
-        <location filename="../FilePanel.cpp" line="270"/>
+        <location filename="../FilePanel.cpp" line="271"/>
+        <location filename="../FilePanel.cpp" line="273"/>
         <source>Choose...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="380"/>
+        <location filename="../FilePanel.cpp" line="383"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="465"/>
+        <location filename="../FilePanel.cpp" line="473"/>
         <source>Choose a path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="609"/>
-        <location filename="../FilePanel.cpp" line="627"/>
-        <location filename="../FilePanel.cpp" line="681"/>
-        <location filename="../FilePanel.cpp" line="685"/>
-        <location filename="../FilePanel.cpp" line="689"/>
-        <location filename="../FilePanel.cpp" line="704"/>
-        <location filename="../FilePanel.cpp" line="713"/>
-        <location filename="../FilePanel.cpp" line="816"/>
-        <location filename="../FilePanel.cpp" line="1057"/>
+        <location filename="../FilePanel.cpp" line="622"/>
+        <location filename="../FilePanel.cpp" line="640"/>
+        <location filename="../FilePanel.cpp" line="694"/>
+        <location filename="../FilePanel.cpp" line="698"/>
+        <location filename="../FilePanel.cpp" line="702"/>
+        <location filename="../FilePanel.cpp" line="717"/>
+        <location filename="../FilePanel.cpp" line="726"/>
+        <location filename="../FilePanel.cpp" line="831"/>
         <location filename="../FilePanel.cpp" line="1091"/>
+        <location filename="../FilePanel.cpp" line="1141"/>
+        <location filename="../FilePanel.cpp" line="1251"/>
+        <location filename="../FilePanel.cpp" line="1263"/>
+        <location filename="../FilePanel.cpp" line="1270"/>
+        <location filename="../FilePanel.cpp" line="1278"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="609"/>
+        <location filename="../FilePanel.cpp" line="622"/>
         <source>Can&apos;t detect type of the file automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="627"/>
+        <location filename="../FilePanel.cpp" line="640"/>
         <source>File reading error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="681"/>
+        <location filename="../FilePanel.cpp" line="694"/>
         <source>File loading error. Check your disk type settings or try auto-detection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="685"/>
+        <location filename="../FilePanel.cpp" line="698"/>
         <source>Error checking file parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="689"/>
+        <location filename="../FilePanel.cpp" line="702"/>
         <source>Error preparing image data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="704"/>
+        <location filename="../FilePanel.cpp" line="717"/>
         <source>Unrecognized disk format or disk is damaged!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="713"/>
+        <location filename="../FilePanel.cpp" line="726"/>
         <source>File system initialization error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="816"/>
+        <location filename="../FilePanel.cpp" line="831"/>
         <source>Error reading files list!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="888"/>
+        <location filename="../FilePanel.cpp" line="922"/>
         <source>Directory Entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="889"/>
-        <location filename="../FilePanel.cpp" line="970"/>
+        <location filename="../FilePanel.cpp" line="923"/>
+        <location filename="../FilePanel.cpp" line="1004"/>
         <source>File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="890"/>
+        <location filename="../FilePanel.cpp" line="924"/>
         <source>File Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="891"/>
+        <location filename="../FilePanel.cpp" line="925"/>
         <source>byte(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="892"/>
+        <location filename="../FilePanel.cpp" line="926"/>
         <source>Sides</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="893"/>
+        <location filename="../FilePanel.cpp" line="927"/>
         <source>Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="894"/>
+        <location filename="../FilePanel.cpp" line="928"/>
         <source>sector(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="895"/>
+        <location filename="../FilePanel.cpp" line="929"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="897"/>
-        <location filename="../FilePanel.cpp" line="972"/>
+        <location filename="../FilePanel.cpp" line="931"/>
+        <location filename="../FilePanel.cpp" line="1006"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="898"/>
-        <location filename="../FilePanel.cpp" line="971"/>
+        <location filename="../FilePanel.cpp" line="932"/>
+        <location filename="../FilePanel.cpp" line="1005"/>
         <source>Protected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="899"/>
+        <location filename="../FilePanel.cpp" line="933"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="900"/>
+        <location filename="../FilePanel.cpp" line="934"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="901"/>
+        <location filename="../FilePanel.cpp" line="935"/>
         <source>T/S List Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="902"/>
+        <location filename="../FilePanel.cpp" line="936"/>
         <source>T/S List Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="903"/>
+        <location filename="../FilePanel.cpp" line="937"/>
         <source>Incorrect T/S data, stopping iterations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="904"/>
+        <location filename="../FilePanel.cpp" line="938"/>
         <source>Next T/S List Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="905"/>
+        <location filename="../FilePanel.cpp" line="939"/>
         <source>File End Reached</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="906"/>
+        <location filename="../FilePanel.cpp" line="940"/>
         <source>The file is marked as deleted, the data below may be incorrect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="907"/>
+        <location filename="../FilePanel.cpp" line="941"/>
         <source>File parsing error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="908"/>
+        <location filename="../FilePanel.cpp" line="942"/>
         <source>Track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="909"/>
+        <location filename="../FilePanel.cpp" line="943"/>
         <source>T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="910"/>
+        <location filename="../FilePanel.cpp" line="944"/>
         <source>H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="911"/>
-        <location filename="../FilePanel.cpp" line="912"/>
+        <location filename="../FilePanel.cpp" line="945"/>
+        <location filename="../FilePanel.cpp" line="946"/>
         <source>S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="913"/>
+        <location filename="../FilePanel.cpp" line="947"/>
         <source>Parsing finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="914"/>
+        <location filename="../FilePanel.cpp" line="948"/>
         <source>V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="915"/>
+        <location filename="../FilePanel.cpp" line="949"/>
         <source>Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="916"/>
+        <location filename="../FilePanel.cpp" line="950"/>
         <source>Index Mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="917"/>
+        <location filename="../FilePanel.cpp" line="951"/>
         <source>Data Mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="918"/>
+        <location filename="../FilePanel.cpp" line="952"/>
         <source>Sector Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="919"/>
+        <location filename="../FilePanel.cpp" line="953"/>
         <source>End Mark: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="920"/>
+        <location filename="../FilePanel.cpp" line="954"/>
         <source>End Mark: Not Detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="921"/>
-        <location filename="../FilePanel.cpp" line="926"/>
+        <location filename="../FilePanel.cpp" line="955"/>
+        <location filename="../FilePanel.cpp" line="960"/>
         <source>CRC: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="922"/>
-        <location filename="../FilePanel.cpp" line="927"/>
+        <location filename="../FilePanel.cpp" line="956"/>
+        <location filename="../FilePanel.cpp" line="961"/>
         <source>CRC: Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="923"/>
+        <location filename="../FilePanel.cpp" line="957"/>
         <source>Expected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="924"/>
+        <location filename="../FilePanel.cpp" line="958"/>
         <source>Found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="925"/>
+        <location filename="../FilePanel.cpp" line="959"/>
         <source>Data Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="928"/>
-        <location filename="../FilePanel.cpp" line="930"/>
+        <location filename="../FilePanel.cpp" line="962"/>
+        <location filename="../FilePanel.cpp" line="964"/>
         <source>Epilogue: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="929"/>
-        <location filename="../FilePanel.cpp" line="931"/>
+        <location filename="../FilePanel.cpp" line="963"/>
+        <location filename="../FilePanel.cpp" line="965"/>
         <source>Epilogue: Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="932"/>
+        <location filename="../FilePanel.cpp" line="966"/>
         <source>Track List Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="933"/>
+        <location filename="../FilePanel.cpp" line="967"/>
         <source>Track Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="934"/>
+        <location filename="../FilePanel.cpp" line="968"/>
         <source>Track Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="935"/>
+        <location filename="../FilePanel.cpp" line="969"/>
         <source>Header</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="936"/>
+        <location filename="../FilePanel.cpp" line="970"/>
         <source>Signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="937"/>
+        <location filename="../FilePanel.cpp" line="971"/>
         <source>No known signature found, aborting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="938"/>
+        <location filename="../FilePanel.cpp" line="972"/>
         <source>Format revision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="939"/>
+        <location filename="../FilePanel.cpp" line="973"/>
         <source>Side</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="940"/>
+        <location filename="../FilePanel.cpp" line="974"/>
         <source>Custom Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="941"/>
+        <location filename="../FilePanel.cpp" line="975"/>
         <source>DOS 3.3 VTOC found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="942"/>
+        <location filename="../FilePanel.cpp" line="976"/>
         <source>DOS 3.3 VTOC not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="943"/>
+        <location filename="../FilePanel.cpp" line="977"/>
         <source>Root Catalog Track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="944"/>
+        <location filename="../FilePanel.cpp" line="978"/>
         <source>Root Catalog Sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="945"/>
+        <location filename="../FilePanel.cpp" line="979"/>
         <source>DOS Release</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="946"/>
-        <location filename="../FilePanel.cpp" line="958"/>
+        <location filename="../FilePanel.cpp" line="980"/>
+        <location filename="../FilePanel.cpp" line="992"/>
         <source>Volume ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="947"/>
+        <location filename="../FilePanel.cpp" line="981"/>
         <source>Volume name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="948"/>
+        <location filename="../FilePanel.cpp" line="982"/>
         <source>Pairs per T/S list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="949"/>
+        <location filename="../FilePanel.cpp" line="983"/>
         <source>Last track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="950"/>
+        <location filename="../FilePanel.cpp" line="984"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="951"/>
+        <location filename="../FilePanel.cpp" line="985"/>
         <source>Tracks total</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="952"/>
+        <location filename="../FilePanel.cpp" line="986"/>
         <source>Sectors on track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="953"/>
+        <location filename="../FilePanel.cpp" line="987"/>
         <source>Bytes per sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="954"/>
+        <location filename="../FilePanel.cpp" line="988"/>
         <source>Error opening the file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="955"/>
+        <location filename="../FilePanel.cpp" line="989"/>
         <source>Error loading, check if the file type is correct</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="957"/>
+        <location filename="../FilePanel.cpp" line="991"/>
         <source>DPB Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="959"/>
+        <location filename="../FilePanel.cpp" line="993"/>
         <source>Device type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="960"/>
+        <location filename="../FilePanel.cpp" line="994"/>
         <source>DSIDE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="961"/>
+        <location filename="../FilePanel.cpp" line="995"/>
         <source>Blocks on track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="962"/>
+        <location filename="../FilePanel.cpp" line="996"/>
         <source>Tracks on disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="963"/>
+        <location filename="../FilePanel.cpp" line="997"/>
         <source>Last block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="964"/>
+        <location filename="../FilePanel.cpp" line="998"/>
         <source>VTOC block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="966"/>
+        <location filename="../FilePanel.cpp" line="1000"/>
         <source>Extent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="967"/>
+        <location filename="../FilePanel.cpp" line="1001"/>
         <source>Free sectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="968"/>
+        <location filename="../FilePanel.cpp" line="1002"/>
         <source>Free bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="973"/>
+        <location filename="../FilePanel.cpp" line="1007"/>
         <source>Extended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="975"/>
+        <location filename="../FilePanel.cpp" line="1009"/>
         <source>Agat image VR block found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="976"/>
+        <location filename="../FilePanel.cpp" line="1010"/>
         <source>Video mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="977"/>
+        <location filename="../FilePanel.cpp" line="1011"/>
         <source>Agat graphic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="978"/>
+        <location filename="../FilePanel.cpp" line="1012"/>
         <source>Agat text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="979"/>
+        <location filename="../FilePanel.cpp" line="1013"/>
         <source>Apple II modes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="980"/>
+        <location filename="../FilePanel.cpp" line="1014"/>
         <source>Agat GigaScreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="981"/>
+        <location filename="../FilePanel.cpp" line="1015"/>
         <source>Main palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="982"/>
+        <location filename="../FilePanel.cpp" line="1016"/>
         <source>Alternative palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="983"/>
+        <location filename="../FilePanel.cpp" line="1017"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="984"/>
+        <location filename="../FilePanel.cpp" line="1018"/>
         <source>Comment block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="985"/>
+        <location filename="../FilePanel.cpp" line="1019"/>
         <source>Font ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="986"/>
+        <location filename="../FilePanel.cpp" line="1020"/>
         <source>Custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1018"/>
+        <location filename="../FilePanel.cpp" line="1052"/>
         <source>Directory: %1
 
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1019"/>
+        <location filename="../FilePanel.cpp" line="1053"/>
         <source>Path: %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1020"/>
+        <location filename="../FilePanel.cpp" line="1054"/>
         <source>Subdirectories: %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1021"/>
+        <location filename="../FilePanel.cpp" line="1055"/>
         <source>Files: %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1022"/>
+        <location filename="../FilePanel.cpp" line="1056"/>
         <source>Total size: %1 bytes
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1023"/>
+        <location filename="../FilePanel.cpp" line="1057"/>
         <source>Last modified: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1025"/>
+        <location filename="../FilePanel.cpp" line="1059"/>
         <source>Directory Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1057"/>
+        <location filename="../FilePanel.cpp" line="1091"/>
         <source>Not supported yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1092"/>
+        <location filename="../FilePanel.cpp" line="1142"/>
         <source>Could not open file with system default application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1240"/>
+        <source>File exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1241"/>
+        <source>File &apos;%1&apos; already exists. Overwrite?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1252"/>
+        <location filename="../FilePanel.cpp" line="1271"/>
+        <source>Error writing file &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1264"/>
+        <source>Writing for this type of file system is not implemented yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1279"/>
+        <source>Error reading file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2118,16 +2148,39 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1277"/>
+        <source>F3 Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="1387"/>
-        <location filename="../mainwindow.cpp" line="1504"/>
         <location filename="../mainwindow.cpp" line="1507"/>
+        <location filename="../mainwindow.cpp" line="1510"/>
         <source>F3 View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1278"/>
         <location filename="../mainwindow.cpp" line="1390"/>
         <source>F4 Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1541"/>
+        <source>Copying files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1542"/>
+        <source>Copy %1 files?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1547"/>
+        <source>Moving files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1548"/>
+        <source>Move %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2225,14 +2278,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="1278"/>
         <location filename="../mainwindow.cpp" line="1498"/>
         <location filename="../mainwindow.cpp" line="1501"/>
         <source>F4 Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1505"/>
         <location filename="../mainwindow.cpp" line="1508"/>
+        <location filename="../mainwindow.cpp" line="1511"/>
         <source>F4 Meta</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2587,46 +2641,51 @@
     </message>
     <message>
         <location filename="config.qml" line="13"/>
-        <source>Agat 840K</source>
+        <source>All Supported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="14"/>
-        <source>Agat/Apple 140K</source>
+        <source>Agat 840K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="15"/>
-        <source>Agat .FIL container</source>
+        <source>Agat/Apple 140K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="16"/>
-        <source>Agat/Apple DOS33</source>
+        <source>Agat .FIL container</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="17"/>
-        <source>Agat Sprite OS</source>
+        <source>Agat/Apple DOS33</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="18"/>
-        <source>Single .FIL</source>
+        <source>Agat Sprite OS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="19"/>
-        <source>CP/M (DOS 3.3 skew)</source>
+        <source>Single .FIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="20"/>
-        <source>CP/M (ProDOS skew)</source>
+        <source>CP/M (DOS 3.3 skew)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="21"/>
+        <source>CP/M (ProDOS skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="22"/>
         <source>CP/M (No sector skew)</source>
         <translation type="unfinished"></translation>
     </message>
