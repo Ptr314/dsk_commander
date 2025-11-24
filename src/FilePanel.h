@@ -92,8 +92,12 @@ public:
     // Mode getter
     panelMode getMode() const { return mode; }
 
+    // Filesystem getter
+    dsk_tools::fileSystem* getFileSystem() { return m_filesystem; }
+    const dsk_tools::fileSystem* getFileSystem() const { return m_filesystem; }
+
     dsk_tools::Files getSelectedFiles();
-    void putFiles(const dsk_tools::Files & files, const bool copy);
+    void putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const bool copy);
 
 signals:
     void activated(FilePanel* self);
