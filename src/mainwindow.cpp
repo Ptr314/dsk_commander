@@ -248,13 +248,13 @@ void MainWindow::load_config()
     file_types = jsonRoot["file_types"].toObject();
     file_systems = jsonRoot["file_systems"].toObject();
 
-    // Fill FILE_ANY
+    // Fill FILE_SUPPORTED
 
     QString all_filters = "";
     foreach (const QString & ff_id, file_formats.keys()) {
         QJsonObject format = file_formats[ff_id].toObject();
         if (format["source"].toBool()) {
-            if (ff_id != "FILE_ANY") {
+            if (ff_id != "FILE_ANY" && ff_id != "FILE_SUPPORTED") {
                 if (all_filters.size() > 0) all_filters += ";";
                 all_filters += format["extensions"].toString();
             }
@@ -268,10 +268,10 @@ void MainWindow::load_config()
     }
 
     // Update FILE_ANY
-    QJsonObject fileAny = file_formats["FILE_ANY"].toObject();
+    QJsonObject fileAny = file_formats["FILE_SUPPORTED"].toObject();
     fileAny["extensions"] = all_filters;
     fileAny["types"] = all_types;
-    file_formats["FILE_ANY"] = fileAny;
+    file_formats["FILE_SUPPORTED"] = fileAny;
 }
 
 
