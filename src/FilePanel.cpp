@@ -477,6 +477,11 @@ void FilePanel::onFilterChanged(int index)
     QString ff_id = filterCombo->itemData(index).toString();
     QJsonObject filter = m_file_formats[ff_id].toObject();
     QJsonArray types = filter["types"].toArray();
+    if (types.empty()) {
+        foreach (const QJsonValue & type, m_file_types.keys()) {
+                types.append(type.toString());
+        }
+    }
     foreach (const QJsonValue & value, types) {
         QString type_id = value.toString();
         QJsonObject type = m_file_types[type_id].toObject();

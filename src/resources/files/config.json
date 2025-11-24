@@ -79,6 +79,14 @@
             "source":       true,
             "extensions":   "*.*",
             "types":        []
+        },
+        "FILE_SUPPORTED": {
+            "order":        5,
+            "name":         "All Supported",
+            "short_name":   "Supported",
+            "source":       true,
+            "extensions":   "*.*",
+            "types":        []
         }
     },
     "file_types": {
