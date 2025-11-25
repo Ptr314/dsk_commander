@@ -96,7 +96,7 @@ public:
     dsk_tools::fileSystem* getFileSystem() { return m_filesystem; }
     const dsk_tools::fileSystem* getFileSystem() const { return m_filesystem; }
 
-    dsk_tools::Files getSelectedFiles();
+    dsk_tools::Files getSelectedFiles() const;
     void putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
     void deleteFiles(const dsk_tools::Files & files);
 
@@ -156,5 +156,6 @@ private:
     void setMode(panelMode new_mode);
     void dir();
     QString replace_placeholders(const QString & in);
+    QString decodeError(const dsk_tools::Result & result);
 
 };
