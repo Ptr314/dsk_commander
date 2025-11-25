@@ -34,6 +34,7 @@
 #include "mainwindow.h"
 #include "convertdialog.h"
 #include "fileparamdialog.h"
+#include "formatdialog.h"
 #include "viewdialog.h"
 
 #include "./ui_mainwindow.h"
@@ -1531,27 +1532,71 @@ void MainWindow::onMove()
     doCopy(false);
 }
 
-void MainWindow::doCopy(bool copy)
-{
+void MainWindow::doCopy(bool copy) {
     if (!activePanel || !otherPanel()->allowPutFiles()) return;
 
-    QMessageBox::StandardButton reply;
-    if (copy) {
-        reply = QMessageBox::question(this,
-                                    MainWindow::tr("Copying files"),
-                                    MainWindow::tr("Copy %1 files?").arg(activePanel->selectedCount()),
-                                    QMessageBox::Yes|QMessageBox::No
-                );
+    if (otherPanel()->getFileSystem()->getFS() == dsk_tools::FS::Host && activePanel->getFileSystem()->getFS() != dsk_tools::FS::Host) {
+        // Extracting files to host. Need to ask for format
+        std::vector<std::string> formats = activePanel->getFileSystem()->get_save_file_formats();
+
+        QMap<QString, QString> fil_map;
+
+        foreach (const std::string & v, formats) {
+            QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
+            QString name = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
+            QString short_name = fil["short_name"].toString();
+            fil_map[short_name] = name;
+        }
+
+
+        // Restore last used format from settings
+        const QString fs_string = QString::number(static_cast<int>(activePanel->getFileSystem()->getFS()));
+        const QString defaultFormat = settings->value("export/extract_format_"+fs_string, "").toString();
+
+        // Show format selection dialog
+        auto *dialog = new FormatDialog(this, fil_map,
+                                                defaultFormat,
+                                                MainWindow::tr("Selected files: %1").arg(activePanel->selectedCount()),
+                                                MainWindow::tr("Choose output file format:"),
+                                                MainWindow::tr("Choose the format"));
+        dialog->setWindowTitle(copy?MainWindow::tr("Copying files"):MainWindow::tr("Moving files"));
+
+        if (dialog->exec() == QDialog::Accepted) {
+            const QString selectedFormat = dialog->getSelectedFormat();
+
+            // Save selected format to settings for next time
+            settings->setValue("export/extract_format_"+fs_string, selectedFormat);
+
+            // TODO: Implement actual file extraction logic here
+            // - Get selected files from activePanel
+            // - Choose destination directory/file
+            // - Extract files in the selected format
+
+            qDebug() << "User selected format:" << selectedFormat;
+        }
+
+        delete dialog;
+
     } else {
-        reply = QMessageBox::question(this,
-                                    MainWindow::tr("Moving files"),
-                                    MainWindow::tr("Move %1 files?").arg(activePanel->selectedCount()),
-                                    QMessageBox::Yes|QMessageBox::No
-                );
-    }
-    if (reply == QMessageBox::Yes) {
-        dsk_tools::Files files = activePanel->getSelectedFiles();
-        otherPanel()->putFiles(activePanel->getFileSystem(), files, copy);
+        // Moving files between FSs in other cases
+        QMessageBox::StandardButton reply;
+        if (copy) {
+            reply = QMessageBox::question(this,
+                                        MainWindow::tr("Copying files"),
+                                        MainWindow::tr("Copy %1 files?").arg(activePanel->selectedCount()),
+                                        QMessageBox::Yes|QMessageBox::No
+                    );
+        } else {
+            reply = QMessageBox::question(this,
+                                        MainWindow::tr("Moving files"),
+                                        MainWindow::tr("Move %1 files?").arg(activePanel->selectedCount()),
+                                        QMessageBox::Yes|QMessageBox::No
+                    );
+        }
+        if (reply == QMessageBox::Yes) {
+            dsk_tools::Files files = activePanel->getSelectedFiles();
+            otherPanel()->putFiles(activePanel->getFileSystem(), files, copy);
+        }
     }
 }
 

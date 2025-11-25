@@ -44,6 +44,7 @@ set(PROJECT_SOURCES
         viewdialog.h                viewdialog.cpp          viewdialog.ui
         convertdialog.h             convertdialog.cpp       convertdialog.ui
         fileparamdialog.h           fileparamdialog.cpp
+        formatdialog.h              formatdialog.cpp
         FilePanel.cpp               FilePanel.h
         FileTable.cpp               FileTable.h
         aboutdlg.ui

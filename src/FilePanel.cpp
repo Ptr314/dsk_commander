@@ -869,10 +869,14 @@ int FilePanel::selectedCount() const {
     if (mode == panelMode::Host) {
         auto selected_count = selectedPaths().size();
         if (selected_count > 0) return selected_count;
-        QModelIndex current = tableView->currentIndex();
-        return current.isValid()?1:0;
+    } else {
+        QItemSelectionModel * selection = tableView->selectionModel();
+        if (selection->hasSelection()) {
+            QModelIndexList rows = selection->selectedRows();
+            return rows.size();
+        }
     }
-    return 0;
+    return tableView->currentIndex().isValid()?1:0;
 }
 
 QString FilePanel::currentFilePath() const {
