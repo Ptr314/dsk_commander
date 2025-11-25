@@ -500,25 +500,46 @@ bool FileTable::handleArrowKeys(QKeyEvent* keyEvent) {
     return false;
 }
 
+bool FileTable::isParentDirEntry(int row) const {
+    if (!model()) return false;
+
+    QModelIndex idx = model()->index(row, 0, rootIndex());
+    if (!idx.isValid()) return false;
+
+    QString displayText = idx.data(Qt::DisplayRole).toString();
+    return (displayText == "[..]" || displayText == "<..>");
+}
+
 bool FileTable::handleSelectionKeys(QKeyEvent* keyEvent) {
     QString keyText = keyEvent->text();
     if (!keyText.isEmpty()) {
         QChar keyChar = keyText[0];
 
-        // Plus key - select all
+        // Plus key - select all (except parent directory)
         if (keyChar == '+' || keyEvent->key() == Qt::Key_Plus) {
             if (selectionModel()) {
-                selectionModel()->select(
-                    QItemSelection(
-                        model()->index(0, 0, rootIndex()),
-                        model()->index(
-                            model()->rowCount(rootIndex()) - 1,
-                            model()->columnCount(rootIndex()) - 1,
-                            rootIndex()
-                        )
-                    ),
-                    QItemSelectionModel::Select | QItemSelectionModel::Rows
-                );
+                int rowCount = model()->rowCount(rootIndex());
+                int startRow = 0;
+
+                // Skip parent directory entry if present at row 0
+                if (rowCount > 0 && isParentDirEntry(0)) {
+                    startRow = 1;
+                }
+
+                // Only proceed if there are rows to select after skipping parent
+                if (startRow < rowCount) {
+                    selectionModel()->select(
+                        QItemSelection(
+                            model()->index(startRow, 0, rootIndex()),
+                            model()->index(
+                                rowCount - 1,
+                                model()->columnCount(rootIndex()) - 1,
+                                rootIndex()
+                            )
+                        ),
+                        QItemSelectionModel::Select | QItemSelectionModel::Rows
+                    );
+                }
             }
             return true;
         }
@@ -531,11 +552,16 @@ bool FileTable::handleSelectionKeys(QKeyEvent* keyEvent) {
             return true;
         }
 
-        // Asterisk key - invert selection
+        // Asterisk key - invert selection (except parent directory)
         if (keyChar == '*' || keyEvent->key() == Qt::Key_Asterisk) {
             if (selectionModel()) {
                 int rowCount = model()->rowCount(rootIndex());
                 for (int row = 0; row < rowCount; ++row) {
+                    // Skip parent directory entry
+                    if (isParentDirEntry(row)) {
+                        continue;
+                    }
+
                     QModelIndex idx = model()->index(row, 0, rootIndex());
                     selectionModel()->select(
                         idx,

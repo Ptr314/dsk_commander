@@ -87,6 +87,9 @@ private:
     // Specific key handlers
     bool handleArrowKeys(QKeyEvent* keyEvent);
     bool handleSelectionKeys(QKeyEvent* keyEvent);
+
+    // Helper to check if a row is the parent directory entry
+    bool isParentDirEntry(int row) const;
 };
 
 #endif // FILETABLE_H
