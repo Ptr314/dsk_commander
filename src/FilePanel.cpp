@@ -1162,7 +1162,7 @@ void FilePanel::onEdit()
 
             FileParamDialog dialog(params);
             if (dialog.exec() == QDialog::Accepted) {
-                auto values = dialog.getParameters();
+                const auto values = dialog.getParameters();
                 m_filesystem->file_set_metadata(f, values);
                 dir();
             }
@@ -1190,8 +1190,36 @@ bool FilePanel::allowPutFiles() const {
     return getMode() == panelMode::Host || dsk_tools::hasFlag(m_filesystem->getCaps(), dsk_tools::FSCaps::Add);
 }
 
-dsk_tools::Files FilePanel::getSelectedFiles()
+QString FilePanel::decodeError(const dsk_tools::Result & result)
 {
+    QString error;
+    switch (result.code) {
+        case dsk_tools::ErrorCode::Ok:
+            error = tr("No error");
+            break;
+        case dsk_tools::ErrorCode::NotImplementedYet:
+            error = tr("Not implemented yet");
+            break;
+        case dsk_tools::ErrorCode::FileAddErrorSpace:
+            error = tr("No enough space");
+            break;
+        case dsk_tools::ErrorCode::FileAddErrorAllocateDirEntry:
+            error = tr("Can't allocate a directory entry");
+            break;
+        case dsk_tools::ErrorCode::FileAddErrorAllocateSector:
+            error = tr("Can't allocate a sector");
+            break;
+        default:
+            error = tr("Unknown error");
+            break;
+    }
+
+    if (!result.message.empty()) error += ": " + result.message;
+
+    return error;
+}
+
+dsk_tools::Files FilePanel::getSelectedFiles() const {
     dsk_tools::Files files;
 
     if (mode == panelMode::Host) {
@@ -1266,10 +1294,11 @@ void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools:
                             // Retry with force_replace flag
                             put_result = m_filesystem->put_file(f, std_format, data, true);
                             if (!put_result) {
-                                QMessageBox::critical(
-                                    this,
+                                QString error_message = decodeError(put_result);
+                                QMessageBox::critical(this,
                                     FilePanel::tr("Error"),
-                                    FilePanel::tr("Error writing file '%1'").arg(QString::fromStdString(f.name))
+                                    FilePanel::tr("Error writing file '%1': %2")
+                                            .arg(QString::fromStdString(f.name), error_message)
                                 );
                             }
                         } else if (res == QMessageBox::Cancel) {
@@ -1285,10 +1314,11 @@ void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools:
                         );
                         break;
                     } else {
-                        QMessageBox::critical(
-                        this,
-                        FilePanel::tr("Error"),
-                        FilePanel::tr("Error writing file '%1'").arg(QString::fromStdString(f.name))
+                        QString error_message = decodeError(put_result);
+                        QMessageBox::critical(this,
+                            FilePanel::tr("Error"),
+                            FilePanel::tr("Error writing file '%1': %2")
+                                    .arg(QString::fromStdString(f.name), error_message)
                         );
                     }
                 }
