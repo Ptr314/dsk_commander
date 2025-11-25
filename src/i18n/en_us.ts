@@ -320,6 +320,7 @@
         <location filename="../FilePanel.cpp" line="1263"/>
         <location filename="../FilePanel.cpp" line="1270"/>
         <location filename="../FilePanel.cpp" line="1278"/>
+        <location filename="../FilePanel.cpp" line="1297"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -872,6 +873,11 @@
     <message>
         <location filename="../FilePanel.cpp" line="1279"/>
         <source>Error reading file &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1298"/>
+        <source>Error deleting file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2181,6 +2187,16 @@
     <message>
         <location filename="../mainwindow.cpp" line="1548"/>
         <source>Move %1 files?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1567"/>
+        <source>Deleting files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1568"/>
+        <source>Delete %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

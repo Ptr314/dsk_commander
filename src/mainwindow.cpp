@@ -1563,8 +1563,14 @@ void MainWindow::onMkdir() {
 
 void MainWindow::onDelete() {
     if (!activePanel) return;
-    // TODO: Delete
-    qDebug() << "--> Delete";
+    QMessageBox::StandardButton reply = QMessageBox::question(this,
+                                MainWindow::tr("Deleting files"),
+                                MainWindow::tr("Delete %1 files?").arg(activePanel->selectedCount()),
+                                QMessageBox::Yes|QMessageBox::No
+            );
+    if (reply == QMessageBox::Yes) {
+        activePanel->deleteFiles(activePanel->getSelectedFiles());
+    }
 }
 
 void MainWindow::onExit() {
