@@ -533,7 +533,7 @@ void MainWindow::update_table()
 
         QStandardItem *nameItem;
         if (f.is_dir) {
-            nameItem = new QStandardItem("<" + file_name + ">");
+            nameItem = new QStandardItem("[" + file_name + "]");
             QFont dirFont;
             dirFont.setBold(true);
             if (f.is_deleted) dirFont.setStrikeOut(true);
@@ -1598,8 +1598,7 @@ void MainWindow::doCopy(bool copy) {
 
 void MainWindow::onMkdir() {
     if (!activePanel) return;
-    // TODO: MkDir
-    qDebug() << "--> MkDir";
+    activePanel->onMkDir();
 }
 
 void MainWindow::onDelete() {
