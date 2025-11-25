@@ -83,6 +83,7 @@ public:
     void onView();
     void onEdit();
     void onGoUp();
+    void onMkDir();
     void chooseDirectory();
 
     // Sorting methods

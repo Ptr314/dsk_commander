@@ -13,6 +13,7 @@
 #include <QJsonObject>
 #include <QLocale>
 #include <QDesktopServices>
+#include <QInputDialog>
 
 #include "./ui_fileinfodialog.h"
 
@@ -1170,6 +1171,29 @@ void FilePanel::onEdit()
     }
 }
 
+void FilePanel::onMkDir()
+{
+    dsk_tools::FSCaps funcs = m_filesystem->getCaps();
+
+    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Dirs)) {
+        bool ok{};
+        QString text = QInputDialog::getText(this, FilePanel::tr("Add a directory"),
+                                             FilePanel::tr("Directory name:"),
+                                             QLineEdit::Normal,
+                                             "New",
+                                             &ok);
+        if (ok && !text.isEmpty()) {
+            dsk_tools::Result res = m_filesystem->mkdir(text.toStdString());
+            if (!res) {
+                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error creating directory: ") + decodeError(res));
+            }
+            dir();
+        }
+    }
+
+}
+
+
 void FilePanel::setSortOrder(HostModel::SortOrder order)
 {
     if (mode == panelMode::Host && host_model) {
@@ -1201,7 +1225,7 @@ QString FilePanel::decodeError(const dsk_tools::Result & result)
             error = tr("Not implemented yet");
             break;
         case dsk_tools::ErrorCode::FileAddErrorSpace:
-            error = tr("No enough space");
+            error = tr("No enough free space");
             break;
         case dsk_tools::ErrorCode::FileAddErrorAllocateDirEntry:
             error = tr("Can't allocate a directory entry");
@@ -1211,6 +1235,15 @@ QString FilePanel::decodeError(const dsk_tools::Result & result)
             break;
         case dsk_tools::ErrorCode::DirNotEmpty:
             error = tr("Directory is not empty");
+            break;
+        case dsk_tools::ErrorCode::DirErrorSpace:
+            error = tr("No enough free space");
+            break;
+        case dsk_tools::ErrorCode::DirErrorAllocateDirEntry:
+            error = tr("Can't allocate a directory entry");
+            break;
+        case dsk_tools::ErrorCode::DirErrorAllocateSector:
+            error = tr("Can't allocate a sector");
             break;
         default:
             error = tr("Unknown error");
