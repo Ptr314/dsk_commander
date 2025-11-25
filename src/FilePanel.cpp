@@ -1209,6 +1209,9 @@ QString FilePanel::decodeError(const dsk_tools::Result & result)
         case dsk_tools::ErrorCode::FileAddErrorAllocateSector:
             error = tr("Can't allocate a sector");
             break;
+        case dsk_tools::ErrorCode::DirNotEmpty:
+            error = tr("Directory is not empty");
+            break;
         default:
             error = tr("Unknown error");
             break;
