@@ -1075,24 +1075,24 @@ void MainWindow::on_actionOpen_Image_triggered()
 
 void MainWindow::on_actionView_triggered()
 {
-    QModelIndex index = ui->rightFiles->currentIndex();
-    dsk_tools::fileData f = files[index.row()];
-
-    if (f.is_dir){
-        filesystem->cd(f);
-        dir();
-    } else {
-        dsk_tools::BYTES data = filesystem->get_file(f);
-
-        if (data.size() > 0) {
-            QDialog * w = new ViewDialog(this, settings, QString::fromStdString(f.name), data, f.preferred_type, f.is_deleted, image, filesystem);
-            w->setAttribute(Qt::WA_DeleteOnClose);
-            w->setWindowTitle(w->windowTitle() + " (" + QString::fromStdString(f.name) + ")");
-            w->show();
-        } else {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File reading error!"));
-        }
-    }
+    // QModelIndex index = ui->rightFiles->currentIndex();
+    // dsk_tools::fileData f = files[index.row()];
+    //
+    // if (f.is_dir){
+    //     filesystem->cd(f);
+    //     dir();
+    // } else {
+    //     dsk_tools::BYTES data = filesystem->get_file(f);
+    //
+    //     if (data.size() > 0) {
+    //         QDialog * w = new ViewDialog(this, settings, QString::fromStdString(f.name), data, f.preferred_type, f.is_deleted, image, filesystem);
+    //         w->setAttribute(Qt::WA_DeleteOnClose);
+    //         w->setWindowTitle(w->windowTitle() + " (" + QString::fromStdString(f.name) + ")");
+    //         w->show();
+    //     } else {
+    //         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File reading error!"));
+    //     }
+    // }
 
 }
 

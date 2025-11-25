@@ -632,16 +632,16 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
             }
         }
     } else {
-        dsk_tools::fileData f = m_files[index.row()];
-
+        auto f = m_files_new[index.row()];
         if (f.is_dir){
             m_filesystem->cd(f);
             dir();
         } else {
-            dsk_tools::BYTES data = m_filesystem->get_file(f);
+            dsk_tools::BYTES data;
+            m_filesystem->get_file(f, "", data);
 
             if (data.size() > 0) {
-                QDialog * w = new ViewDialog(this, m_settings, QString::fromStdString(f.name), data, f.preferred_type, f.is_deleted, m_image, m_filesystem);
+                QDialog * w = new ViewDialog(this, m_settings, QString::fromStdString(f.name), data, f.type_preferred, f.is_deleted, m_image, m_filesystem);
                 w->setAttribute(Qt::WA_DeleteOnClose);
                 w->setWindowTitle(w->windowTitle() + " (" + QString::fromStdString(f.name) + ")");
                 w->show();
@@ -783,7 +783,7 @@ void FilePanel::updateTable()
 
         QStandardItem *nameItem;
         if (f.is_dir) {
-            nameItem = new QStandardItem("<" + file_name + ">");
+            nameItem = new QStandardItem("[" + file_name + "]");
             QFont dirFont;
             dirFont.setBold(true);
             if (f.is_deleted) dirFont.setStrikeOut(true);
