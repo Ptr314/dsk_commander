@@ -98,6 +98,7 @@ public:
 
     dsk_tools::Files getSelectedFiles();
     void putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const bool copy);
+    void deleteFiles(const dsk_tools::Files & files);
 
 signals:
     void activated(FilePanel* self);

@@ -1283,3 +1283,22 @@ void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools:
     }
     refresh();
 }
+
+void FilePanel::deleteFiles(const dsk_tools::Files & files)
+{
+    foreach (const dsk_tools::UniversalFile & f, files) {
+        if (f.is_dir) {
+            // TODO: Processing dirs
+        } else {
+            auto result = m_filesystem->delete_file(f);
+            if (!result) {
+                QMessageBox::critical(
+                    this,
+                    FilePanel::tr("Error"),
+                    FilePanel::tr("Error deleting file '%1'").arg(QString::fromStdString(f.name))
+                );
+            }
+        }
+    }
+    refresh();
+}
