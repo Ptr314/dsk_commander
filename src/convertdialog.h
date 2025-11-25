@@ -24,8 +24,8 @@ public:
     explicit ConvertDialog(QWidget *parent = nullptr);
     explicit ConvertDialog(QWidget *parent,
                            QSettings *settings,
-                           QJsonObject * file_types,
-                           QJsonObject * file_formats,
+                           const QJsonObject * file_types,
+                           const QJsonObject * file_formats,
                            dsk_tools::diskImage * image,
                            const QString & type_id,
                            int fs_volume_id
@@ -53,8 +53,8 @@ private:
 
     QString m_type_id;
     QSettings * m_settings;
-    QJsonObject * m_file_types;
-    QJsonObject * m_file_formats;
+    const QJsonObject * m_file_types;
+    const QJsonObject * m_file_formats;
     dsk_tools::diskImage * m_image;
     int m_fs_volume_id;
 

@@ -263,544 +263,554 @@
 <context>
     <name>FilePanel</name>
     <message>
-        <location filename="../FilePanel.cpp" line="37"/>
+        <location filename="../FilePanel.cpp" line="41"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="38"/>
+        <location filename="../FilePanel.cpp" line="42"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="39"/>
-        <location filename="../FilePanel.cpp" line="943"/>
+        <location filename="../FilePanel.cpp" line="43"/>
+        <location filename="../FilePanel.cpp" line="924"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="262"/>
-        <location filename="../FilePanel.cpp" line="264"/>
+        <location filename="../FilePanel.cpp" line="266"/>
+        <location filename="../FilePanel.cpp" line="268"/>
         <source>Up</source>
         <translation>На директорию вверх</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="269"/>
+        <location filename="../FilePanel.cpp" line="273"/>
         <source>Enter path and press Enter...</source>
         <translation>Введите путь и нажмите Enter...</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="272"/>
-        <location filename="../FilePanel.cpp" line="274"/>
+        <location filename="../FilePanel.cpp" line="276"/>
+        <location filename="../FilePanel.cpp" line="278"/>
         <source>Choose...</source>
         <translation>Выбрать...</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="385"/>
+        <location filename="../FilePanel.cpp" line="389"/>
         <source>Auto</source>
         <translation>Авто</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="478"/>
+        <location filename="../FilePanel.cpp" line="482"/>
         <source>Choose a path</source>
         <translation>Выберите путь</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="627"/>
-        <location filename="../FilePanel.cpp" line="645"/>
-        <location filename="../FilePanel.cpp" line="699"/>
+        <location filename="../FilePanel.cpp" line="631"/>
+        <location filename="../FilePanel.cpp" line="649"/>
         <location filename="../FilePanel.cpp" line="703"/>
         <location filename="../FilePanel.cpp" line="707"/>
-        <location filename="../FilePanel.cpp" line="722"/>
-        <location filename="../FilePanel.cpp" line="731"/>
-        <location filename="../FilePanel.cpp" line="840"/>
-        <location filename="../FilePanel.cpp" line="1104"/>
-        <location filename="../FilePanel.cpp" line="1154"/>
-        <location filename="../FilePanel.cpp" line="1191"/>
-        <location filename="../FilePanel.cpp" line="1350"/>
-        <location filename="../FilePanel.cpp" line="1363"/>
-        <location filename="../FilePanel.cpp" line="1370"/>
+        <location filename="../FilePanel.cpp" line="711"/>
+        <location filename="../FilePanel.cpp" line="726"/>
+        <location filename="../FilePanel.cpp" line="735"/>
+        <location filename="../FilePanel.cpp" line="833"/>
+        <location filename="../FilePanel.cpp" line="1085"/>
+        <location filename="../FilePanel.cpp" line="1135"/>
+        <location filename="../FilePanel.cpp" line="1172"/>
+        <location filename="../FilePanel.cpp" line="1331"/>
+        <location filename="../FilePanel.cpp" line="1344"/>
+        <location filename="../FilePanel.cpp" line="1351"/>
+        <location filename="../FilePanel.cpp" line="1360"/>
         <location filename="../FilePanel.cpp" line="1379"/>
-        <location filename="../FilePanel.cpp" line="1398"/>
+        <location filename="../FilePanel.cpp" line="1421"/>
+        <location filename="../FilePanel.cpp" line="1488"/>
+        <location filename="../FilePanel.cpp" line="1513"/>
+        <location filename="../FilePanel.cpp" line="1521"/>
+        <location filename="../FilePanel.cpp" line="1531"/>
+        <location filename="../FilePanel.cpp" line="1541"/>
+        <location filename="../FilePanel.cpp" line="1549"/>
+        <location filename="../FilePanel.cpp" line="1551"/>
+        <location filename="../FilePanel.cpp" line="1553"/>
+        <location filename="../FilePanel.cpp" line="1566"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="627"/>
+        <location filename="../FilePanel.cpp" line="631"/>
         <source>Can&apos;t detect type of the file automatically</source>
         <translation>Не удалось автоматически определить тип файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="645"/>
+        <location filename="../FilePanel.cpp" line="649"/>
         <source>File reading error!</source>
         <translation>Ошибка чтения файла!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="699"/>
+        <location filename="../FilePanel.cpp" line="703"/>
         <source>File loading error. Check your disk type settings or try auto-detection.</source>
         <translation>Ошибка загрузки файла. Проверьте, правильно ли установлен тип диска или попробуйте автоматическое определение.</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="703"/>
+        <location filename="../FilePanel.cpp" line="707"/>
         <source>Error checking file parameters</source>
         <translation>Ошибка проверки параметров файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="707"/>
+        <location filename="../FilePanel.cpp" line="711"/>
         <source>Error preparing image data</source>
         <translation>Ошибка подготовки данных</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="722"/>
+        <location filename="../FilePanel.cpp" line="726"/>
         <source>Unrecognized disk format or disk is damaged!</source>
         <translation>Формат диска не распознан или диск повреждён!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="731"/>
+        <location filename="../FilePanel.cpp" line="735"/>
         <source>File system initialization error!</source>
         <translation>Ошибка инициализации файловой системы!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="840"/>
+        <location filename="../FilePanel.cpp" line="833"/>
         <source>Error reading files list!</source>
         <translation>Ошибка чтения списка файлов!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="935"/>
+        <location filename="../FilePanel.cpp" line="916"/>
         <source>Directory Entry</source>
         <translation>Элемент каталога</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="936"/>
-        <location filename="../FilePanel.cpp" line="1017"/>
+        <location filename="../FilePanel.cpp" line="917"/>
+        <location filename="../FilePanel.cpp" line="998"/>
         <source>File Name</source>
         <translation>Имя Файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="937"/>
+        <location filename="../FilePanel.cpp" line="918"/>
         <source>File Size</source>
         <translation>Размер Файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="938"/>
+        <location filename="../FilePanel.cpp" line="919"/>
         <source>byte(s)</source>
         <translation>байт(ов)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="939"/>
+        <location filename="../FilePanel.cpp" line="920"/>
         <source>Sides</source>
         <translation>Стороны</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="940"/>
+        <location filename="../FilePanel.cpp" line="921"/>
         <source>Tracks</source>
         <translation>Дорожки</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="941"/>
+        <location filename="../FilePanel.cpp" line="922"/>
         <source>sector(s)</source>
         <translation>сектор(ов)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="942"/>
+        <location filename="../FilePanel.cpp" line="923"/>
         <source>Attributes</source>
         <translation>Атрибуты</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="944"/>
-        <location filename="../FilePanel.cpp" line="1019"/>
+        <location filename="../FilePanel.cpp" line="925"/>
+        <location filename="../FilePanel.cpp" line="1000"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="945"/>
-        <location filename="../FilePanel.cpp" line="1018"/>
+        <location filename="../FilePanel.cpp" line="926"/>
+        <location filename="../FilePanel.cpp" line="999"/>
         <source>Protected</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="946"/>
+        <location filename="../FilePanel.cpp" line="927"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="947"/>
+        <location filename="../FilePanel.cpp" line="928"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="948"/>
+        <location filename="../FilePanel.cpp" line="929"/>
         <source>T/S List Location</source>
         <translation>Расположение таблицы секторов</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="949"/>
+        <location filename="../FilePanel.cpp" line="930"/>
         <source>T/S List Contents</source>
         <translation>Таблица секторов</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="950"/>
+        <location filename="../FilePanel.cpp" line="931"/>
         <source>Incorrect T/S data, stopping iterations</source>
         <translation>Данные в таблице секторов некорректны, обработка прервана</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="951"/>
+        <location filename="../FilePanel.cpp" line="932"/>
         <source>Next T/S List Location</source>
         <translation>Следующая таблица секторов</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="952"/>
+        <location filename="../FilePanel.cpp" line="933"/>
         <source>File End Reached</source>
         <translation>Конец файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="953"/>
+        <location filename="../FilePanel.cpp" line="934"/>
         <source>The file is marked as deleted, the data below may be incorrect</source>
         <translation>Файл помечен как удаленный, данные ниже могут быть некорректны</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="954"/>
+        <location filename="../FilePanel.cpp" line="935"/>
         <source>File parsing error</source>
         <translation>При анализе файла найдены ошибки</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="955"/>
+        <location filename="../FilePanel.cpp" line="936"/>
         <source>Track</source>
         <translation>Дорожка</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="956"/>
+        <location filename="../FilePanel.cpp" line="937"/>
         <source>T</source>
         <translation>Т</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="957"/>
+        <location filename="../FilePanel.cpp" line="938"/>
         <source>H</source>
         <translation>H</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="958"/>
-        <location filename="../FilePanel.cpp" line="959"/>
+        <location filename="../FilePanel.cpp" line="939"/>
+        <location filename="../FilePanel.cpp" line="940"/>
         <source>S</source>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="960"/>
+        <location filename="../FilePanel.cpp" line="941"/>
         <source>Parsing finished</source>
         <translation>Анализ завершён</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="961"/>
+        <location filename="../FilePanel.cpp" line="942"/>
         <source>V</source>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="962"/>
+        <location filename="../FilePanel.cpp" line="943"/>
         <source>Index</source>
         <translation>Индекс</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="963"/>
+        <location filename="../FilePanel.cpp" line="944"/>
         <source>Index Mark</source>
         <translation>Метка индекса</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="964"/>
+        <location filename="../FilePanel.cpp" line="945"/>
         <source>Data Mark</source>
         <translation>Метка данных</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="965"/>
+        <location filename="../FilePanel.cpp" line="946"/>
         <source>Sector Data</source>
         <translation>Данные сектора</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="966"/>
+        <location filename="../FilePanel.cpp" line="947"/>
         <source>End Mark: OK</source>
         <translation>Конец индекса: ОК</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="967"/>
+        <location filename="../FilePanel.cpp" line="948"/>
         <source>End Mark: Not Detected</source>
         <translation>Конец индекса: Не найден</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="968"/>
-        <location filename="../FilePanel.cpp" line="973"/>
+        <location filename="../FilePanel.cpp" line="949"/>
+        <location filename="../FilePanel.cpp" line="954"/>
         <source>CRC: OK</source>
         <translation>CRC: OK</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="969"/>
-        <location filename="../FilePanel.cpp" line="974"/>
+        <location filename="../FilePanel.cpp" line="950"/>
+        <location filename="../FilePanel.cpp" line="955"/>
         <source>CRC: Error</source>
         <translation>CRC: Ошибка</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="970"/>
+        <location filename="../FilePanel.cpp" line="951"/>
         <source>Expected</source>
         <translation>Ожидание</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="971"/>
+        <location filename="../FilePanel.cpp" line="952"/>
         <source>Found</source>
         <translation>Прочитано</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="972"/>
+        <location filename="../FilePanel.cpp" line="953"/>
         <source>Data Error</source>
         <translation>Ошибка данных</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="975"/>
-        <location filename="../FilePanel.cpp" line="977"/>
+        <location filename="../FilePanel.cpp" line="956"/>
+        <location filename="../FilePanel.cpp" line="958"/>
         <source>Epilogue: OK</source>
         <translation>Эпилог: ОК</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="976"/>
-        <location filename="../FilePanel.cpp" line="978"/>
+        <location filename="../FilePanel.cpp" line="957"/>
+        <location filename="../FilePanel.cpp" line="959"/>
         <source>Epilogue: Error</source>
         <translation>Эпилог: Ошибка</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="979"/>
+        <location filename="../FilePanel.cpp" line="960"/>
         <source>Track List Offset</source>
         <translation>Список дорожек</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="980"/>
+        <location filename="../FilePanel.cpp" line="961"/>
         <source>Track Offset</source>
         <translation>Смещение</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="981"/>
+        <location filename="../FilePanel.cpp" line="962"/>
         <source>Track Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="982"/>
+        <location filename="../FilePanel.cpp" line="963"/>
         <source>Header</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="983"/>
+        <location filename="../FilePanel.cpp" line="964"/>
         <source>Signature</source>
         <translation>Сигнатура</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="984"/>
+        <location filename="../FilePanel.cpp" line="965"/>
         <source>No known signature found, aborting</source>
         <translation>Сигнатура формата не найдена. обработка прервана</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="985"/>
+        <location filename="../FilePanel.cpp" line="966"/>
         <source>Format revision</source>
         <translation>Версия формата</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="986"/>
+        <location filename="../FilePanel.cpp" line="967"/>
         <source>Side</source>
         <translation>Сторона</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="987"/>
+        <location filename="../FilePanel.cpp" line="968"/>
         <source>Custom Data</source>
         <translation>Расширенные атрибуты файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="988"/>
+        <location filename="../FilePanel.cpp" line="969"/>
         <source>DOS 3.3 VTOC found</source>
         <translation>Найден DOS 3.3 VTOC</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="989"/>
+        <location filename="../FilePanel.cpp" line="970"/>
         <source>DOS 3.3 VTOC not found</source>
         <translation>DOS 3.3 VTOC не найден</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="990"/>
+        <location filename="../FilePanel.cpp" line="971"/>
         <source>Root Catalog Track</source>
         <translation>Корневой каталог, дорожка</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="991"/>
+        <location filename="../FilePanel.cpp" line="972"/>
         <source>Root Catalog Sector</source>
         <translation>Корневой каталог, сектор</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="992"/>
+        <location filename="../FilePanel.cpp" line="973"/>
         <source>DOS Release</source>
         <translation>Версия DOS</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="993"/>
-        <location filename="../FilePanel.cpp" line="1005"/>
+        <location filename="../FilePanel.cpp" line="974"/>
+        <location filename="../FilePanel.cpp" line="986"/>
         <source>Volume ID</source>
         <translation>Номер тома (Volume ID)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="994"/>
+        <location filename="../FilePanel.cpp" line="975"/>
         <source>Volume name</source>
         <translation>Метка тома</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="995"/>
+        <location filename="../FilePanel.cpp" line="976"/>
         <source>Pairs per T/S list</source>
         <translation>Пар T/S в списке</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="996"/>
+        <location filename="../FilePanel.cpp" line="977"/>
         <source>Last track</source>
         <translation>Последняя занятая дорожка</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="997"/>
+        <location filename="../FilePanel.cpp" line="978"/>
         <source>Direction</source>
         <translation>Направление заполнения</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="998"/>
+        <location filename="../FilePanel.cpp" line="979"/>
         <source>Tracks total</source>
         <translation>Дорожек всего</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="999"/>
+        <location filename="../FilePanel.cpp" line="980"/>
         <source>Sectors on track</source>
         <translation>Количество секторов</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1000"/>
+        <location filename="../FilePanel.cpp" line="981"/>
         <source>Bytes per sector</source>
         <translation>Размер сектора в байтах</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1001"/>
+        <location filename="../FilePanel.cpp" line="982"/>
         <source>Error opening the file</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1002"/>
+        <location filename="../FilePanel.cpp" line="983"/>
         <source>Error loading, check if the file type is correct</source>
         <translation>Ошибка загрузки файла, проверьте, правильно ли установлен формат</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1004"/>
+        <location filename="../FilePanel.cpp" line="985"/>
         <source>DPB Information</source>
         <translation>Информация по DPB</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1006"/>
+        <location filename="../FilePanel.cpp" line="987"/>
         <source>Device type</source>
         <translation>Тип устройства</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1007"/>
+        <location filename="../FilePanel.cpp" line="988"/>
         <source>DSIDE</source>
         <translation>DSIDE</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1008"/>
+        <location filename="../FilePanel.cpp" line="989"/>
         <source>Blocks on track</source>
         <translation>Блоков на дорожке</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1009"/>
+        <location filename="../FilePanel.cpp" line="990"/>
         <source>Tracks on disk</source>
         <translation>Дорожек на устройстве</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1010"/>
+        <location filename="../FilePanel.cpp" line="991"/>
         <source>Last block</source>
         <translation>Последний блок</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1011"/>
+        <location filename="../FilePanel.cpp" line="992"/>
         <source>VTOC block</source>
         <translation>Блок VTOC</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1013"/>
+        <location filename="../FilePanel.cpp" line="994"/>
         <source>Extent</source>
         <translation>Экстент</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1014"/>
+        <location filename="../FilePanel.cpp" line="995"/>
         <source>Free sectors</source>
         <translation>Незанятых секторов</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1015"/>
+        <location filename="../FilePanel.cpp" line="996"/>
         <source>Free bytes</source>
         <translation>Свободных байт</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1020"/>
+        <location filename="../FilePanel.cpp" line="1001"/>
         <source>Extended</source>
         <translation>Расш. атрибут</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1022"/>
+        <location filename="../FilePanel.cpp" line="1003"/>
         <source>Agat image VR block found</source>
         <translation>Найден VR-блок изображений Агат</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1023"/>
+        <location filename="../FilePanel.cpp" line="1004"/>
         <source>Video mode</source>
         <translation>Режим экрана</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1024"/>
+        <location filename="../FilePanel.cpp" line="1005"/>
         <source>Agat graphic</source>
         <translation>Графика Агат</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1025"/>
+        <location filename="../FilePanel.cpp" line="1006"/>
         <source>Agat text</source>
         <translation>Текст Агат</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1026"/>
+        <location filename="../FilePanel.cpp" line="1007"/>
         <source>Apple II modes</source>
         <translation>Режимы Apple II</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1027"/>
+        <location filename="../FilePanel.cpp" line="1008"/>
         <source>Agat GigaScreen</source>
         <translation>Агат GigaScreen</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1028"/>
+        <location filename="../FilePanel.cpp" line="1009"/>
         <source>Main palette</source>
         <translation>Основная палитра</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1029"/>
+        <location filename="../FilePanel.cpp" line="1010"/>
         <source>Alternative palette</source>
         <translation>Дополнительная палитра</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1030"/>
+        <location filename="../FilePanel.cpp" line="1011"/>
         <source>Custom palette</source>
         <translation>Загружаемая палитра</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1031"/>
+        <location filename="../FilePanel.cpp" line="1012"/>
         <source>Comment block</source>
         <translation>Комментарий</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1032"/>
+        <location filename="../FilePanel.cpp" line="1013"/>
         <source>Font ID</source>
         <translation>Знакогенератор</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1033"/>
+        <location filename="../FilePanel.cpp" line="1014"/>
         <source>Custom font</source>
         <translation>Загружаемый шрифт</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1065"/>
+        <location filename="../FilePanel.cpp" line="1046"/>
         <source>Directory: %1
 
 </source>
@@ -809,136 +819,202 @@
 </translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1066"/>
+        <location filename="../FilePanel.cpp" line="1047"/>
         <source>Path: %1
 </source>
         <translation>Путь: %1
 </translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1067"/>
+        <location filename="../FilePanel.cpp" line="1048"/>
         <source>Subdirectories: %1
 </source>
         <translation>Поддиректорий: %1
 </translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1068"/>
+        <location filename="../FilePanel.cpp" line="1049"/>
         <source>Files: %1
 </source>
         <translation>Файлов: %1
 </translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1069"/>
+        <location filename="../FilePanel.cpp" line="1050"/>
         <source>Total size: %1 bytes
 </source>
         <translation>Суммарный размер: %1 байт(ов)
 </translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1070"/>
+        <location filename="../FilePanel.cpp" line="1051"/>
         <source>Last modified: %1</source>
         <translation>Дата модификации: %1</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1072"/>
+        <location filename="../FilePanel.cpp" line="1053"/>
         <source>Directory Information</source>
         <translation>Информация о директории</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1104"/>
+        <location filename="../FilePanel.cpp" line="1085"/>
+        <location filename="../FilePanel.cpp" line="1421"/>
         <source>Not supported yet</source>
         <translation>Поддержка функции еще не реализована</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1155"/>
+        <location filename="../FilePanel.cpp" line="1136"/>
         <source>Could not open file with system default application</source>
         <translation>Не удалось открыть файл</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1183"/>
+        <location filename="../FilePanel.cpp" line="1164"/>
         <source>Add a directory</source>
         <translation>Создать директорию</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1184"/>
+        <location filename="../FilePanel.cpp" line="1165"/>
         <source>Directory name:</source>
         <translation>Название директории:</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1191"/>
+        <location filename="../FilePanel.cpp" line="1172"/>
         <source>Error creating directory: </source>
         <translation>Ошибка создания директории: </translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1237"/>
+        <location filename="../FilePanel.cpp" line="1218"/>
         <source>No error</source>
         <translation>Нет ошибкт</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1240"/>
+        <location filename="../FilePanel.cpp" line="1221"/>
         <source>Not implemented yet</source>
         <translation>Функция ещё не реализована</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1243"/>
-        <location filename="../FilePanel.cpp" line="1255"/>
+        <location filename="../FilePanel.cpp" line="1224"/>
+        <location filename="../FilePanel.cpp" line="1236"/>
         <source>No enough free space</source>
         <translation>Недостаточно свободного места</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1246"/>
-        <location filename="../FilePanel.cpp" line="1258"/>
+        <location filename="../FilePanel.cpp" line="1227"/>
+        <location filename="../FilePanel.cpp" line="1239"/>
         <source>Can&apos;t allocate a directory entry</source>
         <translation>Не удалось найти свободную запись каталога</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1249"/>
-        <location filename="../FilePanel.cpp" line="1261"/>
+        <location filename="../FilePanel.cpp" line="1230"/>
+        <location filename="../FilePanel.cpp" line="1242"/>
         <source>Can&apos;t allocate a sector</source>
         <translation>Не удалось найти свободный сектор</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1252"/>
+        <location filename="../FilePanel.cpp" line="1233"/>
         <source>Directory is not empty</source>
         <translation>Директория не пустая</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1264"/>
+        <location filename="../FilePanel.cpp" line="1245"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1339"/>
+        <location filename="../FilePanel.cpp" line="1320"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1340"/>
+        <location filename="../FilePanel.cpp" line="1321"/>
         <source>File &apos;%1&apos; already exists. Overwrite?</source>
         <translation>Файл &apos;%1&apos; уже существует. Заменить?</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1351"/>
-        <location filename="../FilePanel.cpp" line="1371"/>
+        <location filename="../FilePanel.cpp" line="1332"/>
+        <location filename="../FilePanel.cpp" line="1352"/>
         <source>Error writing file &apos;%1&apos;: %2</source>
         <translation>Ошибка записи файла &apos;%1&apos;: %2</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1364"/>
+        <location filename="../FilePanel.cpp" line="1345"/>
         <source>Writing for this type of file system is not implemented yet</source>
         <translation>Запись для данной файловой системы ещё не реализована</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1380"/>
+        <location filename="../FilePanel.cpp" line="1361"/>
         <source>Error reading file &apos;%1&apos;</source>
         <translation>Ошибка чтения файла &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1399"/>
+        <location filename="../FilePanel.cpp" line="1380"/>
         <source>Error deleting file &apos;%1&apos;</source>
         <translation>Ошибка удаления файла &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1479"/>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1480"/>
+        <source>Save functionality not yet implemented</source>
+        <translation>Функция сохранения ещё не реализована</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1489"/>
+        <source>No disk image loaded</source>
+        <translation>Образ не загружен</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1513"/>
+        <source>Not implemented!</source>
+        <translation>Функция не реализована!</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1521"/>
+        <source>Error generating file</source>
+        <translation>Ошибка генерации файла</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1531"/>
+        <source>Error opening template file</source>
+        <translation>Ошибка открытия файла-образца</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1541"/>
+        <source>Error reading template file</source>
+        <translation>Ошибка чтения файла-образца</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1549"/>
+        <source>The selected template cannot be used - it must be the same type and size as the target.</source>
+        <translation>Выбранный образец не может быть использован - его тип и размер должны совпадать с целевым форматом.</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1551"/>
+        <source>Incorrect source data for tracks replacement.</source>
+        <translation>Некорректные данные для замены треков.</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1553"/>
+        <source>Error inserting tracks from template</source>
+        <translation>Ошибка замены треков</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1563"/>
+        <source>Success</source>
+        <translation>Успешное выполнение</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1564"/>
+        <source>File saved successfully</source>
+        <translation>Файл успешно сохранён</translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1566"/>
+        <source>Error writing file to disk</source>
+        <translation>Ошибка записи файла</translation>
     </message>
 </context>
 <context>
@@ -1190,8 +1266,8 @@
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="563"/>
-        <location filename="../mainwindow.cpp" line="1370"/>
-        <location filename="../mainwindow.cpp" line="1448"/>
+        <location filename="../mainwindow.cpp" line="1376"/>
+        <location filename="../mainwindow.cpp" line="1470"/>
         <source>Sort by name</source>
         <translation>Сортировка по имени</translation>
     </message>
@@ -1469,6 +1545,7 @@
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="605"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="609"/>
+        <location filename="../mainwindow.cpp" line="1401"/>
         <source>Image</source>
         <translation>Образ</translation>
     </message>
@@ -1510,7 +1587,7 @@
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="601"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="611"/>
-        <location filename="../mainwindow.cpp" line="1395"/>
+        <location filename="../mainwindow.cpp" line="1417"/>
         <source>Files</source>
         <translation>Файлы</translation>
     </message>
@@ -1533,7 +1610,7 @@
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="517"/>
-        <location filename="../mainwindow.cpp" line="1430"/>
+        <location filename="../mainwindow.cpp" line="1452"/>
         <source>About...</source>
         <translation>О программе...</translation>
     </message>
@@ -1545,7 +1622,7 @@
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="519"/>
-        <location filename="../mainwindow.cpp" line="1419"/>
+        <location filename="../mainwindow.cpp" line="1441"/>
         <source>Language</source>
         <translation>Переключить язык</translation>
     </message>
@@ -1631,19 +1708,19 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>
-        <location filename="../mainwindow.cpp" line="1420"/>
+        <location filename="../mainwindow.cpp" line="1442"/>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="222"/>
-        <location filename="../mainwindow.cpp" line="1422"/>
+        <location filename="../mainwindow.cpp" line="1444"/>
         <source>Русский</source>
         <translation>Русский</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="225"/>
-        <location filename="../mainwindow.cpp" line="1425"/>
+        <location filename="../mainwindow.cpp" line="1447"/>
         <source>English</source>
         <translation>English</translation>
     </message>
@@ -2213,179 +2290,199 @@
         <translation>Ошибка добавления каталога</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1278"/>
+        <location filename="../mainwindow.cpp" line="1279"/>
+        <source>F2 Save</source>
+        <translation>F2 Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1280"/>
         <source>F3 Information</source>
         <translation>F3 Информация</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1387"/>
-        <location filename="../mainwindow.cpp" line="1465"/>
+        <location filename="../mainwindow.cpp" line="1393"/>
+        <location filename="../mainwindow.cpp" line="1487"/>
         <source>Show deleted</source>
         <translation>Показывать удалённые</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1397"/>
-        <location filename="../mainwindow.cpp" line="1526"/>
-        <location filename="../mainwindow.cpp" line="1529"/>
+        <location filename="../mainwindow.cpp" line="1403"/>
+        <source>Information...</source>
+        <translation>Информация...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1408"/>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1412"/>
+        <source>Save as...</source>
+        <translation>Сохранить как...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1419"/>
+        <location filename="../mainwindow.cpp" line="1548"/>
+        <location filename="../mainwindow.cpp" line="1551"/>
         <source>F3 View</source>
         <translation>F3 Просмотр</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1400"/>
+        <location filename="../mainwindow.cpp" line="1422"/>
         <source>F4 Edit</source>
         <translation>F4 Редактировать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1578"/>
-        <location filename="../mainwindow.cpp" line="1599"/>
+        <location filename="../mainwindow.cpp" line="1600"/>
+        <location filename="../mainwindow.cpp" line="1621"/>
         <source>Copying files</source>
         <translation>Копирование файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1600"/>
+        <location filename="../mainwindow.cpp" line="1622"/>
         <source>Copy %1 files?</source>
         <translation>Скопировать %1 файл(ов)?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1578"/>
-        <location filename="../mainwindow.cpp" line="1605"/>
+        <location filename="../mainwindow.cpp" line="1600"/>
+        <location filename="../mainwindow.cpp" line="1627"/>
         <source>Moving files</source>
         <translation>Перемещение файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1575"/>
+        <location filename="../mainwindow.cpp" line="1597"/>
         <source>Selected files: %1</source>
         <translation>Выбрано файлов: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1576"/>
+        <location filename="../mainwindow.cpp" line="1598"/>
         <source>Choose output file format:</source>
         <translation>Выберите формат для сохранения:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1577"/>
+        <location filename="../mainwindow.cpp" line="1599"/>
         <source>Choose the format</source>
         <translation>Выберите формат</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1606"/>
+        <location filename="../mainwindow.cpp" line="1628"/>
         <source>Move %1 files?</source>
         <translation>Переместить %1 файл(ов)?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1625"/>
+        <location filename="../mainwindow.cpp" line="1647"/>
         <source>Deleting files</source>
         <translation>Удаление файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1626"/>
+        <location filename="../mainwindow.cpp" line="1648"/>
         <source>Delete %1 files?</source>
         <translation>Удалить %1 файл(ов)?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1280"/>
-        <location filename="../mainwindow.cpp" line="1403"/>
+        <location filename="../mainwindow.cpp" line="1282"/>
+        <location filename="../mainwindow.cpp" line="1425"/>
         <source>F5 Copy</source>
         <translation>F5 Копировать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1281"/>
-        <location filename="../mainwindow.cpp" line="1406"/>
+        <location filename="../mainwindow.cpp" line="1283"/>
+        <location filename="../mainwindow.cpp" line="1428"/>
         <source>F6 Move</source>
         <translation>F6 Переместить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1282"/>
+        <location filename="../mainwindow.cpp" line="1284"/>
         <source>F7 MkDir</source>
         <translation>F7 Директория</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1283"/>
-        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../mainwindow.cpp" line="1285"/>
+        <location filename="../mainwindow.cpp" line="1434"/>
         <source>F8 Delete</source>
         <translation>F8 Удалить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1284"/>
+        <location filename="../mainwindow.cpp" line="1286"/>
         <source>F10 Exit</source>
         <translation>F10 Выход</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1356"/>
+        <location filename="../mainwindow.cpp" line="1362"/>
         <source>Left panel</source>
         <translation>Левая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1358"/>
-        <location filename="../mainwindow.cpp" line="1436"/>
+        <location filename="../mainwindow.cpp" line="1364"/>
+        <location filename="../mainwindow.cpp" line="1458"/>
         <source>Go Up</source>
         <translation>Вверх</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1361"/>
-        <location filename="../mainwindow.cpp" line="1439"/>
+        <location filename="../mainwindow.cpp" line="1367"/>
+        <location filename="../mainwindow.cpp" line="1461"/>
         <source>Open directory...</source>
         <translation>Выбрать директорию...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1366"/>
-        <location filename="../mainwindow.cpp" line="1444"/>
+        <location filename="../mainwindow.cpp" line="1372"/>
+        <location filename="../mainwindow.cpp" line="1466"/>
         <source>Sorting</source>
         <translation>Сортировка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1375"/>
-        <location filename="../mainwindow.cpp" line="1453"/>
+        <location filename="../mainwindow.cpp" line="1381"/>
+        <location filename="../mainwindow.cpp" line="1475"/>
         <source>Sort by size</source>
         <translation>По размеру</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1380"/>
-        <location filename="../mainwindow.cpp" line="1458"/>
+        <location filename="../mainwindow.cpp" line="1386"/>
+        <location filename="../mainwindow.cpp" line="1480"/>
         <source>No sorting</source>
         <translation>Без сортировки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1409"/>
+        <location filename="../mainwindow.cpp" line="1431"/>
         <source>F7 Make dir</source>
         <translation>F7 Директория</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1416"/>
+        <location filename="../mainwindow.cpp" line="1438"/>
         <source>Options</source>
         <translation>Параметры</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1434"/>
+        <location filename="../mainwindow.cpp" line="1456"/>
         <source>Right panel</source>
         <translation>Правая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1499"/>
+        <location filename="../mainwindow.cpp" line="1521"/>
         <source>No active panel</source>
         <translation>Нет активной панели</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1504"/>
+        <location filename="../mainwindow.cpp" line="1526"/>
         <source>Active panel: %1 | Selected: %2</source>
         <translation>Активная панель: %1 | Выбрано: %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1516"/>
-        <location filename="../mainwindow.cpp" line="1519"/>
+        <location filename="../mainwindow.cpp" line="1538"/>
+        <location filename="../mainwindow.cpp" line="1541"/>
         <source>F3 Info</source>
         <translation>F3 Информация</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1279"/>
-        <location filename="../mainwindow.cpp" line="1517"/>
-        <location filename="../mainwindow.cpp" line="1520"/>
+        <location filename="../mainwindow.cpp" line="1281"/>
+        <location filename="../mainwindow.cpp" line="1539"/>
+        <location filename="../mainwindow.cpp" line="1542"/>
         <source>F4 Open</source>
         <translation>F4 Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1527"/>
-        <location filename="../mainwindow.cpp" line="1530"/>
+        <location filename="../mainwindow.cpp" line="1549"/>
+        <location filename="../mainwindow.cpp" line="1552"/>
         <source>F4 Meta</source>
         <translation>F4 Метаданные</translation>
     </message>

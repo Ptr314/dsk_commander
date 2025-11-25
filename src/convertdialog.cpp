@@ -18,7 +18,7 @@ ConvertDialog::ConvertDialog(QWidget *parent)
     ui->setupUi(this);
 }
 
-ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, QJsonObject * file_types, QJsonObject * file_formats, dsk_tools::diskImage * image, const QString & type_id, int fs_volume_id):
+ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, const QJsonObject * file_types, const QJsonObject * file_formats, dsk_tools::diskImage * image, const QString & type_id, int fs_volume_id):
     ConvertDialog(parent)
 {
     m_type_id = type_id;

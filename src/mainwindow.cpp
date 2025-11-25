@@ -1275,6 +1275,8 @@ void MainWindow::on_actionRename_triggered()
 // New interface elements ---------------------------
 
 void MainWindow::createActions() {
+    // Bottom toolbar actions - created here and used in createBottomPanel
+    actSave   = new QAction(MainWindow::tr("F2 Save"), this);
     actView   = new QAction(MainWindow::tr("F3 Information"), this);
     actEdit   = new QAction(MainWindow::tr("F4 Open"), this);
     actCopy   = new QAction(MainWindow::tr("F5 Copy"), this);
@@ -1283,6 +1285,8 @@ void MainWindow::createActions() {
     actDelete = new QAction(MainWindow::tr("F8 Delete"), this);
     actExit   = new QAction(MainWindow::tr("F10 Exit"), this);
 
+    actSave->setShortcut(Qt::Key_F2);
+    actSave->setShortcutContext(Qt::WindowShortcut);
     actView->setShortcut(Qt::Key_F3);
     actView->setShortcutContext(Qt::WindowShortcut);
     actEdit->setShortcut(Qt::Key_F4);
@@ -1298,6 +1302,7 @@ void MainWindow::createActions() {
     actExit->setShortcut(Qt::Key_F10);
     actExit->setShortcutContext(Qt::WindowShortcut);
 
+    connect(actSave,   &QAction::triggered, this, &MainWindow::onImageSave);
     connect(actView,   &QAction::triggered, this, &MainWindow::onView);
     connect(actEdit,   &QAction::triggered, this, &MainWindow::onEdit);
     connect(actCopy,   &QAction::triggered, this, &MainWindow::onCopy);
@@ -1306,7 +1311,7 @@ void MainWindow::createActions() {
     connect(actDelete, &QAction::triggered, this, &MainWindow::onDelete);
     connect(actExit,   &QAction::triggered, this, &MainWindow::onExit);
 
-    addActions({actView, actEdit, actCopy, actMove, actMkdir, actDelete, actExit});
+    addActions({actSave, actView, actEdit, actCopy, actMove, actMkdir, actDelete, actExit});
 }
 
 QWidget* MainWindow::createBottomPanel() {
@@ -1330,6 +1335,7 @@ QWidget* MainWindow::createBottomPanel() {
         buttons << btn;
     };
 
+    makeButton(actSave);   // F2
     makeButton(actView);   // F3
     makeButton(actEdit);   // F4
     makeButton(actCopy);   // F5
@@ -1390,6 +1396,22 @@ void MainWindow::initializeMainMenu() {
     connect(leftMenuActions.showDeleted, &QAction::triggered, this, [this](bool checked) {
         onSetShowDeleted(leftPanel, checked);
     });
+
+    // === IMAGE MENU === (NEW)
+    QMenu *imageMenu = menuBar()->addMenu(MainWindow::tr("Image"));
+
+    actImageInfo = imageMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("Information..."));
+    connect(actImageInfo, &QAction::triggered, this, &MainWindow::onImageInfo);                  
+
+    imageMenu->addSeparator();
+
+    actImageSave = imageMenu->addAction(QIcon(":/icons/icon"), MainWindow::tr("Save"));
+    actImageSave->setShortcut(QKeySequence::Save);  // Ctrl+S
+    connect(actImageSave, &QAction::triggered, this, &MainWindow::onImageSave);                  
+                                                                 
+    actImageSaveAs = imageMenu->addAction(QIcon(":/icons/convert"), MainWindow::tr("Save as..."));
+    actImageSaveAs->setShortcut(QKeySequence::SaveAs);  // Ctrl+Shift+S                          
+    connect(actImageSaveAs, &QAction::triggered, this, &MainWindow::onImageSaveAs);
 
     // === FILES MENU ===
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
@@ -1713,4 +1735,38 @@ FilePanel* MainWindow::otherPanel() const {
     return (activePanel == leftPanel) ? rightPanel : leftPanel;
 }
 
+void MainWindow::onImageInfo()
+{
+    if (!activePanel) return;
+    activePanel->showImageInfo();
+}
 
+void MainWindow::onImageSave()
+{
+    if (!activePanel) return;
+    activePanel->saveImage();
+}
+
+void MainWindow::onImageSaveAs()
+{
+    if (!activePanel) return;
+    activePanel->saveImageAs();
+}
+
+void MainWindow::updateImageMenuState()
+{
+    if (!activePanel) {
+        actImageSave->setEnabled(false);
+        actImageSaveAs->setEnabled(false);
+        actSave->setEnabled(false);
+        return;
+    }
+
+    bool canSave = (activePanel->getMode() == panelMode::Image) &&
+                   (activePanel->getFileSystem() != nullptr) &&
+                   (activePanel->getFileSystem()->get_changed());
+
+    actImageSave->setEnabled(canSave);
+    actImageSaveAs->setEnabled(canSave);
+    actSave->setEnabled(canSave);
+}
