@@ -402,6 +402,12 @@ bool FileTable::eventFilter(QObject* obj, QEvent* ev) {
                 return true; // Event handled
             }
 
+            // Handle Backspace key - navigate to parent directory
+            if (keyEvent->key() == Qt::Key_Backspace) {
+                emit goUpRequested();
+                return true; // Event handled
+            }
+
             // Handle Enter/Return key - emit doubleClicked signal for current row
             if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter) {
                 QModelIndex current = currentIndex();

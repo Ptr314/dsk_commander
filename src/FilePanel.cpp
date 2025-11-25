@@ -296,6 +296,7 @@ void FilePanel::setupPanel() {
     connect(tableView, &FileTable::focusReceived, this, [this]() { emit activated(this); });
     connect(tableView, &FileTable::switchPanelRequested, this, &FilePanel::switchPanelRequested);
     connect(tableView, &FileTable::doubleClicked, this, &FilePanel::onItemDoubleClicked);
+    connect(tableView, &FileTable::goUpRequested, this, &FilePanel::onGoUp);
 
     setMode(panelMode::Host);
 

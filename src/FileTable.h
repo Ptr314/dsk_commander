@@ -56,6 +56,9 @@ signals:
     // Emitted when Tab key is pressed to switch panels
     void switchPanelRequested();
 
+    // Emitted when Backspace key is pressed to navigate up
+    void goUpRequested();
+
 protected:
     // Override event filter to implement custom selection behavior
     bool eventFilter(QObject* obj, QEvent* ev) override;
