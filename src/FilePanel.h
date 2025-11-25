@@ -86,6 +86,11 @@ public:
     void onMkDir();
     void chooseDirectory();
 
+    // Image menu operations
+    void showImageInfo();      // Information... (both modes)
+    void saveImage();          // Save (stub for now)
+    void saveImageAs();        // Save as...
+
     // Sorting methods
     void setSortOrder(HostModel::SortOrder order);
     int getSortOrder() const;
@@ -163,5 +168,11 @@ private:
     void dir();
     QString replace_placeholders(const QString & in);
     QString decodeError(const dsk_tools::Result & result);
+
+    // Helper methods for image info
+    dsk_tools::Loader* createLoader(const std::string& file_name,
+                                    const std::string& format_id,
+                                    const std::string& type_id);
+    void showInfoDialog(const std::string& info);
 
 };

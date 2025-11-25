@@ -158,6 +158,7 @@ private:
     FilePanel* rightPanel {nullptr};
     FilePanel* activePanel {nullptr};
 
+    QAction* actSave {nullptr};  // F2 button action
     QAction* actView {nullptr};
     QAction* actEdit {nullptr};
     QAction* actCopy {nullptr};
@@ -169,6 +170,11 @@ private:
     QAction* menuViewAction {nullptr};
     QAction* menuEditAction {nullptr};
 
+    // Image menu actions
+    QAction* actImageInfo {nullptr};
+    QAction* actImageSave {nullptr};
+    QAction* actImageSaveAs {nullptr};
+
     QLabel* statusLabel {nullptr};
 
     PanelMenuActions leftMenuActions;
@@ -177,5 +183,11 @@ private:
     void createActions();
     QWidget* createBottomPanel();
     FilePanel* otherPanel() const;
+
+    // Image menu slots
+    void onImageInfo();
+    void onImageSave();
+    void onImageSaveAs();
+    void updateImageMenuState();
 };
 #endif // MAINWINDOW_H

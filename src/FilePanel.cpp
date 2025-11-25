@@ -14,6 +14,9 @@
 #include <QLocale>
 #include <QDesktopServices>
 #include <QInputDialog>
+#include <QDialog>
+#include <QFont>
+#include <fstream>
 
 #include "./ui_fileinfodialog.h"
 
@@ -21,6 +24,7 @@
 #include "mainutils.h"
 #include "viewdialog.h"
 #include "fileparamdialog.h"
+#include "convertdialog.h"
 #include "fs_host.h"
 
 #include "dsk_tools/dsk_tools.h"
@@ -824,6 +828,7 @@ void FilePanel::updateTable()
 
 void FilePanel::dir()
 {
+    m_filesystem->dir(&m_files, m_show_deleted); //TODO: Remove this line
     dsk_tools::Result res = m_filesystem->dir(m_files_new, m_show_deleted);
     if (!res) {
         QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error reading files list!"));
@@ -1379,4 +1384,189 @@ void FilePanel::deleteFiles(const dsk_tools::Files & files)
         }
     }
     refresh();
+}
+
+// ============================================================================
+// Image menu operations
+// ============================================================================
+
+void FilePanel::showImageInfo()
+{
+    emit activated(this);
+
+    if (mode == panelMode::Host) {
+        // Host mode: show information about selected disk image file
+        QString path = currentFilePath();
+        if (path.isEmpty()) return;
+
+        QFileInfo fi(path);
+        if (fi.isDir()) return;
+
+        std::string file_name = _toStdString(fi.absoluteFilePath());
+        std::string type_id = "";
+        std::string filesystem_id = "";
+        std::string format_id = filterCombo->itemData(filterCombo->currentIndex()).toString().toStdString();
+
+        // Auto-detect format if necessary
+        if (format_id == "FILE_ANY") {
+            int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+        }
+        if (type_id.size() == 0) {
+            type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
+        }
+
+        // Create appropriate loader
+        dsk_tools::Loader* loader = createLoader(file_name, format_id, type_id);
+
+        if (!loader) {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
+            return;
+        }
+
+        // Display info
+        showInfoDialog(loader->file_info());
+
+        delete loader;
+    } else {
+        // Image mode: show information about currently loaded disk image
+        if (!m_image) return;
+
+        std::string info = m_filesystem->information();
+        showInfoDialog(info);
+    }
+}
+
+dsk_tools::Loader* FilePanel::createLoader(const std::string& file_name,
+                                           const std::string& format_id,
+                                           const std::string& type_id)
+{
+    if (format_id == "FILE_RAW_MSB") {
+        return new dsk_tools::LoaderRAW(file_name, format_id, type_id);
+    } else if (format_id == "FILE_AIM") {
+        return new dsk_tools::LoaderAIM(file_name, format_id, type_id);
+    } else if (format_id == "FILE_MFM_NIC") {
+        return new dsk_tools::LoaderNIC(file_name, format_id, type_id);
+    } else if (format_id == "FILE_MFM_NIB") {
+        return new dsk_tools::LoaderNIB(file_name, format_id, type_id);
+    } else if (format_id == "FILE_HXC_MFM") {
+        return new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
+    } else if (format_id == "FILE_HXC_HFE") {
+        return new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
+    }
+    return nullptr;
+}
+
+void FilePanel::showInfoDialog(const std::string& info)
+{
+    QDialog* file_info = new QDialog(this);
+
+    Ui_FileInfo fileinfoUi;
+    fileinfoUi.setupUi(file_info);
+
+    QString text = replace_placeholders(QString::fromStdString(info));
+    QFont font("Consolas", 10, 400);
+    fileinfoUi.textBox->setFont(font);
+    fileinfoUi.textBox->setPlainText(text);
+
+    file_info->exec();
+    delete file_info;
+}
+
+void FilePanel::saveImage()
+{
+    emit activated(this);
+
+    // TODO: Implement save to original file
+    QMessageBox::information(this, FilePanel::tr("Save"),
+        FilePanel::tr("Save functionality not yet implemented"));
+}
+
+void FilePanel::saveImageAs()
+{
+    emit activated(this);
+
+    if (mode != panelMode::Image || !m_image || !m_filesystem) {
+        QMessageBox::critical(this, FilePanel::tr("Error"),
+            FilePanel::tr("No disk image loaded"));
+        return;
+    }
+
+    QString type_id = typeCombo->itemData(typeCombo->currentIndex()).toString();
+    QString target_id;
+    QString output_file;
+    QString template_file;
+    int numtracks;
+    uint8_t volume_id;
+
+    ConvertDialog dialog(this, m_settings, &m_file_types, &m_file_formats, m_image, type_id, m_filesystem->get_volume_id());
+    if (dialog.exec(target_id, output_file, template_file, numtracks, volume_id) == QDialog::Accepted) {
+        dsk_tools::Writer* writer = nullptr;
+
+        std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
+
+        if (mfm_formats.find(target_id) != mfm_formats.end()) {
+            writer = new dsk_tools::WriterHxCMFM(target_id.toStdString(), m_image, volume_id);
+        } else if (target_id == "FILE_HXC_HFE") {
+            writer = new dsk_tools::WriterHxCHFE(target_id.toStdString(), m_image, volume_id);
+        } else if (target_id == "FILE_RAW_MSB") {
+            writer = new dsk_tools::WriterRAW(target_id.toStdString(), m_image);
+        } else {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not implemented!"));
+            return;
+        }
+
+        dsk_tools::BYTES buffer;
+        int result = writer->write(buffer);
+
+        if (result != FDD_WRITE_OK) {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error generating file"));
+            delete writer;
+            return;
+        }
+
+        if (numtracks > 0) {
+            dsk_tools::BYTES tmplt;
+
+            std::ifstream tf(template_file.toStdString(), std::ios::binary);
+            if (!tf.good()) {
+                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error opening template file"));
+                delete writer;
+                return;
+            }
+            tf.seekg(0, tf.end);
+            auto tfsize = tf.tellg();
+            tf.seekg(0, tf.beg);
+            tmplt.resize(tfsize);
+            tf.read(reinterpret_cast<char*>(tmplt.data()), tfsize);
+            if (!tf.good()) {
+                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error reading template file"));
+                delete writer;
+                return;
+            }
+
+            result = writer->substitute_tracks(buffer, tmplt, numtracks);
+            if (result != FDD_WRITE_OK) {
+                if (result == FDD_WRITE_INCORECT_TEMPLATE)
+                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("The selected template cannot be used - it must be the same type and size as the target."));
+                else if (result == FDD_WRITE_INCORECT_SOURCE)
+                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Incorrect source data for tracks replacement."));
+                else
+                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error inserting tracks from template"));
+                delete writer;
+                return;
+            }
+        }
+
+        std::ofstream file(output_file.toStdString(), std::ios::binary);
+
+        if (file.good()) {
+            file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
+            QMessageBox::information(this, FilePanel::tr("Success"),
+                FilePanel::tr("File saved successfully"));
+        } else {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error writing file to disk"));
+        }
+
+        delete writer;
+    }
 }
