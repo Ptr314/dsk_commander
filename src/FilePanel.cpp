@@ -1229,11 +1229,11 @@ dsk_tools::Files FilePanel::getSelectedFiles()
                 for (auto index : rows) {
                     files.push_back(m_files_new[index.row()]);
                 }
-            } else {
-                QModelIndex index = tableView->currentIndex();
-                if (index.isValid()) {
-                    files.push_back(m_files_new[index.row()]);
-                }
+            }
+        } else {
+            QModelIndex index = tableView->currentIndex();
+            if (index.isValid()) {
+                files.push_back(m_files_new[index.row()]);
             }
         }
     }
