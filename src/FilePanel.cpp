@@ -1247,7 +1247,7 @@ QString FilePanel::decodeError(const dsk_tools::Result & result)
             break;
     }
 
-    if (!result.message.empty()) error += ": " + result.message;
+    if (!result.message.empty()) error += ": " + QString::fromStdString(result.message);
 
     return error;
 }
