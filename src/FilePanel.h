@@ -90,6 +90,10 @@ public:
     void setSortOrder(HostModel::SortOrder order);
     int getSortOrder() const;
 
+    // Show deleted files methods
+    void setShowDeleted(bool show);
+    bool getShowDeleted() const { return m_show_deleted; }
+
     // Mode getter
     panelMode getMode() const { return mode; }
 
@@ -133,6 +137,7 @@ private:
     QString currentPath;
     QString m_lastDirName;  // Track last entered directory for cursor restoration
     panelMode mode {panelMode::Host};
+    bool m_show_deleted {true};  // Default to showing deleted files
 
     QSettings * m_settings;
     QString m_ini_label;

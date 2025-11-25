@@ -415,6 +415,9 @@ void FilePanel::setupFilters()
     setComboBoxByItemData(fsCombo, filesystem_def);
 
     autoCheck->setChecked(m_settings->value("directory/"+m_ini_label+"_auto", 1).toInt()==1);
+
+    // Load show_deleted preference (default to true)
+    m_show_deleted = m_settings->value("directory/" + m_ini_label + "_show_deleted", 1).toInt() == 1;
 }
 
 void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
@@ -822,7 +825,7 @@ void FilePanel::updateTable()
 void FilePanel::dir()
 {
     // bool show_deleted = ui->deletedBtn->isChecked();
-    bool show_deleted = true;
+    bool show_deleted = m_show_deleted;
 
     int dir_res;
     dsk_tools::Result res;
@@ -1208,6 +1211,18 @@ int FilePanel::getSortOrder() const
         return static_cast<int>(host_model->sortOrder());
     }
     return -1;
+}
+
+void FilePanel::setShowDeleted(bool show) {
+    if (m_show_deleted == show) return;  // No change
+
+    m_show_deleted = show;
+    m_settings->setValue("directory/" + m_ini_label + "_show_deleted", show ? 1 : 0);
+
+    // Only refresh if in Image mode and filesystem is loaded
+    if (mode == panelMode::Image && m_filesystem) {
+        dir();
+    }
 }
 
 bool FilePanel::allowPutFiles() const {

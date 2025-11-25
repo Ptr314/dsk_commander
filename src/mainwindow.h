@@ -32,6 +32,7 @@ struct PanelMenuActions {
     QAction *sortByName;
     QAction *sortBySize;
     QAction *noSort;
+    QAction *showDeleted;
 };
 
 class MainWindow : public QMainWindow
@@ -109,6 +110,7 @@ private slots:
     void onGoUp(FilePanel* panel);
     void onOpenDirectory(FilePanel* panel);
     void onSetSorting(FilePanel* panel, HostModel::SortOrder order);
+    void onSetShowDeleted(FilePanel* panel, bool show);
     void updateSortingMenu(FilePanel* panel);
     void onAbout();
 
