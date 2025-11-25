@@ -824,35 +824,12 @@ void FilePanel::updateTable()
 
 void FilePanel::dir()
 {
-    // bool show_deleted = ui->deletedBtn->isChecked();
-    bool show_deleted = m_show_deleted;
-
-    int dir_res;
-    dsk_tools::Result res;
-    try {
-        dir_res = m_filesystem->dir(&m_files, show_deleted);
-        res = m_filesystem->dir(m_files_new, show_deleted);
-    } catch (...) {
-        dir_res = FDD_OP_ERROR;
-    }
-
-    if (dir_res != FDD_OP_OK) {
+    dsk_tools::Result res = m_filesystem->dir(m_files_new, m_show_deleted);
+    if (!res) {
         QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error reading files list!"));
     }
-
-    // if (ui->sortBtn->isChecked()) {
-    //     std::sort(m_files.begin(), m_files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
-    //         if (a.is_dir != b.is_dir)
-    //             return a.is_dir > b.is_dir;
-    //         return a.name < b.name;
-    //     });
-    // }
-
     updateTable();
-    // setup_buttons(false);
 }
-
-
 
 QStringList FilePanel::selectedPaths() const {
     QStringList paths;
