@@ -21,7 +21,7 @@
 
 #include "dsk_tools/dsk_tools.h"
 
-ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_name, const dsk_tools::BYTES &data, int preferred_type, bool deleted, dsk_tools::diskImage * disk_image, dsk_tools::fileSystem * filesystem)
+ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_name, const dsk_tools::BYTES &data, dsk_tools::PreferredType preferred_type, bool deleted, dsk_tools::diskImage * disk_image, dsk_tools::fileSystem * filesystem)
     : QDialog(parent)
     , ui(new Ui::ViewDialog)
     , m_settings(settings)
@@ -77,18 +77,18 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
     adjustComboBoxWidth(ui->modeCombo);
 
     QString preferred_subtype = "";
-    if (preferred_type == PREFERRED_TEXT) {
+    if (preferred_type == dsk_tools::PreferredType::Text) {
         ui->modeCombo->setCurrentIndex(type_map["TEXT"]);
     } else
-    if (preferred_type == PREFERRED_AGATBASIC) {
+    if (preferred_type == dsk_tools::PreferredType::AgatBASIC) {
         ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
         preferred_subtype = "AGAT";
     } else
-    if (preferred_type == PREFERRED_ABS) {
+    if (preferred_type == dsk_tools::PreferredType::AppleBASIC) {
         ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
         preferred_subtype = "APPLE";
     } else
-    if (preferred_type == PREFERRED_MBASIC) {
+    if (preferred_type == dsk_tools::PreferredType::MBASIC) {
         ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
         preferred_subtype = "MBASIC";
     } else {
