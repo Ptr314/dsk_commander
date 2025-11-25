@@ -1382,6 +1382,15 @@ void MainWindow::initializeMainMenu() {
     leftMenuActions.noSort->setActionGroup(leftSortGroup);
     connect(leftMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::NoOrder); });
 
+    leftMenu->addSeparator();
+
+    leftMenuActions.showDeleted = leftMenu->addAction(QIcon(":/icons/deleted"), MainWindow::tr("Show deleted"));
+    leftMenuActions.showDeleted->setCheckable(true);
+    leftMenuActions.showDeleted->setChecked(leftPanel->getShowDeleted());
+    connect(leftMenuActions.showDeleted, &QAction::triggered, this, [this](bool checked) {
+        onSetShowDeleted(leftPanel, checked);
+    });
+
     // === FILES MENU ===
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
@@ -1450,6 +1459,15 @@ void MainWindow::initializeMainMenu() {
     rightMenuActions.noSort->setCheckable(true);
     rightMenuActions.noSort->setActionGroup(rightSortGroup);
     connect(rightMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::NoOrder); });
+
+    rightMenu->addSeparator();
+
+    rightMenuActions.showDeleted = rightMenu->addAction(QIcon(":/icons/deleted"), MainWindow::tr("Show deleted"));
+    rightMenuActions.showDeleted->setCheckable(true);
+    rightMenuActions.showDeleted->setChecked(rightPanel->getShowDeleted());
+    connect(rightMenuActions.showDeleted, &QAction::triggered, this, [this](bool checked) {
+        onSetShowDeleted(rightPanel, checked);
+    });
 
     // Initialize sorting menu states
     updateSortingMenu(leftPanel);
@@ -1651,6 +1669,12 @@ void MainWindow::onOpenDirectory(FilePanel* panel) {
 void MainWindow::onSetSorting(FilePanel* panel, HostModel::SortOrder order) {
     if (panel) {
         panel->setSortOrder(order);
+    }
+}
+
+void MainWindow::onSetShowDeleted(FilePanel* panel, bool show) {
+    if (panel) {
+        panel->setShowDeleted(show);
     }
 }
 
