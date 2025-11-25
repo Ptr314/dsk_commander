@@ -1591,7 +1591,7 @@ void MainWindow::doCopy(bool copy) {
         }
         if (reply == QMessageBox::Yes) {
             dsk_tools::Files files = activePanel->getSelectedFiles();
-            otherPanel()->putFiles(activePanel->getFileSystem(), files, "BIN", copy);
+            otherPanel()->putFiles(activePanel->getFileSystem(), files, "", copy);
         }
     }
 }
