@@ -1543,9 +1543,7 @@ void MainWindow::doCopy(bool copy) {
 
         foreach (const std::string & v, formats) {
             QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
-            QString name = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
-            QString short_name = fil["short_name"].toString();
-            fil_map[short_name] = name;
+            fil_map[QString::fromStdString(v)] = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
         }
 
 
@@ -1567,10 +1565,8 @@ void MainWindow::doCopy(bool copy) {
             // Save selected format to settings for next time
             settings->setValue("export/extract_format_"+fs_string, selectedFormat);
 
-            // TODO: Implement actual file extraction logic here
-            // - Get selected files from activePanel
-            // - Choose destination directory/file
-            // - Extract files in the selected format
+            dsk_tools::Files files = activePanel->getSelectedFiles();
+            otherPanel()->putFiles(activePanel->getFileSystem(), files, selectedFormat, copy);
 
             qDebug() << "User selected format:" << selectedFormat;
         }
@@ -1595,7 +1591,7 @@ void MainWindow::doCopy(bool copy) {
         }
         if (reply == QMessageBox::Yes) {
             dsk_tools::Files files = activePanel->getSelectedFiles();
-            otherPanel()->putFiles(activePanel->getFileSystem(), files, copy);
+            otherPanel()->putFiles(activePanel->getFileSystem(), files, "BIN", copy);
         }
     }
 }

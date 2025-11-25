@@ -745,30 +745,30 @@ void FilePanel::setMode(panelMode new_mode)
 
 void FilePanel::updateTable()
 {
-    dsk_tools::FSCaps funcs = m_filesystem->getCaps();
+    const dsk_tools::FSCaps funcs = m_filesystem->getCaps();
 
     image_model->removeRows(0, image_model->rowCount());
 
-    foreach (const dsk_tools::fileData & f, m_files) {
+    foreach (const dsk_tools::UniversalFile & f, m_files_new) {
         QList<QStandardItem*> items;
 
         if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Protect)) {
-            QStandardItem * protect_item = new QStandardItem();
+            auto * protect_item = new QStandardItem();
             protect_item->setText((f.is_protected)?"*":"");
             protect_item->setTextAlignment(Qt::AlignCenter);
             items.append(protect_item);
         }
 
         if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Types)) {
-            QStandardItem * type_item = new QStandardItem();
-            type_item->setText(QString::fromStdString(f.type_str_short));
+            auto * type_item = new QStandardItem();
+            type_item->setText(QString::fromStdString(f.type_label));
             type_item->setTextAlignment(Qt::AlignCenter);
             items.append(type_item);
         }
 
         QString file_name = QString::fromStdString(f.name);
 
-        QStandardItem * size_item = new QStandardItem();
+        auto * size_item = new QStandardItem();
         size_item->setText((file_name != "..")?QString::number(f.size):"");
         size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         items.append(size_item);
@@ -780,7 +780,6 @@ void FilePanel::updateTable()
             dirFont.setBold(true);
             if (f.is_deleted) dirFont.setStrikeOut(true);
             nameItem->setFont(dirFont);
-            // nameItem->setForeground(QBrush(Qt::blue));
         } else {
             nameItem = new QStandardItem(file_name);
             if (f.is_deleted) {
@@ -793,12 +792,15 @@ void FilePanel::updateTable()
         image_model->appendRow( items );
     }
 
+
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     for (int row = 0; row < tableView->model()->rowCount(); ++row) {
         tableView->setRowHeight(row, 24);
     }
 #endif
 
+
+    // TODO: check if it's necessary
     int rowCount = image_model->rowCount();
     if (rowCount == 1) {
         QModelIndex index = image_model->index(0, 0);
@@ -822,8 +824,10 @@ void FilePanel::dir()
     bool show_deleted = true;
 
     int dir_res;
+    dsk_tools::Result res;
     try {
         dir_res = m_filesystem->dir(&m_files, show_deleted);
+        res = m_filesystem->dir(m_files_new, show_deleted);
     } catch (...) {
         dir_res = FDD_OP_ERROR;
     }
@@ -1191,8 +1195,6 @@ dsk_tools::Files FilePanel::getSelectedFiles()
     dsk_tools::Files files;
 
     if (mode == panelMode::Host) {
-        auto host_fs = new dsk_tools::fsHost(nullptr);
-
         QStringList paths = selectedPaths();
         foreach (const QString & path, paths) {
             QFileInfo fi(path);
@@ -1208,7 +1210,7 @@ dsk_tools::Files FilePanel::getSelectedFiles()
                 f.is_dir = false;
                 f.is_protected = false;
                 f.is_deleted = false;
-                f.type = dsk_tools::PreferredType::Binary;
+                f.type_preferred = dsk_tools::PreferredType::Binary;
 
                 f.original_name = dsk_tools::strToBytes(fn);
                 f.attributes = 0;
@@ -1219,24 +1221,37 @@ dsk_tools::Files FilePanel::getSelectedFiles()
                 files.push_back(f);
             }
         }
-
     } else {
-        // TODO: image processing
+        QItemSelectionModel * selection = tableView->selectionModel();
+        if (selection->hasSelection()) {
+            QModelIndexList rows = selection->selectedRows();
+            if (!rows.empty()) {
+                for (auto index : rows) {
+                    files.push_back(m_files_new[index.row()]);
+                }
+            } else {
+                QModelIndex index = tableView->currentIndex();
+                if (index.isValid()) {
+                    files.push_back(m_files_new[index.row()]);
+                }
+            }
+        }
     }
 
     return files;
 }
 
-void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const bool copy)
+void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy)
 {
+    const std::string std_format = format.toStdString();
     foreach (const dsk_tools::UniversalFile & f, files) {
         if (f.is_dir) {
             // TODO: Processing dirs
         } else {
             dsk_tools::BYTES data;
-            auto get_result = sourceFs->get_file(f, data);
+            auto get_result = sourceFs->get_file(f, std_format, data);
             if (get_result) {
-                auto put_result = m_filesystem->put_file(f, data);
+                auto put_result = m_filesystem->put_file(f, std_format, data, false);
                 if (!put_result) {
                     // Check if file already exists
                     if (put_result.code == dsk_tools::ErrorCode::FileAlreadyExists) {
@@ -1249,7 +1264,7 @@ void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools:
 
                         if (res == QMessageBox::Yes) {
                             // Retry with force_replace flag
-                            put_result = m_filesystem->put_file(f, data, true);
+                            put_result = m_filesystem->put_file(f, std_format, data, true);
                             if (!put_result) {
                                 QMessageBox::critical(
                                     this,

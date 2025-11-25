@@ -77,7 +77,7 @@
             "name":         "All Files",
             "short_name":   "ALL",
             "source":       true,
-            "extensions":   "*.*",
+            "extensions":   "*",
             "types":        []
         },
         "FILE_SUPPORTED": {
