@@ -22,12 +22,6 @@
 #include "dsk_tools/dsk_tools.h"
 
 
-QT_BEGIN_NAMESPACE
-namespace Ui {
-class MainWindow;
-}
-QT_END_NAMESPACE
-
 struct PanelMenuActions {
     QAction *sortByName;
     QAction *sortBySize;
@@ -67,8 +61,6 @@ private slots:
     void onAbout();
 
 private:
-    Ui::MainWindow *ui;
-
     QTranslator translator;
     QTranslator qtTranslator;
 
