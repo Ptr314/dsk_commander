@@ -153,7 +153,6 @@ private:
 
     dsk_tools::diskImage * m_image {nullptr};
     dsk_tools::fileSystem * m_filesystem {nullptr};
-    std::vector<dsk_tools::fileData> m_files;
     std::vector<dsk_tools::UniversalFile> m_files_new;
 
     void setupPanel();

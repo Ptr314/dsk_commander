@@ -828,7 +828,7 @@ void FilePanel::updateTable()
 
 void FilePanel::dir()
 {
-    m_filesystem->dir(&m_files, m_show_deleted); //TODO: Remove this line
+    // m_filesystem->dir(&m_files, m_show_deleted); //TODO: Remove this line
     dsk_tools::Result res = m_filesystem->dir(m_files_new, m_show_deleted);
     if (!res) {
         QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error reading files list!"));
@@ -1110,7 +1110,7 @@ void FilePanel::onView()
 
         QModelIndex index = tableView->currentIndex();
         if (index.isValid()) {
-            auto f = m_files[index.row()];
+            auto f = m_files_new[index.row()];
 
             auto info = replace_placeholders(QString::fromStdString(m_filesystem->file_info(f)));
 
@@ -1139,7 +1139,7 @@ void FilePanel::onEdit()
     } else {
         QModelIndex index = tableView->currentIndex();
         if (index.isValid()) {
-            dsk_tools::fileData f = m_files[index.row()];
+            auto f = m_files_new[index.row()];
             std::vector<dsk_tools::ParameterDescription> params = m_filesystem->file_get_metadata(f);
 
             for (auto & param : params) {
