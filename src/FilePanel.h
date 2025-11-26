@@ -166,7 +166,6 @@ private:
     void updateTable();
     void setMode(panelMode new_mode);
     void dir();
-    QString replace_placeholders(const QString & in);
     QString decodeError(const dsk_tools::Result & result);
 
     // Helper methods for image info

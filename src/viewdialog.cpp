@@ -17,6 +17,7 @@
 
 #include "viewdialog.h"
 #include "mainutils.h"
+#include "placeholders.h"
 #include "ui_viewdialog.h"
 
 #include "dsk_tools/dsk_tools.h"
@@ -177,7 +178,7 @@ void ViewDialog::update_subtypes(const QString & preferred)
         ui->subtypeCombo->blockSignals(true);
         ui->subtypeCombo->clear();
         for (const auto& pair : subtypes) {
-            ui->subtypeCombo->addItem(replace_placeholders(QString::fromStdString(pair.second)), QString::fromStdString(pair.first));
+            ui->subtypeCombo->addItem(replacePlaceholders(QString::fromStdString(pair.second)), QString::fromStdString(pair.first));
             if (pair.first == preferred.toStdString()) {
                 int index = ui->subtypeCombo->count()-1;
                 last_subtypes[mode] = index;
@@ -208,33 +209,6 @@ void ViewDialog::on_closeBtn_clicked()
 {
     close();
 }
-
-QString ViewDialog::replace_placeholders(const QString & in)
-{
-    return QString(in)
-        .replace("{$PALETTE}", ViewDialog::tr("Palette"))
-        .replace("{$COLOR}", ViewDialog::tr("Color"))
-        .replace("{$MONOCHROME}", ViewDialog::tr("Monochrome"))
-        .replace("{$CUSTOM_PALETTE}", ViewDialog::tr("Custom palette"))
-        .replace("{$BW}", ViewDialog::tr("b/w"))
-
-        .replace("{$FONT_LOADING_ERROR}", ViewDialog::tr("Custom font loading error"))
-
-        .replace("{$NTSC_AGAT_IMPROVED}", ViewDialog::tr("Agat Improved"))
-        .replace("{$NTSC_APPLE_IMPROVED}", ViewDialog::tr("Apple Improved"))
-        .replace("{$NTSC_APPLE_ORIGINAL}", ViewDialog::tr("Apple NTSC Original"))
-
-        .replace("{$AGAT_FONT_A7_CLASSIC}", ViewDialog::tr("Agat-7 classic font"))
-        .replace("{$AGAT_FONT_A7_ENCHANCED}", ViewDialog::tr("Agat-7 enchanced font"))
-        .replace("{$AGAT_FONT_A9_CLASSIC}", ViewDialog::tr("Agat-9 classic font"))
-        .replace("{$AGAT_FONT_CUSTOM_GARNIZON}", ViewDialog::tr("GARNIZON custom font"))
-        .replace("{$AGAT_FONT_CUSTOM_LOADED}", ViewDialog::tr("Loaded custom font"))
-        .replace("{$FONT_A9}", ViewDialog::tr("Agat-9 Font"))
-        .replace("{$FONT_A7}", ViewDialog::tr("Agat-7 Font"))
-        .replace("{$FONT_FILE}", ViewDialog::tr("Font file"))
-        ;
-}
-
 
 void ViewDialog::print_data()
 {
@@ -387,7 +361,7 @@ void ViewDialog::fill_options()
             std::string error_msg;
             int res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
             if (res != PREPARE_PIC_OK) {
-                QString msg = replace_placeholders(QString::fromStdString(error_msg));
+                QString msg = replacePlaceholders(QString::fromStdString(error_msg));
                 QMessageBox::critical(this, ViewDialog::tr("Error"), msg);
             }
 
@@ -397,7 +371,7 @@ void ViewDialog::fill_options()
                 ui->optionsCombo->blockSignals(true);
                 ui->optionsCombo->clear();
                 for (const auto& opt : options) {
-                    ui->optionsCombo->addItem(replace_placeholders(QString::fromStdString(opt.second)), opt.first);
+                    ui->optionsCombo->addItem(replacePlaceholders(QString::fromStdString(opt.second)), opt.first);
                     if (opt.first == suggested) {
                         ui->optionsCombo->setCurrentIndex(ui->optionsCombo->count()-1);
                         m_opt = suggested;
