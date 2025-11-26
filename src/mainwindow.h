@@ -84,7 +84,6 @@ private:
     // void process_image(std::string filesystem_type);                                                       // Open selecteed image file and list its contents
     // void dir();
     void update_info();
-    QString replace_placeholders(const QString & in);
     std::vector<dsk_tools::fileData> files;
 
     void initializeMainMenu();

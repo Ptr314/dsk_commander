@@ -17,6 +17,7 @@
 #include <QDialog>
 #include <QFont>
 #include <fstream>
+#include "placeholders.h"
 
 #include "./ui_fileinfodialog.h"
 
@@ -911,111 +912,6 @@ bool FilePanel::eventFilter(QObject* obj, QEvent* ev) {
     return QWidget::eventFilter(obj, ev);
 }
 
-QString FilePanel::replace_placeholders(const QString & in)
-{
-    return QString(in)
-    .replace("{$DIRECTORY_ENTRY}", FilePanel::tr("Directory Entry"))
-        .replace("{$FILE_NAME}", FilePanel::tr("File Name"))
-        .replace("{$SIZE}", FilePanel::tr("File Size"))
-        .replace("{$BYTES}", FilePanel::tr("byte(s)"))
-        .replace("{$SIDES}", FilePanel::tr("Sides"))
-        .replace("{$TRACKS}", FilePanel::tr("Tracks"))
-        .replace("{$SECTORS}", FilePanel::tr("sector(s)"))
-        .replace("{$ATTRIBUTES}", FilePanel::tr("Attributes"))
-        .replace("{$DATE}", FilePanel::tr("Date"))
-        .replace("{$TYPE}", FilePanel::tr("Type"))
-        .replace("{$PROTECTED}", FilePanel::tr("Protected"))
-        .replace("{$YES}", FilePanel::tr("Yes"))
-        .replace("{$NO}", FilePanel::tr("No"))
-        .replace("{$TS_LIST_LOCATION}", FilePanel::tr("T/S List Location"))
-        .replace("{$TS_LIST_DATA}", FilePanel::tr("T/S List Contents"))
-        .replace("{$INCORRECT_TS_DATA}", FilePanel::tr("Incorrect T/S data, stopping iterations"))
-        .replace("{$NEXT_TS}", FilePanel::tr("Next T/S List Location"))
-        .replace("{$FILE_END_REACHED}", FilePanel::tr("File End Reached"))
-        .replace("{$FILE_DELETED}", FilePanel::tr("The file is marked as deleted, the data below may be incorrect"))
-        .replace("{$ERROR_PARSING}", FilePanel::tr("File parsing error"))
-        .replace("{$TRACK}", FilePanel::tr("Track"))
-        .replace("{$TRACK_SHORT}", FilePanel::tr("T"))
-        .replace("{$SIDE_SHORT}", FilePanel::tr("H"))
-        .replace("{$PHYSICAL_SECTOR}", FilePanel::tr("S"))
-        .replace("{$LOGICAL_SECTOR}", FilePanel::tr("S"))
-        .replace("{$PARSING_FINISHED}", FilePanel::tr("Parsing finished"))
-        .replace("{$VOLUME_ID}", FilePanel::tr("V"))
-        .replace("{$SECTOR_INDEX}", FilePanel::tr("Index"))
-        .replace("{$INDEX_MARK}", FilePanel::tr("Index Mark"))
-        .replace("{$DATA_MARK}", FilePanel::tr("Data Mark"))
-        .replace("{$DATA_FIELD}", FilePanel::tr("Sector Data"))
-        .replace("{$SECTOR_INDEX_END_OK}", FilePanel::tr("End Mark: OK"))
-        .replace("{$SECTOR_INDEX_END_ERROR}", FilePanel::tr("End Mark: Not Detected"))
-        .replace("{$SECTOR_CRC_OK}", FilePanel::tr("CRC: OK"))
-        .replace("{$SECTOR_CRC_ERROR}", FilePanel::tr("CRC: Error"))
-        .replace("{$CRC_EXPECTED}", FilePanel::tr("Expected"))
-        .replace("{$CRC_FOUND}", FilePanel::tr("Found"))
-        .replace("{$SECTOR_ERROR}", FilePanel::tr("Data Error"))
-        .replace("{$INDEX_CRC_OK}", FilePanel::tr("CRC: OK"))
-        .replace("{$INDEX_CRC_ERROR}", FilePanel::tr("CRC: Error"))
-        .replace("{$INDEX_EPILOGUE_OK}", FilePanel::tr("Epilogue: OK"))
-        .replace("{$INDEX_EPILOGUE_ERROR}", FilePanel::tr("Epilogue: Error"))
-        .replace("{$DATA_EPILOGUE_OK}", FilePanel::tr("Epilogue: OK"))
-        .replace("{$DATA_EPILOGUE_ERROR}", FilePanel::tr("Epilogue: Error"))
-        .replace("{$TRACKLIST_OFFSET}", FilePanel::tr("Track List Offset"))
-        .replace("{$TRACK_OFFSET}", FilePanel::tr("Track Offset"))
-        .replace("{$TRACK_SIZE}", FilePanel::tr("Track Size"))
-        .replace("{$HEADER}", FilePanel::tr("Header"))
-        .replace("{$SIGNATURE}", FilePanel::tr("Signature"))
-        .replace("{$NO_SIGNATURE}", FilePanel::tr("No known signature found, aborting"))
-        .replace("{$FORMAT_REVISION}", FilePanel::tr("Format revision"))
-        .replace("{$SIDE}", FilePanel::tr("Side"))
-        .replace("{$CUSTOM_DATA}", FilePanel::tr("Custom Data"))
-        .replace("{$VTOC_FOUND}", FilePanel::tr("DOS 3.3 VTOC found"))
-        .replace("{$VTOC_NOT_FOUND}", FilePanel::tr("DOS 3.3 VTOC not found"))
-        .replace("{$VTOC_CATALOG_TRACK}", FilePanel::tr("Root Catalog Track"))
-        .replace("{$VTOC_CATALOG_SECTOR}", FilePanel::tr("Root Catalog Sector"))
-        .replace("{$VTOC_DOS_RELEASE}", FilePanel::tr("DOS Release"))
-        .replace("{$VTOC_VOLUME_ID}", FilePanel::tr("Volume ID"))
-        .replace("{$VTOC_VOLUME_NAME}", FilePanel::tr("Volume name"))
-        .replace("{$VTOC_PAIRS_ON_SECTOR}", FilePanel::tr("Pairs per T/S list"))
-        .replace("{$VTOC_LAST_TRACK}", FilePanel::tr("Last track"))
-        .replace("{$VTOC_DIRECTION}", FilePanel::tr("Direction"))
-        .replace("{$VTOC_TRACKS_TOTAL}", FilePanel::tr("Tracks total"))
-        .replace("{$VTOC_SECTORS_ON_TRACK}", FilePanel::tr("Sectors on track"))
-        .replace("{$VTOC_BYTES_PER_SECTOR}", FilePanel::tr("Bytes per sector"))
-        .replace("{$ERROR_OPENING}", FilePanel::tr("Error opening the file"))
-        .replace("{$ERROR_LOADING}", FilePanel::tr("Error loading, check if the file type is correct"))
-
-        .replace("{$DPB_INFO}", FilePanel::tr("DPB Information"))
-        .replace("{$DPB_VOLUME_ID}", FilePanel::tr("Volume ID"))
-        .replace("{$DPB_TYPE}", FilePanel::tr("Device type"))
-        .replace("{$DPB_DSIDE}", FilePanel::tr("DSIDE"))
-        .replace("{$DPB_TSIZE}", FilePanel::tr("Blocks on track"))
-        .replace("{$DPB_DSIZE}", FilePanel::tr("Tracks on disk"))
-        .replace("{$DPB_MAXBLOK}", FilePanel::tr("Last block"))
-        .replace("{$DPB_VTOCADR}", FilePanel::tr("VTOC block"))
-
-        .replace("{$EXTENT}", FilePanel::tr("Extent"))
-        .replace("{$FREE_SECTORS}", FilePanel::tr("Free sectors"))
-        .replace("{$FREE_BYTES}", FilePanel::tr("Free bytes"))
-
-        .replace("{$META_FILENAME}", FilePanel::tr("File Name"))
-        .replace("{$META_PROTECTED}", FilePanel::tr("Protected"))
-        .replace("{$META_TYPE}", FilePanel::tr("Type"))
-        .replace("{$META_EXTENDED}", FilePanel::tr("Extended"))
-
-        .replace("{$AGAT_VR_FOUND}", FilePanel::tr("Agat image VR block found"))
-        .replace("{$AGAT_VR_MODE}", FilePanel::tr("Video mode"))
-        .replace("{$AGAT_VR_AGAT_GMODES}", FilePanel::tr("Agat graphic"))
-        .replace("{$AGAT_VR_AGAT_TMODES}", FilePanel::tr("Agat text"))
-        .replace("{$AGAT_VR_A2_MODES}", FilePanel::tr("Apple II modes"))
-        .replace("{$AGAT_VR_GIGA_MODES}", FilePanel::tr("Agat GigaScreen"))
-        .replace("{$AGAT_VR_MAIN_PALETTE}", FilePanel::tr("Main palette"))
-        .replace("{$AGAT_VR_ATL_PALETTE}", FilePanel::tr("Alternative palette"))
-        .replace("{$AGAT_VR_CUSTOM_PALETTE}", FilePanel::tr("Custom palette"))
-        .replace("{$AGAT_VR_COMMENT}", FilePanel::tr("Comment block"))
-        .replace("{$AGAT_VR_FONT}", FilePanel::tr("Font ID"))
-        .replace("{$AGAT_VR_CUSTOM_FONT}", FilePanel::tr("Custom font"))
-        ;
-}
-
 void FilePanel::onView()
 {
     emit activated(this);
@@ -1091,7 +987,7 @@ void FilePanel::onView()
             Ui_FileInfo fileinfoUi;
             fileinfoUi.setupUi(file_info);
 
-            QString info = replace_placeholders(QString::fromStdString(loader->file_info()));
+            QString info = replacePlaceholders(QString::fromStdString(loader->file_info()));
             QFont font("Consolas", 10, 400);
             fileinfoUi.textBox->setFont(font);
             fileinfoUi.textBox->setPlainText(info);
@@ -1112,7 +1008,7 @@ void FilePanel::onView()
         if (index.isValid()) {
             auto f = m_files_new[index.row()];
 
-            auto info = replace_placeholders(QString::fromStdString(m_filesystem->file_info(f)));
+            auto info = replacePlaceholders(QString::fromStdString(m_filesystem->file_info(f)));
 
             QFont font("Consolas", 10, 400);
             fileinfoUi.textBox->setFont(font);
@@ -1143,7 +1039,7 @@ void FilePanel::onEdit()
             std::vector<dsk_tools::ParameterDescription> params = m_filesystem->file_get_metadata(f);
 
             for (auto & param : params) {
-                param.name = replace_placeholders(QString::fromStdString(param.name)).toStdString();
+                param.name = replacePlaceholders(QString::fromStdString(param.name)).toStdString();
             }
 
             FileParamDialog dialog(params);
@@ -1517,7 +1413,7 @@ void FilePanel::showInfoDialog(const std::string& info)
     Ui_FileInfo fileinfoUi;
     fileinfoUi.setupUi(file_info);
 
-    QString text = replace_placeholders(QString::fromStdString(info));
+    QString text = replacePlaceholders(QString::fromStdString(info));
     QFont font("Consolas", 10, 400);
     fileinfoUi.textBox->setFont(font);
     fileinfoUi.textBox->setPlainText(text);
