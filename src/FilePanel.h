@@ -84,6 +84,7 @@ public:
     void onEdit();
     void onGoUp();
     void onMkDir();
+    void onRename();
     void chooseDirectory();
 
     // Image menu operations

@@ -95,7 +95,7 @@ private slots:
     void onView();
     void onEdit();
     void onCopy();
-    void onMove();
+    void onRename();
     void onMkdir();
     void onDelete();
     void onExit();
@@ -162,7 +162,7 @@ private:
     QAction* actView {nullptr};
     QAction* actEdit {nullptr};
     QAction* actCopy {nullptr};
-    QAction* actMove {nullptr};
+    QAction* actRename {nullptr};
     QAction* actMkdir {nullptr};
     QAction* actDelete {nullptr};
     QAction* actExit {nullptr};

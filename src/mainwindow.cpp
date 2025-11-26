@@ -1280,7 +1280,7 @@ void MainWindow::createActions() {
     actView   = new QAction(MainWindow::tr("F3 Information"), this);
     actEdit   = new QAction(MainWindow::tr("F4 Open"), this);
     actCopy   = new QAction(MainWindow::tr("F5 Copy"), this);
-    actMove   = new QAction(MainWindow::tr("F6 Move"), this);
+    actRename = new QAction(MainWindow::tr("F6 Rename"), this);
     actMkdir  = new QAction(MainWindow::tr("F7 MkDir"), this);
     actDelete = new QAction(MainWindow::tr("F8 Delete"), this);
     actExit   = new QAction(MainWindow::tr("F10 Exit"), this);
@@ -1293,8 +1293,8 @@ void MainWindow::createActions() {
     actEdit->setShortcutContext(Qt::WindowShortcut);
     actCopy->setShortcut(Qt::Key_F5);
     actCopy->setShortcutContext(Qt::WindowShortcut);
-    actMove->setShortcut(Qt::Key_F6);
-    actMove->setShortcutContext(Qt::WindowShortcut);
+    actRename->setShortcut(Qt::Key_F6);
+    actRename->setShortcutContext(Qt::WindowShortcut);
     actMkdir->setShortcut(Qt::Key_F7);
     actMkdir->setShortcutContext(Qt::WindowShortcut);
     actDelete->setShortcut(Qt::Key_F8);
@@ -1306,12 +1306,12 @@ void MainWindow::createActions() {
     connect(actView,   &QAction::triggered, this, &MainWindow::onView);
     connect(actEdit,   &QAction::triggered, this, &MainWindow::onEdit);
     connect(actCopy,   &QAction::triggered, this, &MainWindow::onCopy);
-    connect(actMove,   &QAction::triggered, this, &MainWindow::onMove);
+    connect(actRename, &QAction::triggered, this, &MainWindow::onRename);
     connect(actMkdir,  &QAction::triggered, this, &MainWindow::onMkdir);
     connect(actDelete, &QAction::triggered, this, &MainWindow::onDelete);
     connect(actExit,   &QAction::triggered, this, &MainWindow::onExit);
 
-    addActions({actSave, actView, actEdit, actCopy, actMove, actMkdir, actDelete, actExit});
+    addActions({actSave, actView, actEdit, actCopy, actRename, actMkdir, actDelete, actExit});
 }
 
 QWidget* MainWindow::createBottomPanel() {
@@ -1339,7 +1339,7 @@ QWidget* MainWindow::createBottomPanel() {
     makeButton(actView);   // F3
     makeButton(actEdit);   // F4
     makeButton(actCopy);   // F5
-    makeButton(actMove);   // F6
+    makeButton(actRename); // F6
     makeButton(actMkdir);  // F7
     makeButton(actDelete); // F8
     makeButton(actExit);   // F10
@@ -1425,8 +1425,8 @@ void MainWindow::initializeMainMenu() {
     QAction *copyAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F5 Copy"));
     connect(copyAction, &QAction::triggered, this, &MainWindow::onCopy);
 
-    QAction *moveAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F6 Move"));
-    connect(moveAction, &QAction::triggered, this, &MainWindow::onMove);
+    QAction *renameAction = filesMenu->addAction(QIcon(":/icons/edit"), MainWindow::tr("F6 Rename"));
+    connect(renameAction, &QAction::triggered, this, &MainWindow::onRename);
 
     QAction *mkdirAction = filesMenu->addAction(QIcon(":/icons/new_dir"), MainWindow::tr("F7 Make dir"));
     connect(mkdirAction, &QAction::triggered, this, &MainWindow::onMkdir);
@@ -1567,9 +1567,10 @@ void MainWindow::onCopy() {
     doCopy(true);
 }
 
-void MainWindow::onMove()
+void MainWindow::onRename()
 {
-    doCopy(false);
+    if (!activePanel) return;
+    activePanel->onRename();
 }
 
 void MainWindow::doCopy(bool copy) {
