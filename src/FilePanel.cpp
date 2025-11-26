@@ -1386,6 +1386,60 @@ void FilePanel::deleteFiles(const dsk_tools::Files & files)
     refresh();
 }
 
+void FilePanel::onRename()
+{
+    if (!m_filesystem) return;
+
+    const dsk_tools::Files files = getSelectedFiles();
+
+    // Rename only works on single files
+    if (files.size() != 1) {
+        QMessageBox::information(this,
+                                FilePanel::tr("Rename"),
+                                FilePanel::tr("Please select exactly one file to rename."));
+        return;
+    }
+
+    const dsk_tools::UniversalFile & file = files[0];
+
+    // Don't allow renaming parent directory entry
+    if (file.name == "..") {
+        return;
+    }
+
+    QString old_name = QString::fromStdString(file.name);
+    bool ok{};
+    QString new_name = QInputDialog::getText(
+        this,
+        FilePanel::tr("Rename"),
+        FilePanel::tr("New name:"),
+        QLineEdit::Normal,
+        old_name,
+        &ok
+    );
+
+    if (ok && !new_name.isEmpty()) {
+        // Don't rename if the name hasn't changed
+        if (new_name == old_name) {
+            return;
+        }
+
+        auto result = m_filesystem->file_rename(file, new_name.toStdString());
+        if (!result) {
+            QMessageBox::critical(
+                this,
+                FilePanel::tr("Error"),
+                FilePanel::tr("Error renaming file '%1': %2").arg(
+                    old_name,
+                    QString::fromStdString(decodeError(result).toStdString())
+                )
+            );
+        } else {
+            refresh();
+        }
+    }
+}
+
 // ============================================================================
 // Image menu operations
 // ============================================================================

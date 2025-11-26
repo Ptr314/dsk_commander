@@ -322,16 +322,17 @@
         <location filename="../FilePanel.cpp" line="1352"/>
         <location filename="../FilePanel.cpp" line="1361"/>
         <location filename="../FilePanel.cpp" line="1380"/>
-        <location filename="../FilePanel.cpp" line="1422"/>
-        <location filename="../FilePanel.cpp" line="1489"/>
-        <location filename="../FilePanel.cpp" line="1514"/>
-        <location filename="../FilePanel.cpp" line="1522"/>
-        <location filename="../FilePanel.cpp" line="1532"/>
-        <location filename="../FilePanel.cpp" line="1542"/>
-        <location filename="../FilePanel.cpp" line="1550"/>
-        <location filename="../FilePanel.cpp" line="1552"/>
-        <location filename="../FilePanel.cpp" line="1554"/>
-        <location filename="../FilePanel.cpp" line="1567"/>
+        <location filename="../FilePanel.cpp" line="1431"/>
+        <location filename="../FilePanel.cpp" line="1476"/>
+        <location filename="../FilePanel.cpp" line="1543"/>
+        <location filename="../FilePanel.cpp" line="1568"/>
+        <location filename="../FilePanel.cpp" line="1576"/>
+        <location filename="../FilePanel.cpp" line="1586"/>
+        <location filename="../FilePanel.cpp" line="1596"/>
+        <location filename="../FilePanel.cpp" line="1604"/>
+        <location filename="../FilePanel.cpp" line="1606"/>
+        <location filename="../FilePanel.cpp" line="1608"/>
+        <location filename="../FilePanel.cpp" line="1621"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -852,7 +853,7 @@
     </message>
     <message>
         <location filename="../FilePanel.cpp" line="1086"/>
-        <location filename="../FilePanel.cpp" line="1422"/>
+        <location filename="../FilePanel.cpp" line="1476"/>
         <source>Not supported yet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -946,67 +947,88 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1480"/>
+        <location filename="../FilePanel.cpp" line="1398"/>
+        <location filename="../FilePanel.cpp" line="1414"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1399"/>
+        <source>Please select exactly one file to rename.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1415"/>
+        <source>New name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1432"/>
+        <source>Error renaming file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1534"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1481"/>
+        <location filename="../FilePanel.cpp" line="1535"/>
         <source>Save functionality not yet implemented</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1490"/>
+        <location filename="../FilePanel.cpp" line="1544"/>
         <source>No disk image loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1514"/>
+        <location filename="../FilePanel.cpp" line="1568"/>
         <source>Not implemented!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1522"/>
+        <location filename="../FilePanel.cpp" line="1576"/>
         <source>Error generating file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1532"/>
+        <location filename="../FilePanel.cpp" line="1586"/>
         <source>Error opening template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1542"/>
+        <location filename="../FilePanel.cpp" line="1596"/>
         <source>Error reading template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1550"/>
+        <location filename="../FilePanel.cpp" line="1604"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1552"/>
+        <location filename="../FilePanel.cpp" line="1606"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1554"/>
+        <location filename="../FilePanel.cpp" line="1608"/>
         <source>Error inserting tracks from template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1564"/>
+        <location filename="../FilePanel.cpp" line="1618"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1565"/>
+        <location filename="../FilePanel.cpp" line="1619"/>
         <source>File saved successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1567"/>
+        <location filename="../FilePanel.cpp" line="1621"/>
         <source>Error writing file to disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1389,7 +1411,6 @@
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="583"/>
-        <location filename="../mainwindow.cpp" line="1194"/>
         <source>Add a directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1562,7 +1583,6 @@
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_mainwindow.h" line="527"/>
-        <location filename="../mainwindow.cpp" line="1164"/>
         <source>Add files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1645,12 +1665,6 @@
     <message>
         <location filename="../mainwindow.cpp" line="211"/>
         <location filename="../mainwindow.cpp" line="236"/>
-        <location filename="../mainwindow.cpp" line="393"/>
-        <location filename="../mainwindow.cpp" line="396"/>
-        <location filename="../mainwindow.cpp" line="399"/>
-        <location filename="../mainwindow.cpp" line="420"/>
-        <location filename="../mainwindow.cpp" line="453"/>
-        <location filename="../mainwindow.cpp" line="463"/>
         <location filename="../mainwindow.cpp" line="914"/>
         <location filename="../mainwindow.cpp" line="922"/>
         <location filename="../mainwindow.cpp" line="931"/>
@@ -1660,12 +1674,6 @@
         <location filename="../mainwindow.cpp" line="954"/>
         <location filename="../mainwindow.cpp" line="965"/>
         <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1045"/>
-        <location filename="../mainwindow.cpp" line="1130"/>
-        <location filename="../mainwindow.cpp" line="1132"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
-        <location filename="../mainwindow.cpp" line="1177"/>
-        <location filename="../mainwindow.cpp" line="1202"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1677,21 +1685,6 @@
     <message>
         <location filename="../mainwindow.cpp" line="351"/>
         <source>Choose a directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="396"/>
-        <source>Error checking file parameters</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="453"/>
-        <source>Unrecognized disk format or disk is damaged!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="420"/>
-        <source>Error reading files list!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1715,26 +1708,6 @@
         <location filename="../mainwindow.cpp" line="225"/>
         <location filename="../mainwindow.cpp" line="1447"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="393"/>
-        <source>File loading error. Check your disk type settings or try auto-detection.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="399"/>
-        <source>Error preparing image data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1045"/>
-        <source>Can&apos;t detect type of the file automatically</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="463"/>
-        <source>File system initialization error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2238,46 +2211,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1130"/>
-        <source>Error deleting directory. It must be empty to be deleted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1132"/>
-        <source>Error deleting file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1175"/>
-        <source>Error adding file. Not enough free disk space</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1177"/>
-        <source>Error adding file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1182"/>
-        <source>Success</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1182"/>
-        <source>Successfully added %1 file(s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1195"/>
-        <source>Directory name:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1202"/>
-        <source>Error adding new catalog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="1279"/>
         <source>F2 Save</source>
         <translation type="unfinished"></translation>
@@ -2285,6 +2218,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="1280"/>
         <source>F3 Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1283"/>
+        <location filename="../mainwindow.cpp" line="1428"/>
+        <source>F6 Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2321,49 +2260,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1600"/>
-        <location filename="../mainwindow.cpp" line="1621"/>
+        <location filename="../mainwindow.cpp" line="1579"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1580"/>
+        <source>Please select exactly one file to rename.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1617"/>
+        <location filename="../mainwindow.cpp" line="1638"/>
         <source>Copying files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1622"/>
+        <location filename="../mainwindow.cpp" line="1639"/>
         <source>Copy %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1600"/>
-        <location filename="../mainwindow.cpp" line="1627"/>
+        <location filename="../mainwindow.cpp" line="1617"/>
+        <location filename="../mainwindow.cpp" line="1644"/>
         <source>Moving files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1597"/>
+        <location filename="../mainwindow.cpp" line="1614"/>
         <source>Selected files: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1598"/>
+        <location filename="../mainwindow.cpp" line="1615"/>
         <source>Choose output file format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1599"/>
+        <location filename="../mainwindow.cpp" line="1616"/>
         <source>Choose the format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1628"/>
+        <location filename="../mainwindow.cpp" line="1645"/>
         <source>Move %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1647"/>
+        <location filename="../mainwindow.cpp" line="1664"/>
         <source>Deleting files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1648"/>
+        <location filename="../mainwindow.cpp" line="1665"/>
         <source>Delete %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2371,12 +2320,6 @@
         <location filename="../mainwindow.cpp" line="1282"/>
         <location filename="../mainwindow.cpp" line="1425"/>
         <source>F5 Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1283"/>
-        <location filename="../mainwindow.cpp" line="1428"/>
-        <source>F6 Move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
