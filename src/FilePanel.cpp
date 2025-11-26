@@ -1320,7 +1320,7 @@ void FilePanel::onRename()
             return;
         }
 
-        auto result = m_filesystem->file_rename(file, new_name.toStdString());
+        auto result = m_filesystem->rename_file(file, new_name.toStdString());
         if (!result) {
             QMessageBox::critical(
                 this,
