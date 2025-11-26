@@ -30,6 +30,7 @@
 #include <QDebug>
 #include <QActionGroup>
 #include <QMenu>
+#include <QMenuBar>
 
 #include "mainwindow.h"
 #include "convertdialog.h"
@@ -37,7 +38,6 @@
 #include "formatdialog.h"
 #include "viewdialog.h"
 
-#include "./ui_mainwindow.h"
 #include "./ui_aboutdlg.h"
 #include "./ui_fileinfodialog.h"
 
@@ -50,7 +50,6 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
     , leftFilesModel(this)
     , rightFilesModel(this)
 {
@@ -93,8 +92,6 @@ MainWindow::MainWindow(QWidget *parent)
     } else {
         switch_language(ini_lang, true);
     }
-
-    ui->setupUi(this);
 
     resize(1000, 600);
 
@@ -182,7 +179,6 @@ void MainWindow::switch_language(const QString & lang, bool init)
             qApp->installTranslator(&qtTranslator);
         }
         if (!init) {
-            ui->retranslateUi(this);
             settings->setValue("interface/language", lang);
         }
     } else {
@@ -240,7 +236,6 @@ void MainWindow::load_config()
 MainWindow::~MainWindow()
 {
     // delete settings;
-    delete ui;
 }
 
 QString MainWindow::replace_placeholders(const QString & in)
