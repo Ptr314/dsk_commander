@@ -375,62 +375,62 @@ void MainWindow::on_leftFilterCombo_currentIndexChanged(int index)
     settings->setValue("directory/left_file_filter", ff_id);
 }
 
-void MainWindow::load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type)
-{
-    setup_buttons(true);
-    rightFilesModel.removeRows(0, rightFilesModel.rowCount());
-
-    if (image != nullptr) delete image;
-    image = dsk_tools::prepare_image(file_name, file_format, file_type);
-
-    if (image != nullptr) {
-        auto check_result = image->check();
-        if (check_result == FDD_LOAD_OK) {
-            auto load_result = image->load();
-            if (load_result == FDD_LOAD_OK) {
-                process_image(filesystem_type);
-            } else {
-                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File loading error. Check your disk type settings or try auto-detection."));
-            }
-        } else {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error checking file parameters"));
-        }
-    } else {
-        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error preparing image data"));
-    }
-}
+// void MainWindow::load_file(std::string file_name, std::string file_format, std::string file_type, std::string filesystem_type)
+// {
+//     setup_buttons(true);
+//     rightFilesModel.removeRows(0, rightFilesModel.rowCount());
+//
+//     if (image != nullptr) delete image;
+//     image = dsk_tools::prepare_image(file_name, file_format, file_type);
+//
+//     if (image != nullptr) {
+//         auto check_result = image->check();
+//         if (check_result == FDD_LOAD_OK) {
+//             auto load_result = image->load();
+//             if (load_result == FDD_LOAD_OK) {
+//                 process_image(filesystem_type);
+//             } else {
+//                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File loading error. Check your disk type settings or try auto-detection."));
+//             }
+//         } else {
+//             QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error checking file parameters"));
+//         }
+//     } else {
+//         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error preparing image data"));
+//     }
+// }
 
 void MainWindow::on_leftFiles_clicked(const QModelIndex &index)
 {
     //TODO: Do something
 }
 
-void MainWindow::dir()
-{
-    bool show_deleted = ui->deletedBtn->isChecked();
-
-    int dir_res;
-    try {
-        dir_res = filesystem->dir(&files, show_deleted);
-    } catch (...) {
-        dir_res = FDD_OP_ERROR;
-    }
-
-    if (dir_res != FDD_OP_OK) {
-        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading files list!"));
-    }
-
-    if (ui->sortBtn->isChecked()) {
-        std::sort(files.begin(), files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
-            if (a.is_dir != b.is_dir)
-                return a.is_dir > b.is_dir;
-            return a.name < b.name;
-        });
-    }
-
-    update_table();
-    // setup_buttons(false);
-}
+// void MainWindow::dir()
+// {
+//     bool show_deleted = ui->deletedBtn->isChecked();
+//
+//     int dir_res;
+//     try {
+//         dir_res = filesystem->dir(&files, show_deleted);
+//     } catch (...) {
+//         dir_res = FDD_OP_ERROR;
+//     }
+//
+//     if (dir_res != FDD_OP_OK) {
+//         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error reading files list!"));
+//     }
+//
+//     if (ui->sortBtn->isChecked()) {
+//         std::sort(files.begin(), files.end(), [](const dsk_tools::fileData &a, const dsk_tools::fileData &b) {
+//             if (a.is_dir != b.is_dir)
+//                 return a.is_dir > b.is_dir;
+//             return a.name < b.name;
+//         });
+//     }
+//
+//     update_table();
+//     // setup_buttons(false);
+// }
 
 void MainWindow::update_info()
 {
@@ -440,29 +440,29 @@ void MainWindow::update_info()
     }
 }
 
-void MainWindow::process_image(std::string filesystem_type)
-{
-    if (filesystem != nullptr) delete filesystem;
-    filesystem = dsk_tools::prepare_filesystem(image, filesystem_type);
-    if (filesystem != nullptr) {
-        int open_res = filesystem->open();
-
-        init_table();
-
-        if (open_res != FDD_OPEN_OK) {
-            QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Unrecognized disk format or disk is damaged!"));
-            return;
-        }
-
-        dir();
-        // update_info();
-        setup_buttons(false);
-        ui->tabWidget->setCurrentIndex(0);
-        is_loaded = true;
-    } else {
-        QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File system initialization error!"));
-    }
-}
+// void MainWindow::process_image(std::string filesystem_type)
+// {
+//     if (filesystem != nullptr) delete filesystem;
+//     filesystem = dsk_tools::prepare_filesystem(image, filesystem_type);
+//     if (filesystem != nullptr) {
+//         int open_res = filesystem->open();
+//
+//         init_table();
+//
+//         if (open_res != FDD_OPEN_OK) {
+//             QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Unrecognized disk format or disk is damaged!"));
+//             return;
+//         }
+//
+//         dir();
+//         // update_info();
+//         setup_buttons(false);
+//         ui->tabWidget->setCurrentIndex(0);
+//         is_loaded = true;
+//     } else {
+//         QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("File system initialization error!"));
+//     }
+// }
 
 void MainWindow::init_table()
 {
@@ -1026,50 +1026,50 @@ void MainWindow::on_actionImage_Info_triggered()
 
 void MainWindow::on_actionOpen_Image_triggered()
 {
-    std::string format_id;
-    std::string type_id;
-    std::string filesystem_id;
-
-    QModelIndexList indexes = ui->leftFiles->selectionModel()->selectedIndexes();
-    if (indexes.size() == 1) {
-        QModelIndex selectedIndex = indexes.at(0);
-        QFileInfo fileInfo = leftFilesModel.fileInfo(selectedIndex);
-        if (fileInfo.isDir()) {
-            set_directory(fileInfo.absoluteFilePath());
-        } else {
-            std::string file_name = _toStdString(fileInfo.absoluteFilePath());
-            QString selected_format = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString();
-            if (ui->autoCheckBox->isChecked()) {
-                int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
-                if (res != FDD_DETECT_OK ) {
-                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
-                    return;
-                } else {
-                    set_combos(
-                        (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"",
-                        QString::fromStdString(type_id),
-                        QString::fromStdString(filesystem_id)
-                    );
-                }
-            } else {
-                type_id = "";
-                filesystem_id = "";
-                if (selected_format != "FILE_ANY") {
-                    format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
-                } else {
-                    int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
-                    // if (res != FDD_DETECT_OK) {
-                        type_id = "";
-                        filesystem_id = "";
-                    // }
-                };
-                if (type_id.size() == 0) type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
-                if (filesystem_id.size() == 0) filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
-
-            }
-            load_file(file_name, format_id, type_id, filesystem_id);
-        }
-    }
+    // std::string format_id;
+    // std::string type_id;
+    // std::string filesystem_id;
+    //
+    // QModelIndexList indexes = ui->leftFiles->selectionModel()->selectedIndexes();
+    // if (indexes.size() == 1) {
+    //     QModelIndex selectedIndex = indexes.at(0);
+    //     QFileInfo fileInfo = leftFilesModel.fileInfo(selectedIndex);
+    //     if (fileInfo.isDir()) {
+    //         set_directory(fileInfo.absoluteFilePath());
+    //     } else {
+    //         std::string file_name = _toStdString(fileInfo.absoluteFilePath());
+    //         QString selected_format = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString();
+    //         if (ui->autoCheckBox->isChecked()) {
+    //             int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
+    //             if (res != FDD_DETECT_OK ) {
+    //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Can't detect type of the file automatically"));
+    //                 return;
+    //             } else {
+    //                 set_combos(
+    //                     (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"",
+    //                     QString::fromStdString(type_id),
+    //                     QString::fromStdString(filesystem_id)
+    //                 );
+    //             }
+    //         } else {
+    //             type_id = "";
+    //             filesystem_id = "";
+    //             if (selected_format != "FILE_ANY") {
+    //                 format_id = ui->leftFilterCombo->itemData(ui->leftFilterCombo->currentIndex()).toString().toStdString();
+    //             } else {
+    //                 int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+    //                 // if (res != FDD_DETECT_OK) {
+    //                     type_id = "";
+    //                     filesystem_id = "";
+    //                 // }
+    //             };
+    //             if (type_id.size() == 0) type_id = ui->leftTypeCombo->itemData(ui->leftTypeCombo->currentIndex()).toString().toStdString();
+    //             if (filesystem_id.size() == 0) filesystem_id = ui->filesystemCombo->itemData(ui->filesystemCombo->currentIndex()).toString().toStdString();
+    //
+    //         }
+    //         load_file(file_name, format_id, type_id, filesystem_id);
+    //     }
+    // }
 
 }
 
@@ -1099,42 +1099,42 @@ void MainWindow::on_actionView_triggered()
 
 void MainWindow::on_imageUpBtn_clicked()
 {
-    filesystem->cd_up();
-    dir();
+    // filesystem->cd_up();
+    // dir();
 }
 
 
 void MainWindow::on_sortBtn_clicked()
 {
-    dir();
+    // dir();
 }
 
 
 void MainWindow::on_deletedBtn_clicked()
 {
-    dir();
+    // dir();
 }
 
 
 void MainWindow::on_actionDelete_triggered()
 {
-    QItemSelectionModel * selection = ui->rightFiles->selectionModel();
-    if (selection->hasSelection()) {
-        QModelIndexList rows = selection->selectedRows();
-        for (int i=0; i<rows.size(); i++) {
-            QModelIndex selectedIndex = rows.at(i);
-            dsk_tools::fileData f = files[selectedIndex.row()];
-            int res = filesystem->file_delete(f);
-            if (res != FILE_DELETE_OK) {
-                if (res == FDD_DIR_NOT_EMPTY)
-                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error deleting directory. It must be empty to be deleted"));
-                else
-                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error deleting file"));
-                break;
-            }
-        }
-        dir();
-    }
+    // QItemSelectionModel * selection = ui->rightFiles->selectionModel();
+    // if (selection->hasSelection()) {
+    //     QModelIndexList rows = selection->selectedRows();
+    //     for (int i=0; i<rows.size(); i++) {
+    //         QModelIndex selectedIndex = rows.at(i);
+    //         dsk_tools::fileData f = files[selectedIndex.row()];
+    //         int res = filesystem->file_delete(f);
+    //         if (res != FILE_DELETE_OK) {
+    //             if (res == FDD_DIR_NOT_EMPTY)
+    //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error deleting directory. It must be empty to be deleted"));
+    //             else
+    //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error deleting file"));
+    //             break;
+    //         }
+    //     }
+    //     dir();
+    // }
 }
 
 void MainWindow::on_tabWidget_currentChanged(int index)
@@ -1145,65 +1145,65 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 
 void MainWindow::on_actionAdd_files_triggered()
 {
-    dir();
-    QString filters = "";
-
-    std::vector<std::string> formats = filesystem->get_add_file_formats();
-    std::map<QString, QString> fil_map;
-
-    foreach (const std::string & v, formats) {
-        QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
-        if (filters.length() != 0) filters += ";;";
-        QString name = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
-        QString filter_name = QString("%1 (%2)").arg(name, fil["extensions"].toString().replace(";", " "));
-        filters += filter_name;
-        fil_map[filter_name] = QString::fromStdString(v);
-    }
-    QString selected_filter;
-    QString open_dir = settings->value("directory/add", directory).toString();
-    QStringList files = QFileDialog::getOpenFileNames(this, MainWindow::tr("Add files"), open_dir, filters, &selected_filter);
-
-    if (files.size() > 0) {
-        QFileInfo fi(files[0]);
-        settings->setValue("directory/add", fi.absolutePath());
-        int res;
-        foreach (const QString & fn, files) {
-            std::string file_name = _toStdString(fn);
-            res = filesystem->file_add(file_name, fil_map[selected_filter].toStdString());
-            if (res != FILE_ADD_OK) {
-                if (res == FILE_ADD_ERROR_SPACE)
-                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding file. Not enough free disk space"));
-                else
-                    QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding file"));
-                break;
-            }
-        };
-        if (res == FILE_ADD_OK)
-            QMessageBox::information(this, MainWindow::tr("Success"), MainWindow::tr("Successfully added %1 file(s)").arg(files.size()));
-        dir();
-    }
+    // dir();
+    // QString filters = "";
+    //
+    // std::vector<std::string> formats = filesystem->get_add_file_formats();
+    // std::map<QString, QString> fil_map;
+    //
+    // foreach (const std::string & v, formats) {
+    //     QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
+    //     if (filters.length() != 0) filters += ";;";
+    //     QString name = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
+    //     QString filter_name = QString("%1 (%2)").arg(name, fil["extensions"].toString().replace(";", " "));
+    //     filters += filter_name;
+    //     fil_map[filter_name] = QString::fromStdString(v);
+    // }
+    // QString selected_filter;
+    // QString open_dir = settings->value("directory/add", directory).toString();
+    // QStringList files = QFileDialog::getOpenFileNames(this, MainWindow::tr("Add files"), open_dir, filters, &selected_filter);
+    //
+    // if (files.size() > 0) {
+    //     QFileInfo fi(files[0]);
+    //     settings->setValue("directory/add", fi.absolutePath());
+    //     int res;
+    //     foreach (const QString & fn, files) {
+    //         std::string file_name = _toStdString(fn);
+    //         res = filesystem->file_add(file_name, fil_map[selected_filter].toStdString());
+    //         if (res != FILE_ADD_OK) {
+    //             if (res == FILE_ADD_ERROR_SPACE)
+    //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding file. Not enough free disk space"));
+    //             else
+    //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding file"));
+    //             break;
+    //         }
+    //     };
+    //     if (res == FILE_ADD_OK)
+    //         QMessageBox::information(this, MainWindow::tr("Success"), MainWindow::tr("Successfully added %1 file(s)").arg(files.size()));
+    //     dir();
+    // }
 }
 
 
 void MainWindow::on_actionAdd_directory_triggered()
 {
-    dsk_tools::FSCaps funcs = filesystem->getCaps();
-
-    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Dirs)) {
-        bool ok{};
-        QString text = QInputDialog::getText(this, MainWindow::tr("Add a directory"),
-                                             MainWindow::tr("Directory name:"),
-                                             QLineEdit::Normal,
-                                             "New",
-                                             &ok);
-        if (ok && !text.isEmpty()) {
-            int res = filesystem->mkdir(text.toStdString());
-            if (res != FDD_DIR_OK) {
-                QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding new catalog"));
-            }
-            dir();
-        }
-    }
+    // dsk_tools::FSCaps funcs = filesystem->getCaps();
+    //
+    // if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Dirs)) {
+    //     bool ok{};
+    //     QString text = QInputDialog::getText(this, MainWindow::tr("Add a directory"),
+    //                                          MainWindow::tr("Directory name:"),
+    //                                          QLineEdit::Normal,
+    //                                          "New",
+    //                                          &ok);
+    //     if (ok && !text.isEmpty()) {
+    //         int res = filesystem->mkdir(text.toStdString());
+    //         if (res != FDD_DIR_OK) {
+    //             QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error adding new catalog"));
+    //         }
+    //         dir();
+    //     }
+    // }
 }
 
 void MainWindow::onLeftSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
@@ -1227,49 +1227,49 @@ void MainWindow::onRightSelectionChanged(const QItemSelection &selected, const Q
 
 void MainWindow::on_actionRename_triggered()
 {
+    // // QItemSelectionModel * selection = ui->rightFiles->selectionModel();
+    // // if (selection->hasSelection()) {
+    // //     QModelIndexList rows = selection->selectedRows();
+    // //     if (rows.size() == 1) {
+    // //         QModelIndex selectedIndex = rows.at(0);
+    // //         dsk_tools::fileData f = files[selectedIndex.row()];
+    // //         QString old_name = QString::fromStdString(f.name);
+    // //         bool ok{};
+    // //         QString new_name = QInputDialog::getText(this, MainWindow::tr("Rename"),
+    // //                                              MainWindow::tr("New name:"),
+    // //                                              QLineEdit::Normal,
+    // //                                              old_name,
+    // //                                              &ok);
+    // //         if (ok && !new_name.isEmpty()) {
+    // //             int res = filesystem->file_rename(f, new_name.toStdString());
+    // //             if (res != FILE_RENAME_OK) {
+    // //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error renaming the file"));
+    // //             }
+    // //             dir();
+    // //         }
+    // //     }
+    // // }
+    //
     // QItemSelectionModel * selection = ui->rightFiles->selectionModel();
     // if (selection->hasSelection()) {
     //     QModelIndexList rows = selection->selectedRows();
     //     if (rows.size() == 1) {
     //         QModelIndex selectedIndex = rows.at(0);
-    //         dsk_tools::fileData f = files[selectedIndex.row()];
-    //         QString old_name = QString::fromStdString(f.name);
-    //         bool ok{};
-    //         QString new_name = QInputDialog::getText(this, MainWindow::tr("Rename"),
-    //                                              MainWindow::tr("New name:"),
-    //                                              QLineEdit::Normal,
-    //                                              old_name,
-    //                                              &ok);
-    //         if (ok && !new_name.isEmpty()) {
-    //             int res = filesystem->file_rename(f, new_name.toStdString());
-    //             if (res != FILE_RENAME_OK) {
-    //                 QMessageBox::critical(this, MainWindow::tr("Error"), MainWindow::tr("Error renaming the file"));
-    //             }
+    //         dsk_tools::fileData fd = files[selectedIndex.row()];
+    //         std::vector<dsk_tools::ParameterDescription> params = filesystem->file_get_metadata(fd);
+    //
+    //         for (int i = 0; i < static_cast<int>(params.size()); ++i) {
+    //             params[i].name = replace_placeholders(QString::fromStdString(params[i].name)).toStdString();
+    //         }
+    //
+    //         FileParamDialog dialog(params);
+    //         if (dialog.exec() == QDialog::Accepted) {
+    //             auto values = dialog.getParameters();
+    //             filesystem->file_set_metadata(fd, values);
     //             dir();
     //         }
     //     }
     // }
-
-    QItemSelectionModel * selection = ui->rightFiles->selectionModel();
-    if (selection->hasSelection()) {
-        QModelIndexList rows = selection->selectedRows();
-        if (rows.size() == 1) {
-            QModelIndex selectedIndex = rows.at(0);
-            dsk_tools::fileData fd = files[selectedIndex.row()];
-            std::vector<dsk_tools::ParameterDescription> params = filesystem->file_get_metadata(fd);
-
-            for (int i = 0; i < static_cast<int>(params.size()); ++i) {
-                params[i].name = replace_placeholders(QString::fromStdString(params[i].name)).toStdString();
-            }
-
-            FileParamDialog dialog(params);
-            if (dialog.exec() == QDialog::Accepted) {
-                auto values = dialog.getParameters();
-                filesystem->file_set_metadata(fd, values);
-                dir();
-            }
-        }
-    }
 }
 
 // New interface elements ---------------------------
