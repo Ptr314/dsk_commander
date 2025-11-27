@@ -674,7 +674,7 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
             }
         }
     } else {
-        auto f = m_files_new[index.row()];
+        auto f = m_files[index.row()];
         if (f.is_dir){
             m_filesystem->cd(f);
             dir();
@@ -799,7 +799,7 @@ void FilePanel::updateTable()
 
     image_model->removeRows(0, image_model->rowCount());
 
-    foreach (const dsk_tools::UniversalFile & f, m_files_new) {
+    foreach (const dsk_tools::UniversalFile & f, m_files) {
         QList<QStandardItem*> items;
 
         if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Protect)) {
@@ -871,7 +871,7 @@ void FilePanel::updateTable()
 void FilePanel::dir()
 {
     // m_filesystem->dir(&m_files, m_show_deleted); //TODO: Remove this line
-    dsk_tools::Result res = m_filesystem->dir(m_files_new, m_show_deleted);
+    dsk_tools::Result res = m_filesystem->dir(m_files, m_show_deleted);
     if (!res) {
         QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error reading files list!"));
     }
@@ -1061,7 +1061,7 @@ void FilePanel::onFileInfo()
 
         QModelIndex index = tableView->currentIndex();
         if (index.isValid()) {
-            auto f = m_files_new[index.row()];
+            auto f = m_files[index.row()];
 
             auto info = replacePlaceholders(QString::fromStdString(m_filesystem->file_info(f)));
 
@@ -1094,7 +1094,7 @@ void FilePanel::onEdit()
     } else {
         QModelIndex index = tableView->currentIndex();
         if (index.isValid()) {
-            auto f = m_files_new[index.row()];
+            auto f = m_files[index.row()];
             std::vector<dsk_tools::ParameterDescription> params = m_filesystem->file_get_metadata(f);
 
             for (auto & param : params) {
@@ -1115,9 +1115,9 @@ void FilePanel::onMkDir()
 {
     dsk_tools::FSCaps funcs = m_filesystem->getCaps();
 
-    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Dirs)) {
+    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::MkDir)) {
         bool ok{};
-        QString text = QInputDialog::getText(this, FilePanel::tr("Add a directory"),
+        const QString text = QInputDialog::getText(this, FilePanel::tr("Add a directory"),
                                              FilePanel::tr("Directory name:"),
                                              QLineEdit::Normal,
                                              "New",
@@ -1127,7 +1127,7 @@ void FilePanel::onMkDir()
             if (!res) {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error creating directory: ") + decodeError(res));
             }
-            dir();
+            refresh();
         }
     }
 
@@ -1197,6 +1197,15 @@ QString FilePanel::decodeError(const dsk_tools::Result & result)
         case dsk_tools::ErrorCode::DirErrorAllocateSector:
             error = tr("Can't allocate a sector");
             break;
+        case dsk_tools::ErrorCode::FileAlreadyExists:
+            error = tr("File already exists");
+            break;
+        case dsk_tools::ErrorCode::DirAlreadyExists:
+            error = tr("Directory already exists");
+            break;
+        case dsk_tools::ErrorCode::DirError:
+            error = tr("Error creating a directory");
+            break;
         default:
             error = tr("Unknown error");
             break;
@@ -1243,13 +1252,13 @@ dsk_tools::Files FilePanel::getSelectedFiles() const {
             QModelIndexList rows = selection->selectedRows();
             if (!rows.empty()) {
                 for (auto index : rows) {
-                    files.push_back(m_files_new[index.row()]);
+                    files.push_back(m_files[index.row()]);
                 }
             }
         } else {
             QModelIndex index = tableView->currentIndex();
             if (index.isValid()) {
-                files.push_back(m_files_new[index.row()]);
+                files.push_back(m_files[index.row()]);
             }
         }
     }
