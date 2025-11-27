@@ -95,6 +95,7 @@ public:
 
     // File operations
     int selectedCount() const;
+    bool isIndexValid() const;
     bool allowPutFiles() const;
     dsk_tools::Files getSelectedFiles() const;
     void putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
@@ -102,6 +103,7 @@ public:
 
     // Panel operations
     void onView();
+    void onFileInfo();
     void onEdit();
     void onGoUp();
     void onMkDir();
@@ -109,7 +111,8 @@ public:
     void chooseDirectory();
 
     // Image menu operations
-    void showImageInfo();      // Information... (both modes)
+    void showImageInfo();      // Container Information...
+    void showFSInfo();        // Filesystem Information...
     void saveImage();          // Save (stub for now)
     void saveImageAs();        // Save as...
 

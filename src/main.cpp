@@ -6,6 +6,7 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QIcon>
 #include <QLocale>
 #include <QTranslator>
 
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
 #endif
 
     QApplication a(argc, argv);
+    a.setWindowIcon(QIcon(":/icons/icon"));
     MainWindow w;
     w.show();
     return a.exec();
