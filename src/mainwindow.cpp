@@ -854,11 +854,10 @@ void MainWindow::updateFileMenuState() const
             // menuEditAction->setText(MainWindow::tr("View"));
             menuEditAction->setShortcut(QKeySequence(Qt::Key_F4));
         }
-        // if (menuEditAction) menuEditAction->setText(MainWindow::tr("Meta"));
     }
 
-    dsk_tools::FSCaps sourceCaps = activePanel->getFileSystem()->getCaps();
-    dsk_tools::FSCaps targetCaps = otherPanel()->getFileSystem()->getCaps();
+    const dsk_tools::FSCaps sourceCaps = activePanel->getFileSystem()->getCaps();
+    const dsk_tools::FSCaps targetCaps = otherPanel()->getFileSystem()->getCaps();
 
     // F5
     const bool canCopy = hasFlag(targetCaps,dsk_tools::FSCaps::Add);

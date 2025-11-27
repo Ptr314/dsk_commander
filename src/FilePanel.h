@@ -162,7 +162,7 @@ private:
 
     dsk_tools::diskImage * m_image {nullptr};
     dsk_tools::fileSystem * m_filesystem {nullptr};
-    std::vector<dsk_tools::UniversalFile> m_files_new;
+    std::vector<dsk_tools::UniversalFile> m_files;
 
     void setupPanel();
     void setupFilters();
@@ -175,7 +175,7 @@ private:
     void updateTable();
     void setMode(panelMode new_mode);
     void dir();
-    QString decodeError(const dsk_tools::Result & result);
+    static QString decodeError(const dsk_tools::Result & result);
 
     // Helper methods for image info
     dsk_tools::Loader* createLoader(const std::string& file_name,
