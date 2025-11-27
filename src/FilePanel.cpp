@@ -899,8 +899,9 @@ QStringList FilePanel::selectedPaths() const {
 
 int FilePanel::selectedCount() const {
     if (mode == panelMode::Host) {
-        auto selected_count = selectedPaths().size();
-        if (selected_count > 0) return selected_count;
+        const int selected_count = selectedPaths().size();
+        if (selected_count > 0)
+            return selected_count;
     } else {
         QItemSelectionModel * selection = tableView->selectionModel();
         if (selection->hasSelection()) {
@@ -909,6 +910,10 @@ int FilePanel::selectedCount() const {
         }
     }
     return tableView->currentIndex().isValid()?1:0;
+}
+
+bool FilePanel::isIndexValid() const {
+        return tableView->currentIndex().isValid();
 }
 
 QString FilePanel::currentFilePath() const {
@@ -1035,14 +1040,23 @@ void FilePanel::onView()
             file_info->exec();
         }
     } else {
-        // // Image mode: behave like double-click/Enter
-        // QModelIndex index = tableView->currentIndex();
-        // if (index.isValid()) {
-        //     onItemDoubleClicked(index);
-        // }
-        auto file_info = new QDialog(this);
+        // Image mode: behave like double-click/Enter
+        QModelIndex index = tableView->currentIndex();
+        if (index.isValid()) {
+            onItemDoubleClicked(index);
+        }
+    }
+}
 
-        Ui_FileInfo fileinfoUi;
+void FilePanel::onFileInfo()
+{
+    emit activated(this);
+
+    if (mode==panelMode::Host) {
+    } else {
+        const auto file_info = new QDialog(this);
+
+        Ui_FileInfo fileinfoUi{};
         fileinfoUi.setupUi(file_info);
 
         QModelIndex index = tableView->currentIndex();
@@ -1064,14 +1078,18 @@ void FilePanel::onEdit()
     emit activated(this);
 
     if (mode==panelMode::Host) {
-        QString path = currentFilePath();
-        if (path.isEmpty()) return;  // Skip [..] entry or invalid index
-
-        // Open file with system default application
-        QUrl fileUrl = QUrl::fromLocalFile(path);
-        if (!QDesktopServices::openUrl(fileUrl)) {
-            QMessageBox::warning(this, FilePanel::tr("Error"),
-                               FilePanel::tr("Could not open file with system default application"));
+        // QString path = currentFilePath();
+        // if (path.isEmpty()) return;  // Skip [..] entry or invalid index
+        //
+        // // Open file with system default application
+        // QUrl fileUrl = QUrl::fromLocalFile(path);
+        // if (!QDesktopServices::openUrl(fileUrl)) {
+        //     QMessageBox::warning(this, FilePanel::tr("Error"),
+        //                        FilePanel::tr("Could not open file with system default application"));
+        // }
+        QModelIndex index = tableView->currentIndex();
+        if (index.isValid()) {
+            onItemDoubleClicked(index);
         }
     } else {
         QModelIndex index = tableView->currentIndex();
@@ -1419,10 +1437,18 @@ void FilePanel::showImageInfo()
 
         delete loader;
     } else {
+    }
+}
+
+void FilePanel::showFSInfo()
+{
+    emit activated(this);
+
+    if (mode == panelMode::Host) {
+    } else {
         // Image mode: show information about currently loaded disk image
         if (!m_image) return;
-
-        std::string info = m_filesystem->information();
+        const std::string info = m_filesystem->information();
         showInfoDialog(info);
     }
 }
@@ -1466,6 +1492,8 @@ void FilePanel::showInfoDialog(const std::string& info)
 void FilePanel::saveImage()
 {
     emit activated(this);
+
+    qDebug() << "FilePanel::saveImage()";
 
     // TODO: Implement save to original file
     QMessageBox::information(this, FilePanel::tr("Save"),

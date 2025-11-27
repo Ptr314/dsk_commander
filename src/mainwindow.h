@@ -39,6 +39,7 @@ public:
 
 private slots:
     void onView();
+    void onFileInfo();
     void onEdit();
     void onCopy();
     void onRename();
@@ -92,6 +93,7 @@ private:
     FilePanel* rightPanel {nullptr};
     FilePanel* activePanel {nullptr};
 
+    QAction* actHelp {nullptr};  // F1 button action
     QAction* actSave {nullptr};  // F2 button action
     QAction* actView {nullptr};
     QAction* actEdit {nullptr};
@@ -102,10 +104,13 @@ private:
     QAction* actExit {nullptr};
 
     QAction* menuViewAction {nullptr};
+    QAction* menuFileInfoAction {nullptr};
     QAction* menuEditAction {nullptr};
 
     // Image menu actions
     QAction* actImageInfo {nullptr};
+    QAction* actImageOpen {nullptr};
+    QAction* actFSInfo {nullptr};
     QAction* actImageSave {nullptr};
     QAction* actImageSaveAs {nullptr};
 
@@ -121,8 +126,11 @@ private:
 
     // Image menu slots
     void onImageInfo();
+    void onFSInfo();
     void onImageSave();
     void onImageSaveAs();
-    void updateImageMenuState();
+    void updateImageMenuState() const;
+    void updateFileMenuState() const;
+
 };
 #endif // MAINWINDOW_H

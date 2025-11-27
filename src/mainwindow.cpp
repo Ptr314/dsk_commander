@@ -262,6 +262,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::createActions() {
     // Bottom toolbar actions - created here and used in createBottomPanel
+    actHelp   = new QAction(this);
     actSave   = new QAction(this);
     actView   = new QAction(this);
     actEdit   = new QAction(this);
@@ -271,23 +272,24 @@ void MainWindow::createActions() {
     actDelete = new QAction(this);
     actExit   = new QAction(this);
 
-    actSave->setShortcut(Qt::Key_F2);
-    actSave->setShortcutContext(Qt::WindowShortcut);
-    actView->setShortcut(Qt::Key_F3);
-    actView->setShortcutContext(Qt::WindowShortcut);
-    actEdit->setShortcut(Qt::Key_F4);
-    actEdit->setShortcutContext(Qt::WindowShortcut);
-    actCopy->setShortcut(Qt::Key_F5);
-    actCopy->setShortcutContext(Qt::WindowShortcut);
-    actRename->setShortcut(Qt::Key_F6);
-    actRename->setShortcutContext(Qt::WindowShortcut);
-    actMkdir->setShortcut(Qt::Key_F7);
-    actMkdir->setShortcutContext(Qt::WindowShortcut);
-    actDelete->setShortcut(Qt::Key_F8);
-    actDelete->setShortcutContext(Qt::WindowShortcut);
-    actExit->setShortcut(Qt::Key_F10);
-    actExit->setShortcutContext(Qt::WindowShortcut);
+    // actSave->setShortcut(Qt::Key_F2);
+    // actSave->setShortcutContext(Qt::WindowShortcut);
+    // actView->setShortcut(Qt::Key_F3);
+    // actView->setShortcutContext(Qt::WindowShortcut);
+    // actEdit->setShortcut(Qt::Key_F4);
+    // actEdit->setShortcutContext(Qt::WindowShortcut);
+    // actCopy->setShortcut(Qt::Key_F5);
+    // actCopy->setShortcutContext(Qt::WindowShortcut);
+    // actRename->setShortcut(Qt::Key_F6);
+    // actRename->setShortcutContext(Qt::WindowShortcut);
+    // actMkdir->setShortcut(Qt::Key_F7);
+    // actMkdir->setShortcutContext(Qt::WindowShortcut);
+    // actDelete->setShortcut(Qt::Key_F8);
+    // actDelete->setShortcutContext(Qt::WindowShortcut);
+    // actExit->setShortcut(Qt::Key_F10);
+    // actExit->setShortcutContext(Qt::WindowShortcut);
 
+    connect(actHelp,   &QAction::triggered, this, &MainWindow::onAbout);
     connect(actSave,   &QAction::triggered, this, &MainWindow::onImageSave);
     connect(actView,   &QAction::triggered, this, &MainWindow::onView);
     connect(actEdit,   &QAction::triggered, this, &MainWindow::onEdit);
@@ -297,7 +299,7 @@ void MainWindow::createActions() {
     connect(actDelete, &QAction::triggered, this, &MainWindow::onDelete);
     connect(actExit,   &QAction::triggered, this, &MainWindow::onExit);
 
-    addActions({actSave, actView, actEdit, actCopy, actRename, actMkdir, actDelete, actExit});
+    addActions({actHelp, actSave, actView, actEdit, actCopy, actRename, actMkdir, actDelete, actExit});
 
     // Set initial text (unified method)
     updateActionTexts();
@@ -305,8 +307,9 @@ void MainWindow::createActions() {
 
 void MainWindow::updateActionTexts() {
     // All action text in ONE place - called both on init and retranslation
+    actHelp->setText(tr("F1 Help"));
     actSave->setText(tr("F2 Save"));
-    actView->setText(tr("F3 Information"));
+    actView->setText(tr("F3 View"));
     actEdit->setText(tr("F4 Open"));
     actCopy->setText(tr("F5 Copy"));
     actRename->setText(tr("F6 Rename"));
@@ -341,6 +344,7 @@ QWidget* MainWindow::createBottomPanel() {
         buttons << btn;
     };
 
+    makeButton(actHelp);   // F1
     makeButton(actSave);   // F2
     makeButton(actView);   // F3
     makeButton(actEdit);   // F4
@@ -406,26 +410,39 @@ void MainWindow::initializeMainMenu() {
     // === IMAGE MENU === (NEW)
     QMenu *imageMenu = menuBar()->addMenu(MainWindow::tr("Image"));
 
-    actImageInfo = imageMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("Information..."));
-    connect(actImageInfo, &QAction::triggered, this, &MainWindow::onImageInfo);                  
+    actImageSave = imageMenu->addAction(QIcon(":/icons/icon"), MainWindow::tr("Save"));
+    actImageSave->setShortcut(QKeySequence(Qt::Key_F2));
+    connect(actImageSave, &QAction::triggered, this, &MainWindow::onImageSave);
+
+    actImageSaveAs = imageMenu->addAction(QIcon(":/icons/convert"), MainWindow::tr("Save as..."));
+    actImageSaveAs->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F2));
+    connect(actImageSaveAs, &QAction::triggered, this, &MainWindow::onImageSaveAs);
 
     imageMenu->addSeparator();
 
-    actImageSave = imageMenu->addAction(QIcon(":/icons/icon"), MainWindow::tr("Save"));
-    actImageSave->setShortcut(QKeySequence::Save);  // Ctrl+S
-    connect(actImageSave, &QAction::triggered, this, &MainWindow::onImageSave);                  
-                                                                 
-    actImageSaveAs = imageMenu->addAction(QIcon(":/icons/convert"), MainWindow::tr("Save as..."));
-    actImageSaveAs->setShortcut(QKeySequence::SaveAs);  // Ctrl+Shift+S                          
-    connect(actImageSaveAs, &QAction::triggered, this, &MainWindow::onImageSaveAs);
+    actImageInfo = imageMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("Container Info..."));
+    connect(actImageInfo, &QAction::triggered, this, &MainWindow::onImageInfo);
+
+    actFSInfo = imageMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("Filesystem Info..."));
+    connect(actFSInfo, &QAction::triggered, this, &MainWindow::onFSInfo);
+
+    imageMenu->addSeparator();
+
+    actImageOpen = imageMenu->addAction(QIcon(":/icons/open"), MainWindow::tr("Open"));
+    connect(actImageOpen, &QAction::triggered, this, &MainWindow::onEdit);
 
     // === FILES MENU ===
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
-    menuViewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("F3 View"));
+    menuViewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("View"));
+    // menuViewAction->setShortcut(QKeySequence(Qt::Key_F3));
     connect(menuViewAction, &QAction::triggered, this, &MainWindow::onView);
 
-    menuEditAction = filesMenu->addAction(QIcon(":/icons/view"), MainWindow::tr("F4 Edit"));
+    menuFileInfoAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("File Info"));
+    menuFileInfoAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F3));
+    connect(menuFileInfoAction, &QAction::triggered, this, &MainWindow::onFileInfo);
+
+    menuEditAction = filesMenu->addAction(QIcon(":/icons/view"), MainWindow::tr("Edit Metadata"));
     connect(menuEditAction, &QAction::triggered, this, &MainWindow::onEdit);
 
     QAction *copyAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F5 Copy"));
@@ -463,6 +480,7 @@ void MainWindow::initializeMainMenu() {
     langAction->setMenu(langSubmenu);
 
     QAction *aboutAction = optionsMenu->addAction(QIcon(":/icons/help"), MainWindow::tr("About..."));
+    aboutAction->setShortcut(QKeySequence(Qt::Key_F1));
     connect(aboutAction, &QAction::triggered, this, &MainWindow::onAbout);
 
     // === RIGHT PANEL MENU ===
@@ -517,12 +535,15 @@ void MainWindow::setActivePanel(FilePanel* panel) {
     rightPanel->setActive(rightPanel == activePanel);
 
     if (activePanel->tableSelectionModel()) {
-        // Status bar is upadted from the active panel
+        // Status bar is updated from the active panel
         connect(activePanel->tableSelectionModel(), &QItemSelectionModel::selectionChanged,
                 this, &MainWindow::updateStatusBarInfo);
-        // Bottom panel buttons are upadted from the active panel
+        // Bottom panel buttons are updated from the active panel
         connect(activePanel->tableSelectionModel(), &QItemSelectionModel::selectionChanged,
                 this, &MainWindow::updateViewButtonState);
+        connect(activePanel->tableSelectionModel(), &QItemSelectionModel::currentChanged,
+                this, &MainWindow::updateViewButtonState);
+
     }
     // Force updating after changing panels
     updateStatusBarInfo();
@@ -542,33 +563,18 @@ void MainWindow::updateStatusBarInfo() {
 void MainWindow::updateViewButtonState() {
     if (!activePanel) return;
 
-    // Get the current panel mode
-    panelMode mode = activePanel->getMode();
-
-    // Update button and menu action text based on mode
-    if (mode == panelMode::Host) {
-        // Host mode: F3 Info, F4 Open
-        actView->setText(MainWindow::tr("F3 Info"));
-        actEdit->setText(MainWindow::tr("F4 Open"));
-
-        if (menuViewAction) menuViewAction->setText(MainWindow::tr("F3 Info"));
-        if (menuEditAction) menuEditAction->setText(MainWindow::tr("F4 Open"));
-
-        qDebug() << activePanel->currentFilePath();
-        // actView->setEnabled(activePanel->currentFilePath().
-    } else {
-        // Image mode: F3 View, F4 Meta
-        actView->setText(MainWindow::tr("F3 View"));
-        actEdit->setText(MainWindow::tr("F4 Meta"));
-
-        if (menuViewAction) menuViewAction->setText(MainWindow::tr("F3 View"));
-        if (menuEditAction) menuEditAction->setText(MainWindow::tr("F4 Meta"));
-    }
+    updateImageMenuState();
+    updateFileMenuState();
 }
 
 void MainWindow::onView() {
     if (!activePanel) return;
     activePanel->onView();
+}
+
+void MainWindow::onFileInfo() {
+    if (!activePanel) return;
+    activePanel->onFileInfo();
 }
 
 void MainWindow::onEdit() {
@@ -755,6 +761,12 @@ void MainWindow::onImageInfo()
     activePanel->showImageInfo();
 }
 
+void MainWindow::onFSInfo()
+{
+    if (!activePanel) return;
+    activePanel->showFSInfo();
+}
+
 void MainWindow::onImageSave()
 {
     if (!activePanel) return;
@@ -767,20 +779,77 @@ void MainWindow::onImageSaveAs()
     activePanel->saveImageAs();
 }
 
-void MainWindow::updateImageMenuState()
+void MainWindow::updateImageMenuState() const
 {
-    if (!activePanel) {
-        actImageSave->setEnabled(false);
-        actImageSaveAs->setEnabled(false);
-        actSave->setEnabled(false);
-        return;
+    if (!activePanel) return;
+
+    const bool is_host = activePanel->getMode() == panelMode::Host;
+
+    if (actImageSave) actImageSave->setEnabled(!is_host);
+    if (actImageSaveAs) actImageSaveAs->setEnabled(!is_host);
+    if (actSave) actSave->setDisabled(!is_host);
+    if (actFSInfo) actFSInfo->setEnabled(!is_host);
+
+
+    if (is_host) {
+        if (activePanel->isIndexValid()) {
+            const auto path = activePanel->currentFilePath();
+            const QFileInfo info(path);
+            if (menuViewAction) menuViewAction->setShortcut(QKeySequence());
+            if (actImageInfo) {
+                actImageInfo->setEnabled(!info.isDir());
+                actImageInfo->setShortcut(QKeySequence(Qt::Key_F3));
+            }
+            if (menuEditAction) menuEditAction->setShortcut(QKeySequence());
+            if (actImageOpen) {
+                actImageOpen->setEnabled(!info.isDir());
+                actImageOpen->setShortcut(QKeySequence(Qt::Key_F4));
+            }
+        }
+    } else {
+        const bool canSave = (activePanel->getFileSystem() != nullptr) &&
+                             (activePanel->getFileSystem()->get_changed());
+
+        if (actImageSave) actImageSave->setEnabled(canSave);
+        if (actSave) actSave->setEnabled(canSave);
     }
+}
+void MainWindow::updateFileMenuState() const
+{
+    if (!activePanel) return;
 
-    bool canSave = (activePanel->getMode() == panelMode::Image) &&
-                   (activePanel->getFileSystem() != nullptr) &&
-                   (activePanel->getFileSystem()->get_changed());
+    const bool is_host = activePanel->getMode() == panelMode::Host;
 
-    actImageSave->setEnabled(canSave);
-    actImageSaveAs->setEnabled(canSave);
-    actSave->setEnabled(canSave);
+    if (menuViewAction) menuViewAction->setEnabled(!is_host);
+    if (menuFileInfoAction) menuFileInfoAction->setEnabled(!is_host);
+    if (menuEditAction) menuEditAction->setEnabled(!is_host);
+
+    if (is_host) {
+        actView->setText(MainWindow::tr("F3 Image Info"));
+        actEdit->setText(MainWindow::tr("F4 Open"));
+
+        // if (menuEditAction) menuEditAction->setText(MainWindow::tr("Open"));
+
+        qDebug() << activePanel->currentFilePath();
+    } else {
+        if (actImageInfo) actImageInfo->setEnabled(false);
+        // Image mode: F3 View, F4 Meta
+        actView->setText(MainWindow::tr("F3 View"));
+        actEdit->setText(MainWindow::tr("F4 Meta"));
+
+        if (actImageInfo) actImageInfo->setShortcut(QKeySequence()); // Clears F3 on image functions
+
+        if (menuViewAction) {
+            menuViewAction->setText(MainWindow::tr("View"));
+            menuViewAction->setShortcut(QKeySequence(Qt::Key_F3));
+        }
+
+        if (actImageOpen) actImageOpen->setShortcut(QKeySequence()); // Clears F3 on image functions
+
+        if (menuEditAction) {
+            // menuEditAction->setText(MainWindow::tr("View"));
+            menuEditAction->setShortcut(QKeySequence(Qt::Key_F4));
+        }
+        // if (menuEditAction) menuEditAction->setText(MainWindow::tr("Meta"));
+    }
 }
