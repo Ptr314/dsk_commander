@@ -60,6 +60,9 @@ private slots:
     void updateSortingMenu(FilePanel* panel);
     void onAbout();
 
+protected:
+    void changeEvent(QEvent* event) override;
+
 private:
     QTranslator translator;
     QTranslator qtTranslator;
@@ -112,6 +115,7 @@ private:
     PanelMenuActions rightMenuActions;
 
     void createActions();
+    void updateActionTexts();
     QWidget* createBottomPanel();
     FilePanel* otherPanel() const;
 

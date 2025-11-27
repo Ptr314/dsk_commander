@@ -336,14 +336,9 @@ void FilePanel::setupPanel() {
     setDirectory(m_settings->value("directory/"+m_ini_label, QDir::currentPath()).toString());
 }
 
-void FilePanel::setupFilters()
+void FilePanel::populateFilterCombo()
 {
-    QString filter_def = m_settings->value("directory/"+m_ini_label+"_file_filter", "").toString();
-    QString type_def = m_settings->value("directory/"+m_ini_label+"_type_filter", "").toString();
-    QString filesystem_def = m_settings->value("directory/"+m_ini_label+"_filesystem", "").toString();
-
-    // Extensions filter ------------------------------------------------------
-    filterCombo = new QComboBox(this);
+    filterCombo->clear();
 
     QVector<QPair<QString, QJsonObject>> entries;
 
@@ -373,6 +368,18 @@ void FilePanel::setupFilters()
                 );
         }
     }
+}
+
+void FilePanel::setupFilters()
+{
+    QString filter_def = m_settings->value("directory/"+m_ini_label+"_file_filter", "").toString();
+    QString type_def = m_settings->value("directory/"+m_ini_label+"_type_filter", "").toString();
+    QString filesystem_def = m_settings->value("directory/"+m_ini_label+"_filesystem", "").toString();
+
+    // Extensions filter ------------------------------------------------------
+    filterCombo = new QComboBox(this);
+
+    populateFilterCombo();
     filterCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     filterToolBar->addWidget(filterCombo);
@@ -423,6 +430,40 @@ void FilePanel::setupFilters()
 
     // Load show_deleted preference (default to true)
     m_show_deleted = m_settings->value("directory/" + m_ini_label + "_show_deleted", 1).toInt() == 1;
+}
+
+void FilePanel::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        retranslateUi();
+    }
+    QWidget::changeEvent(event);
+}
+
+void FilePanel::retranslateUi()
+{
+    // Retranslate HostModel column headers
+    if (host_model) {
+        host_model->setHorizontalHeaderItem(0, new QStandardItem(tr("Name")));
+        host_model->setHorizontalHeaderItem(1, new QStandardItem(tr("Size")));
+        host_model->setHorizontalHeaderItem(2, new QStandardItem(tr("Date")));
+    }
+
+    // Retranslate toolbar elements
+    upButton->setToolTip(tr("Up"));
+    dirButton->setToolTip(tr("Choose..."));
+    dirEdit->setPlaceholderText(tr("Enter path and press Enter..."));
+    autoCheck->setText(tr("Auto"));
+
+    // Refresh filterCombo - this will cascade to typeCombo and fsCombo
+    QString savedFilter = filterCombo->currentData().toString();
+
+    QSignalBlocker block(filterCombo);
+    populateFilterCombo();
+    setComboBoxByItemData(filterCombo, savedFilter);
+
+    // Manually trigger filter change to cascade updates to type and fs combos
+    onFilterChanged(filterCombo->currentIndex());
 }
 
 void FilePanel::setDirectory(const QString& path, bool restoreCursor) {

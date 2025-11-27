@@ -82,10 +82,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     QString ini_lang = settings->value("interface/language", "").toString();
     if (ini_lang.length() == 0) {
+        // Auto-detect language from system locale
         const QStringList uiLanguages = QLocale::system().uiLanguages();
         for (const QString &locale : uiLanguages) {
             const QString baseName = QLocale(locale).name().toLower();
             switch_language(baseName, true);
+            // Save auto-detected language to settings so menu can show correct checkmark
+            settings->setValue("interface/language", baseName);
             break;
         }
     } else {
@@ -143,7 +146,7 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(central);
 
     statusLabel = new QLabel(this);
-    statusLabel->setText("Готово");
+    statusLabel->setText(tr("Ready"));
     statusBar()->addWidget(statusLabel);
 
     setActivePanel(leftPanel);
@@ -167,6 +170,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::switch_language(const QString & lang, bool init)
 {
+    // Remove old translators before installing new ones
+    if (!init) {
+        qApp->removeTranslator(&translator);
+        qApp->removeTranslator(&qtTranslator);
+    }
+
     if (translator.load(":/i18n/" + lang)) {
         qApp->installTranslator(&translator);
 
@@ -176,12 +185,27 @@ void MainWindow::switch_language(const QString & lang, bool init)
         }
         if (!init) {
             settings->setValue("interface/language", lang);
+            // Qt automatically posts QEvent::LanguageChange after installTranslator()
         }
     } else {
         QMessageBox::warning(this, MainWindow::tr("Error"), MainWindow::tr("Failed to load language file for: ") + lang);
     }
 }
 
+void MainWindow::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        setWindowTitle(tr("DISK Commander") + " " + PROJECT_VERSION);
+
+        updateActionTexts();  // Unified action text updates
+        initializeMainMenu(); // Rebuilds menus (updateSortingMenu at end preserves states)
+        updateStatusBarInfo(); // Updates status bar with tr()
+
+        if (leftPanel) leftPanel->retranslateUi();
+        if (rightPanel) rightPanel->retranslateUi();
+    }
+    QMainWindow::changeEvent(event);
+}
 
 void MainWindow::load_config()
 {
@@ -238,14 +262,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::createActions() {
     // Bottom toolbar actions - created here and used in createBottomPanel
-    actSave   = new QAction(MainWindow::tr("F2 Save"), this);
-    actView   = new QAction(MainWindow::tr("F3 Information"), this);
-    actEdit   = new QAction(MainWindow::tr("F4 Open"), this);
-    actCopy   = new QAction(MainWindow::tr("F5 Copy"), this);
-    actRename = new QAction(MainWindow::tr("F6 Rename"), this);
-    actMkdir  = new QAction(MainWindow::tr("F7 MkDir"), this);
-    actDelete = new QAction(MainWindow::tr("F8 Delete"), this);
-    actExit   = new QAction(MainWindow::tr("F10 Exit"), this);
+    actSave   = new QAction(this);
+    actView   = new QAction(this);
+    actEdit   = new QAction(this);
+    actCopy   = new QAction(this);
+    actRename = new QAction(this);
+    actMkdir  = new QAction(this);
+    actDelete = new QAction(this);
+    actExit   = new QAction(this);
 
     actSave->setShortcut(Qt::Key_F2);
     actSave->setShortcutContext(Qt::WindowShortcut);
@@ -274,6 +298,26 @@ void MainWindow::createActions() {
     connect(actExit,   &QAction::triggered, this, &MainWindow::onExit);
 
     addActions({actSave, actView, actEdit, actCopy, actRename, actMkdir, actDelete, actExit});
+
+    // Set initial text (unified method)
+    updateActionTexts();
+}
+
+void MainWindow::updateActionTexts() {
+    // All action text in ONE place - called both on init and retranslation
+    actSave->setText(tr("F2 Save"));
+    actView->setText(tr("F3 Information"));
+    actEdit->setText(tr("F4 Open"));
+    actCopy->setText(tr("F5 Copy"));
+    actRename->setText(tr("F6 Rename"));
+    actMkdir->setText(tr("F7 MkDir"));
+    actDelete->setText(tr("F8 Delete"));
+    actExit->setText(tr("F10 Exit"));
+
+    // Update dynamic F3/F4 based on current panel mode
+    if (activePanel) {
+        updateViewButtonState();
+    }
 }
 
 QWidget* MainWindow::createBottomPanel() {
@@ -399,14 +443,21 @@ void MainWindow::initializeMainMenu() {
     // === OPTIONS MENU ===
     QMenu *optionsMenu = menuBar()->addMenu(MainWindow::tr("Options"));
 
-    // Language submenu (reuse add_languages logic)
+    // Language submenu
     QAction *langAction = optionsMenu->addAction(QIcon(":/icons/lang"), MainWindow::tr("Language"));
     QMenu *langSubmenu = new QMenu(MainWindow::tr("Languages"), this);
 
+    // Read current language to set checkmarks
+    QString currentLang = settings->value("interface/language", "en_us").toString();
+
     QAction *langRu = langSubmenu->addAction(QIcon(":/icons/ru"), MainWindow::tr("Русский"));
+    langRu->setCheckable(true);
+    langRu->setChecked(currentLang == "ru_ru");
     connect(langRu, &QAction::triggered, this, [this]() { switch_language("ru_ru", false); });
 
     QAction *langEn = langSubmenu->addAction(QIcon(":/icons/en"), MainWindow::tr("English"));
+    langEn->setCheckable(true);
+    langEn->setChecked(currentLang == "en_us");
     connect(langEn, &QAction::triggered, this, [this]() { switch_language("en_us", false); });
 
     langAction->setMenu(langSubmenu);
