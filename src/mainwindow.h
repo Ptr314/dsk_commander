@@ -106,6 +106,10 @@ private:
     QAction* menuViewAction {nullptr};
     QAction* menuFileInfoAction {nullptr};
     QAction* menuEditAction {nullptr};
+    QAction* menuCopyAction {nullptr};
+    QAction* menuRenameAction {nullptr};
+    QAction* menuMkdirAction {nullptr};
+    QAction* menuDeleteAction {nullptr};
 
     // Image menu actions
     QAction* actImageInfo {nullptr};
