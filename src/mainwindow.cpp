@@ -81,7 +81,6 @@ MainWindow::MainWindow(QWidget *parent)
     settings = new QSettings(ini_file, QSettings::IniFormat);
 
     QString ini_lang = settings->value("interface/language", "").toString();
-
     if (ini_lang.length() == 0) {
         const QStringList uiLanguages = QLocale::system().uiLanguages();
         for (const QString &locale : uiLanguages) {
@@ -95,14 +94,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     resize(1000, 600);
 
-    QList<int> sizes;
-    int halfWidth = this->width() / 2;
-    sizes << halfWidth << halfWidth;
+    // QList<int> sizes;
+    // int halfWidth = this->width() / 2;
+    // sizes << halfWidth << halfWidth;
 
     setWindowTitle(windowTitle() + " " + PROJECT_VERSION);
 
     // QFont font("PxPlus IBM VGA9", 12, 400);
-    QFont font("Consolas", 10, 400);
+    // QFont font("Consolas", 10, 400);
     // QFont font("Iosevka Fixed", 10, 400);
     // font.setStretch(QFont::Expanded);
 
@@ -147,9 +146,6 @@ MainWindow::MainWindow(QWidget *parent)
     statusLabel->setText("Готово");
     statusBar()->addWidget(statusLabel);
 
-    // setWindowTitle("Двухпанельный файловый менеджер (Qt6)");
-    // resize(1200, 700);
-
     setActivePanel(leftPanel);
     updateViewButtonState();
 
@@ -174,7 +170,7 @@ void MainWindow::switch_language(const QString & lang, bool init)
     if (translator.load(":/i18n/" + lang)) {
         qApp->installTranslator(&translator);
 
-        QString t = QString(":/i18n/qtbase_%1.qm").arg(lang.split("_")[0]);
+        const QString t = QString(":/i18n/qtbase_%1.qm").arg(lang.split("_")[0]);
         if (qtTranslator.load(t)) {
             qApp->installTranslator(&qtTranslator);
         }
