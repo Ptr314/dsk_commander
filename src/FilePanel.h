@@ -71,26 +71,7 @@ public:
     void refresh();
     void setActive(bool active);
     void focusList();
-
-    int selectedCount() const;
-
-    bool allowPutFiles() const;
-
-    QItemSelectionModel* tableSelectionModel() const {
-        return tableView ? tableView->selectionModel() : nullptr;
-    }
-
-    void onView();
-    void onEdit();
-    void onGoUp();
-    void onMkDir();
-    void onRename();
-    void chooseDirectory();
-
-    // Image menu operations
-    void showImageInfo();      // Information... (both modes)
-    void saveImage();          // Save (stub for now)
-    void saveImageAs();        // Save as...
+    void retranslateUi();
 
     // Sorting methods
     void setSortOrder(HostModel::SortOrder order);
@@ -107,9 +88,33 @@ public:
     dsk_tools::fileSystem* getFileSystem() { return m_filesystem; }
     const dsk_tools::fileSystem* getFileSystem() const { return m_filesystem; }
 
+    // Selection model getter (for MainWindow signal connections)
+    QItemSelectionModel* tableSelectionModel() const {
+        return tableView ? tableView->selectionModel() : nullptr;
+    }
+
+    // File operations
+    int selectedCount() const;
+    bool allowPutFiles() const;
     dsk_tools::Files getSelectedFiles() const;
     void putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
     void deleteFiles(const dsk_tools::Files & files);
+
+    // Panel operations
+    void onView();
+    void onEdit();
+    void onGoUp();
+    void onMkDir();
+    void onRename();
+    void chooseDirectory();
+
+    // Image menu operations
+    void showImageInfo();      // Information... (both modes)
+    void saveImage();          // Save (stub for now)
+    void saveImageAs();        // Save as...
+
+protected:
+    void changeEvent(QEvent* event) override;
 
 signals:
     void activated(FilePanel* self);
@@ -158,6 +163,7 @@ private:
 
     void setupPanel();
     void setupFilters();
+    void populateFilterCombo();
     void setDirectory(const QString& path, bool restoreCursor = false);
     bool eventFilter(QObject* obj, QEvent* ev) override;
     void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
