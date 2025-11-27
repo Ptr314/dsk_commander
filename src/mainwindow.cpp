@@ -445,17 +445,21 @@ void MainWindow::initializeMainMenu() {
     menuEditAction = filesMenu->addAction(QIcon(":/icons/view"), MainWindow::tr("Edit Metadata"));
     connect(menuEditAction, &QAction::triggered, this, &MainWindow::onEdit);
 
-    QAction *copyAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("F5 Copy"));
-    connect(copyAction, &QAction::triggered, this, &MainWindow::onCopy);
+    menuCopyAction = filesMenu->addAction(QIcon(":/icons/text_copy"), MainWindow::tr("Copy"));
+    menuCopyAction->setShortcut(QKeySequence(Qt::Key_F5));
+    connect(menuCopyAction, &QAction::triggered, this, &MainWindow::onCopy);
 
-    QAction *renameAction = filesMenu->addAction(QIcon(":/icons/edit"), MainWindow::tr("F6 Rename"));
-    connect(renameAction, &QAction::triggered, this, &MainWindow::onRename);
+    menuRenameAction = filesMenu->addAction(QIcon(":/icons/edit"), MainWindow::tr("Rename"));
+    menuRenameAction->setShortcut(QKeySequence(Qt::Key_F6));
+    connect(menuRenameAction, &QAction::triggered, this, &MainWindow::onRename);
 
-    QAction *mkdirAction = filesMenu->addAction(QIcon(":/icons/new_dir"), MainWindow::tr("F7 Make dir"));
-    connect(mkdirAction, &QAction::triggered, this, &MainWindow::onMkdir);
+    menuMkdirAction = filesMenu->addAction(QIcon(":/icons/new_dir"), MainWindow::tr("F7 Make dir"));
+    menuMkdirAction->setShortcut(QKeySequence(Qt::Key_F7));
+    connect(menuMkdirAction, &QAction::triggered, this, &MainWindow::onMkdir);
 
-    QAction *deleteAction = filesMenu->addAction(QIcon(":/icons/delete"), MainWindow::tr("F8 Delete"));
-    connect(deleteAction, &QAction::triggered, this, &MainWindow::onDelete);
+    menuDeleteAction = filesMenu->addAction(QIcon(":/icons/delete"), MainWindow::tr("F8 Delete"));
+    menuDeleteAction->setShortcut(QKeySequence(Qt::Key_F8));
+    connect(menuDeleteAction, &QAction::triggered, this, &MainWindow::onDelete);
 
     // === OPTIONS MENU ===
     QMenu *optionsMenu = menuBar()->addMenu(MainWindow::tr("Options"));
@@ -852,4 +856,28 @@ void MainWindow::updateFileMenuState() const
         }
         // if (menuEditAction) menuEditAction->setText(MainWindow::tr("Meta"));
     }
+
+    dsk_tools::FSCaps sourceCaps = activePanel->getFileSystem()->getCaps();
+    dsk_tools::FSCaps targetCaps = otherPanel()->getFileSystem()->getCaps();
+
+    // F5
+    const bool canCopy = hasFlag(targetCaps,dsk_tools::FSCaps::Add);
+    if (menuCopyAction) menuCopyAction->setEnabled(canCopy);
+    actCopy->setEnabled(canCopy);
+
+    //F6
+    const bool canRename = hasFlag(sourceCaps,dsk_tools::FSCaps::Rename);
+    if (menuRenameAction) menuRenameAction->setEnabled(canRename);
+    actRename->setEnabled(canRename);
+
+    //F7
+    const bool canMkdir = hasFlag(sourceCaps,dsk_tools::FSCaps::MkDir);
+    if (menuMkdirAction) menuMkdirAction->setEnabled(canMkdir);
+    actMkdir->setEnabled(canMkdir);
+
+    //F8
+    const bool canDelete = hasFlag(sourceCaps,dsk_tools::FSCaps::Delete);
+    if (menuDeleteAction) menuDeleteAction->setEnabled(canDelete);
+    actDelete->setEnabled(canDelete);
+
 }
