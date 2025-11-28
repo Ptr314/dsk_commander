@@ -3,8 +3,7 @@
 // Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander
 // Description: A QDialog subclass for viewing files
 
-#ifndef VIEWDIALOG_H
-#define VIEWDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QSettings>
@@ -75,5 +74,3 @@ private:
     QString m_saved_css;
     QString m_saved_html;
 };
-
-#endif // VIEWDIALOG_H

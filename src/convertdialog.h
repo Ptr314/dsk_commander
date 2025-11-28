@@ -3,8 +3,7 @@
 // Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander
 // Description: A QDialog subclass for exporting disk images
 
-#ifndef CONVERTDIALOG_H
-#define CONVERTDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QSettings>
@@ -64,5 +63,3 @@ private:
 
 
 };
-
-#endif // CONVERTDIALOG_H

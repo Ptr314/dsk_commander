@@ -3,8 +3,7 @@
 // Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander
 // Description: Main window
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QFileSystemModel>
@@ -137,4 +136,3 @@ private:
     void updateFileMenuState() const;
 
 };
-#endif // MAINWINDOW_H
