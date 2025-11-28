@@ -3,8 +3,7 @@
 // Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander
 // Description: Custom table view for file panel
 
-#ifndef FILETABLE_H
-#define FILETABLE_H
+#pragma once
 
 #include <QTableView>
 #include <QStyledItemDelegate>
@@ -94,5 +93,3 @@ private:
     // Debug logging helper
     void logSelectionState(const QString& context);
 };
-
-#endif // FILETABLE_H
