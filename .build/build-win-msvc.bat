@@ -3,12 +3,13 @@
 call vars-msvc-latest.cmd
 
 SET _ARCHITECTURE=x86_64
+SET _COMPILER=msvc
 SET _PLATFORM=windows
-SET _BUILD_DIR=.\build\%_PLATFORM%_%_ARCHITECTURE%_msvc
+SET _BUILD_DIR=.\build\%_PLATFORM%_%_ARCHITECTURE%_%_COMPILER%
 
 set /p _VERSION=<..\VERSION
 
-SET _RELEASE_NAME=disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%-msvc
+SET _RELEASE_NAME=disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%-%_COMPILER%
 SET _RELEASE_DIR=.\release\%_RELEASE_NAME%
 
 if not exist "%_BUILD_DIR%\" (
