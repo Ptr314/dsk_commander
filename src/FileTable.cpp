@@ -17,6 +17,23 @@
 #include "definitions.h"
 
 // ============================================================================
+// Debug logging configuration
+// ============================================================================
+#define FILETABLE_DEBUG_LOGGING 0
+
+#if FILETABLE_DEBUG_LOGGING
+    #define LOG_EVENT(msg) qDebug() << "[FileTable] EVENT:" << msg
+    #define LOG_STATE(msg) qDebug() << "[FileTable] STATE:" << msg
+    #define LOG_ACTION(msg) qDebug() << "[FileTable] ACTION:" << msg
+    #define LOG_SIGNAL(msg) qDebug() << "[FileTable] SIGNAL:" << msg
+#else
+    #define LOG_EVENT(msg)
+    #define LOG_STATE(msg)
+    #define LOG_ACTION(msg)
+    #define LOG_SIGNAL(msg)
+#endif
+
+// ============================================================================
 // CurrentRowDelegate implementation
 // ============================================================================
 
@@ -183,6 +200,7 @@ void FileTable::setupForHostMode() {
     sortByColumn(0, Qt::AscendingOrder);
 
     QHeaderView* hh = horizontalHeader();
+    hh->setSectionsClickable(false);  // Disable click-to-sort on headers
     hh->setSectionResizeMode(0, QHeaderView::Stretch); // Name - expanded
 
     verticalHeader()->setDefaultSectionSize(24);
@@ -227,27 +245,44 @@ void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
     horizontalHeader()->setMinimumSectionSize(20);
 
     horizontalHeader()->setStretchLastSection(true);
+    horizontalHeader()->setSectionsClickable(false);  // Disable click-to-sort on headers
 
     connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &FileTable::onCurrentIndexChanged);
 }
 
 bool FileTable::eventFilter(QObject* obj, QEvent* ev) {
-    if ((ev->type() == QEvent::FocusIn || ev->type() == QEvent::MouseButtonPress))
+    // Log Focus events
+    if (ev->type() == QEvent::FocusIn) {
+        LOG_EVENT("FocusIn");
+        logSelectionState("FocusIn");
         emit focusReceived();
+    }
 
-    // Handle double-click events - cancel timer since this is a double-click
+    // Handle double-click events
     if (ev->type() == QEvent::MouseButtonDblClick) {
         if (obj == viewport()) {
+            LOG_EVENT("MouseButtonDblClick");
+            logSelectionState("Before handleMouseDoubleClick");
             handleMouseDoubleClick();
+            logSelectionState("After handleMouseDoubleClick");
+            return true;  // Block event - we've handled it completely, don't let Qt's default handler select the row
         }
-        // Let Qt handle the double-click normally
-        return QTableView::eventFilter(obj, ev);
     }
 
     // Handle mouse clicks in table view
     if (ev->type() == QEvent::MouseButtonPress) {
         if (obj == viewport()) {
-            handleMousePress(static_cast<QMouseEvent*>(ev));
+            QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(ev);
+            QString buttonStr = mouseEvent->button() == Qt::LeftButton ? "Left" :
+                               mouseEvent->button() == Qt::RightButton ? "Right" : "Other";
+            QModelIndex idx = indexAt(mouseEvent->pos());
+            int row = idx.isValid() ? idx.row() : -1;
+            LOG_EVENT(QString("MouseButtonPress | Button=%1 | Row=%2 | Pos=(%3,%4)")
+                .arg(buttonStr).arg(row).arg(mouseEvent->pos().x()).arg(mouseEvent->pos().y()));
+            logSelectionState("Before handleMousePress");
+            handleMousePress(mouseEvent);
+            logSelectionState("After handleMousePress");
+            emit focusReceived();
             return true;  // Block Qt's default handler to prevent selection changes
         }
     }
@@ -258,6 +293,7 @@ bool FileTable::eventFilter(QObject* obj, QEvent* ev) {
             QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(ev);
             if (mouseEvent->buttons() & Qt::LeftButton) {
                 // Left button is pressed during move - block to prevent drag-select
+                LOG_ACTION("MouseMove with LeftButton held - blocking drag select");
                 return true;
             }
         }
@@ -270,11 +306,19 @@ bool FileTable::eventFilter(QObject* obj, QEvent* ev) {
         if (obj == this || obj == viewport()) {
             // Handle arrow keys
             if (keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down) {
-                if (handleArrowKeys(keyEvent)) return true;
+                QString direction = keyEvent->key() == Qt::Key_Up ? "Up" : "Down";
+                LOG_EVENT(QString("KeyPress | Key=%1").arg(direction));
+                logSelectionState(QString("Before Arrow-%1").arg(direction));
+                if (handleArrowKeys(keyEvent)) {
+                    logSelectionState(QString("After Arrow-%1").arg(direction));
+                    return true;
+                }
             }
 
             // Handle Insert key
             if (keyEvent->key() == Qt::Key_Insert) {
+                LOG_EVENT("KeyPress | Key=Insert");
+                logSelectionState("Before Insert");
                 QModelIndex current = currentIndex();
                 if (current.isValid()) {
                     // Toggle selection of current row
@@ -282,6 +326,7 @@ bool FileTable::eventFilter(QObject* obj, QEvent* ev) {
                         current,
                         QItemSelectionModel::Toggle | QItemSelectionModel::Rows
                     );
+                    logSelectionState("After Toggle selection");
 
                     // Move down one line WITHOUT changing selection
                     int nextRow = current.row() + 1;
@@ -289,13 +334,17 @@ bool FileTable::eventFilter(QObject* obj, QEvent* ev) {
                     if (nextRow <= maxRow) {
                         // Always use column 0 for full-row highlighting
                         QModelIndex nextIndex = model()->index(nextRow, 0, rootIndex());
+                        LOG_ACTION(QString("Moving from row %1 to %2").arg(current.row()).arg(nextRow));
                         selectionModel()->setCurrentIndex(
                             nextIndex,
                             QItemSelectionModel::NoUpdate
                         );
                         scrollTo(nextIndex);
+                    } else {
+                        LOG_ACTION("At last row - not moving down");
                     }
                 }
+                logSelectionState("After Insert");
                 return true; // Event handled
             }
 
@@ -435,6 +484,7 @@ void FileTable::handleMousePress(QMouseEvent* mouseEvent) {
         if (mouseEvent->button() == Qt::LeftButton) {
             // Store the clicked index for potential double-click
             m_pendingClickIndex = clickedIndex;
+            LOG_ACTION(QString("Left-click on row %1 - setting current index (NoUpdate)").arg(clickedIndex.row()));
 
             // Immediately move current index to clicked row without changing selection
             // This provides instant visual feedback (no delay)
@@ -445,11 +495,13 @@ void FileTable::handleMousePress(QMouseEvent* mouseEvent) {
             );
 
         } else if (mouseEvent->button() == Qt::RightButton) {
+            LOG_ACTION(QString("Right-click on row %1 - toggling selection").arg(clickedIndex.row()));
             // Right click: toggle selection of the clicked row
             selectionModel()->select(
                 clickedIndex,
                 QItemSelectionModel::Toggle | QItemSelectionModel::Rows
             );
+            logSelectionState(QString("After toggle selection on row %1").arg(clickedIndex.row()));
             // Also move current index to right-clicked item (column 0 for full-row highlighting)
             QModelIndex rowIndex = clickedIndex.sibling(clickedIndex.row(), 0);
             selectionModel()->setCurrentIndex(
@@ -471,31 +523,47 @@ void FileTable::handleMouseDoubleClick() {
 bool FileTable::handleArrowKeys(QKeyEvent* keyEvent) {
     if (keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down) {
         QModelIndex current = currentIndex();
-        if (current.isValid()) {
-            int nextRow;
-            if (keyEvent->key() == Qt::Key_Up) {
-                nextRow = current.row() - 1;
-                if (nextRow < 0) return true; // At top, block event
-            } else { // Down
-                nextRow = current.row() + 1;
-                int maxRow = model()->rowCount(rootIndex()) - 1;
-                if (nextRow > maxRow) return true; // At bottom, block event
+
+        // Handle case where there's no current index (invalid)
+        if (!current.isValid()) {
+            // If there's at least one row, set current index to first row
+            if (model()->rowCount(rootIndex()) > 0) {
+                QModelIndex firstIndex = model()->index(0, 0, rootIndex());
+                LOG_ACTION("No current index - setting to first row (0) on arrow press");
+                selectionModel()->setCurrentIndex(
+                    firstIndex,
+                    QItemSelectionModel::NoUpdate
+                );
+                scrollTo(firstIndex);
+                return true; // Event handled, prevent Qt's default
             }
-
-            // Always use column 0 for full-row highlighting
-            QModelIndex nextIndex = model()->index(nextRow, 0, rootIndex());
-
-            // Move current index WITHOUT changing selection
-            selectionModel()->setCurrentIndex(
-                nextIndex,
-                QItemSelectionModel::NoUpdate  // Don't modify selection!
-            );
-
-            // Ensure visibility
-            scrollTo(nextIndex);
-
-            return true; // Event handled, block default behavior
+            return false; // No rows, let Qt handle it
         }
+
+        // Normal case: current index is valid
+        int nextRow;
+        if (keyEvent->key() == Qt::Key_Up) {
+            nextRow = current.row() - 1;
+            if (nextRow < 0) return true; // At top, block event
+        } else { // Down
+            nextRow = current.row() + 1;
+            int maxRow = model()->rowCount(rootIndex()) - 1;
+            if (nextRow > maxRow) return true; // At bottom, block event
+        }
+
+        // Always use column 0 for full-row highlighting
+        QModelIndex nextIndex = model()->index(nextRow, 0, rootIndex());
+
+        // Move current index WITHOUT changing selection
+        selectionModel()->setCurrentIndex(
+            nextIndex,
+            QItemSelectionModel::NoUpdate  // Don't modify selection!
+        );
+
+        // Ensure visibility
+        scrollTo(nextIndex);
+
+        return true; // Event handled, block default behavior
     }
     return false;
 }
@@ -517,6 +585,8 @@ bool FileTable::handleSelectionKeys(QKeyEvent* keyEvent) {
 
         // Plus key - select all (except parent directory)
         if (keyChar == '+' || keyEvent->key() == Qt::Key_Plus) {
+            LOG_EVENT("KeyPress | Key=Plus (Select All)");
+            logSelectionState("Before Select All");
             if (selectionModel()) {
                 int rowCount = model()->rowCount(rootIndex());
                 int startRow = 0;
@@ -528,6 +598,7 @@ bool FileTable::handleSelectionKeys(QKeyEvent* keyEvent) {
 
                 // Only proceed if there are rows to select after skipping parent
                 if (startRow < rowCount) {
+                    LOG_ACTION(QString("Selecting rows %1-%2").arg(startRow).arg(rowCount - 1));
                     selectionModel()->select(
                         QItemSelection(
                             model()->index(startRow, 0, rootIndex()),
@@ -541,21 +612,28 @@ bool FileTable::handleSelectionKeys(QKeyEvent* keyEvent) {
                     );
                 }
             }
+            logSelectionState("After Select All");
             return true;
         }
 
         // Minus key - clear selection
         if (keyChar == '-' || keyEvent->key() == Qt::Key_Minus) {
+            LOG_EVENT("KeyPress | Key=Minus (Clear Selection)");
+            logSelectionState("Before Clear Selection");
             if (selectionModel()) {
                 selectionModel()->clearSelection();
             }
+            logSelectionState("After Clear Selection");
             return true;
         }
 
         // Asterisk key - invert selection (except parent directory)
         if (keyChar == '*' || keyEvent->key() == Qt::Key_Asterisk) {
+            LOG_EVENT("KeyPress | Key=Asterisk (Invert Selection)");
+            logSelectionState("Before Invert Selection");
             if (selectionModel()) {
                 int rowCount = model()->rowCount(rootIndex());
+                int toggleCount = 0;
                 for (int row = 0; row < rowCount; ++row) {
                     // Skip parent directory entry
                     if (isParentDirEntry(row)) {
@@ -567,8 +645,11 @@ bool FileTable::handleSelectionKeys(QKeyEvent* keyEvent) {
                         idx,
                         QItemSelectionModel::Toggle | QItemSelectionModel::Rows
                     );
+                    toggleCount++;
                 }
+                LOG_ACTION(QString("Toggled %1 rows").arg(toggleCount));
             }
+            logSelectionState("After Invert Selection");
             return true;
         }
     }
@@ -580,9 +661,42 @@ void FileTable::setActive(bool active) {
     viewport()->update();  // Repaint to show/hide current row bar
 }
 
+void FileTable::logSelectionState(const QString& context) {
+#if FILETABLE_DEBUG_LOGGING
+    if (!model() || !selectionModel()) return;
+
+    QModelIndex current = currentIndex();
+    QModelIndexList selectedRows = selectionModel()->selectedRows();
+
+    QString selectedStr;
+    for (int i = 0; i < selectedRows.size(); ++i) {
+        if (i > 0) selectedStr += ",";
+        selectedStr += QString::number(selectedRows[i].row());
+    }
+
+    int currentRow = current.isValid() ? current.row() : -1;
+    int totalRows = model()->rowCount();
+    int selectedCount = selectedRows.size();
+
+    LOG_STATE(QString("Context=%1 | CurrentRow=%2 | Selected=[%3] | Count=%4/%5 | Active=%6")
+        .arg(context)
+        .arg(currentRow)
+        .arg(selectedStr.isEmpty() ? "none" : selectedStr)
+        .arg(selectedCount)
+        .arg(totalRows)
+        .arg(m_isActive ? "yes" : "no"));
+#endif
+}
+
 void FileTable::onCurrentIndexChanged(const QModelIndex& current, const QModelIndex& previous)
 {
-        qDebug() << "FileTable::onCurrentIndexChanged()";
+    // Log the current index change with context
+    int prevRow = previous.isValid() ? previous.row() : -1;
+    int currRow = current.isValid() ? current.row() : -1;
+
+    LOG_ACTION(QString("CurrentIndex changed: %1 -> %2").arg(prevRow).arg(currRow));
+    logSelectionState(QString("After currentIndex change"));
+
     // When the current row changes, we need to repaint both the previous and new current rows
     // to ensure the delegate updates the highlight correctly across all columns
 
@@ -593,6 +707,9 @@ void FileTable::onCurrentIndexChanged(const QModelIndex& current, const QModelIn
         if (lastCol >= 0) {
             QRect lastCellRect = visualRect(model()->index(previous.row(), lastCol, previous.parent()));
             previousRowRect = previousRowRect.united(lastCellRect);
+            LOG_ACTION(QString("Repainting previous row %1: rect=(%2,%3) %4x%5")
+                .arg(previous.row()).arg(previousRowRect.x()).arg(previousRowRect.y())
+                .arg(previousRowRect.width()).arg(previousRowRect.height()));
             viewport()->update(previousRowRect);
         }
     }
@@ -600,11 +717,13 @@ void FileTable::onCurrentIndexChanged(const QModelIndex& current, const QModelIn
     // Repaint the entire new current row
     if (current.isValid() && model()) {
         QRect currentRowRect = visualRect(model()->index(current.row(), 0, current.parent()));
-        qDebug() << "currentRowRect: " << currentRowRect;
         int lastCol = model()->columnCount(current.parent()) - 1;
         if (lastCol >= 0) {
             QRect lastCellRect = visualRect(model()->index(current.row(), lastCol, current.parent()));
             currentRowRect = currentRowRect.united(lastCellRect);
+            LOG_ACTION(QString("Repainting current row %1: rect=(%2,%3) %4x%5")
+                .arg(current.row()).arg(currentRowRect.x()).arg(currentRowRect.y())
+                .arg(currentRowRect.width()).arg(currentRowRect.height()));
             viewport()->update(currentRowRect);
         }
     }

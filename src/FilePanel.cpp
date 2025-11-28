@@ -660,7 +660,7 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
             return;
         }
 
-        QString path = host_model->filePath(index);
+        const QString path = host_model->filePath(index);
         if (path.isEmpty()) return;
 
         QFileInfo info(path);
@@ -771,8 +771,11 @@ void FilePanel::processImage(std::string filesystem_type)
 
         setMode(panelMode::Image);
 
+        // Clear selection immediately after model switch to prevent selection indices
+        // from carrying over from the previous model (host mode) to the new model (image mode)
+        tableView->clearSelection();
+
         dir();
-        tableView->setModel(image_model);
     } else {
         QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("File system initialization error!"));
     }
@@ -850,22 +853,19 @@ void FilePanel::updateTable()
 #endif
 
 
-    // TODO: check if it's necessary
+    // Set current index (focus) to first row, but don't select it
+    // Selection should only happen through explicit user actions (Insert, +/-, right-click)
     int rowCount = image_model->rowCount();
-    if (rowCount == 1) {
-        QModelIndex index = image_model->index(0, 0);
-        if (index.isValid()) {
-            tableView->setCurrentIndex(index);
-            tableView->selectionModel()->select(
-                index,
-                QItemSelectionModel::Select | QItemSelectionModel::Rows
-                );
+    if (rowCount > 0) {
+        QModelIndex firstIndex = image_model->index(0, 0);
+        if (firstIndex.isValid()) {
+            tableView->setCurrentIndex(firstIndex);
             tableView->setFocus(Qt::OtherFocusReason);
         }
-    } else {
-        // setup_buttons(false);
     }
 
+    // Ensure no accidental selection after populating model
+    tableView->clearSelection();
 }
 
 void FilePanel::dir()
