@@ -791,7 +791,7 @@ void MainWindow::updateImageMenuState() const
 
     if (actImageSave) actImageSave->setEnabled(!is_host);
     if (actImageSaveAs) actImageSaveAs->setEnabled(!is_host);
-    if (actSave) actSave->setDisabled(!is_host);
+    if (actSave) actSave->setEnabled(!is_host);
     if (actFSInfo) actFSInfo->setEnabled(!is_host);
 
 

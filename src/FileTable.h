@@ -90,6 +90,9 @@ private:
 
     // Helper to check if a row is the parent directory entry
     bool isParentDirEntry(int row) const;
+
+    // Debug logging helper
+    void logSelectionState(const QString& context);
 };
 
 #endif // FILETABLE_H
