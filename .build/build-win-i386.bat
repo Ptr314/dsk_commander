@@ -7,9 +7,7 @@ SET _PLATFORM=windows
 SET _BUILD_DIR=.\build\%_PLATFORM%_%_ARCHITECTURE%
 SET _QT_PATH="%_ROOT_QT%\%_QT_VERSION%"
 
-FOR /F "tokens=* USEBACKQ" %%g IN (`findstr "PROJECT_VERSION" ..\src\globals.h`) do (SET VER=%%g)
-for /f "tokens=3" %%G IN ("%VER%") DO (SET V=%%G)
-set _VERSION=%V:"=%
+set /p _VERSION=<..\VERSION
 
 SET _RELEASE_NAME="disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%"
 SET _RELEASE_DIR=".\release\%_RELEASE_NAME%"
