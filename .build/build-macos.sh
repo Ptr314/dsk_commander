@@ -7,7 +7,7 @@ APP_NAME="DISKCommander"
 BUILD_DIR="./build/${PLATFORM}"
 RELEASE_DIR="./release"
 
-VERSION=$(grep 'PROJECT_VERSION' ../src/globals.h | cut -d'"' -f2 | tr -d '\r')
+VERSION=$(cat ../VERSION | tr -d '\r\n')
 
 cmake -DCMAKE_PREFIX_PATH=${QT_PATH} -S ../src -B ${BUILD_DIR} -G Ninja -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
 

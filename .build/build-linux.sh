@@ -7,7 +7,7 @@ LINUXDEPLOYQT="~/Downloads/linuxdeployqt-continuous-x86_64.AppImage"
 
 BUILD_DIR="./build/${PLATFORM}-${ARCHITECTURE}"
 
-VERSION=$(grep 'PROJECT_VERSION' ../src/globals.h | cut -d'"' -f2 | tr -d '\r')
+VERSION=$(cat ../VERSION | tr -d '\r\n')
 
 RELEASE_DIR="./release/DISKCommander-${VERSION}-${PLATFORM}-${ARCHITECTURE}.AppDir"
 
