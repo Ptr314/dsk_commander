@@ -16,6 +16,7 @@
 #include <QInputDialog>
 #include <QDialog>
 #include <QFont>
+#include <memory>
 #include <fstream>
 #include "placeholders.h"
 
@@ -1005,25 +1006,25 @@ void FilePanel::onView()
             }
             if (type_id.size()==0) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
 
-            dsk_tools::Loader * loader;
+            std::unique_ptr<dsk_tools::Loader> loader;
 
             if (format_id == "FILE_RAW_MSB") {
-                loader = new dsk_tools::LoaderRAW(file_name, format_id, type_id);
+                loader = std::make_unique<dsk_tools::LoaderRAW>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_AIM") {
-                loader = new dsk_tools::LoaderAIM(file_name, format_id, type_id);
+                loader = std::make_unique<dsk_tools::LoaderAIM>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIC") {
-                loader = new dsk_tools::LoaderNIC(file_name, format_id, type_id);
+                loader = std::make_unique<dsk_tools::LoaderNIC>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIB") {
-                loader = new dsk_tools::LoaderNIB(file_name, format_id, type_id);
+                loader = std::make_unique<dsk_tools::LoaderNIB>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_MFM") {
-                loader = new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
+                loader = std::make_unique<dsk_tools::LoaderHXC_MFM>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_HFE") {
-                loader = new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
+                loader = std::make_unique<dsk_tools::LoaderHXC_HFE>(file_name, format_id, type_id);
             } else {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
                 return;
