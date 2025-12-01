@@ -486,6 +486,10 @@ void FileTable::handleMousePress(QMouseEvent* mouseEvent) {
             m_pendingClickIndex = clickedIndex;
             LOG_ACTION(QString("Left-click on row %1 - setting current index (NoUpdate)").arg(clickedIndex.row()));
 
+            // Start timer to detect if this is a single or double click
+            // Timer will fire if no second click occurs within the system's double-click interval
+            m_clickTimer->start(QApplication::doubleClickInterval());
+
             // Immediately move current index to clicked row without changing selection
             // This provides instant visual feedback (no delay)
             QModelIndex rowIndex = clickedIndex.sibling(clickedIndex.row(), 0);
@@ -513,6 +517,9 @@ void FileTable::handleMousePress(QMouseEvent* mouseEvent) {
 }
 
 void FileTable::handleMouseDoubleClick() {
+    // Stop the timer to prevent both single and double-click handlers from firing
+    m_clickTimer->stop();
+
     // Manually emit doubleClicked signal since we blocked the mouse press events
     // Qt's normal double-click handling can't work when we block press events
     if (m_pendingClickIndex.isValid()) {

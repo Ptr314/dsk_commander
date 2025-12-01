@@ -534,6 +534,12 @@ void MainWindow::initializeMainMenu() {
 
 void MainWindow::setActivePanel(FilePanel* panel) {
     if (!panel) return;
+
+    // Disconnect from previous panel's signals before switching
+    if (activePanel && activePanel->tableSelectionModel()) {
+        disconnect(activePanel->tableSelectionModel(), nullptr, this, nullptr);
+    }
+
     activePanel = panel;
     leftPanel->setActive(leftPanel == activePanel);
     rightPanel->setActive(rightPanel == activePanel);
