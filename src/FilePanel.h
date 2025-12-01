@@ -33,7 +33,7 @@ public:
 
     void setRootPath(const QString& path);
     void setNameFilters(const QStringList& filters);
-    void setSortOrder(SortOrder order);
+    void setSortOrder(SortOrder order, bool ascending);
     void refresh();
     void goUp();
     QString currentPath() const { return m_currentPath; }
@@ -46,6 +46,7 @@ private:
     QString m_currentPath;
     QStringList m_nameFilters;
     SortOrder m_sortOrder {ByName};
+    bool m_sortAsc {true};
     bool m_isRoot {false};
 
     void populateModel();
@@ -163,6 +164,8 @@ private:
     dsk_tools::diskImage * m_image {nullptr};
     dsk_tools::fileSystem * m_filesystem {nullptr};
     std::vector<dsk_tools::UniversalFile> m_files;
+    HostModel::SortOrder m_sort_order {HostModel::SortOrder::NoOrder};
+    bool m_sort_ascending {true};
 
     void setupPanel();
     void setupFilters();
