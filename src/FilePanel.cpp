@@ -62,8 +62,9 @@ void HostModel::setNameFilters(const QStringList& filters) {
     m_nameFilters = filters;
 }
 
-void HostModel::setSortOrder(SortOrder order) {
+void HostModel::setSortOrder(SortOrder order, bool ascending) {
     m_sortOrder = order;
+    m_sortAsc = ascending;
     refresh();
 }
 
@@ -151,11 +152,11 @@ void HostModel::populateModel() {
     }
 
     // Sort directories and files separately
-    auto sortByName = [](const QFileInfo& a, const QFileInfo& b) {
-        return QString::localeAwareCompare(a.fileName(), b.fileName()) < 0;
+    auto sortByName = [this](const QFileInfo& a, const QFileInfo& b) {
+        return m_sortAsc ? QString::localeAwareCompare(a.fileName(), b.fileName()) < 0 : QString::localeAwareCompare(a.fileName(), b.fileName()) >= 0;
     };
-    auto sortBySize = [](const QFileInfo& a, const QFileInfo& b) {
-        return a.size() < b.size();
+    auto sortBySize = [this](const QFileInfo& a, const QFileInfo& b) {
+        return m_sortAsc ? a.size() < b.size() : a.size() >= b.size();
     };
 
     if (m_sortOrder == ByName) {
@@ -871,10 +872,46 @@ void FilePanel::updateTable()
 
 void FilePanel::dir()
 {
-    // m_filesystem->dir(&m_files, m_show_deleted); //TODO: Remove this line
-    dsk_tools::Result res = m_filesystem->dir(m_files, m_show_deleted);
+    dsk_tools::Files files;
+
+    const dsk_tools::Result res = m_filesystem->dir(files, m_show_deleted);
     if (!res) {
         QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error reading files list!"));
+    }
+
+    m_files.clear();
+    if (getSortOrder() != HostModel::SortOrder::NoOrder) {
+        // Separate directories and files
+        dsk_tools::Files dirs_only;
+        dsk_tools::Files files_only;
+
+        for (const dsk_tools::UniversalFile& f : files) {
+            if (f.is_dir) {
+                dirs_only.push_back(f);
+            } else {
+                files_only.push_back(f);
+            }
+        }
+
+        // Sort directories and files separately
+        auto sortByName = [this](const dsk_tools::UniversalFile& a, const dsk_tools::UniversalFile& b) {
+            return m_sort_ascending? a.name<b.name : a.name>=b.name;
+        };
+        auto sortBySize = [this](const dsk_tools::UniversalFile& a, const dsk_tools::UniversalFile& b) {
+            return m_sort_ascending? a.size<b.size : a.size>=b.size;
+        };
+
+        if (getSortOrder() == HostModel::SortOrder::ByName) {
+            std::sort(dirs_only.begin(), dirs_only.end(), sortByName);
+            std::sort(files_only.begin(), files_only.end(), sortByName);
+        } else {
+            std::sort(dirs_only.begin(), dirs_only.end(), sortByName);  // Dirs still by name
+            std::sort(files_only.begin(), files_only.end(), sortBySize);
+        }
+        m_files.insert(m_files.end(), dirs_only.begin(), dirs_only.end());
+        m_files.insert(m_files.end(), files_only.begin(), files_only.end());
+    }  else {
+        m_files = files;
     }
     updateTable();
 }
@@ -1137,18 +1174,23 @@ void FilePanel::onMkDir()
 
 void FilePanel::setSortOrder(HostModel::SortOrder order)
 {
+    if (m_sort_order == order)
+        m_sort_ascending = !m_sort_ascending;
+    else
+        m_sort_ascending = true;
+
+    m_sort_order = order;
     if (mode == panelMode::Host && host_model) {
-        host_model->setSortOrder(order);
-        emit sortOrderChanged(order);
+        host_model->setSortOrder(order, m_sort_ascending);
+    } else {
+        dir();
     }
-}
+    emit sortOrderChanged(order);
+ }
 
 int FilePanel::getSortOrder() const
 {
-    if (mode == panelMode::Host && host_model) {
-        return static_cast<int>(host_model->sortOrder());
-    }
-    return -1;
+    return m_sort_order;
 }
 
 void FilePanel::setShowDeleted(bool show) {
