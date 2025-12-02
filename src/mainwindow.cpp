@@ -207,6 +207,42 @@ void MainWindow::changeEvent(QEvent* event)
     QMainWindow::changeEvent(event);
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    // Check both panels for unsaved changes
+    bool hasUnsavedLeft = (leftPanel && leftPanel->getMode() == panelMode::Image &&
+                           leftPanel->getFileSystem() &&
+                           leftPanel->getFileSystem()->get_changed());
+
+    bool hasUnsavedRight = (rightPanel && rightPanel->getMode() == panelMode::Image &&
+                            rightPanel->getFileSystem() &&
+                            rightPanel->getFileSystem()->get_changed());
+
+    if (hasUnsavedLeft || hasUnsavedRight) {
+        QString message;
+        if (hasUnsavedLeft && hasUnsavedRight) {
+            message = tr("Both panels have unsaved disk image changes. Close anyway?");
+        } else {
+            message = tr("One panel has unsaved disk image changes. Close anyway?");
+        }
+
+        QMessageBox::StandardButton reply = QMessageBox::question(
+            this,
+            tr("Unsaved Changes"),
+            message,
+            QMessageBox::Yes | QMessageBox::No,
+            QMessageBox::No  // Default to No (safe)
+        );
+
+        if (reply == QMessageBox::No) {
+            event->ignore();  // Cancel close
+            return;
+        }
+    }
+
+    event->accept();  // Proceed with close
+}
+
 void MainWindow::load_config()
 {
     QFile file(":/files/config");

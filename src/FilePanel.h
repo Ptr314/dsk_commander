@@ -187,4 +187,8 @@ private:
                                     const std::string& type_id);
     void showInfoDialog(const std::string& info);
 
+    // Unsaved changes handling
+    bool checkUnsavedChanges();
+    void updateImageStatusIndicator();
+
 };
