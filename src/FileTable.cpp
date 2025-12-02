@@ -93,7 +93,13 @@ void CurrentRowDelegate::paint(QPainter* painter, const QStyleOptionViewItem& op
         else
             painter->setPen(option.palette.color(QPalette::Text));
 
-        painter->setFont(option.font);
+        // Use custom font if set on the item, otherwise use default font from style option
+        QVariant fontData = index.data(Qt::FontRole);
+        if (fontData.isValid()) {
+            painter->setFont(qvariant_cast<QFont>(fontData));
+        } else {
+            painter->setFont(option.font);
+        }
 
         // Calculate text rectangle with padding
         QRect textRect = option.rect.adjusted(4, 0, -4, 0);
