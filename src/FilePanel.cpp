@@ -282,6 +282,10 @@ void FilePanel::setupPanel() {
     dirButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     dirButton->setIconSize(QSize(24, 24));
 
+    historyMenu = new QMenu(this);
+    dirButton->setMenu(historyMenu);
+    dirButton->setPopupMode(QToolButton::MenuButtonPopup);
+
     auto *topContainer = new QWidget(topToolBar);
     auto *topLayout = new QHBoxLayout(topContainer);
     topLayout->setContentsMargins(0, 0, 0, 0);
@@ -295,6 +299,11 @@ void FilePanel::setupPanel() {
     connect(upButton,  &QToolButton::clicked, this, &FilePanel::onGoUp);
     connect(dirButton, &QToolButton::clicked, this, &FilePanel::chooseDirectory);
     connect(dirEdit,   &QLineEdit::returnPressed, this, &FilePanel::onPathEntered);
+    connect(historyMenu, &QMenu::triggered, this, &FilePanel::onHistoryMenuTriggered);
+
+    // Load and initialize directory history
+    loadDirectoryHistory();
+    updateHistoryMenu();
 
     // Main table with files using custom FileTable
     tableView = new FileTable(this);
@@ -457,6 +466,9 @@ void FilePanel::retranslateUi()
     dirEdit->setPlaceholderText(tr("Enter path and press Enter..."));
     autoCheck->setText(tr("Auto"));
 
+    // Refresh history menu to update translated strings
+    updateHistoryMenu();
+
     // Refresh filterCombo - this will cascade to typeCombo and fsCombo
     QString savedFilter = filterCombo->currentData().toString();
 
@@ -518,6 +530,10 @@ void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     }
 
     m_settings->setValue("directory/"+m_ini_label, currentPath);
+
+    // Update directory history
+    addToDirectoryHistory(currentPath);
+    updateHistoryMenu();
 }
 
 void FilePanel::chooseDirectory()
@@ -1778,5 +1794,108 @@ void FilePanel::saveImageAs()
         }
 
         delete writer;
+    }
+}
+
+// ============================================================================
+// Directory history implementation
+// ============================================================================
+
+void FilePanel::loadDirectoryHistory() {
+    QString historyKey = "directory/" + m_ini_label + "_history";
+    m_directoryHistory = m_settings->value(historyKey, QStringList()).toStringList();
+
+    // Ensure max 10 items
+    if (m_directoryHistory.size() > 10) {
+        m_directoryHistory = m_directoryHistory.mid(0, 10);
+    }
+}
+
+void FilePanel::saveDirectoryHistory() {
+    QString historyKey = "directory/" + m_ini_label + "_history";
+    m_settings->setValue(historyKey, m_directoryHistory);
+}
+
+void FilePanel::addToDirectoryHistory(const QString& path) {
+    if (path.isEmpty()) return;
+
+    // Remove if already exists (to move it to front)
+    m_directoryHistory.removeAll(path);
+
+    // Add to front
+    m_directoryHistory.prepend(path);
+
+    // Keep max 10 items
+    if (m_directoryHistory.size() > 10) {
+        m_directoryHistory.removeLast();
+    }
+
+    saveDirectoryHistory();
+}
+
+void FilePanel::updateHistoryMenu() {
+    historyMenu->clear();
+
+    // Remove non-existent directories from history
+    QStringList validHistory;
+    bool historyChanged = false;
+    for (const QString& path : m_directoryHistory) {
+        if (QDir(path).exists()) {
+            validHistory.append(path);
+        } else {
+            historyChanged = true;
+        }
+    }
+
+    if (historyChanged) {
+        m_directoryHistory = validHistory;
+        saveDirectoryHistory();
+    }
+
+    if (m_directoryHistory.isEmpty()) {
+        QAction* emptyAction = historyMenu->addAction(FilePanel::tr("(No history)"));
+        emptyAction->setEnabled(false);
+        return;
+    }
+
+    // Add each directory to menu with shortened display
+    for (const QString& path : m_directoryHistory) {
+        // Shorten path with ellipsis in middle if too long
+        QString displayPath = path;
+        const int maxLength = 60;
+        if (displayPath.length() > maxLength) {
+            // Find a good split point (after drive letter on Windows, after / on Unix)
+            int splitPos = displayPath.indexOf('/', 3);
+            if (splitPos == -1) splitPos = displayPath.indexOf('\\', 3);
+            if (splitPos == -1) splitPos = 10;
+
+            QString start = displayPath.left(splitPos + 1);
+            QString end = displayPath.right(maxLength - splitPos - 4);
+            displayPath = start + "..." + end;
+        }
+
+        QAction* action = historyMenu->addAction(displayPath);
+        action->setData(path);  // Store full path in data
+        action->setToolTip(path);  // Show full path in tooltip
+    }
+
+    // Add separator and clear history option
+    historyMenu->addSeparator();
+    QAction* clearAction = historyMenu->addAction(FilePanel::tr("Clear history"));
+    clearAction->setData("__clear__");
+}
+
+void FilePanel::onHistoryMenuTriggered(QAction* action) {
+    if (!action) return;
+
+    QString data = action->data().toString();
+
+    if (data == "__clear__") {
+        m_directoryHistory.clear();
+        saveDirectoryHistory();
+        updateHistoryMenu();
+    } else if (!data.isEmpty()) {
+        // Navigate to selected directory
+        setDirectory(data);
     }
 }
