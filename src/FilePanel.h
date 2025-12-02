@@ -99,7 +99,7 @@ public:
     bool isIndexValid() const;
     bool allowPutFiles() const;
     dsk_tools::Files getSelectedFiles() const;
-    void putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
+    void putFiles(dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
     void deleteFiles();
     void deleteRecursively(const dsk_tools::UniversalFile & f);
 
