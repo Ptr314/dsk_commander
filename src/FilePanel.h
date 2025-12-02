@@ -100,7 +100,8 @@ public:
     bool allowPutFiles() const;
     dsk_tools::Files getSelectedFiles() const;
     void putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
-    void deleteFiles(const dsk_tools::Files & files);
+    void deleteFiles();
+    void deleteRecursively(const dsk_tools::UniversalFile & f);
 
     // Panel operations
     void onView();

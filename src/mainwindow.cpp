@@ -673,14 +673,7 @@ void MainWindow::onMkdir() {
 
 void MainWindow::onDelete() {
     if (!activePanel) return;
-    QMessageBox::StandardButton reply = QMessageBox::question(this,
-                                MainWindow::tr("Deleting files"),
-                                MainWindow::tr("Delete %1 files?").arg(activePanel->selectedCount()),
-                                QMessageBox::Yes|QMessageBox::No
-            );
-    if (reply == QMessageBox::Yes) {
-        activePanel->deleteFiles(activePanel->getSelectedFiles());
-    }
+    activePanel->deleteFiles();
 }
 
 void MainWindow::onExit() {
