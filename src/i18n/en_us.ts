@@ -4,14 +4,14 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../aboutdlg.ui" line="14"/>
+        <location filename="../aboutdlg.ui" line="18"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../aboutdlg.ui" line="90"/>
+        <location filename="../aboutdlg.ui" line="94"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
@@ -21,105 +21,105 @@
 <context>
     <name>ConvertDialog</name>
     <message>
-        <location filename="../convertdialog.ui" line="20"/>
+        <location filename="../convertdialog.ui" line="24"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="26"/>
+        <location filename="../convertdialog.ui" line="30"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="38"/>
+        <location filename="../convertdialog.ui" line="42"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="45"/>
+        <location filename="../convertdialog.ui" line="49"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="55"/>
+        <location filename="../convertdialog.ui" line="59"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="58"/>
+        <location filename="../convertdialog.ui" line="62"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="124"/>
+        <location filename="../convertdialog.ui" line="128"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="132"/>
+        <location filename="../convertdialog.ui" line="136"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="145"/>
+        <location filename="../convertdialog.ui" line="149"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="158"/>
+        <location filename="../convertdialog.ui" line="162"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="179"/>
+        <location filename="../convertdialog.ui" line="183"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="182"/>
+        <location filename="../convertdialog.ui" line="186"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="210"/>
+        <location filename="../convertdialog.ui" line="214"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="218"/>
+        <location filename="../convertdialog.ui" line="222"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.ui" line="169"/>
+        <location filename="../convertdialog.ui" line="173"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
@@ -181,7 +181,7 @@
 <context>
     <name>FileInfo</name>
     <message>
-        <location filename="../fileinfodialog.ui" line="14"/>
+        <location filename="../fileinfodialog.ui" line="18"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
@@ -191,788 +191,830 @@
 <context>
     <name>FilePanel</name>
     <message>
-        <location filename="../FilePanel.cpp" line="42"/>
-        <location filename="../FilePanel.cpp" line="447"/>
+        <location filename="../FilePanel.cpp" line="43"/>
+        <location filename="../FilePanel.cpp" line="449"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="43"/>
-        <location filename="../FilePanel.cpp" line="448"/>
+        <location filename="../FilePanel.cpp" line="44"/>
+        <location filename="../FilePanel.cpp" line="450"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="44"/>
-        <location filename="../FilePanel.cpp" line="449"/>
-        <location filename="../placeholders.h" line="18"/>
+        <location filename="../FilePanel.cpp" line="45"/>
+        <location filename="../FilePanel.cpp" line="451"/>
+        <location filename="../placeholders.h" line="23"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="267"/>
         <location filename="../FilePanel.cpp" line="269"/>
-        <location filename="../FilePanel.cpp" line="453"/>
+        <location filename="../FilePanel.cpp" line="271"/>
+        <location filename="../FilePanel.cpp" line="455"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="274"/>
-        <location filename="../FilePanel.cpp" line="455"/>
+        <location filename="../FilePanel.cpp" line="276"/>
+        <location filename="../FilePanel.cpp" line="457"/>
         <source>Enter path and press Enter...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="277"/>
         <location filename="../FilePanel.cpp" line="279"/>
-        <location filename="../FilePanel.cpp" line="454"/>
+        <location filename="../FilePanel.cpp" line="281"/>
+        <location filename="../FilePanel.cpp" line="456"/>
         <source>Choose...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="397"/>
-        <location filename="../FilePanel.cpp" line="456"/>
+        <location filename="../FilePanel.cpp" line="399"/>
+        <location filename="../FilePanel.cpp" line="458"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="524"/>
+        <location filename="../FilePanel.cpp" line="526"/>
         <source>Choose a path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="673"/>
-        <location filename="../FilePanel.cpp" line="691"/>
-        <location filename="../FilePanel.cpp" line="745"/>
-        <location filename="../FilePanel.cpp" line="749"/>
-        <location filename="../FilePanel.cpp" line="753"/>
-        <location filename="../FilePanel.cpp" line="768"/>
-        <location filename="../FilePanel.cpp" line="777"/>
-        <location filename="../FilePanel.cpp" line="876"/>
-        <location filename="../FilePanel.cpp" line="1028"/>
-        <location filename="../FilePanel.cpp" line="1128"/>
-        <location filename="../FilePanel.cpp" line="1296"/>
-        <location filename="../FilePanel.cpp" line="1309"/>
-        <location filename="../FilePanel.cpp" line="1316"/>
-        <location filename="../FilePanel.cpp" line="1325"/>
-        <location filename="../FilePanel.cpp" line="1344"/>
-        <location filename="../FilePanel.cpp" line="1395"/>
+        <location filename="../FilePanel.cpp" line="675"/>
+        <location filename="../FilePanel.cpp" line="693"/>
+        <location filename="../FilePanel.cpp" line="747"/>
+        <location filename="../FilePanel.cpp" line="751"/>
+        <location filename="../FilePanel.cpp" line="755"/>
+        <location filename="../FilePanel.cpp" line="770"/>
+        <location filename="../FilePanel.cpp" line="782"/>
+        <location filename="../FilePanel.cpp" line="879"/>
+        <location filename="../FilePanel.cpp" line="1066"/>
+        <location filename="../FilePanel.cpp" line="1166"/>
+        <location filename="../FilePanel.cpp" line="1335"/>
+        <location filename="../FilePanel.cpp" line="1348"/>
+        <location filename="../FilePanel.cpp" line="1355"/>
+        <location filename="../FilePanel.cpp" line="1364"/>
+        <location filename="../FilePanel.cpp" line="1384"/>
+        <location filename="../FilePanel.cpp" line="1394"/>
         <location filename="../FilePanel.cpp" line="1440"/>
-        <location filename="../FilePanel.cpp" line="1517"/>
-        <location filename="../FilePanel.cpp" line="1542"/>
-        <location filename="../FilePanel.cpp" line="1550"/>
-        <location filename="../FilePanel.cpp" line="1560"/>
-        <location filename="../FilePanel.cpp" line="1570"/>
-        <location filename="../FilePanel.cpp" line="1578"/>
-        <location filename="../FilePanel.cpp" line="1580"/>
-        <location filename="../FilePanel.cpp" line="1582"/>
-        <location filename="../FilePanel.cpp" line="1595"/>
+        <location filename="../FilePanel.cpp" line="1493"/>
+        <location filename="../FilePanel.cpp" line="1538"/>
+        <location filename="../FilePanel.cpp" line="1615"/>
+        <location filename="../FilePanel.cpp" line="1640"/>
+        <location filename="../FilePanel.cpp" line="1648"/>
+        <location filename="../FilePanel.cpp" line="1658"/>
+        <location filename="../FilePanel.cpp" line="1668"/>
+        <location filename="../FilePanel.cpp" line="1676"/>
+        <location filename="../FilePanel.cpp" line="1678"/>
+        <location filename="../FilePanel.cpp" line="1680"/>
+        <location filename="../FilePanel.cpp" line="1693"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="673"/>
+        <location filename="../FilePanel.cpp" line="675"/>
         <source>Can&apos;t detect type of the file automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="691"/>
+        <location filename="../FilePanel.cpp" line="693"/>
         <source>File reading error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="745"/>
+        <location filename="../FilePanel.cpp" line="747"/>
         <source>File loading error. Check your disk type settings or try auto-detection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="749"/>
+        <location filename="../FilePanel.cpp" line="751"/>
         <source>Error checking file parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="753"/>
+        <location filename="../FilePanel.cpp" line="755"/>
         <source>Error preparing image data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="768"/>
+        <location filename="../FilePanel.cpp" line="770"/>
         <source>Unrecognized disk format or disk is damaged!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="777"/>
+        <location filename="../FilePanel.cpp" line="782"/>
         <source>File system initialization error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="876"/>
+        <location filename="../FilePanel.cpp" line="879"/>
         <source>Error reading files list!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="10"/>
+        <location filename="../placeholders.h" line="15"/>
         <source>Directory Entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="11"/>
-        <location filename="../placeholders.h" line="89"/>
+        <location filename="../placeholders.h" line="16"/>
+        <location filename="../placeholders.h" line="94"/>
         <source>File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="12"/>
+        <location filename="../placeholders.h" line="17"/>
         <source>File Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="13"/>
+        <location filename="../placeholders.h" line="18"/>
         <source>byte(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="14"/>
+        <location filename="../placeholders.h" line="19"/>
         <source>Sides</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="15"/>
+        <location filename="../placeholders.h" line="20"/>
         <source>Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="16"/>
+        <location filename="../placeholders.h" line="21"/>
         <source>sector(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="17"/>
+        <location filename="../placeholders.h" line="22"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="19"/>
-        <location filename="../placeholders.h" line="91"/>
+        <location filename="../placeholders.h" line="24"/>
+        <location filename="../placeholders.h" line="96"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="20"/>
-        <location filename="../placeholders.h" line="90"/>
+        <location filename="../placeholders.h" line="25"/>
+        <location filename="../placeholders.h" line="95"/>
         <source>Protected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="21"/>
+        <location filename="../placeholders.h" line="26"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="22"/>
+        <location filename="../placeholders.h" line="27"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="23"/>
+        <location filename="../placeholders.h" line="28"/>
         <source>T/S List Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="24"/>
+        <location filename="../placeholders.h" line="29"/>
         <source>T/S List Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="25"/>
+        <location filename="../placeholders.h" line="30"/>
         <source>Incorrect T/S data, stopping iterations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="26"/>
+        <location filename="../placeholders.h" line="31"/>
         <source>Next T/S List Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="27"/>
+        <location filename="../placeholders.h" line="32"/>
         <source>File End Reached</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="28"/>
+        <location filename="../placeholders.h" line="33"/>
         <source>The file is marked as deleted, the data below may be incorrect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="29"/>
+        <location filename="../placeholders.h" line="34"/>
         <source>File parsing error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="30"/>
+        <location filename="../placeholders.h" line="35"/>
         <source>Track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="31"/>
+        <location filename="../placeholders.h" line="36"/>
         <source>T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="32"/>
+        <location filename="../placeholders.h" line="37"/>
         <source>H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="33"/>
-        <location filename="../placeholders.h" line="34"/>
+        <location filename="../placeholders.h" line="38"/>
+        <location filename="../placeholders.h" line="39"/>
         <source>S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="35"/>
+        <location filename="../placeholders.h" line="40"/>
         <source>Parsing finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="36"/>
+        <location filename="../placeholders.h" line="41"/>
         <source>V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="37"/>
+        <location filename="../placeholders.h" line="42"/>
         <source>Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="38"/>
+        <location filename="../placeholders.h" line="43"/>
         <source>Index Mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="39"/>
+        <location filename="../placeholders.h" line="44"/>
         <source>Data Mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="40"/>
+        <location filename="../placeholders.h" line="45"/>
         <source>Sector Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="41"/>
+        <location filename="../placeholders.h" line="46"/>
         <source>End Mark: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="42"/>
+        <location filename="../placeholders.h" line="47"/>
         <source>End Mark: Not Detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="43"/>
         <location filename="../placeholders.h" line="48"/>
+        <location filename="../placeholders.h" line="53"/>
         <source>CRC: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="44"/>
         <location filename="../placeholders.h" line="49"/>
+        <location filename="../placeholders.h" line="54"/>
         <source>CRC: Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="45"/>
+        <location filename="../placeholders.h" line="50"/>
         <source>Expected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="46"/>
+        <location filename="../placeholders.h" line="51"/>
         <source>Found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="47"/>
+        <location filename="../placeholders.h" line="52"/>
         <source>Data Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="50"/>
-        <location filename="../placeholders.h" line="52"/>
+        <location filename="../placeholders.h" line="55"/>
+        <location filename="../placeholders.h" line="57"/>
         <source>Epilogue: OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="51"/>
-        <location filename="../placeholders.h" line="53"/>
+        <location filename="../placeholders.h" line="56"/>
+        <location filename="../placeholders.h" line="58"/>
         <source>Epilogue: Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="54"/>
+        <location filename="../placeholders.h" line="59"/>
         <source>Track List Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="55"/>
+        <location filename="../placeholders.h" line="60"/>
         <source>Track Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="56"/>
+        <location filename="../placeholders.h" line="61"/>
         <source>Track Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="57"/>
+        <location filename="../placeholders.h" line="62"/>
         <source>Header</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="58"/>
+        <location filename="../placeholders.h" line="63"/>
         <source>Signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="59"/>
+        <location filename="../placeholders.h" line="64"/>
         <source>No known signature found, aborting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="60"/>
+        <location filename="../placeholders.h" line="65"/>
         <source>Format revision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="61"/>
+        <location filename="../placeholders.h" line="66"/>
         <source>Side</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="62"/>
+        <location filename="../placeholders.h" line="67"/>
         <source>Custom Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="63"/>
+        <location filename="../placeholders.h" line="68"/>
         <source>DOS 3.3 VTOC found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="64"/>
+        <location filename="../placeholders.h" line="69"/>
         <source>DOS 3.3 VTOC not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="65"/>
+        <location filename="../placeholders.h" line="70"/>
         <source>Root Catalog Track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="66"/>
+        <location filename="../placeholders.h" line="71"/>
         <source>Root Catalog Sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="67"/>
+        <location filename="../placeholders.h" line="72"/>
         <source>DOS Release</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="68"/>
-        <location filename="../placeholders.h" line="79"/>
+        <location filename="../placeholders.h" line="73"/>
+        <location filename="../placeholders.h" line="84"/>
         <source>Volume ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="69"/>
+        <location filename="../placeholders.h" line="74"/>
         <source>Volume name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="70"/>
+        <location filename="../placeholders.h" line="75"/>
         <source>Pairs per T/S list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="71"/>
+        <location filename="../placeholders.h" line="76"/>
         <source>Last track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="72"/>
+        <location filename="../placeholders.h" line="77"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="73"/>
+        <location filename="../placeholders.h" line="78"/>
         <source>Tracks total</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="74"/>
+        <location filename="../placeholders.h" line="79"/>
         <source>Sectors on track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="75"/>
+        <location filename="../placeholders.h" line="80"/>
         <source>Bytes per sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="76"/>
+        <location filename="../placeholders.h" line="81"/>
         <source>Error opening the file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="77"/>
+        <location filename="../placeholders.h" line="82"/>
         <source>Error loading, check if the file type is correct</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="78"/>
+        <location filename="../placeholders.h" line="83"/>
         <source>DPB Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="80"/>
+        <location filename="../placeholders.h" line="85"/>
         <source>Device type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="81"/>
+        <location filename="../placeholders.h" line="86"/>
         <source>DSIDE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="82"/>
+        <location filename="../placeholders.h" line="87"/>
         <source>Blocks on track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="83"/>
+        <location filename="../placeholders.h" line="88"/>
         <source>Tracks on disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="84"/>
+        <location filename="../placeholders.h" line="89"/>
         <source>Last block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="85"/>
+        <location filename="../placeholders.h" line="90"/>
         <source>VTOC block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="86"/>
+        <location filename="../placeholders.h" line="91"/>
         <source>Extent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="87"/>
+        <location filename="../placeholders.h" line="92"/>
         <source>Free sectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="88"/>
+        <location filename="../placeholders.h" line="93"/>
         <source>Free bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="92"/>
+        <location filename="../placeholders.h" line="97"/>
         <source>Extended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="93"/>
+        <location filename="../placeholders.h" line="98"/>
         <source>Agat image VR block found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="94"/>
+        <location filename="../placeholders.h" line="99"/>
         <source>Video mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="95"/>
+        <location filename="../placeholders.h" line="100"/>
         <source>Agat graphic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="96"/>
+        <location filename="../placeholders.h" line="101"/>
         <source>Agat text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="97"/>
+        <location filename="../placeholders.h" line="102"/>
         <source>Apple II modes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="98"/>
+        <location filename="../placeholders.h" line="103"/>
         <source>Agat GigaScreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="99"/>
+        <location filename="../placeholders.h" line="104"/>
         <source>Main palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="100"/>
+        <location filename="../placeholders.h" line="105"/>
         <source>Alternative palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="101"/>
+        <location filename="../placeholders.h" line="106"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="102"/>
+        <location filename="../placeholders.h" line="107"/>
         <source>Comment block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="103"/>
+        <location filename="../placeholders.h" line="108"/>
         <source>Font ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="104"/>
+        <location filename="../placeholders.h" line="109"/>
         <source>Custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="989"/>
+        <location filename="../FilePanel.cpp" line="1027"/>
         <source>Directory: %1
 
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="990"/>
+        <location filename="../FilePanel.cpp" line="1028"/>
         <source>Path: %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="991"/>
+        <location filename="../FilePanel.cpp" line="1029"/>
         <source>Subdirectories: %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="992"/>
+        <location filename="../FilePanel.cpp" line="1030"/>
         <source>Files: %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="993"/>
+        <location filename="../FilePanel.cpp" line="1031"/>
         <source>Total size: %1 bytes
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="994"/>
+        <location filename="../FilePanel.cpp" line="1032"/>
         <source>Last modified: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="996"/>
+        <location filename="../FilePanel.cpp" line="1034"/>
         <source>Directory Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1028"/>
-        <location filename="../FilePanel.cpp" line="1440"/>
+        <location filename="../FilePanel.cpp" line="1066"/>
+        <location filename="../FilePanel.cpp" line="1538"/>
         <source>Not supported yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1120"/>
+        <location filename="../FilePanel.cpp" line="1158"/>
         <source>Add a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1121"/>
+        <location filename="../FilePanel.cpp" line="1159"/>
         <source>Directory name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1128"/>
+        <location filename="../FilePanel.cpp" line="1166"/>
         <source>Error creating directory: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1174"/>
+        <location filename="../FilePanel.cpp" line="1217"/>
         <source>No error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1177"/>
+        <location filename="../FilePanel.cpp" line="1220"/>
         <source>Not implemented yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1180"/>
-        <location filename="../FilePanel.cpp" line="1192"/>
+        <location filename="../FilePanel.cpp" line="1223"/>
+        <location filename="../FilePanel.cpp" line="1235"/>
         <source>No enough free space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1183"/>
-        <location filename="../FilePanel.cpp" line="1195"/>
+        <location filename="../FilePanel.cpp" line="1226"/>
+        <location filename="../FilePanel.cpp" line="1238"/>
         <source>Can&apos;t allocate a directory entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1186"/>
-        <location filename="../FilePanel.cpp" line="1198"/>
+        <location filename="../FilePanel.cpp" line="1229"/>
+        <location filename="../FilePanel.cpp" line="1241"/>
         <source>Can&apos;t allocate a sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1189"/>
+        <location filename="../FilePanel.cpp" line="1232"/>
         <source>Directory is not empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1201"/>
+        <location filename="../FilePanel.cpp" line="1244"/>
         <source>File already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1204"/>
+        <location filename="../FilePanel.cpp" line="1247"/>
         <source>Directory already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1207"/>
+        <location filename="../FilePanel.cpp" line="1250"/>
         <source>Error creating a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1210"/>
+        <location filename="../FilePanel.cpp" line="1253"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1285"/>
+        <location filename="../FilePanel.cpp" line="1324"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1286"/>
+        <location filename="../FilePanel.cpp" line="1325"/>
         <source>File &apos;%1&apos; already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1297"/>
-        <location filename="../FilePanel.cpp" line="1317"/>
+        <location filename="../FilePanel.cpp" line="1336"/>
+        <location filename="../FilePanel.cpp" line="1356"/>
         <source>Error writing file &apos;%1&apos;: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1310"/>
+        <location filename="../FilePanel.cpp" line="1349"/>
         <source>Writing for this type of file system is not implemented yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1326"/>
+        <location filename="../FilePanel.cpp" line="1365"/>
         <source>Error reading file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1345"/>
+        <location filename="../FilePanel.cpp" line="1385"/>
+        <source>Directory &apos;%1&apos; not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1395"/>
+        <source>Error deleting directory &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1402"/>
+        <source>Not Implemented</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1403"/>
+        <source>Recursive directory deletion in image mode is not yet implemented</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1413"/>
+        <source>Deleting files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1414"/>
+        <source>Delete %1 files?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1423"/>
+        <source>Deleting directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1424"/>
+        <source>&apos;%1&apos; is a directory. Delete it recursively?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="1441"/>
         <source>Error deleting file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1362"/>
-        <location filename="../FilePanel.cpp" line="1378"/>
+        <location filename="../FilePanel.cpp" line="1460"/>
+        <location filename="../FilePanel.cpp" line="1476"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1363"/>
+        <location filename="../FilePanel.cpp" line="1461"/>
         <source>Please select exactly one file to rename.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1379"/>
+        <location filename="../FilePanel.cpp" line="1477"/>
         <source>New name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1396"/>
+        <location filename="../FilePanel.cpp" line="1494"/>
         <source>Error renaming file &apos;%1&apos;: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1508"/>
+        <location filename="../FilePanel.cpp" line="1606"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1509"/>
+        <location filename="../FilePanel.cpp" line="1607"/>
         <source>Save functionality not yet implemented</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1518"/>
+        <location filename="../FilePanel.cpp" line="1616"/>
         <source>No disk image loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1542"/>
+        <location filename="../FilePanel.cpp" line="1640"/>
         <source>Not implemented!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1550"/>
+        <location filename="../FilePanel.cpp" line="1648"/>
         <source>Error generating file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1560"/>
+        <location filename="../FilePanel.cpp" line="1658"/>
         <source>Error opening template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1570"/>
+        <location filename="../FilePanel.cpp" line="1668"/>
         <source>Error reading template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1578"/>
+        <location filename="../FilePanel.cpp" line="1676"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1580"/>
+        <location filename="../FilePanel.cpp" line="1678"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1582"/>
+        <location filename="../FilePanel.cpp" line="1680"/>
         <source>Error inserting tracks from template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1592"/>
+        <location filename="../FilePanel.cpp" line="1690"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1593"/>
+        <location filename="../FilePanel.cpp" line="1691"/>
         <source>File saved successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1595"/>
+        <location filename="../FilePanel.cpp" line="1693"/>
         <source>Error writing file to disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1003,42 +1045,42 @@
 <context>
     <name>FileTable</name>
     <message>
-        <location filename="../FileTable.cpp" line="205"/>
+        <location filename="../FileTable.cpp" line="223"/>
         <source>P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="206"/>
+        <location filename="../FileTable.cpp" line="224"/>
         <source>Protection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="212"/>
+        <location filename="../FileTable.cpp" line="230"/>
         <source>T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="213"/>
+        <location filename="../FileTable.cpp" line="231"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="219"/>
+        <location filename="../FileTable.cpp" line="237"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="220"/>
+        <location filename="../FileTable.cpp" line="238"/>
         <source>Size in bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="223"/>
+        <location filename="../FileTable.cpp" line="241"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="224"/>
+        <location filename="../FileTable.cpp" line="242"/>
         <source>Name of the file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1086,7 +1128,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="437"/>
-        <location filename="../mainwindow.cpp" line="847"/>
+        <location filename="../mainwindow.cpp" line="846"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1154,60 +1196,50 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="312"/>
-        <location filename="../mainwindow.cpp" line="841"/>
+        <location filename="../mainwindow.cpp" line="840"/>
         <source>F3 View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="624"/>
-        <location filename="../mainwindow.cpp" line="645"/>
+        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="651"/>
         <source>Copying files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="646"/>
+        <location filename="../mainwindow.cpp" line="652"/>
         <source>Copy %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="624"/>
-        <location filename="../mainwindow.cpp" line="651"/>
+        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="657"/>
         <source>Moving files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="832"/>
+        <location filename="../mainwindow.cpp" line="831"/>
         <source>F3 Image Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="621"/>
+        <location filename="../mainwindow.cpp" line="627"/>
         <source>Selected files: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="622"/>
+        <location filename="../mainwindow.cpp" line="628"/>
         <source>Choose output file format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Choose the format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="658"/>
         <source>Move %1 files?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="671"/>
-        <source>Deleting files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="672"/>
-        <source>Delete %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1327,23 +1359,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="559"/>
+        <location filename="../mainwindow.cpp" line="565"/>
         <source>No active panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="564"/>
+        <location filename="../mainwindow.cpp" line="570"/>
         <source>Active panel: %1 | Selected: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
-        <location filename="../mainwindow.cpp" line="833"/>
+        <location filename="../mainwindow.cpp" line="832"/>
         <source>F4 Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="842"/>
+        <location filename="../mainwindow.cpp" line="841"/>
         <source>F4 Meta</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1351,50 +1383,50 @@
 <context>
     <name>ViewDialog</name>
     <message>
-        <location filename="../viewdialog.ui" line="14"/>
+        <location filename="../viewdialog.ui" line="18"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="62"/>
+        <location filename="../viewdialog.ui" line="66"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <source>View mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="110"/>
+        <location filename="../viewdialog.ui" line="114"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <source>Subtype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="173"/>
+        <location filename="../viewdialog.ui" line="177"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="196"/>
+        <location filename="../viewdialog.ui" line="200"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <source>Copy text to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="199"/>
+        <location filename="../viewdialog.ui" line="203"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="216"/>
-        <location filename="../viewdialog.ui" line="219"/>
+        <location filename="../viewdialog.ui" line="220"/>
+        <location filename="../viewdialog.ui" line="223"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
@@ -1403,14 +1435,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="245"/>
+        <location filename="../viewdialog.ui" line="249"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="265"/>
+        <location filename="../viewdialog.ui" line="269"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
         <source>Close</source>
@@ -1477,87 +1509,87 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="107"/>
+        <location filename="../placeholders.h" line="112"/>
         <source>Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="108"/>
+        <location filename="../placeholders.h" line="113"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="109"/>
+        <location filename="../placeholders.h" line="114"/>
         <source>Monochrome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="110"/>
+        <location filename="../placeholders.h" line="115"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="111"/>
+        <location filename="../placeholders.h" line="116"/>
         <source>b/w</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="112"/>
+        <location filename="../placeholders.h" line="117"/>
         <source>Custom font loading error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="113"/>
+        <location filename="../placeholders.h" line="118"/>
         <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="114"/>
+        <location filename="../placeholders.h" line="119"/>
         <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="115"/>
+        <location filename="../placeholders.h" line="120"/>
         <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="116"/>
+        <location filename="../placeholders.h" line="121"/>
         <source>Agat-7 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="117"/>
+        <location filename="../placeholders.h" line="122"/>
         <source>Agat-7 enchanced font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="118"/>
+        <location filename="../placeholders.h" line="123"/>
         <source>Agat-9 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="119"/>
+        <location filename="../placeholders.h" line="124"/>
         <source>GARNIZON custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="120"/>
+        <location filename="../placeholders.h" line="125"/>
         <source>Loaded custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="121"/>
+        <location filename="../placeholders.h" line="126"/>
         <source>Agat-9 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="122"/>
+        <location filename="../placeholders.h" line="127"/>
         <source>Agat-7 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="123"/>
+        <location filename="../placeholders.h" line="128"/>
         <source>Font file</source>
         <translation type="unfinished"></translation>
     </message>

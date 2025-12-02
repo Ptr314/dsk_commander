@@ -1266,28 +1266,24 @@ dsk_tools::Files FilePanel::getSelectedFiles() const {
         QStringList paths = selectedPaths();
         foreach (const QString & path, paths) {
             QFileInfo fi(path);
+            std::string fn = _toStdString(fi.fileName());
+            dsk_tools::UniversalFile f;
+            f.fs = dsk_tools::FS::Host;
+            f.name = fn;
+            f.original_name = dsk_tools::strToBytes(fn);
             if (fi.isDir()) {
-                // TODO: Dirs processing
+                f.is_dir = true;
             } else {
-                std::string fn = _toStdString(fi.fileName());
-                dsk_tools::UniversalFile f;
-
-                f.fs = dsk_tools::FS::Host;
-                f.name = fn;
                 f.size = fi.size();
                 f.is_dir = false;
                 f.is_protected = false;
                 f.is_deleted = false;
                 f.type_preferred = dsk_tools::PreferredType::Binary;
-
-                f.original_name = dsk_tools::strToBytes(fn);
                 f.attributes = 0;
-
-                // Metadata stores a full path
-                f.metadata = dsk_tools::strToBytes(_toStdString(path));
-
-                files.push_back(f);
             }
+            // Metadata stores a full path
+            f.metadata = dsk_tools::strToBytes(_toStdString(path));
+            files.push_back(f);
         }
     } else {
         QItemSelectionModel * selection = tableView->selectionModel();
@@ -1374,23 +1370,82 @@ void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools:
     refresh();
 }
 
-void FilePanel::deleteFiles(const dsk_tools::Files & files)
+void FilePanel::deleteRecursively(const dsk_tools::UniversalFile & f)
 {
-    foreach (const dsk_tools::UniversalFile & f, files) {
-        if (f.is_dir) {
-            // TODO: Processing dirs
-        } else {
-            auto result = m_filesystem->delete_file(f);
-            if (!result) {
-                QMessageBox::critical(
-                    this,
-                    FilePanel::tr("Error"),
-                    FilePanel::tr("Error deleting file '%1'").arg(QString::fromStdString(f.name))
-                );
+    if (mode == panelMode::Host) {
+        // Extract full directory path from metadata
+        QString path_to_delete = QString::fromStdString(dsk_tools::bytesToString(f.metadata));
+
+        // Create QDir object and validate
+        QDir dir(path_to_delete);
+        if (!dir.exists()) {
+            QMessageBox::critical(
+                this,
+                FilePanel::tr("Error"),
+                FilePanel::tr("Directory '%1' not found").arg(path_to_delete)
+            );
+            return;
+        }
+
+        // Perform recursive deletion
+        if (!dir.removeRecursively()) {
+            QMessageBox::critical(
+                this,
+                FilePanel::tr("Error"),
+                FilePanel::tr("Error deleting directory '%1'").arg(QString::fromStdString(f.name))
+            );
+        }
+    } else {
+        // Image mode: not implemented yet
+        QMessageBox::information(
+            this,
+            FilePanel::tr("Not Implemented"),
+            FilePanel::tr("Recursive directory deletion in image mode is not yet implemented")
+        );
+    }
+}
+
+void FilePanel::deleteFiles()
+{
+    dsk_tools::Files files = getSelectedFiles();
+    if (!files.empty()) {
+        const QMessageBox::StandardButton reply_all = QMessageBox::question(this,
+                            FilePanel::tr("Deleting files"),
+                            FilePanel::tr("Delete %1 files?").arg(files.size()),
+                            QMessageBox::Yes|QMessageBox::No
+        );
+        if (reply_all == QMessageBox::Yes) {
+            bool recursively = false;
+            foreach (const dsk_tools::UniversalFile & f, files) {
+                if (f.is_dir) {
+                    if (!recursively) {
+                        const QMessageBox::StandardButton reply_dir = QMessageBox::question(this,
+                                            FilePanel::tr("Deleting directories"),
+                                            FilePanel::tr("'%1' is a directory. Delete it recursively?").arg(QString::fromUtf8(f.name)),
+                                            QMessageBox::Yes|QMessageBox::No
+                        );
+                        if (reply_dir == QMessageBox::Yes) {
+                            recursively = true;
+                            deleteRecursively(f);
+                        }
+                    } else {
+                        // User already confirmed recursive deletion for a previous directory
+                        deleteRecursively(f);
+                    }
+                } else {
+                    auto result = m_filesystem->delete_file(f);
+                    if (!result) {
+                        QMessageBox::critical(
+                            this,
+                            FilePanel::tr("Error"),
+                            FilePanel::tr("Error deleting file '%1'").arg(QString::fromStdString(f.name))
+                        );
+                    }
+                }
             }
+            refresh();
         }
     }
-    refresh();
 }
 
 void FilePanel::onRename()
