@@ -10,6 +10,7 @@
 #include <QComboBox>
 #include <QCheckBox>
 #include <QToolButton>
+#include <QMenu>
 #include <QDir>
 #include <QDateTime>
 #include <QSettings>
@@ -134,6 +135,7 @@ private slots:
     void onAutoChanged(Qt::CheckState checked);
     void onPathEntered();
     void onItemDoubleClicked(const QModelIndex& index);
+    void onHistoryMenuTriggered(QAction* action);
 
 private:
     QToolBar* topToolBar {nullptr};
@@ -147,8 +149,10 @@ private:
     QToolButton* dirButton {nullptr};
     QToolButton* upButton {nullptr};
     QLineEdit* dirEdit {nullptr};
+    QMenu* historyMenu {nullptr};
     HostModel * host_model {nullptr};
     QStandardItemModel * image_model {nullptr};
+    QStringList m_directoryHistory;
 
     QString currentPath;
     QString m_lastDirName;  // Track last entered directory for cursor restoration
@@ -190,5 +194,11 @@ private:
     // Unsaved changes handling
     bool checkUnsavedChanges();
     void updateImageStatusIndicator();
+
+    // Directory history methods
+    void loadDirectoryHistory();
+    void saveDirectoryHistory();
+    void addToDirectoryHistory(const QString& path);
+    void updateHistoryMenu();
 
 };
