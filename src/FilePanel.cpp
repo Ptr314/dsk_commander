@@ -608,11 +608,67 @@ void FilePanel::onGoUp() {
         }
     } else {
         if (m_filesystem->is_root()) {
+            // Check for unsaved changes before switching to Host mode
+            if (!checkUnsavedChanges()) {
+                return;  // User cancelled
+            }
             setMode(panelMode::Host);
             setDirectory(currentPath);
         } else {
             m_filesystem->cd_up();
             dir();
+        }
+    }
+}
+
+bool FilePanel::checkUnsavedChanges()
+{
+    // Check if we're in Image mode and have unsaved changes
+    if (mode != panelMode::Image || !m_filesystem || !m_filesystem->get_changed()) {
+        return true;  // No unsaved changes, operation can proceed
+    }
+
+    // Show three-button dialog with Save as default
+    const QMessageBox::StandardButton result = QMessageBox::question(
+        this,
+        FilePanel::tr("Unsaved Changes"),
+        FilePanel::tr("The disk image has unsaved changes. Save before closing?"),
+        QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel,
+        QMessageBox::Save  // Default button
+    );
+
+    if (result == QMessageBox::Save) {
+        // Save changes using ConvertDialog
+        saveImageAs();
+
+        // Check if save was successful
+        if (m_filesystem && m_filesystem->get_changed()) {
+            // Save was cancelled or failed, abort the mode switch
+            return false;
+        }
+        return true;
+
+    } else if (result == QMessageBox::Discard) {
+        return true;  // Discard changes and proceed
+
+    } else {  // Cancel
+        return false;  // Abort the operation
+    }
+}
+
+void FilePanel::updateImageStatusIndicator()
+{
+    if (mode == panelMode::Image && m_filesystem && m_filesystem->get_changed()) {
+        // Add asterisk to directory path to indicate unsaved changes
+        QString path = dirEdit->text();
+        if (!path.endsWith(" *")) {
+            dirEdit->setText(path + " *");
+        }
+    } else {
+        // Remove asterisk if present
+        QString path = dirEdit->text();
+        if (path.endsWith(" *")) {
+            dirEdit->setText(path.left(path.length() - 2));
         }
     }
 }
@@ -1624,11 +1680,8 @@ void FilePanel::saveImage()
 {
     emit activated(this);
 
-    qDebug() << "FilePanel::saveImage()";
-
-    // TODO: Implement save to original file
-    QMessageBox::information(this, FilePanel::tr("Save"),
-        FilePanel::tr("Save functionality not yet implemented"));
+    // Use ConvertDialog for save (same as Save As)
+    saveImageAs();
 }
 
 void FilePanel::saveImageAs()
@@ -1711,6 +1764,13 @@ void FilePanel::saveImageAs()
 
         if (file.good()) {
             file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
+
+            // Reset the changed flag on successful save
+            if (m_filesystem) {
+                m_filesystem->reset_changed();
+                updateImageStatusIndicator();
+            }
+
             QMessageBox::information(this, FilePanel::tr("Success"),
                 FilePanel::tr("File saved successfully"));
         } else {
