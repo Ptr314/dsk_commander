@@ -1118,22 +1118,22 @@ void FilePanel::onView()
             std::unique_ptr<dsk_tools::Loader> loader;
 
             if (format_id == "FILE_RAW_MSB") {
-                loader = std::make_unique<dsk_tools::LoaderRAW>(file_name, format_id, type_id);
+                loader = dsk_tools::make_unique<dsk_tools::LoaderRAW>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_AIM") {
-                loader = std::make_unique<dsk_tools::LoaderAIM>(file_name, format_id, type_id);
+                loader = dsk_tools::make_unique<dsk_tools::LoaderAIM>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIC") {
-                loader = std::make_unique<dsk_tools::LoaderNIC>(file_name, format_id, type_id);
+                loader = dsk_tools::make_unique<dsk_tools::LoaderNIC>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_MFM_NIB") {
-                loader = std::make_unique<dsk_tools::LoaderNIB>(file_name, format_id, type_id);
+                loader = dsk_tools::make_unique<dsk_tools::LoaderNIB>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_MFM") {
-                loader = std::make_unique<dsk_tools::LoaderHXC_MFM>(file_name, format_id, type_id);
+                loader = dsk_tools::make_unique<dsk_tools::LoaderHXC_MFM>(file_name, format_id, type_id);
             } else
             if (format_id == "FILE_HXC_HFE") {
-                loader = std::make_unique<dsk_tools::LoaderHXC_HFE>(file_name, format_id, type_id);
+                loader = dsk_tools::make_unique<dsk_tools::LoaderHXC_HFE>(file_name, format_id, type_id);
             } else {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
                 return;
@@ -1401,7 +1401,7 @@ void FilePanel::putFiles(dsk_tools::fileSystem* sourceFs, const dsk_tools::Files
                     const QMessageBox::StandardButton res = QMessageBox::critical(
                         this,
                         FilePanel::tr("Error"),
-                        FilePanel::tr("Error creating directory '%1': %2. Continue?").arg(QString::fromUtf8(f.name), decodeError(mkdir_result)),
+                        FilePanel::tr("Error creating directory '%1': %2. Continue?").arg(QString::fromUtf8(f.name.c_str()), decodeError(mkdir_result)),
                         QMessageBox::Yes | QMessageBox::No
                     );
                     if (res != QMessageBox::Yes) break;
@@ -1517,7 +1517,7 @@ void FilePanel::deleteFiles()
                     if (!recursively) {
                         const QMessageBox::StandardButton reply_dir = QMessageBox::question(this,
                                             FilePanel::tr("Deleting directories"),
-                                            FilePanel::tr("'%1' is a directory. Delete it recursively?").arg(QString::fromUtf8(f.name)),
+                                            FilePanel::tr("'%1' is a directory. Delete it recursively?").arg(QString::fromUtf8(f.name.c_str())),
                                             QMessageBox::Yes|QMessageBox::No
                         );
                         if (reply_dir == QMessageBox::Yes) {
