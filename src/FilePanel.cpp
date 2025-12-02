@@ -1161,7 +1161,8 @@ void FilePanel::onMkDir()
                                              "New",
                                              &ok);
         if (ok && !text.isEmpty()) {
-            dsk_tools::Result res = m_filesystem->mkdir(text.toStdString());
+            dsk_tools::UniversalFile new_dir;
+            const dsk_tools::Result res = m_filesystem->mkdir(text.toStdString(), new_dir);
             if (!res) {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error creating directory: ") + decodeError(res));
             }
@@ -1305,12 +1306,35 @@ dsk_tools::Files FilePanel::getSelectedFiles() const {
     return files;
 }
 
-void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy)
+void FilePanel::putFiles(dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy)
 {
     const std::string std_format = format.toStdString();
     foreach (const dsk_tools::UniversalFile & f, files) {
         if (f.is_dir) {
-            // TODO: Processing dirs
+            if (f.name != "..") {
+                dsk_tools::UniversalFile new_dir;
+                const auto mkdir_result = m_filesystem->mkdir(f, new_dir);
+                if (mkdir_result) {
+                    // Getting files
+                    dsk_tools::Files dir_files;
+                    sourceFs->cd(f);
+                    sourceFs->dir(dir_files, false);
+                    sourceFs->cd_up();
+
+                    // Putting files
+                    m_filesystem->cd(new_dir);
+                    putFiles(sourceFs, dir_files, format, copy);
+                    m_filesystem->cd_up();
+                } else {
+                    const QMessageBox::StandardButton res = QMessageBox::critical(
+                        this,
+                        FilePanel::tr("Error"),
+                        FilePanel::tr("Error creating directory '%1': %2. Continue?").arg(QString::fromUtf8(f.name), decodeError(mkdir_result)),
+                        QMessageBox::Yes | QMessageBox::No
+                    );
+                    if (res != QMessageBox::Yes) break;
+                }
+            }
         } else {
             dsk_tools::BYTES data;
             auto get_result = sourceFs->get_file(f, std_format, data);
@@ -1367,7 +1391,7 @@ void FilePanel::putFiles(const dsk_tools::fileSystem* sourceFs, const dsk_tools:
             }
         }
     }
-    refresh();
+    // refresh();
 }
 
 void FilePanel::deleteRecursively(const dsk_tools::UniversalFile & f)

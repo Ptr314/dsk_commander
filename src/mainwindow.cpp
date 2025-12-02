@@ -637,6 +637,7 @@ void MainWindow::doCopy(bool copy) {
 
             dsk_tools::Files files = activePanel->getSelectedFiles();
             otherPanel()->putFiles(activePanel->getFileSystem(), files, selectedFormat, copy);
+            otherPanel()->refresh();
 
             qDebug() << "User selected format:" << selectedFormat;
         }
@@ -662,6 +663,7 @@ void MainWindow::doCopy(bool copy) {
         if (reply == QMessageBox::Yes) {
             dsk_tools::Files files = activePanel->getSelectedFiles();
             otherPanel()->putFiles(activePanel->getFileSystem(), files, "", copy);
+            otherPanel()->refresh();
         }
     }
 }
