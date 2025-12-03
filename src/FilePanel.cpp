@@ -441,6 +441,13 @@ void FilePanel::setupFilters()
 
     // Load show_deleted preference (default to true)
     m_show_deleted = m_settings->value("directory/" + m_ini_label + "_show_deleted", 1).toInt() == 1;
+
+    // Load sort order and ascending preference (default to NoOrder, ascending)
+    m_sort_order = static_cast<HostModel::SortOrder>(m_settings->value("directory/" + m_ini_label + "_sort_order", static_cast<int>(HostModel::SortOrder::NoOrder)).toInt());
+    m_sort_ascending = m_settings->value("directory/" + m_ini_label + "_sort_ascending", true).toBool();
+    if (host_model) {
+        host_model->setSortOrder(m_sort_order, m_sort_ascending);
+    }
 }
 
 void FilePanel::changeEvent(QEvent* event)
@@ -708,11 +715,12 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
         // Process [..] navigation
         if (displayName == "[..]") {
             // Store current directory name for cursor restoration
-            m_lastDirName = QDir(currentPath).dirName();
-            host_model->goUp();
-            currentPath = host_model->currentPath();
-            dirEdit->setText(currentPath);
-            m_settings->setValue("directory/"+m_ini_label, currentPath);
+            // m_lastDirName = QDir(currentPath).dirName();
+            // host_model->goUp();
+            // currentPath = host_model->currentPath();
+            // dirEdit->setText(currentPath);
+            // m_settings->setValue("directory/"+m_ini_label, currentPath);
+            onGoUp();
 
             // Restore cursor position to the directory we came from
             for (int row = 0; row < host_model->rowCount(); ++row) {
@@ -1253,6 +1261,8 @@ void FilePanel::setSortOrder(HostModel::SortOrder order)
         m_sort_ascending = true;
 
     m_sort_order = order;
+    m_settings->setValue("directory/" + m_ini_label + "_sort_order", static_cast<int>(order));
+    m_settings->setValue("directory/" + m_ini_label + "_sort_ascending", m_sort_ascending);
     if (mode == panelMode::Host && host_model) {
         host_model->setSortOrder(order, m_sort_ascending);
     } else {
