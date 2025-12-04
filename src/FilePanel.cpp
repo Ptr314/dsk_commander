@@ -28,6 +28,7 @@
 #include "fileparamdialog.h"
 #include "convertdialog.h"
 #include "fs_host.h"
+#include "fs_host_helpers.h"
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -1494,7 +1495,36 @@ void FilePanel::deleteRecursively(const dsk_tools::UniversalFile & f)
         }
 
         // Perform recursive deletion
-        if (!dir.removeRecursively()) {
+        bool success = false;
+
+        // Try trash first if enabled
+        if (dsk_tools::fsHost::use_recycle_bin && dsk_tools::fsHost::use_recycle_bin()) {
+            std::string path_std = dsk_tools::bytesToString(f.metadata);
+            if (utf8_trash(path_std) == 0) {
+                success = true;
+            } else {
+                // Trash failed - ask user
+                const QMessageBox::StandardButton reply_perm = QMessageBox::warning(
+                    this,
+                    FilePanel::tr("Recycle Bin Failed"),
+                    FilePanel::tr("Cannot move directory '%1' to recycle bin.\n\n"
+                                "Do you want to delete it permanently instead?\n\n"
+                                "Warning: This action cannot be undone!")
+                        .arg(QString::fromStdString(f.name)),
+                    QMessageBox::Yes | QMessageBox::No,
+                    QMessageBox::No
+                );
+
+                if (reply_perm == QMessageBox::Yes) {
+                    success = dir.removeRecursively();
+                }
+            }
+        } else {
+            // Recycle bin disabled - permanent deletion
+            success = dir.removeRecursively();
+        }
+
+        if (!success) {
             QMessageBox::critical(
                 this,
                 FilePanel::tr("Error"),
@@ -1541,11 +1571,36 @@ void FilePanel::deleteFiles()
                 } else {
                     auto result = m_filesystem->delete_file(f);
                     if (!result) {
-                        QMessageBox::critical(
-                            this,
-                            FilePanel::tr("Error"),
-                            FilePanel::tr("Error deleting file '%1'").arg(QString::fromStdString(f.name))
-                        );
+                        // Check if trash failed
+                        if (result.message == "TRASH_FAILED") {
+                            // Prompt user for permanent deletion
+                            const QMessageBox::StandardButton reply_perm = QMessageBox::warning(
+                                this,
+                                FilePanel::tr("Recycle Bin Failed"),
+                                FilePanel::tr("Cannot move '%1' to recycle bin.\n\n"
+                                            "Do you want to delete it permanently instead?\n\n"
+                                            "Warning: This action cannot be undone!")
+                                    .arg(QString::fromStdString(f.name)),
+                                QMessageBox::Yes | QMessageBox::No,
+                                QMessageBox::No
+                            );
+
+                            if (reply_perm == QMessageBox::Yes) {
+                                // Temporarily disable recycle bin and retry
+                                bool (*old_callback)() = dsk_tools::fsHost::use_recycle_bin;
+                                dsk_tools::fsHost::use_recycle_bin = nullptr;
+                                result = m_filesystem->delete_file(f);
+                                dsk_tools::fsHost::use_recycle_bin = old_callback;
+                            }
+                        }
+
+                        if (!result) {
+                            QMessageBox::critical(
+                                this,
+                                FilePanel::tr("Error"),
+                                FilePanel::tr("Error deleting file '%1'").arg(QString::fromStdString(f.name))
+                            );
+                        }
                     }
                 }
             }
