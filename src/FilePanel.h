@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QToolBar>
 #include <QLineEdit>
+#include <QLabel>
 #include <QComboBox>
 #include <QCheckBox>
 #include <QToolButton>
@@ -149,6 +150,7 @@ private:
     QToolButton* dirButton {nullptr};
     QToolButton* upButton {nullptr};
     QLineEdit* dirEdit {nullptr};
+    QLabel* imageLabel {nullptr};  // Display image filename in Image mode
     QMenu* historyMenu {nullptr};
     HostModel * host_model {nullptr};
     QStandardItemModel * image_model {nullptr};
@@ -182,6 +184,7 @@ private:
     void processImage(std::string filesystem_type);
     void updateTable();
     void setMode(panelMode new_mode);
+    void updateToolbarVisibility();
     void dir();
     static QString decodeError(const dsk_tools::Result & result);
 

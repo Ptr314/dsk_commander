@@ -287,12 +287,21 @@ void FilePanel::setupPanel() {
     dirButton->setMenu(historyMenu);
     dirButton->setPopupMode(QToolButton::MenuButtonPopup);
 
+    // Image name label (shown in Image mode instead of dirEdit/dirButton)
+    imageLabel = new QLabel(this);
+    // imageLabel->setFrameStyle(QFrame::Panel);
+    // imageLabel->setStyleSheet("QLabel { padding: 2px 4px; background-color: palette(base); }");
+    imageLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    imageLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    imageLabel->hide();  // Initially hidden (starts in Host mode)
+
     auto *topContainer = new QWidget(topToolBar);
     auto *topLayout = new QHBoxLayout(topContainer);
     topLayout->setContentsMargins(0, 0, 0, 0);
     topLayout->setSpacing(10);
     topLayout->addWidget(upButton);
     topLayout->addWidget(dirEdit, 1);
+    topLayout->addWidget(imageLabel, 1);  // Same stretch as dirEdit, both hidden/shown based on mode
     topLayout->addWidget(dirButton);
 
     topToolBar->addWidget(topContainer);
@@ -330,7 +339,8 @@ void FilePanel::setupPanel() {
                          static_cast<QObject*>(filterCombo),
                          static_cast<QObject*>(dirButton),
                          static_cast<QObject*>(upButton),
-                         static_cast<QObject*>(dirEdit)})
+                         static_cast<QObject*>(dirEdit),
+                         static_cast<QObject*>(imageLabel)})
     {
         obj->installEventFilter(this);
     }
@@ -683,16 +693,31 @@ bool FilePanel::checkUnsavedChanges()
 void FilePanel::updateImageStatusIndicator()
 {
     if (mode == panelMode::Image && m_filesystem && m_filesystem->get_changed()) {
-        // Add asterisk to directory path to indicate unsaved changes
-        QString path = dirEdit->text();
-        if (!path.endsWith(" *")) {
-            dirEdit->setText(path + " *");
+        // Add asterisk to indicate unsaved changes
+        QString text = imageLabel->text();
+        if (!text.startsWith("* ")) {
+            imageLabel->setText("* " + text);
         }
+        // Apply bold font to indicate modification
+        QFont font = imageLabel->font();
+        font.setBold(true);
+        imageLabel->setFont(font);
     } else {
         // Remove asterisk if present
-        QString path = dirEdit->text();
-        if (path.endsWith(" *")) {
-            dirEdit->setText(path.left(path.length() - 2));
+        if (mode == panelMode::Host) {
+            QString path = dirEdit->text();
+            if (path.startsWith("* ")) {
+                dirEdit->setText(path.mid(2));
+            }
+        } else {
+            QString text = imageLabel->text();
+            if (text.startsWith("* ")) {
+                imageLabel->setText(text.mid(2));
+            }
+            // Restore normal font
+            QFont font = imageLabel->font();
+            font.setBold(false);
+            imageLabel->setFont(font);
         }
     }
 }
@@ -837,6 +862,8 @@ int FilePanel::openImage(QString path)
         return FDD_LOAD_ERROR;
     }
 
+    updateImageStatusIndicator();
+
     return FDD_LOAD_OK;
 }
 
@@ -867,6 +894,10 @@ void FilePanel::processImage(std::string filesystem_type)
 void FilePanel::setMode(panelMode new_mode)
 {
     mode = new_mode;
+
+    // Update toolbar widget visibility based on mode
+    updateToolbarVisibility();
+
     if (mode==panelMode::Host) {
         tableView->setModel(host_model);
         tableView->setupForHostMode();
@@ -877,6 +908,33 @@ void FilePanel::setMode(panelMode new_mode)
         tableView->setupForImageMode(m_filesystem->getCaps());
     }
     emit panelModeChanged(mode);
+}
+
+void FilePanel::updateToolbarVisibility()
+{
+    if (mode == panelMode::Host) {
+        // Host mode: show path input controls, hide image label
+        dirEdit->show();
+        dirButton->show();
+        imageLabel->hide();
+    } else {
+        // Image mode: hide path input controls, show image label
+        dirEdit->hide();
+        dirButton->hide();
+        imageLabel->show();
+
+        // Update image label text
+        if (m_image != nullptr) {
+            QString fullPath = QString::fromStdString(m_image->file_name());
+            QFileInfo fi(fullPath);
+            imageLabel->setText(fi.fileName());  // Show basename only
+            imageLabel->setToolTip(fullPath);    // Full path in tooltip
+        } else {
+            // Defensive: should not happen in normal flow
+            imageLabel->setText(FilePanel::tr("(No image)"));
+            imageLabel->setToolTip("");
+        }
+    }
 }
 
 void FilePanel::updateTable()
@@ -1051,6 +1109,7 @@ void FilePanel::refresh() {
     } else {
         dir();
     }
+    updateImageStatusIndicator();
 }
 
 void FilePanel::setActive(bool active) {
@@ -1228,6 +1287,7 @@ void FilePanel::onEdit()
             }
         }
     }
+    updateImageStatusIndicator();
 }
 
 void FilePanel::onMkDir()
@@ -1250,7 +1310,7 @@ void FilePanel::onMkDir()
             refresh();
         }
     }
-
+    updateImageStatusIndicator();
 }
 
 
