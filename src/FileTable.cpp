@@ -207,7 +207,10 @@ void FileTable::setupForHostMode() {
 
     QHeaderView* hh = horizontalHeader();
     hh->setSectionsClickable(false);  // Disable click-to-sort on headers
+    hh->setStretchLastSection(false); // Disable stretch last section (from Image mode)
     hh->setSectionResizeMode(0, QHeaderView::Stretch); // Name - expanded
+    hh->setSectionResizeMode(1, QHeaderView::ResizeToContents); // Size - auto-size
+    hh->setSectionResizeMode(2, QHeaderView::ResizeToContents); // Date - auto-size
 
     verticalHeader()->setDefaultSectionSize(24);
 
