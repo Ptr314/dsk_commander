@@ -1597,8 +1597,9 @@ void FilePanel::onRename()
             QMessageBox::critical(
                 this,
                 FilePanel::tr("Error"),
-                FilePanel::tr("Error renaming file '%1': %2").arg(
+                FilePanel::tr("Error renaming file '%1' to '%2': %3").arg(
                     old_name,
+                    new_name,
                     QString::fromStdString(decodeError(result).toStdString())
                 )
             );
