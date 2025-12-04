@@ -42,11 +42,22 @@
 #include "./ui_fileinfodialog.h"
 
 #include "dsk_tools/dsk_tools.h"
+#include "fs_host.h"
 
 #include "globals.h"
 #include "mainutils.h"
 
 #define INI_FILE_NAME "/dsk_com.ini"
+
+// Global settings reference and callback for dsk_tools library
+static QSettings* g_mainwindow_settings = nullptr;
+
+static bool check_use_recycle_bin() {
+    if (g_mainwindow_settings) {
+        return g_mainwindow_settings->value("files/use_recycle_bin", true).toBool();
+    }
+    return true;  // Default to safe behavior
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -79,6 +90,10 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
     settings = new QSettings(ini_file, QSettings::IniFormat);
+
+    // Register callback for dsk_tools library to check recycle bin setting
+    g_mainwindow_settings = settings;
+    dsk_tools::fsHost::use_recycle_bin = check_use_recycle_bin;
 
     QString ini_lang = settings->value("interface/language", "").toString();
     if (ini_lang.length() == 0) {
@@ -518,6 +533,22 @@ void MainWindow::initializeMainMenu() {
     connect(langEn, &QAction::triggered, this, [this]() { switch_language("en_us", false); });
 
     langAction->setMenu(langSubmenu);
+
+    optionsMenu->addSeparator();
+
+    // Recycle bin / Trash option
+    optUseRecycleBin = optionsMenu->addAction(QIcon(":/icons/deleted"), MainWindow::tr("Use Recycle Bin for host"));
+    optUseRecycleBin->setCheckable(true);
+
+    // Read setting - default to true (safer)
+    bool useRecycleBin = settings->value("files/use_recycle_bin", true).toBool();
+    optUseRecycleBin->setChecked(useRecycleBin);
+
+    connect(optUseRecycleBin, &QAction::triggered, this, [this](bool checked) {
+        settings->setValue("files/use_recycle_bin", checked);
+    });
+
+    optionsMenu->addSeparator();
 
     QAction *aboutAction = optionsMenu->addAction(QIcon(":/icons/help"), MainWindow::tr("About..."));
     aboutAction->setShortcut(QKeySequence(Qt::Key_F1));

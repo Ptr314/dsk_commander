@@ -119,6 +119,9 @@ private:
     QAction* actImageSave {nullptr};
     QAction* actImageSaveAs {nullptr};
 
+    // Options menu actions
+    QAction* optUseRecycleBin {nullptr};
+
     QLabel* statusLabel {nullptr};
 
     PanelMenuActions leftMenuActions;
