@@ -836,16 +836,21 @@ void MainWindow::updateImageMenuState() const
         if (activePanel->isIndexValid()) {
             const auto path = activePanel->currentFilePath();
             const QFileInfo info(path);
+            const bool is_image = !path.isEmpty() && !info.isDir();
+
             if (menuViewAction) menuViewAction->setShortcut(QKeySequence());
             if (actImageInfo) {
-                actImageInfo->setEnabled(!info.isDir());
+                actImageInfo->setEnabled(is_image);
                 actImageInfo->setShortcut(QKeySequence(Qt::Key_F3));
             }
             if (menuEditAction) menuEditAction->setShortcut(QKeySequence());
             if (actImageOpen) {
-                actImageOpen->setEnabled(!info.isDir());
+                actImageOpen->setEnabled(is_image);
                 actImageOpen->setShortcut(QKeySequence(Qt::Key_F4));
             }
+        } else {
+            if (actImageInfo) actImageInfo->setEnabled(false);
+            if (actImageOpen) actImageOpen->setEnabled(false);
         }
     } else {
         const bool canSave = (activePanel->getFileSystem() != nullptr) &&
