@@ -151,6 +151,8 @@ private:
     QToolButton* upButton {nullptr};
     QLineEdit* dirEdit {nullptr};
     QLabel* imageLabel {nullptr};  // Display image filename in Image mode
+    QToolButton* saveButton {nullptr};  // Save button (Image mode only)
+    QToolButton* saveAsButton {nullptr};  // Save As button (Image mode only)
     QMenu* historyMenu {nullptr};
     HostModel * host_model {nullptr};
     QStandardItemModel * image_model {nullptr};

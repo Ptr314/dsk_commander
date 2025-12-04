@@ -289,18 +289,36 @@ void FilePanel::setupPanel() {
 
     // Image name label (shown in Image mode instead of dirEdit/dirButton)
     imageLabel = new QLabel(this);
-    // imageLabel->setFrameStyle(QFrame::Panel);
-    // imageLabel->setStyleSheet("QLabel { padding: 2px 4px; background-color: palette(base); }");
     imageLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     imageLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     imageLabel->hide();  // Initially hidden (starts in Host mode)
 
+    // Save button (shown in Image mode)
+    saveButton = new QToolButton(this);
+    saveButton->setText(FilePanel::tr("Save"));
+    saveButton->setIcon(QIcon(":/icons/icon"));
+    saveButton->setToolTip(FilePanel::tr("Save disk image"));
+    saveButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    saveButton->setIconSize(QSize(24, 24));
+    saveButton->hide();  // Initially hidden (starts in Host mode)
+
+    // Save As button (shown in Image mode)
+    saveAsButton = new QToolButton(this);
+    saveAsButton->setText(FilePanel::tr("Save as..."));
+    saveAsButton->setIcon(QIcon(":/icons/convert"));
+    saveAsButton->setToolTip(FilePanel::tr("Save disk image as..."));
+    saveAsButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    saveAsButton->setIconSize(QSize(24, 24));
+    saveAsButton->hide();  // Initially hidden (starts in Host mode)
+
     auto *topContainer = new QWidget(topToolBar);
     auto *topLayout = new QHBoxLayout(topContainer);
     topLayout->setContentsMargins(0, 0, 0, 0);
-    topLayout->setSpacing(10);
+    topLayout->setSpacing(5);
     topLayout->addWidget(upButton);
     topLayout->addWidget(dirEdit, 1);
+    topLayout->addWidget(saveButton);
+    topLayout->addWidget(saveAsButton);
     topLayout->addWidget(imageLabel, 1);  // Same stretch as dirEdit, both hidden/shown based on mode
     topLayout->addWidget(dirButton);
 
@@ -310,6 +328,8 @@ void FilePanel::setupPanel() {
     connect(dirButton, &QToolButton::clicked, this, &FilePanel::chooseDirectory);
     connect(dirEdit,   &QLineEdit::returnPressed, this, &FilePanel::onPathEntered);
     connect(historyMenu, &QMenu::triggered, this, &FilePanel::onHistoryMenuTriggered);
+    connect(saveButton, &QToolButton::clicked, this, &FilePanel::saveImage);
+    connect(saveAsButton, &QToolButton::clicked, this, &FilePanel::saveImageAs);
 
     // Load and initialize directory history
     loadDirectoryHistory();
@@ -340,6 +360,8 @@ void FilePanel::setupPanel() {
                          static_cast<QObject*>(dirButton),
                          static_cast<QObject*>(upButton),
                          static_cast<QObject*>(dirEdit),
+                         static_cast<QObject*>(saveButton),
+                         static_cast<QObject*>(saveAsButton),
                          static_cast<QObject*>(imageLabel)})
     {
         obj->installEventFilter(this);
@@ -483,6 +505,16 @@ void FilePanel::retranslateUi()
     dirButton->setToolTip(tr("Choose..."));
     dirEdit->setPlaceholderText(tr("Enter path and press Enter..."));
     autoCheck->setText(tr("Auto"));
+
+    // Retranslate toolbar button labels
+    if (saveButton) {
+        saveButton->setText(tr("Save"));
+        saveButton->setToolTip(tr("Save disk image"));
+    }
+    if (saveAsButton) {
+        saveAsButton->setText(tr("Save as..."));
+        saveAsButton->setToolTip(tr("Save disk image as..."));
+    }
 
     // Refresh history menu to update translated strings
     updateHistoryMenu();
@@ -720,6 +752,15 @@ void FilePanel::updateImageStatusIndicator()
             imageLabel->setFont(font);
         }
     }
+
+    // Update Save button enabled state based on changes
+    if (saveButton) {
+        saveButton->setEnabled(mode == panelMode::Image && m_filesystem && m_filesystem->get_changed());
+    }
+    // Save As is always enabled in Image mode
+    if (saveAsButton) {
+        saveAsButton->setEnabled(mode == panelMode::Image && m_filesystem != nullptr);
+    }
 }
 
 void FilePanel::onPathEntered() {
@@ -917,11 +958,15 @@ void FilePanel::updateToolbarVisibility()
         dirEdit->show();
         dirButton->show();
         imageLabel->hide();
+        saveButton->hide();
+        saveAsButton->hide();
     } else {
         // Image mode: hide path input controls, show image label
         dirEdit->hide();
         dirButton->hide();
         imageLabel->show();
+        saveButton->show();
+        saveAsButton->show();
 
         // Update image label text
         if (m_image != nullptr) {

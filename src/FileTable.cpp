@@ -215,6 +215,8 @@ void FileTable::setupForHostMode() {
     verticalHeader()->setDefaultSectionSize(24);
 
     connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &FileTable::onCurrentIndexChanged);
+
+    // setStyleSheet("");
 }
 
 void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
@@ -257,6 +259,8 @@ void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
     horizontalHeader()->setSectionsClickable(false);  // Disable click-to-sort on headers
 
     connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &FileTable::onCurrentIndexChanged);
+
+    // setStyleSheet("QTableView { border-color: #0000FF; padding: 5px;}");
 }
 
 bool FileTable::eventFilter(QObject* obj, QEvent* ev) {
