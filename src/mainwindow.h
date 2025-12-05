@@ -121,6 +121,7 @@ private:
 
     // Options menu actions
     QAction* optUseRecycleBin {nullptr};
+    QAction* optMakeBackups {nullptr};
 
     QLabel* statusLabel {nullptr};
 

@@ -28,6 +28,7 @@
         <file alias="screen_proportions">resources/icons/tv.png</file>
         <file alias="text_copy">resources/icons/window_list.png</file>
         <file alias="file_image">resources/icons/5floppy_unmount.png</file>
+        <file alias="backup">resources/icons/revert.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>

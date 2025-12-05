@@ -548,6 +548,18 @@ void MainWindow::initializeMainMenu() {
         settings->setValue("files/use_recycle_bin", checked);
     });
 
+    // Make backups on save option
+    optMakeBackups = optionsMenu->addAction(QIcon(":/icons/backup"), MainWindow::tr("Make backups on save"));
+    optMakeBackups->setCheckable(true);
+
+    // Read setting - default to true (safer)
+    bool makeBackups = settings->value("files/make_backups_on_save", true).toBool();
+    optMakeBackups->setChecked(makeBackups);
+
+    connect(optMakeBackups, &QAction::triggered, this, [this](bool checked) {
+        settings->setValue("files/make_backups_on_save", checked);
+    });
+
     optionsMenu->addSeparator();
 
     QAction *aboutAction = optionsMenu->addAction(QIcon(":/icons/help"), MainWindow::tr("About..."));
