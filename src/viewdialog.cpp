@@ -19,6 +19,7 @@
 #include "mainutils.h"
 #include "placeholders.h"
 #include "ui_viewdialog.h"
+#include "host_helpers.h"
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -498,7 +499,7 @@ void ViewDialog::on_saveButton_clicked()
                 if (res != QMessageBox::Yes) return;
             }
         #endif
-        std::ofstream file(file_name.toStdString(), std::ios::binary);
+        UTF8_ofstream file(file_name.toStdString(), std::ios::binary);
         if (file.good()) {
             std::string buffer;
             if (selected_filter.startsWith("HTML")) {

@@ -1591,62 +1591,62 @@ Warning: This action cannot be undone!</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="69"/>
+        <location filename="../viewdialog.cpp" line="70"/>
         <source>Binary</source>
         <translation>Двоичный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="70"/>
+        <location filename="../viewdialog.cpp" line="71"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="71"/>
+        <location filename="../viewdialog.cpp" line="72"/>
         <source>BASIC</source>
         <translation>Бейсик</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="72"/>
+        <location filename="../viewdialog.cpp" line="73"/>
         <source>Agat pictures</source>
         <translation>Графика Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="73"/>
+        <location filename="../viewdialog.cpp" line="74"/>
         <source>Apple pictures</source>
         <translation>Графика Apple</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="119"/>
+        <location filename="../viewdialog.cpp" line="120"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="120"/>
+        <location filename="../viewdialog.cpp" line="121"/>
         <source>Apple II</source>
         <translation>Apple II</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="121"/>
+        <location filename="../viewdialog.cpp" line="122"/>
         <source>Apple //c</source>
         <translation>Apple //c</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="122"/>
+        <location filename="../viewdialog.cpp" line="123"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="131"/>
+        <location filename="../viewdialog.cpp" line="132"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="132"/>
+        <location filename="../viewdialog.cpp" line="133"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="133"/>
+        <location filename="../viewdialog.cpp" line="134"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
@@ -1736,23 +1736,23 @@ Warning: This action cannot be undone!</source>
         <translation>Знакогенератор</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="365"/>
+        <location filename="../viewdialog.cpp" line="366"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="483"/>
-        <location filename="../viewdialog.cpp" line="485"/>
+        <location filename="../viewdialog.cpp" line="484"/>
+        <location filename="../viewdialog.cpp" line="486"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="497"/>
+        <location filename="../viewdialog.cpp" line="498"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="497"/>
+        <location filename="../viewdialog.cpp" line="498"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>
