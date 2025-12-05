@@ -905,6 +905,11 @@ int FilePanel::openImage(QString path)
 
     updateImageStatusIndicator();
 
+    // Store loaded image metadata for later use (e.g., Save to original format)
+    m_current_format_id = format_id;
+    m_current_type_id = type_id;
+    m_current_filesystem_id = filesystem_id;
+
     return FDD_LOAD_OK;
 }
 
@@ -940,6 +945,11 @@ void FilePanel::setMode(panelMode new_mode)
     updateToolbarVisibility();
 
     if (mode==panelMode::Host) {
+        // Clear loaded image metadata when closing image
+        m_current_format_id.clear();
+        m_current_type_id.clear();
+        m_current_filesystem_id.clear();
+
         tableView->setModel(host_model);
         tableView->setupForHostMode();
         if (m_filesystem != nullptr) delete m_filesystem;
