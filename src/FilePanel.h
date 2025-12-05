@@ -172,6 +172,12 @@ private:
 
     dsk_tools::diskImage * m_image {nullptr};
     dsk_tools::fileSystem * m_filesystem {nullptr};
+
+    // Loaded image metadata (Image mode only)
+    std::string m_current_format_id;      // Physical format: "FILE_RAW_MSB", "FILE_AIM", "FILE_HXC_HFE", etc.
+    std::string m_current_type_id;        // Disk type: "TYPE_AGAT_140", "TYPE_AGAT_840", etc.
+    std::string m_current_filesystem_id;  // Filesystem: "FS_DOS33", "FS_SPRITEOS", "FS_CPM", etc.
+
     std::vector<dsk_tools::UniversalFile> m_files;
     HostModel::SortOrder m_sort_order {HostModel::SortOrder::NoOrder};
     bool m_sort_ascending {true};
