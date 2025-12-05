@@ -4,6 +4,8 @@
 // Description: File panel UI
 
 #include <QFileDialog>
+#include <QFile>
+#include <QFileInfo>
 #include <QHeaderView>
 #include <QUrl>
 #include <QJsonArray>
@@ -755,7 +757,12 @@ void FilePanel::updateImageStatusIndicator()
 
     // Update Save button enabled state based on changes
     if (saveButton) {
-        saveButton->setEnabled(mode == panelMode::Image && m_filesystem && m_filesystem->get_changed());
+        saveButton->setEnabled(
+               mode == panelMode::Image
+            && m_filesystem
+            && m_filesystem->get_changed()
+            && m_current_format_id=="FILE_RAW_MSB"
+        );
     }
     // Save As is always enabled in Image mode
     if (saveAsButton) {
@@ -903,12 +910,12 @@ int FilePanel::openImage(QString path)
         return FDD_LOAD_ERROR;
     }
 
-    updateImageStatusIndicator();
-
     // Store loaded image metadata for later use (e.g., Save to original format)
     m_current_format_id = format_id;
     m_current_type_id = type_id;
     m_current_filesystem_id = filesystem_id;
+
+    updateImageStatusIndicator();
 
     return FDD_LOAD_OK;
 }
@@ -1873,12 +1880,68 @@ void FilePanel::showInfoDialog(const std::string& info)
     delete file_info;
 }
 
+void FilePanel::saveImageWithBackup()
+{
+    if (mode == panelMode::Image && m_image) {
+        const bool use_backups = m_settings->value("files/make_backups_on_save", true).toBool();
+        if (m_current_format_id == "FILE_RAW_MSB") {
+            std::string file_name = m_image->file_name();
+            if (use_backups) {
+                QString qfile_name = QString::fromStdString(file_name);
+                if (QFile::exists(qfile_name)) {
+                    QFileInfo fileInfo(qfile_name);
+                    QString baseName = fileInfo.completeBaseName();
+                    QString suffix = fileInfo.suffix();
+                    QString dirPath = fileInfo.absolutePath();
+
+                    // Find first available backup number
+                    int backupNum = 1;
+                    QString backupName;
+                    while (true) {
+                        backupName = dirPath + "/" + baseName + "." + QString::number(backupNum);
+                        if (!suffix.isEmpty()) {
+                            backupName += "." + suffix;
+                        }
+
+                        if (!QFile::exists(backupName)) {
+                            break;
+                        }
+                        backupNum++;
+                    }
+
+                    // Rename old file to backup
+                    QFile::rename(qfile_name, backupName);
+                }
+            }
+            dsk_tools::Writer* writer = new dsk_tools::WriterRAW(m_current_format_id, m_image);
+            dsk_tools::BYTES buffer;
+            const int result = writer->write(buffer);
+            if (result == FDD_WRITE_OK) {
+                std::ofstream file(file_name, std::ios::binary);
+                if (file.good()) {
+                    file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
+                    m_filesystem->reset_changed();
+                    updateImageStatusIndicator();
+                }
+            }
+            delete writer;
+        }
+    }
+}
+
 void FilePanel::saveImage()
 {
     emit activated(this);
-
-    // Use ConvertDialog for save (same as Save As)
-    saveImageAs();
+    if (mode == panelMode::Image
+        && m_filesystem
+        && m_filesystem->get_changed()
+        && m_current_format_id=="FILE_RAW_MSB")
+    {
+        saveImageWithBackup();
+    } else {
+        QMessageBox::critical(this, FilePanel::tr("Error"),
+    FilePanel::tr("Saving is not available or the uploaded image has not yet been modified."));
+    }
 }
 
 void FilePanel::saveImageAs()

@@ -195,6 +195,7 @@ private:
     void updateToolbarVisibility();
     void dir();
     static QString decodeError(const dsk_tools::Result & result);
+    void saveImageWithBackup();
 
     // Helper methods for image info
     dsk_tools::Loader* createLoader(const std::string& file_name,
