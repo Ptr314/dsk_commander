@@ -30,7 +30,7 @@
 #include "fileparamdialog.h"
 #include "convertdialog.h"
 #include "fs_host.h"
-#include "fs_host_helpers.h"
+#include "host_helpers.h"
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -1917,7 +1917,7 @@ void FilePanel::saveImageWithBackup()
             dsk_tools::BYTES buffer;
             const int result = writer->write(buffer);
             if (result == FDD_WRITE_OK) {
-                std::ofstream file(file_name, std::ios::binary);
+                UTF8_ofstream file(file_name, std::ios::binary);
                 if (file.good()) {
                     file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
                     m_filesystem->reset_changed();
@@ -1990,15 +1990,15 @@ void FilePanel::saveImageAs()
         if (numtracks > 0) {
             dsk_tools::BYTES tmplt;
 
-            std::ifstream tf(template_file.toStdString(), std::ios::binary);
+            UTF8_ifstream tf(template_file.toStdString(), std::ios::binary);
             if (!tf.good()) {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error opening template file"));
                 delete writer;
                 return;
             }
-            tf.seekg(0, tf.end);
+            tf.seekg(0, std::ios::end);
             auto tfsize = tf.tellg();
-            tf.seekg(0, tf.beg);
+            tf.seekg(0, std::ios::beg);
             tmplt.resize(tfsize);
             tf.read(reinterpret_cast<char*>(tmplt.data()), tfsize);
             if (!tf.good()) {
@@ -2020,7 +2020,7 @@ void FilePanel::saveImageAs()
             }
         }
 
-        std::ofstream file(output_file.toStdString(), std::ios::binary);
+        UTF8_ofstream file(output_file.toStdString(), std::ios::binary);
 
         if (file.good()) {
             file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
