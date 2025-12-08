@@ -42,6 +42,8 @@ public:
     QFileInfo fileInfo(const QModelIndex& index) const;
     bool isDir(const QModelIndex& index) const;
     SortOrder sortOrder() const { return m_sortOrder; }
+    static QString formatSize(qint64 size) ;
+    static QString formatDate(const QDateTime& dt);
 
 private:
     QString m_currentPath;
@@ -51,8 +53,6 @@ private:
     bool m_isRoot {false};
 
     void populateModel();
-    QString formatSize(qint64 size) const;
-    QString formatDate(const QDateTime& dt) const;
 };
 
 class FilePanel : public QWidget {

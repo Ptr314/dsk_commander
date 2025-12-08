@@ -220,13 +220,13 @@ void HostModel::populateModel() {
     }
 }
 
-QString HostModel::formatSize(qint64 size) const {
+QString HostModel::formatSize(qint64 size) {
     QString numStr = QString::number(size);
     QString result;
     int count = 0;
     for (int i = numStr.length() - 1; i >= 0; --i) {
         if (count == 3) {
-            result.prepend(' ');
+            result.prepend('.');
             count = 0;
         }
         result.prepend(numStr[i]);
@@ -235,7 +235,7 @@ QString HostModel::formatSize(qint64 size) const {
     return result;
 }
 
-QString HostModel::formatDate(const QDateTime& dt) const {
+QString HostModel::formatDate(const QDateTime& dt){
     return QLocale().toString(dt, QLocale::ShortFormat);
 }
 
@@ -981,7 +981,7 @@ void FilePanel::updateTable()
         QString file_name = QString::fromStdString(f.name);
 
         auto * size_item = new QStandardItem();
-        size_item->setText((file_name != "..")?QString::number(f.size):"");
+        size_item->setText((file_name != "..")?HostModel::formatSize(f.size):"");
         size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         items.append(size_item);
 
