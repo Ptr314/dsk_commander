@@ -27,7 +27,8 @@ public:
                            const QJsonObject * file_formats,
                            dsk_tools::diskImage * image,
                            const QString & type_id,
-                           int fs_volume_id
+                           int fs_volume_id,
+                           const QString & target_path
     );
 
     ~ConvertDialog();
@@ -56,6 +57,7 @@ private:
     const QJsonObject * m_file_formats;
     dsk_tools::diskImage * m_image;
     int m_fs_volume_id;
+    QString m_target_path;
 
     void set_output();
     void set_controls();
