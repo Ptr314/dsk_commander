@@ -589,7 +589,16 @@ void FileOperations::saveImageAs(FilePanel* panel, QWidget* parent)
     int numtracks;
     uint8_t volume_id;
 
-    ConvertDialog dialog(parent, panel->getSettings(), panel->getFileTypes(), panel->getFileFormats(), image, type_id, filesystem->get_volume_id());
+    ConvertDialog dialog(
+                        parent,
+                        panel->getSettings(),
+                        panel->getFileTypes(),
+                        panel->getFileFormats(),
+                        image,
+                        type_id,
+                        filesystem->get_volume_id(),
+                        panel->currentDir()
+    );
     if (dialog.exec(target_id, output_file, template_file, numtracks, volume_id) == QDialog::Accepted) {
         std::unique_ptr<dsk_tools::Writer> writer;
 

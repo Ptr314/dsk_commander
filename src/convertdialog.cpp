@@ -18,7 +18,15 @@ ConvertDialog::ConvertDialog(QWidget *parent)
     ui->setupUi(this);
 }
 
-ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, const QJsonObject * file_types, const QJsonObject * file_formats, dsk_tools::diskImage * image, const QString & type_id, int fs_volume_id):
+ConvertDialog::ConvertDialog(
+                    QWidget *parent,
+                    QSettings * settings,
+                    const QJsonObject * file_types,
+                    const QJsonObject * file_formats,
+                    dsk_tools::diskImage * image,
+                    const QString & type_id,
+                    int fs_volume_id,
+                    const QString & target_path):
     ConvertDialog(parent)
 {
     m_type_id = type_id;
@@ -27,6 +35,7 @@ ConvertDialog::ConvertDialog(QWidget *parent, QSettings * settings, const QJsonO
     m_file_formats = file_formats;
     m_image = image;
     m_fs_volume_id = fs_volume_id;
+    m_target_path = target_path;
 
     #if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
         ui->volumeIDEdit->setMaximumWidth(ui->volumeIDEdit->fontMetrics().width(QString(3, QChar('W'))));
@@ -73,13 +82,18 @@ void ConvertDialog::set_output()
 
     QString source_file = QString::fromStdString(m_image->file_name());
     QFileInfo fi(source_file);
-    QString target_dir = m_settings->value("export/target_directory", fi.dir().absolutePath()).toString();
+    QString target_path;
+    if (m_target_path.isEmpty()) {
+        target_path = m_settings->value("export/target_directory", fi.dir().absolutePath()).toString();
+    } else {
+        target_path = m_target_path;
+    }
 
     QString exts = target["extensions"].toString();
     QStringList exts_list = exts.split(";");
     QString ext = exts_list.at(0).right(exts_list.at(0).size()-2);
 
-    output_file_name = QString("%1/%2.%3").arg(target_dir, fi.completeBaseName(), ext);
+    output_file_name = QString("%1/%2.%3").arg(target_path, fi.completeBaseName(), ext);
 
     ui->outputText->setText(output_file_name);
 }
@@ -149,7 +163,9 @@ void ConvertDialog::on_actionChoose_Output_triggered()
     file_name = QFileDialog::getSaveFileName(this, ConvertDialog::tr("Choose file"), file_name, filter, nullptr, QFileDialog::DontConfirmOverwrite);
 
     if (file_name.size() > 0) {
+        QFileInfo nf(file_name);
         output_file_name = file_name;
+        m_target_path = nf.absolutePath();
         ui->outputText->setText(output_file_name);
     }
 }
