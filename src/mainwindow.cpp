@@ -399,21 +399,21 @@ void MainWindow::initializeMainMenu() {
 
     leftMenu->addSeparator();
 
-    QMenu *leftSortMenu = leftMenu->addMenu(MainWindow::tr("Sorting"));
+    QMenu *leftSortMenu = leftMenu->addMenu(QIcon(":/icons/sort"), MainWindow::tr("Sorting"));
     QActionGroup *leftSortGroup = new QActionGroup(this);
     leftSortGroup->setExclusive(true);
 
-    leftMenuActions.sortByName = leftSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by name"));
+    leftMenuActions.sortByName = leftSortMenu->addAction(MainWindow::tr("Sort by name"));
     leftMenuActions.sortByName->setCheckable(true);
     leftMenuActions.sortByName->setActionGroup(leftSortGroup);
     connect(leftMenuActions.sortByName, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::ByName); });
 
-    leftMenuActions.sortBySize = leftSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by size"));
+    leftMenuActions.sortBySize = leftSortMenu->addAction(MainWindow::tr("Sort by size"));
     leftMenuActions.sortBySize->setCheckable(true);
     leftMenuActions.sortBySize->setActionGroup(leftSortGroup);
     connect(leftMenuActions.sortBySize, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::BySize); });
 
-    leftMenuActions.noSort = leftSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("No sorting"));
+    leftMenuActions.noSort = leftSortMenu->addAction(MainWindow::tr("No sorting"));
     leftMenuActions.noSort->setCheckable(true);
     leftMenuActions.noSort->setActionGroup(leftSortGroup);
     connect(leftMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::NoOrder); });
@@ -443,7 +443,7 @@ void MainWindow::initializeMainMenu() {
     actImageInfo = imageMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("Container Info..."));
     connect(actImageInfo, &QAction::triggered, this, &MainWindow::onImageInfo);
 
-    actFSInfo = imageMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("Filesystem Info..."));
+    actFSInfo = imageMenu->addAction(QIcon(":/icons/fs_info"), MainWindow::tr("Filesystem Info..."));
     connect(actFSInfo, &QAction::triggered, this, &MainWindow::onFSInfo);
 
     imageMenu->addSeparator();
@@ -454,7 +454,7 @@ void MainWindow::initializeMainMenu() {
     // === FILES MENU ===
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
-    menuViewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("View"));
+    menuViewAction = filesMenu->addAction(QIcon(":/icons/image_view"), MainWindow::tr("View"));
     connect(menuViewAction, &QAction::triggered, this, &MainWindow::onView);
 
     menuFileInfoAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("File Info"));
@@ -468,7 +468,7 @@ void MainWindow::initializeMainMenu() {
     menuCopyAction->setShortcut(QKeySequence(Qt::Key_F5));
     connect(menuCopyAction, &QAction::triggered, this, &MainWindow::onCopy);
 
-    menuRenameAction = filesMenu->addAction(QIcon(":/icons/edit"), MainWindow::tr("Rename"));
+    menuRenameAction = filesMenu->addAction(QIcon(":/icons/rename"), MainWindow::tr("Rename"));
     menuRenameAction->setShortcut(QKeySequence(Qt::Key_F6));
     connect(menuRenameAction, &QAction::triggered, this, &MainWindow::onRename);
 
@@ -545,21 +545,21 @@ void MainWindow::initializeMainMenu() {
 
     rightMenu->addSeparator();
 
-    QMenu *rightSortMenu = rightMenu->addMenu(MainWindow::tr("Sorting"));
+    QMenu *rightSortMenu = rightMenu->addMenu(QIcon(":/icons/sort"), MainWindow::tr("Sorting"));
     QActionGroup *rightSortGroup = new QActionGroup(this);
     rightSortGroup->setExclusive(true);
 
-    rightMenuActions.sortByName = rightSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by name"));
+    rightMenuActions.sortByName = rightSortMenu->addAction(MainWindow::tr("Sort by name"));
     rightMenuActions.sortByName->setCheckable(true);
     rightMenuActions.sortByName->setActionGroup(rightSortGroup);
     connect(rightMenuActions.sortByName, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::ByName); });
 
-    rightMenuActions.sortBySize = rightSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("Sort by size"));
+    rightMenuActions.sortBySize = rightSortMenu->addAction(MainWindow::tr("Sort by size"));
     rightMenuActions.sortBySize->setCheckable(true);
     rightMenuActions.sortBySize->setActionGroup(rightSortGroup);
     connect(rightMenuActions.sortBySize, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::BySize); });
 
-    rightMenuActions.noSort = rightSortMenu->addAction(QIcon(":/icons/sort"), MainWindow::tr("No sorting"));
+    rightMenuActions.noSort = rightSortMenu->addAction(MainWindow::tr("No sorting"));
     rightMenuActions.noSort->setCheckable(true);
     rightMenuActions.noSort->setActionGroup(rightSortGroup);
     connect(rightMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::NoOrder); });
