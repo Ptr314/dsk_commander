@@ -12,15 +12,12 @@
 #include <QMessageBox>
 #include <QIcon>
 #include <QDebug>
-#include <QJsonObject>
 #include <QLocale>
-#include <QDesktopServices>
-#include <QInputDialog>
-#include <QDialog>
 #include <QFont>
+#include <QFontDatabase>
+#include <QDateTime>
 #include <memory>
 #include <fstream>
-#include "placeholders.h"
 
 #include "./ui_fileinfodialog.h"
 
@@ -29,6 +26,7 @@
 #include "viewdialog.h"
 #include "fileparamdialog.h"
 #include "convertdialog.h"
+#include "FileOperations.h"
 #include "fs_host.h"
 #include "host_helpers.h"
 
@@ -254,7 +252,14 @@ FilePanel::FilePanel(QWidget *parent, QSettings *settings, QString ini_label, co
 }
 
 void FilePanel::setupPanel() {
-    QFont font("Consolas", 10, 400);
+    QFont font;
+#ifdef Q_OS_WIN
+    font.setFamily("Consolas");
+    font.setPointSize(10);
+#else
+    font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
+    font.setPointSize(10);
+#endif
 
     auto *layout = new QVBoxLayout(this);
     layout->setContentsMargins(2, 2, 2, 2);
@@ -673,6 +678,24 @@ void FilePanel::onGoUp() {
             // Store current directory name for cursor restoration
             m_lastDirName = QDir(currentPath).dirName();
             setDirectory(dir.absolutePath(), true);
+
+            // Restore cursor position to the directory we came from
+            for (int row = 0; row < host_model->rowCount(); ++row) {
+                QModelIndex idx = host_model->index(row, 0);
+                QString checkName = host_model->data(idx, Qt::DisplayRole).toString();
+                // Remove brackets from directory name: [dirname] -> dirname
+                if (checkName.startsWith("[") && checkName.endsWith("]")) {
+                    QString dirName = checkName.mid(1, checkName.length() - 2);
+                    if (dirName == m_lastDirName && dirName != "..") {
+                        // Clear selection and set cursor without selecting
+                        tableView->selectionModel()->clearSelection();
+                        tableView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
+                        tableView->scrollTo(idx);
+                        m_lastDirName.clear();
+                        break;
+                    }
+                }
+            }
         }
     } else {
         if (m_filesystem->is_root()) {
@@ -724,7 +747,7 @@ bool FilePanel::checkUnsavedChanges()
     }
 }
 
-void FilePanel::updateImageStatusIndicator()
+void FilePanel::updateImageStatusIndicator() const
 {
     if (mode == panelMode::Image && m_filesystem && m_filesystem->get_changed()) {
         // Add asterisk to indicate unsaved changes
@@ -779,75 +802,8 @@ void FilePanel::onPathEntered() {
 
 void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
     emit activated(this);  // broadcast the activation
-
-    if (!index.isValid())
-        return;
-
-    if (mode == panelMode::Host) {
-        QString displayName = host_model->data(index, Qt::DisplayRole).toString();
-
-        // Process [..] navigation
-        if (displayName == "[..]") {
-            // Store current directory name for cursor restoration
-            // m_lastDirName = QDir(currentPath).dirName();
-            // host_model->goUp();
-            // currentPath = host_model->currentPath();
-            // dirEdit->setText(currentPath);
-            // m_settings->setValue("directory/"+m_ini_label, currentPath);
-            onGoUp();
-
-            // Restore cursor position to the directory we came from
-            for (int row = 0; row < host_model->rowCount(); ++row) {
-                QModelIndex idx = host_model->index(row, 0);
-                QString checkName = host_model->data(idx, Qt::DisplayRole).toString();
-                // Remove brackets from directory name: [dirname] -> dirname
-                if (checkName.startsWith("[") && checkName.endsWith("]")) {
-                    QString dirName = checkName.mid(1, checkName.length() - 2);
-                    if (dirName == m_lastDirName && dirName != "..") {
-                        // Clear selection and set cursor without selecting
-                        tableView->selectionModel()->clearSelection();
-                        tableView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
-                        tableView->scrollTo(idx);
-                        m_lastDirName.clear();
-                        break;
-                    }
-                }
-            }
-            return;
-        }
-
-        const QString path = host_model->filePath(index);
-        if (path.isEmpty()) return;
-
-        QFileInfo info(path);
-
-        if (info.isDir()) {
-            setDirectory(path);
-        } else {
-            int res = openImage(path);
-            if (res != 0 ) {
-                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Can't detect type of the file automatically"));
-            }
-        }
-    } else {
-        auto f = m_files[index.row()];
-        if (f.is_dir){
-            m_filesystem->cd(f);
-            dir();
-        } else {
-            dsk_tools::BYTES data;
-            m_filesystem->get_file(f, "", data);
-
-            if (data.size() > 0) {
-                QDialog * w = new ViewDialog(this, m_settings, QString::fromStdString(f.name), data, f.type_preferred, f.is_deleted, m_image, m_filesystem);
-                w->setAttribute(Qt::WA_DeleteOnClose);
-                w->setWindowTitle(w->windowTitle() + " (" + QString::fromStdString(f.name) + ")");
-                w->show();
-            } else {
-                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("File reading error!"));
-            }
-        }
-    }
+    if (!index.isValid()) return;
+    FileOperations::openItem(this, this, index);
 }
 
 int FilePanel::openImage(QString path)
@@ -879,8 +835,8 @@ int FilePanel::openImage(QString path)
             type_id = "";
             filesystem_id = "";
         };
-        if (type_id.size() == 0) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
-        if (filesystem_id.size() == 0) filesystem_id = fsCombo->itemData(fsCombo->currentIndex()).toString().toStdString();
+        if (type_id.empty()) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
+        if (filesystem_id.empty()) filesystem_id = fsCombo->itemData(fsCombo->currentIndex()).toString().toStdString();
 
     }
 
@@ -968,7 +924,7 @@ void FilePanel::setMode(panelMode new_mode)
     emit panelModeChanged(mode);
 }
 
-void FilePanel::updateToolbarVisibility()
+void FilePanel::updateToolbarVisibility() const
 {
     if (mode == panelMode::Host) {
         // Host mode: show path input controls, hide image label
@@ -1198,184 +1154,6 @@ bool FilePanel::eventFilter(QObject* obj, QEvent* ev) {
     return QWidget::eventFilter(obj, ev);
 }
 
-void FilePanel::onView()
-{
-    emit activated(this);
-
-    if (mode==panelMode::Host) {
-        QString path = currentFilePath();
-        if (path.isEmpty()) return;  // Skip [..] entry or invalid index
-
-        QFileInfo fi(path);
-
-        if (fi.isDir()) {
-            // Show directory information
-            QDir dir(path);
-            QFileInfoList entries = dir.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden);
-
-            int fileCount = 0;
-            int dirCount = 0;
-            qint64 totalSize = 0;
-
-            for (const QFileInfo& entry : entries) {
-                if (entry.isDir()) {
-                    dirCount++;
-                } else {
-                    fileCount++;
-                    totalSize += entry.size();
-                }
-            }
-
-            QString info = FilePanel::tr("Directory: %1\n\n").arg(fi.fileName());
-            info += FilePanel::tr("Path: %1\n").arg(fi.absoluteFilePath());
-            info += FilePanel::tr("Subdirectories: %1\n").arg(dirCount);
-            info += FilePanel::tr("Files: %1\n").arg(fileCount);
-            info += FilePanel::tr("Total size: %1 bytes\n").arg(totalSize);
-            info += FilePanel::tr("Last modified: %1").arg(QLocale().toString(fi.lastModified(), QLocale::ShortFormat));
-
-            QMessageBox::information(this, FilePanel::tr("Directory Information"), info);
-        } else {
-            // Show file information
-            std::string file_name = _toStdString(fi.absoluteFilePath());
-            std::string type_id = "";
-            std::string  filesystem_id = "";
-            std::string format_id = filterCombo->itemData(filterCombo->currentIndex()).toString().toStdString();
-            if (format_id == "FILE_ANY") {
-                int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
-            }
-            if (type_id.size()==0) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
-
-            std::unique_ptr<dsk_tools::Loader> loader;
-
-            if (format_id == "FILE_RAW_MSB") {
-                loader = dsk_tools::make_unique<dsk_tools::LoaderRAW>(file_name, format_id, type_id);
-            } else
-            if (format_id == "FILE_AIM") {
-                loader = dsk_tools::make_unique<dsk_tools::LoaderAIM>(file_name, format_id, type_id);
-            } else
-            if (format_id == "FILE_MFM_NIC") {
-                loader = dsk_tools::make_unique<dsk_tools::LoaderNIC>(file_name, format_id, type_id);
-            } else
-            if (format_id == "FILE_MFM_NIB") {
-                loader = dsk_tools::make_unique<dsk_tools::LoaderNIB>(file_name, format_id, type_id);
-            } else
-            if (format_id == "FILE_HXC_MFM") {
-                loader = dsk_tools::make_unique<dsk_tools::LoaderHXC_MFM>(file_name, format_id, type_id);
-            } else
-            if (format_id == "FILE_HXC_HFE") {
-                loader = dsk_tools::make_unique<dsk_tools::LoaderHXC_HFE>(file_name, format_id, type_id);
-            } else {
-                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
-                return;
-            }
-            QDialog * file_info = new QDialog(this);
-
-            Ui_FileInfo fileinfoUi;
-            fileinfoUi.setupUi(file_info);
-
-            QString info = replacePlaceholders(QString::fromStdString(loader->file_info()));
-            QFont font("Consolas", 10, 400);
-            fileinfoUi.textBox->setFont(font);
-            fileinfoUi.textBox->setPlainText(info);
-            file_info->exec();
-        }
-    } else {
-        // Image mode: behave like double-click/Enter
-        QModelIndex index = tableView->currentIndex();
-        if (index.isValid()) {
-            onItemDoubleClicked(index);
-        }
-    }
-}
-
-void FilePanel::onFileInfo()
-{
-    emit activated(this);
-
-    if (mode==panelMode::Host) {
-    } else {
-        const auto file_info = new QDialog(this);
-
-        Ui_FileInfo fileinfoUi{};
-        fileinfoUi.setupUi(file_info);
-
-        QModelIndex index = tableView->currentIndex();
-        if (index.isValid()) {
-            auto f = m_files[index.row()];
-
-            auto info = replacePlaceholders(QString::fromStdString(m_filesystem->file_info(f)));
-
-            QFont font("Consolas", 10, 400);
-            fileinfoUi.textBox->setFont(font);
-            fileinfoUi.textBox->setPlainText(info);
-            file_info->exec();
-        }
-    }
-}
-
-void FilePanel::onEdit()
-{
-    emit activated(this);
-
-    if (mode==panelMode::Host) {
-        // QString path = currentFilePath();
-        // if (path.isEmpty()) return;  // Skip [..] entry or invalid index
-        //
-        // // Open file with system default application
-        // QUrl fileUrl = QUrl::fromLocalFile(path);
-        // if (!QDesktopServices::openUrl(fileUrl)) {
-        //     QMessageBox::warning(this, FilePanel::tr("Error"),
-        //                        FilePanel::tr("Could not open file with system default application"));
-        // }
-        QModelIndex index = tableView->currentIndex();
-        if (index.isValid()) {
-            onItemDoubleClicked(index);
-        }
-    } else {
-        QModelIndex index = tableView->currentIndex();
-        if (index.isValid()) {
-            auto f = m_files[index.row()];
-            std::vector<dsk_tools::ParameterDescription> params = m_filesystem->file_get_metadata(f);
-
-            for (auto & param : params) {
-                param.name = replacePlaceholders(QString::fromStdString(param.name)).toStdString();
-            }
-
-            FileParamDialog dialog(params);
-            if (dialog.exec() == QDialog::Accepted) {
-                const auto values = dialog.getParameters();
-                m_filesystem->file_set_metadata(f, values);
-                dir();
-            }
-        }
-    }
-    updateImageStatusIndicator();
-}
-
-void FilePanel::onMkDir()
-{
-    dsk_tools::FSCaps funcs = m_filesystem->getCaps();
-
-    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::MkDir)) {
-        bool ok{};
-        const QString text = QInputDialog::getText(this, FilePanel::tr("Add a directory"),
-                                             FilePanel::tr("Directory name:"),
-                                             QLineEdit::Normal,
-                                             "New",
-                                             &ok);
-        if (ok && !text.isEmpty()) {
-            dsk_tools::UniversalFile new_dir;
-            const dsk_tools::Result res = m_filesystem->mkdir(text.toStdString(), new_dir);
-            if (!res) {
-                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error creating directory: ") + decodeError(res));
-            }
-            refresh();
-        }
-    }
-    updateImageStatusIndicator();
-}
-
-
 void FilePanel::setSortOrder(HostModel::SortOrder order)
 {
     if (m_sort_order == order)
@@ -1413,56 +1191,6 @@ void FilePanel::setShowDeleted(bool show) {
 
 bool FilePanel::allowPutFiles() const {
     return getMode() == panelMode::Host || dsk_tools::hasFlag(m_filesystem->getCaps(), dsk_tools::FSCaps::Add);
-}
-
-QString FilePanel::decodeError(const dsk_tools::Result & result)
-{
-    QString error;
-    switch (result.code) {
-        case dsk_tools::ErrorCode::Ok:
-            error = tr("No error");
-            break;
-        case dsk_tools::ErrorCode::NotImplementedYet:
-            error = tr("Not implemented yet");
-            break;
-        case dsk_tools::ErrorCode::FileAddErrorSpace:
-            error = tr("No enough free space");
-            break;
-        case dsk_tools::ErrorCode::FileAddErrorAllocateDirEntry:
-            error = tr("Can't allocate a directory entry");
-            break;
-        case dsk_tools::ErrorCode::FileAddErrorAllocateSector:
-            error = tr("Can't allocate a sector");
-            break;
-        case dsk_tools::ErrorCode::DirNotEmpty:
-            error = tr("Directory is not empty");
-            break;
-        case dsk_tools::ErrorCode::DirErrorSpace:
-            error = tr("No enough free space");
-            break;
-        case dsk_tools::ErrorCode::DirErrorAllocateDirEntry:
-            error = tr("Can't allocate a directory entry");
-            break;
-        case dsk_tools::ErrorCode::DirErrorAllocateSector:
-            error = tr("Can't allocate a sector");
-            break;
-        case dsk_tools::ErrorCode::FileAlreadyExists:
-            error = tr("File already exists");
-            break;
-        case dsk_tools::ErrorCode::DirAlreadyExists:
-            error = tr("Directory already exists");
-            break;
-        case dsk_tools::ErrorCode::DirError:
-            error = tr("Error creating a directory");
-            break;
-        default:
-            error = tr("Unknown error");
-            break;
-    }
-
-    if (!result.message.empty()) error += ": " + QString::fromStdString(result.message);
-
-    return error;
 }
 
 dsk_tools::Files FilePanel::getSelectedFiles() const {
@@ -1511,534 +1239,16 @@ dsk_tools::Files FilePanel::getSelectedFiles() const {
     return files;
 }
 
-void FilePanel::putFiles(dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy)
-{
-    const std::string std_format = format.toStdString();
-    foreach (const dsk_tools::UniversalFile & f, files) {
-        if (f.is_dir) {
-            if (f.name != "..") {
-                dsk_tools::UniversalFile new_dir;
-                const auto mkdir_result = m_filesystem->mkdir(f, new_dir);
-                if (mkdir_result) {
-                    // Getting files
-                    dsk_tools::Files dir_files;
-                    sourceFs->cd(f);
-                    sourceFs->dir(dir_files, false);
-                    sourceFs->cd_up();
-
-                    // Putting files
-                    m_filesystem->cd(new_dir);
-                    putFiles(sourceFs, dir_files, format, copy);
-                    m_filesystem->cd_up();
-                } else {
-                    const QMessageBox::StandardButton res = QMessageBox::critical(
-                        this,
-                        FilePanel::tr("Error"),
-                        FilePanel::tr("Error creating directory '%1': %2. Continue?").arg(QString::fromUtf8(f.name.c_str()), decodeError(mkdir_result)),
-                        QMessageBox::Yes | QMessageBox::No
-                    );
-                    if (res != QMessageBox::Yes) break;
-                }
-            }
-        } else {
-            dsk_tools::BYTES data;
-            auto get_result = sourceFs->get_file(f, std_format, data);
-            if (get_result) {
-                auto put_result = m_filesystem->put_file(f, std_format, data, false);
-                if (!put_result) {
-                    // Check if file already exists
-                    if (put_result.code == dsk_tools::ErrorCode::FileAlreadyExists) {
-                        const QMessageBox::StandardButton res = QMessageBox::question(
-                            this,
-                            FilePanel::tr("File exists"),
-                            FilePanel::tr("File '%1' already exists. Overwrite?").arg(QString::fromStdString(f.name)),
-                            QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel
-                        );
-
-                        if (res == QMessageBox::Yes) {
-                            // Retry with force_replace flag
-                            put_result = m_filesystem->put_file(f, std_format, data, true);
-                            if (!put_result) {
-                                QString error_message = decodeError(put_result);
-                                QMessageBox::critical(this,
-                                    FilePanel::tr("Error"),
-                                    FilePanel::tr("Error writing file '%1': %2")
-                                            .arg(QString::fromStdString(f.name), error_message)
-                                );
-                            }
-                        } else if (res == QMessageBox::Cancel) {
-                            // Stop all operations
-                            break;
-                        }
-                        // If No: continue to next file (implicit - loop continues)
-                    } else if (put_result.code == dsk_tools::ErrorCode::NotImplementedYet) {
-                        QMessageBox::critical(
-                            this,
-                            FilePanel::tr("Error"),
-                            FilePanel::tr("Writing for this type of file system is not implemented yet")
-                        );
-                        break;
-                    } else {
-                        QString error_message = decodeError(put_result);
-                        QMessageBox::critical(this,
-                            FilePanel::tr("Error"),
-                            FilePanel::tr("Error writing file '%1': %2")
-                                    .arg(QString::fromStdString(f.name), error_message)
-                        );
-                    }
-                }
-            } else {
-                QMessageBox::critical(
-                    this,
-                    FilePanel::tr("Error"),
-                    FilePanel::tr("Error reading file '%1'").arg(QString::fromStdString(f.name))
-                );
-            }
-        }
-    }
-    // refresh();
-}
-
-void FilePanel::deleteRecursively(const dsk_tools::UniversalFile & f)
-{
-    if (mode == panelMode::Host) {
-        // Extract full directory path from metadata
-        QString path_to_delete = QString::fromStdString(dsk_tools::bytesToString(f.metadata));
-
-        // Create QDir object and validate
-        QDir dir(path_to_delete);
-        if (!dir.exists()) {
-            QMessageBox::critical(
-                this,
-                FilePanel::tr("Error"),
-                FilePanel::tr("Directory '%1' not found").arg(path_to_delete)
-            );
-            return;
-        }
-
-        // Perform recursive deletion
-        bool success = false;
-
-        // Try trash first if enabled
-        if (dsk_tools::fsHost::use_recycle_bin && dsk_tools::fsHost::use_recycle_bin()) {
-            std::string path_std = dsk_tools::bytesToString(f.metadata);
-            if (utf8_trash(path_std) == 0) {
-                success = true;
-            } else {
-                // Trash failed - ask user
-                const QMessageBox::StandardButton reply_perm = QMessageBox::warning(
-                    this,
-                    FilePanel::tr("Recycle Bin Failed"),
-                    FilePanel::tr("Cannot move directory '%1' to recycle bin.\n\n"
-                                "Do you want to delete it permanently instead?\n\n"
-                                "Warning: This action cannot be undone!")
-                        .arg(QString::fromStdString(f.name)),
-                    QMessageBox::Yes | QMessageBox::No,
-                    QMessageBox::No
-                );
-
-                if (reply_perm == QMessageBox::Yes) {
-                    success = dir.removeRecursively();
-                }
-            }
-        } else {
-            // Recycle bin disabled - permanent deletion
-            success = dir.removeRecursively();
-        }
-
-        if (!success) {
-            QMessageBox::critical(
-                this,
-                FilePanel::tr("Error"),
-                FilePanel::tr("Error deleting directory '%1'").arg(QString::fromStdString(f.name))
-            );
-        }
-    } else {
-        // Image mode: not implemented yet
-        QMessageBox::information(
-            this,
-            FilePanel::tr("Not Implemented"),
-            FilePanel::tr("Recursive directory deletion in image mode is not yet implemented")
-        );
-    }
-}
-
-void FilePanel::deleteFiles()
-{
-    dsk_tools::Files files = getSelectedFiles();
-    if (!files.empty()) {
-        const QMessageBox::StandardButton reply_all = QMessageBox::question(this,
-                            FilePanel::tr("Deleting files"),
-                            FilePanel::tr("Delete %1 files?").arg(files.size()),
-                            QMessageBox::Yes|QMessageBox::No
-        );
-        if (reply_all == QMessageBox::Yes) {
-            bool recursively = false;
-            foreach (const dsk_tools::UniversalFile & f, files) {
-                if (f.is_dir) {
-                    if (!recursively) {
-                        const QMessageBox::StandardButton reply_dir = QMessageBox::question(this,
-                                            FilePanel::tr("Deleting directories"),
-                                            FilePanel::tr("'%1' is a directory. Delete it recursively?").arg(QString::fromUtf8(f.name.c_str())),
-                                            QMessageBox::Yes|QMessageBox::No
-                        );
-                        if (reply_dir == QMessageBox::Yes) {
-                            recursively = true;
-                            deleteRecursively(f);
-                        }
-                    } else {
-                        // User already confirmed recursive deletion for a previous directory
-                        deleteRecursively(f);
-                    }
-                } else {
-                    auto result = m_filesystem->delete_file(f);
-                    if (!result) {
-                        // Check if trash failed
-                        if (result.message == "TRASH_FAILED") {
-                            // Prompt user for permanent deletion
-                            const QMessageBox::StandardButton reply_perm = QMessageBox::warning(
-                                this,
-                                FilePanel::tr("Recycle Bin Failed"),
-                                FilePanel::tr("Cannot move '%1' to recycle bin.\n\n"
-                                            "Do you want to delete it permanently instead?\n\n"
-                                            "Warning: This action cannot be undone!")
-                                    .arg(QString::fromStdString(f.name)),
-                                QMessageBox::Yes | QMessageBox::No,
-                                QMessageBox::No
-                            );
-
-                            if (reply_perm == QMessageBox::Yes) {
-                                // Temporarily disable recycle bin and retry
-                                bool (*old_callback)() = dsk_tools::fsHost::use_recycle_bin;
-                                dsk_tools::fsHost::use_recycle_bin = nullptr;
-                                result = m_filesystem->delete_file(f);
-                                dsk_tools::fsHost::use_recycle_bin = old_callback;
-                            }
-                        }
-
-                        if (!result) {
-                            QMessageBox::critical(
-                                this,
-                                FilePanel::tr("Error"),
-                                FilePanel::tr("Error deleting file '%1'").arg(QString::fromStdString(f.name))
-                            );
-                        }
-                    }
-                }
-            }
-            refresh();
-        }
-    }
-}
-
-void FilePanel::onRename()
-{
-    if (!m_filesystem) return;
-
-    const dsk_tools::Files files = getSelectedFiles();
-
-    // Rename only works on single files
-    if (files.size() != 1) {
-        QMessageBox::information(this,
-                                FilePanel::tr("Rename"),
-                                FilePanel::tr("Please select exactly one file to rename."));
-        return;
-    }
-
-    const dsk_tools::UniversalFile & file = files[0];
-
-    // Don't allow renaming parent directory entry
-    if (file.name == "..") {
-        return;
-    }
-
-    QString old_name = QString::fromStdString(file.name);
-    bool ok{};
-    QString new_name = QInputDialog::getText(
-        this,
-        FilePanel::tr("Rename"),
-        FilePanel::tr("New name:"),
-        QLineEdit::Normal,
-        old_name,
-        &ok
-    );
-
-    if (ok && !new_name.isEmpty()) {
-        // Don't rename if the name hasn't changed
-        if (new_name == old_name) {
-            return;
-        }
-
-        auto result = m_filesystem->rename_file(file, new_name.toStdString());
-        if (!result) {
-            QMessageBox::critical(
-                this,
-                FilePanel::tr("Error"),
-                FilePanel::tr("Error renaming file '%1' to '%2': %3").arg(
-                    old_name,
-                    new_name,
-                    QString::fromStdString(decodeError(result).toStdString())
-                )
-            );
-        } else {
-            refresh();
-        }
-    }
-}
-
-// ============================================================================
-// Image menu operations
-// ============================================================================
-
-void FilePanel::showImageInfo()
-{
-    emit activated(this);
-
-    if (mode == panelMode::Host) {
-        // Host mode: show information about selected disk image file
-        QString path = currentFilePath();
-        if (path.isEmpty()) return;
-
-        QFileInfo fi(path);
-        if (fi.isDir()) return;
-
-        std::string file_name = _toStdString(fi.absoluteFilePath());
-        std::string type_id = "";
-        std::string filesystem_id = "";
-        std::string format_id = filterCombo->itemData(filterCombo->currentIndex()).toString().toStdString();
-
-        // Auto-detect format if necessary
-        if (format_id == "FILE_ANY") {
-            int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
-        }
-        if (type_id.size() == 0) {
-            type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
-        }
-
-        // Create appropriate loader
-        dsk_tools::Loader* loader = createLoader(file_name, format_id, type_id);
-
-        if (!loader) {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
-            return;
-        }
-
-        // Display info
-        showInfoDialog(loader->file_info());
-
-        delete loader;
-    } else {
-    }
-}
-
-void FilePanel::showFSInfo()
-{
-    emit activated(this);
-
-    if (mode == panelMode::Host) {
-    } else {
-        // Image mode: show information about currently loaded disk image
-        if (!m_image) return;
-        const std::string info = m_filesystem->information();
-        showInfoDialog(info);
-    }
-}
-
-dsk_tools::Loader* FilePanel::createLoader(const std::string& file_name,
-                                           const std::string& format_id,
-                                           const std::string& type_id)
-{
-    if (format_id == "FILE_RAW_MSB") {
-        return new dsk_tools::LoaderRAW(file_name, format_id, type_id);
-    } else if (format_id == "FILE_AIM") {
-        return new dsk_tools::LoaderAIM(file_name, format_id, type_id);
-    } else if (format_id == "FILE_MFM_NIC") {
-        return new dsk_tools::LoaderNIC(file_name, format_id, type_id);
-    } else if (format_id == "FILE_MFM_NIB") {
-        return new dsk_tools::LoaderNIB(file_name, format_id, type_id);
-    } else if (format_id == "FILE_HXC_MFM") {
-        return new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
-    } else if (format_id == "FILE_HXC_HFE") {
-        return new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
-    }
-    return nullptr;
-}
-
-void FilePanel::showInfoDialog(const std::string& info)
-{
-    QDialog* file_info = new QDialog(this);
-
-    Ui_FileInfo fileinfoUi;
-    fileinfoUi.setupUi(file_info);
-
-    QString text = replacePlaceholders(QString::fromStdString(info));
-    QFont font("Consolas", 10, 400);
-    fileinfoUi.textBox->setFont(font);
-    fileinfoUi.textBox->setPlainText(text);
-
-    file_info->exec();
-    delete file_info;
-}
-
-void FilePanel::saveImageWithBackup()
-{
-    if (mode == panelMode::Image && m_image) {
-        const bool use_backups = m_settings->value("files/make_backups_on_save", true).toBool();
-        if (m_current_format_id == "FILE_RAW_MSB") {
-            std::string file_name = m_image->file_name();
-            if (use_backups) {
-                QString qfile_name = QString::fromStdString(file_name);
-                if (QFile::exists(qfile_name)) {
-                    QFileInfo fileInfo(qfile_name);
-                    QString baseName = fileInfo.completeBaseName();
-                    QString suffix = fileInfo.suffix();
-                    QString dirPath = fileInfo.absolutePath();
-
-                    // Find first available backup number
-                    int backupNum = 1;
-                    QString backupName;
-                    while (true) {
-                        backupName = dirPath + "/" + baseName + "." + QString::number(backupNum);
-                        if (!suffix.isEmpty()) {
-                            backupName += "." + suffix;
-                        }
-
-                        if (!QFile::exists(backupName)) {
-                            break;
-                        }
-                        backupNum++;
-                    }
-
-                    // Rename old file to backup
-                    QFile::rename(qfile_name, backupName);
-                }
-            }
-            dsk_tools::Writer* writer = new dsk_tools::WriterRAW(m_current_format_id, m_image);
-            dsk_tools::BYTES buffer;
-            const int result = writer->write(buffer);
-            if (result == FDD_WRITE_OK) {
-                UTF8_ofstream file(file_name, std::ios::binary);
-                if (file.good()) {
-                    file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
-                    m_filesystem->reset_changed();
-                    updateImageStatusIndicator();
-                }
-            }
-            delete writer;
-        }
-    }
-}
-
 void FilePanel::saveImage()
 {
     emit activated(this);
-    if (mode == panelMode::Image
-        && m_filesystem
-        && m_filesystem->get_changed()
-        && m_current_format_id=="FILE_RAW_MSB")
-    {
-        saveImageWithBackup();
-    } else {
-        QMessageBox::critical(this, FilePanel::tr("Error"),
-    FilePanel::tr("Saving is not available or the uploaded image has not yet been modified."));
-    }
+    FileOperations::saveImage(this, this);
 }
 
 void FilePanel::saveImageAs()
 {
     emit activated(this);
-
-    if (mode != panelMode::Image || !m_image || !m_filesystem) {
-        QMessageBox::critical(this, FilePanel::tr("Error"),
-            FilePanel::tr("No disk image loaded"));
-        return;
-    }
-
-    QString type_id = typeCombo->itemData(typeCombo->currentIndex()).toString();
-    QString target_id;
-    QString output_file;
-    QString template_file;
-    int numtracks;
-    uint8_t volume_id;
-
-    ConvertDialog dialog(this, m_settings, &m_file_types, &m_file_formats, m_image, type_id, m_filesystem->get_volume_id());
-    if (dialog.exec(target_id, output_file, template_file, numtracks, volume_id) == QDialog::Accepted) {
-        dsk_tools::Writer* writer = nullptr;
-
-        std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
-
-        if (mfm_formats.find(target_id) != mfm_formats.end()) {
-            writer = new dsk_tools::WriterHxCMFM(target_id.toStdString(), m_image, volume_id);
-        } else if (target_id == "FILE_HXC_HFE") {
-            writer = new dsk_tools::WriterHxCHFE(target_id.toStdString(), m_image, volume_id);
-        } else if (target_id == "FILE_RAW_MSB") {
-            writer = new dsk_tools::WriterRAW(target_id.toStdString(), m_image);
-        } else {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Not implemented!"));
-            return;
-        }
-
-        dsk_tools::BYTES buffer;
-        int result = writer->write(buffer);
-
-        if (result != FDD_WRITE_OK) {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error generating file"));
-            delete writer;
-            return;
-        }
-
-        if (numtracks > 0) {
-            dsk_tools::BYTES tmplt;
-
-            UTF8_ifstream tf(template_file.toStdString(), std::ios::binary);
-            if (!tf.good()) {
-                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error opening template file"));
-                delete writer;
-                return;
-            }
-            tf.seekg(0, std::ios::end);
-            auto tfsize = tf.tellg();
-            tf.seekg(0, std::ios::beg);
-            tmplt.resize(tfsize);
-            tf.read(reinterpret_cast<char*>(tmplt.data()), tfsize);
-            if (!tf.good()) {
-                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error reading template file"));
-                delete writer;
-                return;
-            }
-
-            result = writer->substitute_tracks(buffer, tmplt, numtracks);
-            if (result != FDD_WRITE_OK) {
-                if (result == FDD_WRITE_INCORECT_TEMPLATE)
-                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("The selected template cannot be used - it must be the same type and size as the target."));
-                else if (result == FDD_WRITE_INCORECT_SOURCE)
-                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Incorrect source data for tracks replacement."));
-                else
-                    QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error inserting tracks from template"));
-                delete writer;
-                return;
-            }
-        }
-
-        UTF8_ofstream file(output_file.toStdString(), std::ios::binary);
-
-        if (file.good()) {
-            file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
-
-            // Reset the changed flag on successful save
-            if (m_filesystem) {
-                m_filesystem->reset_changed();
-                updateImageStatusIndicator();
-            }
-
-            QMessageBox::information(this, FilePanel::tr("Success"),
-                FilePanel::tr("File saved successfully"));
-        } else {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error writing file to disk"));
-        }
-
-        delete writer;
-    }
+    FileOperations::saveImageAs(this, this);
 }
 
 // ============================================================================
@@ -2143,3 +1353,12 @@ void FilePanel::onHistoryMenuTriggered(QAction* action) {
         setDirectory(data);
     }
 }
+
+QString FilePanel::getSelectedFormat() const {
+    return filterCombo->itemData(filterCombo->currentIndex()).toString();
+}
+
+QString FilePanel::getSelectedType() const {
+    return typeCombo->itemData(typeCombo->currentIndex()).toString();
+}
+

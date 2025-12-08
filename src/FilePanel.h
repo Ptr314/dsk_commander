@@ -13,7 +13,6 @@
 #include <QToolButton>
 #include <QMenu>
 #include <QDir>
-#include <QDateTime>
 #include <QSettings>
 #include <QStandardItemModel>
 
@@ -101,24 +100,34 @@ public:
     bool isIndexValid() const;
     bool allowPutFiles() const;
     dsk_tools::Files getSelectedFiles() const;
-    void putFiles(dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
-    void deleteFiles();
-    void deleteRecursively(const dsk_tools::UniversalFile & f);
+    // void putFiles(dsk_tools::fileSystem* sourceFs, const dsk_tools::Files & files, const QString & format, const bool copy);
 
     // Panel operations
-    void onView();
-    void onFileInfo();
-    void onEdit();
     void onGoUp();
-    void onMkDir();
-    void onRename();
     void chooseDirectory();
 
     // Image menu operations
-    void showImageInfo();      // Container Information...
-    void showFSInfo();        // Filesystem Information...
     void saveImage();          // Save (stub for now)
     void saveImageAs();        // Save as...
+
+    QString getSelectedFormat() const;
+    QString getSelectedType() const;
+    dsk_tools::Files& getFiles() {return m_files;};
+    dsk_tools::fileSystem* getFileSytem() {return m_filesystem;};
+    QSettings* getSettings() {return (m_settings);};
+    QModelIndex getCurrentIndex() const {return tableView->currentIndex();};
+    dsk_tools::diskImage* getImage() {return m_image;};
+    HostModel* getHostModel() {return host_model;};
+    const QJsonObject* getFileFormats() {return &m_file_formats;};
+    const QJsonObject* getFileTypes() {return &m_file_types;};
+    const QJsonObject* getFileSystems() {return &m_file_systems;};
+    std::string getLoadedFormat() {return m_current_format_id;};
+
+
+    void dir();
+    void setDirectory(const QString& path, bool restoreCursor = false);
+    int openImage(QString path);
+    void updateImageStatusIndicator() const;
 
 protected:
     void changeEvent(QEvent* event) override;
@@ -185,27 +194,16 @@ private:
     void setupPanel();
     void setupFilters();
     void populateFilterCombo();
-    void setDirectory(const QString& path, bool restoreCursor = false);
     bool eventFilter(QObject* obj, QEvent* ev) override;
-    void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
-    int openImage(QString path);
+
+    static void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
     void processImage(std::string filesystem_type);
     void updateTable();
     void setMode(panelMode new_mode);
-    void updateToolbarVisibility();
-    void dir();
-    static QString decodeError(const dsk_tools::Result & result);
-    void saveImageWithBackup();
-
-    // Helper methods for image info
-    dsk_tools::Loader* createLoader(const std::string& file_name,
-                                    const std::string& format_id,
-                                    const std::string& type_id);
-    void showInfoDialog(const std::string& info);
+    void updateToolbarVisibility() const;
 
     // Unsaved changes handling
     bool checkUnsavedChanges();
-    void updateImageStatusIndicator();
 
     // Directory history methods
     void loadDirectoryHistory();
