@@ -29,11 +29,6 @@ public:
 
 private:
     static void showInfoDialog(const std::string& info, QWidget* parent);
-
-    static std::unique_ptr<dsk_tools::Loader> createLoader(const std::string& file_name,
-                                    const std::string& format_id,
-                                    const std::string& type_id);
-
     static void deleteRecursively(FilePanel* panel, QWidget* parent, const dsk_tools::UniversalFile & f);
     static void putFiles(FilePanel* source, FilePanel* target, QWidget* parent, const dsk_tools::Files & files, const QString & format);
     static void saveImageWithBackup(FilePanel* panel);
