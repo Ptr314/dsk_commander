@@ -48,6 +48,7 @@ add_custom_target(update_translations
 set(PROJECT_SOURCES
         main.cpp
         mainutils.h                 mainutils.cpp
+        FileOperations.h            FileOperations.cpp
         placeholders.h
         mainwindow.h                mainwindow.cpp
         viewdialog.h                viewdialog.cpp          viewdialog.ui

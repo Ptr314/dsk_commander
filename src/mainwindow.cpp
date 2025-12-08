@@ -8,35 +8,22 @@
 
 #include <QTranslator>
 #include <QFileDialog>
-#include <QMessageBox>
 #include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
 #include <QJsonValue>
-#include <QFontDatabase>
-#include <QInputDialog>
 #include <QSplitter>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPushButton>
 #include <QMessageBox>
-#include <QInputDialog>
 #include <QDir>
-#include <QDirIterator>
-#include <QDesktopServices>
 #include <QUrl>
 #include <QStatusBar>
-#include <QToolButton>
 #include <QDebug>
 #include <QActionGroup>
-#include <QMenu>
 #include <QMenuBar>
 
 #include "mainwindow.h"
 #include "convertdialog.h"
 #include "fileparamdialog.h"
 #include "formatdialog.h"
-#include "viewdialog.h"
+#include "FileOperations.h"
 
 #include "./ui_aboutdlg.h"
 #include "./ui_fileinfodialog.h"
@@ -45,7 +32,6 @@
 #include "fs_host.h"
 
 #include "globals.h"
-#include "mainutils.h"
 
 #define INI_FILE_NAME "/dsk_com.ini"
 
@@ -323,23 +309,6 @@ void MainWindow::createActions() {
     actDelete = new QAction(this);
     actExit   = new QAction(this);
 
-    // actSave->setShortcut(Qt::Key_F2);
-    // actSave->setShortcutContext(Qt::WindowShortcut);
-    // actView->setShortcut(Qt::Key_F3);
-    // actView->setShortcutContext(Qt::WindowShortcut);
-    // actEdit->setShortcut(Qt::Key_F4);
-    // actEdit->setShortcutContext(Qt::WindowShortcut);
-    // actCopy->setShortcut(Qt::Key_F5);
-    // actCopy->setShortcutContext(Qt::WindowShortcut);
-    // actRename->setShortcut(Qt::Key_F6);
-    // actRename->setShortcutContext(Qt::WindowShortcut);
-    // actMkdir->setShortcut(Qt::Key_F7);
-    // actMkdir->setShortcutContext(Qt::WindowShortcut);
-    // actDelete->setShortcut(Qt::Key_F8);
-    // actDelete->setShortcutContext(Qt::WindowShortcut);
-    // actExit->setShortcut(Qt::Key_F10);
-    // actExit->setShortcutContext(Qt::WindowShortcut);
-
     connect(actHelp,   &QAction::triggered, this, &MainWindow::onAbout);
     connect(actSave,   &QAction::triggered, this, &MainWindow::onImageSave);
     connect(actView,   &QAction::triggered, this, &MainWindow::onView);
@@ -486,7 +455,6 @@ void MainWindow::initializeMainMenu() {
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
     menuViewAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("View"));
-    // menuViewAction->setShortcut(QKeySequence(Qt::Key_F3));
     connect(menuViewAction, &QAction::triggered, this, &MainWindow::onView);
 
     menuFileInfoAction = filesMenu->addAction(QIcon(":/icons/info"), MainWindow::tr("File Info"));
@@ -658,103 +626,38 @@ void MainWindow::updateViewButtonState() {
 
 void MainWindow::onView() {
     if (!activePanel) return;
-    activePanel->onView();
+    FileOperations::viewFile(activePanel, this);
 }
 
 void MainWindow::onFileInfo() {
     if (!activePanel) return;
-    activePanel->onFileInfo();
+    FileOperations::viewFileInfo(activePanel, this);
 }
 
 void MainWindow::onEdit() {
     if (!activePanel) return;
-    activePanel->onEdit();
+    FileOperations::editFile(activePanel, this);
 }
 
 void MainWindow::onCopy() {
-    doCopy(true);
+    FileOperations::copyFiles(activePanel, otherPanel(), this);
+    // doCopy(true);
 }
 
 void MainWindow::onRename()
 {
     if (!activePanel) return;
-    activePanel->onRename();
-}
-
-void MainWindow::doCopy(bool copy) {
-    if (!activePanel || !otherPanel()->allowPutFiles()) return;
-
-    if (otherPanel()->getFileSystem()->getFS() == dsk_tools::FS::Host && activePanel->getFileSystem()->getFS() != dsk_tools::FS::Host) {
-        // Extracting files to host. Need to ask for format
-        std::vector<std::string> formats = activePanel->getFileSystem()->get_save_file_formats();
-
-        QMap<QString, QString> fil_map;
-
-        foreach (const std::string & v, formats) {
-            QJsonObject fil = file_formats[QString::fromStdString(v)].toObject();
-            fil_map[QString::fromStdString(v)] = QCoreApplication::translate("config", fil["name"].toString().toUtf8().constData());
-        }
-
-
-        // Restore last used format from settings
-        const QString fs_string = QString::number(static_cast<int>(activePanel->getFileSystem()->getFS()));
-        const QString defaultFormat = settings->value("export/extract_format_"+fs_string, "").toString();
-
-        // Show format selection dialog
-        auto *dialog = new FormatDialog(this, fil_map,
-                                                defaultFormat,
-                                                MainWindow::tr("Selected files: %1").arg(activePanel->selectedCount()),
-                                                MainWindow::tr("Choose output file format:"),
-                                                MainWindow::tr("Choose the format"));
-        dialog->setWindowTitle(copy?MainWindow::tr("Copying files"):MainWindow::tr("Moving files"));
-
-        if (dialog->exec() == QDialog::Accepted) {
-            const QString selectedFormat = dialog->getSelectedFormat();
-
-            // Save selected format to settings for next time
-            settings->setValue("export/extract_format_"+fs_string, selectedFormat);
-
-            dsk_tools::Files files = activePanel->getSelectedFiles();
-            otherPanel()->putFiles(activePanel->getFileSystem(), files, selectedFormat, copy);
-            otherPanel()->refresh();
-
-            qDebug() << "User selected format:" << selectedFormat;
-        }
-
-        delete dialog;
-
-    } else {
-        // Moving files between FSs in other cases
-        QMessageBox::StandardButton reply;
-        if (copy) {
-            reply = QMessageBox::question(this,
-                                        MainWindow::tr("Copying files"),
-                                        MainWindow::tr("Copy %1 files?").arg(activePanel->selectedCount()),
-                                        QMessageBox::Yes|QMessageBox::No
-                    );
-        } else {
-            reply = QMessageBox::question(this,
-                                        MainWindow::tr("Moving files"),
-                                        MainWindow::tr("Move %1 files?").arg(activePanel->selectedCount()),
-                                        QMessageBox::Yes|QMessageBox::No
-                    );
-        }
-        if (reply == QMessageBox::Yes) {
-            dsk_tools::Files files = activePanel->getSelectedFiles();
-            otherPanel()->putFiles(activePanel->getFileSystem(), files, "", copy);
-            otherPanel()->refresh();
-        }
-    }
+    FileOperations::renameFile(activePanel, this);
 }
 
 void MainWindow::onMkdir() {
     if (!activePanel) return;
-    activePanel->onMkDir();
+    FileOperations::createDirectory(activePanel, this);
 }
 
 void MainWindow::onDelete() {
     if (!activePanel) return;
-    activePanel->deleteFiles();
+    FileOperations::deleteFiles(activePanel, this);
 }
 
 void MainWindow::onExit() {
@@ -842,25 +745,25 @@ FilePanel* MainWindow::otherPanel() const {
 void MainWindow::onImageInfo()
 {
     if (!activePanel) return;
-    activePanel->showImageInfo();
+    FileOperations::viewFile(activePanel, this);
 }
 
 void MainWindow::onFSInfo()
 {
     if (!activePanel) return;
-    activePanel->showFSInfo();
+    FileOperations::viewFilesystemInfo(activePanel, this);
 }
 
 void MainWindow::onImageSave()
 {
     if (!activePanel) return;
-    activePanel->saveImage();
+    FileOperations::saveImage(activePanel, this);
 }
 
 void MainWindow::onImageSaveAs()
 {
     if (!activePanel) return;
-    activePanel->saveImageAs();
+    FileOperations::saveImageAs(activePanel, this);
 }
 
 void MainWindow::updateImageMenuState() const

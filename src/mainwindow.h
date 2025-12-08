@@ -8,14 +8,9 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QFileSystemModel>
-#include <QStandardItemModel>
-#include <QSettings>
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QComboBox>
 #include <QTranslator>
-#include <QItemSelection>
-#include <QLabel>
 
 #include "FilePanel.h"
 
@@ -46,8 +41,6 @@ private slots:
     void onMkdir();
     void onDelete();
     void onExit();
-
-    void doCopy(bool copy);
 
     void setActivePanel(FilePanel* panel);
     void updateStatusBarInfo();
