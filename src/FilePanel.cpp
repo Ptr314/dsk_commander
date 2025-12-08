@@ -1383,7 +1383,9 @@ void FilePanel::restoreTableState()
     if (!tableView || !tableView->model() || m_tableStateStack.empty()) return;
 
     // Pop state from the stack
-    const auto [savedRow, savedScroll] = m_tableStateStack.back();
+    const auto savedState = m_tableStateStack.back();
+    const int savedRow = savedState.first;
+    const int savedScroll = savedState.second;
     m_tableStateStack.pop_back();
 
     // Restore current row if valid
