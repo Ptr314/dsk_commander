@@ -87,8 +87,8 @@ public:
     panelMode getMode() const { return mode; }
 
     // Filesystem getter
-    dsk_tools::fileSystem* getFileSystem() { return m_filesystem; }
-    const dsk_tools::fileSystem* getFileSystem() const { return m_filesystem; }
+    dsk_tools::fileSystem* getFileSystem() { return m_filesystem.get(); }
+    const dsk_tools::fileSystem* getFileSystem() const { return m_filesystem.get(); }
 
     // Selection model getter (for MainWindow signal connections)
     QItemSelectionModel* tableSelectionModel() const {
@@ -113,10 +113,10 @@ public:
     QString getSelectedFormat() const;
     QString getSelectedType() const;
     dsk_tools::Files& getFiles() {return m_files;};
-    dsk_tools::fileSystem* getFileSytem() {return m_filesystem;};
+    dsk_tools::fileSystem* getFileSytem() {return m_filesystem.get();};
     QSettings* getSettings() {return (m_settings);};
     QModelIndex getCurrentIndex() const {return tableView->currentIndex();};
-    dsk_tools::diskImage* getImage() {return m_image;};
+    dsk_tools::diskImage* getImage() {return m_image.get();};
     HostModel* getHostModel() {return host_model;};
     const QJsonObject* getFileFormats() {return &m_file_formats;};
     const QJsonObject* getFileTypes() {return &m_file_types;};
@@ -182,8 +182,8 @@ private:
     const QJsonObject & m_file_types;
     const QJsonObject & m_file_systems;
 
-    dsk_tools::diskImage * m_image {nullptr};
-    dsk_tools::fileSystem * m_filesystem {nullptr};
+    std::unique_ptr<dsk_tools::diskImage> m_image {nullptr};
+    std::unique_ptr<dsk_tools::fileSystem> m_filesystem {nullptr};
 
     // Loaded image metadata (Image mode only)
     std::string m_current_format_id;      // Physical format: "FILE_RAW_MSB", "FILE_AIM", "FILE_HXC_HFE", etc.
@@ -203,7 +203,7 @@ private:
     bool eventFilter(QObject* obj, QEvent* ev) override;
 
     static void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
-    void processImage(std::string filesystem_type);
+    void processImage(const std::string &filesystem_type);
     void updateTable();
     void setMode(panelMode new_mode);
     void updateToolbarVisibility() const;
