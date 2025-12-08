@@ -128,6 +128,9 @@ public:
     void setDirectory(const QString& path, bool restoreCursor = false);
     int openImage(QString path);
     void updateImageStatusIndicator() const;
+    void storeTableState();
+    void restoreTableState();
+
 
 protected:
     void changeEvent(QEvent* event) override;
@@ -191,6 +194,9 @@ private:
     HostModel::SortOrder m_sort_order {HostModel::SortOrder::NoOrder};
     bool m_sort_ascending {true};
 
+    // Table state storage stack (for preserving position during nested updates)
+    std::vector<std::pair<int, int>> m_tableStateStack;  // Stack of (row, scroll) pairs
+
     void setupPanel();
     void setupFilters();
     void populateFilterCombo();
@@ -210,5 +216,4 @@ private:
     void saveDirectoryHistory();
     void addToDirectoryHistory(const QString& path);
     void updateHistoryMenu();
-
 };

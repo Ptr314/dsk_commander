@@ -18,6 +18,7 @@
 #include <QDateTime>
 #include <memory>
 #include <fstream>
+#include <QScrollBar>
 
 #include "./ui_fileinfodialog.h"
 
@@ -1360,5 +1361,45 @@ QString FilePanel::getSelectedFormat() const {
 
 QString FilePanel::getSelectedType() const {
     return typeCombo->itemData(typeCombo->currentIndex()).toString();
+}
+
+void FilePanel::storeTableState()
+{
+    if (!tableView) return;
+
+    // Store current row index
+    const QModelIndex currentIdx = tableView->currentIndex();
+    const int row = currentIdx.isValid() ? currentIdx.row() : 0;
+
+    // Store vertical scroll bar position
+    const int scroll = tableView->verticalScrollBar() ? tableView->verticalScrollBar()->value() : 0;
+
+    // Push state onto the stack
+    m_tableStateStack.push_back({row, scroll});
+}
+
+void FilePanel::restoreTableState()
+{
+    if (!tableView || !tableView->model() || m_tableStateStack.empty()) return;
+
+    // Pop state from the stack
+    const auto [savedRow, savedScroll] = m_tableStateStack.back();
+    m_tableStateStack.pop_back();
+
+    // Restore current row if valid
+    const int maxRow = tableView->model()->rowCount() - 1;
+    if (maxRow >= 0) {
+        const int rowToRestore = std::min(savedRow, maxRow);
+        const QModelIndex index = tableView->model()->index(rowToRestore, 0);
+        if (index.isValid()) {
+            tableView->selectionModel()->clearSelection();
+            tableView->selectionModel()->setCurrentIndex(index, QItemSelectionModel::NoUpdate);
+        }
+    }
+
+    // Restore vertical scroll bar position
+    if (tableView->verticalScrollBar()) {
+        tableView->verticalScrollBar()->setValue(savedScroll);
+    }
 }
 
