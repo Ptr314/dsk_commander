@@ -560,7 +560,7 @@ void FileOperations::saveImageWithBackup(FilePanel* panel)
                 QFile::rename(qfile_name, backupName);
             }
         }
-        auto writer = std::make_unique<dsk_tools::WriterRAW>(current_format_id, image);
+        auto writer = dsk_tools::make_unique<dsk_tools::WriterRAW>(current_format_id, image);
         dsk_tools::BYTES buffer;
         const int result = writer->write(buffer);
         if (result == FDD_WRITE_OK) {
@@ -596,11 +596,11 @@ void FileOperations::saveImageAs(FilePanel* panel, QWidget* parent)
         std::set<QString> mfm_formats = {"FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"};
 
         if (mfm_formats.find(target_id) != mfm_formats.end()) {
-            writer = std::make_unique<dsk_tools::WriterHxCMFM>(target_id.toStdString(), image, volume_id);
+            writer = dsk_tools::make_unique<dsk_tools::WriterHxCMFM>(target_id.toStdString(), image, volume_id);
         } else if (target_id == "FILE_HXC_HFE") {
-            writer = std::make_unique<dsk_tools::WriterHxCHFE>(target_id.toStdString(), image, volume_id);
+            writer = dsk_tools::make_unique<dsk_tools::WriterHxCHFE>(target_id.toStdString(), image, volume_id);
         } else if (target_id == "FILE_RAW_MSB") {
-            writer = std::make_unique<dsk_tools::WriterRAW>(target_id.toStdString(), image);
+            writer = dsk_tools::make_unique<dsk_tools::WriterRAW>(target_id.toStdString(), image);
         } else {
             QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Not implemented!"));
             return;
