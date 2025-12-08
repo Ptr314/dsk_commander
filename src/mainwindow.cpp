@@ -777,6 +777,7 @@ void MainWindow::updateImageMenuState() const
     if (actSave) actSave->setEnabled(!is_host);
     if (actFSInfo) actFSInfo->setEnabled(!is_host);
 
+    const bool has_index = activePanel->getCurrentIndex().isValid();
 
     if (is_host) {
         if (activePanel->isIndexValid()) {
@@ -795,6 +796,9 @@ void MainWindow::updateImageMenuState() const
                 actImageOpen->setShortcut(QKeySequence(Qt::Key_F4));
             }
         } else {
+            if (actImageInfo) actImageInfo->setEnabled(false);
+            if (actImageOpen) actImageOpen->setEnabled(false);
+            if (actSave) actSave->setEnabled(false);
             if (actImageInfo) actImageInfo->setEnabled(false);
             if (actImageOpen) actImageOpen->setEnabled(false);
         }
@@ -819,10 +823,6 @@ void MainWindow::updateFileMenuState() const
     if (is_host) {
         actView->setText(MainWindow::tr("F3 Image Info"));
         actEdit->setText(MainWindow::tr("F4 Open"));
-
-        // if (menuEditAction) menuEditAction->setText(MainWindow::tr("Open"));
-
-        qDebug() << activePanel->currentFilePath();
     } else {
         if (actImageInfo) actImageInfo->setEnabled(false);
         // Image mode: F3 View, F4 Meta
@@ -839,7 +839,6 @@ void MainWindow::updateFileMenuState() const
         if (actImageOpen) actImageOpen->setShortcut(QKeySequence()); // Clears F3 on image functions
 
         if (menuEditAction) {
-            // menuEditAction->setText(MainWindow::tr("View"));
             menuEditAction->setShortcut(QKeySequence(Qt::Key_F4));
         }
     }
@@ -847,24 +846,32 @@ void MainWindow::updateFileMenuState() const
     const dsk_tools::FSCaps sourceCaps = activePanel->getFileSystem()->getCaps();
     const dsk_tools::FSCaps targetCaps = otherPanel()->getFileSystem()->getCaps();
 
+    const bool has_index = activePanel->isIndexValid();
+
+    //F3
+    actView->setEnabled(has_index);
+
+    // F4
+    actEdit->setEnabled(has_index);
+
     // F5
     const bool canCopy = hasFlag(targetCaps,dsk_tools::FSCaps::Add);
-    if (menuCopyAction) menuCopyAction->setEnabled(canCopy);
-    actCopy->setEnabled(canCopy);
+    if (menuCopyAction) menuCopyAction->setEnabled(canCopy && has_index);
+    actCopy->setEnabled(canCopy && has_index);
 
     //F6
     const bool canRename = hasFlag(sourceCaps,dsk_tools::FSCaps::Rename);
-    if (menuRenameAction) menuRenameAction->setEnabled(canRename);
-    actRename->setEnabled(canRename);
+    if (menuRenameAction) menuRenameAction->setEnabled(canRename && has_index);
+    actRename->setEnabled(canRename && has_index);
 
     //F7
     const bool canMkdir = hasFlag(sourceCaps,dsk_tools::FSCaps::MkDir);
-    if (menuMkdirAction) menuMkdirAction->setEnabled(canMkdir);
-    actMkdir->setEnabled(canMkdir);
+    if (menuMkdirAction) menuMkdirAction->setEnabled(canMkdir && has_index);
+    actMkdir->setEnabled(canMkdir && has_index);
 
     //F8
     const bool canDelete = hasFlag(sourceCaps,dsk_tools::FSCaps::Delete);
-    if (menuDeleteAction) menuDeleteAction->setEnabled(canDelete);
-    actDelete->setEnabled(canDelete);
+    if (menuDeleteAction) menuDeleteAction->setEnabled(canDelete && has_index);
+    actDelete->setEnabled(canDelete && has_index);
 
 }
