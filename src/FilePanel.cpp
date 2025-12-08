@@ -725,11 +725,11 @@ bool FilePanel::checkUnsavedChanges()
         this,
         FilePanel::tr("Unsaved Changes"),
         FilePanel::tr("The disk image has unsaved changes. Save before closing?"),
-        QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel,
-        QMessageBox::Save  // Default button
+        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
+        QMessageBox::Yes  // Default button
     );
 
-    if (result == QMessageBox::Save) {
+    if (result == QMessageBox::Save || result == QMessageBox::Yes) {
         // Save changes using ConvertDialog
         saveImageAs();
 
@@ -740,7 +740,7 @@ bool FilePanel::checkUnsavedChanges()
         }
         return true;
 
-    } else if (result == QMessageBox::Discard) {
+    } else if (result == QMessageBox::Discard || result == QMessageBox::No) {
         return true;  // Discard changes and proceed
 
     } else {  // Cancel
