@@ -30,7 +30,7 @@ public:
 private:
     static void showInfoDialog(const std::string& info, QWidget* parent);
 
-    static dsk_tools::Loader* createLoader(const std::string& file_name,
+    static std::unique_ptr<dsk_tools::Loader> createLoader(const std::string& file_name,
                                     const std::string& format_id,
                                     const std::string& type_id);
 

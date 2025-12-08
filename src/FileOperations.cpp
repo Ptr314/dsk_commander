@@ -81,7 +81,7 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
                 type_id = panel->getSelectedType().toStdString();
             }
             // Create appropriate loader
-            dsk_tools::Loader* loader = createLoader(file_name, format_id, type_id);
+            const std::unique_ptr<dsk_tools::Loader> loader = createLoader(file_name, format_id, type_id);
 
             if (!loader) {
                 QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
@@ -89,7 +89,6 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
             }
             // Display info
             showInfoDialog(loader->file_info(), parent);
-            delete loader;
         }
     } else {
         const QModelIndex index = panel->getCurrentIndex();
@@ -749,23 +748,16 @@ void FileOperations::showInfoDialog(const std::string& info, QWidget* parent)
     delete file_info;
 }
 
-dsk_tools::Loader* FileOperations::createLoader(const std::string& file_name,
+std::unique_ptr<dsk_tools::Loader> FileOperations::createLoader(const std::string& file_name,
                                            const std::string& format_id,
                                            const std::string& type_id)
 {
-    if (format_id == "FILE_RAW_MSB") {
-        return new dsk_tools::LoaderRAW(file_name, format_id, type_id);
-    } else if (format_id == "FILE_AIM") {
-        return new dsk_tools::LoaderAIM(file_name, format_id, type_id);
-    } else if (format_id == "FILE_MFM_NIC") {
-        return new dsk_tools::LoaderNIC(file_name, format_id, type_id);
-    } else if (format_id == "FILE_MFM_NIB") {
-        return new dsk_tools::LoaderNIB(file_name, format_id, type_id);
-    } else if (format_id == "FILE_HXC_MFM") {
-        return new dsk_tools::LoaderHXC_MFM(file_name, format_id, type_id);
-    } else if (format_id == "FILE_HXC_HFE") {
-        return new dsk_tools::LoaderHXC_HFE(file_name, format_id, type_id);
-    }
+    if (format_id == "FILE_RAW_MSB") return dsk_tools::make_unique<dsk_tools::LoaderRAW>(file_name, format_id, type_id);
+    if (format_id == "FILE_AIM")     return dsk_tools::make_unique<dsk_tools::LoaderAIM>(file_name, format_id, type_id);
+    if (format_id == "FILE_MFM_NIC") return dsk_tools::make_unique<dsk_tools::LoaderNIC>(file_name, format_id, type_id);
+    if (format_id == "FILE_MFM_NIB") return dsk_tools::make_unique<dsk_tools::LoaderNIB>(file_name, format_id, type_id);
+    if (format_id == "FILE_HXC_MFM") return dsk_tools::make_unique<dsk_tools::LoaderHXC_MFM>(file_name, format_id, type_id);
+    if (format_id == "FILE_HXC_HFE") return dsk_tools::make_unique<dsk_tools::LoaderHXC_HFE>(file_name, format_id, type_id);
     return nullptr;
 }
 
