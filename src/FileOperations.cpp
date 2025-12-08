@@ -291,6 +291,7 @@ void FileOperations::deleteFiles(FilePanel* panel, QWidget* parent)
     if (!filesystem) return;
 
     dsk_tools::Files files = panel->getSelectedFiles();
+    panel->storeTableState();
     if (!files.empty()) {
         const QMessageBox::StandardButton reply_all = QMessageBox::question(parent,
                             FilePanel::tr("Deleting files"),
@@ -352,6 +353,7 @@ void FileOperations::deleteFiles(FilePanel* panel, QWidget* parent)
                 }
             }
             panel->refresh();
+            panel->restoreTableState();
         }
     }
 }
