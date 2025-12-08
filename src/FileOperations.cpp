@@ -81,7 +81,7 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
                 type_id = panel->getSelectedType().toStdString();
             }
             // Create appropriate loader
-            const std::unique_ptr<dsk_tools::Loader> loader = createLoader(file_name, format_id, type_id);
+            const std::unique_ptr<dsk_tools::Loader> loader = dsk_tools::create_loader(file_name, format_id, type_id);
 
             if (!loader) {
                 QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
@@ -746,19 +746,6 @@ void FileOperations::showInfoDialog(const std::string& info, QWidget* parent)
 
     file_info->exec();
     delete file_info;
-}
-
-std::unique_ptr<dsk_tools::Loader> FileOperations::createLoader(const std::string& file_name,
-                                           const std::string& format_id,
-                                           const std::string& type_id)
-{
-    if (format_id == "FILE_RAW_MSB") return dsk_tools::make_unique<dsk_tools::LoaderRAW>(file_name, format_id, type_id);
-    if (format_id == "FILE_AIM")     return dsk_tools::make_unique<dsk_tools::LoaderAIM>(file_name, format_id, type_id);
-    if (format_id == "FILE_MFM_NIC") return dsk_tools::make_unique<dsk_tools::LoaderNIC>(file_name, format_id, type_id);
-    if (format_id == "FILE_MFM_NIB") return dsk_tools::make_unique<dsk_tools::LoaderNIB>(file_name, format_id, type_id);
-    if (format_id == "FILE_HXC_MFM") return dsk_tools::make_unique<dsk_tools::LoaderHXC_MFM>(file_name, format_id, type_id);
-    if (format_id == "FILE_HXC_HFE") return dsk_tools::make_unique<dsk_tools::LoaderHXC_HFE>(file_name, format_id, type_id);
-    return nullptr;
 }
 
 void FileOperations::putFiles(FilePanel* source, FilePanel* target, QWidget* parent, const dsk_tools::Files & files, const QString & format)
