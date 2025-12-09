@@ -155,10 +155,10 @@ void HostModel::populateModel() {
 
     // Sort directories and files separately
     auto sortByName = [this](const QFileInfo& a, const QFileInfo& b) {
-        return m_sortAsc ? QString::localeAwareCompare(a.fileName(), b.fileName()) < 0 : QString::localeAwareCompare(a.fileName(), b.fileName()) >= 0;
+        return m_sortAsc ? QString::localeAwareCompare(a.fileName(), b.fileName()) < 0 : QString::localeAwareCompare(a.fileName(), b.fileName()) > 0;
     };
     auto sortBySize = [this](const QFileInfo& a, const QFileInfo& b) {
-        return m_sortAsc ? a.size() < b.size() : a.size() >= b.size();
+        return m_sortAsc ? a.size() < b.size() : a.size() > b.size();
     };
 
     if (m_sortOrder == ByName) {
@@ -1050,10 +1050,10 @@ void FilePanel::dir()
 
         // Sort directories and files separately
         auto sortByName = [this](const dsk_tools::UniversalFile& a, const dsk_tools::UniversalFile& b) {
-            return m_sort_ascending? a.name<b.name : a.name>=b.name;
+            return m_sort_ascending? a.name<b.name : a.name>b.name;
         };
         auto sortBySize = [this](const dsk_tools::UniversalFile& a, const dsk_tools::UniversalFile& b) {
-            return m_sort_ascending? a.size<b.size : a.size>=b.size;
+            return m_sort_ascending? a.size<b.size : a.size>b.size;
         };
 
         if (getSortOrder() == HostModel::SortOrder::ByName) {
