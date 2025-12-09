@@ -75,10 +75,10 @@ MainWindow::MainWindow(QWidget *parent)
 #error "Unknown platform"
 #endif
 
-    settings = new QSettings(ini_file, QSettings::IniFormat);
+    settings = dsk_tools::make_unique<QSettings>(ini_file, QSettings::IniFormat);
 
     // Register callback for dsk_tools library to check recycle bin setting
-    g_mainwindow_settings = settings;
+    g_mainwindow_settings = settings.get();
     dsk_tools::fsHost::use_recycle_bin = check_use_recycle_bin;
 
     QString ini_lang = settings->value("interface/language", "").toString();
@@ -116,8 +116,8 @@ MainWindow::MainWindow(QWidget *parent)
     auto *layout = new QVBoxLayout(central);
     auto *splitter = new QSplitter(Qt::Horizontal, this);
 
-    leftPanel = new FilePanel(this, settings, "left", file_formats, file_types, file_systems);
-    rightPanel = new FilePanel(this, settings, "right", file_formats, file_types, file_systems);
+    leftPanel = new FilePanel(this, settings.get(), "left", file_formats, file_types, file_systems);
+    rightPanel = new FilePanel(this, settings.get(), "right", file_formats, file_types, file_systems);
 
     connect(leftPanel,  &FilePanel::activated, this, &MainWindow::setActivePanel);
     connect(rightPanel, &FilePanel::activated, this, &MainWindow::setActivePanel);
