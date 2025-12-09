@@ -188,8 +188,7 @@ FileTable::FileTable(QWidget* parent)
     viewport()->update();
 
     // Connect to current index changes to repaint affected rows
-    connect(selectionModel(), &QItemSelectionModel::currentChanged,
-            this, &FileTable::onCurrentIndexChanged);
+    reconnectSelectionModel();
 }
 
 void FileTable::setupForHostMode() {
@@ -214,7 +213,8 @@ void FileTable::setupForHostMode() {
 
     verticalHeader()->setDefaultSectionSize(24);
 
-    connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &FileTable::onCurrentIndexChanged);
+    // Reconnect selection model signals (new model was set in FilePanel)
+    reconnectSelectionModel();
 
     // setStyleSheet("");
 }
@@ -258,7 +258,8 @@ void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
     horizontalHeader()->setStretchLastSection(true);
     horizontalHeader()->setSectionsClickable(false);  // Disable click-to-sort on headers
 
-    connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &FileTable::onCurrentIndexChanged);
+    // Reconnect selection model signals (new model was set in FilePanel)
+    reconnectSelectionModel();
 
     // setStyleSheet("QTableView { border-color: #0000FF; padding: 5px;}");
 }
@@ -706,6 +707,23 @@ void FileTable::logSelectionState(const QString& context) {
         .arg(totalRows)
         .arg(m_isActive ? "yes" : "no"));
 #endif
+}
+
+void FileTable::reconnectSelectionModel() {
+    // Disconnect old connection if it exists
+    if (m_currentIndexChangedConnection) {
+        disconnect(m_currentIndexChangedConnection);
+    }
+
+    // Create new connection and store the handle for future disconnection
+    if (selectionModel()) {
+        m_currentIndexChangedConnection = connect(
+            selectionModel(),
+            &QItemSelectionModel::currentChanged,
+            this,
+            &FileTable::onCurrentIndexChanged
+        );
+    }
 }
 
 void FileTable::onCurrentIndexChanged(const QModelIndex& current, const QModelIndex& previous)
