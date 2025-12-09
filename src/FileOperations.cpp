@@ -474,6 +474,7 @@ void FileOperations::renameFile(FilePanel* panel, QWidget* parent)
             );
         } else {
             panel->refresh();
+            panel->highlight(new_name);
         }
     }
 }
