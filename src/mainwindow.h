@@ -63,7 +63,7 @@ private:
     QTranslator qtTranslator;
 
     QString directory;
-    QSettings * settings;
+    std::unique_ptr<QSettings> settings;
     QFileSystemModel leftFilesModel;
     QStandardItemModel rightFilesModel;
 
