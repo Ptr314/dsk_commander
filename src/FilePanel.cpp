@@ -1402,3 +1402,37 @@ void FilePanel::restoreTableState()
     }
 }
 
+void FilePanel::highlight(const QString& title)
+{
+    if (!tableView || !tableView->model()) return;
+
+    const auto model = qobject_cast<QStandardItemModel*>(tableView->model());
+    if (!model) return;
+
+    // The first one for host and the last one for image
+    const int column = getMode()==panelMode::Host ? 0 : model->columnCount() - 1;
+
+    // Search through all rows to find a matching title
+    for (int row = 0; row < model->rowCount(); ++row) {
+        // Get the last item in the row (which is always the name item)
+        const auto nameItem = model->item(row, column);
+        if (!nameItem) continue;
+
+        QString itemText = nameItem->text();
+
+        // For image mode, directories have brackets like "[dirname]"
+        // For comparing, we need to handle both plain names and bracketed names
+        const QString plainTitle = title;
+        const QString bracketedTitle = "[" + title + "]";
+
+        if (itemText == plainTitle || itemText == bracketedTitle) {
+            // Found a match, set it as current
+            const QModelIndex index = model->index(row, model->columnCount() - 1);
+            if (index.isValid()) {
+                tableView->selectionModel()->setCurrentIndex(index, QItemSelectionModel::NoUpdate);
+                return;
+            }
+        }
+    }
+}
+

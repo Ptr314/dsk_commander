@@ -130,6 +130,7 @@ public:
     void updateImageStatusIndicator() const;
     void storeTableState();
     void restoreTableState();
+    void highlight(const QString& title);
 
 
 protected:

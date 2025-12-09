@@ -500,6 +500,7 @@ void FileOperations::createDirectory(FilePanel* panel, QWidget* parent)
                 QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Error creating directory: ") + decodeError(res));
             }
             panel->refresh();
+            panel->highlight(text);
         }
     }
     panel->updateImageStatusIndicator();
