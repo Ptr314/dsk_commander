@@ -119,9 +119,9 @@ void FileOperations::openItem(FilePanel* panel, QWidget* parent, const QModelInd
         if (info.isDir()) {
             panel->setDirectory(path);
         } else {
-            int res = panel->openImage(path);
-            if (res != 0 ) {
-                QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Can't detect type of the file automatically"));
+            auto res = panel->openImage(path);
+            if (!res) {
+                QMessageBox::critical(parent, FilePanel::tr("Error"), decodeError(res));
             }
         }
     } else {
@@ -563,8 +563,8 @@ void FileOperations::saveImageWithBackup(FilePanel* panel)
         }
         auto writer = dsk_tools::make_unique<dsk_tools::WriterRAW>(current_format_id, image);
         dsk_tools::BYTES buffer;
-        const int result = writer->write(buffer);
-        if (result == FDD_WRITE_OK) {
+        dsk_tools::Result result = writer->write(buffer);
+        if (result) {
             UTF8_ofstream file(file_name, std::ios::binary);
             if (file.good()) {
                 file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
@@ -617,10 +617,10 @@ void FileOperations::saveImageAs(FilePanel* panel, QWidget* parent)
         }
 
         dsk_tools::BYTES buffer;
-        int result = writer->write(buffer);
+        dsk_tools::Result result = writer->write(buffer);
 
-        if (result != FDD_WRITE_OK) {
-            QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Error generating file"));
+        if (!result) {
+            QMessageBox::critical(parent, FilePanel::tr("Error"), FileOperations::decodeError(result));
             return;
         }
 
@@ -643,13 +643,13 @@ void FileOperations::saveImageAs(FilePanel* panel, QWidget* parent)
             }
 
             result = writer->substitute_tracks(buffer, tmplt, numtracks);
-            if (result != FDD_WRITE_OK) {
-                if (result == FDD_WRITE_INCORECT_TEMPLATE)
+            if (!result) {
+                if (result.code == dsk_tools::ErrorCode::WriteIncorrectTemplate)
                     QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("The selected template cannot be used - it must be the same type and size as the target."));
-                else if (result == FDD_WRITE_INCORECT_SOURCE)
+                else if (result.code == dsk_tools::ErrorCode::WriteIncorrectSource)
                     QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Incorrect source data for tracks replacement."));
                 else
-                    QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Error inserting tracks from template"));
+                    QMessageBox::critical(parent, FilePanel::tr("Error"), FileOperations::decodeError(result));
                 return;
             }
         }
@@ -712,6 +712,15 @@ QString FileOperations::decodeError(const dsk_tools::Result& result)
             break;
         case dsk_tools::ErrorCode::DirError:
             error = QCoreApplication::translate("FilePanel", "Error creating a directory");
+            break;
+        case dsk_tools::ErrorCode::OpenNotLoaded:
+            error = QCoreApplication::translate("FilePanel", "Image file is not loaded");
+            break;
+        case dsk_tools::ErrorCode::OpenBadFormat:
+            error = QCoreApplication::translate("FilePanel", "Unrecognized disk format or disk is damaged");
+            break;
+        case dsk_tools::ErrorCode::LoadError:
+            error = QCoreApplication::translate("FilePanel", "Error loading disk image file");
             break;
         default:
             error = QCoreApplication::translate("FilePanel", "Unknown error");

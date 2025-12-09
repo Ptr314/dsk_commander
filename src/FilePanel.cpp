@@ -807,7 +807,7 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
     FileOperations::openItem(this, this, index);
 }
 
-int FilePanel::openImage(QString path)
+dsk_tools::Result FilePanel::openImage(QString path)
 {
     // Detecting formats if necessary
     std::string format_id;
@@ -819,7 +819,10 @@ int FilePanel::openImage(QString path)
     const QString selected_format = filterCombo->itemData(filterCombo->currentIndex()).toString();
     if (autoCheck->isChecked()) {
         const auto res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
-        if (!res) return -1;
+        if (!res) {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(res));
+            return res;
+        }
 
         setComboBoxByItemData(filterCombo, (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"");
         setComboBoxByItemData(typeCombo, QString::fromStdString(type_id));
@@ -847,21 +850,20 @@ int FilePanel::openImage(QString path)
 
     if (m_image != nullptr) {
         const auto check_result = m_image->check();
-        if (check_result) {
-            const auto load_result = m_image->load();
-            if (load_result) {
-                processImage(filesystem_id);
-            } else {
-                QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("File loading error. Check your disk type settings or try auto-detection."));
-                return FDD_LOAD_ERROR;
-            }
-        } else {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error checking file parameters"));
-            return FDD_LOAD_ERROR;
+        if (!check_result) {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(check_result));
+            return check_result;
         }
+
+        const auto load_result = m_image->load();
+        if (!load_result) {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(load_result));
+            return load_result;
+        }
+
+        processImage(filesystem_id);
     } else {
-        QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Error preparing image data"));
-        return FDD_LOAD_ERROR;
+        return dsk_tools::Result::error(dsk_tools::ErrorCode::LoadError, "Failed to prepare image");
     }
 
     // Store loaded image metadata for later use (e.g., Save to original format)
@@ -871,17 +873,17 @@ int FilePanel::openImage(QString path)
 
     updateImageStatusIndicator();
 
-    return FDD_LOAD_OK;
+    return dsk_tools::Result::ok();
 }
 
 void FilePanel::processImage(const std::string &filesystem_type)
 {
     m_filesystem = dsk_tools::prepare_filesystem(m_image.get(), filesystem_type);
     if (m_filesystem != nullptr) {
-        int open_res = m_filesystem->open();
+        auto open_res = m_filesystem->open();
 
-        if (open_res != FDD_OPEN_OK) {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("Unrecognized disk format or disk is damaged!"));
+        if (!open_res) {
+            QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(open_res));
             return;
         }
 

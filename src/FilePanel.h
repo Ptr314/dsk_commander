@@ -126,7 +126,7 @@ public:
 
     void dir();
     void setDirectory(const QString& path, bool restoreCursor = false);
-    int openImage(QString path);
+    dsk_tools::Result openImage(QString path);
     void updateImageStatusIndicator() const;
     void storeTableState();
     void restoreTableState();
