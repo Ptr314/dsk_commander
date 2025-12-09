@@ -395,6 +395,7 @@ void MainWindow::initializeMainMenu() {
     connect(leftGoUp, &QAction::triggered, this, [this]() { onGoUp(leftPanel); });
 
     QAction *leftOpenDir = leftMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Open directory..."));
+    leftOpenDir->setShortcut(QKeySequence(Qt::ALT | Qt::Key_F1));
     connect(leftOpenDir, &QAction::triggered, this, [this]() { onOpenDirectory(leftPanel); });
 
     leftMenu->addSeparator();
@@ -541,6 +542,7 @@ void MainWindow::initializeMainMenu() {
     connect(rightGoUp, &QAction::triggered, this, [this]() { onGoUp(rightPanel); });
 
     QAction *rightOpenDir = rightMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Open directory..."));
+    rightOpenDir->setShortcut(QKeySequence(Qt::ALT | Qt::Key_F2));
     connect(rightOpenDir, &QAction::triggered, this, [this]() { onOpenDirectory(rightPanel); });
 
     rightMenu->addSeparator();
