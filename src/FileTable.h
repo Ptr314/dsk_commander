@@ -92,4 +92,8 @@ private:
 
     // Debug logging helper
     void logSelectionState(const QString& context);
+
+    // Signal-slot connection management
+    QMetaObject::Connection m_currentIndexChangedConnection;
+    void reconnectSelectionModel();
 };
