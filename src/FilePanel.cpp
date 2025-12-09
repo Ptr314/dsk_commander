@@ -845,7 +845,6 @@ int FilePanel::openImage(QString path)
 
     image_model->removeRows(0, image_model->rowCount());
 
-    // if (m_image != nullptr) delete m_image;
     m_image = dsk_tools::prepare_image(file_name, format_id, type_id);
 
     if (m_image != nullptr) {
@@ -879,7 +878,6 @@ int FilePanel::openImage(QString path)
 
 void FilePanel::processImage(const std::string &filesystem_type)
 {
-    // if (m_filesystem != nullptr) delete m_filesystem;
     m_filesystem = dsk_tools::prepare_filesystem(m_image.get(), filesystem_type);
     if (m_filesystem != nullptr) {
         int open_res = m_filesystem->open();
@@ -916,7 +914,6 @@ void FilePanel::setMode(panelMode new_mode)
 
         tableView->setModel(host_model);
         tableView->setupForHostMode();
-        // if (m_filesystem != nullptr) delete m_filesystem;
         m_filesystem = dsk_tools::make_unique<dsk_tools::fsHost>(nullptr);
     } else {
         tableView->setModel(image_model);
