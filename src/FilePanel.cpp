@@ -814,25 +814,23 @@ int FilePanel::openImage(QString path)
     std::string type_id;
     std::string filesystem_id;
 
-    QFileInfo fileInfo(path);
-    std::string file_name = _toStdString(fileInfo.absoluteFilePath());
-    QString selected_format = filterCombo->itemData(filterCombo->currentIndex()).toString();
+    const QFileInfo fileInfo(path);
+    const std::string file_name = _toStdString(fileInfo.absoluteFilePath());
+    const QString selected_format = filterCombo->itemData(filterCombo->currentIndex()).toString();
     if (autoCheck->isChecked()) {
-        int res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
-        if (res != FDD_DETECT_OK ) {
-            return res;
-        } else {
-            setComboBoxByItemData(filterCombo, (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"");
-            setComboBoxByItemData(typeCombo, QString::fromStdString(type_id));
-            setComboBoxByItemData(fsCombo, QString::fromStdString(filesystem_id));
-        }
+        const auto res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
+        if (!res) return -1;
+
+        setComboBoxByItemData(filterCombo, (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"");
+        setComboBoxByItemData(typeCombo, QString::fromStdString(type_id));
+        setComboBoxByItemData(fsCombo, QString::fromStdString(filesystem_id));
     } else {
         type_id = "";
         filesystem_id = "";
         if (selected_format != "FILE_ANY") {
             format_id = filterCombo->itemData(filterCombo->currentIndex()).toString().toStdString();
         } else {
-            dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+            dsk_tools::Result res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
             type_id = "";
             filesystem_id = "";
         };
@@ -848,10 +846,10 @@ int FilePanel::openImage(QString path)
     m_image = dsk_tools::prepare_image(file_name, format_id, type_id);
 
     if (m_image != nullptr) {
-        auto check_result = m_image->check();
-        if (check_result == FDD_LOAD_OK) {
-            auto load_result = m_image->load();
-            if (load_result == FDD_LOAD_OK) {
+        const auto check_result = m_image->check();
+        if (check_result) {
+            const auto load_result = m_image->load();
+            if (load_result) {
                 processImage(filesystem_id);
             } else {
                 QMessageBox::critical(this, FilePanel::tr("Error"), FilePanel::tr("File loading error. Check your disk type settings or try auto-detection."));

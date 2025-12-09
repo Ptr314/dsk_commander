@@ -75,7 +75,7 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
             std::string format_id = panel->getSelectedFormat().toStdString();
             // Auto-detect format if necessary
             if (format_id == "FILE_ANY") {
-                dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+                dsk_tools::Result res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
             }
             if (type_id.empty()) {
                 type_id = panel->getSelectedType().toStdString();
