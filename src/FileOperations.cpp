@@ -274,7 +274,7 @@ void FileOperations::copyFiles(FilePanel* source, FilePanel* target, QWidget* pa
             source->getSettings()->setValue("export/extract_format_"+fs_string, selectedFormat);
 
             const dsk_tools::Files files = source->getSelectedFiles();
-            putFiles(source, target, parent, files, selectedFormat);
+            putFiles(source, target, parent, files, selectedFormat, 0);
             target->refresh();
             source->clearSelection();
 
@@ -294,7 +294,7 @@ void FileOperations::copyFiles(FilePanel* source, FilePanel* target, QWidget* pa
 
         if (reply == QMessageBox::Yes) {
             const dsk_tools::Files files = source->getSelectedFiles();
-            putFiles(source, target, parent, files, "");
+            putFiles(source, target, parent, files, "", 0);
             target->refresh();
             source->clearSelection();
         }
@@ -777,12 +777,12 @@ void FileOperations::showInfoDialog(const std::string& info, QWidget* parent)
     delete file_info;
 }
 
-void FileOperations::putFiles(FilePanel* source, FilePanel* target, QWidget* parent, const dsk_tools::Files & files, const QString & format)
+void FileOperations::putFiles(FilePanel* source, FilePanel* target, QWidget* parent, const dsk_tools::Files & files, const QString & format, const int recursion)
 {
     dsk_tools::fileSystem* sourceFs = source->getFileSystem();
     dsk_tools::fileSystem* targetFs = target->getFileSystem();
 
-    if (!sourceFs || !targetFs || !target->allowPutFiles()) return;
+    if (!sourceFs || !targetFs || !target->allowPutFiles() || recursion > 10) return;
    const std::string std_format = format.toStdString();
     foreach (const dsk_tools::UniversalFile & f, files) {
         if (f.is_dir) {
@@ -798,7 +798,7 @@ void FileOperations::putFiles(FilePanel* source, FilePanel* target, QWidget* par
 
                     // Putting files
                     targetFs->cd(new_dir);
-                    putFiles(source, target, parent, dir_files, format);
+                    putFiles(source, target, parent, dir_files, format, recursion+1);
 
                     // Both return
                     sourceFs->cd_up();
