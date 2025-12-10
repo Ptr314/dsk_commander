@@ -132,6 +132,7 @@ public:
     void restoreTableState();
     void clearTableState();
     void highlight(const QString& title);
+    void clearSelection() const;
 
 
 protected:

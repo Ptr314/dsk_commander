@@ -276,6 +276,7 @@ void FileOperations::copyFiles(FilePanel* source, FilePanel* target, QWidget* pa
             const dsk_tools::Files files = source->getSelectedFiles();
             putFiles(source, target, parent, files, selectedFormat);
             target->refresh();
+            source->clearSelection();
 
             // qDebug() << "User selected format:" << selectedFormat;
         }
@@ -295,6 +296,7 @@ void FileOperations::copyFiles(FilePanel* source, FilePanel* target, QWidget* pa
             const dsk_tools::Files files = source->getSelectedFiles();
             putFiles(source, target, parent, files, "");
             target->refresh();
+            source->clearSelection();
         }
     }
 }

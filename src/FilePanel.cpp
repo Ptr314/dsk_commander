@@ -1386,10 +1386,9 @@ void FilePanel::highlight(const QString& title)
 
         // For image mode, directories have brackets like "[dirname]"
         // For comparing, we need to handle both plain names and bracketed names
-        const QString plainTitle = title;
         const QString bracketedTitle = "[" + title + "]";
 
-        if (itemText == plainTitle || itemText == bracketedTitle) {
+        if (itemText == title || itemText == bracketedTitle) {
             // Found a match, set it as current
             const QModelIndex index = model->index(row, model->columnCount() - 1);
             if (index.isValid()) {
@@ -1400,3 +1399,6 @@ void FilePanel::highlight(const QString& title)
     }
 }
 
+void FilePanel::clearSelection() const {
+    tableView->clearSelection();
+}
