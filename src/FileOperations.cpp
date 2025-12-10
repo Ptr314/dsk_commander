@@ -196,21 +196,30 @@ void FileOperations::editFile(FilePanel* panel, QWidget* parent)
             openItem(panel, parent, index);
         } else {
             // In image mode edit metadata
-            auto filesystem = panel->getFileSystem();
-            auto f = panel->getFiles()[index.row()];
-            std::vector<dsk_tools::ParameterDescription> params = filesystem->file_get_metadata(f);
+            const dsk_tools::FSCaps funcs = panel->getFileSystem()->get_caps();
+            if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Metadata)) {
+                auto filesystem = panel->getFileSystem();
+                auto f = panel->getFiles()[index.row()];
+                std::vector<dsk_tools::ParameterDescription> params = filesystem->file_get_metadata(f);
 
-            for (auto & param : params) {
-                param.name = replacePlaceholders(QString::fromStdString(param.name)).toStdString();
-            }
+                for (auto & param : params) {
+                    param.name = replacePlaceholders(QString::fromStdString(param.name)).toStdString();
+                }
 
-            FileParamDialog dialog(params);
-            if (dialog.exec() == QDialog::Accepted) {
-                const auto values = dialog.getParameters();
-                filesystem->file_set_metadata(f, values);
-                panel->storeTableState();
-                panel->dir();
-                panel->restoreTableState();
+                FileParamDialog dialog(params);
+                if (dialog.exec() == QDialog::Accepted) {
+                    const auto values = dialog.getParameters();
+                    filesystem->file_set_metadata(f, values);
+                    panel->storeTableState();
+                    panel->dir();
+                    panel->restoreTableState();
+                }
+            } else {
+                QMessageBox::critical(
+                                parent,
+                            FilePanel::tr("Error"),
+                            FilePanel::tr("Metadata modification for this file system is not yet implemented.")
+                );
             }
         }
         panel->updateImageStatusIndicator();
@@ -234,7 +243,7 @@ void FileOperations::copyFiles(FilePanel* source, FilePanel* target, QWidget* pa
 
     if (!sourceFs || !targetFs || !target->allowPutFiles()) return;
 
-    if (targetFs->getFS() == dsk_tools::FS::Host && sourceFs->getFS() != dsk_tools::FS::Host) {
+    if (targetFs->get_fs() == dsk_tools::FS::Host && sourceFs->get_fs() != dsk_tools::FS::Host) {
         // Extracting files to host. Need to ask for format
         std::vector<std::string> formats = sourceFs->get_save_file_formats();
 
@@ -247,7 +256,7 @@ void FileOperations::copyFiles(FilePanel* source, FilePanel* target, QWidget* pa
 
 
         // Restore last used format from settings
-        const QString fs_string = QString::number(static_cast<int>(sourceFs->getFS()));
+        const QString fs_string = QString::number(static_cast<int>(sourceFs->get_fs()));
         const QString defaultFormat = source->getSettings()->value("export/extract_format_"+fs_string, "").toString();
 
         // Show format selection dialog
@@ -492,7 +501,7 @@ void FileOperations::createDirectory(FilePanel* panel, QWidget* parent)
     dsk_tools::fileSystem* filesystem = panel->getFileSystem();
     if (!filesystem) return;
 
-    const dsk_tools::FSCaps funcs = filesystem->getCaps();
+    const dsk_tools::FSCaps funcs = filesystem->get_caps();
 
     if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::MkDir)) {
         bool ok{};

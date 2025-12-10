@@ -817,10 +817,13 @@ void MainWindow::updateFileMenuState() const
     if (!activePanel) return;
 
     const bool is_host = activePanel->getMode() == panelMode::Host;
+    const dsk_tools::FSCaps sourceCaps = activePanel->getFileSystem()->get_caps();
+    const dsk_tools::FSCaps targetCaps = otherPanel()->getFileSystem()->get_caps();
+    const bool has_metadata = dsk_tools::hasFlag(sourceCaps, dsk_tools::FSCaps::Metadata);
 
     if (menuViewAction) menuViewAction->setEnabled(!is_host);
     if (menuFileInfoAction) menuFileInfoAction->setEnabled(!is_host);
-    if (menuEditAction) menuEditAction->setEnabled(!is_host);
+    if (menuEditAction) menuEditAction->setEnabled(!is_host && has_metadata);
 
     if (is_host) {
         actView->setText(MainWindow::tr("F3 Image Info"));
@@ -845,16 +848,13 @@ void MainWindow::updateFileMenuState() const
         }
     }
 
-    const dsk_tools::FSCaps sourceCaps = activePanel->getFileSystem()->getCaps();
-    const dsk_tools::FSCaps targetCaps = otherPanel()->getFileSystem()->getCaps();
-
     const bool has_index = activePanel->isIndexValid();
 
     //F3
     actView->setEnabled(has_index);
 
     // F4
-    actEdit->setEnabled(has_index);
+    actEdit->setEnabled(has_index && (is_host || has_metadata));
 
     // F5
     const bool canCopy = hasFlag(targetCaps,dsk_tools::FSCaps::Add);

@@ -549,7 +549,7 @@ void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     tableView->setRootIndex(QModelIndex());  // QStandardItemModel doesn't use root index
 
     // Update filesystem if it's an fsHost instance
-    if (m_filesystem && m_filesystem->getFS() == dsk_tools::FS::Host) {
+    if (m_filesystem && m_filesystem->get_fs() == dsk_tools::FS::Host) {
         m_filesystem->cd(_toStdString(currentPath));
     }
 
@@ -870,7 +870,7 @@ void FilePanel::setMode(panelMode new_mode)
         m_filesystem = dsk_tools::make_unique<dsk_tools::fsHost>(nullptr);
     } else {
         tableView->setModel(image_model);
-        tableView->setupForImageMode(m_filesystem->getCaps());
+        tableView->setupForImageMode(m_filesystem->get_caps());
     }
     emit panelModeChanged(mode);
 }
@@ -908,7 +908,7 @@ void FilePanel::updateToolbarVisibility() const
 
 void FilePanel::updateTable()
 {
-    const dsk_tools::FSCaps funcs = m_filesystem->getCaps();
+    const dsk_tools::FSCaps funcs = m_filesystem->get_caps();
 
     image_model->removeRows(0, image_model->rowCount());
 
@@ -1141,7 +1141,7 @@ void FilePanel::setShowDeleted(bool show) {
 }
 
 bool FilePanel::allowPutFiles() const {
-    return getMode() == panelMode::Host || dsk_tools::hasFlag(m_filesystem->getCaps(), dsk_tools::FSCaps::Add);
+    return getMode() == panelMode::Host || dsk_tools::hasFlag(m_filesystem->get_caps(), dsk_tools::FSCaps::Add);
 }
 
 dsk_tools::Files FilePanel::getSelectedFiles() const {
