@@ -543,12 +543,6 @@ void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     QDir dir(path);
     if (!dir.exists()) return;
 
-    QString oldDirName;
-    if (restoreCursor && !m_lastDirName.isEmpty()) {
-        oldDirName = m_lastDirName;
-        m_lastDirName.clear();
-    }
-
     currentPath = dir.absolutePath();
     dirEdit->setText(currentPath);
     host_model->setRootPath(currentPath);
@@ -557,34 +551,6 @@ void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     // Update filesystem if it's an fsHost instance
     if (m_filesystem && m_filesystem->getFS() == dsk_tools::FS::Host) {
         m_filesystem->cd(_toStdString(currentPath));
-    }
-
-    // Restore cursor position or set to first item
-    if (!oldDirName.isEmpty()) {
-        // Search for the directory we came from
-        for (int row = 0; row < host_model->rowCount(); ++row) {
-            QModelIndex idx = host_model->index(row, 0);
-            QString displayName = host_model->data(idx, Qt::DisplayRole).toString();
-            // Remove brackets from directory name: [dirname] -> dirname
-            if (displayName.startsWith("[") && displayName.endsWith("]")) {
-                QString dirName = displayName.mid(1, displayName.length() - 2);
-                if (dirName == oldDirName && dirName != "..") {
-                    // Clear selection and set cursor without selecting
-                    tableView->selectionModel()->clearSelection();
-                    tableView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
-                    tableView->scrollTo(idx);
-                    break;
-                }
-            }
-        }
-    } else {
-        // Default: set cursor to first item
-        QModelIndex firstIndex = host_model->index(0, 0);
-        if (firstIndex.isValid()) {
-            // Clear selection and set cursor without selecting
-            tableView->selectionModel()->clearSelection();
-            tableView->selectionModel()->setCurrentIndex(firstIndex, QItemSelectionModel::NoUpdate);
-        }
     }
 
     m_settings->setValue("directory/"+m_ini_label, currentPath);
@@ -598,7 +564,10 @@ void FilePanel::chooseDirectory()
 {
     emit activated(this);
     QString dir = QFileDialog::getExistingDirectory(this, FilePanel::tr("Choose a path"), currentPath);
-    if (!dir.isEmpty()) setDirectory(dir);
+    if (!dir.isEmpty()) {
+        clearTableState();
+        setDirectory(dir);
+    }
 }
 
 void FilePanel::onFilterChanged(int index)
@@ -677,26 +646,9 @@ void FilePanel::onGoUp() {
         QDir dir(currentPath);
         if (dir.cdUp()) {
             // Store current directory name for cursor restoration
-            m_lastDirName = QDir(currentPath).dirName();
+            // m_lastDirName = QDir(currentPath).dirName();
             setDirectory(dir.absolutePath(), true);
-
-            // Restore cursor position to the directory we came from
-            for (int row = 0; row < host_model->rowCount(); ++row) {
-                QModelIndex idx = host_model->index(row, 0);
-                QString checkName = host_model->data(idx, Qt::DisplayRole).toString();
-                // Remove brackets from directory name: [dirname] -> dirname
-                if (checkName.startsWith("[") && checkName.endsWith("]")) {
-                    QString dirName = checkName.mid(1, checkName.length() - 2);
-                    if (dirName == m_lastDirName && dirName != "..") {
-                        // Clear selection and set cursor without selecting
-                        tableView->selectionModel()->clearSelection();
-                        tableView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
-                        tableView->scrollTo(idx);
-                        m_lastDirName.clear();
-                        break;
-                    }
-                }
-            }
+            restoreTableState();
         }
     } else {
         if (m_filesystem->is_root()) {
@@ -710,6 +662,7 @@ void FilePanel::onGoUp() {
             m_filesystem->cd_up();
             dir();
         }
+        restoreTableState();
     }
 }
 
@@ -1348,6 +1301,7 @@ void FilePanel::onHistoryMenuTriggered(QAction* action) {
         updateHistoryMenu();
     } else if (!data.isEmpty()) {
         // Navigate to selected directory
+        clearTableState();
         setDirectory(data);
     }
 }
@@ -1362,6 +1316,7 @@ QString FilePanel::getSelectedType() const {
 
 void FilePanel::storeTableState()
 {
+    // qDebug() << "storeTableState";
     if (!tableView) return;
 
     // Store current row index
@@ -1377,6 +1332,8 @@ void FilePanel::storeTableState()
 
 void FilePanel::restoreTableState()
 {
+    // if (m_tableStateStack.empty())
+    //     qDebug() << "restoreTableState: empty";
     if (!tableView || !tableView->model() || m_tableStateStack.empty()) return;
 
     // Pop state from the stack
@@ -1400,6 +1357,13 @@ void FilePanel::restoreTableState()
     if (tableView->verticalScrollBar()) {
         tableView->verticalScrollBar()->setValue(savedScroll);
     }
+    // qDebug() << "restoreTableState: done";
+}
+
+void FilePanel::clearTableState()
+{
+    // qDebug() << "clearTableState";
+    m_tableStateStack.clear();
 }
 
 void FilePanel::highlight(const QString& title)

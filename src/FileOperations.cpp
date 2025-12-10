@@ -116,19 +116,24 @@ void FileOperations::openItem(FilePanel* panel, QWidget* parent, const QModelInd
 
         QFileInfo info(path);
 
+        panel->storeTableState();
         if (info.isDir()) {
             panel->setDirectory(path);
         } else {
-            auto res = panel->openImage(path);
+            const auto res = panel->openImage(path);
             if (!res) {
                 QMessageBox::critical(parent, FilePanel::tr("Error"), decodeError(res));
+                panel->restoreTableState();
             }
         }
     } else {
-        auto f = panel->getFiles()[index.row()];
+        const auto f = panel->getFiles()[index.row()];
         if (f.is_dir){
-            panel->getFileSystem()->cd(f);
+            bool updir;
+            panel->getFileSystem()->cd(f, updir);
+            if (!updir) panel->storeTableState();
             panel->dir();
+            if (updir) panel->restoreTableState();
         } else {
             dsk_tools::BYTES data;
             panel->getFileSystem()->get_file(f, "", data);
@@ -203,7 +208,9 @@ void FileOperations::editFile(FilePanel* panel, QWidget* parent)
             if (dialog.exec() == QDialog::Accepted) {
                 const auto values = dialog.getParameters();
                 filesystem->file_set_metadata(f, values);
+                panel->storeTableState();
                 panel->dir();
+                panel->restoreTableState();
             }
         }
         panel->updateImageStatusIndicator();
