@@ -703,17 +703,47 @@ QString FileOperations::decodeError(const dsk_tools::Result& result)
         case dsk_tools::ErrorCode::NotImplementedYet:
             error = QCoreApplication::translate("FilePanel", "Not implemented yet");
             break;
-        case dsk_tools::ErrorCode::FileAddErrorSpace:
-            error = QCoreApplication::translate("FilePanel", "No enough free space");
+        case dsk_tools::ErrorCode::NotFound:
+            error = QCoreApplication::translate("FilePanel", "Item not found");
             break;
-        case dsk_tools::ErrorCode::FileAddErrorAllocateDirEntry:
-            error = QCoreApplication::translate("FilePanel", "Can't allocate a directory entry");
+        case dsk_tools::ErrorCode::LoadError:
+            error = QCoreApplication::translate("FilePanel", "Error loading disk image file");
             break;
-        case dsk_tools::ErrorCode::FileAddErrorAllocateSector:
-            error = QCoreApplication::translate("FilePanel", "Can't allocate a sector");
+        case dsk_tools::ErrorCode::LoadSizeMismatch:
+            error = QCoreApplication::translate("FilePanel", "File size does not match expected disk image size");
             break;
-        case dsk_tools::ErrorCode::DirNotEmpty:
-            error = QCoreApplication::translate("FilePanel", "Directory is not empty");
+        case dsk_tools::ErrorCode::LoadParamsMismatch:
+            error = QCoreApplication::translate("FilePanel", "File parameters do not match disk image parameters");
+            break;
+        case dsk_tools::ErrorCode::LoadIncorrectFile:
+            error = QCoreApplication::translate("FilePanel", "File format is not recognized");
+            break;
+        case dsk_tools::ErrorCode::LoadDataCorrupt:
+            error = QCoreApplication::translate("FilePanel", "Disk image data is corrupted");
+            break;
+        case dsk_tools::ErrorCode::OpenNotLoaded:
+            error = QCoreApplication::translate("FilePanel", "Image file is not loaded");
+            break;
+        case dsk_tools::ErrorCode::OpenBadFormat:
+            error = QCoreApplication::translate("FilePanel", "Unrecognized disk format or disk is damaged");
+            break;
+        case dsk_tools::ErrorCode::CreateError:
+            error = QCoreApplication::translate("FilePanel", "Error creating file");
+            break;
+        case dsk_tools::ErrorCode::WriteError:
+            error = QCoreApplication::translate("FilePanel", "Error writing file");
+            break;
+        case dsk_tools::ErrorCode::WriteUnsupported:
+            error = QCoreApplication::translate("FilePanel", "Writing to this format is not supported");
+            break;
+        case dsk_tools::ErrorCode::WriteIncorrectTemplate:
+            error = QCoreApplication::translate("FilePanel", "The selected template cannot be used - it must be the same type and size as the target");
+            break;
+        case dsk_tools::ErrorCode::WriteIncorrectSource:
+            error = QCoreApplication::translate("FilePanel", "Incorrect source data for tracks replacement");
+            break;
+        case dsk_tools::ErrorCode::DirError:
+            error = QCoreApplication::translate("FilePanel", "Error creating a directory");
             break;
         case dsk_tools::ErrorCode::DirErrorSpace:
             error = QCoreApplication::translate("FilePanel", "No enough free space");
@@ -724,23 +754,47 @@ QString FileOperations::decodeError(const dsk_tools::Result& result)
         case dsk_tools::ErrorCode::DirErrorAllocateSector:
             error = QCoreApplication::translate("FilePanel", "Can't allocate a sector");
             break;
+        case dsk_tools::ErrorCode::DirNotEmpty:
+            error = QCoreApplication::translate("FilePanel", "Directory is not empty");
+            break;
+        case dsk_tools::ErrorCode::FileDeleteError:
+            error = QCoreApplication::translate("FilePanel", "Error deleting file");
+            break;
+        case dsk_tools::ErrorCode::FileAddError:
+            error = QCoreApplication::translate("FilePanel", "Error adding file");
+            break;
+        case dsk_tools::ErrorCode::FileAddErrorAllocateDirEntry:
+            error = QCoreApplication::translate("FilePanel", "Can't allocate a directory entry");
+            break;
+        case dsk_tools::ErrorCode::FileAddErrorAllocateSector:
+            error = QCoreApplication::translate("FilePanel", "Can't allocate a sector");
+            break;
+        case dsk_tools::ErrorCode::FileAddErrorSpace:
+            error = QCoreApplication::translate("FilePanel", "No enough free space");
+            break;
+        case dsk_tools::ErrorCode::FileRenameError:
+            error = QCoreApplication::translate("FilePanel", "Error renaming file");
+            break;
+        case dsk_tools::ErrorCode::FileIncorrectFS:
+            error = QCoreApplication::translate("FilePanel", "File is not compatible with this filesystem");
+            break;
+        case dsk_tools::ErrorCode::ReadError:
+            error = QCoreApplication::translate("FilePanel", "Error reading file");
+            break;
+        case dsk_tools::ErrorCode::FileNotFound:
+            error = QCoreApplication::translate("FilePanel", "File not found");
+            break;
         case dsk_tools::ErrorCode::FileAlreadyExists:
             error = QCoreApplication::translate("FilePanel", "File already exists");
             break;
         case dsk_tools::ErrorCode::DirAlreadyExists:
             error = QCoreApplication::translate("FilePanel", "Directory already exists");
             break;
-        case dsk_tools::ErrorCode::DirError:
-            error = QCoreApplication::translate("FilePanel", "Error creating a directory");
+        case dsk_tools::ErrorCode::InvalidName:
+            error = QCoreApplication::translate("FilePanel", "Invalid name");
             break;
-        case dsk_tools::ErrorCode::OpenNotLoaded:
-            error = QCoreApplication::translate("FilePanel", "Image file is not loaded");
-            break;
-        case dsk_tools::ErrorCode::OpenBadFormat:
-            error = QCoreApplication::translate("FilePanel", "Unrecognized disk format or disk is damaged");
-            break;
-        case dsk_tools::ErrorCode::LoadError:
-            error = QCoreApplication::translate("FilePanel", "Error loading disk image file");
+        case dsk_tools::ErrorCode::DetectError:
+            error = QCoreApplication::translate("FilePanel", "Error detecting disk image format");
             break;
         default:
             error = QCoreApplication::translate("FilePanel", "Unknown error");

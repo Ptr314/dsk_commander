@@ -773,7 +773,7 @@ dsk_tools::Result FilePanel::openImage(QString path)
     if (autoCheck->isChecked()) {
         const auto res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
         if (!res) {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(res));
+            // QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(res));
             return res;
         }
 
@@ -804,13 +804,13 @@ dsk_tools::Result FilePanel::openImage(QString path)
     if (m_image != nullptr) {
         const auto check_result = m_image->check();
         if (!check_result) {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(check_result));
+            // QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(check_result));
             return check_result;
         }
 
         const auto load_result = m_image->load();
         if (!load_result) {
-            QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(load_result));
+            // QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(load_result));
             return load_result;
         }
 
