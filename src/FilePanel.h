@@ -130,6 +130,7 @@ public:
     void updateImageStatusIndicator() const;
     void storeTableState();
     void restoreTableState();
+    void clearTableState();
     void highlight(const QString& title);
 
 
@@ -172,7 +173,6 @@ private:
     QStringList m_directoryHistory;
 
     QString currentPath;
-    QString m_lastDirName;  // Track last entered directory for cursor restoration
     panelMode mode {panelMode::Host};
     bool m_show_deleted {true};  // Default to showing deleted files
 
