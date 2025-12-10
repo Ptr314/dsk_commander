@@ -278,94 +278,70 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="600"/>
+        <location filename="../FilePanel.cpp" line="566"/>
         <source>Choose a path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="726"/>
+        <location filename="../FilePanel.cpp" line="679"/>
         <source>Unsaved Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="727"/>
+        <location filename="../FilePanel.cpp" line="680"/>
         <source>The disk image has unsaved changes. Save before closing?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../FileOperations.cpp" line="87"/>
         <location filename="../FileOperations.cpp" line="125"/>
-        <location filename="../FileOperations.cpp" line="152"/>
-        <location filename="../FileOperations.cpp" line="348"/>
-        <location filename="../FileOperations.cpp" line="372"/>
-        <location filename="../FileOperations.cpp" line="411"/>
-        <location filename="../FileOperations.cpp" line="469"/>
-        <location filename="../FileOperations.cpp" line="501"/>
-        <location filename="../FileOperations.cpp" line="522"/>
-        <location filename="../FileOperations.cpp" line="616"/>
-        <location filename="../FileOperations.cpp" line="624"/>
+        <location filename="../FileOperations.cpp" line="156"/>
+        <location filename="../FileOperations.cpp" line="220"/>
+        <location filename="../FileOperations.cpp" line="363"/>
+        <location filename="../FileOperations.cpp" line="387"/>
+        <location filename="../FileOperations.cpp" line="426"/>
+        <location filename="../FileOperations.cpp" line="484"/>
+        <location filename="../FileOperations.cpp" line="517"/>
+        <location filename="../FileOperations.cpp" line="539"/>
         <location filename="../FileOperations.cpp" line="633"/>
-        <location filename="../FileOperations.cpp" line="642"/>
-        <location filename="../FileOperations.cpp" line="649"/>
-        <location filename="../FileOperations.cpp" line="651"/>
-        <location filename="../FileOperations.cpp" line="653"/>
-        <location filename="../FileOperations.cpp" line="672"/>
-        <location filename="../FileOperations.cpp" line="798"/>
-        <location filename="../FileOperations.cpp" line="826"/>
-        <location filename="../FileOperations.cpp" line="839"/>
-        <location filename="../FileOperations.cpp" line="846"/>
-        <location filename="../FileOperations.cpp" line="855"/>
-        <location filename="../FilePanel.cpp" line="858"/>
-        <location filename="../FilePanel.cpp" line="862"/>
-        <location filename="../FilePanel.cpp" line="866"/>
-        <location filename="../FilePanel.cpp" line="888"/>
-        <location filename="../FilePanel.cpp" line="900"/>
-        <location filename="../FilePanel.cpp" line="1037"/>
+        <location filename="../FileOperations.cpp" line="641"/>
+        <location filename="../FileOperations.cpp" line="650"/>
+        <location filename="../FileOperations.cpp" line="659"/>
+        <location filename="../FileOperations.cpp" line="666"/>
+        <location filename="../FileOperations.cpp" line="668"/>
+        <location filename="../FileOperations.cpp" line="670"/>
+        <location filename="../FileOperations.cpp" line="689"/>
+        <location filename="../FileOperations.cpp" line="804"/>
+        <location filename="../FileOperations.cpp" line="832"/>
+        <location filename="../FileOperations.cpp" line="845"/>
+        <location filename="../FileOperations.cpp" line="852"/>
+        <location filename="../FileOperations.cpp" line="861"/>
+        <location filename="../FilePanel.cpp" line="776"/>
+        <location filename="../FilePanel.cpp" line="807"/>
+        <location filename="../FilePanel.cpp" line="813"/>
+        <location filename="../FilePanel.cpp" line="839"/>
+        <location filename="../FilePanel.cpp" line="851"/>
+        <location filename="../FilePanel.cpp" line="987"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="125"/>
-        <source>Can&apos;t detect type of the file automatically</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../FileOperations.cpp" line="152"/>
+        <location filename="../FileOperations.cpp" line="156"/>
         <source>File reading error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="858"/>
-        <source>File loading error. Check your disk type settings or try auto-detection.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../FilePanel.cpp" line="862"/>
-        <source>Error checking file parameters</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../FilePanel.cpp" line="866"/>
-        <source>Error preparing image data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../FilePanel.cpp" line="888"/>
-        <source>Unrecognized disk format or disk is damaged!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../FilePanel.cpp" line="900"/>
+        <location filename="../FilePanel.cpp" line="851"/>
         <source>File system initialization error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="953"/>
+        <location filename="../FilePanel.cpp" line="903"/>
         <source>(No image)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1037"/>
+        <location filename="../FilePanel.cpp" line="987"/>
         <source>Error reading files list!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -850,143 +826,163 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="250"/>
+        <location filename="../FileOperations.cpp" line="221"/>
+        <source>Metadata modification for this file system is not yet implemented.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileOperations.cpp" line="265"/>
         <source>Selected files: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="251"/>
+        <location filename="../FileOperations.cpp" line="266"/>
         <source>Choose output file format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="252"/>
+        <location filename="../FileOperations.cpp" line="267"/>
         <source>Choose the format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="253"/>
-        <location filename="../FileOperations.cpp" line="273"/>
+        <location filename="../FileOperations.cpp" line="268"/>
+        <location filename="../FileOperations.cpp" line="288"/>
         <source>Copying files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="274"/>
+        <location filename="../FileOperations.cpp" line="289"/>
         <source>Copy %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="492"/>
+        <location filename="../FileOperations.cpp" line="508"/>
         <source>Add a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="493"/>
+        <location filename="../FileOperations.cpp" line="509"/>
         <source>Directory name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="501"/>
+        <location filename="../FileOperations.cpp" line="517"/>
         <source>Error creating directory: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="682"/>
+        <location filename="../FileOperations.cpp" line="699"/>
         <source>No error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="685"/>
+        <location filename="../FileOperations.cpp" line="702"/>
         <source>Not implemented yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="688"/>
-        <location filename="../FileOperations.cpp" line="700"/>
+        <location filename="../FileOperations.cpp" line="705"/>
+        <location filename="../FileOperations.cpp" line="717"/>
         <source>No enough free space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="691"/>
-        <location filename="../FileOperations.cpp" line="703"/>
+        <location filename="../FileOperations.cpp" line="708"/>
+        <location filename="../FileOperations.cpp" line="720"/>
         <source>Can&apos;t allocate a directory entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="694"/>
-        <location filename="../FileOperations.cpp" line="706"/>
+        <location filename="../FileOperations.cpp" line="711"/>
+        <location filename="../FileOperations.cpp" line="723"/>
         <source>Can&apos;t allocate a sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="697"/>
+        <location filename="../FileOperations.cpp" line="714"/>
         <source>Directory is not empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="709"/>
+        <location filename="../FileOperations.cpp" line="726"/>
         <source>File already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="712"/>
+        <location filename="../FileOperations.cpp" line="729"/>
         <source>Directory already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="715"/>
+        <location filename="../FileOperations.cpp" line="732"/>
         <source>Error creating a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="718"/>
+        <location filename="../FileOperations.cpp" line="735"/>
+        <source>Image file is not loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileOperations.cpp" line="738"/>
+        <source>Unrecognized disk format or disk is damaged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileOperations.cpp" line="741"/>
+        <source>Error loading disk image file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileOperations.cpp" line="744"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="799"/>
+        <location filename="../FileOperations.cpp" line="805"/>
         <source>Error creating directory &apos;%1&apos;: %2. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="815"/>
+        <location filename="../FileOperations.cpp" line="821"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="816"/>
+        <location filename="../FileOperations.cpp" line="822"/>
         <source>File &apos;%1&apos; already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="827"/>
-        <location filename="../FileOperations.cpp" line="847"/>
+        <location filename="../FileOperations.cpp" line="833"/>
+        <location filename="../FileOperations.cpp" line="853"/>
         <source>Error writing file &apos;%1&apos;: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="840"/>
+        <location filename="../FileOperations.cpp" line="846"/>
         <source>Writing for this type of file system is not implemented yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="856"/>
+        <location filename="../FileOperations.cpp" line="862"/>
         <source>Error reading file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="373"/>
+        <location filename="../FileOperations.cpp" line="388"/>
         <source>Directory &apos;%1&apos; not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="327"/>
-        <location filename="../FileOperations.cpp" line="390"/>
+        <location filename="../FileOperations.cpp" line="342"/>
+        <location filename="../FileOperations.cpp" line="405"/>
         <source>Recycle Bin Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="391"/>
+        <location filename="../FileOperations.cpp" line="406"/>
         <source>Cannot move directory &apos;%1&apos; to recycle bin.
 
 Do you want to delete it permanently instead?
@@ -995,42 +991,42 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="412"/>
+        <location filename="../FileOperations.cpp" line="427"/>
         <source>Error deleting directory &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="419"/>
+        <location filename="../FileOperations.cpp" line="434"/>
         <source>Not Implemented</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="420"/>
+        <location filename="../FileOperations.cpp" line="435"/>
         <source>Recursive directory deletion in image mode is not yet implemented</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="297"/>
+        <location filename="../FileOperations.cpp" line="312"/>
         <source>Deleting files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="298"/>
+        <location filename="../FileOperations.cpp" line="313"/>
         <source>Delete %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="307"/>
+        <location filename="../FileOperations.cpp" line="322"/>
         <source>Deleting directories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="308"/>
+        <location filename="../FileOperations.cpp" line="323"/>
         <source>&apos;%1&apos; is a directory. Delete it recursively?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="328"/>
+        <location filename="../FileOperations.cpp" line="343"/>
         <source>Cannot move &apos;%1&apos; to recycle bin.
 
 Do you want to delete it permanently instead?
@@ -1039,93 +1035,83 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="349"/>
+        <location filename="../FileOperations.cpp" line="364"/>
         <source>Error deleting file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="436"/>
-        <location filename="../FileOperations.cpp" line="452"/>
+        <location filename="../FileOperations.cpp" line="451"/>
+        <location filename="../FileOperations.cpp" line="467"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="437"/>
+        <location filename="../FileOperations.cpp" line="452"/>
         <source>Please select exactly one file to rename.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="453"/>
+        <location filename="../FileOperations.cpp" line="468"/>
         <source>New name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="470"/>
+        <location filename="../FileOperations.cpp" line="485"/>
         <source>Error renaming file &apos;%1&apos; to &apos;%2&apos;: %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="523"/>
+        <location filename="../FileOperations.cpp" line="540"/>
         <source>Saving is not available or the uploaded image has not yet been modified.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="616"/>
+        <location filename="../FileOperations.cpp" line="633"/>
         <source>Not implemented!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="624"/>
-        <source>Error generating file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../FileOperations.cpp" line="633"/>
+        <location filename="../FileOperations.cpp" line="650"/>
         <source>Error opening template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="642"/>
+        <location filename="../FileOperations.cpp" line="659"/>
         <source>Error reading template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="649"/>
+        <location filename="../FileOperations.cpp" line="666"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="651"/>
+        <location filename="../FileOperations.cpp" line="668"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="653"/>
-        <source>Error inserting tracks from template</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../FileOperations.cpp" line="669"/>
+        <location filename="../FileOperations.cpp" line="686"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="670"/>
+        <location filename="../FileOperations.cpp" line="687"/>
         <source>File saved successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="672"/>
+        <location filename="../FileOperations.cpp" line="689"/>
         <source>Error writing file to disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1311"/>
+        <location filename="../FilePanel.cpp" line="1261"/>
         <source>(No history)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1339"/>
+        <location filename="../FilePanel.cpp" line="1289"/>
         <source>Clear history</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1212,39 +1198,39 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="406"/>
-        <location filename="../mainwindow.cpp" line="552"/>
+        <location filename="../mainwindow.cpp" line="407"/>
+        <location filename="../mainwindow.cpp" line="554"/>
         <source>Sort by name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="431"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="455"/>
+        <location filename="../mainwindow.cpp" line="456"/>
         <source>Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="508"/>
+        <location filename="../mainwindow.cpp" line="509"/>
         <source>Use Recycle Bin for host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="533"/>
+        <location filename="../mainwindow.cpp" line="534"/>
         <source>About...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="487"/>
+        <location filename="../mainwindow.cpp" line="488"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="457"/>
-        <location filename="../mainwindow.cpp" line="835"/>
+        <location filename="../mainwindow.cpp" line="458"/>
+        <location filename="../mainwindow.cpp" line="837"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1265,17 +1251,17 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="488"/>
+        <location filename="../mainwindow.cpp" line="489"/>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="493"/>
+        <location filename="../mainwindow.cpp" line="494"/>
         <source>Русский</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1290,34 +1276,34 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
-        <location filename="../mainwindow.cpp" line="569"/>
+        <location filename="../mainwindow.cpp" line="424"/>
+        <location filename="../mainwindow.cpp" line="571"/>
         <source>Show deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="433"/>
+        <location filename="../mainwindow.cpp" line="434"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="437"/>
+        <location filename="../mainwindow.cpp" line="438"/>
         <source>Save as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow.cpp" line="452"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="332"/>
-        <location filename="../mainwindow.cpp" line="829"/>
+        <location filename="../mainwindow.cpp" line="831"/>
         <source>F3 View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="824"/>
+        <location filename="../mainwindow.cpp" line="826"/>
         <source>F3 Image Info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1363,7 +1349,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="337"/>
-        <location filename="../mainwindow.cpp" line="479"/>
+        <location filename="../mainwindow.cpp" line="480"/>
         <source>F8 Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1379,102 +1365,102 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="394"/>
-        <location filename="../mainwindow.cpp" line="540"/>
+        <location filename="../mainwindow.cpp" line="541"/>
         <source>Go Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="397"/>
-        <location filename="../mainwindow.cpp" line="543"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>Open directory...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="402"/>
-        <location filename="../mainwindow.cpp" line="548"/>
+        <location filename="../mainwindow.cpp" line="403"/>
+        <location filename="../mainwindow.cpp" line="550"/>
         <source>Sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="411"/>
-        <location filename="../mainwindow.cpp" line="557"/>
+        <location filename="../mainwindow.cpp" line="412"/>
+        <location filename="../mainwindow.cpp" line="559"/>
         <source>Sort by size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="416"/>
-        <location filename="../mainwindow.cpp" line="562"/>
+        <location filename="../mainwindow.cpp" line="417"/>
+        <location filename="../mainwindow.cpp" line="564"/>
         <source>No sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="443"/>
+        <location filename="../mainwindow.cpp" line="444"/>
         <source>Container Info...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="446"/>
+        <location filename="../mainwindow.cpp" line="447"/>
         <source>Filesystem Info...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="460"/>
+        <location filename="../mainwindow.cpp" line="461"/>
         <source>File Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="464"/>
+        <location filename="../mainwindow.cpp" line="465"/>
         <source>Edit Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="467"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="471"/>
+        <location filename="../mainwindow.cpp" line="472"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="475"/>
+        <location filename="../mainwindow.cpp" line="476"/>
         <source>F7 Make dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="485"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="520"/>
+        <location filename="../mainwindow.cpp" line="521"/>
         <source>Make backups on save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="539"/>
         <source>Right panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="612"/>
+        <location filename="../mainwindow.cpp" line="614"/>
         <source>No active panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="619"/>
         <source>Active panel: %1 | Selected: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="333"/>
-        <location filename="../mainwindow.cpp" line="825"/>
+        <location filename="../mainwindow.cpp" line="827"/>
         <source>F4 Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="830"/>
+        <location filename="../mainwindow.cpp" line="832"/>
         <source>F4 Meta</source>
         <translation type="unfinished"></translation>
     </message>
