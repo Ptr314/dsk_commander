@@ -790,15 +790,18 @@ void FileOperations::putFiles(FilePanel* source, FilePanel* target, QWidget* par
                 dsk_tools::UniversalFile new_dir;
                 const auto mkdir_result = targetFs->mkdir(f, new_dir);
                 if (mkdir_result) {
-                    // Getting files
                     dsk_tools::Files dir_files;
+
+                    // Getting files
                     sourceFs->cd(f);
                     sourceFs->dir(dir_files, false);
-                    sourceFs->cd_up();
 
                     // Putting files
                     targetFs->cd(new_dir);
                     putFiles(source, target, parent, dir_files, format);
+
+                    // Both return
+                    sourceFs->cd_up();
                     targetFs->cd_up();
                 } else {
                     const QMessageBox::StandardButton res = QMessageBox::critical(
