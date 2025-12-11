@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-<!-- Copyright (C) 2025 Mikhail Revzin <p3.141592653589793238462643@gmail.com> -->
-<!-- Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander -->
-<!-- Description: About dialog UI definition -->
 <ui version="4.0">
  <class>About</class>
  <widget class="QDialog" name="About">
@@ -10,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>429</width>
-    <height>308</height>
+    <width>479</width>
+    <height>377</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,7 +50,7 @@
        <item>
         <widget class="QLabel" name="info_label">
          <property name="text">
-          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;{$PROJECT_VERSION}&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;_{$BUILD_ARCHITECTURE} on {$OS} {$OS_VERSION}_{$CPU_ARCHITECTURE}&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;https://github.com/Ptr314/dsk_commander&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Project Home &amp;amp; sources;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://emuverse.ru&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://emuverse.ru&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;{$PROJECT_VERSION}&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;_{$BUILD_ARCHITECTURE} on {$OS} {$OS_VERSION}_{$CPU_ARCHITECTURE}&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Built with: {$COMPILER}&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;https://github.com/Ptr314/dsk_commander&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Project Home &amp;amp; sources;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://emuverse.ru&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://emuverse.ru&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
