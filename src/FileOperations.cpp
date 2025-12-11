@@ -796,6 +796,9 @@ QString FileOperations::decodeError(const dsk_tools::Result& result)
         case dsk_tools::ErrorCode::DetectError:
             error = QCoreApplication::translate("FilePanel", "Error detecting disk image format");
             break;
+        case dsk_tools::ErrorCode::FileMetadataError:
+            error = QCoreApplication::translate("FilePanel", "File metadata error");
+            break;
         default:
             error = QCoreApplication::translate("FilePanel", "Unknown error");
             break;
