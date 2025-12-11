@@ -430,12 +430,24 @@ void FileOperations::deleteRecursively(FilePanel* panel, QWidget* parent, const 
             );
         }
     } else {
-        // Image mode: not implemented yet
-        QMessageBox::information(
-            parent,
-            FilePanel::tr("Not Implemented"),
-            FilePanel::tr("Recursive directory deletion in image mode is not yet implemented")
-        );
+        dsk_tools::fileSystem* fs = panel->getFileSystem();
+        if (!fs) return;
+
+        if (f.is_dir) {
+            if (f.name != "..") {
+                dsk_tools::Files dir_files;
+                fs->cd(f);
+                fs->dir(dir_files, false);
+                foreach (const dsk_tools::UniversalFile & df, dir_files) {
+                    if (df.is_dir)
+                        deleteRecursively(panel, parent, df);
+                    else
+                        fs->delete_file(df);
+                }
+                fs->cd_up();
+                fs->delete_file(f);
+            }
+        }
     }
 }
 
@@ -840,7 +852,7 @@ void FileOperations::putFiles(FilePanel* source, FilePanel* target, QWidget* par
     dsk_tools::fileSystem* targetFs = target->getFileSystem();
 
     if (!sourceFs || !targetFs || !target->allowPutFiles() || recursion > 10) return;
-   const std::string std_format = format.toStdString();
+    const std::string std_format = format.toStdString();
     foreach (const dsk_tools::UniversalFile & f, files) {
         if (f.is_dir) {
             if (f.name != "..") {
