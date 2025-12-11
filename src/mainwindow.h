@@ -40,6 +40,7 @@ private slots:
     void onRename();
     void onMkdir();
     void onDelete();
+    void onRestore();
     void onExit();
 
     void setActivePanel(FilePanel* panel);
@@ -95,6 +96,7 @@ private:
     QAction* actRename {nullptr};
     QAction* actMkdir {nullptr};
     QAction* actDelete {nullptr};
+    QAction* actRestore {nullptr};
     QAction* actExit {nullptr};
 
     QAction* menuViewAction {nullptr};
@@ -104,6 +106,7 @@ private:
     QAction* menuRenameAction {nullptr};
     QAction* menuMkdirAction {nullptr};
     QAction* menuDeleteAction {nullptr};
+    QAction* menuRestoreAction {nullptr};
 
     // Image menu actions
     QAction* actImageInfo {nullptr};

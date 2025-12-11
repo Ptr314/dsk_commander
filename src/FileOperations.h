@@ -19,6 +19,7 @@ public:
     static void viewFilesystemInfo(FilePanel* panel, QWidget* parent);
     static void copyFiles(FilePanel* source, FilePanel* target, QWidget* parent);
     static void deleteFiles(FilePanel* panel, QWidget* parent);
+    static void restoreFiles(FilePanel* panel, QWidget* parent);
     static void renameFile(FilePanel* panel, QWidget* parent);
     static void createDirectory(FilePanel* panel, QWidget* parent);
     static void saveImage(FilePanel* panel, QWidget* parent);

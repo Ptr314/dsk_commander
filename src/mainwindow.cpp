@@ -307,6 +307,7 @@ void MainWindow::createActions() {
     actRename = new QAction(this);
     actMkdir  = new QAction(this);
     actDelete = new QAction(this);
+    actRestore= new QAction(this);
     actExit   = new QAction(this);
 
     connect(actHelp,   &QAction::triggered, this, &MainWindow::onAbout);
@@ -317,9 +318,10 @@ void MainWindow::createActions() {
     connect(actRename, &QAction::triggered, this, &MainWindow::onRename);
     connect(actMkdir,  &QAction::triggered, this, &MainWindow::onMkdir);
     connect(actDelete, &QAction::triggered, this, &MainWindow::onDelete);
+    connect(actRestore, &QAction::triggered, this, &MainWindow::onRestore);
     connect(actExit,   &QAction::triggered, this, &MainWindow::onExit);
 
-    addActions({actHelp, actSave, actView, actEdit, actCopy, actRename, actMkdir, actDelete, actExit});
+    addActions({actHelp, actSave, actView, actEdit, actCopy, actRename, actMkdir, actDelete, actRestore, actExit});
 
     // Set initial text (unified method)
     updateActionTexts();
@@ -335,6 +337,7 @@ void MainWindow::updateActionTexts() {
     actRename->setText(tr("F6 Rename"));
     actMkdir->setText(tr("F7 MkDir"));
     actDelete->setText(tr("F8 Delete"));
+    actRestore->setText(tr("F9 Restore"));
     actExit->setText(tr("F10 Exit"));
 
     // Update dynamic F3/F4 based on current panel mode
@@ -372,6 +375,7 @@ QWidget* MainWindow::createBottomPanel() {
     makeButton(actRename); // F6
     makeButton(actMkdir);  // F7
     makeButton(actDelete); // F8
+    makeButton(actRestore); // F9
     makeButton(actExit);   // F10
 
     // buttons have equal widths
@@ -480,6 +484,10 @@ void MainWindow::initializeMainMenu() {
     menuDeleteAction = filesMenu->addAction(QIcon(":/icons/delete"), MainWindow::tr("F8 Delete"));
     menuDeleteAction->setShortcut(QKeySequence(Qt::Key_F8));
     connect(menuDeleteAction, &QAction::triggered, this, &MainWindow::onDelete);
+
+    menuRestoreAction = filesMenu->addAction(QIcon(":/icons/restore"), MainWindow::tr("F9 Restore"));
+    menuRestoreAction->setShortcut(QKeySequence(Qt::Key_F9));
+    connect(menuRestoreAction, &QAction::triggered, this, &MainWindow::onRestore);
 
     // === OPTIONS MENU ===
     QMenu *optionsMenu = menuBar()->addMenu(MainWindow::tr("Options"));
@@ -660,6 +668,11 @@ void MainWindow::onMkdir() {
 void MainWindow::onDelete() {
     if (!activePanel) return;
     FileOperations::deleteFiles(activePanel, this);
+}
+
+void MainWindow::onRestore() {
+    if (!activePanel) return;
+    FileOperations::restoreFiles(activePanel, this);
 }
 
 void MainWindow::onExit() {
@@ -875,5 +888,10 @@ void MainWindow::updateFileMenuState() const
     const bool canDelete = hasFlag(sourceCaps,dsk_tools::FSCaps::Delete);
     if (menuDeleteAction) menuDeleteAction->setEnabled(canDelete && has_index);
     actDelete->setEnabled(canDelete && has_index);
+
+    //F9
+    const bool canRestore = hasFlag(sourceCaps,dsk_tools::FSCaps::Restore);
+    if (menuRestoreAction) menuRestoreAction->setEnabled(canRestore && has_index);
+    actRestore->setEnabled(canRestore && has_index);
 
 }
