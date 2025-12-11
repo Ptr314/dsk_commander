@@ -939,3 +939,27 @@ void FileOperations::putFiles(FilePanel* source, FilePanel* target, QWidget* par
         }
     }
 }
+
+void FileOperations::restoreFiles(FilePanel* panel, QWidget* parent)
+{
+    if (!panel || !parent) return;
+    dsk_tools::fileSystem* fs = panel->getFileSystem();
+    if (!fs) return;
+
+    dsk_tools::Files files = panel->getSelectedFiles();
+    panel->storeTableState();
+    if (!files.empty()) {
+        const QMessageBox::StandardButton reply_all = QMessageBox::question(parent,
+                            FilePanel::tr("Restore files"),
+                            FilePanel::tr("Restore %1 files?").arg(files.size()),
+                            QMessageBox::Yes|QMessageBox::No
+        );
+        if (reply_all == QMessageBox::Yes) {
+            foreach (const dsk_tools::UniversalFile & f, files) {
+                fs->restore_file(f);
+            }
+            panel->refresh();
+            panel->restoreTableState();
+        }
+    }
+}
