@@ -25,7 +25,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
-# Добавляем библиотеку, но отключаем компиляцию утилит командногй строки
+# Добавляем библиотеку, но отключаем компиляцию утилит командной строки
 set(ENABLE_DSK_TOOLS OFF CACHE BOOL "Disable command line tools from the library")
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/dsk_tools/)
 
