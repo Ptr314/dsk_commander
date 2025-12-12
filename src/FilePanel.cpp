@@ -743,7 +743,8 @@ void FilePanel::updateImageStatusIndicator() const
     }
     // Save As is always enabled in Image mode
     if (saveAsButton) {
-        saveAsButton->setEnabled(mode == panelMode::Image && m_filesystem != nullptr);
+        const bool canExport = mode == panelMode::Image && m_filesystem != nullptr && dsk_tools::hasFlag(m_filesystem->get_caps(), dsk_tools::FSCaps::Export);
+        saveAsButton->setEnabled(canExport);
     }
 }
 

@@ -837,11 +837,15 @@ void MainWindow::updateImageMenuState() const
             if (actImageOpen) actImageOpen->setEnabled(false);
         }
     } else {
-        const bool canSave = (activePanel->getFileSystem() != nullptr) &&
-                             (activePanel->getFileSystem()->get_changed());
+        const auto fs = activePanel->getFileSystem();
+        if (fs) {
+            const bool canSave = fs->get_changed();
+            if (actImageSave) actImageSave->setEnabled(canSave);
+            if (actSave) actSave->setEnabled(canSave);
 
-        if (actImageSave) actImageSave->setEnabled(canSave);
-        if (actSave) actSave->setEnabled(canSave);
+            const bool canExport = dsk_tools::hasFlag(fs->get_caps(), dsk_tools::FSCaps::Export);
+            if (actImageSaveAs) actImageSaveAs->setEnabled(canExport);
+        }
     }
 }
 void MainWindow::updateFileMenuState() const
