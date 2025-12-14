@@ -4,17 +4,13 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../aboutdlg.ui" line="18"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
+        <location filename="../aboutdlg.ui" line="14"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../aboutdlg.ui" line="94"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../aboutdlg.ui" line="90"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
         <translation>Копирайт</translation>
@@ -24,120 +20,90 @@
     <name>ConvertDialog</name>
     <message>
         <location filename="../convertdialog.ui" line="24"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation>Преобразовать</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation>Выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation>Формат выходного файла</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation>Имя выходного файла</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation>Выбрать выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation>Выбрать директорию</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation>Подстановка треков</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation>Использовать</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation>Количество треков</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation>трек(ов) из файла-образца</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation>Выбрать файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation>Выберите файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation>Выберите выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation>Выберите файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation>Имя файла-образца</translation>
@@ -199,8 +165,6 @@
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
         <translation>Информация о файле</translation>
@@ -316,9 +280,9 @@
         <location filename="../FileOperations.cpp" line="919"/>
         <location filename="../FileOperations.cpp" line="926"/>
         <location filename="../FileOperations.cpp" line="935"/>
-        <location filename="../FilePanel.cpp" line="839"/>
-        <location filename="../FilePanel.cpp" line="851"/>
-        <location filename="../FilePanel.cpp" line="987"/>
+        <location filename="../FilePanel.cpp" line="840"/>
+        <location filename="../FilePanel.cpp" line="852"/>
+        <location filename="../FilePanel.cpp" line="988"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -328,17 +292,17 @@
         <translation>Ошибка чтения файла!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="851"/>
+        <location filename="../FilePanel.cpp" line="852"/>
         <source>File system initialization error!</source>
         <translation>Ошибка инициализации файловой системы!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="903"/>
+        <location filename="../FilePanel.cpp" line="904"/>
         <source>(No image)</source>
         <translation>(Не загружено)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="987"/>
+        <location filename="../FilePanel.cpp" line="988"/>
         <source>Error reading files list!</source>
         <translation>Ошибка чтения списка файлов!</translation>
     </message>
@@ -1212,12 +1176,12 @@ Warning: This action cannot be undone!</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1261"/>
+        <location filename="../FilePanel.cpp" line="1262"/>
         <source>(No history)</source>
         <translation>(Нет истории)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1289"/>
+        <location filename="../FilePanel.cpp" line="1290"/>
         <source>Clear history</source>
         <translation>Очистить историю</translation>
     </message>
@@ -1311,7 +1275,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="462"/>
-        <location filename="../mainwindow.cpp" line="853"/>
+        <location filename="../mainwindow.cpp" line="876"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
@@ -1399,12 +1363,12 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="334"/>
-        <location filename="../mainwindow.cpp" line="847"/>
+        <location filename="../mainwindow.cpp" line="870"/>
         <source>F3 View</source>
         <translation>F3 Просмотр</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="842"/>
+        <location filename="../mainwindow.cpp" line="865"/>
         <source>F3 Image Info</source>
         <translation>F3 Образ Инфо</translation>
     </message>
@@ -1567,12 +1531,12 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="335"/>
-        <location filename="../mainwindow.cpp" line="843"/>
+        <location filename="../mainwindow.cpp" line="866"/>
         <source>F4 Open</source>
         <translation>F4 Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="848"/>
+        <location filename="../mainwindow.cpp" line="871"/>
         <source>F4 Meta</source>
         <translation>F4 Метаданные</translation>
     </message>
@@ -1580,143 +1544,124 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>ViewDialog</name>
     <message>
-        <location filename="../viewdialog.ui" line="18"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../viewdialog.ui" line="14"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="333"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="66"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../viewdialog.ui" line="62"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="336"/>
         <source>View mode</source>
         <translation>Режим просмотра</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="114"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
+        <location filename="../viewdialog.ui" line="110"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="340"/>
         <source>Subtype</source>
         <translation>Вариант</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="177"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="376"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
+        <location filename="../viewdialog.ui" line="173"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="343"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="200"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../viewdialog.ui" line="196"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="346"/>
         <source>Copy text to clipboard</source>
         <translation>Копировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="203"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../viewdialog.ui" line="199"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="220"/>
-        <location filename="../viewdialog.ui" line="223"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="383"/>
+        <location filename="../viewdialog.ui" line="216"/>
+        <location filename="../viewdialog.ui" line="219"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
         <source>Save to file</source>
         <translation>Сохранить в файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="249"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="386"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="384"/>
+        <location filename="../viewdialog.ui" line="245"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation>Удаленный файл. Данные могут быть неверны.</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="269"/>
-        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="387"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
-        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="385"/>
+        <location filename="../viewdialog.ui" line="265"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="70"/>
+        <location filename="../viewdialog.cpp" line="71"/>
         <source>Binary</source>
         <translation>Двоичный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="71"/>
+        <location filename="../viewdialog.cpp" line="72"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="72"/>
+        <location filename="../viewdialog.cpp" line="73"/>
         <source>BASIC</source>
         <translation>Бейсик</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="73"/>
+        <location filename="../viewdialog.cpp" line="74"/>
         <source>Agat pictures</source>
         <translation>Графика Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="74"/>
+        <location filename="../viewdialog.cpp" line="75"/>
         <source>Apple pictures</source>
         <translation>Графика Apple</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="120"/>
+        <location filename="../viewdialog.cpp" line="121"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="121"/>
+        <location filename="../viewdialog.cpp" line="122"/>
         <source>Apple II</source>
         <translation>Apple II</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="122"/>
+        <location filename="../viewdialog.cpp" line="123"/>
         <source>Apple //c</source>
         <translation>Apple //c</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="123"/>
+        <location filename="../viewdialog.cpp" line="124"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="132"/>
+        <location filename="../viewdialog.cpp" line="133"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="133"/>
+        <location filename="../viewdialog.cpp" line="134"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="134"/>
+        <location filename="../viewdialog.cpp" line="135"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="112"/>
+        <location filename="../placeholders.h" line="130"/>
         <source>Palette</source>
         <translation>Палитра</translation>
     </message>
@@ -1767,8 +1712,28 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../placeholders.h" line="122"/>
-        <source>Agat-7 enchanced font</source>
-        <translation>ZG7 : 256</translation>
+        <source>Agat-7 enhanced font</source>
+        <translation>ZG7: 256</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="131"/>
+        <source>Agat color mode</source>
+        <translation>Цветной режим Агат</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="132"/>
+        <source>Apple color mode</source>
+        <translation>Цветной режим Apple</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="133"/>
+        <source>Font type</source>
+        <translation>Тип шрифта</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="134"/>
+        <source>Font</source>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="123"/>
@@ -1801,23 +1766,23 @@ Warning: This action cannot be undone!</source>
         <translation>Знакогенератор</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="366"/>
+        <location filename="../viewdialog.cpp" line="385"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="484"/>
-        <location filename="../viewdialog.cpp" line="486"/>
+        <location filename="../viewdialog.cpp" line="637"/>
+        <location filename="../viewdialog.cpp" line="639"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="498"/>
+        <location filename="../viewdialog.cpp" line="651"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="498"/>
+        <location filename="../viewdialog.cpp" line="651"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>

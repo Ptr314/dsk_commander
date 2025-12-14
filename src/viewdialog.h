@@ -8,6 +8,9 @@
 #include <QDialog>
 #include <QSettings>
 #include <QTimer>
+#include <QLabel>
+#include <QComboBox>
+#include <QSpacerItem>
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -32,8 +35,6 @@ private slots:
 
     void on_scaleSlider_valueChanged(int value);
 
-    void on_optionsCombo_currentIndexChanged(int index);
-
     void on_propsCombo_currentIndexChanged(int index);
 
     void on_subtypeCombo_currentIndexChanged(int index);
@@ -56,7 +57,6 @@ private:
     QSettings *m_settings;
     int m_scaleFactor;
     QImage m_image;
-    int m_opt = 0;
     int m_pic_frame = 0;
     QTimer m_pic_timer;
     dsk_tools::BYTES m_imageData;
@@ -73,4 +73,20 @@ private:
 
     QString m_saved_css;
     QString m_saved_html;
+
+    // Dynamic selector widgets for picture viewers
+    struct SelectorWidgetGroup {
+        QLabel* iconLabel;           // Icon for the selector
+        QComboBox* comboBox;         // Dropdown widget
+        QSpacerItem* spacerBefore;   // 20px spacer before section
+        QSpacerItem* spacerBetween;  // 5px spacer between icon and combo
+        std::string selectorId;      // Selector ID (e.g., "agat_font_type")
+    };
+    std::vector<SelectorWidgetGroup> m_selectorWidgets;
+
+    void clearSelectorWidgets();
+    void populateSelectorWidgets(dsk_tools::ViewerSelectorValues suggested_values);
+    void onSelectorChanged(const QString& selectorId, const QString& selectedValue);
+    dsk_tools::ViewerSelectorValues collectSelectors();
+
 };

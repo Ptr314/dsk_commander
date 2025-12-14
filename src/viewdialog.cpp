@@ -14,6 +14,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QDebug>
+#include <QHBoxLayout>
 
 #include "viewdialog.h"
 #include "mainutils.h"
@@ -203,6 +204,7 @@ void ViewDialog::update_subtypes(const QString & preferred)
 
 ViewDialog::~ViewDialog()
 {
+    clearSelectorWidgets();
     delete ui;
 }
 
@@ -255,7 +257,9 @@ void ViewDialog::print_data()
             ui->encodingLabel->setVisible(false);
             int sx, sy;
             if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get())) {
-                m_imageData = picViewer->process_picture(m_data, sx, sy, m_opt, m_pic_frame++);
+                const dsk_tools::ViewerSelectorValues selectors = collectSelectors();
+                picViewer->set_selectors(selectors);
+                m_imageData = picViewer->process_picture(m_data, sx, sy, m_pic_frame++);
                 m_image = QImage(m_imageData.data(), sx, sy, QImage::Format_RGBA8888);
                 update_image();
 
@@ -272,6 +276,21 @@ void ViewDialog::print_data()
     }
 }
 
+dsk_tools::ViewerSelectorValues ViewDialog::collectSelectors()
+{
+    dsk_tools::ViewerSelectorValues result;
+
+    // Iterate through all selector widgets and collect their current values
+    for (const auto& group : m_selectorWidgets) {
+        if (group.comboBox) {
+            // Get the currently selected value (option id) from the combo box
+            QString selectedValue = group.comboBox->itemData(group.comboBox->currentIndex()).toString();
+            result[group.selectorId] = _toStdString(selectedValue);
+        }
+    }
+
+    return result;
+}
 
 void ViewDialog::update_image()
 {
@@ -366,29 +385,171 @@ void ViewDialog::fill_options()
                 QMessageBox::critical(this, ViewDialog::tr("Error"), msg);
             }
 
-            auto options = picViewer->get_options();
-            if (options.size() > 0) {
-                int suggested = picViewer->suggest_option(_toStdString(m_file_name), m_data);
-                ui->optionsCombo->blockSignals(true);
-                ui->optionsCombo->clear();
-                for (const auto& opt : options) {
-                    ui->optionsCombo->addItem(replacePlaceholders(QString::fromStdString(opt.second)), opt.first);
-                    if (opt.first == suggested) {
-                        ui->optionsCombo->setCurrentIndex(ui->optionsCombo->count()-1);
-                        m_opt = suggested;
-                    }
-                }
-                adjustComboBoxWidth(ui->optionsCombo);
-                ui->optionsCombo->blockSignals(false);
-                ui->optionsLabel->setVisible(true);
-                ui->optionsCombo->setVisible(true);
-            } else {
-                ui->optionsLabel->setVisible(false);
-                ui->optionsCombo->setVisible(false);
-                m_opt = 0;
-            }
+            populateSelectorWidgets(picViewer->suggest_selectors(_toStdString(m_file_name), m_data));
         }
     }
+}
+
+void ViewDialog::clearSelectorWidgets()
+{
+    // Iterate in reverse to safely remove from layout
+    for (auto it = m_selectorWidgets.rbegin(); it != m_selectorWidgets.rend(); ++it) {
+        SelectorWidgetGroup& group = *it;
+
+        // Remove widgets from layout
+        ui->pic_toolbar->removeWidget(group.iconLabel);
+        ui->pic_toolbar->removeWidget(group.comboBox);
+        ui->pic_toolbar->removeItem(group.spacerBefore);
+        ui->pic_toolbar->removeItem(group.spacerBetween);
+
+        // Delete widgets (Qt parent-child hierarchy handles most cleanup)
+        delete group.iconLabel;
+        delete group.comboBox;
+        delete group.spacerBefore;
+        delete group.spacerBetween;
+    }
+
+    // Clear the vector
+    m_selectorWidgets.clear();
+}
+
+void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues suggested_values)
+{
+    // First, cleanup any existing selector widgets
+    clearSelectorWidgets();
+
+    // Only pic viewers have selectors
+    auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get());
+    if (!picViewer) {
+        return;
+    }
+
+    auto selectors = picViewer->get_selectors();
+    if (selectors.empty()) {
+        return;
+    }
+
+    // Find the right_spacer widget to insert before it
+    QHBoxLayout* toolbar = qobject_cast<QHBoxLayout*>(ui->pic_toolbar);
+    if (!toolbar) {
+        return;
+    }
+
+    // Find the last spacer item (right_spacer)
+    int insertIndex = toolbar->count();
+    for (int i = toolbar->count() - 1; i >= 0; --i) {
+        QLayoutItem* item = toolbar->itemAt(i);
+        if (item && item->spacerItem()) {
+            insertIndex = i;
+            break;
+        }
+    }
+
+    // Process each selector
+    for (const auto& selector : selectors) {
+        if (selector->get_type() != "dropdown") {
+            continue; // Only support dropdown type for now
+        }
+
+        SelectorWidgetGroup group;
+        group.selectorId = selector->get_id();
+
+        // Get and translate selector title for tooltips
+        QString selectorTitle = replacePlaceholders(QString::fromStdString(selector->get_title()));
+
+        // 1. Create 20px spacer before section
+        group.spacerBefore = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        toolbar->insertItem(insertIndex++, group.spacerBefore);
+
+        // 2. Create icon label
+        group.iconLabel = new QLabel(this);
+        group.iconLabel->setMaximumSize(20, 20);
+        group.iconLabel->setScaledContents(true);
+        group.iconLabel->setToolTip(selectorTitle);
+
+        // Map icon name to resource path
+        QString iconPath = QString(":/icons/%1").arg(QString::fromStdString(selector->get_icon()));
+        QPixmap iconPixmap(iconPath);
+        if (!iconPixmap.isNull()) {
+            group.iconLabel->setPixmap(iconPixmap);
+        } else {
+            qDebug() << "Warning: Icon not found:" << iconPath;
+        }
+
+        toolbar->insertWidget(insertIndex++, group.iconLabel);
+
+        // 3. Create 5px spacer between icon and combo
+        group.spacerBetween = new QSpacerItem(5, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        toolbar->insertItem(insertIndex++, group.spacerBetween);
+
+        // 4. Create and populate combo box
+        group.comboBox = new QComboBox(this);
+        group.comboBox->blockSignals(true);
+        group.comboBox->setToolTip(selectorTitle);
+
+        auto options = selector->get_options();
+        int selectedIndex = 0;
+
+        // Populate combo box with all options
+        for (size_t i = 0; i < options.size(); ++i) {
+            const auto& opt = options[i];
+            QString displayText = replacePlaceholders(QString::fromStdString(opt.title));
+            QString optionId = QString::fromStdString(opt.id);
+
+            group.comboBox->addItem(displayText, optionId);
+        }
+
+        // Check if there's a suggested value for this selector
+        auto suggested_it = suggested_values.find(group.selectorId);
+        if (suggested_it != suggested_values.end()) {
+            const QString suggestedValue = QString::fromStdString(suggested_it->second);
+            // Find the combo item with this value and set it as current
+            for (int i = 0; i < group.comboBox->count(); ++i) {
+                if (group.comboBox->itemData(i).toString() == suggestedValue) {
+                    selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        group.comboBox->setCurrentIndex(selectedIndex);
+        adjustComboBoxWidth(group.comboBox);
+
+        // Connect signal BEFORE unblocking signals
+        QString selectorId = QString::fromStdString(group.selectorId);
+#if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
+        connect(group.comboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                this, [this, selectorId](int index) {
+                    QComboBox* combo = qobject_cast<QComboBox*>(sender());
+                    if (combo) {
+                        QString selectedValue = combo->itemData(index).toString();
+                        onSelectorChanged(selectorId, selectedValue);
+                    }
+                });
+#else
+        connect(group.comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+                this, [this, selectorId](int index) {
+                    QComboBox* combo = qobject_cast<QComboBox*>(sender());
+                    if (combo) {
+                        QString selectedValue = combo->itemData(index).toString();
+                        onSelectorChanged(selectorId, selectedValue);
+                    }
+                });
+#endif
+
+        group.comboBox->blockSignals(false);
+
+        toolbar->insertWidget(insertIndex++, group.comboBox);
+
+        // Store the widget group
+        m_selectorWidgets.push_back(group);
+    }
+}
+
+void ViewDialog::onSelectorChanged(const QString& selectorId, const QString& selectedValue)
+{
+    recreate_viewer = true;
+    print_data();
 }
 
 
@@ -399,14 +560,6 @@ void ViewDialog::on_scaleSlider_valueChanged(int value)
     ui->scaleLabel->setText(QString("%1%").arg(value*100));
     m_scaleFactor = value;
     update_image();
-}
-
-
-void ViewDialog::on_optionsCombo_currentIndexChanged(int index)
-{
-    recreate_viewer = true;
-    m_opt = ui->optionsCombo->itemData(index).toInt();
-    print_data();
 }
 
 

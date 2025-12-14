@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-<!-- Copyright (C) 2025 Mikhail Revzin <p3.141592653589793238462643@gmail.com> -->
-<!-- Part of the DISK Commander project: https://github.com/Ptr314/dsk_commander -->
-<!-- Description: File viewer dialog UI definition -->
 <ui version="4.0">
  <class>ViewDialog</class>
  <widget class="QDialog" name="ViewDialog">
@@ -10,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>804</width>
+    <width>905</width>
     <height>614</height>
    </rect>
   </property>
@@ -280,7 +276,7 @@
      <item>
       <widget class="QStackedWidget" name="viewArea">
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="page">
         <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -314,7 +310,7 @@
           <number>0</number>
          </property>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <layout class="QHBoxLayout" name="pic_toolbar">
            <item>
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
@@ -475,73 +471,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Preferred</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="optionsLabel">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string notr="true"/>
-             </property>
-             <property name="pixmap">
-              <pixmap resource="resources.qrc">:/icons/palette</pixmap>
-             </property>
-             <property name="scaledContents">
-              <bool>true</bool>
-             </property>
-             <property name="margin">
-              <number>0</number>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_7">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Preferred</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>5</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QComboBox" name="optionsCombo"/>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_4">
+            <spacer name="right_spacer">
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
@@ -565,8 +495,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>786</width>
-              <height>530</height>
+              <width>883</width>
+              <height>522</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
