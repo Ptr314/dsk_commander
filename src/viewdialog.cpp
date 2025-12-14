@@ -713,7 +713,7 @@ void ViewDialog::addCustomFileToComboBox(const std::string& selectorId, const QS
     // Add new custom file after separator
     QString fileName = QFileInfo(filePath).fileName();
     QString itemId = QString("custom:%1").arg(filePath);
-    comboBox->addItem(fileName, itemId);
+    comboBox->addItem(tr("From file: %1").arg(fileName), itemId);
 
     // Select the newly added item
     comboBox->setCurrentIndex(comboBox->count() - 1);
