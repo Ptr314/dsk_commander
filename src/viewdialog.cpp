@@ -12,6 +12,9 @@
 #include <QClipboard>
 #include <QMimeData>
 #include <QFileDialog>
+#include <QFile>
+#include <QFileInfo>
+#include <QIcon>
 #include <QTextStream>
 #include <QDebug>
 #include <QHBoxLayout>
@@ -399,14 +402,22 @@ void ViewDialog::clearSelectorWidgets()
         // Remove widgets from layout
         ui->pic_toolbar->removeWidget(group.iconLabel);
         ui->pic_toolbar->removeWidget(group.comboBox);
+        if (group.customButton) ui->pic_toolbar->removeWidget(group.customButton);
+        if (group.clearButton) ui->pic_toolbar->removeWidget(group.clearButton);
         ui->pic_toolbar->removeItem(group.spacerBefore);
         ui->pic_toolbar->removeItem(group.spacerBetween);
+        if (group.buttonSpacer) ui->pic_toolbar->removeItem(group.buttonSpacer);
+        if (group.clearButtonSpacer) ui->pic_toolbar->removeItem(group.clearButtonSpacer);
 
         // Delete widgets (Qt parent-child hierarchy handles most cleanup)
         delete group.iconLabel;
         delete group.comboBox;
+        delete group.customButton;
+        delete group.clearButton;
         delete group.spacerBefore;
         delete group.spacerBetween;
+        delete group.buttonSpacer;
+        delete group.clearButtonSpacer;
     }
 
     // Clear the vector
@@ -463,7 +474,8 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
 
         // 2. Create icon label
         group.iconLabel = new QLabel(this);
-        group.iconLabel->setMaximumSize(20, 20);
+        // group.iconLabel->setMinimumSize(24, 24);
+        group.iconLabel->setMaximumSize(24, 24);
         group.iconLabel->setScaledContents(true);
         group.iconLabel->setToolTip(selectorTitle);
 
@@ -497,6 +509,15 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
             QString optionId = QString::fromStdString(opt.id);
 
             group.comboBox->addItem(displayText, optionId);
+        }
+
+        // Load custom files if selector supports them (BEFORE setting selected index)
+        group.customButton = nullptr;
+        group.clearButton = nullptr;
+        group.buttonSpacer = nullptr;
+        group.clearButtonSpacer = nullptr;
+        if (selector->has_customs()) {
+            loadCustomFilesForSelector(selector->get_id(), group.comboBox);
         }
 
         // Check if there's a suggested value for this selector
@@ -541,6 +562,70 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
 
         toolbar->insertWidget(insertIndex++, group.comboBox);
 
+        // Create custom file selection button if selector supports it
+        if (selector->has_customs()) {
+            group.customButton = new QToolButton(this);
+
+            // Load and set icon for file selection
+            QPixmap iconPixmap(":/icons/add_from_file");
+            if (!iconPixmap.isNull()) {
+                group.customButton->setIcon(QIcon(iconPixmap));
+            } else {
+                // Fallback if icon not found
+                group.customButton->setText("+");
+            }
+
+            group.customButton->setIconSize(QSize(24, 24));
+            group.customButton->setMinimumSize(32, 32);
+            group.customButton->setToolTip(tr("Add custom file"));
+            group.customButton->setObjectName(QString::fromStdString("customBtn_" + selector->get_id()));
+
+            // Connect button click
+            std::string selectorId = selector->get_id();
+            connect(group.customButton, &QToolButton::clicked, this, [this, selectorId]() {
+                onCustomFileButtonClicked(selectorId);
+            });
+
+            // Add spacer before button
+            group.buttonSpacer = new QSpacerItem(2, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+            toolbar->insertItem(insertIndex++, group.buttonSpacer);
+
+            // Add button to layout
+            toolbar->insertWidget(insertIndex++, group.customButton);
+
+            // Create clear custom files button
+            group.clearButton = new QToolButton(this);
+
+            // Load and set delete icon
+            QPixmap deleteIconPixmap(":/icons/deleted");
+            if (!deleteIconPixmap.isNull()) {
+                group.clearButton->setIcon(QIcon(deleteIconPixmap));
+            } else {
+                // Fallback if icon not found
+                group.clearButton->setText("X");
+            }
+
+            group.clearButton->setIconSize(QSize(26, 26));
+            group.clearButton->setMinimumSize(32, 32);
+            group.clearButton->setToolTip(tr("Clear custom files"));
+            group.clearButton->setObjectName(QString::fromStdString("clearBtn_" + selector->get_id()));
+
+            // Connect button click
+            connect(group.clearButton, &QToolButton::clicked, this, [this, selectorId]() {
+                onClearCustomFilesButtonClicked(selectorId);
+            });
+
+            // Add spacer before clear button
+            group.clearButtonSpacer = new QSpacerItem(2, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+            toolbar->insertItem(insertIndex++, group.clearButtonSpacer);
+
+            // Add clear button to layout
+            toolbar->insertWidget(insertIndex++, group.clearButton);
+        } else {
+            group.clearButton = nullptr;
+            group.clearButtonSpacer = nullptr;
+        }
+
         // Store the widget group
         m_selectorWidgets.push_back(group);
     }
@@ -550,6 +635,183 @@ void ViewDialog::onSelectorChanged(const QString& selectorId, const QString& sel
 {
     recreate_viewer = true;
     print_data();
+}
+
+
+QString ViewDialog::getCustomFilesSettingsKey(const std::string& selectorId) {
+    return QString("viewer/custom_files_%1").arg(QString::fromStdString(selectorId));
+}
+
+
+void ViewDialog::loadCustomFilesForSelector(const std::string& selectorId, QComboBox* comboBox) {
+    QString settingsKey = getCustomFilesSettingsKey(selectorId);
+    QStringList customFiles = m_settings->value(settingsKey).toStringList();
+
+    if (customFiles.isEmpty()) return;
+
+    // First pass: check if any valid files exist
+    bool hasValidFiles = false;
+    for (const QString& filePath : customFiles) {
+        if (QFile::exists(filePath)) {
+            hasValidFiles = true;
+            break;
+        }
+    }
+
+    if (!hasValidFiles) return;  // Don't add separator if no valid files exist
+
+    // Add separator before custom files
+    comboBox->insertSeparator(comboBox->count());
+
+    // Add each custom file
+    for (const QString& filePath : customFiles) {
+        if (QFile::exists(filePath)) {  // Only add if file still exists
+            QString fileName = QFileInfo(filePath).fileName();
+            QString itemId = QString("custom:%1").arg(filePath);
+            comboBox->addItem(tr("From file: %1").arg(fileName), itemId);
+        }
+    }
+}
+
+
+void ViewDialog::addCustomFileToComboBox(const std::string& selectorId, const QString& filePath, QComboBox* comboBox) {
+    // Load existing custom files from settings
+    QString settingsKey = getCustomFilesSettingsKey(selectorId);
+    QStringList customFiles = m_settings->value(settingsKey).toStringList();
+
+    // Check if file already exists in list
+    if (customFiles.contains(filePath)) {
+        // Already added, just select it
+        for (int i = 0; i < comboBox->count(); ++i) {
+            QString itemId = comboBox->itemData(i).toString();
+            if (itemId == QString("custom:%1").arg(filePath)) {
+                comboBox->setCurrentIndex(i);
+                return;
+            }
+        }
+    }
+
+    // Add to settings list
+    customFiles.append(filePath);
+    m_settings->setValue(settingsKey, customFiles);
+
+    // Find separator or add one
+    int separatorIndex = -1;
+    for (int i = comboBox->count() - 1; i >= 0; --i) {
+        if (comboBox->itemData(i).isNull()) {  // Separator has null data
+            separatorIndex = i;
+            break;
+        }
+    }
+
+    if (separatorIndex == -1) {
+        // No separator yet, add one
+        comboBox->insertSeparator(comboBox->count());
+        separatorIndex = comboBox->count() - 1;
+    }
+
+    // Add new custom file after separator
+    QString fileName = QFileInfo(filePath).fileName();
+    QString itemId = QString("custom:%1").arg(filePath);
+    comboBox->addItem(fileName, itemId);
+
+    // Select the newly added item
+    comboBox->setCurrentIndex(comboBox->count() - 1);
+}
+
+
+void ViewDialog::onCustomFileButtonClicked(const std::string& selectorId) {
+    // Get last used directory from settings, or initialize from m_disk_image on first use
+    QString customFilesDir = m_settings->value("viewer/custom_files_dir", "").toString();
+
+    if (customFilesDir.isEmpty()) {
+        // First time: use directory from m_disk_image (UTF-8 safe for Windows)
+        customFilesDir = QFileInfo(QString::fromUtf8(m_disk_image->file_name().c_str())).dir().absolutePath();
+    }
+
+    // Determine file filter based on selector type
+    QString filter;
+    QString dialogTitle;
+
+    if (selectorId == "agat_palette") {
+        filter = tr("FIL files (*.fil);;All files (*.*)");
+        dialogTitle = tr("Select custom palette file");
+    } else if (selectorId == "agat_font") {
+        filter = tr("FIL files (*.fil);;All files (*.*)");
+        dialogTitle = tr("Select custom font file");
+    } else {
+        // Generic filter
+        filter = tr("All files (*.*)");
+        dialogTitle = tr("Select custom file");
+    }
+
+    // Open file dialog with stored directory
+    QString fileName = QFileDialog::getOpenFileName(
+        this,
+        dialogTitle,
+        customFilesDir,  // Use directory from settings or initial value
+        filter
+    );
+
+    if (fileName.isEmpty()) return;  // User cancelled
+
+    // Store the directory of the chosen file in settings for next time
+    QString chosenDir = QFileInfo(fileName).dir().absolutePath();
+    m_settings->setValue("viewer/custom_files_dir", chosenDir);
+
+    // Find the corresponding combobox
+    for (const auto& group : m_selectorWidgets) {
+        if (group.selectorId == selectorId) {
+            addCustomFileToComboBox(selectorId, fileName, group.comboBox);
+            break;
+        }
+    }
+}
+
+
+void ViewDialog::onClearCustomFilesButtonClicked(const std::string& selectorId) {
+    // Ask for confirmation
+    int ret = QMessageBox::question(
+        this,
+        tr("Clear custom files"),
+        tr("Are you sure you want to clear all custom files for this selector?"),
+        QMessageBox::Yes | QMessageBox::No,
+        QMessageBox::No
+    );
+
+    if (ret != QMessageBox::Yes) return;
+
+    // Find the corresponding combobox and clear
+    for (const auto& group : m_selectorWidgets) {
+        if (group.selectorId == selectorId) {
+            clearCustomFilesForSelector(selectorId, group.comboBox);
+            break;
+        }
+    }
+}
+
+
+void ViewDialog::clearCustomFilesForSelector(const std::string& selectorId, QComboBox* comboBox) {
+    // Clear from settings
+    QString settingsKey = getCustomFilesSettingsKey(selectorId);
+    m_settings->remove(settingsKey);
+
+    // Remove custom items and separator from combobox
+    // Find the separator
+    int separatorIndex = -1;
+    for (int i = 0; i < comboBox->count(); ++i) {
+        if (comboBox->itemData(i).isNull()) {  // Separator has null data
+            separatorIndex = i;
+            break;
+        }
+    }
+
+    // Remove items starting from separator onwards
+    if (separatorIndex != -1) {
+        for (int i = comboBox->count() - 1; i >= separatorIndex; --i) {
+            comboBox->removeItem(i);
+        }
+    }
 }
 
 

@@ -5,12 +5,14 @@
     <name>About</name>
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
         <translation type="unfinished"></translation>
@@ -20,90 +22,105 @@
     <name>ConvertDialog</name>
     <message>
         <location filename="../convertdialog.ui" line="24"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation type="unfinished"></translation>
@@ -165,6 +182,7 @@
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
         <translation type="unfinished"></translation>
@@ -1531,36 +1549,42 @@ Warning: This action cannot be undone!</source>
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="333"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="333"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="62"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="336"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="336"/>
         <source>View mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="110"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="340"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="340"/>
         <source>Subtype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="173"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="343"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="343"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="196"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="346"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="346"/>
         <source>Copy text to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="199"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
@@ -1568,6 +1592,8 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../viewdialog.ui" line="216"/>
         <location filename="../viewdialog.ui" line="219"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
         <source>Save to file</source>
@@ -1575,73 +1601,75 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="245"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="265"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="71"/>
+        <location filename="../viewdialog.cpp" line="74"/>
         <source>Binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="72"/>
+        <location filename="../viewdialog.cpp" line="75"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="73"/>
+        <location filename="../viewdialog.cpp" line="76"/>
         <source>BASIC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="74"/>
+        <location filename="../viewdialog.cpp" line="77"/>
         <source>Agat pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="75"/>
+        <location filename="../viewdialog.cpp" line="78"/>
         <source>Apple pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="121"/>
+        <location filename="../viewdialog.cpp" line="124"/>
         <source>Agat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="122"/>
+        <location filename="../viewdialog.cpp" line="125"/>
         <source>Apple II</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="123"/>
+        <location filename="../viewdialog.cpp" line="126"/>
         <source>Apple //c</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="124"/>
+        <location filename="../viewdialog.cpp" line="127"/>
         <source>ASCII</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="133"/>
+        <location filename="../viewdialog.cpp" line="136"/>
         <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="134"/>
+        <location filename="../viewdialog.cpp" line="137"/>
         <source>Square screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="135"/>
+        <location filename="../viewdialog.cpp" line="138"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1752,23 +1780,70 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="385"/>
+        <location filename="../viewdialog.cpp" line="388"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="637"/>
-        <location filename="../viewdialog.cpp" line="639"/>
+        <location filename="../viewdialog.cpp" line="579"/>
+        <source>Add custom file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="609"/>
+        <location filename="../viewdialog.cpp" line="763"/>
+        <source>Clear custom files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="670"/>
+        <source>From file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="728"/>
+        <location filename="../viewdialog.cpp" line="731"/>
+        <source>FIL files (*.fil);;All files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="729"/>
+        <source>Select custom palette file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="732"/>
+        <source>Select custom font file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="735"/>
+        <source>All files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="736"/>
+        <source>Select custom file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="764"/>
+        <source>Are you sure you want to clear all custom files for this selector?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="886"/>
+        <location filename="../viewdialog.cpp" line="888"/>
         <source>Save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="651"/>
+        <location filename="../viewdialog.cpp" line="900"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="651"/>
+        <location filename="../viewdialog.cpp" line="900"/>
         <source>File already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>

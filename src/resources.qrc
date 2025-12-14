@@ -28,11 +28,12 @@
         <file alias="screen_proportions">resources/icons/tv.png</file>
         <file alias="text_copy">resources/icons/window_list.png</file>
         <file alias="file_image">resources/icons/5floppy_unmount.png</file>
-        <file alias="backup">resources/icons/revert.png</file>
+        <file alias="add_from_file">resources/icons/revert.png</file>
         <file alias="fs_info">resources/icons/view_tree.png</file>
         <file alias="image_view">resources/icons/thumbnail.png</file>
         <file alias="restore">resources/icons/wizard.png</file>
         <file alias="font">resources/icons/font.png</file>
+        <file alias="backup">resources/icons/save_all.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>
