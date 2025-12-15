@@ -28,6 +28,8 @@ public:
     static QString decodeError(const dsk_tools::Result& result);
     static void openItem(FilePanel* panel, QWidget* parent, const QModelIndex& index);
 
+    static void infoDialog(QWidget* parent, const QString& text);
+
 private:
     static void showInfoDialog(const std::string& info, QWidget* parent);
     static void deleteRecursively(FilePanel* panel, QWidget* parent, const dsk_tools::UniversalFile & f);

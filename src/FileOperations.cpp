@@ -147,7 +147,8 @@ void FileOperations::openItem(FilePanel* panel, QWidget* parent, const QModelInd
                                     f.type_preferred,
                                     f.is_deleted,
                                     panel->getImage(),
-                                    panel->getFileSystem()
+                                    panel->getFileSystem(),
+                                    f
                 );
                 w->setAttribute(Qt::WA_DeleteOnClose);
                 w->setWindowTitle(w->windowTitle() + " (" + QString::fromStdString(f.name) + ")");
@@ -159,7 +160,7 @@ void FileOperations::openItem(FilePanel* panel, QWidget* parent, const QModelInd
     }
 }
 
-void FileOperations::viewFileInfo(FilePanel* panel, QWidget* parent)
+void FileOperations:: infoDialog(QWidget* parent, const QString& text)
 {
     const auto file_info = new QDialog(parent);
     file_info->setAttribute(Qt::WA_DeleteOnClose);
@@ -167,23 +168,25 @@ void FileOperations::viewFileInfo(FilePanel* panel, QWidget* parent)
     Ui_FileInfo fileinfoUi{};
     fileinfoUi.setupUi(file_info);
 
+    QFont font;
+#ifdef Q_OS_WIN
+    font.setFamily("Consolas");
+    font.setPointSize(10);
+#else
+    font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
+    font.setPointSize(10);
+#endif
+    fileinfoUi.textBox->setFont(font);
+    fileinfoUi.textBox->setPlainText(replacePlaceholders(text));
+    file_info->exec();
+}
+
+void FileOperations::viewFileInfo(FilePanel* panel, QWidget* parent)
+{
     const QModelIndex index = panel->getCurrentIndex();
     if (index.isValid()) {
-        auto f = panel->getFiles()[index.row()];
-
-        const auto info = replacePlaceholders(QString::fromStdString(panel->getFileSystem()->file_info(f)));
-
-        QFont font;
-#ifdef Q_OS_WIN
-        font.setFamily("Consolas");
-        font.setPointSize(10);
-#else
-        font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
-        font.setPointSize(10);
-#endif
-        fileinfoUi.textBox->setFont(font);
-        fileinfoUi.textBox->setPlainText(info);
-        file_info->exec();
+        const auto f = panel->getFiles()[index.row()];
+        infoDialog(parent, QString::fromStdString(panel->getFileSystem()->file_info(f)));
     }
 }
 

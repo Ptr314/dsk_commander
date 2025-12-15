@@ -27,7 +27,7 @@ class ViewDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ViewDialog(QWidget *parent, QSettings  *settings, const QString file_name, const dsk_tools::BYTES &data, dsk_tools::PreferredType preferred_type, bool deleted, dsk_tools::diskImage * image, dsk_tools::fileSystem * filesystem);
+    explicit ViewDialog(QWidget *parent, QSettings  *settings, const QString file_name, const dsk_tools::BYTES &data, dsk_tools::PreferredType preferred_type, bool deleted, dsk_tools::diskImage * image, dsk_tools::fileSystem * filesystem, const dsk_tools::UniversalFile& f);
     ~ViewDialog();
 
 private slots:
@@ -49,6 +49,8 @@ private slots:
 
     void on_saveButton_clicked();
 
+    void on_infoButton_clicked();
+
 private:
     Ui::ViewDialog *ui;
 
@@ -56,6 +58,7 @@ private:
     dsk_tools::BYTES m_data;
     dsk_tools::diskImage * m_disk_image;
     dsk_tools::fileSystem * m_filesystem;
+    dsk_tools::UniversalFile m_f;
     std::unique_ptr<dsk_tools::Viewer> m_viewer;
     bool recreate_viewer = true;
     QSettings *m_settings;

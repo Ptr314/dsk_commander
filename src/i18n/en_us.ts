@@ -5,6 +5,7 @@
     <name>About</name>
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
@@ -12,6 +13,7 @@
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
@@ -22,6 +24,7 @@
     <name>ConvertDialog</name>
     <message>
         <location filename="../convertdialog.ui" line="24"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
@@ -29,6 +32,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
@@ -36,6 +40,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
@@ -43,6 +48,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
@@ -50,6 +56,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
@@ -57,6 +64,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
@@ -64,6 +72,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
@@ -71,6 +80,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
@@ -78,6 +88,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
@@ -85,6 +96,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
@@ -92,6 +104,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
@@ -99,6 +112,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
@@ -106,6 +120,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
@@ -113,6 +128,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
@@ -120,6 +136,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
@@ -182,6 +199,7 @@
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
@@ -277,27 +295,27 @@
     <message>
         <location filename="../FileOperations.cpp" line="87"/>
         <location filename="../FileOperations.cpp" line="125"/>
-        <location filename="../FileOperations.cpp" line="156"/>
-        <location filename="../FileOperations.cpp" line="220"/>
-        <location filename="../FileOperations.cpp" line="365"/>
-        <location filename="../FileOperations.cpp" line="389"/>
-        <location filename="../FileOperations.cpp" line="428"/>
-        <location filename="../FileOperations.cpp" line="498"/>
-        <location filename="../FileOperations.cpp" line="531"/>
-        <location filename="../FileOperations.cpp" line="553"/>
-        <location filename="../FileOperations.cpp" line="647"/>
-        <location filename="../FileOperations.cpp" line="655"/>
-        <location filename="../FileOperations.cpp" line="664"/>
-        <location filename="../FileOperations.cpp" line="673"/>
-        <location filename="../FileOperations.cpp" line="680"/>
-        <location filename="../FileOperations.cpp" line="682"/>
-        <location filename="../FileOperations.cpp" line="684"/>
-        <location filename="../FileOperations.cpp" line="703"/>
-        <location filename="../FileOperations.cpp" line="878"/>
-        <location filename="../FileOperations.cpp" line="906"/>
-        <location filename="../FileOperations.cpp" line="919"/>
-        <location filename="../FileOperations.cpp" line="926"/>
-        <location filename="../FileOperations.cpp" line="935"/>
+        <location filename="../FileOperations.cpp" line="157"/>
+        <location filename="../FileOperations.cpp" line="223"/>
+        <location filename="../FileOperations.cpp" line="368"/>
+        <location filename="../FileOperations.cpp" line="392"/>
+        <location filename="../FileOperations.cpp" line="431"/>
+        <location filename="../FileOperations.cpp" line="501"/>
+        <location filename="../FileOperations.cpp" line="534"/>
+        <location filename="../FileOperations.cpp" line="556"/>
+        <location filename="../FileOperations.cpp" line="650"/>
+        <location filename="../FileOperations.cpp" line="658"/>
+        <location filename="../FileOperations.cpp" line="667"/>
+        <location filename="../FileOperations.cpp" line="676"/>
+        <location filename="../FileOperations.cpp" line="683"/>
+        <location filename="../FileOperations.cpp" line="685"/>
+        <location filename="../FileOperations.cpp" line="687"/>
+        <location filename="../FileOperations.cpp" line="706"/>
+        <location filename="../FileOperations.cpp" line="881"/>
+        <location filename="../FileOperations.cpp" line="909"/>
+        <location filename="../FileOperations.cpp" line="922"/>
+        <location filename="../FileOperations.cpp" line="929"/>
+        <location filename="../FileOperations.cpp" line="938"/>
         <location filename="../FilePanel.cpp" line="840"/>
         <location filename="../FilePanel.cpp" line="852"/>
         <location filename="../FilePanel.cpp" line="988"/>
@@ -305,7 +323,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="156"/>
+        <location filename="../FileOperations.cpp" line="157"/>
         <source>File reading error!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -805,268 +823,268 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="221"/>
+        <location filename="../FileOperations.cpp" line="224"/>
         <source>Metadata modification for this file system is not yet implemented.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="265"/>
+        <location filename="../FileOperations.cpp" line="268"/>
         <source>Selected files: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="266"/>
+        <location filename="../FileOperations.cpp" line="269"/>
         <source>Choose output file format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="267"/>
+        <location filename="../FileOperations.cpp" line="270"/>
         <source>Choose the format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="268"/>
-        <location filename="../FileOperations.cpp" line="289"/>
+        <location filename="../FileOperations.cpp" line="271"/>
+        <location filename="../FileOperations.cpp" line="292"/>
         <source>Copying files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="290"/>
+        <location filename="../FileOperations.cpp" line="293"/>
         <source>Copy %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="522"/>
+        <location filename="../FileOperations.cpp" line="525"/>
         <source>Add a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="523"/>
+        <location filename="../FileOperations.cpp" line="526"/>
         <source>Directory name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="531"/>
+        <location filename="../FileOperations.cpp" line="534"/>
         <source>Error creating directory: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="713"/>
+        <location filename="../FileOperations.cpp" line="716"/>
         <source>No error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="716"/>
+        <location filename="../FileOperations.cpp" line="719"/>
         <source>Not implemented yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="719"/>
+        <location filename="../FileOperations.cpp" line="722"/>
         <source>Item not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="725"/>
+        <location filename="../FileOperations.cpp" line="728"/>
         <source>File size does not match expected disk image size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="728"/>
+        <location filename="../FileOperations.cpp" line="731"/>
         <source>File parameters do not match disk image parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="731"/>
+        <location filename="../FileOperations.cpp" line="734"/>
         <source>File format is not recognized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="734"/>
+        <location filename="../FileOperations.cpp" line="737"/>
         <source>Disk image data is corrupted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="749"/>
+        <location filename="../FileOperations.cpp" line="752"/>
         <source>Writing to this format is not supported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="752"/>
+        <location filename="../FileOperations.cpp" line="755"/>
         <source>The selected template cannot be used - it must be the same type and size as the target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="755"/>
+        <location filename="../FileOperations.cpp" line="758"/>
         <source>Incorrect source data for tracks replacement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="761"/>
-        <location filename="../FileOperations.cpp" line="785"/>
-        <source>No enough free space</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../FileOperations.cpp" line="764"/>
-        <location filename="../FileOperations.cpp" line="779"/>
-        <source>Can&apos;t allocate a directory entry</source>
+        <location filename="../FileOperations.cpp" line="788"/>
+        <source>No enough free space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../FileOperations.cpp" line="767"/>
         <location filename="../FileOperations.cpp" line="782"/>
-        <source>Can&apos;t allocate a sector</source>
+        <source>Can&apos;t allocate a directory entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../FileOperations.cpp" line="770"/>
-        <source>Directory is not empty</source>
+        <location filename="../FileOperations.cpp" line="785"/>
+        <source>Can&apos;t allocate a sector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../FileOperations.cpp" line="773"/>
-        <source>Error deleting file</source>
+        <source>Directory is not empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../FileOperations.cpp" line="776"/>
+        <source>Error deleting file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FileOperations.cpp" line="779"/>
         <source>Error adding file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="788"/>
+        <location filename="../FileOperations.cpp" line="791"/>
         <source>Error renaming file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="791"/>
+        <location filename="../FileOperations.cpp" line="794"/>
         <source>File is not compatible with this filesystem</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="794"/>
+        <location filename="../FileOperations.cpp" line="797"/>
         <source>Error reading file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="797"/>
+        <location filename="../FileOperations.cpp" line="800"/>
         <source>File not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="800"/>
+        <location filename="../FileOperations.cpp" line="803"/>
         <source>File already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="803"/>
+        <location filename="../FileOperations.cpp" line="806"/>
         <source>Directory already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="953"/>
+        <location filename="../FileOperations.cpp" line="956"/>
         <source>Restore files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="954"/>
+        <location filename="../FileOperations.cpp" line="957"/>
         <source>Restore %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="758"/>
+        <location filename="../FileOperations.cpp" line="761"/>
         <source>Error creating a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="737"/>
+        <location filename="../FileOperations.cpp" line="740"/>
         <source>Image file is not loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="740"/>
+        <location filename="../FileOperations.cpp" line="743"/>
         <source>Unrecognized disk format or disk is damaged</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="722"/>
+        <location filename="../FileOperations.cpp" line="725"/>
         <source>Error loading disk image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="743"/>
+        <location filename="../FileOperations.cpp" line="746"/>
         <source>Error creating file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="746"/>
+        <location filename="../FileOperations.cpp" line="749"/>
         <source>Error writing file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="806"/>
+        <location filename="../FileOperations.cpp" line="809"/>
         <source>Invalid name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="809"/>
+        <location filename="../FileOperations.cpp" line="812"/>
         <source>Error detecting disk image format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="812"/>
+        <location filename="../FileOperations.cpp" line="815"/>
         <source>File metadata error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="815"/>
+        <location filename="../FileOperations.cpp" line="818"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="879"/>
+        <location filename="../FileOperations.cpp" line="882"/>
         <source>Error creating directory &apos;%1&apos;: %2. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="895"/>
+        <location filename="../FileOperations.cpp" line="898"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="896"/>
+        <location filename="../FileOperations.cpp" line="899"/>
         <source>File &apos;%1&apos; already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="907"/>
-        <location filename="../FileOperations.cpp" line="927"/>
+        <location filename="../FileOperations.cpp" line="910"/>
+        <location filename="../FileOperations.cpp" line="930"/>
         <source>Error writing file &apos;%1&apos;: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="920"/>
+        <location filename="../FileOperations.cpp" line="923"/>
         <source>Writing for this type of file system is not implemented yet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="936"/>
+        <location filename="../FileOperations.cpp" line="939"/>
         <source>Error reading file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="390"/>
+        <location filename="../FileOperations.cpp" line="393"/>
         <source>Directory &apos;%1&apos; not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="344"/>
-        <location filename="../FileOperations.cpp" line="407"/>
+        <location filename="../FileOperations.cpp" line="347"/>
+        <location filename="../FileOperations.cpp" line="410"/>
         <source>Recycle Bin Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="408"/>
+        <location filename="../FileOperations.cpp" line="411"/>
         <source>Cannot move directory &apos;%1&apos; to recycle bin.
 
 Do you want to delete it permanently instead?
@@ -1075,32 +1093,32 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="429"/>
+        <location filename="../FileOperations.cpp" line="432"/>
         <source>Error deleting directory &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="314"/>
+        <location filename="../FileOperations.cpp" line="317"/>
         <source>Deleting files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="315"/>
+        <location filename="../FileOperations.cpp" line="318"/>
         <source>Delete %1 files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="324"/>
+        <location filename="../FileOperations.cpp" line="327"/>
         <source>Deleting directories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="325"/>
+        <location filename="../FileOperations.cpp" line="328"/>
         <source>&apos;%1&apos; is a directory. Delete it recursively?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="345"/>
+        <location filename="../FileOperations.cpp" line="348"/>
         <source>Cannot move &apos;%1&apos; to recycle bin.
 
 Do you want to delete it permanently instead?
@@ -1109,73 +1127,73 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="366"/>
+        <location filename="../FileOperations.cpp" line="369"/>
         <source>Error deleting file &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="465"/>
-        <location filename="../FileOperations.cpp" line="481"/>
+        <location filename="../FileOperations.cpp" line="468"/>
+        <location filename="../FileOperations.cpp" line="484"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="466"/>
+        <location filename="../FileOperations.cpp" line="469"/>
         <source>Please select exactly one file to rename.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="482"/>
+        <location filename="../FileOperations.cpp" line="485"/>
         <source>New name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="499"/>
+        <location filename="../FileOperations.cpp" line="502"/>
         <source>Error renaming file &apos;%1&apos; to &apos;%2&apos;: %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="554"/>
+        <location filename="../FileOperations.cpp" line="557"/>
         <source>Saving is not available or the uploaded image has not yet been modified.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="647"/>
+        <location filename="../FileOperations.cpp" line="650"/>
         <source>Not implemented!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="664"/>
+        <location filename="../FileOperations.cpp" line="667"/>
         <source>Error opening template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="673"/>
+        <location filename="../FileOperations.cpp" line="676"/>
         <source>Error reading template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="680"/>
+        <location filename="../FileOperations.cpp" line="683"/>
         <source>The selected template cannot be used - it must be the same type and size as the target.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="682"/>
+        <location filename="../FileOperations.cpp" line="685"/>
         <source>Incorrect source data for tracks replacement.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="700"/>
+        <location filename="../FileOperations.cpp" line="703"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="701"/>
+        <location filename="../FileOperations.cpp" line="704"/>
         <source>File saved successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileOperations.cpp" line="703"/>
+        <location filename="../FileOperations.cpp" line="706"/>
         <source>Error writing file to disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1549,42 +1567,48 @@ Warning: This action cannot be undone!</source>
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="333"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="335"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="349"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="333"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="62"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="336"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="338"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="336"/>
         <source>View mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="110"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="340"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="342"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="356"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="340"/>
         <source>Subtype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="173"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="343"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="345"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="359"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="343"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="196"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="346"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="362"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="346"/>
         <source>Copy text to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="199"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
@@ -1592,8 +1616,10 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../viewdialog.ui" line="216"/>
         <location filename="../viewdialog.ui" line="219"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="368"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
         <source>Save to file</source>
@@ -1601,75 +1627,83 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="245"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="355"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="265"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="370"/>
+        <source>Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.ui" line="285"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="356"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="74"/>
+        <location filename="../viewdialog.cpp" line="77"/>
         <source>Binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="75"/>
+        <location filename="../viewdialog.cpp" line="78"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="76"/>
+        <location filename="../viewdialog.cpp" line="79"/>
         <source>BASIC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="77"/>
+        <location filename="../viewdialog.cpp" line="80"/>
         <source>Agat pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="78"/>
+        <location filename="../viewdialog.cpp" line="81"/>
         <source>Apple pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="124"/>
+        <location filename="../viewdialog.cpp" line="127"/>
         <source>Agat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="125"/>
+        <location filename="../viewdialog.cpp" line="128"/>
         <source>Apple II</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="126"/>
+        <location filename="../viewdialog.cpp" line="129"/>
         <source>Apple //c</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="127"/>
+        <location filename="../viewdialog.cpp" line="130"/>
         <source>ASCII</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="136"/>
+        <location filename="../viewdialog.cpp" line="139"/>
         <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="137"/>
+        <location filename="../viewdialog.cpp" line="140"/>
         <source>Square screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="138"/>
+        <location filename="../viewdialog.cpp" line="141"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1780,70 +1814,71 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="388"/>
+        <location filename="../viewdialog.cpp" line="391"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="579"/>
+        <location filename="../viewdialog.cpp" line="583"/>
         <source>Add custom file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="609"/>
-        <location filename="../viewdialog.cpp" line="763"/>
+        <location filename="../viewdialog.cpp" line="613"/>
+        <location filename="../viewdialog.cpp" line="779"/>
         <source>Clear custom files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="670"/>
+        <location filename="../viewdialog.cpp" line="674"/>
+        <location filename="../viewdialog.cpp" line="719"/>
         <source>From file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="728"/>
-        <location filename="../viewdialog.cpp" line="731"/>
+        <location filename="../viewdialog.cpp" line="740"/>
+        <location filename="../viewdialog.cpp" line="743"/>
         <source>FIL files (*.fil);;All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="729"/>
+        <location filename="../viewdialog.cpp" line="741"/>
         <source>Select custom palette file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="732"/>
+        <location filename="../viewdialog.cpp" line="744"/>
         <source>Select custom font file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="735"/>
+        <location filename="../viewdialog.cpp" line="747"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="736"/>
+        <location filename="../viewdialog.cpp" line="748"/>
         <source>Select custom file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="764"/>
+        <location filename="../viewdialog.cpp" line="780"/>
         <source>Are you sure you want to clear all custom files for this selector?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="886"/>
-        <location filename="../viewdialog.cpp" line="888"/>
+        <location filename="../viewdialog.cpp" line="902"/>
+        <location filename="../viewdialog.cpp" line="904"/>
         <source>Save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="900"/>
+        <location filename="../viewdialog.cpp" line="916"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="900"/>
+        <location filename="../viewdialog.cpp" line="916"/>
         <source>File already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>

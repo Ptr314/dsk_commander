@@ -20,6 +20,8 @@
 #include <QHBoxLayout>
 
 #include "viewdialog.h"
+
+#include "FileOperations.h"
 #include "mainutils.h"
 #include "placeholders.h"
 #include "ui_viewdialog.h"
@@ -27,13 +29,14 @@
 
 #include "dsk_tools/dsk_tools.h"
 
-ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_name, const dsk_tools::BYTES &data, dsk_tools::PreferredType preferred_type, bool deleted, dsk_tools::diskImage * disk_image, dsk_tools::fileSystem * filesystem)
+ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_name, const dsk_tools::BYTES &data, dsk_tools::PreferredType preferred_type, bool deleted, dsk_tools::diskImage * disk_image, dsk_tools::fileSystem * filesystem, const dsk_tools::UniversalFile& f)
     : QDialog(parent)
     , ui(new Ui::ViewDialog)
     , m_settings(settings)
     , m_file_name(file_name)
     , m_disk_image(disk_image)
     , m_filesystem(filesystem)
+    , m_f(f)
 {
     m_data = data;
     ui->setupUi(this);
@@ -935,5 +938,11 @@ void ViewDialog::on_saveButton_clicked()
         m_settings->setValue("viewer/txt_filter", selected_filter);
     }
 
+}
+
+
+void ViewDialog::on_infoButton_clicked()
+{
+    FileOperations::infoDialog(this, QString::fromStdString(m_filesystem->file_info(m_f)));
 }
 

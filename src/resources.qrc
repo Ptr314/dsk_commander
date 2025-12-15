@@ -34,6 +34,7 @@
         <file alias="restore">resources/icons/wizard.png</file>
         <file alias="font">resources/icons/font.png</file>
         <file alias="backup">resources/icons/save_all.png</file>
+        <file alias="close">resources/icons/cancel.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>
