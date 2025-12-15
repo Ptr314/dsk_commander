@@ -35,6 +35,7 @@
         <file alias="font">resources/icons/font.png</file>
         <file alias="backup">resources/icons/save_all.png</file>
         <file alias="close">resources/icons/cancel.png</file>
+        <file alias="comment">resources/icons/khexedit.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>

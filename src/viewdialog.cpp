@@ -18,6 +18,8 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QHBoxLayout>
+#include <QFrame>
+#include <QVBoxLayout>
 
 #include "viewdialog.h"
 
@@ -405,6 +407,7 @@ void ViewDialog::clearSelectorWidgets()
         // Remove widgets from layout
         ui->pic_toolbar->removeWidget(group.iconLabel);
         ui->pic_toolbar->removeWidget(group.comboBox);
+        ui->pic_toolbar->removeWidget(group.infoButton);
         if (group.customButton) ui->pic_toolbar->removeWidget(group.customButton);
         if (group.clearButton) ui->pic_toolbar->removeWidget(group.clearButton);
         ui->pic_toolbar->removeItem(group.spacerBefore);
@@ -415,6 +418,7 @@ void ViewDialog::clearSelectorWidgets()
         // Delete widgets (Qt parent-child hierarchy handles most cleanup)
         delete group.iconLabel;
         delete group.comboBox;
+        delete group.infoButton;
         delete group.customButton;
         delete group.clearButton;
         delete group.spacerBefore;
@@ -461,23 +465,72 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
 
     // Process each selector
     for (const auto& selector : selectors) {
-        if (selector->get_type() != "dropdown") {
-            continue; // Only support dropdown type for now
+        const std::string selectorType = selector->get_type();
+        if (selectorType != "dropdown" && selectorType != "info") {
+            continue; // Only support dropdown and info types
         }
 
         SelectorWidgetGroup group;
         group.selectorId = selector->get_id();
+        group.infoButton = nullptr;
 
-        // Get and translate selector title for tooltips
+        // Get and translate selector title
         QString selectorTitle = replacePlaceholders(QString::fromStdString(selector->get_title()));
 
+        // Handle info selector type (no separate icon label, inline button with text)
+        if (selectorType == "info") {
+            // 1. Create 20px spacer before section
+            group.spacerBefore = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+            toolbar->insertItem(insertIndex++, group.spacerBefore);
+
+            // 2. Create tool button with icon and text inline
+            group.infoButton = new QToolButton(this);
+            group.infoButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+            group.infoButton->setText(selectorTitle);
+            group.infoButton->setToolTip(selectorTitle);
+            group.infoButton->setIconSize(QSize(24, 24));
+            group.infoButton->setObjectName(QString::fromStdString("infoBtn_" + selector->get_id()));
+
+            // Set icon on the button
+            QString iconPath = QString(":/icons/%1").arg(QString::fromStdString(selector->get_icon()));
+            QPixmap iconPixmap(iconPath);
+            if (!iconPixmap.isNull()) {
+                group.infoButton->setIcon(QIcon(iconPixmap));
+            } else {
+                group.infoButton->setText("? " + selectorTitle);
+            }
+
+            // Connect button click to show info popup
+            connect(group.infoButton, &QToolButton::clicked, this, [this, group]() {
+                onInfoButtonClicked(group.infoButton, group.selectorId);
+            });
+
+            toolbar->insertWidget(insertIndex++, group.infoButton);
+
+            // 3. Create 5px spacer after button
+            group.spacerBetween = new QSpacerItem(5, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+            toolbar->insertItem(insertIndex++, group.spacerBetween);
+
+            // Initialize other pointers to nullptr for info type
+            group.iconLabel = nullptr;
+            group.comboBox = nullptr;
+            group.customButton = nullptr;
+            group.clearButton = nullptr;
+            group.buttonSpacer = nullptr;
+            group.clearButtonSpacer = nullptr;
+
+            // Store the widget group
+            m_selectorWidgets.push_back(group);
+            continue;  // Skip the dropdown-specific code below
+        }
+
+        // For dropdown type: create icon label and spacer
         // 1. Create 20px spacer before section
         group.spacerBefore = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
         toolbar->insertItem(insertIndex++, group.spacerBefore);
 
         // 2. Create icon label
         group.iconLabel = new QLabel(this);
-        // group.iconLabel->setMinimumSize(24, 24);
         group.iconLabel->setMaximumSize(24, 24);
         group.iconLabel->setScaledContents(true);
         group.iconLabel->setToolTip(selectorTitle);
@@ -944,5 +997,44 @@ void ViewDialog::on_saveButton_clicked()
 void ViewDialog::on_infoButton_clicked()
 {
     FileOperations::infoDialog(this, QString::fromStdString(m_filesystem->file_info(m_f)));
+}
+
+
+void ViewDialog::onInfoButtonClicked(QToolButton* button, const std::string& selectorId)
+{
+    if (selectorId == AGAT_INFO_SELECTOR_ID) {
+        const QString infoText = QString::fromStdString(dsk_tools::agat_vr_info(m_data, true));
+
+        // Create a small popup frame window
+        QFrame* popupFrame = new QFrame();
+        popupFrame->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint);
+        popupFrame->setStyleSheet("QFrame { background-color: #f0f0f0; border: 1px solid #999999; border-radius: 4px; }");
+
+        // Create layout with a label
+        QVBoxLayout* layout = new QVBoxLayout(popupFrame);
+        layout->setContentsMargins(8, 8, 8, 8);
+        layout->setSpacing(0);
+
+        QLabel* infoLabel = new QLabel(infoText);
+        infoLabel->setWordWrap(true);
+        infoLabel->setMaximumWidth(300);
+        infoLabel->setStyleSheet("QLabel { color: #000000; font-size: 11px; }");
+
+        layout->addWidget(infoLabel);
+
+        // Position the popup just below the button
+        QPoint buttonPos = button->mapToGlobal(QPoint(0, button->height()));
+        popupFrame->move(buttonPos);
+
+        // Set a reasonable size
+        popupFrame->setMinimumWidth(200);
+        popupFrame->adjustSize();
+
+        // Show the popup
+        popupFrame->show();
+
+        // Auto-delete the popup after a timeout (3 seconds)
+        QTimer::singleShot(5000, popupFrame, &QWidget::deleteLater);
+    }
 }
 

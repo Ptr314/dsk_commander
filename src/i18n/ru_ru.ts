@@ -1613,48 +1613,53 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="196"/>
+        <source>File info</source>
+        <translation>О файле</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.ui" line="219"/>
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="362"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="363"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="346"/>
         <source>Copy text to clipboard</source>
         <translation>Копировать в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="199"/>
+        <location filename="../viewdialog.ui" line="222"/>
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="365"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="348"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="216"/>
-        <location filename="../viewdialog.ui" line="219"/>
+        <location filename="../viewdialog.ui" line="239"/>
+        <location filename="../viewdialog.ui" line="242"/>
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="368"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="350"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="352"/>
         <source>Save to file</source>
         <translation>Сохранить в файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="245"/>
+        <location filename="../viewdialog.ui" line="268"/>
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="355"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="370"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="353"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation>Удаленный файл. Данные могут быть неверны.</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="265"/>
-        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="370"/>
+        <location filename="../viewdialog.ui" line="199"/>
+        <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
         <source>Info</source>
         <translation>Информация</translation>
     </message>
     <message>
-        <location filename="../viewdialog.ui" line="285"/>
+        <location filename="../viewdialog.ui" line="288"/>
         <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="356"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
@@ -1662,62 +1667,62 @@ Warning: This action cannot be undone!</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="77"/>
+        <location filename="../viewdialog.cpp" line="79"/>
         <source>Binary</source>
         <translation>Двоичный</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="78"/>
+        <location filename="../viewdialog.cpp" line="80"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="79"/>
+        <location filename="../viewdialog.cpp" line="81"/>
         <source>BASIC</source>
         <translation>Бейсик</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="80"/>
+        <location filename="../viewdialog.cpp" line="82"/>
         <source>Agat pictures</source>
         <translation>Графика Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="81"/>
+        <location filename="../viewdialog.cpp" line="83"/>
         <source>Apple pictures</source>
         <translation>Графика Apple</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="127"/>
+        <location filename="../viewdialog.cpp" line="129"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="128"/>
+        <location filename="../viewdialog.cpp" line="130"/>
         <source>Apple II</source>
         <translation>Apple II</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="129"/>
+        <location filename="../viewdialog.cpp" line="131"/>
         <source>Apple //c</source>
         <translation>Apple //c</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="130"/>
+        <location filename="../viewdialog.cpp" line="132"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="139"/>
+        <location filename="../viewdialog.cpp" line="141"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="140"/>
+        <location filename="../viewdialog.cpp" line="142"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="141"/>
+        <location filename="../viewdialog.cpp" line="143"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
@@ -1779,21 +1784,26 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../placeholders.h" line="131"/>
+        <source>Comment</source>
+        <translation>Комментарий</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="132"/>
         <source>Agat color mode</source>
         <translation>Цветной режим Агат</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="132"/>
+        <location filename="../placeholders.h" line="133"/>
         <source>Apple color mode</source>
         <translation>Цветной режим Apple</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="133"/>
+        <location filename="../placeholders.h" line="134"/>
         <source>Font type</source>
         <translation>Тип шрифта</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="134"/>
+        <location filename="../placeholders.h" line="135"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
@@ -1828,71 +1838,71 @@ Warning: This action cannot be undone!</source>
         <translation>Знакогенератор</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="391"/>
+        <location filename="../viewdialog.cpp" line="393"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="583"/>
+        <location filename="../viewdialog.cpp" line="636"/>
         <source>Add custom file</source>
         <translation>Добавить внешний файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="613"/>
-        <location filename="../viewdialog.cpp" line="779"/>
+        <location filename="../viewdialog.cpp" line="666"/>
+        <location filename="../viewdialog.cpp" line="832"/>
         <source>Clear custom files</source>
         <translation>Очистить список добавленных файлов</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="674"/>
-        <location filename="../viewdialog.cpp" line="719"/>
+        <location filename="../viewdialog.cpp" line="727"/>
+        <location filename="../viewdialog.cpp" line="772"/>
         <source>From file: %1</source>
         <translation>Из файла: %1</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="740"/>
-        <location filename="../viewdialog.cpp" line="743"/>
+        <location filename="../viewdialog.cpp" line="793"/>
+        <location filename="../viewdialog.cpp" line="796"/>
         <source>FIL files (*.fil);;All files (*.*)</source>
         <translation>Файлы FIL (*.fil);;Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="741"/>
+        <location filename="../viewdialog.cpp" line="794"/>
         <source>Select custom palette file</source>
         <translation>Выберите файл с палитрой</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="744"/>
+        <location filename="../viewdialog.cpp" line="797"/>
         <source>Select custom font file</source>
         <translation>Выберите файл шрифта</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="747"/>
+        <location filename="../viewdialog.cpp" line="800"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="748"/>
+        <location filename="../viewdialog.cpp" line="801"/>
         <source>Select custom file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="780"/>
+        <location filename="../viewdialog.cpp" line="833"/>
         <source>Are you sure you want to clear all custom files for this selector?</source>
         <translation>Вы действительно хотите полностью очистить дообавленные файлы для этого списка?</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="902"/>
-        <location filename="../viewdialog.cpp" line="904"/>
+        <location filename="../viewdialog.cpp" line="955"/>
+        <location filename="../viewdialog.cpp" line="957"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="916"/>
+        <location filename="../viewdialog.cpp" line="969"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="916"/>
+        <location filename="../viewdialog.cpp" line="969"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>

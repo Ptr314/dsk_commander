@@ -191,6 +191,29 @@
       </spacer>
      </item>
      <item>
+      <widget class="QToolButton" name="infoButton">
+       <property name="toolTip">
+        <string>File info</string>
+       </property>
+       <property name="text">
+        <string>Info</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/icons/info</normaloff>:/icons/info</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QToolButton" name="copyButton">
        <property name="toolTip">
         <string>Copy text to clipboard</string>
@@ -260,26 +283,6 @@
       </spacer>
      </item>
      <item>
-      <widget class="QToolButton" name="infoButton">
-       <property name="text">
-        <string>Info</string>
-       </property>
-       <property name="icon">
-        <iconset resource="resources.qrc">
-         <normaloff>:/icons/info</normaloff>:/icons/info</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>24</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QToolButton" name="closeBtn">
        <property name="text">
         <string>Close</string>
@@ -295,7 +298,7 @@
         </size>
        </property>
        <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+        <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
        </property>
       </widget>
      </item>

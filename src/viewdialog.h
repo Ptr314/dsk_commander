@@ -84,11 +84,12 @@ private:
     // Dynamic selector widgets for picture viewers
     struct SelectorWidgetGroup {
         QLabel* iconLabel;           // Icon for the selector
-        QComboBox* comboBox;         // Dropdown widget
+        QComboBox* comboBox;         // Dropdown widget (nullptr for info type)
+        QToolButton* infoButton;     // Tool button for info type (nullptr if not info type)
         QToolButton* customButton;   // Tool button for adding custom files (nullptr if !has_customs())
         QToolButton* clearButton;    // Tool button for clearing custom files (nullptr if !has_customs())
         QSpacerItem* spacerBefore;   // 20px spacer before section
-        QSpacerItem* spacerBetween;  // 5px spacer between icon and combo
+        QSpacerItem* spacerBetween;  // 5px spacer between icon and combo/button
         QSpacerItem* buttonSpacer;   // 2px spacer between combo and custom button (nullptr if !has_customs())
         QSpacerItem* clearButtonSpacer;  // 2px spacer between custom button and clear button (nullptr if !has_customs())
         std::string selectorId;      // Selector ID (e.g., "agat_font_type")
@@ -107,5 +108,8 @@ private:
     void addCustomFileToComboBox(const std::string& selectorId, const QString& filePath, QComboBox* comboBox);
     void clearCustomFilesForSelector(const std::string& selectorId, QComboBox* comboBox);
     QString getCustomFilesSettingsKey(const std::string& selectorId);
+
+    // Info button methods
+    void onInfoButtonClicked(QToolButton* button, const std::string& selectorId);
 
 };
