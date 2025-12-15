@@ -400,22 +400,22 @@ void ViewDialog::fill_options()
 
 void ViewDialog::clearSelectorWidgets()
 {
-    // Iterate in reverse to safely remove from layout
-    for (auto it = m_selectorWidgets.rbegin(); it != m_selectorWidgets.rend(); ++it) {
-        SelectorWidgetGroup& group = *it;
+    // Iterate in reverse to safely remove from layout (use int loop for Qt 5.6 compatibility)
+    for (int i = (int)m_selectorWidgets.size() - 1; i >= 0; --i) {
+        SelectorWidgetGroup& group = m_selectorWidgets[i];
 
         // Remove widgets from layout
-        ui->pic_toolbar->removeWidget(group.iconLabel);
-        ui->pic_toolbar->removeWidget(group.comboBox);
-        ui->pic_toolbar->removeWidget(group.infoButton);
+        if (group.iconLabel) ui->pic_toolbar->removeWidget(group.iconLabel);
+        if (group.comboBox) ui->pic_toolbar->removeWidget(group.comboBox);
+        if (group.infoButton) ui->pic_toolbar->removeWidget(group.infoButton);
         if (group.customButton) ui->pic_toolbar->removeWidget(group.customButton);
         if (group.clearButton) ui->pic_toolbar->removeWidget(group.clearButton);
-        ui->pic_toolbar->removeItem(group.spacerBefore);
-        ui->pic_toolbar->removeItem(group.spacerBetween);
+        if (group.spacerBefore) ui->pic_toolbar->removeItem(group.spacerBefore);
+        if (group.spacerBetween) ui->pic_toolbar->removeItem(group.spacerBetween);
         if (group.buttonSpacer) ui->pic_toolbar->removeItem(group.buttonSpacer);
         if (group.clearButtonSpacer) ui->pic_toolbar->removeItem(group.clearButtonSpacer);
 
-        // Delete widgets (Qt parent-child hierarchy handles most cleanup)
+        // Delete widgets
         delete group.iconLabel;
         delete group.comboBox;
         delete group.infoButton;
