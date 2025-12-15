@@ -1015,20 +1015,31 @@ void ViewDialog::onInfoButtonClicked(QToolButton* button, const std::string& sel
         layout->setContentsMargins(8, 8, 8, 8);
         layout->setSpacing(0);
 
+        QFont font;
+        #ifdef Q_OS_WIN
+                font.setFamily("Consolas");
+                font.setPointSize(10);
+        #else
+                font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
+                font.setPointSize(10);
+        #endif
+
         QLabel* infoLabel = new QLabel(infoText);
+        infoLabel->setFont(font);
         infoLabel->setWordWrap(true);
         infoLabel->setMaximumWidth(300);
-        infoLabel->setStyleSheet("QLabel { color: #000000; font-size: 11px; }");
+        infoLabel->setStyleSheet("QLabel { color: #000000; font-size: 14px; }");
+        // infoLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
         layout->addWidget(infoLabel);
 
-        // Position the popup just below the button
-        QPoint buttonPos = button->mapToGlobal(QPoint(0, button->height()));
-        popupFrame->move(buttonPos);
-
-        // Set a reasonable size
-        popupFrame->setMinimumWidth(200);
+        // Set a reasonable size and adjust before positioning
         popupFrame->adjustSize();
+
+        // Position the popup right-aligned with the button and below it
+        int xOffset = button->width() - popupFrame->width();
+        QPoint buttonPos = button->mapToGlobal(QPoint(xOffset, button->height()));
+        popupFrame->move(buttonPos);
 
         // Show the popup
         popupFrame->show();
