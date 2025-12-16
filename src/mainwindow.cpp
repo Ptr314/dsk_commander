@@ -388,49 +388,53 @@ QWidget* MainWindow::createBottomPanel() {
     return panel;
 }
 
+void MainWindow::createPanelMenu(FilePanel* panel, PanelMenuActions& actions, const QString& panelName, int fkey) {
+    QMenu *panelMenu = menuBar()->addMenu(panelName);
+
+    QAction *goUp = panelMenu->addAction(QIcon(":/icons/up"), MainWindow::tr("Go Up"));
+    connect(goUp, &QAction::triggered, this, [this, panel]() { onGoUp(panel); });
+
+    QAction *openDir = panelMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Open directory..."));
+    openDir->setShortcut(QKeySequence(Qt::ALT | fkey));
+    connect(openDir, &QAction::triggered, this, [this, panel]() { onOpenDirectory(panel); });
+
+    panelMenu->addSeparator();
+
+    QMenu *sortMenu = panelMenu->addMenu(QIcon(":/icons/sort"), MainWindow::tr("Sorting"));
+    QActionGroup *sortGroup = new QActionGroup(this);
+    sortGroup->setExclusive(true);
+
+    actions.sortByName = sortMenu->addAction(MainWindow::tr("Sort by name"));
+    actions.sortByName->setCheckable(true);
+    actions.sortByName->setActionGroup(sortGroup);
+    connect(actions.sortByName, &QAction::triggered, this, [this, panel]() { onSetSorting(panel, HostModel::ByName); });
+
+    actions.sortBySize = sortMenu->addAction(MainWindow::tr("Sort by size"));
+    actions.sortBySize->setCheckable(true);
+    actions.sortBySize->setActionGroup(sortGroup);
+    connect(actions.sortBySize, &QAction::triggered, this, [this, panel]() { onSetSorting(panel, HostModel::BySize); });
+
+    actions.noSort = sortMenu->addAction(MainWindow::tr("No sorting"));
+    actions.noSort->setCheckable(true);
+    actions.noSort->setActionGroup(sortGroup);
+    connect(actions.noSort, &QAction::triggered, this, [this, panel]() { onSetSorting(panel, HostModel::NoOrder); });
+
+    panelMenu->addSeparator();
+
+    actions.showDeleted = panelMenu->addAction(QIcon(":/icons/deleted"), MainWindow::tr("Show deleted"));
+    actions.showDeleted->setCheckable(true);
+    actions.showDeleted->setChecked(panel->getShowDeleted());
+    connect(actions.showDeleted, &QAction::triggered, this, [this, panel](bool checked) {
+        onSetShowDeleted(panel, checked);
+    });
+}
+
 void MainWindow::initializeMainMenu() {
     // Clear existing menu
     menuBar()->clear();
 
     // === LEFT PANEL MENU ===
-    QMenu *leftMenu = menuBar()->addMenu(MainWindow::tr("Left panel"));
-
-    QAction *leftGoUp = leftMenu->addAction(QIcon(":/icons/up"), MainWindow::tr("Go Up"));
-    connect(leftGoUp, &QAction::triggered, this, [this]() { onGoUp(leftPanel); });
-
-    QAction *leftOpenDir = leftMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Open directory..."));
-    leftOpenDir->setShortcut(QKeySequence(Qt::ALT | Qt::Key_F1));
-    connect(leftOpenDir, &QAction::triggered, this, [this]() { onOpenDirectory(leftPanel); });
-
-    leftMenu->addSeparator();
-
-    QMenu *leftSortMenu = leftMenu->addMenu(QIcon(":/icons/sort"), MainWindow::tr("Sorting"));
-    QActionGroup *leftSortGroup = new QActionGroup(this);
-    leftSortGroup->setExclusive(true);
-
-    leftMenuActions.sortByName = leftSortMenu->addAction(MainWindow::tr("Sort by name"));
-    leftMenuActions.sortByName->setCheckable(true);
-    leftMenuActions.sortByName->setActionGroup(leftSortGroup);
-    connect(leftMenuActions.sortByName, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::ByName); });
-
-    leftMenuActions.sortBySize = leftSortMenu->addAction(MainWindow::tr("Sort by size"));
-    leftMenuActions.sortBySize->setCheckable(true);
-    leftMenuActions.sortBySize->setActionGroup(leftSortGroup);
-    connect(leftMenuActions.sortBySize, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::BySize); });
-
-    leftMenuActions.noSort = leftSortMenu->addAction(MainWindow::tr("No sorting"));
-    leftMenuActions.noSort->setCheckable(true);
-    leftMenuActions.noSort->setActionGroup(leftSortGroup);
-    connect(leftMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(leftPanel, HostModel::NoOrder); });
-
-    leftMenu->addSeparator();
-
-    leftMenuActions.showDeleted = leftMenu->addAction(QIcon(":/icons/deleted"), MainWindow::tr("Show deleted"));
-    leftMenuActions.showDeleted->setCheckable(true);
-    leftMenuActions.showDeleted->setChecked(leftPanel->getShowDeleted());
-    connect(leftMenuActions.showDeleted, &QAction::triggered, this, [this](bool checked) {
-        onSetShowDeleted(leftPanel, checked);
-    });
+    createPanelMenu(leftPanel, leftMenuActions, MainWindow::tr("Left panel"), Qt::Key_F1);
 
     // === IMAGE MENU === (NEW)
     QMenu *imageMenu = menuBar()->addMenu(MainWindow::tr("Image"));
@@ -544,44 +548,7 @@ void MainWindow::initializeMainMenu() {
     connect(aboutAction, &QAction::triggered, this, &MainWindow::onAbout);
 
     // === RIGHT PANEL MENU ===
-    QMenu *rightMenu = menuBar()->addMenu(MainWindow::tr("Right panel"));
-
-    QAction *rightGoUp = rightMenu->addAction(QIcon(":/icons/up"), MainWindow::tr("Go Up"));
-    connect(rightGoUp, &QAction::triggered, this, [this]() { onGoUp(rightPanel); });
-
-    QAction *rightOpenDir = rightMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Open directory..."));
-    rightOpenDir->setShortcut(QKeySequence(Qt::ALT | Qt::Key_F2));
-    connect(rightOpenDir, &QAction::triggered, this, [this]() { onOpenDirectory(rightPanel); });
-
-    rightMenu->addSeparator();
-
-    QMenu *rightSortMenu = rightMenu->addMenu(QIcon(":/icons/sort"), MainWindow::tr("Sorting"));
-    QActionGroup *rightSortGroup = new QActionGroup(this);
-    rightSortGroup->setExclusive(true);
-
-    rightMenuActions.sortByName = rightSortMenu->addAction(MainWindow::tr("Sort by name"));
-    rightMenuActions.sortByName->setCheckable(true);
-    rightMenuActions.sortByName->setActionGroup(rightSortGroup);
-    connect(rightMenuActions.sortByName, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::ByName); });
-
-    rightMenuActions.sortBySize = rightSortMenu->addAction(MainWindow::tr("Sort by size"));
-    rightMenuActions.sortBySize->setCheckable(true);
-    rightMenuActions.sortBySize->setActionGroup(rightSortGroup);
-    connect(rightMenuActions.sortBySize, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::BySize); });
-
-    rightMenuActions.noSort = rightSortMenu->addAction(MainWindow::tr("No sorting"));
-    rightMenuActions.noSort->setCheckable(true);
-    rightMenuActions.noSort->setActionGroup(rightSortGroup);
-    connect(rightMenuActions.noSort, &QAction::triggered, this, [this]() { onSetSorting(rightPanel, HostModel::NoOrder); });
-
-    rightMenu->addSeparator();
-
-    rightMenuActions.showDeleted = rightMenu->addAction(QIcon(":/icons/deleted"), MainWindow::tr("Show deleted"));
-    rightMenuActions.showDeleted->setCheckable(true);
-    rightMenuActions.showDeleted->setChecked(rightPanel->getShowDeleted());
-    connect(rightMenuActions.showDeleted, &QAction::triggered, this, [this](bool checked) {
-        onSetShowDeleted(rightPanel, checked);
-    });
+    createPanelMenu(rightPanel, rightMenuActions, MainWindow::tr("Right panel"), Qt::Key_F2);
 
     // Initialize sorting menu states
     updateSortingMenu(leftPanel);

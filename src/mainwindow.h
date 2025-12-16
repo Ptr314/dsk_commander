@@ -128,6 +128,7 @@ private:
     void updateActionTexts();
     QWidget* createBottomPanel();
     FilePanel* otherPanel() const;
+    void createPanelMenu(FilePanel* panel, PanelMenuActions& actions, const QString& panelName, int fkey);
 
     // Image menu slots
     void onImageInfo();
