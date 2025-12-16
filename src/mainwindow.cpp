@@ -680,10 +680,10 @@ void MainWindow::onExit() {
 }
 
 void MainWindow::onAbout() {
-    QDialog * about = new QDialog(this);
+    QDialog about(this);
 
     Ui_About aboutUi;
-    aboutUi.setupUi(about);
+    aboutUi.setupUi(&about);
 
     // Determine compiler information
     QString compilerInfo;
@@ -713,7 +713,7 @@ void MainWindow::onAbout() {
             .replace("{$COMPILER}", compilerInfo)
         );
 
-    about->exec();
+    about.exec();
 }
 
 // Universal panel methods
