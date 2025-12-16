@@ -15,6 +15,7 @@
 #include <QToolButton>
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QFrame>
 
 #include "dsk_tools/dsk_tools.h"
 
@@ -88,7 +89,7 @@ private:
         QToolButton* infoButton;     // Tool button for info type (nullptr if not info type)
         QToolButton* customButton;   // Tool button for adding custom files (nullptr if !has_customs())
         QToolButton* clearButton;    // Tool button for clearing custom files (nullptr if !has_customs())
-        QSpacerItem* spacerBefore;   // 20px spacer before section
+        QFrame* spacerBefore;        // Vertical line separator before section
         QSpacerItem* spacerBetween;  // 5px spacer between icon and combo/button
         QSpacerItem* buttonSpacer;   // 2px spacer between combo and custom button (nullptr if !has_customs())
         QSpacerItem* clearButtonSpacer;  // 2px spacer between custom button and clear button (nullptr if !has_customs())

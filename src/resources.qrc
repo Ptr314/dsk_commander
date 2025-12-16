@@ -28,7 +28,7 @@
         <file alias="screen_proportions">resources/icons/tv.png</file>
         <file alias="text_copy">resources/icons/window_list.png</file>
         <file alias="file_image">resources/icons/5floppy_unmount.png</file>
-        <file alias="add_from_file">resources/icons/revert.png</file>
+        <file alias="revert_">resources/icons/revert.png</file>
         <file alias="fs_info">resources/icons/view_tree.png</file>
         <file alias="image_view">resources/icons/thumbnail.png</file>
         <file alias="restore">resources/icons/wizard.png</file>
@@ -36,6 +36,7 @@
         <file alias="backup">resources/icons/save_all.png</file>
         <file alias="close">resources/icons/cancel.png</file>
         <file alias="comment">resources/icons/khexedit.png</file>
+        <file alias="add_from_file">resources/icons/3floppy_mount.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>
@@ -44,5 +45,6 @@
     <qresource prefix="/files">
         <file alias="config">resources/files/config.json</file>
         <file alias="basic.css">resources/files/basic.css</file>
+        <file alias="stylesheet">resources/files/stylesheet.qss</file>
     </qresource>
 </RCC>

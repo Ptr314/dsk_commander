@@ -239,6 +239,7 @@ void ViewDialog::print_data()
         if (output_type == VIEWER_OUTPUT_TEXT) {
             ui->encodingCombo->setVisible(true);
             ui->encodingLabel->setVisible(true);
+            ui->encodingSpacer->changeSize(10, 20);
 
             auto cm_name = ui->encodingCombo->currentData().toString().toStdString();
             auto out = m_viewer->process_as_text(m_data, cm_name);
@@ -263,6 +264,8 @@ void ViewDialog::print_data()
         if (output_type == VIEWER_OUTPUT_PICTURE) {
             ui->encodingCombo->setVisible(false);
             ui->encodingLabel->setVisible(false);
+            ui->encodingSpacer->changeSize(0, 0);
+
             int sx, sy;
             if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get())) {
                 const dsk_tools::ViewerSelectorValues selectors = collectSelectors();
@@ -410,7 +413,7 @@ void ViewDialog::clearSelectorWidgets()
         if (group.infoButton) ui->pic_toolbar->removeWidget(group.infoButton);
         if (group.customButton) ui->pic_toolbar->removeWidget(group.customButton);
         if (group.clearButton) ui->pic_toolbar->removeWidget(group.clearButton);
-        if (group.spacerBefore) ui->pic_toolbar->removeItem(group.spacerBefore);
+        if (group.spacerBefore) ui->pic_toolbar->removeWidget(group.spacerBefore);
         if (group.spacerBetween) ui->pic_toolbar->removeItem(group.spacerBetween);
         if (group.buttonSpacer) ui->pic_toolbar->removeItem(group.buttonSpacer);
         if (group.clearButtonSpacer) ui->pic_toolbar->removeItem(group.clearButtonSpacer);
@@ -479,9 +482,12 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
 
         // Handle info selector type (no separate icon label, inline button with text)
         if (selectorType == "info") {
-            // 1. Create 20px spacer before section
-            group.spacerBefore = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-            toolbar->insertItem(insertIndex++, group.spacerBefore);
+            // 1. Create vertical line separator before section
+            group.spacerBefore = new QFrame(this);
+            group.spacerBefore->setFrameShape(QFrame::VLine);
+            // group.spacerBefore->setFrameShadow(QFrame::Sunken);
+            group.spacerBefore->setFixedSize(20, 24);
+            toolbar->insertWidget(insertIndex++, group.spacerBefore);
 
             // 2. Create tool button with icon and text inline
             group.infoButton = new QToolButton(this);
@@ -524,10 +530,13 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
             continue;  // Skip the dropdown-specific code below
         }
 
-        // For dropdown type: create icon label and spacer
-        // 1. Create 20px spacer before section
-        group.spacerBefore = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-        toolbar->insertItem(insertIndex++, group.spacerBefore);
+        // For dropdown type: create icon label and vertical line separator
+        // 1. Create vertical line separator before section
+        group.spacerBefore = new QFrame(this);
+        group.spacerBefore->setFrameShape(QFrame::VLine);
+        // group.spacerBefore->setFrameShadow(QFrame::Sunken);
+        group.spacerBefore->setFixedSize(20, 24);
+        toolbar->insertWidget(insertIndex++, group.spacerBefore);
 
         // 2. Create icon label
         group.iconLabel = new QLabel(this);
@@ -632,7 +641,7 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
             }
 
             group.customButton->setIconSize(QSize(24, 24));
-            group.customButton->setMinimumSize(32, 32);
+            // group.customButton->setMinimumSize(32, 32);
             group.customButton->setToolTip(tr("Add custom file"));
             group.customButton->setObjectName(QString::fromStdString("customBtn_" + selector->get_id()));
 
@@ -643,7 +652,7 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
             });
 
             // Add spacer before button
-            group.buttonSpacer = new QSpacerItem(2, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+            group.buttonSpacer = new QSpacerItem(8, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
             toolbar->insertItem(insertIndex++, group.buttonSpacer);
 
             // Add button to layout
@@ -661,8 +670,8 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
                 group.clearButton->setText("X");
             }
 
-            group.clearButton->setIconSize(QSize(26, 26));
-            group.clearButton->setMinimumSize(32, 32);
+            group.clearButton->setIconSize(QSize(24, 24));
+            // group.clearButton->setMinimumSize(32, 32);
             group.clearButton->setToolTip(tr("Clear custom files"));
             group.clearButton->setObjectName(QString::fromStdString("clearBtn_" + selector->get_id()));
 
@@ -672,8 +681,8 @@ void ViewDialog::populateSelectorWidgets(const dsk_tools::ViewerSelectorValues s
             });
 
             // Add spacer before clear button
-            group.clearButtonSpacer = new QSpacerItem(2, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-            toolbar->insertItem(insertIndex++, group.clearButtonSpacer);
+            // group.clearButtonSpacer = new QSpacerItem(2, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+            // toolbar->insertItem(insertIndex++, group.clearButtonSpacer);
 
             // Add clear button to layout
             toolbar->insertWidget(insertIndex++, group.clearButton);
