@@ -14,7 +14,7 @@ SET _RELEASE_NAME="disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%-%_COMPI
 SET _RELEASE_DIR=".\release\%_RELEASE_NAME%"
 
 if not exist %_BUILD_DIR%\ (
-    call "%_ROOT_BIN%\qt-cmake" -S ../src -B "%_BUILD_DIR%" -G Ninja
+    call "%_ROOT_BIN%\qt-cmake" -S ../src -B "%_BUILD_DIR%" -G Ninja -DCMAKE_BUILD_TYPE=Release
 
     cd "%_BUILD_DIR%"
     ninja

@@ -11,7 +11,7 @@ VERSION=$(cat ../VERSION | tr -d '\r\n')
 
 RELEASE_DIR="./release/DISKCommander-${VERSION}-${PLATFORM}-${ARCHITECTURE}.AppDir"
 
-cmake -DCMAKE_PREFIX_PATH=${QT_PATH} -S ../src -B ${BUILD_DIR} -G Ninja
+cmake -DCMAKE_PREFIX_PATH=${QT_PATH} -S ../src -B ${BUILD_DIR} -G Ninja -DCMAKE_BUILD_TYPE=Release
 
 CWD=$(pwd)
 cd ${BUILD_DIR}

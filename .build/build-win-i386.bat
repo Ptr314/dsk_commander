@@ -14,7 +14,7 @@ SET _RELEASE_DIR=".\release\%_RELEASE_NAME%"
 
 if not exist %_BUILD_DIR%\ (
     set CC=%_ROOT_MINGW%\gcc.exe
-    cmake -DCMAKE_PREFIX_PATH="%_QT_PATH%" -S ../src -B "%_BUILD_DIR%" -G Ninja
+    cmake -DCMAKE_PREFIX_PATH="%_QT_PATH%" -S ../src -B "%_BUILD_DIR%" -G Ninja -DCMAKE_BUILD_TYPE=Release
 
     cd "%_BUILD_DIR%"
     ninja

@@ -9,7 +9,7 @@ RELEASE_DIR="./release"
 
 VERSION=$(cat ../VERSION | tr -d '\r\n')
 
-cmake -DCMAKE_PREFIX_PATH=${QT_PATH} -S ../src -B ${BUILD_DIR} -G Ninja -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+cmake -DCMAKE_PREFIX_PATH=${QT_PATH} -S ../src -B ${BUILD_DIR} -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
 
 cwd=$(pwd)
 cd "$BUILD_DIR"
