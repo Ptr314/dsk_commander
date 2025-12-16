@@ -1015,14 +1015,7 @@ void ViewDialog::onInfoButtonClicked(QToolButton* button, const std::string& sel
         layout->setContentsMargins(8, 8, 8, 8);
         layout->setSpacing(0);
 
-        QFont font;
-        #ifdef Q_OS_WIN
-                font.setFamily("Consolas");
-                font.setPointSize(10);
-        #else
-                font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
-                font.setPointSize(10);
-        #endif
+        QFont font = getMonospaceFont(10);
 
         QLabel* infoLabel = new QLabel(infoText);
         infoLabel->setFont(font);

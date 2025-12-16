@@ -8,6 +8,8 @@
 #include <QString>
 #include <string>
 #include <QComboBox>
+#include <QFont>
+#include <QFontDatabase>
 
 // Qt 5.6 compatibility: QOverload was introduced in Qt 5.7
 #if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
@@ -28,6 +30,17 @@ inline std::string _toStdString(const QString& text) {
     //     return std::string(text.toUtf8().constData());
     // #endif
     return std::string(text.toUtf8().constData());
+}
+
+inline QFont getMonospaceFont(int pointSize = 10) {
+    QFont font;
+#ifdef Q_OS_WIN
+    font.setFamily("Consolas");
+#else
+    font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
+#endif
+    font.setPointSize(pointSize);
+    return font;
 }
 
 void adjustComboBoxWidth(QComboBox* comboBox);

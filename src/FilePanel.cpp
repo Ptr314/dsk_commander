@@ -253,14 +253,7 @@ FilePanel::FilePanel(QWidget *parent, QSettings *settings, QString ini_label, co
 }
 
 void FilePanel::setupPanel() {
-    QFont font;
-#ifdef Q_OS_WIN
-    font.setFamily("Consolas");
-    font.setPointSize(10);
-#else
-    font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
-    font.setPointSize(10);
-#endif
+    QFont font = getMonospaceFont(10);
 
     auto *layout = new QVBoxLayout(this);
     layout->setContentsMargins(2, 2, 2, 2);
