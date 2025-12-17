@@ -235,8 +235,8 @@ void ViewDialog::print_data()
             recreate_viewer = false;
         }
 
-        auto output_type = m_viewer->get_output_type();
-        if (output_type == VIEWER_OUTPUT_TEXT) {
+        const auto output_type = m_viewer->get_output_type();
+        if (output_type == dsk_tools::ViewerOutput::Text) {
             ui->encodingCombo->setVisible(true);
             ui->encodingLabel->setVisible(true);
             ui->encodingSpacer->changeSize(10, 20);
@@ -261,7 +261,7 @@ void ViewDialog::print_data()
             ui->copyButton->setVisible(true);
             ui->saveButton->setVisible(true);
         } else
-        if (output_type == VIEWER_OUTPUT_PICTURE) {
+        if (output_type == dsk_tools::ViewerOutput::Picture) {
             ui->encodingCombo->setVisible(false);
             ui->encodingLabel->setVisible(false);
             ui->encodingSpacer->changeSize(0, 0);
@@ -385,13 +385,13 @@ void ViewDialog::fill_options()
         m_viewer = dsk_tools::ViewerManager::instance().create(type, subtype);
         recreate_viewer = false;
     }
-    auto output_type = m_viewer->get_output_type();
-    if (output_type == VIEWER_OUTPUT_PICTURE) {
+    const auto output_type = m_viewer->get_output_type();
+    if (output_type == dsk_tools::ViewerOutput::Picture) {
         restore_scale();
         if (auto picViewer = dynamic_cast<dsk_tools::ViewerPic*>(m_viewer.get())) {
             std::string error_msg;
-            int res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
-            if (res != PREPARE_PIC_OK) {
+            const auto res = picViewer->prepare_data(m_data, *m_disk_image, *m_filesystem, error_msg);
+            if (!res) {
                 QString msg = replacePlaceholders(QString::fromStdString(error_msg));
                 QMessageBox::critical(this, ViewDialog::tr("Error"), msg);
             }
