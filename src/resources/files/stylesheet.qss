@@ -20,9 +20,12 @@ QToolButton {
     color: #2c3e50;
     border: 1px solid transparent;
     border-radius: 3px;
-    padding: 1px;
-    margin: 1px;
-    font-weight: 500;
+    padding: 2px;
+    text-align: left;
+}
+
+QToolButton#dirButton {
+    padding-right: 10px;
 }
 
 QToolButton:hover {
@@ -39,6 +42,28 @@ QToolButton:checked {
 
 QToolButton:disabled {
     color: #95a5a6;
+}
+
+QToolButton::menu-button {
+    subcontrol-position: right center;
+    subcontrol-origin: padding;
+    width: 10px;
+    background-color: transparent;
+}
+
+QToolButton#closeBtn {
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+}
+
+QToolButton#closeBtn:hover {
+    background-color: #ecf0f1;
+    border: 1px solid #3498db;
+}
+
+
+QToolButton::menu-button:hover {
+    background-color: #bdc3c7;
 }
 
 QFrame[frameShape="5"] {

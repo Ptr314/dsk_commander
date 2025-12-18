@@ -278,6 +278,7 @@ void FilePanel::setupPanel() {
     dirEdit->setPlaceholderText(FilePanel::tr("Enter path and press Enter..."));
 
     dirButton = new QToolButton(this);
+    dirButton->setObjectName("dirButton");
     dirButton->setText(FilePanel::tr("Choose..."));
     dirButton->setIcon(QIcon(":/icons/folder_open"));
     dirButton->setToolTip(FilePanel::tr("Choose..."));
