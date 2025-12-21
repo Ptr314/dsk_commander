@@ -126,6 +126,7 @@ inline QString replacePlaceholders(const QString& input)
         .replace("{$FONT_A9}", QCoreApplication::translate("ViewDialog", "Agat-9 Font"))
         .replace("{$FONT_A7}", QCoreApplication::translate("ViewDialog", "Agat-7 Font"))
         .replace("{$FONT_FILE}", QCoreApplication::translate("ViewDialog", "Font file"))
+        .replace("{$FONT_FILE_BFT}", QCoreApplication::translate("ViewDialog", "BFT Font"))
 
         .replace("{$SELECTOR_AGAT_PALETTE}", QCoreApplication::translate("ViewDialog", "Palette"))
         .replace("{$SELECTOR_AGAT_INFO}", QCoreApplication::translate("ViewDialog", "Comment"))
