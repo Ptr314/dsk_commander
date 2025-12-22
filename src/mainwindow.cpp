@@ -360,6 +360,7 @@ QWidget* MainWindow::createBottomPanel() {
 
     auto makeButton = [&](QAction* act) {
         auto *btn = new QToolButton(this);
+        btn->setObjectName(QStringLiteral("bottomBtn"));
         btn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
         btn->setDefaultAction(act);
         btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);

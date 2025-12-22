@@ -51,16 +51,15 @@ QToolButton::menu-button {
     background-color: transparent;
 }
 
-QToolButton#closeBtn {
+QToolButton#closeBtn, QToolButton#bottomBtn {
     border: 1px solid #bdc3c7;
     border-radius: 3px;
 }
 
-QToolButton#closeBtn:hover {
+QToolButton#closeBtn:hover, QToolButton#bottomBtn:hover {
     background-color: #ecf0f1;
     border: 1px solid #3498db;
 }
-
 
 QToolButton::menu-button:hover {
     background-color: #bdc3c7;
