@@ -102,6 +102,14 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
     if (preferred_type == dsk_tools::PreferredType::MBASIC) {
         ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
         preferred_subtype = "MBASIC";
+    } else
+    if (preferred_type == dsk_tools::PreferredType::AgatBFT) {
+        ui->modeCombo->setCurrentIndex(type_map["PICTURE_AGAT"]);
+        preferred_subtype = "AGAT_BFT";
+    } else
+    if (preferred_type == dsk_tools::PreferredType::AgatBMP) {
+        ui->modeCombo->setCurrentIndex(type_map["PICTURE_AGAT"]);
+        preferred_subtype = "AGAT_BMP";
     } else {
         std::pair<std::string, std::string> suggested = dsk_tools::suggest_file_type(_toStdString(m_file_name), m_data);
         if (suggested.first == "BINARY") {
