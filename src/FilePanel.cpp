@@ -611,6 +611,8 @@ void FilePanel::onTypeChanged(int index)
         QString name = QCoreApplication::translate("config", fs["name"].toString().toUtf8().constData());
         fsCombo->addItem(name, fs_id);
     }
+
+    if (mode==panelMode::Image) QMessageBox::warning(this, tr("Warning"), tr("To apply changes, you must close and reopen the image!"));
 }
 
 void FilePanel::onFsChanged(int index)

@@ -5,17 +5,17 @@
     <name>About</name>
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24,121 +24,121 @@
     <name>ConvertDialog</name>
     <message>
         <location filename="../convertdialog.ui" line="24"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -199,9 +199,9 @@
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -280,6 +280,16 @@
     <message>
         <location filename="../FilePanel.cpp" line="564"/>
         <source>Choose a path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="615"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FilePanel.cpp" line="615"/>
+        <source>To apply changes, you must close and reopen the image!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1590,93 +1600,93 @@ Warning: This action cannot be undone!</source>
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="351"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="356"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="75"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="359"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
         <source>View mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="123"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="358"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="358"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="363"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
         <source>Subtype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="186"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <source>File info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="232"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="368"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="368"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <source>Copy text to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="235"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="370"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="370"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="252"/>
         <location filename="../viewdialog.ui" line="255"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="372"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="372"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="374"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <source>Save to file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="281"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="380"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="212"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="301"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Debug/DISKCommander_autogen/include/ui_viewdialog.h" line="376"/>
-        <location filename="../build/Qt_5_6_3_32_bit-Release/DISKCommander_autogen/include/ui_viewdialog.h" line="376"/>
+        <location filename="../cmake-build-debug-qt-563-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
         <location filename="../cmake-build-debug-qt-683-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-debug-qt-683-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
