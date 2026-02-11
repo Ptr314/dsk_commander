@@ -108,6 +108,14 @@ inline QString replacePlaceholders(const QString& input)
         .replace("{$AGAT_VR_FONT}", QCoreApplication::translate("FilePanel", "Font ID"))
         .replace("{$AGAT_VR_CUSTOM_FONT}", QCoreApplication::translate("FilePanel", "Custom font"))
 
+        // CP/M related strings
+        .replace("{$CPM_SECTOR_SIZE}", QCoreApplication::translate("FilePanel", "Sector size"))
+        .replace("{$CPM_BLOCK_SIZE}", QCoreApplication::translate("FilePanel", "Block size"))
+        .replace("{$CPM_SECTORS_PER_BLOCK}", QCoreApplication::translate("FilePanel", "Sectors per block"))
+        .replace("{$CPM_RESERVED_TRACKS}", QCoreApplication::translate("FilePanel", "Reserved tracks"))
+        .replace("{$CPM_BLOCK}", QCoreApplication::translate("FilePanel", "Block"))
+        .replace("{$CPM_SECTORS}", QCoreApplication::translate("FilePanel", "Sectors"))
+
         // 15 viewer placeholders (ViewDialog context)
         .replace("{$PALETTE}", QCoreApplication::translate("ViewDialog", "Palette"))
         .replace("{$COLOR}", QCoreApplication::translate("ViewDialog", "Color"))

@@ -529,7 +529,11 @@ void FilePanel::retranslateUi()
     setComboBoxByItemData(filterCombo, savedFilter);
 
     // Manually trigger filter change to cascade updates to type and fs combos
+    const auto current_type = typeCombo->currentIndex();
+    const auto current_fs = fsCombo->currentIndex();
     onFilterChanged(filterCombo->currentIndex());
+    typeCombo->setCurrentIndex(current_type);
+    fsCombo->setCurrentIndex(current_fs);
 }
 
 void FilePanel::setDirectory(const QString& path, bool restoreCursor) {

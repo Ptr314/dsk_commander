@@ -6,7 +6,7 @@
             "short_name":   "DSK",
             "source":       true,
             "extensions":   "*.dsk;*.do;*.po;*.cpm",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_PC_360_I", "TYPE_PC_360_NI"]
         },
         "FILE_AIM": {
             "order":        20,
@@ -104,6 +104,16 @@
             "name": "Agat .FIL container",
             "targets": [],
             "filesystems": ["FILESYSTEM_FIL"]
+        },
+        "TYPE_PC_360_I": {
+            "name": "360K Interleaved",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_CPM_RAW"]
+        },
+        "TYPE_PC_360_NI": {
+            "name": "360K Sequential",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_CPM_RAW"]
         }
     },
     "file_systems": {
