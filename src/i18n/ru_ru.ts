@@ -1994,86 +1994,91 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="9"/>
+        <source>IMD image</source>
+        <translation>Файл IMD</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="10"/>
         <source>Binary File</source>
         <translation>Двоичный файл</translation>
     </message>
     <message>
-        <location filename="config.qml" line="10"/>
+        <location filename="config.qml" line="11"/>
         <source>Agat FIL</source>
         <translation>Агат FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="11"/>
+        <location filename="config.qml" line="12"/>
         <source>Agat Sprite OS File</source>
         <translation>Агат: файл ОС «Спрайт»</translation>
     </message>
     <message>
-        <location filename="config.qml" line="12"/>
+        <location filename="config.qml" line="13"/>
         <source>All Files</source>
         <translation>Все файлы</translation>
     </message>
     <message>
-        <location filename="config.qml" line="13"/>
+        <location filename="config.qml" line="14"/>
         <source>All Supported</source>
         <translation>Все поддерживаемые форматы</translation>
     </message>
     <message>
-        <location filename="config.qml" line="16"/>
+        <location filename="config.qml" line="17"/>
         <source>Agat .FIL container</source>
         <translation>Агат .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="19"/>
+        <location filename="config.qml" line="20"/>
         <source>GMD-7012 8&quot; 256 Kb</source>
         <translation>ГМД-7012 8&quot; 256 Кб</translation>
     </message>
     <message>
-        <location filename="config.qml" line="22"/>
+        <location filename="config.qml" line="23"/>
         <source>Single .FIL</source>
         <translation>Файл .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="23"/>
+        <location filename="config.qml" line="24"/>
         <source>CP/M (DOS 3.3 skew)</source>
         <translation>CP/M (Сектора DOS 3.3)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="24"/>
+        <location filename="config.qml" line="25"/>
         <source>CP/M (ProDOS skew)</source>
         <translation>CP/M (Сектора ProDOS)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="25"/>
+        <location filename="config.qml" line="26"/>
         <source>CP/M (No sector skew)</source>
         <translation>CP/M (Без сдвига секторов)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="14"/>
+        <location filename="config.qml" line="15"/>
         <source>Agat 840K</source>
         <translation>Агат 840K</translation>
     </message>
     <message>
-        <location filename="config.qml" line="15"/>
+        <location filename="config.qml" line="16"/>
         <source>Agat/Apple 140K</source>
         <translation>Агат/Apple 140K</translation>
     </message>
     <message>
-        <location filename="config.qml" line="17"/>
+        <location filename="config.qml" line="18"/>
         <source>360K Interleaved</source>
         <translation>360 Кб / C чередованием</translation>
     </message>
     <message>
-        <location filename="config.qml" line="18"/>
+        <location filename="config.qml" line="19"/>
         <source>360K Sequential</source>
         <translation>360 Кб / Последовательный</translation>
     </message>
     <message>
-        <location filename="config.qml" line="20"/>
+        <location filename="config.qml" line="21"/>
         <source>Agat/Apple DOS33</source>
         <translation>Агат/Apple DOS 3.3</translation>
     </message>
     <message>
-        <location filename="config.qml" line="21"/>
+        <location filename="config.qml" line="22"/>
         <source>Agat Sprite OS</source>
         <translation>Агат ОС «Спрайт»</translation>
     </message>

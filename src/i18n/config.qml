@@ -6,6 +6,7 @@ Item {
     property string FILE_HXC_HFE_name: qsTr("HxC HFE file")
     property string FILE_MFM_NIB_name: qsTr("NIB MFM file")
     property string FILE_MFM_NIC_name: qsTr("NIC MFM file")
+    property string FILE_IMD_name: qsTr("IMD image")
     property string FILE_BINARY_name: qsTr("Binary File")
     property string FILE_FIL_name: qsTr("Agat FIL")
     property string FILE_SOS_name: qsTr("Agat Sprite OS File")

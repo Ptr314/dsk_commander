@@ -48,6 +48,14 @@
             "extensions":   "*.nic",
             "types":        ["TYPE_AGAT_140"]
         },
+        "FILE_IMD": {
+            "order":        30,
+            "name":         "IMD image",
+            "short_name":   "IMD",
+            "source":       true,
+            "extensions":   "*.imd",
+            "types":        ["TYPE_PC_360_I", "TYPE_PC_360_NI"]
+        },
         "FILE_BINARY": {
             "order":        30,
             "name":         "Binary File",

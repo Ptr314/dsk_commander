@@ -1980,86 +1980,91 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="9"/>
-        <source>Binary File</source>
+        <source>IMD image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="10"/>
-        <source>Agat FIL</source>
+        <source>Binary File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="11"/>
-        <source>Agat Sprite OS File</source>
+        <source>Agat FIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="12"/>
-        <source>All Files</source>
+        <source>Agat Sprite OS File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="13"/>
-        <source>All Supported</source>
+        <source>All Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="14"/>
-        <source>Agat 840K</source>
+        <source>All Supported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="15"/>
-        <source>Agat/Apple 140K</source>
+        <source>Agat 840K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="16"/>
-        <source>Agat .FIL container</source>
+        <source>Agat/Apple 140K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="17"/>
-        <source>360K Interleaved</source>
+        <source>Agat .FIL container</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="18"/>
-        <source>360K Sequential</source>
+        <source>360K Interleaved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="19"/>
-        <source>GMD-7012 8&quot; 256 Kb</source>
+        <source>360K Sequential</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="20"/>
-        <source>Agat/Apple DOS33</source>
+        <source>GMD-7012 8&quot; 256 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="21"/>
-        <source>Agat Sprite OS</source>
+        <source>Agat/Apple DOS33</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="22"/>
-        <source>Single .FIL</source>
+        <source>Agat Sprite OS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="23"/>
-        <source>CP/M (DOS 3.3 skew)</source>
+        <source>Single .FIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="24"/>
-        <source>CP/M (ProDOS skew)</source>
+        <source>CP/M (DOS 3.3 skew)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="25"/>
+        <source>CP/M (ProDOS skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="26"/>
         <source>CP/M (No sector skew)</source>
         <translation type="unfinished"></translation>
     </message>
