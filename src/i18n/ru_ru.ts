@@ -2023,22 +2023,27 @@ Warning: This action cannot be undone!</source>
         <translation>Агат .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="21"/>
+        <location filename="config.qml" line="19"/>
+        <source>GMD-7012 8&quot; 256 Kb</source>
+        <translation>ГМД-7012 8&quot; 256 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="22"/>
         <source>Single .FIL</source>
         <translation>Файл .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="22"/>
+        <location filename="config.qml" line="23"/>
         <source>CP/M (DOS 3.3 skew)</source>
         <translation>CP/M (Сектора DOS 3.3)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="23"/>
+        <location filename="config.qml" line="24"/>
         <source>CP/M (ProDOS skew)</source>
         <translation>CP/M (Сектора ProDOS)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="24"/>
+        <location filename="config.qml" line="25"/>
         <source>CP/M (No sector skew)</source>
         <translation>CP/M (Без сдвига секторов)</translation>
     </message>
@@ -2063,12 +2068,12 @@ Warning: This action cannot be undone!</source>
         <translation>360 Кб / Последовательный</translation>
     </message>
     <message>
-        <location filename="config.qml" line="19"/>
+        <location filename="config.qml" line="20"/>
         <source>Agat/Apple DOS33</source>
         <translation>Агат/Apple DOS 3.3</translation>
     </message>
     <message>
-        <location filename="config.qml" line="20"/>
+        <location filename="config.qml" line="21"/>
         <source>Agat Sprite OS</source>
         <translation>Агат ОС «Спрайт»</translation>
     </message>

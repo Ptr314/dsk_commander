@@ -11,7 +11,8 @@ def extract_strings(json_file, output_file):
         def process_dict(parent_key, d):
             for key, value in d.items():
                 if isinstance(value, str) and key == "name":
-                    f.write(f'    property string {parent_key}_{key}: qsTr("{value}")\n')
+                    escaped = value.replace('\\', '\\\\').replace('"', '\\"')
+                    f.write(f'    property string {parent_key}_{key}: qsTr("{escaped}")\n')
                 elif isinstance(value, dict):
                     process_dict(key, value)
 
