@@ -787,32 +787,87 @@
         <translation>Загружаемый шрифт</translation>
     </message>
     <message>
+        <location filename="../placeholders.h" line="110"/>
+        <source>Comment</source>
+        <translation>Комментарий</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="111"/>
+        <source>Sector map</source>
+        <translation>Таблица секторов</translation>
+    </message>
+    <message>
         <location filename="../placeholders.h" line="112"/>
+        <source>Cylinder map</source>
+        <translation>Таблица дорожек</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="113"/>
+        <source>Head map</source>
+        <translation>Таблица сторон</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="114"/>
+        <source>Error: Unexpected end of file</source>
+        <translation>Ошибка: Неожиданный конец файла</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="115"/>
+        <source>Unavailable sector</source>
+        <translation>ДАННЫЕ ОТСУТСТВУЮТ</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="116"/>
+        <source>Normal data</source>
+        <translation>Данные сектора</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="117"/>
+        <source>Compressed</source>
+        <translation>Сжатый</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="118"/>
+        <source>Deleted</source>
+        <translation>Удалённый</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="119"/>
+        <source>DATA ERROR</source>
+        <translation>ДАННЫЕ ОШИБОЧНЫ</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="120"/>
+        <source>Unknown data marker</source>
+        <translation>Неизвестный маркер данных</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="123"/>
         <source>Sector size</source>
         <translation>Размер сектора</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="113"/>
+        <location filename="../placeholders.h" line="124"/>
         <source>Block size</source>
         <translation>Размер блока</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="114"/>
+        <location filename="../placeholders.h" line="125"/>
         <source>Sectors per block</source>
         <translation>Секторов в блоке</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="115"/>
+        <location filename="../placeholders.h" line="126"/>
         <source>Reserved tracks</source>
         <translation>Системные дорожки</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="116"/>
+        <location filename="../placeholders.h" line="127"/>
         <source>Block</source>
         <translation>Блок</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="117"/>
+        <location filename="../placeholders.h" line="128"/>
         <source>Sectors</source>
         <translation>Секторы</translation>
     </message>
@@ -1775,118 +1830,118 @@ Warning: This action cannot be undone!</source>
         <translation>4:3</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="120"/>
-        <location filename="../placeholders.h" line="139"/>
+        <location filename="../placeholders.h" line="131"/>
+        <location filename="../placeholders.h" line="150"/>
         <source>Palette</source>
         <translation>Палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="121"/>
+        <location filename="../placeholders.h" line="132"/>
         <source>Color</source>
         <translation>Цветной</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="122"/>
+        <location filename="../placeholders.h" line="133"/>
         <source>Monochrome</source>
         <translation>Монохромный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="123"/>
+        <location filename="../placeholders.h" line="134"/>
         <source>Custom palette</source>
         <translation>Загружаемая палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="124"/>
+        <location filename="../placeholders.h" line="135"/>
         <source>b/w</source>
         <translation>Чёрно-белый</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="125"/>
+        <location filename="../placeholders.h" line="136"/>
         <source>Custom font loading error</source>
         <translation>Загружаемый шрифт не найден</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="126"/>
+        <location filename="../placeholders.h" line="137"/>
         <source>Agat Improved</source>
         <translation>Агат исправленный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="127"/>
+        <location filename="../placeholders.h" line="138"/>
         <source>Apple Improved</source>
         <translation>С заливкой</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="128"/>
+        <location filename="../placeholders.h" line="139"/>
         <source>Apple NTSC Original</source>
         <translation>NTSC без заливки</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="129"/>
+        <location filename="../placeholders.h" line="140"/>
         <source>Agat-7 classic font</source>
         <translation>ZG7 : Classic</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="130"/>
+        <location filename="../placeholders.h" line="141"/>
         <source>Agat-7 enhanced font</source>
         <translation>ZG7: 256</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="137"/>
+        <location filename="../placeholders.h" line="148"/>
         <source>BFT Font</source>
         <translation>Шрифт BFT</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="140"/>
+        <location filename="../placeholders.h" line="151"/>
         <source>Comment</source>
         <translation>Комментарий</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="141"/>
+        <location filename="../placeholders.h" line="152"/>
         <source>Agat color mode</source>
         <translation>Цветной режим Агат</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="142"/>
+        <location filename="../placeholders.h" line="153"/>
         <source>Apple color mode</source>
         <translation>Цветной режим Apple</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="143"/>
+        <location filename="../placeholders.h" line="154"/>
         <source>Font type</source>
         <translation>Тип шрифта</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="144"/>
+        <location filename="../placeholders.h" line="155"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="131"/>
+        <location filename="../placeholders.h" line="142"/>
         <source>Agat-9 classic font</source>
         <translation>ZG9 : Classic</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="132"/>
+        <location filename="../placeholders.h" line="143"/>
         <source>GARNIZON custom font</source>
         <translation>ZG9 : GARNIZON</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="133"/>
+        <location filename="../placeholders.h" line="144"/>
         <source>Loaded custom font</source>
         <translation>Загружаемый шрифт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="134"/>
+        <location filename="../placeholders.h" line="145"/>
         <source>Agat-9 Font</source>
         <translation>Агат-9</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="135"/>
+        <location filename="../placeholders.h" line="146"/>
         <source>Agat-7 Font</source>
         <translation>Агат-7</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="136"/>
+        <location filename="../placeholders.h" line="147"/>
         <source>Font file</source>
         <translation>Знакогенератор</translation>
     </message>
