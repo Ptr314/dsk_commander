@@ -118,6 +118,8 @@ inline QString replacePlaceholders(const QString& input)
         .replace("{$DATA_DELETED}", QCoreApplication::translate("FilePanel", "Deleted"))
         .replace("{$NORMAL_DATA_WITH_ERROR}", QCoreApplication::translate("FilePanel", "DATA ERROR"))
         .replace("{$UNKNOWN_DATA_MARKER}", QCoreApplication::translate("FilePanel", "Unknown data marker"))
+        .replace("{$FILE_HAS_ERRORS}", QCoreApplication::translate("FilePanel", "The file contains corrupted data!"))
+        .replace("{$FILE_HAS_NO_ERRORS}", QCoreApplication::translate("FilePanel", "The file was read without errors."))
 
         // CP/M related strings
         .replace("{$CPM_SECTOR_SIZE}", QCoreApplication::translate("FilePanel", "Sector size"))

@@ -842,32 +842,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="123"/>
-        <source>Sector size</source>
+        <location filename="../placeholders.h" line="121"/>
+        <source>The file contains corrupted data!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="124"/>
-        <source>Block size</source>
+        <location filename="../placeholders.h" line="122"/>
+        <source>The file was read without errors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="125"/>
-        <source>Sectors per block</source>
+        <source>Sector size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="126"/>
-        <source>Reserved tracks</source>
+        <source>Block size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="127"/>
-        <source>Block</source>
+        <source>Sectors per block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="128"/>
+        <source>Reserved tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="129"/>
+        <source>Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="130"/>
         <source>Sectors</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1816,118 +1826,118 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="131"/>
-        <location filename="../placeholders.h" line="150"/>
+        <location filename="../placeholders.h" line="133"/>
+        <location filename="../placeholders.h" line="152"/>
         <source>Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="132"/>
+        <location filename="../placeholders.h" line="134"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="133"/>
+        <location filename="../placeholders.h" line="135"/>
         <source>Monochrome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="134"/>
+        <location filename="../placeholders.h" line="136"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="135"/>
+        <location filename="../placeholders.h" line="137"/>
         <source>b/w</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="136"/>
+        <location filename="../placeholders.h" line="138"/>
         <source>Custom font loading error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="137"/>
+        <location filename="../placeholders.h" line="139"/>
         <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="138"/>
+        <location filename="../placeholders.h" line="140"/>
         <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="139"/>
+        <location filename="../placeholders.h" line="141"/>
         <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="140"/>
+        <location filename="../placeholders.h" line="142"/>
         <source>Agat-7 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="141"/>
+        <location filename="../placeholders.h" line="143"/>
         <source>Agat-7 enhanced font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="148"/>
+        <location filename="../placeholders.h" line="150"/>
         <source>BFT Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="151"/>
+        <location filename="../placeholders.h" line="153"/>
         <source>Comment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="152"/>
+        <location filename="../placeholders.h" line="154"/>
         <source>Agat color mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="153"/>
+        <location filename="../placeholders.h" line="155"/>
         <source>Apple color mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="154"/>
+        <location filename="../placeholders.h" line="156"/>
         <source>Font type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="155"/>
+        <location filename="../placeholders.h" line="157"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="142"/>
+        <location filename="../placeholders.h" line="144"/>
         <source>Agat-9 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="143"/>
+        <location filename="../placeholders.h" line="145"/>
         <source>GARNIZON custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="144"/>
+        <location filename="../placeholders.h" line="146"/>
         <source>Loaded custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="145"/>
+        <location filename="../placeholders.h" line="147"/>
         <source>Agat-9 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="146"/>
+        <location filename="../placeholders.h" line="148"/>
         <source>Agat-7 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="147"/>
+        <location filename="../placeholders.h" line="149"/>
         <source>Font file</source>
         <translation type="unfinished"></translation>
     </message>
