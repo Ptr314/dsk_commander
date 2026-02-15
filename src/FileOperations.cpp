@@ -88,7 +88,7 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
                 return;
             }
             // Display info
-            showInfoDialog(loader->file_info(), parent);
+            showInfoDialog(loader->file_info(), FilePanel::tr("File Info"), parent);
         }
     } else {
         const QModelIndex index = panel->getCurrentIndex();
@@ -234,7 +234,7 @@ void FileOperations::viewFilesystemInfo(FilePanel* panel, QWidget* parent)
     if (!panel || !parent || panel->getMode() != panelMode::Image || !panel->getImage()) return;
 
     const std::string info = panel->getFileSystem()->information();
-    showInfoDialog(info, parent);
+    showInfoDialog(info, FilePanel::tr("Filesystem Info"), parent);
 }
 
 void FileOperations::copyFiles(FilePanel* source, FilePanel* target, QWidget* parent)
@@ -826,12 +826,14 @@ QString FileOperations::decodeError(const dsk_tools::Result& result)
     return error;
 }
 
-void FileOperations::showInfoDialog(const std::string& info, QWidget* parent)
+void FileOperations::showInfoDialog(const std::string& info, const QString& title, QWidget* parent)
 {
     auto* file_info = new QDialog(parent);
 
     Ui_FileInfo fileinfoUi{};
     fileinfoUi.setupUi(file_info);
+
+    file_info->setWindowTitle(title);
 
     const QString text = replacePlaceholders(QString::fromStdString(info));
     QFont font;

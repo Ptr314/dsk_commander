@@ -454,6 +454,7 @@ void MainWindow::initializeMainMenu() {
     connect(actImageInfo, &QAction::triggered, this, &MainWindow::onImageInfo);
 
     actFSInfo = imageMenu->addAction(QIcon(":/icons/fs_info"), MainWindow::tr("Filesystem Info..."));
+    actFSInfo->setShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_F3));
     connect(actFSInfo, &QAction::triggered, this, &MainWindow::onFSInfo);
 
     imageMenu->addSeparator();

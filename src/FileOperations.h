@@ -31,7 +31,7 @@ public:
     static void infoDialog(QWidget* parent, const QString& text);
 
 private:
-    static void showInfoDialog(const std::string& info, QWidget* parent);
+    static void showInfoDialog(const std::string& info, const QString& title, QWidget* parent);
     static void deleteRecursively(FilePanel* panel, QWidget* parent, const dsk_tools::UniversalFile & f);
     static void putFiles(FilePanel* source, FilePanel* target, QWidget* parent, const dsk_tools::Files & files, const QString & format, int recursion);
     static void saveImageWithBackup(FilePanel* panel);

@@ -984,6 +984,16 @@
         <translation>Поддержка функции еще не реализована</translation>
     </message>
     <message>
+        <location filename="../FileOperations.cpp" line="91"/>
+        <source>File Info</source>
+        <translation>Информация о файле</translation>
+    </message>
+    <message>
+        <location filename="../FileOperations.cpp" line="237"/>
+        <source>Filesystem Info</source>
+        <translation>Информация о файловой системе</translation>
+    </message>
+    <message>
         <location filename="../FileOperations.cpp" line="224"/>
         <source>Metadata modification for this file system is not yet implemented.</source>
         <translation>Редактирование метаданных для этой файловой системы недоступно.</translation>
