@@ -57,7 +57,7 @@ cmake --install .
 
 ##### Qt5 для Windows XP
 
-Для XP необходима версия Qt 5.6.3 и mingw 4.9.2 (https://download.qt.io/new_archive/qt/5.6/5.6.3/single/)
+Для XP необходима версия Qt 5.6.3 (https://download.qt.io/new_archive/qt/5.6/5.6.3/single/) и mingw 4.9.2 (https://wiki.qt.io/MinGW)
 
 ~~~
 cd репозиторий-приложения\.build
@@ -65,13 +65,14 @@ cd репозиторий-приложения\.build
 cd C:\Temp
 mkdir qt5.6-build
 cd qt5.6-build
-configure.bat -release -nomake examples -nomake tests -opensource -confirm-license -no-opengl -target xp -no-directwrite -no-compile-examples -prefix c:\DEV\Qt\%_QT_VERSION%
+configure.bat -release -nomake examples -nomake tests -opensource -confirm-license -no-opengl -target xp -no-directwrite -no-compile-examples -skip qtdeclarative -prefix c:\DEV\Qt\%_QT_VERSION%
 mingw32-make
 mingw32-make install
 ~~~
 
 Примечания: 
 * `-target xp` необходимо для компиляции в формат .exe Windows XP.
+* `-skip qtdeclarative` позволяет избежать необходимости в установке Python, но отключает модули QtQuick, QtQml и некоторые другие.
 * Собрать статическую версию не удается, поэтому в дальнейшем необходимо в папку программы помещать следующие файлы:
     * `Qt5Core.dll`, `Qt5Gui.dll`, `Qt5Widgets.dll` из `Qt/5.6.3/bin/`
     * `platforms/qwindows.dll` из `Qt/5.6.3/plugins`
