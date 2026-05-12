@@ -75,6 +75,8 @@ private:
     dsk_tools::diskImage * image = nullptr;
     dsk_tools::fileSystem * filesystem = nullptr;
 
+    dsk_tools::DiskDefs m_diskdefs;
+
     bool is_loaded = false;
 
     void load_config();

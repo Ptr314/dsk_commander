@@ -1,0 +1,46 @@
+diskdef apple-do
+  seclen 256
+  sides 1
+  tracks 35
+  sectrk 16
+  blocksize 1024
+  maxdir 64
+  skewtab 0,6,12,3,9,15,14,5,11,2,8,7,13,4,10,1
+  boottrk 3
+  os 2.2
+end
+
+diskdef apple-po
+  seclen 256
+  sides 1
+  tracks 35
+  sectrk 16
+  blocksize 1024
+  maxdir 64
+  skewtab 0,9,3,12,6,15,1,10,4,13,7,8,2,11,5,14
+  boottrk 3
+  os 2.2
+end
+
+diskdef korvet
+  seclen 1024
+  sides 2
+  tracks 80
+  sectrk 5
+  blocksize 2048
+  maxdir 128
+  boottrk 2
+  os 2.2
+end
+
+diskdef gmd-7012
+  seclen 128
+  sides 1
+  tracks 77
+  sectrk 26
+  blocksize 1024
+  maxdir 64
+  skewtab 0,6,12,18,24,4,10,16,22,2,8,14,20,1,7,13,19,25,5,11,17,23,3,9,15,21
+  boottrk 2
+  os 2.2
+end

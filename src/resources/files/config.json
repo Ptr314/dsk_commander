@@ -5,8 +5,8 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_PC_360_I", "TYPE_PC_360_NI", "TYPE_GMD_7012_I"]
+            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi",
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_PC_360_I", "TYPE_PC_360_NI", "TYPE_GMD_7012_I", "TYPE_KORVET"]
         },
         "FILE_AIM": {
             "order":        20,
@@ -116,17 +116,26 @@
         "TYPE_PC_360_I": {
             "name": "360K Interleaved",
             "targets": ["FILE_RAW_MSB"],
-            "filesystems": ["FILESYSTEM_CPM_RAW"]
+            "filesystems": ["FILESYSTEM_CPM_RAW"],
+            "diskdef": "pc-360-i"
         },
         "TYPE_PC_360_NI": {
             "name": "360K Sequential",
             "targets": ["FILE_RAW_MSB"],
-            "filesystems": ["FILESYSTEM_CPM_RAW"]
+            "filesystems": ["FILESYSTEM_CPM_RAW"],
+            "diskdef": "pc-360-ni"
         },
         "TYPE_GMD_7012_I": {
             "name": "GMD-7012 8\" 256 Kb",
             "targets": ["FILE_RAW_MSB"],
-            "filesystems": ["FILESYSTEM_CPM_RAW"]
+            "filesystems": ["FILESYSTEM_CPM_RAW"],
+            "diskdef": "gmd-7012"
+        },
+        "TYPE_KORVET": {
+            "name": "Korvet 800 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_CPM_RAW"],
+            "diskdef": "korvet"
         }
     },
     "file_systems": {

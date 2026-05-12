@@ -288,6 +288,19 @@ void MainWindow::load_config()
     fileAny["extensions"] = all_filters;
     fileAny["types"] = all_types;
     file_formats["FILE_SUPPORTED"] = fileAny;
+
+    // Loading CP/M diskdefs
+    QFile ddf(":/files/diskdefs");
+    if (!ddf.open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(0, MainWindow::tr("Error"), MainWindow::tr("Error reading diskdefs file"));
+        return;
+    }
+
+    QByteArray ddf_contents = ddf.readAll();
+    ddf.close();
+
+    m_diskdefs = dsk_tools::parse_diskdefs(ddf_contents.toStdString());
+
 }
 
 MainWindow::~MainWindow()
