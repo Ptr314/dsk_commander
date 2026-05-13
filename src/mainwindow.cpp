@@ -116,8 +116,8 @@ MainWindow::MainWindow(QWidget *parent)
     auto *layout = new QVBoxLayout(central);
     auto *splitter = new QSplitter(Qt::Horizontal, this);
 
-    leftPanel = new FilePanel(this, settings.get(), "left", file_formats, file_types, file_systems);
-    rightPanel = new FilePanel(this, settings.get(), "right", file_formats, file_types, file_systems);
+    leftPanel = new FilePanel(this, settings.get(), "left", file_formats, file_types, file_systems, m_diskdefs);
+    rightPanel = new FilePanel(this, settings.get(), "right", file_formats, file_types, file_systems, m_diskdefs);
 
     connect(leftPanel,  &FilePanel::activated, this, &MainWindow::setActivePanel);
     connect(rightPanel, &FilePanel::activated, this, &MainWindow::setActivePanel);

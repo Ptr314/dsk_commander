@@ -241,13 +241,14 @@ QString HostModel::formatDate(const QDateTime& dt){
 }
 
 
-FilePanel::FilePanel(QWidget *parent, QSettings *settings, QString ini_label, const QJsonObject & file_formats, const QJsonObject & file_types, const QJsonObject & file_systems) :
+FilePanel::FilePanel(QWidget *parent, QSettings *settings, QString ini_label, const QJsonObject & file_formats, const QJsonObject & file_types, const QJsonObject & file_systems, const dsk_tools::DiskDefs & diskdefs) :
       QWidget(parent)
     , m_settings(settings)
     , m_ini_label(ini_label)
     , m_file_formats(file_formats)
     , m_file_types(file_types)
     , m_file_systems(file_systems)
+    , m_diskdefs(diskdefs)
 {
     setupPanel();
 }
@@ -800,7 +801,7 @@ dsk_tools::Result FilePanel::openImage(QString path)
 
     image_model->removeRows(0, image_model->rowCount());
 
-    m_image = dsk_tools::prepare_image(file_name, format_id, type_id);
+    m_image = dsk_tools::prepare_image(file_name, format_id, type_id, m_diskdefs);
 
     if (m_image != nullptr) {
         const auto check_result = m_image->check();
@@ -832,7 +833,7 @@ dsk_tools::Result FilePanel::openImage(QString path)
 
 void FilePanel::processImage(const std::string &filesystem_type)
 {
-    m_filesystem = dsk_tools::prepare_filesystem(m_image.get(), filesystem_type);
+    m_filesystem = dsk_tools::prepare_filesystem(m_image.get(), filesystem_type, m_diskdefs);
     if (m_filesystem != nullptr) {
         auto open_res = m_filesystem->open();
 

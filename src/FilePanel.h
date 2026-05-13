@@ -64,7 +64,8 @@ public:
         const QString ini_label,
         const QJsonObject & file_formats,
         const QJsonObject & file_types,
-        const QJsonObject & file_systems
+        const QJsonObject & file_systems,
+        const dsk_tools::DiskDefs & diskdefs
         );
 
     QString currentDir() const { return currentPath; }
@@ -183,6 +184,7 @@ private:
     const QJsonObject & m_file_formats;
     const QJsonObject & m_file_types;
     const QJsonObject & m_file_systems;
+    const dsk_tools::DiskDefs & m_diskdefs;
 
     std::unique_ptr<dsk_tools::diskImage> m_image {nullptr};
     std::unique_ptr<dsk_tools::fileSystem> m_filesystem {nullptr};
