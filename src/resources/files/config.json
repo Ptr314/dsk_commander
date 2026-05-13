@@ -6,7 +6,7 @@
             "short_name":   "DSK",
             "source":       true,
             "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_PC_360_I", "TYPE_PC_360_NI", "TYPE_CPM:GMD-7012", "TYPE_CPM:KORVET"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ", "TYPE_CPM:GMD-7012", "TYPE_CPM:KORVET"]
         },
         "FILE_AIM": {
             "order":        20,
@@ -54,7 +54,7 @@
             "short_name":   "IMD",
             "source":       true,
             "extensions":   "*.imd",
-            "types":        ["TYPE_PC_360_I", "TYPE_PC_360_NI"]
+            "types":        ["TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ"]
         },
         "FILE_BINARY": {
             "order":        30,
@@ -113,13 +113,13 @@
             "targets": [],
             "filesystems": ["FILESYSTEM_FIL"]
         },
-        "TYPE_PC_360_I": {
-            "name": "360K Interleaved",
+        "TYPE_CPM:IRISHA-360-INT": {
+            "name": "Irisha 360K Interleaved",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
-        "TYPE_PC_360_NI": {
-            "name": "360K Sequential",
+        "TYPE_CPM:IRISHA-360-SEQ": {
+            "name": "Irisha 360K Sequential",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },

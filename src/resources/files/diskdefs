@@ -44,3 +44,27 @@ diskdef gmd-7012
   boottrk 2
   os 2.2
 end
+
+diskdef irisha-360-int
+  sides int
+  seclen 512
+  heads 2
+  tracks 40
+  sectrk 9
+  blocksize 2048
+  maxdir 64
+  boottrk 0
+  os 2.2
+end
+
+diskdef irisha-360-seq
+  sides seq
+  seclen 512
+  heads 2
+  tracks 40
+  sectrk 9
+  blocksize 2048
+  maxdir 64
+  boottrk 0
+  os 2.2
+end

@@ -1,5 +1,13 @@
 import json
+import re
 import sys
+
+# QML identifiers must match [A-Za-z_][A-Za-z0-9_]* — replace anything else with '_'.
+def sanitize_id(s):
+    s = re.sub(r'[^A-Za-z0-9_]', '_', s)
+    if s and s[0].isdigit():
+        s = '_' + s
+    return s
 
 def extract_strings(json_file, output_file):
     with open(json_file, "r", encoding="utf-8") as f:
@@ -12,7 +20,7 @@ def extract_strings(json_file, output_file):
             for key, value in d.items():
                 if isinstance(value, str) and key == "name":
                     escaped = value.replace('\\', '\\\\').replace('"', '\\"')
-                    f.write(f'    property string {parent_key}_{key}: qsTr("{escaped}")\n')
+                    f.write(f'    property string {sanitize_id(parent_key)}_{key}: qsTr("{escaped}")\n')
                 elif isinstance(value, dict):
                     process_dict(key, value)
 
