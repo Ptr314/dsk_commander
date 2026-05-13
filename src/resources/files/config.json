@@ -6,7 +6,7 @@
             "short_name":   "DSK",
             "source":       true,
             "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_PC_360_I", "TYPE_PC_360_NI", "TYPE_GMD_7012_I", "TYPE_CPM:KORVET"]
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_PC_360_I", "TYPE_PC_360_NI", "TYPE_CPM:GMD-7012", "TYPE_CPM:KORVET"]
         },
         "FILE_AIM": {
             "order":        20,
@@ -123,7 +123,7 @@
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
-        "TYPE_GMD_7012_I": {
+        "TYPE_CPM:GMD-7012": {
             "name": "GMD-7012 8\" 256 Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
