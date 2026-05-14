@@ -285,6 +285,11 @@
         <translation>Образ диска был изменён. Сохранить перед закрытием?</translation>
     </message>
     <message>
+        <location filename="../FilePanel.cpp" line="821"/>
+        <source>Failed to prepare image - try another type or switch Auto mode on.</source>
+        <translation>Попробуйте указать тип диска вручную или включить режим автоопределения.</translation>
+    </message>
+    <message>
         <location filename="../FileOperations.cpp" line="87"/>
         <location filename="../FileOperations.cpp" line="125"/>
         <location filename="../FileOperations.cpp" line="157"/>
@@ -2147,31 +2152,36 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="22"/>
+        <source>Orion-128 800 Kb</source>
+        <translation>Орион-128 800 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="23"/>
         <source>Agat/Apple DOS33</source>
         <translation>Агат/Apple DOS 3.3</translation>
     </message>
     <message>
-        <location filename="config.qml" line="23"/>
+        <location filename="config.qml" line="24"/>
         <source>Agat Sprite OS</source>
         <translation>Агат ОС «Спрайт»</translation>
     </message>
     <message>
-        <location filename="config.qml" line="24"/>
+        <location filename="config.qml" line="25"/>
         <source>Single .FIL</source>
         <translation>Файл .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="25"/>
+        <location filename="config.qml" line="26"/>
         <source>CP/M (DOS 3.3 skew)</source>
         <translation>CP/M (Сектора DOS 3.3)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="26"/>
+        <location filename="config.qml" line="27"/>
         <source>CP/M (ProDOS skew)</source>
         <translation>CP/M (Сектора ProDOS)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="27"/>
+        <location filename="config.qml" line="28"/>
         <source>CP/M (No sector skew)</source>
         <translation>CP/M (Без сдвига секторов)</translation>
     </message>

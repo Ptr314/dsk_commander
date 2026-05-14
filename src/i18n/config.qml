@@ -19,6 +19,7 @@ Item {
     property string TYPE_CPM_IRISHA_360_SEQ_name: qsTr("Irisha 360K Sequential")
     property string TYPE_CPM_GMD_7012_name: qsTr("GMD-7012 8\" 256 Kb")
     property string TYPE_CPM_KORVET_name: qsTr("Korvet 800 Kb")
+    property string TYPE_CPM_ORION_name: qsTr("Orion-128 800 Kb")
     property string FILESYSTEM_DOS33_name: qsTr("Agat/Apple DOS33")
     property string FILESYSTEM_SPRITE_OS_name: qsTr("Agat Sprite OS")
     property string FILESYSTEM_FIL_name: qsTr("Single .FIL")

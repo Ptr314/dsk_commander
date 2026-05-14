@@ -1,27 +1,3 @@
-diskdef apple-do
-  seclen 256
-  heads 1
-  tracks 35
-  sectrk 16
-  blocksize 1024
-  maxdir 64
-  skewtab 0,6,12,3,9,15,14,5,11,2,8,7,13,4,10,1
-  boottrk 3
-  os 2.2
-end
-
-diskdef apple-po
-  seclen 256
-  heads 1
-  tracks 35
-  sectrk 16
-  blocksize 1024
-  maxdir 64
-  skewtab 0,9,3,12,6,15,1,10,4,13,7,8,2,11,5,14
-  boottrk 3
-  os 2.2
-end
-
 diskdef korvet
   seclen 1024
   heads 2
@@ -30,8 +6,18 @@ diskdef korvet
   blocksize 2048
   maxdir 128
   boottrk 1
-  os 2.2
 end
+
+diskdef orion
+  seclen 1024
+  heads 2
+  tracks 80
+  sectrk 5
+  blocksize 2048
+  maxdir 128
+  boottrk 2
+end
+
 
 diskdef gmd-7012
   seclen 128
@@ -42,7 +28,6 @@ diskdef gmd-7012
   maxdir 64
   skewtab 0,6,12,18,24,4,10,16,22,2,8,14,20,1,7,13,19,25,5,11,17,23,3,9,15,21
   boottrk 2
-  os 2.2
 end
 
 diskdef irisha-360-int
@@ -54,7 +39,6 @@ diskdef irisha-360-int
   blocksize 2048
   maxdir 64
   boottrk 0
-  os 2.2
 end
 
 diskdef irisha-360-seq
@@ -66,5 +50,4 @@ diskdef irisha-360-seq
   blocksize 2048
   maxdir 64
   boottrk 0
-  os 2.2
 end

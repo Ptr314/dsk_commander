@@ -818,7 +818,7 @@ dsk_tools::Result FilePanel::openImage(QString path)
 
         processImage(filesystem_id);
     } else {
-        return dsk_tools::Result::error(dsk_tools::ErrorCode::LoadError, "Failed to prepare image");
+        return dsk_tools::Result::error(dsk_tools::ErrorCode::LoadError, tr("Failed to prepare image - try another type or switch Auto mode on.").toStdString());
     }
 
     // Store loaded image metadata for later use (e.g., Save to original format)
