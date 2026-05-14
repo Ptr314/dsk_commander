@@ -401,7 +401,7 @@ void FileOperations::deleteRecursively(FilePanel* panel, QWidget* parent, const 
         // Try trash first if enabled
         if (dsk_tools::fsHost::use_recycle_bin && dsk_tools::fsHost::use_recycle_bin()) {
             std::string path_std = dsk_tools::bytesToString(f.metadata);
-            if (utf8_trash(path_std) == 0) {
+            if (dsk_tools::utf8_trash(path_std) == 0) {
                 success = true;
             } else {
                 // Trash failed - ask user
@@ -600,7 +600,7 @@ void FileOperations::saveImageWithBackup(FilePanel* panel)
         dsk_tools::BYTES buffer;
         dsk_tools::Result result = writer->write(buffer);
         if (result) {
-            UTF8_ofstream file(file_name, std::ios::binary);
+            dsk_tools::UTF8_ofstream file(file_name, std::ios::binary);
             if (file.good()) {
                 file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
                 panel->getFileSystem()->reset_changed();
@@ -662,7 +662,7 @@ void FileOperations::saveImageAs(FilePanel* panel, QWidget* parent)
         if (numtracks > 0) {
             dsk_tools::BYTES tmplt;
 
-            UTF8_ifstream tf(template_file.toStdString(), std::ios::binary);
+            dsk_tools::UTF8_ifstream tf(template_file.toStdString(), std::ios::binary);
             if (!tf.good()) {
                 QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Error opening template file"));
                 return;
@@ -689,7 +689,7 @@ void FileOperations::saveImageAs(FilePanel* panel, QWidget* parent)
             }
         }
 
-        UTF8_ofstream file(output_file.toStdString(), std::ios::binary);
+        dsk_tools::UTF8_ofstream file(output_file.toStdString(), std::ios::binary);
 
         if (file.good()) {
             file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());

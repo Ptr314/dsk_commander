@@ -989,7 +989,7 @@ void ViewDialog::on_saveButton_clicked()
                 if (res != QMessageBox::Yes) return;
             }
         #endif
-        UTF8_ofstream file(file_name.toStdString(), std::ios::binary);
+        dsk_tools::UTF8_ofstream file(file_name.toStdString(), std::ios::binary);
         if (file.good()) {
             std::string buffer;
             if (selected_filter.startsWith("HTML")) {
