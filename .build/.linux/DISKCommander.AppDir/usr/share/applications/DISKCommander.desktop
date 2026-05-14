@@ -1,6 +1,13 @@
 [Desktop Entry]
 Type=Application
+Version=1.0
 Name=DISK Commander
-Exec=DISKCommander
+GenericName=Disk Image Tool
+Exec=DISKCommander %F
+TryExec=DISKCommander
 Icon=3floppy_unmount
-Categories=Utility;
+Categories=Utility;System;FileTools;
+Terminal=false
+StartupNotify=true
+StartupWMClass=DISKCommander
+X-AppImage-Integrate=true

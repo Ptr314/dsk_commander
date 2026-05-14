@@ -46,6 +46,8 @@ DISK Commander &ndash; программа для просмотра, редак�
     * 140 и 840К 
 * DO, PO, CPM (посекторные образы для Apple CP/M)
     * 140К 
+* KDI, ODI (посекторные образы Корвет и Орион-128)
+  * 800К
 * HFE (физический формат для [эмулятора Готек](https://www.gotekemulator.com/))
     * 840К 
 * NIC (физический формат для [&laquo;японского&raquo; эмулятора](https://tulip-house.ddo.jp/digital/SDISK2/english.html))
