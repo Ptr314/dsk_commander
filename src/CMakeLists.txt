@@ -133,7 +133,7 @@ else()
         get_filename_component(_qt_id ${_ts_file} NAME_WE)
         set(QM_FILE ${CMAKE_BINARY_DIR}/${_qt_id}.qm)
         execute_process(COMMAND ${LRELEASE_EXECUTABLE} ${_ts_file} -qm  ${QM_FILE})
-        file(APPEND ${QRC_FILE} "        <file alias=\"${_qt_id}\">${QM_FILE}</file>\n")
+        file(APPEND ${QRC_FILE} "        <file alias=\"${_qt_id}.qm\">${QM_FILE}</file>\n")
     endforeach()
 
     file(APPEND ${QRC_FILE} "    </qresource>\n</RCC>\n")

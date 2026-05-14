@@ -13,6 +13,7 @@
 #include <QSplitter>
 #include <QMessageBox>
 #include <QDir>
+#include <QFile>
 #include <QUrl>
 #include <QStatusBar>
 #include <QDebug>
@@ -83,14 +84,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     QString ini_lang = settings->value("interface/language", "").toString();
     if (ini_lang.length() == 0) {
-        // Auto-detect language from system locale
+        // Auto-detect: pick the first preferred UI language we actually ship a translation for.
         const QStringList uiLanguages = QLocale::system().uiLanguages();
         for (const QString &locale : uiLanguages) {
             const QString baseName = QLocale(locale).name().toLower();
-            switch_language(baseName, true);
-            // Save auto-detected language to settings so menu can show correct checkmark
-            settings->setValue("interface/language", baseName);
-            break;
+            if (QFile::exists(":/i18n/" + baseName + ".qm")) {
+                switch_language(baseName, true);
+                settings->setValue("interface/language", baseName);
+                break;
+            }
         }
     } else {
         switch_language(ini_lang, true);
