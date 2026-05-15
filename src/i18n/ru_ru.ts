@@ -5,6 +5,7 @@
     <name>About</name>
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
@@ -12,6 +13,7 @@
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
@@ -22,6 +24,7 @@
     <name>ConvertDialog</name>
     <message>
         <location filename="../convertdialog.ui" line="24"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
@@ -29,6 +32,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
@@ -36,6 +40,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
@@ -43,6 +48,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
@@ -50,6 +56,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
@@ -57,6 +64,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
@@ -64,6 +72,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
@@ -71,6 +80,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
@@ -78,6 +88,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
@@ -85,6 +96,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
@@ -92,6 +104,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
@@ -99,6 +112,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
@@ -106,6 +120,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
@@ -113,6 +128,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
@@ -120,6 +136,7 @@
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
@@ -182,6 +199,7 @@
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
@@ -315,7 +333,7 @@
         <location filename="../FileOperations.cpp" line="940"/>
         <location filename="../FilePanel.cpp" line="841"/>
         <location filename="../FilePanel.cpp" line="853"/>
-        <location filename="../FilePanel.cpp" line="989"/>
+        <location filename="../FilePanel.cpp" line="996"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -335,7 +353,7 @@
         <translation>(Не загружено)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="989"/>
+        <location filename="../FilePanel.cpp" line="996"/>
         <source>Error reading files list!</source>
         <translation>Ошибка чтения списка файлов!</translation>
     </message>
@@ -919,6 +937,21 @@
         <translation>Файлов с повреждёнными секторами не найдено</translation>
     </message>
     <message>
+        <location filename="../placeholders.h" line="141"/>
+        <source>User number</source>
+        <translation>User #</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="142"/>
+        <source>System</source>
+        <translation>Системный</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="143"/>
+        <source>Archive</source>
+        <translation>Архивный</translation>
+    </message>
+    <message>
         <location filename="../FileOperations.cpp" line="63"/>
         <source>Directory: %1
 
@@ -1364,12 +1397,12 @@ Warning: This action cannot be undone!</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1263"/>
+        <location filename="../FilePanel.cpp" line="1270"/>
         <source>(No history)</source>
         <translation>(Нет истории)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1291"/>
+        <location filename="../FilePanel.cpp" line="1298"/>
         <source>Clear history</source>
         <translation>Очистить историю</translation>
     </message>
@@ -1400,42 +1433,42 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>FileTable</name>
     <message>
-        <location filename="../FileTable.cpp" line="234"/>
+        <location filename="../FileTable.cpp" line="236"/>
         <source>P</source>
         <translation>З</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="235"/>
+        <location filename="../FileTable.cpp" line="237"/>
         <source>Protection</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="241"/>
+        <location filename="../FileTable.cpp" line="243"/>
         <source>T</source>
         <translation>Т</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="242"/>
+        <location filename="../FileTable.cpp" line="244"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="248"/>
+        <location filename="../FileTable.cpp" line="258"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="249"/>
+        <location filename="../FileTable.cpp" line="259"/>
         <source>Size in bytes</source>
         <translation>Размер в байтах</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="252"/>
+        <location filename="../FileTable.cpp" line="262"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="253"/>
+        <location filename="../FileTable.cpp" line="263"/>
         <source>Name of the file</source>
         <translation>Имя файла</translation>
     </message>
@@ -1443,274 +1476,274 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="423"/>
         <source>Sort by name</source>
         <translation>Сортировка по имени</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="481"/>
-        <location filename="../mainwindow.cpp" line="858"/>
+        <location filename="../mainwindow.cpp" line="483"/>
+        <location filename="../mainwindow.cpp" line="860"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="456"/>
         <source>Image</source>
         <translation>Образ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="479"/>
+        <location filename="../mainwindow.cpp" line="481"/>
         <source>Files</source>
         <translation>Файлы</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="561"/>
+        <location filename="../mainwindow.cpp" line="563"/>
         <source>About...</source>
         <translation>О программе...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="515"/>
+        <location filename="../mainwindow.cpp" line="517"/>
         <source>Language</source>
         <translation>Переключить язык</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="192"/>
-        <location filename="../mainwindow.cpp" line="251"/>
-        <location filename="../mainwindow.cpp" line="295"/>
+        <location filename="../mainwindow.cpp" line="194"/>
+        <location filename="../mainwindow.cpp" line="253"/>
+        <location filename="../mainwindow.cpp" line="297"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="251"/>
+        <location filename="../mainwindow.cpp" line="253"/>
         <source>Error reading config file</source>
         <translation>Ошибка чтения файла конфигурации</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="192"/>
+        <location filename="../mainwindow.cpp" line="194"/>
         <source>Failed to load language file for: </source>
         <translation>Не удалось переключить язык: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="516"/>
+        <location filename="../mainwindow.cpp" line="518"/>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="521"/>
+        <location filename="../mainwindow.cpp" line="523"/>
         <source>Русский</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="526"/>
+        <location filename="../mainwindow.cpp" line="528"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="346"/>
+        <location filename="../mainwindow.cpp" line="348"/>
         <source>F2 Save</source>
         <translation>F2 Сохранить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="350"/>
+        <location filename="../mainwindow.cpp" line="352"/>
         <source>F6 Rename</source>
         <translation>F6 Переименовать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="438"/>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>Show deleted</source>
         <translation>Показывать удалённые</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="456"/>
+        <location filename="../mainwindow.cpp" line="458"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="460"/>
+        <location filename="../mainwindow.cpp" line="462"/>
         <source>Save as...</source>
         <translation>Сохранить как...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="475"/>
+        <location filename="../mainwindow.cpp" line="477"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="347"/>
-        <location filename="../mainwindow.cpp" line="852"/>
+        <location filename="../mainwindow.cpp" line="349"/>
+        <location filename="../mainwindow.cpp" line="854"/>
         <source>F3 View</source>
         <translation>F3 Просмотр</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="847"/>
+        <location filename="../mainwindow.cpp" line="849"/>
         <source>F3 Image Info</source>
         <translation>F3 Образ Инфо</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="536"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>Use Recycle Bin for host</source>
         <translation>Удалять в корзину (для хост-системы)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="349"/>
+        <location filename="../mainwindow.cpp" line="351"/>
         <source>F5 Copy</source>
         <translation>F5 Копировать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="150"/>
+        <location filename="../mainwindow.cpp" line="152"/>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="199"/>
+        <location filename="../mainwindow.cpp" line="201"/>
         <source>DISK Commander</source>
         <translation>DISK Commander</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="225"/>
+        <location filename="../mainwindow.cpp" line="227"/>
         <source>Both panels have unsaved disk image changes. Close anyway?</source>
         <translation>На обеих панелях есть несохранённые изменения. Закрыть без сохрарения?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="229"/>
         <source>One panel has unsaved disk image changes. Close anyway?</source>
         <translation>На одной из панелей есть несохранённые изменения. Закрыть без сохранения?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="232"/>
+        <location filename="../mainwindow.cpp" line="234"/>
         <source>Unsaved Changes</source>
         <translation>Несохранённые изменения</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="345"/>
+        <location filename="../mainwindow.cpp" line="347"/>
         <source>F1 Help</source>
         <translation>F1 Помощь</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="351"/>
+        <location filename="../mainwindow.cpp" line="353"/>
         <source>F7 MkDir</source>
         <translation>F7 Директория</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="352"/>
-        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="354"/>
+        <location filename="../mainwindow.cpp" line="505"/>
         <source>F8 Delete</source>
         <translation>F8 Удалить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="353"/>
-        <location filename="../mainwindow.cpp" line="507"/>
+        <location filename="../mainwindow.cpp" line="355"/>
+        <location filename="../mainwindow.cpp" line="509"/>
         <source>F9 Restore</source>
         <translation>F9 Восстановить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="354"/>
+        <location filename="../mainwindow.cpp" line="356"/>
         <source>F10 Exit</source>
         <translation>F10 Выход</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow.cpp" line="453"/>
         <source>Left panel</source>
         <translation>Левая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="408"/>
+        <location filename="../mainwindow.cpp" line="410"/>
         <source>Go Up</source>
         <translation>Вверх</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="295"/>
+        <location filename="../mainwindow.cpp" line="297"/>
         <source>Error reading diskdefs file</source>
         <translation>Ошибка чтения diskdefs</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="411"/>
+        <location filename="../mainwindow.cpp" line="413"/>
         <source>Open directory...</source>
         <translation>Выбрать директорию...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="417"/>
+        <location filename="../mainwindow.cpp" line="419"/>
         <source>Sorting</source>
         <translation>Сортировка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="426"/>
+        <location filename="../mainwindow.cpp" line="428"/>
         <source>Sort by size</source>
         <translation>По размеру</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="431"/>
+        <location filename="../mainwindow.cpp" line="433"/>
         <source>No sorting</source>
         <translation>Без сортировки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="466"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>Container Info...</source>
         <translation>О контейнере...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="471"/>
         <source>Filesystem Info...</source>
         <translation>О файловой системе...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="486"/>
         <source>File Info</source>
         <translation>Информация о файле</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="488"/>
+        <location filename="../mainwindow.cpp" line="490"/>
         <source>Edit Metadata</source>
         <translation>Редактировать метаданные</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="491"/>
+        <location filename="../mainwindow.cpp" line="493"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="495"/>
+        <location filename="../mainwindow.cpp" line="497"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="501"/>
         <source>F7 Make dir</source>
         <translation>F7 Директория</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="512"/>
+        <location filename="../mainwindow.cpp" line="514"/>
         <source>Options</source>
         <translation>Параметры</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="548"/>
+        <location filename="../mainwindow.cpp" line="550"/>
         <source>Make backups on save</source>
         <translation>Резервные копии при сохранении</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="566"/>
+        <location filename="../mainwindow.cpp" line="568"/>
         <source>Right panel</source>
         <translation>Правая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>No active panel</source>
         <translation>Нет активной панели</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="611"/>
         <source>Active panel: %1 | Selected: %2</source>
         <translation>Активная панель: %1 | Выбрано: %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="348"/>
-        <location filename="../mainwindow.cpp" line="848"/>
+        <location filename="../mainwindow.cpp" line="350"/>
+        <location filename="../mainwindow.cpp" line="850"/>
         <source>F4 Open</source>
         <translation>F4 Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="853"/>
+        <location filename="../mainwindow.cpp" line="855"/>
         <source>F4 Meta</source>
         <translation>F4 Метаданные</translation>
     </message>
@@ -1719,6 +1752,7 @@ Warning: This action cannot be undone!</source>
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="356"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>View</source>
@@ -1726,6 +1760,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="75"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="359"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
         <source>View mode</source>
@@ -1733,6 +1768,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="123"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="363"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
         <source>Subtype</source>
@@ -1740,6 +1776,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="186"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <source>Encoding</source>
@@ -1747,6 +1784,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <source>File info</source>
@@ -1754,6 +1792,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="232"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <source>Copy text to clipboard</source>
@@ -1761,6 +1800,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="235"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <source>Copy</source>
@@ -1769,6 +1809,8 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../viewdialog.ui" line="252"/>
         <location filename="../viewdialog.ui" line="255"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
@@ -1778,6 +1820,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="281"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="380"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
@@ -1785,6 +1828,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="212"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <source>Info</source>
@@ -1792,6 +1836,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="301"/>
+        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
         <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <source>Close</source>
@@ -1868,118 +1913,118 @@ Warning: This action cannot be undone!</source>
         <translation>4:3</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="143"/>
-        <location filename="../placeholders.h" line="162"/>
+        <location filename="../placeholders.h" line="146"/>
+        <location filename="../placeholders.h" line="165"/>
         <source>Palette</source>
         <translation>Палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="144"/>
+        <location filename="../placeholders.h" line="147"/>
         <source>Color</source>
         <translation>Цветной</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="145"/>
+        <location filename="../placeholders.h" line="148"/>
         <source>Monochrome</source>
         <translation>Монохромный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="146"/>
+        <location filename="../placeholders.h" line="149"/>
         <source>Custom palette</source>
         <translation>Загружаемая палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="147"/>
+        <location filename="../placeholders.h" line="150"/>
         <source>b/w</source>
         <translation>Чёрно-белый</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="148"/>
+        <location filename="../placeholders.h" line="151"/>
         <source>Custom font loading error</source>
         <translation>Загружаемый шрифт не найден</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="149"/>
+        <location filename="../placeholders.h" line="152"/>
         <source>Agat Improved</source>
         <translation>Агат исправленный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="150"/>
+        <location filename="../placeholders.h" line="153"/>
         <source>Apple Improved</source>
         <translation>С заливкой</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="151"/>
+        <location filename="../placeholders.h" line="154"/>
         <source>Apple NTSC Original</source>
         <translation>NTSC без заливки</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="152"/>
+        <location filename="../placeholders.h" line="155"/>
         <source>Agat-7 classic font</source>
         <translation>ZG7 : Classic</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="153"/>
+        <location filename="../placeholders.h" line="156"/>
         <source>Agat-7 enhanced font</source>
         <translation>ZG7: 256</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="160"/>
+        <location filename="../placeholders.h" line="163"/>
         <source>BFT Font</source>
         <translation>Шрифт BFT</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="163"/>
+        <location filename="../placeholders.h" line="166"/>
         <source>Comment</source>
         <translation>Комментарий</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="164"/>
+        <location filename="../placeholders.h" line="167"/>
         <source>Agat color mode</source>
         <translation>Цветной режим Агат</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="165"/>
+        <location filename="../placeholders.h" line="168"/>
         <source>Apple color mode</source>
         <translation>Цветной режим Apple</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="166"/>
+        <location filename="../placeholders.h" line="169"/>
         <source>Font type</source>
         <translation>Тип шрифта</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="167"/>
+        <location filename="../placeholders.h" line="170"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="154"/>
+        <location filename="../placeholders.h" line="157"/>
         <source>Agat-9 classic font</source>
         <translation>ZG9 : Classic</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="155"/>
+        <location filename="../placeholders.h" line="158"/>
         <source>GARNIZON custom font</source>
         <translation>ZG9 : GARNIZON</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="156"/>
+        <location filename="../placeholders.h" line="159"/>
         <source>Loaded custom font</source>
         <translation>Загружаемый шрифт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="157"/>
+        <location filename="../placeholders.h" line="160"/>
         <source>Agat-9 Font</source>
         <translation>Агат-9</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="158"/>
+        <location filename="../placeholders.h" line="161"/>
         <source>Agat-7 Font</source>
         <translation>Агат-7</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="159"/>
+        <location filename="../placeholders.h" line="162"/>
         <source>Font file</source>
         <translation>Знакогенератор</translation>
     </message>

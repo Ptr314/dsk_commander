@@ -219,7 +219,7 @@ void FileTable::setupForHostMode() {
     // setStyleSheet("");
 }
 
-void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
+void FileTable::setupForImageMode(dsk_tools::fileSystem & fs) {
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setSelectionMode(QAbstractItemView::ExtendedSelection);
 
@@ -228,6 +228,8 @@ void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
     auto image_model = dynamic_cast<QStandardItemModel*>(model());
 
     image_model->clear();
+
+    const dsk_tools::FSCaps capabilities = fs.get_caps();
 
     if (dsk_tools::hasFlag(capabilities, dsk_tools::FSCaps::Protect)) {
         image_model->setColumnCount(const_columns + columns + 1);
@@ -240,6 +242,14 @@ void FileTable::setupForImageMode(dsk_tools::FSCaps capabilities) {
         image_model->setColumnCount(const_columns + columns + 1);
         image_model->setHeaderData(columns, Qt::Horizontal, FileTable::tr("T"));
         image_model->horizontalHeaderItem(columns)->setToolTip(FileTable::tr("Type"));
+        setColumnWidth(columns, 30);
+        columns++;
+    }
+    if (dsk_tools::hasFlag(capabilities, dsk_tools::FSCaps::ExAttr)) {
+        std::pair<std::string, std::string> capt = fs.exattr_caption();
+        image_model->setColumnCount(const_columns + columns + 1);
+        image_model->setHeaderData(columns, Qt::Horizontal, QString::fromStdString(capt.first));
+        image_model->horizontalHeaderItem(columns)->setToolTip(QString::fromStdString(capt.second));
         setColumnWidth(columns, 30);
         columns++;
     }

@@ -872,7 +872,7 @@ void FilePanel::setMode(panelMode new_mode)
         m_filesystem = dsk_tools::make_unique<dsk_tools::fsHost>(nullptr);
     } else {
         tableView->setModel(image_model);
-        tableView->setupForImageMode(m_filesystem->get_caps());
+        tableView->setupForImageMode(*m_filesystem);
     }
     emit panelModeChanged(mode);
 }
@@ -927,6 +927,13 @@ void FilePanel::updateTable()
         if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Types)) {
             auto * type_item = new QStandardItem();
             type_item->setText(QString::fromStdString(f.type_label));
+            type_item->setTextAlignment(Qt::AlignCenter);
+            items.append(type_item);
+        }
+
+        if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::ExAttr)) {
+            auto * type_item = new QStandardItem();
+            type_item->setText(QString::fromStdString(m_filesystem->exattr(f)));
             type_item->setTextAlignment(Qt::AlignCenter);
             items.append(type_item);
         }
