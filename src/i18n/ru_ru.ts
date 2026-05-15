@@ -143,54 +143,54 @@
         <translation>Имя файла-образца</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="124"/>
-        <location filename="../convertdialog.cpp" line="185"/>
-        <location filename="../convertdialog.cpp" line="204"/>
+        <location filename="../convertdialog.cpp" line="133"/>
+        <location filename="../convertdialog.cpp" line="205"/>
+        <location filename="../convertdialog.cpp" line="224"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="124"/>
+        <location filename="../convertdialog.cpp" line="133"/>
         <source>Configuration error!</source>
         <translation>Ошибка конфигурации!</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="163"/>
+        <location filename="../convertdialog.cpp" line="183"/>
         <source>Choose file</source>
         <translation>Выберите Файл</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="185"/>
+        <location filename="../convertdialog.cpp" line="205"/>
         <source>No template file selected.</source>
         <translation>Не выбран файл-образец.</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="204"/>
+        <location filename="../convertdialog.cpp" line="224"/>
         <source>The template file type must be the same as the selected export format.</source>
         <translation>Тип файла-образца должен совпадать с выбранным типом для записи.</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="211"/>
+        <location filename="../convertdialog.cpp" line="231"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="211"/>
+        <location filename="../convertdialog.cpp" line="231"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="225"/>
+        <location filename="../convertdialog.cpp" line="245"/>
         <source>Different Volume IDs</source>
         <translation>Несовпадение метки тома</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="226"/>
+        <location filename="../convertdialog.cpp" line="246"/>
         <source>Different Volume IDs. %1. Contunue?</source>
         <translation>Выбранная метка тома не совпадает с указанной в файловой системе (%1). Использование этого значения может вести к неработоспособности диска. Продолжить?</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="271"/>
+        <location filename="../convertdialog.cpp" line="291"/>
         <source>Choose template</source>
         <translation>Выберите файл-образец</translation>
     </message>

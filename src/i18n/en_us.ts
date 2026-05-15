@@ -143,54 +143,54 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="124"/>
-        <location filename="../convertdialog.cpp" line="185"/>
-        <location filename="../convertdialog.cpp" line="204"/>
+        <location filename="../convertdialog.cpp" line="133"/>
+        <location filename="../convertdialog.cpp" line="205"/>
+        <location filename="../convertdialog.cpp" line="224"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="124"/>
+        <location filename="../convertdialog.cpp" line="133"/>
         <source>Configuration error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="163"/>
+        <location filename="../convertdialog.cpp" line="183"/>
         <source>Choose file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="185"/>
+        <location filename="../convertdialog.cpp" line="205"/>
         <source>No template file selected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="204"/>
+        <location filename="../convertdialog.cpp" line="224"/>
         <source>The template file type must be the same as the selected export format.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="211"/>
+        <location filename="../convertdialog.cpp" line="231"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="211"/>
+        <location filename="../convertdialog.cpp" line="231"/>
         <source>File already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="225"/>
+        <location filename="../convertdialog.cpp" line="245"/>
         <source>Different Volume IDs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="226"/>
+        <location filename="../convertdialog.cpp" line="246"/>
         <source>Different Volume IDs. %1. Contunue?</source>
         <translation>The selected volume label does not match the one specified in the file system (%1). Using this value may cause the disk to become inoperable. Continue?</translation>
     </message>
     <message>
-        <location filename="../convertdialog.cpp" line="271"/>
+        <location filename="../convertdialog.cpp" line="291"/>
         <source>Choose template</source>
         <translation type="unfinished"></translation>
     </message>

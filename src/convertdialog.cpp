@@ -92,6 +92,15 @@ void ConvertDialog::set_output()
     QString exts = target["extensions"].toString();
     QStringList exts_list = exts.split(";");
     QString ext = exts_list.at(0).right(exts_list.at(0).size()-2);
+    const QString src_ext = fi.suffix();
+    if (!src_ext.isEmpty()) {
+        for (const QString & e : exts_list) {
+            if (e.right(e.size()-2).compare(src_ext, Qt::CaseInsensitive) == 0) {
+                ext = src_ext;
+                break;
+            }
+        }
+    }
 
     output_file_name = QString("%1/%2.%3").arg(target_path, fi.completeBaseName(), ext);
 
@@ -153,10 +162,21 @@ void ConvertDialog::on_actionChoose_Output_triggered()
     QString ext = exts_list.at(0); //
     QString new_ext = ext.right(exts_list.at(0).size()-2);
 
-    QString filter = QString("%1 (%2)").arg(target["name"].toString(), ext);
-
     QString source_file = QString::fromStdString(m_image->file_name());
     QFileInfo fi(source_file);
+
+    const QString src_ext = fi.suffix();
+    if (!src_ext.isEmpty()) {
+        for (const QString & e : exts_list) {
+            if (e.right(e.size()-2).compare(src_ext, Qt::CaseInsensitive) == 0) {
+                new_ext = src_ext;
+                ext = e;
+                break;
+            }
+        }
+    }
+
+    QString filter = QString("%1 (%2)").arg(target["name"].toString(), ext);
 
     QString file_name = QString("%1/%2.%3").arg(fi.dir().absolutePath(), fi.completeBaseName(), new_ext);
 
