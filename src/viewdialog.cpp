@@ -141,6 +141,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ-7 Н0/Н1"), "koi7_n0_n1");
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ-7 Н2"), "koi7_n2");
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ8-R"), "koi8_r");
+    ui->encodingCombo->addItem(ViewDialog::tr("КОИ8-M"), "koi8_m");
     ui->encodingCombo->setCurrentIndex(settings->value("viewer/encoding", 0).toInt());
     adjustComboBoxWidth(ui->encodingCombo);
     ui->encodingCombo->blockSignals(false);

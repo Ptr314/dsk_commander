@@ -210,19 +210,19 @@
     <name>FilePanel</name>
     <message>
         <location filename="../FilePanel.cpp" line="45"/>
-        <location filename="../FilePanel.cpp" line="501"/>
+        <location filename="../FilePanel.cpp" line="505"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
         <location filename="../FilePanel.cpp" line="46"/>
-        <location filename="../FilePanel.cpp" line="502"/>
+        <location filename="../FilePanel.cpp" line="506"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
         <location filename="../FilePanel.cpp" line="47"/>
-        <location filename="../FilePanel.cpp" line="503"/>
+        <location filename="../FilePanel.cpp" line="507"/>
         <location filename="../placeholders.h" line="23"/>
         <source>Date</source>
         <translation>Дата</translation>
@@ -230,80 +230,80 @@
     <message>
         <location filename="../FilePanel.cpp" line="272"/>
         <location filename="../FilePanel.cpp" line="274"/>
-        <location filename="../FilePanel.cpp" line="507"/>
+        <location filename="../FilePanel.cpp" line="511"/>
         <source>Up</source>
         <translation>На директорию вверх</translation>
     </message>
     <message>
         <location filename="../FilePanel.cpp" line="279"/>
-        <location filename="../FilePanel.cpp" line="509"/>
+        <location filename="../FilePanel.cpp" line="513"/>
         <source>Enter path and press Enter...</source>
         <translation>Введите путь и нажмите Enter...</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="283"/>
-        <location filename="../FilePanel.cpp" line="285"/>
-        <location filename="../FilePanel.cpp" line="508"/>
+        <location filename="../FilePanel.cpp" line="284"/>
+        <location filename="../FilePanel.cpp" line="286"/>
+        <location filename="../FilePanel.cpp" line="512"/>
         <source>Choose...</source>
         <translation>Выбрать...</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="301"/>
-        <location filename="../FilePanel.cpp" line="514"/>
+        <location filename="../FilePanel.cpp" line="302"/>
+        <location filename="../FilePanel.cpp" line="518"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="303"/>
-        <location filename="../FilePanel.cpp" line="515"/>
+        <location filename="../FilePanel.cpp" line="304"/>
+        <location filename="../FilePanel.cpp" line="519"/>
         <source>Save disk image</source>
         <translation>Сохранить образ</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="310"/>
-        <location filename="../FilePanel.cpp" line="518"/>
+        <location filename="../FilePanel.cpp" line="311"/>
+        <location filename="../FilePanel.cpp" line="522"/>
         <source>Save as...</source>
         <translation>Сохранить как...</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="312"/>
-        <location filename="../FilePanel.cpp" line="519"/>
+        <location filename="../FilePanel.cpp" line="313"/>
+        <location filename="../FilePanel.cpp" line="523"/>
         <source>Save disk image as...</source>
         <translation>Сохранить образ как...</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="444"/>
-        <location filename="../FilePanel.cpp" line="510"/>
+        <location filename="../FilePanel.cpp" line="448"/>
+        <location filename="../FilePanel.cpp" line="514"/>
         <source>Auto</source>
         <translation>Авто</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="565"/>
+        <location filename="../FilePanel.cpp" line="569"/>
         <source>Choose a path</source>
         <translation>Выберите путь</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="616"/>
+        <location filename="../FilePanel.cpp" line="620"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="616"/>
+        <location filename="../FilePanel.cpp" line="620"/>
         <source>To apply changes, you must close and reopen the image!</source>
         <translation>Нужно переоткрыть образ, чтобы изменение вступило в силу!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="680"/>
+        <location filename="../FilePanel.cpp" line="684"/>
         <source>Unsaved Changes</source>
         <translation>Несохранённые измнения</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="681"/>
+        <location filename="../FilePanel.cpp" line="685"/>
         <source>The disk image has unsaved changes. Save before closing?</source>
         <translation>Образ диска был изменён. Сохранить перед закрытием?</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="820"/>
+        <location filename="../FilePanel.cpp" line="824"/>
         <source>Failed to prepare image - try another type or switch Auto mode on.</source>
         <translation>Попробуйте указать тип диска вручную или включить режим автоопределения.</translation>
     </message>
@@ -331,9 +331,9 @@
         <location filename="../FileOperations.cpp" line="924"/>
         <location filename="../FileOperations.cpp" line="931"/>
         <location filename="../FileOperations.cpp" line="940"/>
-        <location filename="../FilePanel.cpp" line="840"/>
-        <location filename="../FilePanel.cpp" line="852"/>
-        <location filename="../FilePanel.cpp" line="995"/>
+        <location filename="../FilePanel.cpp" line="844"/>
+        <location filename="../FilePanel.cpp" line="856"/>
+        <location filename="../FilePanel.cpp" line="999"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -343,17 +343,17 @@
         <translation>Ошибка чтения файла!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="852"/>
+        <location filename="../FilePanel.cpp" line="856"/>
         <source>File system initialization error!</source>
         <translation>Ошибка инициализации файловой системы!</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="904"/>
+        <location filename="../FilePanel.cpp" line="908"/>
         <source>(No image)</source>
         <translation>(Не загружено)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="995"/>
+        <location filename="../FilePanel.cpp" line="999"/>
         <source>Error reading files list!</source>
         <translation>Ошибка чтения списка файлов!</translation>
     </message>
@@ -1397,12 +1397,12 @@ Warning: This action cannot be undone!</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1269"/>
+        <location filename="../FilePanel.cpp" line="1273"/>
         <source>(No history)</source>
         <translation>(Нет истории)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1297"/>
+        <location filename="../FilePanel.cpp" line="1301"/>
         <source>Clear history</source>
         <translation>Очистить историю</translation>
     </message>
@@ -1476,33 +1476,33 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="424"/>
         <source>Sort by name</source>
         <translation>Сортировка по имени</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="483"/>
-        <location filename="../mainwindow.cpp" line="860"/>
+        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="861"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="456"/>
+        <location filename="../mainwindow.cpp" line="457"/>
         <source>Image</source>
         <translation>Образ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="481"/>
+        <location filename="../mainwindow.cpp" line="482"/>
         <source>Files</source>
         <translation>Файлы</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="564"/>
         <source>About...</source>
         <translation>О программе...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="517"/>
+        <location filename="../mainwindow.cpp" line="518"/>
         <source>Language</source>
         <translation>Переключить язык</translation>
     </message>
@@ -1524,17 +1524,17 @@ Warning: This action cannot be undone!</source>
         <translation>Не удалось переключить язык: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="518"/>
+        <location filename="../mainwindow.cpp" line="519"/>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="523"/>
+        <location filename="../mainwindow.cpp" line="524"/>
         <source>Русский</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="528"/>
+        <location filename="../mainwindow.cpp" line="529"/>
         <source>English</source>
         <translation>English</translation>
     </message>
@@ -1549,38 +1549,38 @@ Warning: This action cannot be undone!</source>
         <translation>F6 Переименовать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="440"/>
+        <location filename="../mainwindow.cpp" line="441"/>
         <source>Show deleted</source>
         <translation>Показывать удалённые</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="458"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="462"/>
+        <location filename="../mainwindow.cpp" line="463"/>
         <source>Save as...</source>
         <translation>Сохранить как...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="478"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="349"/>
-        <location filename="../mainwindow.cpp" line="854"/>
+        <location filename="../mainwindow.cpp" line="855"/>
         <source>F3 View</source>
         <translation>F3 Просмотр</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="849"/>
+        <location filename="../mainwindow.cpp" line="850"/>
         <source>F3 Image Info</source>
         <translation>F3 Образ Инфо</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="539"/>
         <source>Use Recycle Bin for host</source>
         <translation>Удалять в корзину (для хост-системы)</translation>
     </message>
@@ -1626,13 +1626,13 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="354"/>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>F8 Delete</source>
         <translation>F8 Удалить</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="355"/>
-        <location filename="../mainwindow.cpp" line="509"/>
+        <location filename="../mainwindow.cpp" line="510"/>
         <source>F9 Restore</source>
         <translation>F9 Восстановить</translation>
     </message>
@@ -1642,12 +1642,12 @@ Warning: This action cannot be undone!</source>
         <translation>F10 Выход</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="453"/>
+        <location filename="../mainwindow.cpp" line="454"/>
         <source>Left panel</source>
         <translation>Левая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="410"/>
+        <location filename="../mainwindow.cpp" line="411"/>
         <source>Go Up</source>
         <translation>Вверх</translation>
     </message>
@@ -1657,93 +1657,93 @@ Warning: This action cannot be undone!</source>
         <translation>Ошибка чтения diskdefs</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="413"/>
+        <location filename="../mainwindow.cpp" line="414"/>
         <source>Open directory...</source>
         <translation>Выбрать директорию...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="419"/>
+        <location filename="../mainwindow.cpp" line="420"/>
         <source>Sorting</source>
         <translation>Сортировка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="428"/>
+        <location filename="../mainwindow.cpp" line="429"/>
         <source>Sort by size</source>
         <translation>По размеру</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="433"/>
+        <location filename="../mainwindow.cpp" line="434"/>
         <source>No sorting</source>
         <translation>Без сортировки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="468"/>
+        <location filename="../mainwindow.cpp" line="469"/>
         <source>Container Info...</source>
         <translation>О контейнере...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="471"/>
+        <location filename="../mainwindow.cpp" line="472"/>
         <source>Filesystem Info...</source>
         <translation>О файловой системе...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="486"/>
+        <location filename="../mainwindow.cpp" line="487"/>
         <source>File Info</source>
         <translation>Информация о файле</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="490"/>
+        <location filename="../mainwindow.cpp" line="491"/>
         <source>Edit Metadata</source>
         <translation>Редактировать метаданные</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="493"/>
+        <location filename="../mainwindow.cpp" line="494"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="497"/>
+        <location filename="../mainwindow.cpp" line="498"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="501"/>
+        <location filename="../mainwindow.cpp" line="502"/>
         <source>F7 Make dir</source>
         <translation>F7 Директория</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="514"/>
+        <location filename="../mainwindow.cpp" line="515"/>
         <source>Options</source>
         <translation>Параметры</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>Make backups on save</source>
         <translation>Резервные копии при сохранении</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="568"/>
+        <location filename="../mainwindow.cpp" line="569"/>
         <source>Right panel</source>
         <translation>Правая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="606"/>
+        <location filename="../mainwindow.cpp" line="607"/>
         <source>No active panel</source>
         <translation>Нет активной панели</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="611"/>
+        <location filename="../mainwindow.cpp" line="612"/>
         <source>Active panel: %1 | Selected: %2</source>
         <translation>Активная панель: %1 | Выбрано: %2</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="350"/>
-        <location filename="../mainwindow.cpp" line="850"/>
+        <location filename="../mainwindow.cpp" line="851"/>
         <source>F4 Open</source>
         <translation>F4 Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="855"/>
+        <location filename="../mainwindow.cpp" line="856"/>
         <source>F4 Meta</source>
         <translation>F4 Метаданные</translation>
     </message>
@@ -1903,17 +1903,22 @@ Warning: This action cannot be undone!</source>
         <translation>КОИ8-R</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="152"/>
+        <location filename="../viewdialog.cpp" line="144"/>
+        <source>КОИ8-M</source>
+        <translation>КОИ8-M</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="153"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="153"/>
+        <location filename="../viewdialog.cpp" line="154"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="154"/>
+        <location filename="../viewdialog.cpp" line="155"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
@@ -2034,71 +2039,71 @@ Warning: This action cannot be undone!</source>
         <translation>Знакогенератор</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="407"/>
+        <location filename="../viewdialog.cpp" line="408"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="656"/>
+        <location filename="../viewdialog.cpp" line="657"/>
         <source>Add custom file</source>
         <translation>Добавить внешний файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="686"/>
-        <location filename="../viewdialog.cpp" line="852"/>
+        <location filename="../viewdialog.cpp" line="687"/>
+        <location filename="../viewdialog.cpp" line="853"/>
         <source>Clear custom files</source>
         <translation>Очистить список добавленных файлов</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="747"/>
-        <location filename="../viewdialog.cpp" line="792"/>
+        <location filename="../viewdialog.cpp" line="748"/>
+        <location filename="../viewdialog.cpp" line="793"/>
         <source>From file: %1</source>
         <translation>Из файла: %1</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="813"/>
-        <location filename="../viewdialog.cpp" line="816"/>
+        <location filename="../viewdialog.cpp" line="814"/>
+        <location filename="../viewdialog.cpp" line="817"/>
         <source>FIL files (*.fil);;All files (*.*)</source>
         <translation>Файлы FIL (*.fil);;Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="814"/>
+        <location filename="../viewdialog.cpp" line="815"/>
         <source>Select custom palette file</source>
         <translation>Выберите файл с палитрой</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="817"/>
+        <location filename="../viewdialog.cpp" line="818"/>
         <source>Select custom font file</source>
         <translation>Выберите файл шрифта</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="820"/>
+        <location filename="../viewdialog.cpp" line="821"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="821"/>
+        <location filename="../viewdialog.cpp" line="822"/>
         <source>Select custom file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="853"/>
+        <location filename="../viewdialog.cpp" line="854"/>
         <source>Are you sure you want to clear all custom files for this selector?</source>
         <translation>Вы действительно хотите полностью очистить дообавленные файлы для этого списка?</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="975"/>
-        <location filename="../viewdialog.cpp" line="977"/>
+        <location filename="../viewdialog.cpp" line="976"/>
+        <location filename="../viewdialog.cpp" line="978"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="989"/>
+        <location filename="../viewdialog.cpp" line="990"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="989"/>
+        <location filename="../viewdialog.cpp" line="990"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>
