@@ -5,8 +5,14 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ", "TYPE_CPM:GMD-7012", "TYPE_CPM:KORVET", "TYPE_CPM:ORION"]
+            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd",
+            "types":        ["TYPE_AGAT_140",
+                            "TYPE_AGAT_840",
+                            "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
+                            "TYPE_CPM:GMD-7012",
+                            "TYPE_CPM:KORVET",
+                            "TYPE_CPM:ORION",
+                            "TYPE_CPM:VECTOR"]
         },
         "FILE_AIM": {
             "order":        20,
@@ -134,7 +140,12 @@
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:ORION": {
-            "name": "Orion-128 800 Kb",
+            "name": "Orion-128/PK8000 800 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_CPM_RAW"]
+        },
+        "TYPE_CPM:VECTOR": {
+            "name": "Vector-06C 800+ Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         }

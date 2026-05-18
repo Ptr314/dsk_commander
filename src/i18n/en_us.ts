@@ -303,7 +303,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="821"/>
+        <location filename="../FilePanel.cpp" line="820"/>
         <source>Failed to prepare image - try another type or switch Auto mode on.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -331,9 +331,9 @@
         <location filename="../FileOperations.cpp" line="924"/>
         <location filename="../FileOperations.cpp" line="931"/>
         <location filename="../FileOperations.cpp" line="940"/>
-        <location filename="../FilePanel.cpp" line="841"/>
-        <location filename="../FilePanel.cpp" line="853"/>
-        <location filename="../FilePanel.cpp" line="996"/>
+        <location filename="../FilePanel.cpp" line="840"/>
+        <location filename="../FilePanel.cpp" line="852"/>
+        <location filename="../FilePanel.cpp" line="995"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -343,17 +343,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="853"/>
+        <location filename="../FilePanel.cpp" line="852"/>
         <source>File system initialization error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="905"/>
+        <location filename="../FilePanel.cpp" line="904"/>
         <source>(No image)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="996"/>
+        <location filename="../FilePanel.cpp" line="995"/>
         <source>Error reading files list!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1383,12 +1383,12 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1270"/>
+        <location filename="../FilePanel.cpp" line="1269"/>
         <source>(No history)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1298"/>
+        <location filename="../FilePanel.cpp" line="1297"/>
         <source>Clear history</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2183,36 +2183,41 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="22"/>
-        <source>Orion-128 800 Kb</source>
+        <source>Orion-128/PK8000 800 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="23"/>
-        <source>Agat/Apple DOS33</source>
+        <source>Vector-06C 800+ Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="24"/>
-        <source>Agat Sprite OS</source>
+        <source>Agat/Apple DOS33</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="25"/>
-        <source>Single .FIL</source>
+        <source>Agat Sprite OS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="26"/>
-        <source>CP/M (DOS 3.3 skew)</source>
+        <source>Single .FIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="27"/>
-        <source>CP/M (ProDOS skew)</source>
+        <source>CP/M (DOS 3.3 skew)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="28"/>
+        <source>CP/M (ProDOS skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="29"/>
         <source>CP/M (No sector skew)</source>
         <translation type="unfinished"></translation>
     </message>

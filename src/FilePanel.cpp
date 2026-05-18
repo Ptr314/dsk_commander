@@ -794,7 +794,6 @@ dsk_tools::Result FilePanel::openImage(QString path)
         };
         if (type_id.empty()) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
         if (filesystem_id.empty()) filesystem_id = fsCombo->itemData(fsCombo->currentIndex()).toString().toStdString();
-
     }
 
     // Load file

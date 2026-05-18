@@ -18,6 +18,15 @@ diskdef orion
   boottrk 2
 end
 
+diskdef vector
+  seclen 1024
+  heads 2
+  tracks 82
+  sectrk 5
+  blocksize 2048
+  maxdir 128
+  boottrk 4
+end
 
 diskdef gmd-7012
   seclen 128
