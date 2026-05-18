@@ -1884,17 +1884,22 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="151"/>
-        <source>Square pixels</source>
+        <location filename="../viewdialog.cpp" line="143"/>
+        <source>КОИ8-R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="152"/>
-        <source>Square screen</source>
+        <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="153"/>
+        <source>Square screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="154"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2015,71 +2020,71 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="406"/>
+        <location filename="../viewdialog.cpp" line="407"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="655"/>
+        <location filename="../viewdialog.cpp" line="656"/>
         <source>Add custom file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="685"/>
-        <location filename="../viewdialog.cpp" line="851"/>
+        <location filename="../viewdialog.cpp" line="686"/>
+        <location filename="../viewdialog.cpp" line="852"/>
         <source>Clear custom files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="746"/>
-        <location filename="../viewdialog.cpp" line="791"/>
+        <location filename="../viewdialog.cpp" line="747"/>
+        <location filename="../viewdialog.cpp" line="792"/>
         <source>From file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="812"/>
-        <location filename="../viewdialog.cpp" line="815"/>
+        <location filename="../viewdialog.cpp" line="813"/>
+        <location filename="../viewdialog.cpp" line="816"/>
         <source>FIL files (*.fil);;All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="813"/>
+        <location filename="../viewdialog.cpp" line="814"/>
         <source>Select custom palette file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="816"/>
+        <location filename="../viewdialog.cpp" line="817"/>
         <source>Select custom font file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="819"/>
+        <location filename="../viewdialog.cpp" line="820"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="820"/>
+        <location filename="../viewdialog.cpp" line="821"/>
         <source>Select custom file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="852"/>
+        <location filename="../viewdialog.cpp" line="853"/>
         <source>Are you sure you want to clear all custom files for this selector?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="974"/>
-        <location filename="../viewdialog.cpp" line="976"/>
+        <location filename="../viewdialog.cpp" line="975"/>
+        <location filename="../viewdialog.cpp" line="977"/>
         <source>Save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="988"/>
+        <location filename="../viewdialog.cpp" line="989"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="988"/>
+        <location filename="../viewdialog.cpp" line="989"/>
         <source>File already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>

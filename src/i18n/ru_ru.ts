@@ -1898,17 +1898,22 @@ Warning: This action cannot be undone!</source>
         <translation>КОИ-7 Н2</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="151"/>
+        <location filename="../viewdialog.cpp" line="143"/>
+        <source>КОИ8-R</source>
+        <translation>КОИ8-R</translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="152"/>
         <source>Square pixels</source>
         <translation>Квадратные пиксели</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="152"/>
+        <location filename="../viewdialog.cpp" line="153"/>
         <source>Square screen</source>
         <translation>Квадратный экран</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="153"/>
+        <location filename="../viewdialog.cpp" line="154"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
@@ -2029,71 +2034,71 @@ Warning: This action cannot be undone!</source>
         <translation>Знакогенератор</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="406"/>
+        <location filename="../viewdialog.cpp" line="407"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="655"/>
+        <location filename="../viewdialog.cpp" line="656"/>
         <source>Add custom file</source>
         <translation>Добавить внешний файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="685"/>
-        <location filename="../viewdialog.cpp" line="851"/>
+        <location filename="../viewdialog.cpp" line="686"/>
+        <location filename="../viewdialog.cpp" line="852"/>
         <source>Clear custom files</source>
         <translation>Очистить список добавленных файлов</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="746"/>
-        <location filename="../viewdialog.cpp" line="791"/>
+        <location filename="../viewdialog.cpp" line="747"/>
+        <location filename="../viewdialog.cpp" line="792"/>
         <source>From file: %1</source>
         <translation>Из файла: %1</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="812"/>
-        <location filename="../viewdialog.cpp" line="815"/>
+        <location filename="../viewdialog.cpp" line="813"/>
+        <location filename="../viewdialog.cpp" line="816"/>
         <source>FIL files (*.fil);;All files (*.*)</source>
         <translation>Файлы FIL (*.fil);;Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="813"/>
+        <location filename="../viewdialog.cpp" line="814"/>
         <source>Select custom palette file</source>
         <translation>Выберите файл с палитрой</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="816"/>
+        <location filename="../viewdialog.cpp" line="817"/>
         <source>Select custom font file</source>
         <translation>Выберите файл шрифта</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="819"/>
+        <location filename="../viewdialog.cpp" line="820"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="820"/>
+        <location filename="../viewdialog.cpp" line="821"/>
         <source>Select custom file</source>
         <translation>Выберите файл</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="852"/>
+        <location filename="../viewdialog.cpp" line="853"/>
         <source>Are you sure you want to clear all custom files for this selector?</source>
         <translation>Вы действительно хотите полностью очистить дообавленные файлы для этого списка?</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="974"/>
-        <location filename="../viewdialog.cpp" line="976"/>
+        <location filename="../viewdialog.cpp" line="975"/>
+        <location filename="../viewdialog.cpp" line="977"/>
         <source>Save as</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="988"/>
+        <location filename="../viewdialog.cpp" line="989"/>
         <source>File exists</source>
         <translation>Файл уже существует</translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="988"/>
+        <location filename="../viewdialog.cpp" line="989"/>
         <source>File already exists. Overwrite?</source>
         <translation>Такой файл уже существует. Перезаписать?</translation>
     </message>
