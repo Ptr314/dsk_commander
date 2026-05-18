@@ -2236,4 +2236,343 @@ Warning: This action cannot be undone!</source>
         <translation>CP/M (Без сдвига секторов)</translation>
     </message>
 </context>
+<context>
+    <name>errors</name>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="289"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="36"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_fil.cpp" line="23"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="27"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="30"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_mfm.cpp" line="236"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="26"/>
+        <source>Cannot open file</source>
+        <translation>Не удалось открыть файл</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="339"/>
+        <source>Invalid file size for DSK format</source>
+        <translation>Некорректный размер файла. Попробуйте отключить автоопределние и указать тип файла вручную</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="398"/>
+        <source>Failed to load AIM file</source>
+        <translation>Ошибка загрузки файла AIM</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="408"/>
+        <source>Invalid file size for NIB format</source>
+        <translation>Некорректный размер файла для формата NIB</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="441"/>
+        <source>Unknown MFM format</source>
+        <translation>Неизвестный формат MFM</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="443"/>
+        <source>Failed to load MFM file</source>
+        <translation>Не удалось загрузить MFM-файл</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="463"/>
+        <source>Invalid filesystem signature</source>
+        <translation>Некорректная сигнатура файловой системы</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="477"/>
+        <source>Cannot open HFE file</source>
+        <translation>Не удалось открыть файл HFE</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="496"/>
+        <source>Invalid HFE file format</source>
+        <translation>Некорректный формат файла HFE</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="517"/>
+        <source>Unknown file format</source>
+        <translation>Неизвестный формат файла</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="759"/>
+        <source>Agat 840 track decode error</source>
+        <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="772"/>
+        <source>Failed to decode Agat 840 track</source>
+        <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="779"/>
+        <source>Decoded track size mismatch</source>
+        <translation>Некорректный размер дорожки после декодирования</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="852"/>
+        <source>Agat 140 track decode error</source>
+        <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="863"/>
+        <source>Failed to decode Agat 140 track</source>
+        <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="35"/>
+        <source>Unknown disk type</source>
+        <translation>Неизвестный тип диска</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="56"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="57"/>
+        <source>Invalid index mark</source>
+        <translation>Некорректная метка индекса</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="64"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="65"/>
+        <source>Invalid data mark</source>
+        <translation>Некорректная метка данных</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="68"/>
+        <source>Unexpected end of data</source>
+        <translation>Неожиданный конец данных</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="43"/>
+        <source>Invalid HFE signature</source>
+        <translation>Некорректная сигнатура HFE</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="49"/>
+        <source>Invalid HFE parameters</source>
+        <translation>Некорректные параметры HFE</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="54"/>
+        <source>Unsupported disk type</source>
+        <translation>Данный тип диска не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="103"/>
+        <source>Failed to decode track data</source>
+        <translation>Ошибка декодирования данных дорожки</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="36"/>
+        <source>Incorrect file format</source>
+        <translation>Некорректный формат файла</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="43"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="62"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="70"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="79"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="102"/>
+        <source>File seems to be corrupt</source>
+        <translation>Файл выглядит повреждённым</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="52"/>
+        <source>Incorrect head index</source>
+        <translation>Некорректный индекс головки</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="53"/>
+        <source>Incorrect track index</source>
+        <translation>Некорректный индекс дорожки</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="54"/>
+        <source>Incorrect sector count</source>
+        <translation>Некорректное количество секторов</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="56"/>
+        <source>Incorrect sector size</source>
+        <translation>Некорректный размер сектора</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="86"/>
+        <source>Incorrect data</source>
+        <translation>Некорректные данные</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="112"/>
+        <source>Data exceeds buffer size</source>
+        <translation>Размер данных превышает размер буфера</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/images/disk_image.cpp" line="29"/>
+        <source>Sector translation table has incorrect size</source>
+        <translation>Таблица трансляции секторов имеет некорректную длину</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/images/disk_image.cpp" line="39"/>
+        <source>Buffer size mismatch</source>
+        <translation>Несоответствие размера буфера</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer.cpp" line="25"/>
+        <source>Cannot create output file</source>
+        <translation>Не удалось создать выходной файл</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer.cpp" line="36"/>
+        <source>Error writing to file</source>
+        <translation>Ошибка записи в файл</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_hxc_hfe.cpp" line="72"/>
+        <source>Format not supported for HFE format</source>
+        <translation>Для файлов HFE данный формат не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_hxc_hfe.cpp" line="104"/>
+        <source>Track substitution not supported for HFE format</source>
+        <translation>Замена дорожек для файлов HFE не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_hxc_mfm.cpp" line="59"/>
+        <source>MFM format not supported for this disk type</source>
+        <translation>Для данного типа дисков формат MFM не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_hxc_mfm.cpp" line="95"/>
+        <source>NIB format not supported for this disk type</source>
+        <translation>Для данного типа дисков формат NIB не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_hxc_mfm.cpp" line="103"/>
+        <source>NIC format not supported for this disk type</source>
+        <translation>Для данного типа дисков формат NIC не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_hxc_mfm.cpp" line="110"/>
+        <source>Unknown MFM writer format</source>
+        <translation>Неизвестный формат записи для файла MFM</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_hxc_mfm.cpp" line="117"/>
+        <source>Track substitution not supported for MFM format</source>
+        <translation>Замена дорожек для файлов MFM не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_raw.cpp" line="29"/>
+        <source>Template file size mismatch</source>
+        <translation>Несоответствие размера файла образца</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/writers/writer_raw.cpp" line="31"/>
+        <source>Source file size mismatch</source>
+        <translation>Несоответствие размера исходного файла</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="33"/>
+        <source>Cannot read VTOC</source>
+        <translation>Не удалось прочитать VTOC</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="40"/>
+        <source>VTOC sector count or size mismatch</source>
+        <translation>Некорректное кол-во секторов или размер сектора в таблице VTOC</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="207"/>
+        <source>Cannot read VTOC extension sector (0x32, 0)</source>
+        <translation>Не удалось прочитать расширенный сектор VTOC (0x32, 0)</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="216"/>
+        <source>Cannot read VTOC extension sector (0x72, 0)</source>
+        <translation>Не удалось прочитать расширенный сектор VTOC (0x72, 0)</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="222"/>
+        <source>Incorrect track number for mapping</source>
+        <translation>Некоректный номер дорожки для мэппинга</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="721"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1025"/>
+        <source>Incorrect track/sector data</source>
+        <translation>Некорректные данные дорожки/сектора</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1018"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1021"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1059"/>
+        <source>Sector is not free</source>
+        <translation>Сектор уже занят</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="74"/>
+        <source>Unknown DIR_ENTRY.LEVEL value</source>
+        <translation>Неизвестное значение DIR_ENTRY.LEVEL</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="79"/>
+        <source>File is smaller than expected</source>
+        <translation>Размер файла меньше необходимого</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="37"/>
+        <source>Unknown CP/M disk definition</source>
+        <translation>Некорректное определение диска CP/M</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="43"/>
+        <source>CP/M disk definition: heads is incorrect</source>
+        <translation>Формат диска CP/M: некорректное кол-во сторон</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="46"/>
+        <source>CP/M disk definition: tracks is required</source>
+        <translation>Формат диска CP/M: параметр track является обязательным</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="49"/>
+        <source>CP/M disk definition: sectrk is required</source>
+        <translation>Формат диска CP/M: параметр sectrk является обязательным</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="52"/>
+        <source>CP/M disk definition: seclen is required</source>
+        <translation>Формат диска CP/M: параметр seclen является обязательным</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="56"/>
+        <source>CP/M disk definition: blocksize is required</source>
+        <translation>Формат диска CP/M: параметр blocksize является обязательным</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="62"/>
+        <source>CP/M disk definition: boottrk is incorrect</source>
+        <translation>Формат диска CP/M: некорректное значение boottrk</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="68"/>
+        <source>CP/M disk definition: maxdir is incorrect</source>
+        <translation>Формат диска CP/M: некорректное значение maxdir</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="121"/>
+        <source>Unsupported disk type for CP/M</source>
+        <translation>Неподдерживаемый тип диска CP/M</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="687"/>
+        <source>user number out of range</source>
+        <translation>User # выходит за допустимые пределы</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/viewers/agat/agat_font_bft.cpp" line="31"/>
+        <location filename="../libs/dsk_tools/src/viewers/agat/agat_font_bft.cpp" line="44"/>
+        <source>File is too small</source>
+        <translation>Размер файла меньше ожидаемого</translation>
+    </message>
+</context>
 </TS>

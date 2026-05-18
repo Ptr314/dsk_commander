@@ -820,7 +820,7 @@ QString FileOperations::decodeError(const dsk_tools::Result& result)
     }
 
     if (!result.message.empty()) {
-        error += ": " + QString::fromStdString(result.message);
+        error += ": " + QCoreApplication::translate("errors", result.message.c_str()) ;
     }
 
     return error;
