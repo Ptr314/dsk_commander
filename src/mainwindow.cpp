@@ -378,7 +378,8 @@ QWidget* MainWindow::createBottomPanel() {
         btn->setObjectName(QStringLiteral("bottomBtn"));
         btn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
         btn->setDefaultAction(act);
-        btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        btn->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Preferred);
+        btn->setMinimumSize(60, 0);
         layout->addWidget(btn);
         buttons << btn;
     };

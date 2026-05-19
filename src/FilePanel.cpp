@@ -277,6 +277,7 @@ void FilePanel::setupPanel() {
 
     dirEdit = new QLineEdit(this);
     dirEdit->setPlaceholderText(FilePanel::tr("Enter path and press Enter..."));
+    dirEdit->setMinimumWidth(30);
 
     dirButton = new QToolButton(this);
     dirButton->setObjectName("dirButton");
@@ -428,6 +429,7 @@ void FilePanel::setupFilters()
 
     populateFilterCombo();
     filterCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    filterCombo->setMinimumWidth(30);
 
     filterToolBar->addWidget(filterCombo);
 
@@ -437,9 +439,11 @@ void FilePanel::setupFilters()
     // Type & filesystem -----------------------------------------
     typeCombo = new QComboBox(this);
     typeCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    typeCombo->setMinimumWidth(30);
 
     fsCombo = new QComboBox(this);
     fsCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    fsCombo->setMinimumWidth(30);
 
     autoCheck = new QCheckBox(FilePanel::tr("Auto"), this);
     autoCheck->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
