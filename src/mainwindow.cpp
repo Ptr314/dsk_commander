@@ -98,7 +98,10 @@ MainWindow::MainWindow(QWidget *parent)
         switch_language(ini_lang, true);
     }
 
-    resize(1000, 600);
+    const QByteArray savedGeometry = settings->value("interface/main_window_geometry").toByteArray();
+    if (savedGeometry.isEmpty() || !restoreGeometry(savedGeometry)) {
+        resize(1000, 600);
+    }
 
     // QList<int> sizes;
     // int halfWidth = this->width() / 2;
@@ -242,6 +245,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
             return;
         }
     }
+
+    settings->setValue("interface/main_window_geometry", saveGeometry());
 
     event->accept();  // Proceed with close
 }
