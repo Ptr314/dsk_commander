@@ -663,6 +663,7 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="80"/>
+        <location filename="../placeholders.h" line="150"/>
         <source>Bytes per sector</source>
         <translation type="unfinished"></translation>
     </message>
@@ -949,6 +950,131 @@
     <message>
         <location filename="../placeholders.h" line="143"/>
         <source>Archive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="146"/>
+        <source>Filesystem type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="147"/>
+        <source>OEM name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="148"/>
+        <source>Media descriptor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="149"/>
+        <source>BPB geometry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="151"/>
+        <source>Sectors per cluster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="152"/>
+        <source>Cluster size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="153"/>
+        <source>Sectors per track (FAT)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="154"/>
+        <source>Number of heads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="155"/>
+        <source>Total sectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="156"/>
+        <source>Hidden sectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="157"/>
+        <source>Volume layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="158"/>
+        <source>Reserved sectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="159"/>
+        <source>Number of FATs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="160"/>
+        <source>Sectors per FAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="161"/>
+        <source>Root directory entries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="162"/>
+        <source>Root directory sectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="163"/>
+        <source>Region LBAs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="164"/>
+        <source>FAT start LBA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="165"/>
+        <source>Root directory start LBA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="166"/>
+        <source>Data region start LBA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="167"/>
+        <source>Cluster usage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="168"/>
+        <source>Total clusters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="169"/>
+        <source>Used clusters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="170"/>
+        <source>Free clusters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="171"/>
+        <source>Bad clusters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1462,274 +1588,274 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>Sort by name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="462"/>
+        <location filename="../mainwindow.cpp" line="465"/>
         <source>Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="487"/>
+        <location filename="../mainwindow.cpp" line="490"/>
         <source>Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="544"/>
+        <location filename="../mainwindow.cpp" line="547"/>
         <source>Use Recycle Bin for host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="569"/>
+        <location filename="../mainwindow.cpp" line="572"/>
         <source>About...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="523"/>
+        <location filename="../mainwindow.cpp" line="526"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="489"/>
-        <location filename="../mainwindow.cpp" line="866"/>
+        <location filename="../mainwindow.cpp" line="492"/>
+        <location filename="../mainwindow.cpp" line="869"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="197"/>
-        <location filename="../mainwindow.cpp" line="258"/>
-        <location filename="../mainwindow.cpp" line="302"/>
+        <location filename="../mainwindow.cpp" line="200"/>
+        <location filename="../mainwindow.cpp" line="261"/>
+        <location filename="../mainwindow.cpp" line="305"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="261"/>
         <source>Error reading config file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="197"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Failed to load language file for: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="524"/>
+        <location filename="../mainwindow.cpp" line="527"/>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="529"/>
+        <location filename="../mainwindow.cpp" line="532"/>
         <source>Русский</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="534"/>
+        <location filename="../mainwindow.cpp" line="537"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="356"/>
         <source>F2 Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="357"/>
+        <location filename="../mainwindow.cpp" line="360"/>
         <source>F6 Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="446"/>
+        <location filename="../mainwindow.cpp" line="449"/>
         <source>Show deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="464"/>
+        <location filename="../mainwindow.cpp" line="467"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="468"/>
+        <location filename="../mainwindow.cpp" line="471"/>
         <source>Save as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="483"/>
+        <location filename="../mainwindow.cpp" line="486"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="354"/>
-        <location filename="../mainwindow.cpp" line="860"/>
+        <location filename="../mainwindow.cpp" line="357"/>
+        <location filename="../mainwindow.cpp" line="863"/>
         <source>F3 View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="855"/>
+        <location filename="../mainwindow.cpp" line="858"/>
         <source>F3 Image Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="356"/>
+        <location filename="../mainwindow.cpp" line="359"/>
         <source>F5 Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="155"/>
+        <location filename="../mainwindow.cpp" line="156"/>
         <source>Ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
+        <location filename="../mainwindow.cpp" line="207"/>
         <source>DISK Commander</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="230"/>
+        <location filename="../mainwindow.cpp" line="233"/>
         <source>Both panels have unsaved disk image changes. Close anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="232"/>
+        <location filename="../mainwindow.cpp" line="235"/>
         <source>One panel has unsaved disk image changes. Close anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="237"/>
+        <location filename="../mainwindow.cpp" line="240"/>
         <source>Unsaved Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="352"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>F1 Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="361"/>
         <source>F7 MkDir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="359"/>
-        <location filename="../mainwindow.cpp" line="511"/>
+        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="514"/>
         <source>F8 Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="360"/>
-        <location filename="../mainwindow.cpp" line="515"/>
+        <location filename="../mainwindow.cpp" line="363"/>
+        <location filename="../mainwindow.cpp" line="518"/>
         <source>F9 Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="364"/>
         <source>F10 Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="459"/>
+        <location filename="../mainwindow.cpp" line="462"/>
         <source>Left panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="416"/>
+        <location filename="../mainwindow.cpp" line="419"/>
         <source>Go Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="302"/>
+        <location filename="../mainwindow.cpp" line="305"/>
         <source>Error reading diskdefs file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="419"/>
+        <location filename="../mainwindow.cpp" line="422"/>
         <source>Open directory...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="428"/>
         <source>Sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="437"/>
         <source>Sort by size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="439"/>
+        <location filename="../mainwindow.cpp" line="442"/>
         <source>No sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="474"/>
+        <location filename="../mainwindow.cpp" line="477"/>
         <source>Container Info...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="480"/>
         <source>Filesystem Info...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="492"/>
+        <location filename="../mainwindow.cpp" line="495"/>
         <source>File Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="496"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Edit Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="502"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="507"/>
+        <location filename="../mainwindow.cpp" line="510"/>
         <source>F7 Make dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="520"/>
+        <location filename="../mainwindow.cpp" line="523"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="556"/>
+        <location filename="../mainwindow.cpp" line="559"/>
         <source>Make backups on save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="574"/>
+        <location filename="../mainwindow.cpp" line="577"/>
         <source>Right panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="612"/>
+        <location filename="../mainwindow.cpp" line="615"/>
         <source>No active panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="620"/>
         <source>Active panel: %1 | Selected: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="355"/>
-        <location filename="../mainwindow.cpp" line="856"/>
+        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="859"/>
         <source>F4 Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="861"/>
+        <location filename="../mainwindow.cpp" line="864"/>
         <source>F4 Meta</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1909,118 +2035,118 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="146"/>
-        <location filename="../placeholders.h" line="165"/>
+        <location filename="../placeholders.h" line="174"/>
+        <location filename="../placeholders.h" line="193"/>
         <source>Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="147"/>
+        <location filename="../placeholders.h" line="175"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="148"/>
+        <location filename="../placeholders.h" line="176"/>
         <source>Monochrome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="149"/>
+        <location filename="../placeholders.h" line="177"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="150"/>
+        <location filename="../placeholders.h" line="178"/>
         <source>b/w</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="151"/>
+        <location filename="../placeholders.h" line="179"/>
         <source>Custom font loading error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="152"/>
+        <location filename="../placeholders.h" line="180"/>
         <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="153"/>
+        <location filename="../placeholders.h" line="181"/>
         <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="154"/>
+        <location filename="../placeholders.h" line="182"/>
         <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="155"/>
+        <location filename="../placeholders.h" line="183"/>
         <source>Agat-7 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="156"/>
+        <location filename="../placeholders.h" line="184"/>
         <source>Agat-7 enhanced font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="163"/>
+        <location filename="../placeholders.h" line="191"/>
         <source>BFT Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="166"/>
+        <location filename="../placeholders.h" line="194"/>
         <source>Comment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="167"/>
+        <location filename="../placeholders.h" line="195"/>
         <source>Agat color mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="168"/>
+        <location filename="../placeholders.h" line="196"/>
         <source>Apple color mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="169"/>
+        <location filename="../placeholders.h" line="197"/>
         <source>Font type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="170"/>
+        <location filename="../placeholders.h" line="198"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="157"/>
+        <location filename="../placeholders.h" line="185"/>
         <source>Agat-9 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="158"/>
+        <location filename="../placeholders.h" line="186"/>
         <source>GARNIZON custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="159"/>
+        <location filename="../placeholders.h" line="187"/>
         <source>Loaded custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="160"/>
+        <location filename="../placeholders.h" line="188"/>
         <source>Agat-9 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="161"/>
+        <location filename="../placeholders.h" line="189"/>
         <source>Agat-7 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="162"/>
+        <location filename="../placeholders.h" line="190"/>
         <source>Font file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2203,39 +2329,64 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="24"/>
-        <source>Agat/Apple DOS33</source>
+        <source>PC 360 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="25"/>
-        <source>Agat Sprite OS</source>
+        <source>PC 720 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="26"/>
-        <source>Single .FIL</source>
+        <source>PC 1.2 Mb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="27"/>
-        <source>CP/M (DOS 3.3 skew)</source>
+        <source>PC 1.44 Mb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="28"/>
-        <source>CP/M (ProDOS skew)</source>
+        <source>Agat/Apple DOS33</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="29"/>
+        <source>Agat Sprite OS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="30"/>
+        <source>Single .FIL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="31"/>
+        <source>CP/M (DOS 3.3 skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="32"/>
+        <source>CP/M (ProDOS skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="33"/>
         <source>CP/M (No sector skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="34"/>
+        <source>MS-DOS (FAT12)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>errors</name>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="289"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="292"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="36"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_fil.cpp" line="23"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="27"/>
@@ -2246,72 +2397,72 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="339"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="354"/>
         <source>Invalid file size for DSK format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="398"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="416"/>
         <source>Failed to load AIM file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="408"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="426"/>
         <source>Invalid file size for NIB format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="441"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="459"/>
         <source>Unknown MFM format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="443"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="461"/>
         <source>Failed to load MFM file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="463"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="481"/>
         <source>Invalid filesystem signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="477"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="495"/>
         <source>Cannot open HFE file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="496"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="514"/>
         <source>Invalid HFE file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="517"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="535"/>
         <source>Unknown file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="759"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="777"/>
         <source>Agat 840 track decode error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="772"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="790"/>
         <source>Failed to decode Agat 840 track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="779"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="797"/>
         <source>Decoded track size mismatch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="852"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="870"/>
         <source>Agat 140 track decode error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="863"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="881"/>
         <source>Failed to decode Agat 140 track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2568,6 +2719,52 @@ Warning: This action cannot be undone!</source>
         <location filename="../libs/dsk_tools/src/viewers/agat/agat_font_bft.cpp" line="31"/>
         <location filename="../libs/dsk_tools/src/viewers/agat/agat_font_bft.cpp" line="44"/>
         <source>File is too small</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="213"/>
+        <source>Cannot read FAT boot sector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="219"/>
+        <source>FAT: invalid bytes per sector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="221"/>
+        <source>FAT: invalid sectors per cluster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="223"/>
+        <source>FAT: invalid FAT count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="225"/>
+        <source>FAT: invalid reserved sector count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="227"/>
+        <source>FAT: sector size mismatch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="231"/>
+        <source>FAT: zero total sectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="235"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="256"/>
+        <source>FAT32 is not supported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="245"/>
+        <source>FAT: data region beyond disk</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
