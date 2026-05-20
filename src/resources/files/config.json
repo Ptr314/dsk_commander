@@ -5,14 +5,18 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd",
+            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img",
             "types":        ["TYPE_AGAT_140",
                             "TYPE_AGAT_840",
                             "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
                             "TYPE_CPM:GMD-7012",
                             "TYPE_CPM:KORVET",
                             "TYPE_CPM:ORION",
-                            "TYPE_CPM:VECTOR"]
+                            "TYPE_CPM:VECTOR",
+                            "TYPE_FAT:PC-360",
+                            "TYPE_FAT:PC-720",
+                            "TYPE_FAT:PC-1200",
+                            "TYPE_FAT:PC-1440"]
         },
         "FILE_AIM": {
             "order":        20,
@@ -148,6 +152,26 @@
             "name": "Vector-06C 800+ Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
+        },
+        "TYPE_FAT:PC-360": {
+            "name": "PC 360 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:PC-720": {
+            "name": "PC 720 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:PC-1200": {
+            "name": "PC 1.2 Mb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:PC-1440": {
+            "name": "PC 1.44 Mb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
         }
     },
     "file_systems": {
@@ -168,6 +192,9 @@
         },
         "FILESYSTEM_CPM_RAW": {
             "name": "CP/M (No sector skew)"
+        },
+        "FILESYSTEM_FAT": {
+            "name": "MS-DOS (FAT12)"
         }
     }
 }
