@@ -200,7 +200,7 @@ void ViewDialog::update_subtypes(const QString & preferred)
         ui->subtypeCombo->blockSignals(true);
         ui->subtypeCombo->clear();
         for (const auto& pair : subtypes) {
-            ui->subtypeCombo->addItem(replacePlaceholders(QString::fromStdString(pair.second)), QString::fromStdString(pair.first));
+            ui->subtypeCombo->addItem(replacePlaceholders(QApplication::translate("viewer", pair.second.c_str())), QString::fromStdString(pair.first));
             if (pair.first == preferred.toStdString()) {
                 int index = ui->subtypeCombo->count()-1;
                 last_subtypes[mode] = index;
