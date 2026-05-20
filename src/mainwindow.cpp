@@ -19,6 +19,7 @@
 #include <QDebug>
 #include <QActionGroup>
 #include <QMenuBar>
+#include <QTimer>
 
 #include "mainwindow.h"
 #include "convertdialog.h"
@@ -157,6 +158,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     setActivePanel(leftPanel);
     updateViewButtonState();
+
+    QTimer::singleShot(0, this, [this]() { leftPanel->focusList(); });
 
     // Initialize new menu system
     initializeMainMenu();
