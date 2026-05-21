@@ -2,6 +2,7 @@
 docs/
 .vscode/
 .claude/
+config.qml
 CLAUDE.md
 TESTING.md
 nul
