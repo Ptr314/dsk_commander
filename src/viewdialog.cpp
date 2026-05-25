@@ -142,6 +142,9 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ-7 Н2"), "koi7_n2");
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ8-R"), "koi8_r");
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ8-M"), "koi8_m");
+    ui->encodingCombo->addItem(ViewDialog::tr("CP866 (OEM)"), "cp866");
+    ui->encodingCombo->addItem(ViewDialog::tr("CP1251 (Windows)"), "cp1251");
+    ui->encodingCombo->addItem(ViewDialog::tr("ISO 8859-5"), "iso8859_5");
     ui->encodingCombo->setCurrentIndex(settings->value("viewer/encoding", 0).toInt());
     adjustComboBoxWidth(ui->encodingCombo);
     ui->encodingCombo->blockSignals(false);
