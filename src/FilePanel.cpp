@@ -19,6 +19,9 @@
 #include <memory>
 #include <fstream>
 #include <QScrollBar>
+#include <QFileSystemWatcher>
+#include <QTimer>
+#include <QDateTime>
 
 #include "./ui_fileinfodialog.h"
 
@@ -380,6 +383,17 @@ void FilePanel::setupPanel() {
     layout->setStretch(1, 1); // Table consumes maximim
     setLayout(layout);
 
+    // File watcher for external image changes (Image mode)
+    m_imageWatcher = new QFileSystemWatcher(this);
+    connect(m_imageWatcher, &QFileSystemWatcher::fileChanged,
+            this, &FilePanel::onWatchedFileChanged);
+
+    m_watchDebounce = new QTimer(this);
+    m_watchDebounce->setSingleShot(true);
+    m_watchDebounce->setInterval(300);
+    connect(m_watchDebounce, &QTimer::timeout,
+            this, &FilePanel::onWatchDebounceTimeout);
+
     // Starting path
     setDirectory(m_settings->value("directory/"+m_ini_label, QDir::currentPath()).toString());
 }
@@ -671,6 +685,97 @@ void FilePanel::onGoUp() {
     }
 }
 
+void FilePanel::reloadImage()
+{
+    emit activated(this);
+    if (mode != panelMode::Image) return;
+    if (!m_image) return;
+
+    // If there are unsaved changes, ask the user (Yes / No).
+    if (m_filesystem && m_filesystem->get_changed()) {
+        const QMessageBox::StandardButton result = QMessageBox::question(
+            this,
+            FilePanel::tr("Unsaved Changes"),
+            FilePanel::tr("The disk image has unsaved changes. Discard them and reload from disk?"),
+            QMessageBox::Yes | QMessageBox::No,
+            QMessageBox::No
+        );
+        if (result != QMessageBox::Yes) return;
+    }
+
+    const QString path = QString::fromStdString(m_image->file_name());
+    if (path.isEmpty()) return;
+
+    const QFileInfo fi(path);
+    if (!fi.exists()) {
+        QMessageBox::warning(
+            this,
+            FilePanel::tr("Reload"),
+            FilePanel::tr("The image file no longer exists:\n%1").arg(path)
+        );
+        return;
+    }
+
+    // Save cursor row and scroll position so we can try to preserve them.
+    const QModelIndex currentIdx = tableView ? tableView->currentIndex() : QModelIndex();
+    const int savedRow = currentIdx.isValid() ? currentIdx.row() : 0;
+    const int savedScroll = (tableView && tableView->verticalScrollBar())
+                                ? tableView->verticalScrollBar()->value() : 0;
+
+    // Reload using the stored format/type/filesystem ids so we don't disturb
+    // the combo selections or run auto-detection again.
+    const std::string format_id = m_current_format_id;
+    const std::string type_id = m_current_type_id;
+    const std::string filesystem_id = m_current_filesystem_id;
+
+    image_model->removeRows(0, image_model->rowCount());
+
+    m_image = dsk_tools::prepare_image(_toStdString(path), format_id, type_id, m_diskdefs);
+    if (!m_image) {
+        QMessageBox::critical(this, FilePanel::tr("Error"),
+                              FilePanel::tr("Failed to reload image."));
+        setMode(panelMode::Host);
+        setDirectory(currentPath);
+        return;
+    }
+
+    const auto check_result = m_image->check();
+    if (!check_result) {
+        QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(check_result));
+        setMode(panelMode::Host);
+        setDirectory(currentPath);
+        return;
+    }
+
+    const auto load_result = m_image->load();
+    if (!load_result) {
+        QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(load_result));
+        setMode(panelMode::Host);
+        setDirectory(currentPath);
+        return;
+    }
+
+    processImage(filesystem_id);
+
+    // Restore cursor position (clamped to the new row count) and scroll.
+    if (tableView && tableView->model()) {
+        const int maxRow = tableView->model()->rowCount() - 1;
+        if (maxRow >= 0 && tableView->selectionModel()) {
+            const int rowToRestore = std::min(savedRow, maxRow);
+            const QModelIndex index = tableView->model()->index(rowToRestore, 0);
+            if (index.isValid()) {
+                tableView->selectionModel()->clearSelection();
+                tableView->selectionModel()->setCurrentIndex(index, QItemSelectionModel::NoUpdate);
+            }
+        }
+        if (tableView->verticalScrollBar()) {
+            tableView->verticalScrollBar()->setValue(savedScroll);
+        }
+    }
+
+    updateImageStatusIndicator();
+}
+
 void FilePanel::closeImage() {
     emit activated(this);
     if (mode != panelMode::Image) return;
@@ -851,6 +956,8 @@ dsk_tools::Result FilePanel::openImage(QString path)
 
     updateImageStatusIndicator();
 
+    startWatchingImage(QString::fromStdString(file_name));
+
     return dsk_tools::Result::ok();
 }
 
@@ -889,6 +996,8 @@ void FilePanel::setMode(panelMode new_mode)
         m_current_format_id.clear();
         m_current_type_id.clear();
         m_current_filesystem_id.clear();
+
+        stopWatchingImage();
 
         tableView->setModel(host_model);
         tableView->setupForHostMode();
@@ -1449,4 +1558,99 @@ void FilePanel::highlight(const QString& title)
 
 void FilePanel::clearSelection() const {
     tableView->clearSelection();
+}
+
+// ============================================================================
+// External-change watching for the loaded image
+// ============================================================================
+
+void FilePanel::startWatchingImage(const QString& path)
+{
+    if (!m_imageWatcher || path.isEmpty()) return;
+
+    // Replace any previously watched path with the new one.
+    if (!m_watchedImagePath.isEmpty() && m_watchedImagePath != path) {
+        m_imageWatcher->removePath(m_watchedImagePath);
+    }
+    m_watchedImagePath = path;
+
+    const bool enabled = m_settings->value("files/watch_image_changes", true).toBool();
+    if (!enabled) return;
+
+    if (!m_imageWatcher->files().contains(path)) {
+        m_imageWatcher->addPath(path);
+    }
+}
+
+void FilePanel::stopWatchingImage()
+{
+    if (m_watchDebounce) m_watchDebounce->stop();
+    if (m_imageWatcher && !m_watchedImagePath.isEmpty()) {
+        m_imageWatcher->removePath(m_watchedImagePath);
+    }
+    m_watchedImagePath.clear();
+    m_suppressWatchUntilMs = 0;
+}
+
+void FilePanel::setImageWatchEnabled(bool enabled)
+{
+    if (!m_imageWatcher) return;
+
+    if (enabled) {
+        // Begin watching the currently loaded image if any.
+        if (mode == panelMode::Image && !m_watchedImagePath.isEmpty()
+            && !m_imageWatcher->files().contains(m_watchedImagePath))
+        {
+            m_imageWatcher->addPath(m_watchedImagePath);
+        }
+    } else {
+        if (m_watchDebounce) m_watchDebounce->stop();
+        if (!m_watchedImagePath.isEmpty()) {
+            m_imageWatcher->removePath(m_watchedImagePath);
+        }
+    }
+}
+
+void FilePanel::suppressNextImageWatch()
+{
+    // Ignore any watcher signals fired within the next ~2 seconds — used to
+    // suppress the self-triggered reload when *we* write the image on Save.
+    m_suppressWatchUntilMs = QDateTime::currentMSecsSinceEpoch() + 2000;
+}
+
+void FilePanel::onWatchedFileChanged(const QString& path)
+{
+    if (path != m_watchedImagePath) return;
+
+    if (QDateTime::currentMSecsSinceEpoch() < m_suppressWatchUntilMs) {
+        // Our own write — re-add the watcher path if a save-by-rename dropped it.
+        if (m_imageWatcher && QFile::exists(path)
+            && !m_imageWatcher->files().contains(path))
+        {
+            m_imageWatcher->addPath(path);
+        }
+        return;
+    }
+
+    // Debounce: chunked writes / save-by-rename can fire fileChanged multiple
+    // times. Collapse them into one reload.
+    if (m_watchDebounce) m_watchDebounce->start();
+}
+
+void FilePanel::onWatchDebounceTimeout()
+{
+    if (m_watchedImagePath.isEmpty()) return;
+
+    // Save-by-rename drops the watch. Re-add the path if the file is back.
+    if (m_imageWatcher && QFile::exists(m_watchedImagePath)
+        && !m_imageWatcher->files().contains(m_watchedImagePath))
+    {
+        m_imageWatcher->addPath(m_watchedImagePath);
+    }
+
+    // Only reload if we're still showing the same image.
+    if (mode != panelMode::Image || !m_image) return;
+    if (QString::fromStdString(m_image->file_name()) != m_watchedImagePath) return;
+
+    reloadImage();
 }

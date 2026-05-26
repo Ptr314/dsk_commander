@@ -600,6 +600,7 @@ void FileOperations::saveImageWithBackup(FilePanel* panel)
         dsk_tools::BYTES buffer;
         dsk_tools::Result result = writer->write(buffer);
         if (result) {
+            panel->suppressNextImageWatch();
             dsk_tools::UTF8_ofstream file(file_name, std::ios::binary);
             if (file.good()) {
                 file.write(reinterpret_cast<char*>(buffer.data()), buffer.size());

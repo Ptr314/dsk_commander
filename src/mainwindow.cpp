@@ -506,6 +506,10 @@ void MainWindow::initializeMainMenu() {
     actImageClose->setShortcut(QKeySequence(Qt::Key_Escape));
     connect(actImageClose, &QAction::triggered, this, &MainWindow::onImageClose);
 
+    actImageReload = imageMenu->addAction(QIcon(":/icons/revert_"), MainWindow::tr("Reload"));
+    actImageReload->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+    connect(actImageReload, &QAction::triggered, this, &MainWindow::onImageReload);
+
     // === FILES MENU ===
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
@@ -585,6 +589,19 @@ void MainWindow::initializeMainMenu() {
 
     connect(optMakeBackups, &QAction::triggered, this, [this](bool checked) {
         settings->setValue("files/make_backups_on_save", checked);
+    });
+
+    // Watch for external image changes option
+    optWatchImageChanges = optionsMenu->addAction(QIcon(":/icons/watch"), MainWindow::tr("Watch for external image changes"));
+    optWatchImageChanges->setCheckable(true);
+
+    const bool watchEnabled = settings->value("files/watch_image_changes", true).toBool();
+    optWatchImageChanges->setChecked(watchEnabled);
+
+    connect(optWatchImageChanges, &QAction::triggered, this, [this](bool checked) {
+        settings->setValue("files/watch_image_changes", checked);
+        if (leftPanel) leftPanel->setImageWatchEnabled(checked);
+        if (rightPanel) rightPanel->setImageWatchEnabled(checked);
     });
 
     optionsMenu->addSeparator();
@@ -819,6 +836,12 @@ void MainWindow::onImageClose()
     activePanel->closeImage();
 }
 
+void MainWindow::onImageReload()
+{
+    if (!activePanel) return;
+    activePanel->reloadImage();
+}
+
 void MainWindow::updateImageMenuState() const
 {
     if (!activePanel) return;
@@ -830,6 +853,7 @@ void MainWindow::updateImageMenuState() const
     if (actSave) actSave->setEnabled(!is_host);
     if (actFSInfo) actFSInfo->setEnabled(!is_host);
     if (actImageClose) actImageClose->setEnabled(!is_host);
+    if (actImageReload) actImageReload->setEnabled(!is_host);
 
     const bool has_index = activePanel->getCurrentIndex().isValid();
 

@@ -114,6 +114,7 @@ private:
     QAction* actImageInfo {nullptr};
     QAction* actImageOpen {nullptr};
     QAction* actImageClose {nullptr};
+    QAction* actImageReload {nullptr};
     QAction* actFSInfo {nullptr};
     QAction* actImageSave {nullptr};
     QAction* actImageSaveAs {nullptr};
@@ -121,6 +122,7 @@ private:
     // Options menu actions
     QAction* optUseRecycleBin {nullptr};
     QAction* optMakeBackups {nullptr};
+    QAction* optWatchImageChanges {nullptr};
 
     QLabel* statusLabel {nullptr};
 
@@ -139,6 +141,7 @@ private:
     void onImageSave();
     void onImageSaveAs();
     void onImageClose();
+    void onImageReload();
     void updateImageMenuState() const;
     void updateFileMenuState() const;
 

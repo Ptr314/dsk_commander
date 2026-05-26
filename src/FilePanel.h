@@ -19,6 +19,11 @@
 #include "FileTable.h"
 #include "dsk_tools/dsk_tools.h"
 
+QT_BEGIN_NAMESPACE
+class QFileSystemWatcher;
+class QTimer;
+QT_END_NAMESPACE
+
 enum class panelMode {Host, Image};
 
 class HostModel : public QStandardItemModel {
@@ -106,7 +111,12 @@ public:
     // Panel operations
     void onGoUp();
     void closeImage();
+    void reloadImage();
     void chooseDirectory();
+
+    // File watching (Image mode)
+    void setImageWatchEnabled(bool enabled);
+    void suppressNextImageWatch();
 
     // Image menu operations
     void saveImage();          // Save (stub for now)
@@ -154,6 +164,8 @@ private slots:
     void onPathEntered();
     void onItemDoubleClicked(const QModelIndex& index);
     void onHistoryMenuTriggered(QAction* action);
+    void onWatchedFileChanged(const QString& path);
+    void onWatchDebounceTimeout();
 
 private:
     QToolBar* topToolBar {nullptr};
@@ -202,6 +214,12 @@ private:
     // Table state storage stack (for preserving position during nested updates)
     std::vector<std::pair<int, int>> m_tableStateStack;  // Stack of (row, scroll) pairs
 
+    // External-change watching for the loaded image (Image mode)
+    QFileSystemWatcher* m_imageWatcher {nullptr};
+    QTimer* m_watchDebounce {nullptr};
+    QString m_watchedImagePath;
+    qint64 m_suppressWatchUntilMs {0};
+
     void setupPanel();
     void setupFilters();
     void populateFilterCombo();
@@ -215,6 +233,10 @@ private:
 
     // Unsaved changes handling
     bool checkUnsavedChanges();
+
+    // Image watching helpers
+    void startWatchingImage(const QString& path);
+    void stopWatchingImage();
 
     // Directory history methods
     void loadDirectoryHistory();
