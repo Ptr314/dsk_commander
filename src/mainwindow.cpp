@@ -172,9 +172,25 @@ MainWindow::MainWindow(QWidget *parent)
         updateSortingMenu(rightPanel);
     });
 
-    // Connect panel mode change signals to update button states
-    connect(leftPanel, &FilePanel::panelModeChanged, this, &MainWindow::updateViewButtonState);
-    connect(rightPanel, &FilePanel::panelModeChanged, this, &MainWindow::updateViewButtonState);
+    // Connect panel mode change signals to update button states.
+    // setMode replaces the model via tableView->setModel(), which destroys the
+    // old QItemSelectionModel and creates a new one — breaking our
+    // selectionChanged/currentChanged connections. When the active panel's mode
+    // changes, re-run setActivePanel to reconnect to the new selection model.
+    connect(leftPanel, &FilePanel::panelModeChanged, this, [this]() {
+        if (activePanel == leftPanel) {
+            setActivePanel(leftPanel);
+        } else {
+            updateViewButtonState();
+        }
+    });
+    connect(rightPanel, &FilePanel::panelModeChanged, this, [this]() {
+        if (activePanel == rightPanel) {
+            setActivePanel(rightPanel);
+        } else {
+            updateViewButtonState();
+        }
+    });
 }
 
 void MainWindow::switch_language(const QString & lang, bool init)

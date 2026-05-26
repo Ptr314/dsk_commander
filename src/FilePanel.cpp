@@ -1100,7 +1100,23 @@ void FilePanel::setActive(bool active) {
 }
 
 void FilePanel::focusList() {
-    if (tableView) tableView->setFocus();
+    if (!tableView) return;
+
+    // Ensure a valid current index before focusing. Without it, key handlers
+    // gated on currentIndex().isValid() (Insert, Home, End, PageUp/Down) silently
+    // do nothing on the very first keypress after startup, and MainWindow's
+    // selectionChanged/currentChanged connections never fire to enable the
+    // bottom-row file action buttons.
+    if (!tableView->currentIndex().isValid() && tableView->selectionModel()) {
+        const auto m = tableView->model();
+        if (m && m->rowCount() > 0) {
+            tableView->selectionModel()->setCurrentIndex(
+                m->index(0, 0),
+                QItemSelectionModel::NoUpdate
+            );
+        }
+    }
+    tableView->setFocus();
 }
 
 bool FilePanel::eventFilter(QObject* obj, QEvent* ev) {
