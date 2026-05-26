@@ -587,6 +587,13 @@ void FilePanel::chooseDirectory()
     }
 }
 
+void FilePanel::showDirectoryHistory()
+{
+    emit activated(this);
+    if (mode != panelMode::Host) return;
+    dirButton->showMenu();
+}
+
 void FilePanel::onFilterChanged(int index)
 {
     emit activated(this);

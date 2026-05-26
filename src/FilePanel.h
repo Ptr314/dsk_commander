@@ -113,6 +113,7 @@ public:
     void closeImage();
     void reloadImage();
     void chooseDirectory();
+    void showDirectoryHistory();
 
     // File watching (Image mode)
     void setImageWatchEnabled(bool enabled);

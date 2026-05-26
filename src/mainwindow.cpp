@@ -439,6 +439,12 @@ void MainWindow::createPanelMenu(FilePanel* panel, PanelMenuActions& actions, co
     openDir->setShortcut(QKeySequence(Qt::ALT | fkey));
     connect(openDir, &QAction::triggered, this, [this, panel]() { onOpenDirectory(panel); });
 
+    QAction *dirHistory = panelMenu->addAction(QIcon(":/icons/folder_open"), MainWindow::tr("Directory history"));
+    dirHistory->setShortcut(QKeySequence(Qt::CTRL | fkey));
+    connect(dirHistory, &QAction::triggered, this, [panel]() {
+        if (panel) panel->showDirectoryHistory();
+    });
+
     panelMenu->addSeparator();
 
     QMenu *sortMenu = panelMenu->addMenu(QIcon(":/icons/sort"), MainWindow::tr("Sorting"));
