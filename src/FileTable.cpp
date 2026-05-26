@@ -166,11 +166,31 @@ FileTable::FileTable(QWidget* parent)
 
     // Disable the default focus frame completely
     setFocusPolicy(Qt::StrongFocus);
+
+    // Qt 6.10's Windows 11 style paints a selection accent (a narrow vertical bar
+    // in the system accent color) at the left of each cell of selected rows. The
+    // bar is drawn from QPalette::Accent and QPalette::Highlight, not from the
+    // QSS background rule, so QSS overrides alone don't suppress it. Zero out
+    // both palette roles on this widget so the native style has no accent color
+    // to paint with; the custom delegate is fully responsible for selection look.
+    {
+        QPalette pal = palette();
+        const QColor noColor(0, 0, 0, 0);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
+        pal.setColor(QPalette::Active,   QPalette::Accent, noColor);
+        pal.setColor(QPalette::Inactive, QPalette::Accent, noColor);
+        pal.setColor(QPalette::Disabled, QPalette::Accent, noColor);
+#endif
+        pal.setColor(QPalette::Active,   QPalette::Highlight, noColor);
+        pal.setColor(QPalette::Inactive, QPalette::Highlight, noColor);
+        pal.setColor(QPalette::Disabled, QPalette::Highlight, noColor);
+        setPalette(pal);
+    }
+
     setStyleSheet(
         // "QTableView { outline: none; }"
         // "QTableView::item:focus { outline: none; border: none; }"
         "QTableView::item:selected { background: transparent; }"
-
     );
 
     // Install custom delegate for full-row cursor highlighting
