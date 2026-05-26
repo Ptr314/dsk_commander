@@ -491,7 +491,7 @@ void MainWindow::initializeMainMenu() {
     connect(actImageSave, &QAction::triggered, this, &MainWindow::onImageSave);
 
     actImageSaveAs = imageMenu->addAction(QIcon(":/icons/convert"), MainWindow::tr("Save as..."));
-    actImageSaveAs->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F2));
+    actImageSaveAs->setShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_F2));
     connect(actImageSaveAs, &QAction::triggered, this, &MainWindow::onImageSaveAs);
 
     imageMenu->addSeparator();
