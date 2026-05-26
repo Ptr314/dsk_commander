@@ -105,6 +105,7 @@ public:
 
     // Panel operations
     void onGoUp();
+    void closeImage();
     void chooseDirectory();
 
     // Image menu operations

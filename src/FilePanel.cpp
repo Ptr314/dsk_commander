@@ -671,6 +671,26 @@ void FilePanel::onGoUp() {
     }
 }
 
+void FilePanel::closeImage() {
+    emit activated(this);
+    if (mode != panelMode::Image) return;
+    if (!checkUnsavedChanges()) return;
+
+    // Each cd into an image subdir pushed a table-state entry. Discard those so
+    // the final restoreTableState() pops the entry from when the image was opened,
+    // putting the host cursor back on the image file.
+    while (m_filesystem && !m_filesystem->is_root()) {
+        m_filesystem->cd_up();
+        if (!m_tableStateStack.empty()) {
+            m_tableStateStack.pop_back();
+        }
+    }
+
+    setMode(panelMode::Host);
+    setDirectory(currentPath);
+    restoreTableState();
+}
+
 bool FilePanel::checkUnsavedChanges()
 {
     // Check if we're in Image mode and have unsaved changes

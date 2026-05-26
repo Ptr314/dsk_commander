@@ -502,6 +502,10 @@ void MainWindow::initializeMainMenu() {
     actImageOpen = imageMenu->addAction(QIcon(":/icons/open"), MainWindow::tr("Open"));
     connect(actImageOpen, &QAction::triggered, this, &MainWindow::onEdit);
 
+    actImageClose = imageMenu->addAction(QIcon(":/icons/up"), MainWindow::tr("Close"));
+    actImageClose->setShortcut(QKeySequence(Qt::Key_Escape));
+    connect(actImageClose, &QAction::triggered, this, &MainWindow::onImageClose);
+
     // === FILES MENU ===
     QMenu *filesMenu = menuBar()->addMenu(MainWindow::tr("Files"));
 
@@ -528,7 +532,7 @@ void MainWindow::initializeMainMenu() {
     connect(menuMkdirAction, &QAction::triggered, this, &MainWindow::onMkdir);
 
     menuDeleteAction = filesMenu->addAction(QIcon(":/icons/delete"), MainWindow::tr("F8 Delete"));
-    menuDeleteAction->setShortcut(QKeySequence(Qt::Key_F8));
+    menuDeleteAction->setShortcuts({QKeySequence(Qt::Key_F8), QKeySequence(Qt::Key_Delete)});
     connect(menuDeleteAction, &QAction::triggered, this, &MainWindow::onDelete);
 
     menuRestoreAction = filesMenu->addAction(QIcon(":/icons/restore"), MainWindow::tr("F9 Restore"));
@@ -809,6 +813,12 @@ void MainWindow::onImageSaveAs()
     FileOperations::saveImageAs(activePanel, this);
 }
 
+void MainWindow::onImageClose()
+{
+    if (!activePanel) return;
+    activePanel->closeImage();
+}
+
 void MainWindow::updateImageMenuState() const
 {
     if (!activePanel) return;
@@ -819,6 +829,7 @@ void MainWindow::updateImageMenuState() const
     if (actImageSaveAs) actImageSaveAs->setEnabled(!is_host);
     if (actSave) actSave->setEnabled(!is_host);
     if (actFSInfo) actFSInfo->setEnabled(!is_host);
+    if (actImageClose) actImageClose->setEnabled(!is_host);
 
     const bool has_index = activePanel->getCurrentIndex().isValid();
 
@@ -855,6 +866,7 @@ void MainWindow::updateImageMenuState() const
             const bool canExport = dsk_tools::hasFlag(fs->get_caps(), dsk_tools::FSCaps::Export);
             if (actImageSaveAs) actImageSaveAs->setEnabled(canExport);
         }
+        if (actImageOpen) actImageOpen->setEnabled(false);
     }
 }
 void MainWindow::updateFileMenuState() const

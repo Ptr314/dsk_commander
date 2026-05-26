@@ -113,6 +113,7 @@ private:
     // Image menu actions
     QAction* actImageInfo {nullptr};
     QAction* actImageOpen {nullptr};
+    QAction* actImageClose {nullptr};
     QAction* actFSInfo {nullptr};
     QAction* actImageSave {nullptr};
     QAction* actImageSaveAs {nullptr};
@@ -137,6 +138,7 @@ private:
     void onFSInfo();
     void onImageSave();
     void onImageSaveAs();
+    void onImageClose();
     void updateImageMenuState() const;
     void updateFileMenuState() const;
 
