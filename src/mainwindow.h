@@ -54,6 +54,7 @@ private slots:
     void onSetShowDeleted(FilePanel* panel, bool show);
     void updateSortingMenu(FilePanel* panel);
     void onAbout();
+    void onHotkeys();
 
 protected:
     void changeEvent(QEvent* event) override;

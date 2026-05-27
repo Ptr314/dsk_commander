@@ -20,6 +20,11 @@
 #include <QActionGroup>
 #include <QMenuBar>
 #include <QTimer>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QTableWidget>
+#include <QHeaderView>
 
 #include "mainwindow.h"
 #include "convertdialog.h"
@@ -349,7 +354,7 @@ void MainWindow::createActions() {
     actRestore= new QAction(this);
     actExit   = new QAction(this);
 
-    connect(actHelp,   &QAction::triggered, this, &MainWindow::onAbout);
+    connect(actHelp,   &QAction::triggered, this, &MainWindow::onHotkeys);
     connect(actSave,   &QAction::triggered, this, &MainWindow::onImageSave);
     connect(actView,   &QAction::triggered, this, &MainWindow::onView);
     connect(actEdit,   &QAction::triggered, this, &MainWindow::onEdit);
@@ -368,7 +373,7 @@ void MainWindow::createActions() {
 
 void MainWindow::updateActionTexts() {
     // All action text in ONE place - called both on init and retranslation
-    actHelp->setText(tr("F1 Help"));
+    actHelp->setText(tr("F1 Hotkeys"));
     actSave->setText(tr("F2 Save"));
     actView->setText(tr("F3 View"));
     actEdit->setText(tr("F4 Open"));
@@ -612,8 +617,11 @@ void MainWindow::initializeMainMenu() {
 
     optionsMenu->addSeparator();
 
+    QAction *hotkeysAction = optionsMenu->addAction(QIcon(":/icons/help"), MainWindow::tr("Hotkeys..."));
+    hotkeysAction->setShortcut(QKeySequence(Qt::Key_F1));
+    connect(hotkeysAction, &QAction::triggered, this, &MainWindow::onHotkeys);
+
     QAction *aboutAction = optionsMenu->addAction(QIcon(":/icons/help"), MainWindow::tr("About..."));
-    aboutAction->setShortcut(QKeySequence(Qt::Key_F1));
     connect(aboutAction, &QAction::triggered, this, &MainWindow::onAbout);
 
     // === RIGHT PANEL MENU ===
@@ -750,6 +758,110 @@ void MainWindow::onAbout() {
         );
 
     about.exec();
+}
+
+void MainWindow::onHotkeys() {
+    struct Entry { QString key; QString desc; };
+    struct Group { QString title; std::vector<Entry> entries; };
+
+    const std::vector<Group> groups = {
+        { tr("File operations"), {
+            { tr("F2"),               tr("Save modified image") },
+            { tr("Ctrl+Alt+F2"),      tr("Export image to another format") },
+            { tr("F3"),               tr("View file / show image info") },
+            { tr("Ctrl+F3"),          tr("File info inside image") },
+            { tr("Ctrl+Alt+F3"),      tr("Filesystem info") },
+            { tr("F4"),               tr("Open image / edit metadata") },
+            { tr("F5"),               tr("Copy") },
+            { tr("F6"),               tr("Rename") },
+            { tr("F7"),               tr("Make directory") },
+            { tr("F8, Del"),          tr("Delete") },
+            { tr("F9"),               tr("Restore deleted") },
+            { tr("F10"),              tr("Exit") },
+        }},
+        { tr("Navigation"), {
+            { tr("Tab"),              tr("Switch panel") },
+            { tr("Enter"),            tr("Open file or directory") },
+            { tr("Backspace"),        tr("Go up one level / close image at root") },
+            { tr("Esc"),              tr("Close image, return to folder") },
+            { tr("Alt+F1, Alt+F2"),   tr("Choose directory for left/right panel") },
+            { tr("Ctrl+F1, Ctrl+F2"), tr("Directory history for left/right panel") },
+        }},
+        { tr("Selection"), {
+            { tr("Insert"),           tr("Toggle selection, move to next") },
+            { tr("+"),                tr("Select all") },
+            { tr("-"),                tr("Deselect all") },
+            { tr("*"),                tr("Invert selection") },
+            { tr("Up / Down"),        tr("Move cursor") },
+            { tr("Home / End"),       tr("Jump to first / last row") },
+            { tr("PgUp / PgDn"),      tr("Scroll by page") },
+        }},
+        { tr("Image"), {
+            { tr("Ctrl+R"),           tr("Reload opened image") },
+        }},
+        { tr("Help"), {
+            { tr("F1"),               tr("This window") },
+        }},
+    };
+
+    QDialog dlg(this);
+    dlg.setWindowTitle(tr("Hotkeys"));
+
+    QVBoxLayout *layout = new QVBoxLayout(&dlg);
+
+    QTableWidget *table = new QTableWidget(&dlg);
+    table->setColumnCount(2);
+    table->setHorizontalHeaderLabels({ tr("Key"), tr("Action") });
+    table->verticalHeader()->setVisible(false);
+    table->setSelectionMode(QAbstractItemView::NoSelection);
+    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    table->setFocusPolicy(Qt::NoFocus);
+    table->setShowGrid(false);
+    table->horizontalHeader()->setStretchLastSection(true);
+
+    int totalRows = 0;
+    for (const auto &g : groups) {
+        totalRows += 1 + static_cast<int>(g.entries.size());
+    }
+    table->setRowCount(totalRows);
+
+    QFont headerFont = table->font();
+    headerFont.setBold(true);
+    const QBrush headerBg = dlg.palette().alternateBase();
+
+    int row = 0;
+    for (const auto &g : groups) {
+        QTableWidgetItem *headerItem = new QTableWidgetItem(g.title);
+        headerItem->setFont(headerFont);
+        headerItem->setBackground(headerBg);
+        headerItem->setTextAlignment(Qt::AlignCenter);
+        headerItem->setFlags(Qt::ItemIsEnabled);
+        table->setItem(row, 0, headerItem);
+        table->setSpan(row, 0, 1, 2);
+        ++row;
+
+        for (const auto &e : g.entries) {
+            QTableWidgetItem *keyItem = new QTableWidgetItem(e.key);
+            QTableWidgetItem *descItem = new QTableWidgetItem(e.desc);
+            keyItem->setFlags(Qt::ItemIsEnabled);
+            descItem->setFlags(Qt::ItemIsEnabled);
+            table->setItem(row, 0, keyItem);
+            table->setItem(row, 1, descItem);
+            ++row;
+        }
+    }
+
+    table->resizeColumnToContents(0);
+    table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+
+    layout->addWidget(table);
+
+    QDialogButtonBox *buttons = new QDialogButtonBox(QDialogButtonBox::Ok, &dlg);
+    connect(buttons, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
+    layout->addWidget(buttons);
+
+    dlg.resize(520, 520);
+    dlg.exec();
 }
 
 // Universal panel methods
