@@ -103,6 +103,10 @@ public:
 
     // File operations
     int selectedCount() const;
+    // Sizes of files the user has *explicitly* selected (Insert/Space/Shift-click).
+    // Returns false if there is no explicit selection — the current row alone does
+    // not count. `..` navigation entries are excluded.
+    bool getExplicitSelectionStats(int & count, qint64 & totalSize) const;
     bool isIndexValid() const;
     bool allowPutFiles() const;
     dsk_tools::Files getSelectedFiles() const;

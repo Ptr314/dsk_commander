@@ -663,12 +663,46 @@ void MainWindow::setActivePanel(FilePanel* panel) {
 
 void MainWindow::updateStatusBarInfo() {
     if (!activePanel) {
-        statusLabel->setText(MainWindow::tr("No active panel"));
+        statusLabel->clear();
         return;
     }
-    const QString dir = activePanel->currentDir();
-    const int selCount = activePanel->selectedPaths().size();
-    statusLabel->setText(QString(MainWindow::tr("Active panel: %1 | Selected: %2")).arg(dir).arg(selCount));
+
+    int selCount = 0;
+    qint64 selSize = 0;
+    if (activePanel->getExplicitSelectionStats(selCount, selSize)) {
+        statusLabel->setText(tr("Selected files: %1, total size: %2")
+                                 .arg(selCount)
+                                 .arg(HostModel::formatSize(selSize)));
+        return;
+    }
+
+    if (activePanel->getMode() == panelMode::Host) {
+        statusLabel->clear();
+        return;
+    }
+
+    // Image mode, no selection — show filesystem stats.
+    dsk_tools::fileSystem * fs = activePanel->getFileSystem();
+    if (!fs) {
+        statusLabel->clear();
+        return;
+    }
+
+    const auto stats = fs->get_stats();
+    const auto & v = stats.int_values;
+
+    QStringList parts;
+    const auto add = [&](const char * key, const QString & label) {
+        const auto it = v.find(key);
+        if (it != v.end())
+            parts << QString("%1: %2").arg(label, HostModel::formatSize(it->second));
+    };
+    add("image_size",     tr("Image size"));
+    add("total_space",    tr("Total space"));
+    add("occupied_space", tr("Occupied"));
+    add("free_space",     tr("Available"));
+
+    statusLabel->setText(parts.join(QStringLiteral(", ")));
 }
 
 void MainWindow::updateViewButtonState() {

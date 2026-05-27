@@ -1207,6 +1207,38 @@ QStringList FilePanel::selectedPaths() const {
     return paths;
 }
 
+bool FilePanel::getExplicitSelectionStats(int & count, qint64 & totalSize) const {
+    count = 0;
+    totalSize = 0;
+
+    QItemSelectionModel * selection = tableView ? tableView->selectionModel() : nullptr;
+    if (!selection || !selection->hasSelection()) return false;
+
+    const QModelIndexList rows = selection->selectedRows(0);
+    if (rows.isEmpty()) return false;
+
+    if (mode == panelMode::Host) {
+        for (const auto & idx : rows) {
+            const QString path = host_model->filePath(idx);
+            if (path.isEmpty()) continue;  // skip [..] entry
+            QFileInfo fi(path);
+            if (!fi.isDir()) totalSize += fi.size();
+            count++;
+        }
+    } else {
+        for (const auto & idx : rows) {
+            const int row = idx.row();
+            if (row < 0 || row >= static_cast<int>(m_files.size())) continue;
+            const auto & f = m_files[row];
+            if (f.name == "..") continue;
+            if (!f.is_dir) totalSize += f.size;
+            count++;
+        }
+    }
+
+    return count > 0;
+}
+
 int FilePanel::selectedCount() const {
     if (mode == panelMode::Host) {
         const int selected_count = selectedPaths().size();

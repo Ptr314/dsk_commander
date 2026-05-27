@@ -1534,12 +1534,12 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1441"/>
+        <location filename="../FilePanel.cpp" line="1473"/>
         <source>(No history)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1469"/>
+        <location filename="../FilePanel.cpp" line="1501"/>
         <source>Clear history</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1619,7 +1619,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
-        <location filename="../mainwindow.cpp" line="799"/>
+        <location filename="../mainwindow.cpp" line="833"/>
         <source>Image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1645,7 +1645,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="527"/>
-        <location filename="../mainwindow.cpp" line="1039"/>
+        <location filename="../mainwindow.cpp" line="1073"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1713,7 +1713,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="378"/>
-        <location filename="../mainwindow.cpp" line="1033"/>
+        <location filename="../mainwindow.cpp" line="1067"/>
         <source>F3 View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1723,302 +1723,327 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="768"/>
-        <source>File operations</source>
+        <location filename="../mainwindow.cpp" line="673"/>
+        <source>Selected files: %1, total size: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="769"/>
-        <source>F2</source>
+        <location filename="../mainwindow.cpp" line="700"/>
+        <source>Image size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="769"/>
-        <source>Save modified image</source>
+        <location filename="../mainwindow.cpp" line="701"/>
+        <source>Total space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="770"/>
-        <source>Ctrl+Alt+F2</source>
+        <location filename="../mainwindow.cpp" line="702"/>
+        <source>Occupied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="770"/>
-        <source>Export image to another format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="771"/>
-        <source>F3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="771"/>
-        <source>View file / show image info</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="772"/>
-        <source>Ctrl+F3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="772"/>
-        <source>File info inside image</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="773"/>
-        <source>Ctrl+Alt+F3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="773"/>
-        <source>Filesystem info</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="774"/>
-        <source>F4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="774"/>
-        <source>Open image / edit metadata</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="775"/>
-        <source>F5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="776"/>
-        <source>F6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="777"/>
-        <source>F7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="777"/>
-        <source>Make directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="778"/>
-        <source>F8, Del</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="778"/>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="779"/>
-        <source>F9</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="779"/>
-        <source>Restore deleted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="780"/>
-        <source>F10</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="780"/>
-        <source>Exit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="782"/>
-        <source>Navigation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="783"/>
-        <source>Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="783"/>
-        <source>Switch panel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="784"/>
-        <source>Enter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="784"/>
-        <source>Open file or directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="785"/>
-        <source>Backspace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="785"/>
-        <source>Go up one level / close image at root</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="786"/>
-        <source>Esc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="786"/>
-        <source>Close image, return to folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="787"/>
-        <source>Alt+F1, Alt+F2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="787"/>
-        <source>Choose directory for left/right panel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="788"/>
-        <source>Ctrl+F1, Ctrl+F2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="788"/>
-        <source>Directory history for left/right panel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="790"/>
-        <source>Selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="791"/>
-        <source>Insert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="791"/>
-        <source>Toggle selection, move to next</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="792"/>
-        <source>+</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="792"/>
-        <source>Select all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="793"/>
-        <source>-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="793"/>
-        <source>Deselect all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="794"/>
-        <source>*</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="794"/>
-        <source>Invert selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="795"/>
-        <source>Up / Down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="795"/>
-        <source>Move cursor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="796"/>
-        <source>Home / End</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="796"/>
-        <source>Jump to first / last row</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="797"/>
-        <source>PgUp / PgDn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="797"/>
-        <source>Scroll by page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="800"/>
-        <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="800"/>
-        <source>Reload opened image</source>
+        <location filename="../mainwindow.cpp" line="703"/>
+        <source>Available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="802"/>
-        <source>Help</source>
+        <source>File operations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="803"/>
-        <source>F1</source>
+        <source>F2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="803"/>
-        <source>This window</source>
+        <source>Save modified image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="804"/>
+        <source>Ctrl+Alt+F2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="804"/>
+        <source>Export image to another format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="805"/>
+        <source>F3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="805"/>
+        <source>View file / show image info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="806"/>
+        <source>Ctrl+F3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="806"/>
+        <source>File info inside image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="807"/>
+        <source>Ctrl+Alt+F3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="807"/>
+        <source>Filesystem info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="808"/>
+        <source>F4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="808"/>
+        <source>Open image / edit metadata</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="809"/>
+        <source>F5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="810"/>
+        <source>F6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="811"/>
+        <source>F7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="811"/>
+        <source>Make directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="812"/>
+        <source>F8, Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="812"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="813"/>
+        <source>F9</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="813"/>
+        <source>Restore deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="814"/>
+        <source>F10</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="814"/>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="816"/>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="817"/>
+        <source>Tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="817"/>
+        <source>Switch panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="818"/>
+        <source>Enter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="818"/>
+        <source>Open file or directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="819"/>
+        <source>Backspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="819"/>
+        <source>Go up one level / close image at root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="820"/>
+        <source>Esc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="820"/>
+        <source>Close image, return to folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="821"/>
+        <source>Alt+F1, Alt+F2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="821"/>
+        <source>Choose directory for left/right panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="822"/>
+        <source>Ctrl+F1, Ctrl+F2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="822"/>
+        <source>Directory history for left/right panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="824"/>
+        <source>Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="825"/>
+        <source>Insert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="825"/>
+        <source>Toggle selection, move to next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="826"/>
+        <source>+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="826"/>
+        <source>Select all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="827"/>
+        <source>-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="827"/>
+        <source>Deselect all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="828"/>
+        <source>*</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="828"/>
+        <source>Invert selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="829"/>
+        <source>Up / Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="829"/>
+        <source>Move cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="830"/>
+        <source>Home / End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="830"/>
+        <source>Jump to first / last row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="831"/>
+        <source>PgUp / PgDn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="831"/>
+        <source>Scroll by page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="834"/>
+        <source>Ctrl+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="834"/>
+        <source>Reload opened image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="836"/>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="837"/>
+        <source>F1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="837"/>
+        <source>This window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="842"/>
         <source>Hotkeys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="814"/>
+        <location filename="../mainwindow.cpp" line="848"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="814"/>
+        <location filename="../mainwindow.cpp" line="848"/>
         <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1028"/>
+        <location filename="../mainwindow.cpp" line="1062"/>
         <source>F3 Image Info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2146,13 +2171,13 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="537"/>
-        <location filename="../mainwindow.cpp" line="775"/>
+        <location filename="../mainwindow.cpp" line="809"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="541"/>
-        <location filename="../mainwindow.cpp" line="776"/>
+        <location filename="../mainwindow.cpp" line="810"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2187,23 +2212,13 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="666"/>
-        <source>No active panel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="671"/>
-        <source>Active panel: %1 | Selected: %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="379"/>
-        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1063"/>
         <source>F4 Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
+        <location filename="../mainwindow.cpp" line="1068"/>
         <source>F4 Meta</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3074,7 +3089,7 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="693"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="694"/>
         <source>user number out of range</source>
         <translation type="unfinished"></translation>
     </message>

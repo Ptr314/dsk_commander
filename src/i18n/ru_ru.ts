@@ -1549,12 +1549,12 @@ Warning: This action cannot be undone!</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1441"/>
+        <location filename="../FilePanel.cpp" line="1473"/>
         <source>(No history)</source>
         <translation>(Нет истории)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1469"/>
+        <location filename="../FilePanel.cpp" line="1501"/>
         <source>Clear history</source>
         <translation>Очистить историю</translation>
     </message>
@@ -1634,13 +1634,13 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="527"/>
-        <location filename="../mainwindow.cpp" line="1039"/>
+        <location filename="../mainwindow.cpp" line="1073"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
-        <location filename="../mainwindow.cpp" line="799"/>
+        <location filename="../mainwindow.cpp" line="833"/>
         <source>Image</source>
         <translation>Образ</translation>
     </message>
@@ -1723,7 +1723,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="378"/>
-        <location filename="../mainwindow.cpp" line="1033"/>
+        <location filename="../mainwindow.cpp" line="1067"/>
         <source>F3 View</source>
         <translation>F3 Просмотр</translation>
     </message>
@@ -1733,302 +1733,327 @@ Warning: This action cannot be undone!</source>
         <translation>F1 Клавиатура</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="768"/>
+        <location filename="../mainwindow.cpp" line="673"/>
+        <source>Selected files: %1, total size: %2</source>
+        <translation>Выбрано файлов: %1, общий размер: %2</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="700"/>
+        <source>Image size</source>
+        <translation>Размер образа</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="701"/>
+        <source>Total space</source>
+        <translation>Пространство для файлов</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="702"/>
+        <source>Occupied</source>
+        <translation>Занято файлами</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="703"/>
+        <source>Available</source>
+        <translation>Доступно для записи</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="802"/>
         <source>File operations</source>
         <translation>Операции с файлами</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="769"/>
+        <location filename="../mainwindow.cpp" line="803"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="769"/>
+        <location filename="../mainwindow.cpp" line="803"/>
         <source>Save modified image</source>
         <translation>Сохранить изменённый образ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="770"/>
+        <location filename="../mainwindow.cpp" line="804"/>
         <source>Ctrl+Alt+F2</source>
         <translation>Ctrl+Alt+F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="770"/>
+        <location filename="../mainwindow.cpp" line="804"/>
         <source>Export image to another format</source>
         <translation>Экспортировать образ в другой формат</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="771"/>
+        <location filename="../mainwindow.cpp" line="805"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="771"/>
+        <location filename="../mainwindow.cpp" line="805"/>
         <source>View file / show image info</source>
         <translation>Просмотр файла / Информация об образе</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="772"/>
+        <location filename="../mainwindow.cpp" line="806"/>
         <source>Ctrl+F3</source>
         <translation>Ctrl+F3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="772"/>
+        <location filename="../mainwindow.cpp" line="806"/>
         <source>File info inside image</source>
         <translation>Информация о файле внутри образа</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="773"/>
+        <location filename="../mainwindow.cpp" line="807"/>
         <source>Ctrl+Alt+F3</source>
         <translation>Ctrl+Alt+F3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="773"/>
+        <location filename="../mainwindow.cpp" line="807"/>
         <source>Filesystem info</source>
         <translation>Информация о файловой системе</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="774"/>
+        <location filename="../mainwindow.cpp" line="808"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="774"/>
+        <location filename="../mainwindow.cpp" line="808"/>
         <source>Open image / edit metadata</source>
         <translation>Открыть образ / Редактировать метаданные</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="775"/>
+        <location filename="../mainwindow.cpp" line="809"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="776"/>
+        <location filename="../mainwindow.cpp" line="810"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="777"/>
+        <location filename="../mainwindow.cpp" line="811"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="777"/>
+        <location filename="../mainwindow.cpp" line="811"/>
         <source>Make directory</source>
         <translation>Создать директорию</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="778"/>
+        <location filename="../mainwindow.cpp" line="812"/>
         <source>F8, Del</source>
         <translation>F8, Del</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="778"/>
+        <location filename="../mainwindow.cpp" line="812"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="779"/>
+        <location filename="../mainwindow.cpp" line="813"/>
         <source>F9</source>
         <translation>F9</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="779"/>
+        <location filename="../mainwindow.cpp" line="813"/>
         <source>Restore deleted</source>
         <translation>Восстановить удалённый</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="780"/>
+        <location filename="../mainwindow.cpp" line="814"/>
         <source>F10</source>
         <translation>F10</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="780"/>
+        <location filename="../mainwindow.cpp" line="814"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="782"/>
+        <location filename="../mainwindow.cpp" line="816"/>
         <source>Navigation</source>
         <translation>Навигация</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="783"/>
+        <location filename="../mainwindow.cpp" line="817"/>
         <source>Tab</source>
         <translation>Tab</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="783"/>
+        <location filename="../mainwindow.cpp" line="817"/>
         <source>Switch panel</source>
         <translation>Перейти в другую панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="784"/>
+        <location filename="../mainwindow.cpp" line="818"/>
         <source>Enter</source>
         <translation>Enter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="784"/>
+        <location filename="../mainwindow.cpp" line="818"/>
         <source>Open file or directory</source>
         <translation>Открыть файл или войти в директорию</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="785"/>
+        <location filename="../mainwindow.cpp" line="819"/>
         <source>Backspace</source>
         <translation>Backspace</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="785"/>
+        <location filename="../mainwindow.cpp" line="819"/>
         <source>Go up one level / close image at root</source>
         <translation>Выйти из поддиректории / Закрыть образ (из корня)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="786"/>
+        <location filename="../mainwindow.cpp" line="820"/>
         <source>Esc</source>
         <translation>Esc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="786"/>
+        <location filename="../mainwindow.cpp" line="820"/>
         <source>Close image, return to folder</source>
         <translation>Закрыть образ, вернуться к его расположению</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="787"/>
+        <location filename="../mainwindow.cpp" line="821"/>
         <source>Alt+F1, Alt+F2</source>
         <translation>Alt+F1, Alt+F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="787"/>
+        <location filename="../mainwindow.cpp" line="821"/>
         <source>Choose directory for left/right panel</source>
         <translation>Выбрать директорию для левой/правой панели</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="788"/>
+        <location filename="../mainwindow.cpp" line="822"/>
         <source>Ctrl+F1, Ctrl+F2</source>
         <translation>Ctrl+F1, Ctrl+F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="788"/>
+        <location filename="../mainwindow.cpp" line="822"/>
         <source>Directory history for left/right panel</source>
         <translation>Открыть историю для левой/правой панели</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="790"/>
+        <location filename="../mainwindow.cpp" line="824"/>
         <source>Selection</source>
         <translation>Выбор файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="791"/>
+        <location filename="../mainwindow.cpp" line="825"/>
         <source>Insert</source>
         <translation>Insert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="791"/>
+        <location filename="../mainwindow.cpp" line="825"/>
         <source>Toggle selection, move to next</source>
         <translation>Переключить выделение, перейти на строку вниз</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="792"/>
+        <location filename="../mainwindow.cpp" line="826"/>
         <source>+</source>
         <translation>+</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="792"/>
+        <location filename="../mainwindow.cpp" line="826"/>
         <source>Select all</source>
         <translation>Выбрать все файлы</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="793"/>
+        <location filename="../mainwindow.cpp" line="827"/>
         <source>-</source>
         <translation>-</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="793"/>
+        <location filename="../mainwindow.cpp" line="827"/>
         <source>Deselect all</source>
         <translation>Снять выбор со всех файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="794"/>
+        <location filename="../mainwindow.cpp" line="828"/>
         <source>*</source>
         <translation>*</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="794"/>
+        <location filename="../mainwindow.cpp" line="828"/>
         <source>Invert selection</source>
         <translation>Инвертировать выделение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="795"/>
+        <location filename="../mainwindow.cpp" line="829"/>
         <source>Up / Down</source>
         <translation>Вверх / Вниз</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="795"/>
+        <location filename="../mainwindow.cpp" line="829"/>
         <source>Move cursor</source>
         <translation>Переместить курсор</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="796"/>
+        <location filename="../mainwindow.cpp" line="830"/>
         <source>Home / End</source>
         <translation>Home / End</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="796"/>
+        <location filename="../mainwindow.cpp" line="830"/>
         <source>Jump to first / last row</source>
         <translation>Перейти на первую/последнюю строку</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="797"/>
+        <location filename="../mainwindow.cpp" line="831"/>
         <source>PgUp / PgDn</source>
         <translation>PgUp / PgDn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="797"/>
+        <location filename="../mainwindow.cpp" line="831"/>
         <source>Scroll by page</source>
         <translation>Перейти на страницу вверх/вниз</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="800"/>
+        <location filename="../mainwindow.cpp" line="834"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="800"/>
+        <location filename="../mainwindow.cpp" line="834"/>
         <source>Reload opened image</source>
         <translation>Перезагрузить открытый образ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="802"/>
+        <location filename="../mainwindow.cpp" line="836"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="803"/>
+        <location filename="../mainwindow.cpp" line="837"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="803"/>
+        <location filename="../mainwindow.cpp" line="837"/>
         <source>This window</source>
         <translation>Это окно</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="808"/>
+        <location filename="../mainwindow.cpp" line="842"/>
         <source>Hotkeys</source>
         <translation>Горячие клавиши</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="814"/>
+        <location filename="../mainwindow.cpp" line="848"/>
         <source>Key</source>
         <translation>Клавиша</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="814"/>
+        <location filename="../mainwindow.cpp" line="848"/>
         <source>Action</source>
         <translation>Действие</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1028"/>
+        <location filename="../mainwindow.cpp" line="1062"/>
         <source>F3 Image Info</source>
         <translation>F3 Образ Инфо</translation>
     </message>
@@ -2161,13 +2186,13 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="537"/>
-        <location filename="../mainwindow.cpp" line="775"/>
+        <location filename="../mainwindow.cpp" line="809"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="541"/>
-        <location filename="../mainwindow.cpp" line="776"/>
+        <location filename="../mainwindow.cpp" line="810"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
@@ -2202,23 +2227,13 @@ Warning: This action cannot be undone!</source>
         <translation>Правая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="666"/>
-        <source>No active panel</source>
-        <translation>Нет активной панели</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="671"/>
-        <source>Active panel: %1 | Selected: %2</source>
-        <translation>Активная панель: %1 | Выбрано: %2</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="379"/>
-        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1063"/>
         <source>F4 Open</source>
         <translation>F4 Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
+        <location filename="../mainwindow.cpp" line="1068"/>
         <source>F4 Meta</source>
         <translation>F4 Метаданные</translation>
     </message>
@@ -3089,7 +3104,7 @@ Warning: This action cannot be undone!</source>
         <translation>Неподдерживаемый тип диска CP/M</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="693"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="694"/>
         <source>user number out of range</source>
         <translation>User # выходит за допустимые пределы</translation>
     </message>
