@@ -61,7 +61,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
             const std::string& subtype_id = subtype.first;
 
             std::unique_ptr<dsk_tools::Viewer> viewer = manager.create(type, subtype_id);
-            if (viewer && viewer->fits(data)) {
+            if (viewer && viewer->fits(data, file_name.toStdString())) {
                 m_subtypes[type].push_back(subtype_id);
             }
         }
@@ -81,6 +81,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
                             .replace("BASIC", ViewDialog::tr("BASIC"))
                             .replace("PICTURE_AGAT", ViewDialog::tr("Agat pictures"))
                             .replace("PICTURE_APPLE", ViewDialog::tr("Apple pictures"))
+                            .replace("PICTURE_VECTOR", ViewDialog::tr("Vector-06C pictures"))
         ;
         ui->modeCombo->addItem(type_str, QString::fromStdString(type));
         type_map[type] = c++;
