@@ -560,7 +560,9 @@ void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     QDir dir(path);
     if (!dir.exists()) return;
 
-    currentPath = dir.absolutePath();
+    const QString newPath = dir.absolutePath();
+    const bool isSameDir = (currentPath == newPath);
+    currentPath = newPath;
     dirEdit->setText(currentPath);
     host_model->setRootPath(currentPath);
     tableView->setRootIndex(QModelIndex());  // QStandardItemModel doesn't use root index
@@ -575,6 +577,17 @@ void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
     // Update directory history
     addToDirectoryHistory(currentPath);
     updateHistoryMenu();
+
+    // When entering a new Host-mode directory, place the cursor on the first
+    // row so keyboard navigation works immediately (e.g. Enter on [..] to go
+    // back). Skip if the caller will restore the cursor itself, or if this is
+    // just a refresh of the same directory.
+    if (!restoreCursor && !isSameDir && mode == panelMode::Host
+        && tableView && tableView->model() && tableView->model()->rowCount() > 0) {
+        const QModelIndex first = tableView->model()->index(0, 0);
+        tableView->selectionModel()->clearSelection();
+        tableView->selectionModel()->setCurrentIndex(first, QItemSelectionModel::NoUpdate);
+    }
 }
 
 void FilePanel::chooseDirectory()
@@ -670,11 +683,14 @@ void FilePanel::onGoUp() {
     emit activated(this);
     if (mode==panelMode::Host) {
         QDir dir(currentPath);
+        const QString prevDirName = QDir(currentPath).dirName();
         if (dir.cdUp()) {
-            // Store current directory name for cursor restoration
-            // m_lastDirName = QDir(currentPath).dirName();
+            const bool hadState = !m_tableStateStack.empty();
             setDirectory(dir.absolutePath(), true);
             restoreTableState();
+            if (!hadState && !prevDirName.isEmpty()) {
+                highlight(prevDirName);
+            }
         }
     } else {
         if (m_filesystem->is_root()) {
