@@ -460,17 +460,34 @@ void FileOperations::renameFile(FilePanel* panel, QWidget* parent)
     dsk_tools::fileSystem* filesystem = panel->getFileSystem();
     if (!filesystem) return;
 
-    const dsk_tools::Files files = panel->getSelectedFiles();
+    dsk_tools::UniversalFile file;
+    if (panel->getMode() == panelMode::Host) {
+        const QString path = panel->currentFilePath();
+        if (path.isEmpty()) return;  // no current row, or [..] entry
 
-    // Rename only works on single files
-    if (files.size() != 1) {
-        QMessageBox::information(parent,
-                                FilePanel::tr("Rename"),
-                                FilePanel::tr("Please select exactly one file to rename."));
-        return;
+        const QFileInfo fi(path);
+        const std::string fn = _toStdString(fi.fileName());
+
+        file.fs = filesystem->get_fs();
+        file.name = fn;
+        file.original_name = dsk_tools::strToBytes(fn);
+        file.is_dir = fi.isDir();
+        if (!file.is_dir) {
+            file.size = fi.size();
+            file.is_protected = false;
+            file.is_deleted = false;
+            file.type_preferred = dsk_tools::PreferredType::Binary;
+            file.attributes = 0;
+        }
+        file.metadata = dsk_tools::strToBytes(_toStdString(path));
+    } else {
+        const QModelIndex index = panel->getCurrentIndex();
+        if (!index.isValid()) return;
+        const auto & files = panel->getFiles();
+        const int row = index.row();
+        if (row < 0 || row >= static_cast<int>(files.size())) return;
+        file = files[row];
     }
-
-    const dsk_tools::UniversalFile & file = files[0];
 
     // Don't allow renaming parent directory entry
     if (file.name == "..") {
