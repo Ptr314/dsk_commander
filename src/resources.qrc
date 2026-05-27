@@ -38,6 +38,7 @@
         <file alias="comment">resources/icons/khexedit.png</file>
         <file alias="add_from_file">resources/icons/3floppy_mount.png</file>
         <file alias="watch">resources/icons/kghostview.png</file>
+        <file alias="hotkeys">resources/icons/kxkb.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="consolas">resources/fonts/Consolas.ttf</file>

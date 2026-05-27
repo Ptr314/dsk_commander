@@ -617,7 +617,7 @@ void MainWindow::initializeMainMenu() {
 
     optionsMenu->addSeparator();
 
-    QAction *hotkeysAction = optionsMenu->addAction(QIcon(":/icons/help"), MainWindow::tr("Hotkeys..."));
+    QAction *hotkeysAction = optionsMenu->addAction(QIcon(":/icons/hotkeys"), MainWindow::tr("Hotkeys..."));
     hotkeysAction->setShortcut(QKeySequence(Qt::Key_F1));
     connect(hotkeysAction, &QAction::triggered, this, &MainWindow::onHotkeys);
 
