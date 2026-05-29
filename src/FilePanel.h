@@ -116,6 +116,7 @@ public:
     void onGoUp();
     void closeImage();
     void reloadImage();
+    void reloadDirectory();
     void chooseDirectory();
     void showDirectoryHistory();
 

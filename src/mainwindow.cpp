@@ -831,7 +831,7 @@ void MainWindow::onHotkeys() {
             { tr("PgUp / PgDn"),      tr("Scroll by page") },
         }},
         { tr("Image"), {
-            { tr("Ctrl+R"),           tr("Reload opened image") },
+            { tr("Ctrl+R"),           tr("Reload current directory / opened image") },
         }},
         { tr("Help"), {
             { tr("F1"),               tr("This window") },
@@ -991,7 +991,11 @@ void MainWindow::onImageClose()
 void MainWindow::onImageReload()
 {
     if (!activePanel) return;
-    activePanel->reloadImage();
+    if (activePanel->getMode() == panelMode::Host) {
+        activePanel->reloadDirectory();
+    } else {
+        activePanel->reloadImage();
+    }
 }
 
 void MainWindow::updateImageMenuState() const
@@ -1005,7 +1009,7 @@ void MainWindow::updateImageMenuState() const
     if (actSave) actSave->setEnabled(!is_host);
     if (actFSInfo) actFSInfo->setEnabled(!is_host);
     if (actImageClose) actImageClose->setEnabled(!is_host);
-    if (actImageReload) actImageReload->setEnabled(!is_host);
+    if (actImageReload) actImageReload->setEnabled(true);
 
     const bool has_index = activePanel->getCurrentIndex().isValid();
 

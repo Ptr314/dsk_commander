@@ -799,6 +799,50 @@ void FilePanel::reloadImage()
     updateImageStatusIndicator();
 }
 
+void FilePanel::reloadDirectory()
+{
+    emit activated(this);
+    if (mode != panelMode::Host) return;
+    if (currentPath.isEmpty()) return;
+
+    const QDir dir(currentPath);
+    if (!dir.exists()) return;
+
+    // Remember the highlighted file by name (not by row) so the cursor sticks
+    // to the same entry across additions/removals on disk.
+    QString savedName;
+    if (tableView && tableView->currentIndex().isValid()) {
+        const auto model = qobject_cast<QStandardItemModel*>(tableView->model());
+        if (model) {
+            const auto item = model->item(tableView->currentIndex().row(), 0);
+            if (item) savedName = item->text();
+        }
+    }
+    const int savedScroll = (tableView && tableView->verticalScrollBar())
+                                ? tableView->verticalScrollBar()->value() : 0;
+
+    setDirectory(currentPath, true);
+
+    if (!savedName.isEmpty()) {
+        const auto model = qobject_cast<QStandardItemModel*>(tableView->model());
+        if (model) {
+            for (int row = 0; row < model->rowCount(); ++row) {
+                const auto item = model->item(row, 0);
+                if (item && item->text() == savedName) {
+                    const QModelIndex idx = model->index(row, 0);
+                    tableView->selectionModel()->clearSelection();
+                    tableView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::NoUpdate);
+                    break;
+                }
+            }
+        }
+    }
+
+    if (tableView && tableView->verticalScrollBar()) {
+        tableView->verticalScrollBar()->setValue(savedScroll);
+    }
+}
+
 void FilePanel::closeImage() {
     emit activated(this);
     if (mode != panelMode::Image) return;
