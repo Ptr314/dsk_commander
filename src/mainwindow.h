@@ -55,6 +55,8 @@ private slots:
     void updateSortingMenu(FilePanel* panel);
     void onAbout();
     void onHotkeys();
+    void onChooseFont();
+    void onDefaultFont();
 
 protected:
     void changeEvent(QEvent* event) override;
@@ -124,6 +126,8 @@ private:
     QAction* optUseRecycleBin {nullptr};
     QAction* optMakeBackups {nullptr};
     QAction* optWatchImageChanges {nullptr};
+    QAction* optFontChoose {nullptr};
+    QAction* optFontDefault {nullptr};
 
     QLabel* statusLabel {nullptr};
 
