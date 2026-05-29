@@ -100,6 +100,16 @@
           </widget>
          </item>
          <item>
+          <widget class="QCheckBox" name="hexCheck">
+           <property name="toolTip">
+            <string>Show track and sector numbers in hexadecimal</string>
+           </property>
+           <property name="text">
+            <string>HEX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <spacer name="leftToolbarSpacer">
            <property name="orientation">
             <enum>Qt::Orientation::Horizontal</enum>
@@ -116,6 +126,46 @@
           <widget class="QLabel" name="geometryLabel">
            <property name="text">
             <string notr="true"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="fsInfoBtn">
+           <property name="toolTip">
+            <string>Filesystem information</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/fs_info</normaloff>:/icons/fs_info</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="infoBtn">
+           <property name="toolTip">
+            <string>Image information</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/info</normaloff>:/icons/info</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>

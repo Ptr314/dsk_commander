@@ -7,6 +7,7 @@
 #include "ui_explorerdialog.h"
 
 #include "mainutils.h"
+#include "FileOperations.h"
 
 #include <QHeaderView>
 #include <QPainter>
@@ -24,18 +25,84 @@ SectorTableModel::SectorTableModel(QObject *parent)
     : QAbstractTableModel(parent)
 {}
 
-void SectorTableModel::setImage(dsk_tools::diskImage *image)
+void SectorTableModel::setDisk(const dsk_tools::StructDisk *disk)
 {
     beginResetModel();
-    m_image = image;
-    if (m_image) {
-        m_heads   = m_image->get_heads();
-        m_tracks  = m_image->get_tracks();
-        m_sectors = m_image->get_sectors();
+    m_disk = disk;
+    if (m_disk && !m_disk->tracks.empty()) {
+        m_heads = m_disk->heads ? m_disk->heads : 1;
+        m_cylinders = static_cast<unsigned>(m_disk->tracks.size()) / m_heads;
+        // Tracks may carry different sector counts; the grid is sized to the widest.
+        m_max_sectors = 0;
+        for (const auto &t : m_disk->tracks) {
+            const unsigned n = static_cast<unsigned>(t.sectors.size());
+            if (n > m_max_sectors) m_max_sectors = n;
+        }
     } else {
-        m_heads = m_tracks = m_sectors = 0;
+        m_heads = m_cylinders = m_max_sectors = 0;
     }
     endResetModel();
+}
+
+const dsk_tools::StructTrack *SectorTableModel::trackAt(unsigned cylinder, unsigned head) const
+{
+    if (!m_disk) return nullptr;
+    // Fast path: cylinder-major, head-interleaved ordering (how loaders emit tracks).
+    const unsigned idx = cylinder * m_heads + head;
+    if (idx < m_disk->tracks.size()) {
+        const auto &t = m_disk->tracks[idx];
+        if (t.cylinder == cylinder && t.head == head) return &t;
+    }
+    // Fallback: layout differs — find the matching record explicitly.
+    for (const auto &t : m_disk->tracks) {
+        if (t.cylinder == cylinder && t.head == head) return &t;
+    }
+    return nullptr;
+}
+
+const dsk_tools::StructSector *SectorTableModel::locate(unsigned head, unsigned cylinder, unsigned column,
+                                                        unsigned &sector_id, unsigned &sector_size) const
+{
+    const dsk_tools::StructTrack *t = trackAt(cylinder, head);
+    if (!t) return nullptr;
+    sector_size = t->sector_size;
+    const unsigned nsec = static_cast<unsigned>(t->sectors.size());
+
+    if (m_order == Order::Physical) {
+        // "As is" order — column maps straight to the physical sector slot.
+        if (column >= nsec) return nullptr;
+        sector_id = (column < t->sector_map.size()) ? t->sector_map[column] : (column + 1);
+        return &t->sectors[column];
+    }
+
+    // Logical order — column c stands for the sector whose 1-based id is c+1.
+    const unsigned target = column + 1;
+    const unsigned map_n = static_cast<unsigned>(t->sector_map.size());
+    for (unsigned p = 0; p < map_n && p < nsec; ++p) {
+        if (t->sector_map[p] == target) {
+            sector_id = target;
+            return &t->sectors[p];
+        }
+    }
+    // No sector map (or id not present): fall back to physical position.
+    if (map_n == 0 && column < nsec) {
+        sector_id = column + 1;
+        return &t->sectors[column];
+    }
+    return nullptr;
+}
+
+dsk_tools::SectorType SectorTableModel::typeOf(const dsk_tools::StructSector *sector,
+                                               unsigned head, unsigned cylinder, unsigned sector_id) const
+{
+    if (!sector) return dsk_tools::SectorType::Empty;
+    if (sector->is_bad) return dsk_tools::SectorType::Bad;
+    // Filesystem map (when present) is keyed by 0-based logical sector.
+    if (!m_type_map.empty()) {
+        const auto it = m_type_map.find({head, cylinder, sector_id - 1});
+        return (it != m_type_map.end()) ? it->second : dsk_tools::SectorType::Empty;
+    }
+    return dsk_tools::SectorType::Ok;
 }
 
 void SectorTableModel::setOrder(Order order)
@@ -54,6 +121,24 @@ void SectorTableModel::setSplitByHeads(bool split)
     endResetModel();
 }
 
+void SectorTableModel::setHexNumbers(bool hex)
+{
+    if (m_hex == hex) return;
+    m_hex = hex;
+    // Only the displayed labels change, not the structure — refresh headers and
+    // tooltips in place so the current selection is preserved.
+    if (columnCount() > 0) emit headerDataChanged(Qt::Horizontal, 0, columnCount() - 1);
+    if (rowCount() > 0)    emit headerDataChanged(Qt::Vertical, 0, rowCount() - 1);
+    if (rowCount() > 0 && columnCount() > 0) {
+        emit dataChanged(index(0, 0), index(rowCount() - 1, columnCount() - 1), {Qt::ToolTipRole});
+    }
+}
+
+QString SectorTableModel::formatNumber(unsigned value) const
+{
+    return m_hex ? QString::number(value, 16).toUpper() : QString::number(value);
+}
+
 void SectorTableModel::setSectorTypeMap(dsk_tools::SectorTypeMap map)
 {
     m_type_map = std::move(map);
@@ -67,51 +152,60 @@ void SectorTableModel::setSectorTypeMap(dsk_tools::SectorTypeMap map)
 bool SectorTableModel::isSpacerColumn(int column) const
 {
     if (m_split_by_heads) return false;
-    if (m_heads <= 1 || m_sectors == 0) return false;
+    if (m_heads <= 1 || m_max_sectors == 0) return false;
     if (column < 0) return false;
-    const int stride = static_cast<int>(m_sectors) + 1;     // sectors + one spacer
-    return (column % stride) == static_cast<int>(m_sectors);
+    const int stride = static_cast<int>(m_max_sectors) + 1;     // sectors + one spacer
+    return (column % stride) == static_cast<int>(m_max_sectors);
 }
 
-bool SectorTableModel::resolve(const QModelIndex &index, unsigned &head, unsigned &track, unsigned &sector) const
+bool SectorTableModel::resolve(const QModelIndex &index, unsigned &head, unsigned &cylinder, unsigned &column) const
 {
-    if (!m_image || !index.isValid()) return false;
-    if (m_heads == 0 || m_tracks == 0 || m_sectors == 0) return false;
+    if (!m_disk || !index.isValid()) return false;
+    if (m_heads == 0 || m_cylinders == 0 || m_max_sectors == 0) return false;
 
     const unsigned row = static_cast<unsigned>(index.row());
     const unsigned col = static_cast<unsigned>(index.column());
 
     if (m_split_by_heads) {
-        if (row >= m_tracks * m_heads) return false;
-        if (col >= m_sectors) return false;
-        track  = row / m_heads;
-        head   = row % m_heads;
-        sector = col;
+        if (row >= m_cylinders * m_heads) return false;
+        if (col >= m_max_sectors) return false;
+        cylinder = row / m_heads;
+        head     = row % m_heads;
+        column   = col;
     } else {
-        if (row >= m_tracks) return false;
+        if (row >= m_cylinders) return false;
         if (m_heads > 1) {
-            const unsigned stride = m_sectors + 1;          // sectors + one spacer
+            const unsigned stride = m_max_sectors + 1;          // sectors + one spacer
             const unsigned group  = col / stride;
             const unsigned off    = col % stride;
-            if (group >= m_heads || off >= m_sectors) return false;   // out of range / spacer
-            track  = row;
-            head   = group;
-            sector = off;
+            if (group >= m_heads || off >= m_max_sectors) return false;   // out of range / spacer
+            cylinder = row;
+            head     = group;
+            column   = off;
         } else {
-            if (col >= m_sectors) return false;
-            track  = row;
-            head   = 0;
-            sector = col;
+            if (col >= m_max_sectors) return false;
+            cylinder = row;
+            head     = 0;
+            column   = col;
         }
     }
     return true;
+}
+
+const dsk_tools::StructSector *SectorTableModel::sectorAt(const QModelIndex &index,
+                                                          unsigned &head, unsigned &cylinder,
+                                                          unsigned &sector_id, unsigned &sector_size) const
+{
+    unsigned column;
+    if (!resolve(index, head, cylinder, column)) return nullptr;
+    return locate(head, cylinder, column, sector_id, sector_size);
 }
 
 int SectorTableModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) return 0;
     const unsigned heads = m_heads ? m_heads : 1;
-    return static_cast<int>(m_split_by_heads ? m_tracks * heads : m_tracks);
+    return static_cast<int>(m_split_by_heads ? m_cylinders * heads : m_cylinders);
 }
 
 int SectorTableModel::columnCount(const QModelIndex &parent) const
@@ -119,31 +213,38 @@ int SectorTableModel::columnCount(const QModelIndex &parent) const
     if (parent.isValid()) return 0;
     const unsigned heads = m_heads ? m_heads : 1;
     if (m_split_by_heads || heads <= 1) {
-        return static_cast<int>(m_split_by_heads ? m_sectors : m_sectors * heads);
+        return static_cast<int>(m_split_by_heads ? m_max_sectors : m_max_sectors * heads);
     }
     // sectors per head × heads + (heads - 1) spacers between groups
-    return static_cast<int>(m_sectors * heads + (heads - 1));
+    return static_cast<int>(m_max_sectors * heads + (heads - 1));
 }
 
 QVariant SectorTableModel::data(const QModelIndex &index, int role) const
 {
-    if (!m_image || !index.isValid()) return {};
+    if (!m_disk || !index.isValid()) return {};
 
-    unsigned head, track, sector;
-    if (!resolve(index, head, track, sector)) return {};
+    unsigned head, cylinder, sector_id, sector_size;
+    const dsk_tools::StructSector *sector = sectorAt(index, head, cylinder, sector_id, sector_size);
+    // No sector behind this cell (spacer, or column past this track's count):
+    // return an invalid variant so the delegate leaves the cell blank.
+    if (!sector) return {};
+
+    const dsk_tools::SectorType type = typeOf(sector, head, cylinder, sector_id);
 
     switch (role) {
-        case StateRole:
-            return QVariant::fromValue(static_cast<int>(sectorTypeAt(head, track, sector)));
-        case TrackRole:  return track;
+        case StateRole:  return QVariant::fromValue(static_cast<int>(type));
+        case TrackRole:  return cylinder;
         case HeadRole:   return head;
-        case SectorRole: return sector;
+        case SectorRole: return sector_id;
         case Qt::ToolTipRole: {
-            QString tip = ExplorerDialog::tr("Track %1, Sector %2").arg(track).arg(sector);
-            if (m_heads > 1) tip += ExplorerDialog::tr(", Head %1").arg(head);
+            // Logical track number = cylinder * heads + head, counting both sides.
+            const unsigned heads = m_heads ? m_heads : 1;
+            const unsigned track = cylinder * heads + head;
+            QString tip = ExplorerDialog::tr("Track %1, Sector %2")
+                              .arg(formatNumber(track), formatNumber(sector_id));
 
             QString type_str;
-            switch (sectorTypeAt(head, track, sector)) {
+            switch (type) {
                 case dsk_tools::SectorType::Empty:       type_str = ExplorerDialog::tr("free");       break;
                 case dsk_tools::SectorType::Ok:          type_str = ExplorerDialog::tr("data");       break;
                 case dsk_tools::SectorType::Bad:         type_str = ExplorerDialog::tr("bad");        break;
@@ -160,48 +261,30 @@ QVariant SectorTableModel::data(const QModelIndex &index, int role) const
     }
 }
 
-dsk_tools::SectorType SectorTableModel::sectorTypeAt(unsigned head, unsigned track, unsigned sector) const
-{
-    if (!m_image) return dsk_tools::SectorType::Empty;
-    // Logical mode: image API handles translation + bounds + bad-sector lookup.
-    // Physical mode: we still ask the image, knowing the bad-sector hit may be
-    // approximate when a translation table is present (acceptable for v1).
-    if (m_image->is_bad_sector(head, track, sector)) {
-        return dsk_tools::SectorType::Bad;
-    }
-    // If a filesystem provided a sector-type map, defer to it:
-    // - found entry → that type
-    // - no entry    → Empty
-    // If no map was supplied (filesystem null or returned an empty map),
-    // fall back to the optimistic Ok default.
-    if (!m_type_map.empty()) {
-        const auto it = m_type_map.find({head, track, sector});
-        return (it != m_type_map.end()) ? it->second : dsk_tools::SectorType::Empty;
-    }
-    return dsk_tools::SectorType::Ok;
-}
-
 QVariant SectorTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole && role != Qt::ToolTipRole) return {};
 
     if (orientation == Qt::Vertical) {
-        if (m_split_by_heads && m_heads > 0) {
-            const unsigned track = static_cast<unsigned>(section) / m_heads;
-            const unsigned head  = static_cast<unsigned>(section) % m_heads;
-            return QString("%1:%2").arg(track).arg(head);
-        }
-        return QString::number(section);
+        // Logical track number = cylinder * heads + head, counting both sides.
+        // Split on:  one row per (cylinder, head) → section already is that number (0,1,2…).
+        // Split off: one row per cylinder (head 0)  → section * heads (0,2,4… for two heads).
+        const unsigned heads = m_heads ? m_heads : 1;
+        const unsigned track = m_split_by_heads
+                                   ? static_cast<unsigned>(section)
+                                   : static_cast<unsigned>(section) * heads;
+        return formatNumber(track);
     }
 
-    // Horizontal: spacer columns have no label; data columns show the sector number.
-    if (m_sectors == 0) return {};
+    // Horizontal: spacer columns have no label; data columns show the 1-based
+    // sector slot (this table counts sectors from 1, matching sector_map ids).
+    if (m_max_sectors == 0) return {};
     if (isSpacerColumn(section)) return QString();
     if (m_split_by_heads || m_heads <= 1) {
-        return QString::number(static_cast<unsigned>(section) % m_sectors);
+        return formatNumber(static_cast<unsigned>(section) % m_max_sectors + 1);
     }
-    const unsigned stride = m_sectors + 1;
-    return QString::number(static_cast<unsigned>(section) % stride);
+    const unsigned stride = m_max_sectors + 1;
+    return formatNumber(static_cast<unsigned>(section) % stride + 1);
 }
 
 Qt::ItemFlags SectorTableModel::flags(const QModelIndex &index) const
@@ -245,9 +328,13 @@ void SectorCellDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
     }
 
     const QVariant stateVar = index.data(SectorTableModel::StateRole);
-    const dsk_tools::SectorType state = stateVar.isValid()
-        ? static_cast<dsk_tools::SectorType>(stateVar.toInt())
-        : dsk_tools::SectorType::Empty;
+    // Invalid state → the cell has no sector (track narrower than the grid):
+    // leave it blank rather than painting an Empty square.
+    if (!stateVar.isValid()) {
+        painter->restore();
+        return;
+    }
+    const dsk_tools::SectorType state = static_cast<dsk_tools::SectorType>(stateVar.toInt());
 
     // Centered square glyph, sized to the smaller of the available width/height
     const QRect inner = opt.rect.adjusted(1, 1, -1, -1);
@@ -286,13 +373,15 @@ ExplorerDialog::ExplorerDialog(QWidget *parent,
                                QSettings *settings,
                                const QString &file_name,
                                std::unique_ptr<dsk_tools::diskImage> image,
-                               std::unique_ptr<dsk_tools::fileSystem> filesystem)
+                               std::unique_ptr<dsk_tools::fileSystem> filesystem,
+                               std::unique_ptr<dsk_tools::StructDisk> disk_struct)
     : QDialog(parent)
     , ui(new Ui::ExplorerDialog)
     , m_settings(settings)
     , m_file_name(file_name)
     , m_image(std::move(image))
     , m_filesystem(std::move(filesystem))
+    , m_disk_struct(std::move(disk_struct))
 {
     ui->setupUi(this);
     setWindowFlags(windowFlags() | Qt::WindowMaximizeButtonHint);
@@ -313,13 +402,42 @@ ExplorerDialog::ExplorerDialog(QWidget *parent,
     ui->sectorTable->setShowGrid(false);
     ui->sectorTable->setFocusPolicy(Qt::StrongFocus);
 
-    const bool split = m_settings ? m_settings->value("explorer/split_by_heads", false).toBool() : false;
+    // Smaller font on the row/column headers so the track and sector numbers
+    // stay readable in the narrow header cells. A global QApplication stylesheet
+    // is active (see main.cpp), which makes QWidget::setFont() on the headers be
+    // ignored — so the size has to go through a widget-level stylesheet instead.
+    {
+        const QFont base = ui->sectorTable->font();
+        const int pt = base.pointSize();
+        const QString hss = (pt > 0)
+            ? QString("QHeaderView::section { font-size: %1pt; }").arg(qMax(1, pt - 2))
+            : QString("QHeaderView::section { font-size: %1px; }").arg(qMax(1, base.pixelSize() - 2));
+        ui->sectorTable->horizontalHeader()->setStyleSheet(hss);
+        ui->sectorTable->verticalHeader()->setStyleSheet(hss);
+    }
+
+    // Filesystem info is only available when a filesystem was mounted.
+    ui->fsInfoBtn->setVisible(static_cast<bool>(m_filesystem));
+
+    // "Split by heads" is only meaningful for two-head images — hide it otherwise.
+    const unsigned heads = (m_disk_struct && m_disk_struct->heads) ? m_disk_struct->heads : 1;
+    const bool two_heads = heads > 1;
+    ui->splitByHeadsCheck->setVisible(two_heads);
+
+    const bool split = two_heads && m_settings
+                           ? m_settings->value("explorer/split_by_heads", false).toBool() : false;
     ui->splitByHeadsCheck->blockSignals(true);
     ui->splitByHeadsCheck->setChecked(split);
     ui->splitByHeadsCheck->blockSignals(false);
 
-    m_model->setImage(m_image.get());
+    const bool hex = m_settings && m_settings->value("explorer/hex_numbers", false).toBool();
+    ui->hexCheck->blockSignals(true);
+    ui->hexCheck->setChecked(hex);
+    ui->hexCheck->blockSignals(false);
+
+    m_model->setDisk(m_disk_struct.get());
     m_model->setSplitByHeads(split);
+    m_model->setHexNumbers(hex);
     m_model->setOrder(ui->orderCombo->currentData().toInt() == 1
                           ? SectorTableModel::Order::Logical
                           : SectorTableModel::Order::Physical);
@@ -328,7 +446,7 @@ ExplorerDialog::ExplorerDialog(QWidget *parent,
     }
     applyColumnLayout();
 
-    ui->hexEdit->setFont(getMonospaceFont(10));
+    ui->hexEdit->setFont(getViewerFont(m_settings));
 
     updateGeometryLabel();
 
@@ -399,16 +517,20 @@ void ExplorerDialog::populateEncodings()
 
 void ExplorerDialog::updateGeometryLabel()
 {
-    if (!m_image) {
+    if (!m_model || m_model->cylinders() == 0) {
         ui->geometryLabel->setText("");
         return;
     }
+    // Sector size is taken from the first track (the structure has no global value);
+    // sector count is the widest track, since tracks may differ.
+    const unsigned sector_size = (m_disk_struct && !m_disk_struct->tracks.empty())
+                                     ? m_disk_struct->tracks.front().sector_size : 0;
     QString txt = tr("%1 tracks × %2 sectors × %3 bytes")
-                      .arg(m_image->get_tracks())
-                      .arg(m_image->get_sectors())
-                      .arg(m_image->get_sector_size());
-    if (m_image->get_heads() > 1) {
-        txt += tr(", %1 heads").arg(m_image->get_heads());
+                      .arg(m_model->cylinders())
+                      .arg(m_model->maxSectors())
+                      .arg(sector_size);
+    if (m_model->heads() > 1) {
+        txt += tr(", %1 heads").arg(m_model->heads());
     }
     ui->geometryLabel->setText(txt);
 }
@@ -416,6 +538,23 @@ void ExplorerDialog::updateGeometryLabel()
 void ExplorerDialog::on_closeBtn_clicked()
 {
     accept();
+}
+
+void ExplorerDialog::on_infoBtn_clicked()
+{
+    if (!m_image) return;
+    // The loader's image-level info text — the same description the main window
+    // used to show on F3 before this explorer replaced it. Placeholders are
+    // expanded inside infoDialog().
+    FileOperations::infoDialog(this, QString::fromStdString(m_image->file_info()));
+}
+
+void ExplorerDialog::on_fsInfoBtn_clicked()
+{
+    if (!m_filesystem) return;
+    // Same content the main window's "Filesystem Info..." menu item (Ctrl+Alt+F3)
+    // shows — placeholders are expanded inside infoDialog().
+    FileOperations::infoDialog(this, QString::fromStdString(m_filesystem->information()));
 }
 
 void ExplorerDialog::on_orderCombo_currentIndexChanged(int index)
@@ -444,6 +583,15 @@ void ExplorerDialog::on_splitByHeadsCheck_toggled(bool checked)
     updateHexView(ui->sectorTable->currentIndex());
 }
 
+void ExplorerDialog::on_hexCheck_toggled(bool checked)
+{
+    if (!m_model) return;
+    if (m_settings) m_settings->setValue("explorer/hex_numbers", checked);
+    m_model->setHexNumbers(checked);
+    // Refresh the sector info label so it switches between decimal and hex too.
+    updateHexView(ui->sectorTable->currentIndex());
+}
+
 void ExplorerDialog::applyColumnLayout()
 {
     if (!m_model) return;
@@ -463,46 +611,35 @@ void ExplorerDialog::onSectorCurrentChanged(const QModelIndex &current, const QM
 
 void ExplorerDialog::updateHexView(const QModelIndex &index)
 {
-    if (!m_image || !m_model || !index.isValid()) {
+    if (!m_model || !index.isValid()) {
         ui->hexEdit->clear();
         ui->sectorInfoLabel->setText("");
         return;
     }
 
-    unsigned head, track, sector;
-    if (!m_model->resolve(index, head, track, sector)) {
+    // The sector and its bytes both come from the structure, honouring the
+    // current physical/logical order (resolved inside sectorAt → locate).
+    unsigned head, cylinder, sector_id, sector_size;
+    const dsk_tools::StructSector *sector =
+        m_model->sectorAt(index, head, cylinder, sector_id, sector_size);
+    if (!sector) {
         ui->hexEdit->clear();
         ui->sectorInfoLabel->setText("");
         return;
     }
 
-    const auto &fmt   = m_image->get_format();
-    const unsigned sector_size = fmt.sector_size;
-
-    const uint8_t *data = nullptr;
-    if (m_model->order() == SectorTableModel::Order::Logical) {
-        data = m_image->get_sector_data(head, track, sector);
-    } else {
-        // Physical: bypass sector translation by computing the raw offset ourselves.
-        unsigned track_index = track * fmt.heads + head;
-        if (fmt.heads == 2 && !fmt.sides_interleaved) {
-            track_index = dsk_tools::diskImage::transform_index(track_index, fmt.heads * fmt.tracks - 1);
-        }
-        const unsigned sector_index = track_index * fmt.sectors + sector;
-        const unsigned offset = sector_index * sector_size;
-        const dsk_tools::BYTES *buf = m_image->get_buffer();
-        if (buf && offset + sector_size <= buf->size()) {
-            data = buf->data() + offset;
-        }
-    }
-
-    // Sector info label
-    QString info = tr("Track %1, Sector %2").arg(track).arg(sector);
-    if (m_image->get_heads() > 1) info += tr(", Head %1").arg(head);
+    // Sector info label — logical track number = cylinder * heads + head, counting both sides.
+    const unsigned heads = m_model->heads() ? m_model->heads() : 1;
+    const unsigned track = cylinder * heads + head;
+    QString info = tr("Track %1, Sector %2")
+                       .arg(m_model->formatNumber(track), m_model->formatNumber(sector_id));
     info += tr(" — %1 bytes").arg(sector_size);
     ui->sectorInfoLabel->setText(info);
 
-    if (!data) {
+    const uint8_t *data = sector->data.data();
+    // The structure always allocates sector_size bytes; clamp the dump to what is there.
+    if (sector->data.size() < sector_size) sector_size = static_cast<unsigned>(sector->data.size());
+    if (!data || sector_size == 0) {
         ui->hexEdit->setPlainText(tr("<no data>"));
         return;
     }

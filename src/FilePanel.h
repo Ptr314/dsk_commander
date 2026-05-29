@@ -155,6 +155,8 @@ public:
     void clearTableState();
     void highlight(const QString& title);
     void clearSelection() const;
+    bool getAutoChecked() const {return autoCheck->isChecked();};
+    dsk_tools::Result set_auto_combos(const std::string & file_name, std::string & format_id, std::string & type_id, std::string & filesystem_id);
 
 
 protected:

@@ -958,6 +958,20 @@ void FilePanel::onItemDoubleClicked(const QModelIndex& index) {
     FileOperations::openItem(this, this, index);
 }
 
+dsk_tools::Result FilePanel::set_auto_combos(const std::string & file_name, std::string & format_id, std::string & type_id, std::string & filesystem_id)
+{
+    const QString selected_format = filterCombo->itemData(filterCombo->currentIndex()).toString();
+
+    const auto res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
+    if (!res) return res;
+
+    setComboBoxByItemData(filterCombo, (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"");
+    setComboBoxByItemData(typeCombo, QString::fromStdString(type_id));
+    setComboBoxByItemData(fsCombo, QString::fromStdString(filesystem_id));
+
+    return dsk_tools::Result::ok();
+}
+
 dsk_tools::Result FilePanel::openImage(QString path)
 {
     // Detecting formats if necessary
@@ -969,15 +983,14 @@ dsk_tools::Result FilePanel::openImage(QString path)
     const std::string file_name = _toStdString(fileInfo.absoluteFilePath());
     const QString selected_format = filterCombo->itemData(filterCombo->currentIndex()).toString();
     if (autoCheck->isChecked()) {
-        const auto res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
-        if (!res) {
-            // QMessageBox::critical(this, FilePanel::tr("Error"), FileOperations::decodeError(res));
-            return res;
-        }
-
-        setComboBoxByItemData(filterCombo, (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"");
-        setComboBoxByItemData(typeCombo, QString::fromStdString(type_id));
-        setComboBoxByItemData(fsCombo, QString::fromStdString(filesystem_id));
+        // const auto res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id);
+        // if (!res) return res;
+        //
+        // setComboBoxByItemData(filterCombo, (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"");
+        // setComboBoxByItemData(typeCombo, QString::fromStdString(type_id));
+        // setComboBoxByItemData(fsCombo, QString::fromStdString(filesystem_id));
+        const auto res = set_auto_combos(file_name, format_id, type_id, filesystem_id);
+        if (!res) return res;
     } else {
         type_id = "";
         filesystem_id = "";

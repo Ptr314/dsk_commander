@@ -75,8 +75,12 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
             std::string filesystem_id;
             std::string format_id = panel->getSelectedFormat().toStdString();
             // Auto-detect format if necessary
-            if (format_id == "FILE_ANY") {
-                dsk_tools::Result res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+            if (panel->getAutoChecked()) {
+                const auto res = panel->set_auto_combos(file_name, format_id, type_id, filesystem_id);
+            } else {
+                if (format_id == "FILE_ANY") {
+                    dsk_tools::Result res = dsk_tools::detect_fdd_type(file_name, format_id, type_id, filesystem_id, true);
+                }
             }
             if (type_id.empty()) {
                 type_id = panel->getSelectedType().toStdString();
@@ -96,28 +100,36 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
                 return;
             }
 
-            const auto load_result = image->load();
-            if (!load_result) {
-                QMessageBox::critical(parent, FilePanel::tr("Error"), decodeError(load_result));
+            auto disk_struct = dsk_tools::make_unique<dsk_tools::StructDisk>();
+
+            const auto load_str_result = image->load_structured(*disk_struct);
+            if (!load_str_result) {
+                QMessageBox::critical(parent, FilePanel::tr("Error"), decodeError(load_str_result));
                 return;
             }
 
-            if (filesystem_id.empty()) {
-                filesystem_id = panel->getSelectedFilesystem().toStdString();
-            }
+            bool loaded_known = true;
 
-            std::unique_ptr<dsk_tools::fileSystem> fs  = dsk_tools::prepare_filesystem(image.get(), filesystem_id, panel->getDiskDefs());
-            if (fs != nullptr)
-            {
-                auto open_res = fs->open();
+            const auto load_result = image->load();
+            if (!load_result) loaded_known = false;
 
-                if (!open_res) {
-                    QMessageBox::critical(parent, FilePanel::tr("Error"), FileOperations::decodeError(open_res));
-                    return;
+            std::unique_ptr<dsk_tools::fileSystem> fs = nullptr;
+
+            if (loaded_known) {
+                if (filesystem_id.empty()) filesystem_id = panel->getSelectedFilesystem().toStdString();
+
+                fs = dsk_tools::prepare_filesystem(image.get(), filesystem_id, panel->getDiskDefs());
+                if (fs) {
+                    if (!fs->open()) loaded_known = false;
+                } else {
+                    loaded_known = false;
                 }
             }
 
-            ExplorerDialog dlg(parent, panel->getSettings(), fi.absoluteFilePath(), std::move(image), std::move(fs));
+            if (!loaded_known)
+                QMessageBox::warning(parent, FilePanel::tr("Warning"), FilePanel::tr("Unknown disk format, no filesystem details are available"));
+
+            ExplorerDialog dlg(parent, panel->getSettings(), fi.absoluteFilePath(), std::move(image), std::move(fs), std::move(disk_struct));  // disk_struct ownership transferred by pointer
             dlg.exec();
         }
     } else {
