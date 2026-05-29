@@ -25,8 +25,10 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QHeaderView>
+#include <QFontDialog>
 
 #include "mainwindow.h"
+#include "mainutils.h"
 #include "convertdialog.h"
 #include "fileparamdialog.h"
 #include "formatdialog.h"
@@ -617,6 +619,20 @@ void MainWindow::initializeMainMenu() {
 
     optionsMenu->addSeparator();
 
+    // Font submenu for viewer (dumps and text view)
+    QAction *fontAction = optionsMenu->addAction(QIcon(":/icons/font"), MainWindow::tr("Viewer font"));
+    QMenu *fontSubmenu = new QMenu(MainWindow::tr("Viewer font"), this);
+
+    optFontChoose = fontSubmenu->addAction(MainWindow::tr("Choose..."));
+    connect(optFontChoose, &QAction::triggered, this, &MainWindow::onChooseFont);
+
+    optFontDefault = fontSubmenu->addAction(MainWindow::tr("Default"));
+    connect(optFontDefault, &QAction::triggered, this, &MainWindow::onDefaultFont);
+
+    fontAction->setMenu(fontSubmenu);
+
+    optionsMenu->addSeparator();
+
     QAction *hotkeysAction = optionsMenu->addAction(QIcon(":/icons/hotkeys"), MainWindow::tr("Hotkeys..."));
     hotkeysAction->setShortcut(QKeySequence(Qt::Key_F1));
     connect(hotkeysAction, &QAction::triggered, this, &MainWindow::onHotkeys);
@@ -755,6 +771,20 @@ void MainWindow::onRestore() {
 
 void MainWindow::onExit() {
     close();
+}
+
+void MainWindow::onChooseFont() {
+    QFont current = getViewerFont(settings.get());
+    bool ok = false;
+    QFont chosen = QFontDialog::getFont(&ok, current, this, tr("Viewer font"),
+                                        QFontDialog::MonospacedFonts);
+    if (ok) {
+        settings->setValue("viewer/font", chosen.toString());
+    }
+}
+
+void MainWindow::onDefaultFont() {
+    settings->remove("viewer/font");
 }
 
 void MainWindow::onAbout() {

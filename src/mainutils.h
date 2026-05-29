@@ -10,6 +10,7 @@
 #include <QComboBox>
 #include <QFont>
 #include <QFontDatabase>
+#include <QSettings>
 
 // Qt 5.6 compatibility: QOverload was introduced in Qt 5.7
 #if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
@@ -41,6 +42,20 @@ inline QFont getMonospaceFont(int pointSize = 10) {
 #endif
     font.setPointSize(pointSize);
     return font;
+}
+
+// Returns the user-chosen viewer font if set in settings, otherwise the default monospace font.
+inline QFont getViewerFont(const QSettings *settings) {
+    if (settings) {
+        const QString stored = settings->value("viewer/font", QString()).toString();
+        if (!stored.isEmpty()) {
+            QFont font;
+            if (font.fromString(stored)) {
+                return font;
+            }
+        }
+    }
+    return getMonospaceFont(10);
 }
 
 void adjustComboBoxWidth(QComboBox* comboBox);

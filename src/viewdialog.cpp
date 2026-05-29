@@ -20,6 +20,7 @@
 #include <QHBoxLayout>
 #include <QFrame>
 #include <QVBoxLayout>
+#include <QRegularExpression>
 
 #include "viewdialog.h"
 
@@ -45,10 +46,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
 
     setWindowFlags(windowFlags() | Qt::WindowMaximizeButtonHint);
 
-    // QFont font("Iosevka Fixed", 10, 400);
-    // font.setStretch(QFont::Expanded);
-    // QFont font("Consolas", 10, 400);
-    // ui->textBox->setFont(font);
+    ui->textEdit->setFont(getViewerFont(m_settings));
 
     dsk_tools::register_all_viewers();
 
@@ -264,6 +262,11 @@ void ViewDialog::print_data()
             if (css_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 QTextStream stream(&css_file);
                 m_saved_css = stream.readAll();
+                const QFont viewerFont = getViewerFont(m_settings);
+                const QString fontOverride = QString("font-family: '%1', monospace; font-size: %2pt;")
+                                                 .arg(viewerFont.family())
+                                                 .arg(viewerFont.pointSize() > 0 ? viewerFont.pointSize() : 11);
+                m_saved_css.replace(QRegularExpression("font-family:[^;]*;\\s*font-size:[^;]*;"), fontOverride);
                 ui->textEdit->document()->setDefaultStyleSheet(m_saved_css);
                 css_file.close();
             } else {
