@@ -328,7 +328,7 @@ ExplorerDialog::ExplorerDialog(QWidget *parent,
     }
     applyColumnLayout();
 
-    ui->hexEdit->setFont(getMonospaceFont(10));
+    ui->hexEdit->setFont(getViewerFont(m_settings));
 
     updateGeometryLabel();
 
