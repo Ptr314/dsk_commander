@@ -57,6 +57,7 @@ set(PROJECT_SOURCES
         placeholders.h
         mainwindow.h                mainwindow.cpp
         viewdialog.h                viewdialog.cpp          viewdialog.ui
+        explorerdialog.h            explorerdialog.cpp      explorerdialog.ui
         convertdialog.h             convertdialog.cpp       convertdialog.ui
         fileparamdialog.h           fileparamdialog.cpp
         formatdialog.h              formatdialog.cpp

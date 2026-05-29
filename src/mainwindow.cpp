@@ -802,7 +802,7 @@ void MainWindow::onHotkeys() {
         { tr("File operations"), {
             { tr("F2"),               tr("Save modified image") },
             { tr("Ctrl+Alt+F2"),      tr("Export image to another format") },
-            { tr("F3"),               tr("View file / show image info") },
+            { tr("F3"),               tr("View file / Explore image in HEX mode") },
             { tr("Ctrl+F3"),          tr("File info inside image") },
             { tr("Ctrl+Alt+F3"),      tr("Filesystem info") },
             { tr("F4"),               tr("Open image / edit metadata") },

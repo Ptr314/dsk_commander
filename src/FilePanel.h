@@ -96,6 +96,9 @@ public:
     dsk_tools::fileSystem* getFileSystem() { return m_filesystem.get(); }
     const dsk_tools::fileSystem* getFileSystem() const { return m_filesystem.get(); }
 
+    // DiskDefs getter (needed by ExplorerDialog to prepare a disk image on demand)
+    const dsk_tools::DiskDefs& getDiskDefs() const { return m_diskdefs; }
+
     // Selection model getter (for MainWindow signal connections)
     QItemSelectionModel* tableSelectionModel() const {
         return tableView ? tableView->selectionModel() : nullptr;
@@ -130,6 +133,7 @@ public:
 
     QString getSelectedFormat() const;
     QString getSelectedType() const;
+    QString getSelectedFilesystem() const;
     dsk_tools::Files& getFiles() {return m_files;};
     dsk_tools::fileSystem* getFileSytem() {return m_filesystem.get();};
     QSettings* getSettings() {return (m_settings);};

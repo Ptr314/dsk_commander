@@ -10,6 +10,7 @@
 #include "fileparamdialog.h"
 #include "convertdialog.h"
 #include "viewdialog.h"
+#include "explorerdialog.h"
 #include "formatdialog.h"
 #include "fs_host.h"
 #include "host_helpers.h"
@@ -80,15 +81,44 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
             if (type_id.empty()) {
                 type_id = panel->getSelectedType().toStdString();
             }
-            // Create appropriate loader
-            const std::unique_ptr<dsk_tools::Loader> loader = dsk_tools::create_loader(file_name, format_id, type_id);
+            // Prepare a fully-loaded disk image for the low-level explorer
+            std::unique_ptr<dsk_tools::diskImage> image =
+                dsk_tools::prepare_image(file_name, format_id, type_id, panel->getDiskDefs());
 
-            if (!loader) {
+            if (!image) {
                 QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Not supported yet"));
                 return;
             }
-            // Display info
-            showInfoDialog(loader->file_info(), FilePanel::tr("File Info"), parent);
+
+            const auto check_result = image->check();
+            if (!check_result) {
+                QMessageBox::critical(parent, FilePanel::tr("Error"), decodeError(check_result));
+                return;
+            }
+
+            const auto load_result = image->load();
+            if (!load_result) {
+                QMessageBox::critical(parent, FilePanel::tr("Error"), decodeError(load_result));
+                return;
+            }
+
+            if (filesystem_id.empty()) {
+                filesystem_id = panel->getSelectedFilesystem().toStdString();
+            }
+
+            std::unique_ptr<dsk_tools::fileSystem> fs  = dsk_tools::prepare_filesystem(image.get(), filesystem_id, panel->getDiskDefs());
+            if (fs != nullptr)
+            {
+                auto open_res = fs->open();
+
+                if (!open_res) {
+                    QMessageBox::critical(parent, FilePanel::tr("Error"), FileOperations::decodeError(open_res));
+                    return;
+                }
+            }
+
+            ExplorerDialog dlg(parent, panel->getSettings(), fi.absoluteFilePath(), std::move(image), std::move(fs));
+            dlg.exec();
         }
     } else {
         const QModelIndex index = panel->getCurrentIndex();

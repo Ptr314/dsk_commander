@@ -1570,6 +1570,10 @@ QString FilePanel::getSelectedType() const {
     return typeCombo->itemData(typeCombo->currentIndex()).toString();
 }
 
+QString FilePanel::getSelectedFilesystem() const {
+    return fsCombo->itemData(fsCombo->currentIndex()).toString();
+}
+
 void FilePanel::storeTableState()
 {
     // qDebug() << "storeTableState";
