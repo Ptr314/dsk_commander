@@ -399,6 +399,8 @@ ExplorerDialog::ExplorerDialog(QWidget *parent,
     ui->sectorTable->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     ui->sectorTable->horizontalHeader()->setDefaultSectionSize(kDefaultSectionSize);
     ui->sectorTable->verticalHeader()->setDefaultSectionSize(kDefaultSectionSize);
+    ui->sectorTable->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
+    ui->sectorTable->verticalHeader()->setDefaultAlignment(Qt::AlignCenter);
     ui->sectorTable->setShowGrid(false);
     ui->sectorTable->setFocusPolicy(Qt::StrongFocus);
 
@@ -409,9 +411,12 @@ ExplorerDialog::ExplorerDialog(QWidget *parent,
     {
         const QFont base = ui->sectorTable->font();
         const int pt = base.pointSize();
+        // padding/margin/border are zeroed: once a QSS rule touches the section,
+        // Qt applies the CSS box model on top of the (tiny) section size, which
+        // on Qt 5.6 crops the digits. Reclaiming that space keeps them readable.
         const QString hss = (pt > 0)
-            ? QString("QHeaderView::section { font-size: %1pt; }").arg(qMax(1, pt - 2))
-            : QString("QHeaderView::section { font-size: %1px; }").arg(qMax(1, base.pixelSize() - 2));
+            ? QString("QHeaderView::section { font-size: %1pt; padding: 0px; margin: 0px; border: 0px; }").arg(qMax(1, pt - 2))
+            : QString("QHeaderView::section { font-size: %1px; padding: 0px; margin: 0px; border: 0px; }").arg(qMax(1, base.pixelSize() - 2));
         ui->sectorTable->horizontalHeader()->setStyleSheet(hss);
         ui->sectorTable->verticalHeader()->setStyleSheet(hss);
     }
