@@ -343,10 +343,16 @@
         <location filename="../explorerdialog.cpp" line="243"/>
         <location filename="../explorerdialog.cpp" line="634"/>
         <source>Track %1, Sector %2</source>
-        <translation>Дорожка: %1, Сектор: %2</translation>
+        <translation>Дорожка %1, Сектор %2</translation>
     </message>
     <message>
-        <location filename="../explorerdialog.cpp" line="248"/>
+        <location filename="../explorerdialog.cpp" line="143"/>
+        <location filename="../explorerdialog.cpp" line="501"/>
+        <source>, Head %1</source>
+        <translation>, Сторона %1</translation>
+    </message>
+    <message>
+        <location filename="../explorerdialog.cpp" line="147"/>
         <source>free</source>
         <translation>Свободен</translation>
     </message>
