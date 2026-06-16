@@ -3484,5 +3484,15 @@ Warning: This action cannot be undone!</source>
         <source>CP/M MBASIC</source>
         <translation>CP/M MBASIC</translation>
     </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/viewers/viewer_binary.h" line="18"/>
+        <source>Regular Binary</source>
+        <translation>Простой двоичный</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/viewers/agat/agat_binary.h" line="16"/>
+        <source>Agat Executable</source>
+        <translation>Агат Исполняемый</translation>
+    </message>
 </context>
 </TS>
