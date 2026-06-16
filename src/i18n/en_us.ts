@@ -2946,68 +2946,98 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="25"/>
-        <source>Korvet 800 Kb</source>
-        <translation type="unfinished"></translation>
+        <source>Atari ST::360 Kb</source>
+        <translation>Atari ST: 360 Kb</translation>
     </message>
     <message>
         <location filename="config.qml" line="26"/>
-        <source>Orion-128/PK8000 800 Kb</source>
-        <translation type="unfinished"></translation>
+        <source>Atari ST::720 Kb</source>
+        <translation>Atari ST: 720 Kb</translation>
     </message>
     <message>
         <location filename="config.qml" line="27"/>
-        <source>Vector-06C 800+ Kb</source>
+        <source>Atari ST::800 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="28"/>
-        <source>Agat/Apple DOS33</source>
+        <source>Atari ST::820 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="29"/>
-        <source>Agat Sprite OS</source>
-        <translation type="unfinished"></translation>
+        <source>Atari ST::1.44 Mb</source>
+        <translation>Atari ST: 1.44 Mb</translation>
     </message>
     <message>
         <location filename="config.qml" line="30"/>
-        <source>Single .FIL</source>
+        <source>Korvet 800 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="31"/>
-        <source>CP/M (DOS 3.3 skew)</source>
+        <source>Orion-128/PK8000 800 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="32"/>
-        <source>CP/M (ProDOS skew)</source>
+        <source>Vector-06C 820 Kb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="33"/>
-        <source>CP/M (No sector skew)</source>
+        <source>Agat/Apple DOS33</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="34"/>
-        <source>MS-DOS (FAT12)</source>
+        <source>Agat Sprite OS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="35"/>
-        <source>Agat</source>
+        <source>Single .FIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="36"/>
-        <source>Irisha</source>
+        <source>CP/M (DOS 3.3 skew)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="37"/>
+        <source>CP/M (ProDOS skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="38"/>
+        <source>CP/M (No sector skew)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="39"/>
+        <source>MS-DOS (FAT12)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="40"/>
+        <source>Agat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="41"/>
+        <source>Irisha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="42"/>
         <source>PC</source>
         <translation>IBM PC</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="43"/>
+        <source>Atari ST</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3025,72 +3055,73 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="354"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="344"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="384"/>
         <source>Invalid file size for DSK format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="416"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="446"/>
         <source>Failed to load AIM file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="426"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="456"/>
         <source>Invalid file size for NIB format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="459"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="489"/>
         <source>Unknown MFM format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="461"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="491"/>
         <source>Failed to load MFM file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="481"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="511"/>
         <source>Invalid filesystem signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="495"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="525"/>
         <source>Cannot open HFE file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="514"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="544"/>
         <source>Invalid HFE file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="535"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="565"/>
         <source>Unknown file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="781"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="811"/>
         <source>Agat 840 track decode error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="794"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="824"/>
         <source>Failed to decode Agat 840 track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="801"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="831"/>
         <source>Decoded track size mismatch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="874"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="904"/>
         <source>Agat 140 track decode error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="885"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="915"/>
         <source>Failed to decode Agat 140 track</source>
         <translation type="unfinished"></translation>
     </message>

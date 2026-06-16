@@ -2941,18 +2941,43 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="25"/>
+        <source>Atari ST::360 Kb</source>
+        <translation>Atari ST: 360 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="26"/>
+        <source>Atari ST::720 Kb</source>
+        <translation>Atari ST: 720 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="27"/>
+        <source>Atari ST::800 Kb</source>
+        <translation>Atari ST: 800 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="28"/>
+        <source>Atari ST::820 Kb</source>
+        <translation>Atari ST: 820 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="29"/>
+        <source>Atari ST::1.44 Mb</source>
+        <translation>Atari ST: 1,44 Мб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="30"/>
         <source>Korvet 800 Kb</source>
         <translation>Корвет 800 Кб</translation>
     </message>
     <message>
-        <location filename="config.qml" line="26"/>
+        <location filename="config.qml" line="31"/>
         <source>Orion-128/PK8000 800 Kb</source>
         <translation>Орион-128/ПК8000 800 Кб</translation>
     </message>
     <message>
-        <location filename="config.qml" line="27"/>
-        <source>Vector-06C 800+ Kb</source>
-        <translation>Вектор-06Ц 800+ Кб</translation>
+        <location filename="config.qml" line="43"/>
+        <source>Atari ST</source>
+        <translation>Atari ST</translation>
     </message>
     <message>
         <location filename="config.qml" line="21"/>
@@ -2975,52 +3000,57 @@ Warning: This action cannot be undone!</source>
         <translation>IBM PC: 1,44 Мб</translation>
     </message>
     <message>
-        <location filename="config.qml" line="28"/>
+        <location filename="config.qml" line="32"/>
+        <source>Vector-06C 820 Kb</source>
+        <translation>Вектор-06Ц 820 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="33"/>
         <source>Agat/Apple DOS33</source>
         <translation>Агат/Apple DOS 3.3</translation>
     </message>
     <message>
-        <location filename="config.qml" line="29"/>
+        <location filename="config.qml" line="34"/>
         <source>Agat Sprite OS</source>
         <translation>Агат ОС «Спрайт»</translation>
     </message>
     <message>
-        <location filename="config.qml" line="30"/>
+        <location filename="config.qml" line="35"/>
         <source>Single .FIL</source>
         <translation>Файл .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="31"/>
+        <location filename="config.qml" line="36"/>
         <source>CP/M (DOS 3.3 skew)</source>
         <translation>CP/M (Сектора DOS 3.3)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="32"/>
+        <location filename="config.qml" line="37"/>
         <source>CP/M (ProDOS skew)</source>
         <translation>CP/M (Сектора ProDOS)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="33"/>
+        <location filename="config.qml" line="38"/>
         <source>CP/M (No sector skew)</source>
         <translation>CP/M (Без сдвига секторов)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="34"/>
+        <location filename="config.qml" line="39"/>
         <source>MS-DOS (FAT12)</source>
         <translation>MS-DOS (FAT)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="35"/>
+        <location filename="config.qml" line="40"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="config.qml" line="36"/>
+        <location filename="config.qml" line="41"/>
         <source>Irisha</source>
         <translation>Ириша</translation>
     </message>
     <message>
-        <location filename="config.qml" line="37"/>
+        <location filename="config.qml" line="42"/>
         <source>PC</source>
         <translation>IBM PC</translation>
     </message>
@@ -3040,72 +3070,73 @@ Warning: This action cannot be undone!</source>
         <translation>Не удалось открыть файл</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="354"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="344"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="384"/>
         <source>Invalid file size for DSK format</source>
         <translation>Некорректный размер файла. Попробуйте отключить автоопределние и указать тип файла вручную</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="416"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="446"/>
         <source>Failed to load AIM file</source>
         <translation>Ошибка загрузки файла AIM</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="426"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="456"/>
         <source>Invalid file size for NIB format</source>
         <translation>Некорректный размер файла для формата NIB</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="459"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="489"/>
         <source>Unknown MFM format</source>
         <translation>Неизвестный формат MFM</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="461"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="491"/>
         <source>Failed to load MFM file</source>
         <translation>Не удалось загрузить MFM-файл</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="481"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="511"/>
         <source>Invalid filesystem signature</source>
         <translation>Некорректная сигнатура файловой системы</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="495"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="525"/>
         <source>Cannot open HFE file</source>
         <translation>Не удалось открыть файл HFE</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="514"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="544"/>
         <source>Invalid HFE file format</source>
         <translation>Некорректный формат файла HFE</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="535"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="565"/>
         <source>Unknown file format</source>
         <translation>Неизвестный формат файла</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="781"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="811"/>
         <source>Agat 840 track decode error</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="794"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="824"/>
         <source>Failed to decode Agat 840 track</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="801"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="831"/>
         <source>Decoded track size mismatch</source>
         <translation>Некорректный размер дорожки после декодирования</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="874"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="904"/>
         <source>Agat 140 track decode error</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="885"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="915"/>
         <source>Failed to decode Agat 140 track</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
     </message>

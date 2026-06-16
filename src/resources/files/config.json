@@ -5,18 +5,26 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img",
-            "types":        ["TYPE_AGAT_140",
-                            "TYPE_AGAT_840",
+            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img;*.st",
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840",
                             "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
                             "TYPE_CPM:GMD-7012",
+
                             "TYPE_FAT:PC-360",
                             "TYPE_FAT:PC-720",
                             "TYPE_FAT:PC-1200",
                             "TYPE_FAT:PC-1440",
+
+                            "TYPE_FAT:ST-360",
+                            "TYPE_FAT:ST-720",
+                            "TYPE_FAT:ST-800",
+                            "TYPE_FAT:ST-820",
+                            "TYPE_FAT:ST-1440",
+
                             "TYPE_CPM:KORVET",
                             "TYPE_CPM:ORION",
-                            "TYPE_CPM:VECTOR"]
+                            "TYPE_CPM:VECTOR"
+            ]
         },
         "FILE_AIM": {
             "order":        20,
@@ -158,6 +166,31 @@
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
+        "TYPE_FAT:ST-360": {
+            "name": "Atari ST::360 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:ST-720": {
+            "name": "Atari ST::720 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:ST-800": {
+            "name": "Atari ST::800 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:ST-820": {
+            "name": "Atari ST::820 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:ST-1440": {
+            "name": "Atari ST::1.44 Mb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
         "TYPE_CPM:KORVET": {
             "name": "Korvet 800 Kb",
             "targets": ["FILE_RAW_MSB"],
@@ -169,7 +202,7 @@
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:VECTOR": {
-            "name": "Vector-06C 800+ Kb",
+            "name": "Vector-06C 820 Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         }
