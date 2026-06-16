@@ -9,6 +9,7 @@
 #include <QHeaderView>
 #include <QUrl>
 #include <QJsonArray>
+#include <QHash>
 #include <QMessageBox>
 #include <QIcon>
 #include <QDebug>
@@ -35,6 +36,18 @@
 #include "host_helpers.h"
 
 #include "dsk_tools/dsk_tools.h"
+
+// ----------------------------------------------------------------------------
+// Drill-down type selector: data roles and item kinds
+// ----------------------------------------------------------------------------
+namespace {
+    const QString kTypeGroupDelim = QStringLiteral("::");
+    // Item data roles on typeCombo items
+    const int kTypeIdRole    = Qt::UserRole;       // leaf: type_id; group/back: empty
+    const int kTypeKindRole  = Qt::UserRole + 1;   // TypeItemKind
+    const int kTypeGroupRole = Qt::UserRole + 2;   // group name (for Group/Back rows)
+    enum TypeItemKind { KindLeaf = 0, KindGroup = 1, KindBack = 2 };
+}
 
 // ============================================================================
 // HostModel implementation
@@ -451,7 +464,7 @@ void FilePanel::setupFilters()
             this, &FilePanel::onFilterChanged);
 
     // Type & filesystem -----------------------------------------
-    typeCombo = new QComboBox(this);
+    typeCombo = new DrillDownComboBox(this);
     typeCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     typeCombo->setMinimumWidth(30);
 
@@ -472,8 +485,10 @@ void FilePanel::setupFilters()
 
     typeToolBar->addWidget(container);
 
-    connect(typeCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &FilePanel::onTypeChanged);
+    connect(typeCombo, QOverload<int>::of(&QComboBox::activated),
+            this, &FilePanel::onTypeActivated);
+    connect(typeCombo, &DrillDownComboBox::popupAboutToBeShown,
+            this, &FilePanel::onTypePopupAboutToShow);
     connect(fsCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &FilePanel::onFsChanged);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
@@ -488,7 +503,7 @@ void FilePanel::setupFilters()
     setComboBoxByItemData(filterCombo, filter_def);
     onFilterChanged(filterCombo->currentIndex());   // Doing it manually for the first time
 
-    setComboBoxByItemData(typeCombo, type_def);
+    selectType(type_def);
     setComboBoxByItemData(fsCombo, filesystem_def);
 
     autoCheck->setChecked(m_settings->value("directory/"+m_ini_label+"_auto", 1).toInt()==1);
@@ -542,17 +557,18 @@ void FilePanel::retranslateUi()
 
     // Refresh filterCombo - this will cascade to typeCombo and fsCombo
     QString savedFilter = filterCombo->currentData().toString();
+    QString savedFs = fsCombo->currentData().toString();
 
     QSignalBlocker block(filterCombo);
     populateFilterCombo();
     setComboBoxByItemData(filterCombo, savedFilter);
 
-    // Manually trigger filter change to cascade updates to type and fs combos
-    const auto current_type = typeCombo->currentIndex();
-    const auto current_fs = fsCombo->currentIndex();
+    // Rebuild type/fs combos in the new language. The type selection is
+    // preserved via m_typeSelectedId inside onFilterChanged -> selectType;
+    // restore the filesystem selection afterwards (raw indices are meaningless
+    // once the type list is hierarchical).
     onFilterChanged(filterCombo->currentIndex());
-    typeCombo->setCurrentIndex(current_type);
-    fsCombo->setCurrentIndex(current_fs);
+    setComboBoxByItemData(fsCombo, savedFs);
 }
 
 void FilePanel::setDirectory(const QString& path, bool restoreCursor) {
@@ -611,22 +627,18 @@ void FilePanel::onFilterChanged(int index)
 {
     emit activated(this);
 
-    typeCombo->clear();
     QString ff_id = filterCombo->itemData(index).toString();
     QJsonObject filter = m_file_formats[ff_id].toObject();
-    QJsonArray types = filter["types"].toArray();
-    if (types.empty()) {
-        foreach (const QJsonValue & type, m_file_types.keys()) {
-                types.append(type.toString());
-        }
-    }
-    foreach (const QJsonValue & value, types) {
-        QString type_id = value.toString();
-        QJsonObject type = m_file_types[type_id].toObject();
-        QString name = QCoreApplication::translate("config", type["name"].toString().toUtf8().constData());
 
-        typeCombo->addItem(name, type_id);
-    }
+    // Rebuild the (possibly hierarchical) type selector for this filter, then
+    // re-apply the previous selection if it is still available, otherwise fall
+    // back to the first type the filter offers.
+    rebuildTypeTopLevel();
+    const QStringList type_ids = currentFilterTypeIds();
+    if (type_ids.contains(m_typeSelectedId))
+        selectType(m_typeSelectedId);
+    else if (!type_ids.isEmpty())
+        selectType(type_ids.first());
 
     QStringList filters = filter["extensions"].toString().split(";");
     host_model->setNameFilters(filters);
@@ -635,11 +647,158 @@ void FilePanel::onFilterChanged(int index)
     m_settings->setValue("directory/"+m_ini_label+"_file_filter", ff_id);
 }
 
-void FilePanel::onTypeChanged(int index)
+QStringList FilePanel::currentFilterTypeIds() const
+{
+    QStringList result;
+    const QString ff_id = filterCombo->currentData().toString();
+    const QJsonObject filter = m_file_formats[ff_id].toObject();
+    const QJsonArray types = filter["types"].toArray();
+    if (types.empty()) {
+        const QStringList keys = m_file_types.keys();
+        for (const QString & k : keys) result.append(k);
+    } else {
+        for (const QJsonValue & v : types) result.append(v.toString());
+    }
+    return result;
+}
+
+// Raw (untranslated) config display name of a type, e.g. "Agat::140K".
+QString FilePanel::typeConfigName(const QString& type_id) const
+{
+    return m_file_types[type_id].toObject()["name"].toString();
+}
+
+// Grouping key = the part of the *untranslated* config name before "::", or an
+// empty string if the type is not part of a group. Grouping structure is taken
+// from the config name only, so it is language-independent; the translated text
+// is chosen separately when displaying.
+QString FilePanel::typeGroupKey(const QString& type_id) const
+{
+    const QString raw = typeConfigName(type_id);
+    const int pos = raw.indexOf(kTypeGroupDelim);
+    return (pos > 0) ? raw.left(pos) : QString();
+}
+
+// Fill the type combo with the first level: group rows (for keys shared by 2+
+// types) first, then ungrouped leaf rows. Groups appear at the position of their
+// first member; ungrouped types are always placed after all groups (note that
+// m_file_types is a QJsonObject, whose keys come back alphabetically sorted, so
+// this ordering must be enforced here rather than relying on config order). The
+// group row shows the translated left part; leaf rows show the translated full
+// name.
+void FilePanel::rebuildTypeTopLevel()
+{
+    QSignalBlocker block(typeCombo);
+    typeCombo->clear();
+
+    const QStringList type_ids = currentFilterTypeIds();
+
+    // Count how many types share each (untranslated) key to decide what groups.
+    QHash<QString, int> group_counts;
+    for (const QString & type_id : type_ids) {
+        const QString key = typeGroupKey(type_id);
+        if (!key.isEmpty()) group_counts[key]++;
+    }
+
+    // First pass: add group rows (once, at first appearance); defer ungrouped
+    // leaves so they always come after every group.
+    QStringList added_groups;
+    QStringList ungrouped;
+    for (const QString & type_id : type_ids) {
+        const QString key = typeGroupKey(type_id);
+
+        if (!key.isEmpty() && group_counts.value(key) >= 2) {
+            if (!added_groups.contains(key)) {
+                added_groups.append(key);
+                const QString label = QCoreApplication::translate("config", key.toUtf8().constData());
+                const int row = typeCombo->count();
+                typeCombo->addItem(label + QStringLiteral(" »"));  // "<group> »"
+                typeCombo->setItemData(row, QString(), kTypeIdRole);
+                typeCombo->setItemData(row, KindGroup, kTypeKindRole);
+                typeCombo->setItemData(row, key, kTypeGroupRole);
+            }
+        } else {
+            ungrouped.append(type_id);  // lone "::" or no delimiter
+        }
+    }
+
+    // Second pass: ungrouped leaves, showing the translated full name.
+    for (const QString & type_id : ungrouped) {
+        const QString full = QCoreApplication::translate("config", typeConfigName(type_id).toUtf8().constData());
+        const int row = typeCombo->count();
+        typeCombo->addItem(full, type_id);
+        typeCombo->setItemData(row, type_id, kTypeIdRole);
+        typeCombo->setItemData(row, KindLeaf, kTypeKindRole);
+    }
+}
+
+// Fill the type combo with a "Back" row plus the members of one group. Members
+// show the translated full name (translators decide how each language renders it;
+// the "::" delimiter is never displayed).
+void FilePanel::drillIntoTypeGroup(const QString& group)
+{
+    QSignalBlocker block(typeCombo);
+    typeCombo->clear();
+
+    int back = typeCombo->count();
+    typeCombo->addItem(QStringLiteral("← ") + tr("Back"));  // "← Back"
+    typeCombo->setItemData(back, QString(), kTypeIdRole);
+    typeCombo->setItemData(back, KindBack, kTypeKindRole);
+    typeCombo->setItemData(back, group, kTypeGroupRole);
+
+    const QStringList type_ids = currentFilterTypeIds();
+    for (const QString & type_id : type_ids) {
+        if (typeGroupKey(type_id) == group) {
+            const QString full = QCoreApplication::translate("config", typeConfigName(type_id).toUtf8().constData());
+            const int row = typeCombo->count();
+            typeCombo->addItem(full, type_id);
+            typeCombo->setItemData(row, type_id, kTypeIdRole);
+            typeCombo->setItemData(row, KindLeaf, kTypeKindRole);
+        }
+    }
+}
+
+void FilePanel::onTypePopupAboutToShow()
+{
+    // Each fresh open starts at the first level, unless we are mid-drill
+    // (programmatically reopening the popup to reveal a group's members).
+    if (m_typeDrilling) return;
+    rebuildTypeTopLevel();
+    setTypeRestingDisplay(/*relabel=*/false);  // highlight, but keep "Group »" labels
+}
+
+void FilePanel::onTypeActivated(int index)
 {
     emit activated(this);
+    if (index < 0) return;
 
-    QString type_id = typeCombo->itemData(index).toString();
+    const int kind = typeCombo->itemData(index, kTypeKindRole).toInt();
+    if (kind == KindGroup) {
+        const QString group = typeCombo->itemData(index, kTypeGroupRole).toString();
+        m_typeDrilling = true;
+        drillIntoTypeGroup(group);
+        typeCombo->showPopup();
+        m_typeDrilling = false;
+    } else if (kind == KindBack) {
+        m_typeDrilling = true;
+        rebuildTypeTopLevel();
+        setTypeRestingDisplay(/*relabel=*/false);
+        typeCombo->showPopup();
+        m_typeDrilling = false;
+    } else {
+        const QString type_id = typeCombo->itemData(index, kTypeIdRole).toString();
+        commitTypeSelection(type_id, /*user_initiated=*/true);
+    }
+}
+
+// Commit a leaf type: remember it, cascade the filesystem combo, persist, and
+// (only for genuine user changes) warn that an open image must be reopened.
+void FilePanel::commitTypeSelection(const QString& type_id, bool user_initiated)
+{
+    if (type_id.isEmpty()) return;
+
+    const bool changed = (type_id != m_typeSelectedId);
+    m_typeSelectedId = type_id;
     m_settings->setValue("directory/"+m_ini_label+"_type_filter", type_id);
 
     fsCombo->clear();
@@ -651,7 +810,54 @@ void FilePanel::onTypeChanged(int index)
         fsCombo->addItem(name, fs_id);
     }
 
-    if (mode==panelMode::Image) QMessageBox::warning(this, tr("Warning"), tr("To apply changes, you must close and reopen the image!"));
+    // The combo may currently hold a drilled-in member list; rebuild the top
+    // level so the resting display can find the row to highlight/relabel.
+    rebuildTypeTopLevel();
+    setTypeRestingDisplay();
+
+    if (user_initiated && changed && mode==panelMode::Image)
+        QMessageBox::warning(this, tr("Warning"), tr("To apply changes, you must close and reopen the image!"));
+}
+
+// Programmatically select a leaf type (used for restore / auto-detect / filter change).
+void FilePanel::selectType(const QString& type_id)
+{
+    if (type_id.isEmpty()) return;
+    commitTypeSelection(type_id, /*user_initiated=*/false);
+}
+
+// Highlight the committed selection in the top level. When relabel is true the
+// group row is relabelled with the translated full name so the closed combo
+// shows e.g. "Agat 140K"; when false the "<group> »" label is kept (popup open).
+// Assumes the top level is currently built.
+void FilePanel::setTypeRestingDisplay(bool relabel)
+{
+    if (m_typeSelectedId.isEmpty()) return;
+
+    QSignalBlocker block(typeCombo);
+
+    // Leaf row present (ungrouped, or a lone "::" type not realized as a group).
+    for (int i = 0; i < typeCombo->count(); ++i) {
+        if (typeCombo->itemData(i, kTypeKindRole).toInt() == KindLeaf
+            && typeCombo->itemData(i, kTypeIdRole).toString() == m_typeSelectedId) {
+            typeCombo->setCurrentIndex(i);
+            return;
+        }
+    }
+
+    // Grouped leaf: borrow the group row, relabel it with the translated full
+    // name. The next popup open rebuilds the top level and restores the label.
+    const QString group = typeGroupKey(m_typeSelectedId);
+    if (group.isEmpty()) return;
+    const QString full = QCoreApplication::translate("config", typeConfigName(m_typeSelectedId).toUtf8().constData());
+    for (int i = 0; i < typeCombo->count(); ++i) {
+        if (typeCombo->itemData(i, kTypeKindRole).toInt() == KindGroup
+            && typeCombo->itemData(i, kTypeGroupRole).toString() == group) {
+            if (relabel) typeCombo->setItemText(i, full);
+            typeCombo->setCurrentIndex(i);
+            return;
+        }
+    }
 }
 
 void FilePanel::onFsChanged(int index)
@@ -966,7 +1172,7 @@ dsk_tools::Result FilePanel::set_auto_combos(const std::string & file_name, std:
     if (!res) return res;
 
     setComboBoxByItemData(filterCombo, (selected_format != "FILE_ANY")?QString::fromStdString(format_id):"");
-    setComboBoxByItemData(typeCombo, QString::fromStdString(type_id));
+    selectType(QString::fromStdString(type_id));
     setComboBoxByItemData(fsCombo, QString::fromStdString(filesystem_id));
 
     return dsk_tools::Result::ok();
@@ -1001,7 +1207,7 @@ dsk_tools::Result FilePanel::openImage(QString path)
             type_id = "";
             filesystem_id = "";
         };
-        if (type_id.empty()) type_id = typeCombo->itemData(typeCombo->currentIndex()).toString().toStdString();
+        if (type_id.empty()) type_id = getSelectedType().toStdString();
         if (filesystem_id.empty()) filesystem_id = fsCombo->itemData(fsCombo->currentIndex()).toString().toStdString();
     }
 
@@ -1580,7 +1786,7 @@ QString FilePanel::getSelectedFormat() const {
 }
 
 QString FilePanel::getSelectedType() const {
-    return typeCombo->itemData(typeCombo->currentIndex()).toString();
+    return m_typeSelectedId;
 }
 
 QString FilePanel::getSelectedFilesystem() const {

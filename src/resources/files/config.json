@@ -10,13 +10,13 @@
                             "TYPE_AGAT_840",
                             "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
                             "TYPE_CPM:GMD-7012",
-                            "TYPE_CPM:KORVET",
-                            "TYPE_CPM:ORION",
-                            "TYPE_CPM:VECTOR",
                             "TYPE_FAT:PC-360",
                             "TYPE_FAT:PC-720",
                             "TYPE_FAT:PC-1200",
-                            "TYPE_FAT:PC-1440"]
+                            "TYPE_FAT:PC-1440",
+                            "TYPE_CPM:KORVET",
+                            "TYPE_CPM:ORION",
+                            "TYPE_CPM:VECTOR"]
         },
         "FILE_AIM": {
             "order":        20,
@@ -109,34 +109,54 @@
     },
     "file_types": {
         "TYPE_AGAT_840": {
-            "name": "Agat 840K",
+            "name": "Agat::840K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS"]
         },
         "TYPE_AGAT_140": {
-            "name": "Agat/Apple 140K",
+            "name": "Agat::140K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS", "FILESYSTEM_CPM_DOS", "FILESYSTEM_CPM_PRODOS", "FILESYSTEM_CPM_RAW"]
         },
         "TYPE_FIL": {
-            "name": "Agat .FIL container",
+            "name": "Agat::.FIL container",
             "targets": [],
             "filesystems": ["FILESYSTEM_FIL"]
         },
         "TYPE_CPM:IRISHA-360-INT": {
-            "name": "Irisha 360K Interleaved",
+            "name": "Irisha::360K Interleaved",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:IRISHA-360-SEQ": {
-            "name": "Irisha 360K Sequential",
+            "name": "Irisha::360K Sequential",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:GMD-7012": {
-            "name": "GMD-7012 8\" 256 Kb",
+            "name": "Irisha::GMD-7012 8\" 256 Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
+        },
+        "TYPE_FAT:PC-360": {
+            "name": "PC::360 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:PC-720": {
+            "name": "PC::720 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:PC-1200": {
+            "name": "PC::1.2 Mb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
+        },
+        "TYPE_FAT:PC-1440": {
+            "name": "PC::1.44 Mb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_CPM:KORVET": {
             "name": "Korvet 800 Kb",
@@ -152,26 +172,6 @@
             "name": "Vector-06C 800+ Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
-        },
-        "TYPE_FAT:PC-360": {
-            "name": "PC 360 Kb",
-            "targets": ["FILE_RAW_MSB"],
-            "filesystems": ["FILESYSTEM_FAT"]
-        },
-        "TYPE_FAT:PC-720": {
-            "name": "PC 720 Kb",
-            "targets": ["FILE_RAW_MSB"],
-            "filesystems": ["FILESYSTEM_FAT"]
-        },
-        "TYPE_FAT:PC-1200": {
-            "name": "PC 1.2 Mb",
-            "targets": ["FILE_RAW_MSB"],
-            "filesystems": ["FILESYSTEM_FAT"]
-        },
-        "TYPE_FAT:PC-1440": {
-            "name": "PC 1.44 Mb",
-            "targets": ["FILE_RAW_MSB"],
-            "filesystems": ["FILESYSTEM_FAT"]
         }
     },
     "file_systems": {

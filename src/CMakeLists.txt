@@ -38,11 +38,12 @@ set(TS_FILES
 
 # Добавляем строки из файла конфигурации в файлы для перевода
 set(JSON_FILE ${CMAKE_SOURCE_DIR}/resources/files/config.json)
+set(EXTRACT_SCRIPT ${CMAKE_SOURCE_DIR}/../.build/extract_json.py)
 set(QML_OUTPUT ${CMAKE_SOURCE_DIR}/i18n/config.qml)
 add_custom_command(
     OUTPUT ${QML_OUTPUT}
-    COMMAND python ${CMAKE_SOURCE_DIR}/../.build/extract_json.py ${JSON_FILE} ${QML_OUTPUT}
-    DEPENDS ${JSON_FILE}
+    COMMAND python ${EXTRACT_SCRIPT} ${JSON_FILE} ${QML_OUTPUT}
+    DEPENDS ${JSON_FILE} ${EXTRACT_SCRIPT}
 )
 add_custom_target(update_translations
     COMMAND Qt::lupdate ${CMAKE_SOURCE_DIR} ${QML_OUTPUT} -ts ${TS_FILES} -noobsolete
@@ -102,16 +103,18 @@ foreach(FILE ${QT_TRANSLATION_FILES})
 endforeach()
 file(APPEND ${CMAKE_BINARY_DIR}/qt_base.qrc "  </qresource>\n</RCC>\n")
 
-set(RESOURCE_FILES
-    resources.qrc
-    ${CMAKE_BINARY_DIR}/qt_base.qrc
-)
-
 # Собираем в зависимости от версии Qt
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    QT6_ADD_RESOURCES(PROJECT_RESOURCES
-        ${RESOURCE_FILES}
-    )
+    QT6_ADD_RESOURCES(MAIN_RESOURCES resources.qrc)
+    QT6_ADD_RESOURCES(QTBASE_RESOURCES ${CMAKE_BINARY_DIR}/qt_base.qrc)
+
+    # config.json is embedded via resources.qrc. The .qrc macro form does not
+    # track the *contents* of the listed files, so editing config.json alone
+    # would not re-run rcc. Append it as an explicit dependency of the rcc step.
+    add_custom_command(OUTPUT ${MAIN_RESOURCES} APPEND DEPENDS ${JSON_FILE})
+
+    set(PROJECT_RESOURCES ${MAIN_RESOURCES} ${QTBASE_RESOURCES})
+
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
@@ -139,10 +142,13 @@ else()
 
     file(APPEND ${QRC_FILE} "    </qresource>\n</RCC>\n")
 
-    qt5_add_resources(PROJECT_RESOURCES
-        ${RESOURCE_FILES}
-        ${QRC_FILE}
-    )
+    qt5_add_resources(MAIN_RESOURCES resources.qrc)
+    qt5_add_resources(OTHER_RESOURCES ${CMAKE_BINARY_DIR}/qt_base.qrc ${QRC_FILE})
+
+    # See the Qt6 branch: force rcc to re-run when config.json changes.
+    add_custom_command(OUTPUT ${MAIN_RESOURCES} APPEND DEPENDS ${JSON_FILE})
+
+    set(PROJECT_RESOURCES ${MAIN_RESOURCES} ${OTHER_RESOURCES})
 
     add_executable(${PROJECT_NAME}
         ${PROJECT_SOURCES}

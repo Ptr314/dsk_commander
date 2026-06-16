@@ -26,6 +26,19 @@ QT_END_NAMESPACE
 
 enum class panelMode {Host, Image};
 
+// A QComboBox that emits a signal just before its popup is shown, so the owner
+// can rebuild the item list on demand. Used by the two-level (drill-down) type
+// selector to reset to the first level on every fresh open. showPopup() is
+// virtual on both Qt 5 and Qt 6, so this is fully compatible.
+class DrillDownComboBox : public QComboBox {
+    Q_OBJECT
+public:
+    using QComboBox::QComboBox;
+    void showPopup() override { emit popupAboutToBeShown(); QComboBox::showPopup(); }
+signals:
+    void popupAboutToBeShown();
+};
+
 class HostModel : public QStandardItemModel {
     Q_OBJECT
 public:
@@ -170,7 +183,8 @@ signals:
 
 private slots:
     void onFilterChanged(int index);
-    void onTypeChanged(int index);
+    void onTypeActivated(int index);
+    void onTypePopupAboutToShow();
     void onFsChanged(int index);
     void onAutoChanged(Qt::CheckState checked);
     void onPathEntered();
@@ -185,7 +199,7 @@ private:
     QToolBar* typeToolBar {nullptr};
     FileTable* tableView {nullptr};
     QComboBox* filterCombo {nullptr};
-    QComboBox* typeCombo {nullptr};
+    DrillDownComboBox* typeCombo {nullptr};
     QComboBox* fsCombo {nullptr};
     QCheckBox* autoCheck {nullptr};
     QToolButton* dirButton {nullptr};
@@ -200,6 +214,12 @@ private:
     QStringList m_directoryHistory;
 
     QString currentPath;
+
+    // Drill-down type selector state. m_typeSelectedId is the authoritative
+    // committed leaf type_id (the visible combo contents change while drilling).
+    QString m_typeSelectedId;
+    bool m_typeDrilling {false};
+
     panelMode mode {panelMode::Host};
     bool m_show_deleted {true};  // Default to showing deleted files
 
@@ -238,6 +258,18 @@ private:
     bool eventFilter(QObject* obj, QEvent* ev) override;
 
     static void setComboBoxByItemData(QComboBox* comboBox, const QVariant& value);
+
+    // Two-level (drill-down) type selector helpers. Types whose display name
+    // contains "::" are grouped by the part left of the delimiter.
+    void rebuildTypeTopLevel();                         // fill combo with groups + ungrouped leaves
+    void drillIntoTypeGroup(const QString& group);      // fill combo with "Back" + members of a group
+    void commitTypeSelection(const QString& type_id, bool user_initiated = false);   // commit a leaf: cascade fsCombo, save, warn
+    void setTypeRestingDisplay(bool relabel = true);    // highlight the selection; relabel group row to full name when closed
+    void selectType(const QString& type_id);            // programmatically select a leaf type
+    QStringList currentFilterTypeIds() const;           // type_id list for the active extensions filter
+    QString typeConfigName(const QString& type_id) const;  // raw (untranslated) config name
+    QString typeGroupKey(const QString& type_id) const;    // raw left part before "::", or empty (grouping key)
+
     void processImage(const std::string &filesystem_type);
     void updateTable();
     void setMode(panelMode new_mode);
