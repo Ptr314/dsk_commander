@@ -5,17 +5,13 @@
     <name>About</name>
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_aboutdlg.h" line="147"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
         <translation>Копирайт</translation>
     </message>
@@ -24,121 +20,91 @@
     <name>ConvertDialog</name>
     <message>
         <location filename="../convertdialog.ui" line="24"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation>Преобразовать</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation>Выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation>Формат выходного файла</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation>Имя выходного файла</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation>Выбрать выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation>Выбрать директорию</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation>Подстановка треков</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation>Использовать</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation>Количество треков</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation>трек(ов) из файла-образца</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation>Выбрать файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation>Выберите файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation>Выберите выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation>Выберите файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation>Имя файла-образца</translation>
     </message>
@@ -199,82 +165,62 @@
     <name>ExplorerDialog</name>
     <message>
         <location filename="../explorerdialog.ui" line="14"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="213"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="212"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="212"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="212"/>
         <location filename="../explorerdialog.cpp" line="388"/>
         <source>Image Explorer</source>
         <translation>Просмотр образа</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="72"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="216"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="215"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="215"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="215"/>
         <source>Sector order</source>
         <translation>Порядок секторов</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="95"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="219"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="218"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="218"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="218"/>
         <source>Show each head on its own row (rows labeled TRACK:HEAD)</source>
         <translation>Показывать каждую сторону на отдельной строке (Строки обозначаются Дорожка:Сторона)</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="98"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="221"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="220"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="220"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="220"/>
         <source>Split by heads</source>
         <translation>Разбивать по сторонам</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="105"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="223"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="222"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="222"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="222"/>
         <source>Show track and sector numbers in hexadecimal</source>
         <translation>Показывать номер дорожки и сектора как HEX</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="108"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="225"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="224"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="224"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="224"/>
         <source>HEX</source>
         <translation>HEX</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="135"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="227"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="226"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="226"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="226"/>
         <source>Filesystem information</source>
         <translation>Информация о файловой системе</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="155"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="231"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="230"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="230"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="230"/>
         <source>Image information</source>
         <translation>Информация об образе</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="251"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="236"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="235"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="235"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="235"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="278"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_explorerdialog.h" line="238"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="237"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="237"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="237"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -409,9 +355,7 @@
     <name>FileInfo</name>
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_fileinfodialog.h" line="79"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
         <translation>Информация о файле</translation>
     </message>
@@ -2471,93 +2415,69 @@ Warning: This action cannot be undone!</source>
     <name>ViewDialog</name>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="356"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="75"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="359"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
         <source>View mode</source>
         <translation>Режим просмотра</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="123"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="363"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
         <source>Subtype</source>
         <translation>Вариант</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="186"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="366"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <source>File info</source>
         <translation>О файле</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="232"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <source>Copy text to clipboard</source>
         <translation>Копировать в буфер обмена</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="235"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="252"/>
         <location filename="../viewdialog.ui" line="255"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <source>Save to file</source>
         <translation>Сохранить в файл</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="281"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="380"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation>Удаленный файл. Данные могут быть неверны.</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="212"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <source>Info</source>
         <translation>Информация</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="301"/>
-        <location filename="../cmake-build-qt-5.6.3-mingw_492/DISKCommander_autogen/include/ui_viewdialog.h" line="381"/>
-        <location filename="../cmake-build-qt-6.10.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
-        <location filename="../cmake-build-qt-6.10.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -2848,6 +2768,14 @@ Warning: This action cannot be undone!</source>
     </message>
 </context>
 <context>
+    <name>attributes</name>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_iskra226.cpp" line="51"/>
+        <source>Tokenized</source>
+        <translation>Упакованный</translation>
+    </message>
+</context>
+<context>
     <name>config</name>
     <message>
         <location filename="config.qml" line="3"/>
@@ -2975,7 +2903,17 @@ Warning: This action cannot be undone!</source>
         <translation>Орион-128/ПК8000 800 Кб</translation>
     </message>
     <message>
-        <location filename="config.qml" line="43"/>
+        <location filename="config.qml" line="33"/>
+        <source>Iskra-226 8&quot; 256 Kb</source>
+        <translation>Искра-226 8&quot; 256 Кб</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="41"/>
+        <source>Iskra-226</source>
+        <translation>Искра-226</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="45"/>
         <source>Atari ST</source>
         <translation>Atari ST</translation>
     </message>
@@ -3005,52 +2943,52 @@ Warning: This action cannot be undone!</source>
         <translation>Вектор-06Ц 820 Кб</translation>
     </message>
     <message>
-        <location filename="config.qml" line="33"/>
+        <location filename="config.qml" line="34"/>
         <source>Agat/Apple DOS33</source>
         <translation>Агат/Apple DOS 3.3</translation>
     </message>
     <message>
-        <location filename="config.qml" line="34"/>
+        <location filename="config.qml" line="35"/>
         <source>Agat Sprite OS</source>
         <translation>Агат ОС «Спрайт»</translation>
     </message>
     <message>
-        <location filename="config.qml" line="35"/>
+        <location filename="config.qml" line="36"/>
         <source>Single .FIL</source>
         <translation>Файл .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="36"/>
+        <location filename="config.qml" line="37"/>
         <source>CP/M (DOS 3.3 skew)</source>
         <translation>CP/M (Сектора DOS 3.3)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="37"/>
+        <location filename="config.qml" line="38"/>
         <source>CP/M (ProDOS skew)</source>
         <translation>CP/M (Сектора ProDOS)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="38"/>
+        <location filename="config.qml" line="39"/>
         <source>CP/M (No sector skew)</source>
         <translation>CP/M (Без сдвига секторов)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="39"/>
+        <location filename="config.qml" line="40"/>
         <source>MS-DOS (FAT12)</source>
         <translation>MS-DOS (FAT)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="40"/>
+        <location filename="config.qml" line="42"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="config.qml" line="41"/>
+        <location filename="config.qml" line="43"/>
         <source>Irisha</source>
         <translation>Ириша</translation>
     </message>
     <message>
-        <location filename="config.qml" line="42"/>
+        <location filename="config.qml" line="44"/>
         <source>PC</source>
         <translation>IBM PC</translation>
     </message>
@@ -3058,7 +2996,7 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>errors</name>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="292"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="296"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="36"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_fil.cpp" line="23"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="27"/>
@@ -3070,73 +3008,73 @@ Warning: This action cannot be undone!</source>
         <translation>Не удалось открыть файл</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="344"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="384"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="348"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="388"/>
         <source>Invalid file size for DSK format</source>
         <translation>Некорректный размер файла. Попробуйте отключить автоопределние и указать тип файла вручную</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="446"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="450"/>
         <source>Failed to load AIM file</source>
         <translation>Ошибка загрузки файла AIM</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="456"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="460"/>
         <source>Invalid file size for NIB format</source>
         <translation>Некорректный размер файла для формата NIB</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="489"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="493"/>
         <source>Unknown MFM format</source>
         <translation>Неизвестный формат MFM</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="491"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="495"/>
         <source>Failed to load MFM file</source>
         <translation>Не удалось загрузить MFM-файл</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="511"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="515"/>
         <source>Invalid filesystem signature</source>
         <translation>Некорректная сигнатура файловой системы</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="525"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="529"/>
         <source>Cannot open HFE file</source>
         <translation>Не удалось открыть файл HFE</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="544"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="548"/>
         <source>Invalid HFE file format</source>
         <translation>Некорректный формат файла HFE</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="565"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="569"/>
         <source>Unknown file format</source>
         <translation>Неизвестный формат файла</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="811"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="815"/>
         <source>Agat 840 track decode error</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="824"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="828"/>
         <source>Failed to decode Agat 840 track</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="831"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="835"/>
         <source>Decoded track size mismatch</source>
         <translation>Некорректный размер дорожки после декодирования</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="904"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="908"/>
         <source>Agat 140 track decode error</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="915"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="919"/>
         <source>Failed to decode Agat 140 track</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
     </message>
@@ -3345,12 +3283,19 @@ Warning: This action cannot be undone!</source>
         <translation>Сектор уже занят</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="74"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="59"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="70"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="80"/>
+        <source>Incorrect file entry</source>
+        <translation>Некорректная информация о файле</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="89"/>
         <source>Unknown DIR_ENTRY.LEVEL value</source>
         <translation>Неизвестное значение DIR_ENTRY.LEVEL</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="79"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="95"/>
         <source>File is smaller than expected</source>
         <translation>Размер файла меньше необходимого</translation>
     </message>
