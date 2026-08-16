@@ -1,0 +1,43 @@
+body {
+    font-family: 'Consolas', monospace;
+    font-size: 11pt;
+    white-space: pre-wrap;
+    background-color: #232629;
+    color: #e6e6e6;
+}
+
+.line {
+    margin: 0;
+}
+
+.line-number {
+    color: #9aa0a6;
+}
+
+.variable {
+    color: #6ec06e;
+}
+
+.token {
+    color: #7aa2f7;
+}
+
+.rem {
+    background-color: #3a3f44;
+}
+
+.string {
+    color: #d79fd0;
+}
+
+.number {
+    color: #e88b8b;
+}
+
+.asm {
+    color: #6fc3e8;
+}
+
+.asm-label {
+    color: #d3b25a;
+}

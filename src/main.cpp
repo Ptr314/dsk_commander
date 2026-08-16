@@ -6,10 +6,8 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include <QFile>
 #include <QIcon>
 #include <QLocale>
-#include <QTextStream>
 #include <QTranslator>
 
 int main(int argc, char *argv[])
@@ -22,13 +20,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setWindowIcon(QIcon(":/icons/icon"));
 
-    // Load global stylesheet
-    QFile styleFile(":/files/stylesheet");
-    if (styleFile.open(QFile::ReadOnly)) {
-        QString style = QLatin1String(styleFile.readAll());
-        a.setStyleSheet(style);
-        styleFile.close();
-    }
+    // The global stylesheet is installed by ThemeManager (see MainWindow),
+    // which picks the light or the dark variant.
 
     MainWindow w;
     w.show();

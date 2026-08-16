@@ -8,6 +8,7 @@
 
 #include "mainutils.h"
 #include "FileOperations.h"
+#include "thememanager.h"
 
 #include <QHeaderView>
 #include <QPainter>
@@ -349,8 +350,10 @@ void SectorCellDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
         case dsk_tools::SectorType::System:      fill = QColor(0x4a, 0x6f, 0xc8); break;  // steel blue
         case dsk_tools::SectorType::Catalog:     fill = QColor(0xc0, 0x6a, 0xd0); break;  // orchid
         case dsk_tools::SectorType::File:        fill = QColor(0x6c, 0xa6, 0x4c); break;  // apple green (lighter than Ok)
-        case dsk_tools::SectorType::DeletedFile: fill = QColor(0xa7, 0xb8, 0x9d); break;  // gray-leaning sage (~⅔ Empty, ⅓ File)
-        case dsk_tools::SectorType::Empty:       fill = QColor(0xc0, 0xc0, 0xc0); break;  // light gray
+        // The two pale shades would glare on a dark background, so they are
+        // darkened there; the saturated ones read well in both schemes.
+        case dsk_tools::SectorType::DeletedFile: fill = themeIsDark() ? QColor(0x5c, 0x69, 0x54) : QColor(0xa7, 0xb8, 0x9d); break;  // gray-leaning sage (~⅔ Empty, ⅓ File)
+        case dsk_tools::SectorType::Empty:       fill = themeIsDark() ? QColor(0x55, 0x55, 0x55) : QColor(0xc0, 0xc0, 0xc0); break;  // light gray
     }
     painter->fillRect(square, fill);
 

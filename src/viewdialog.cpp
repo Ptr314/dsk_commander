@@ -27,6 +27,7 @@
 #include "FileOperations.h"
 #include "mainutils.h"
 #include "placeholders.h"
+#include "thememanager.h"
 #include "ui_viewdialog.h"
 #include "host_helpers.h"
 
@@ -258,7 +259,7 @@ void ViewDialog::print_data()
             auto cm_name = ui->encodingCombo->currentData().toString().toStdString();
             auto out = m_viewer->process_as_text(m_data, cm_name);
 
-            QFile css_file(":/files/basic.css");
+            QFile css_file(themeIsDark() ? ":/files/basic_dark.css" : ":/files/basic.css");
             if (css_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 QTextStream stream(&css_file);
                 m_saved_css = stream.readAll();
@@ -1036,7 +1037,11 @@ void ViewDialog::onInfoButtonClicked(QToolButton* button, const std::string& sel
         // Create a small popup frame window
         QFrame* popupFrame = new QFrame();
         popupFrame->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint);
-        popupFrame->setStyleSheet("QFrame { background-color: #f0f0f0; border: 1px solid #999999; border-radius: 4px; }");
+        const QPalette popupPalette = palette();
+        popupFrame->setStyleSheet(
+            QString("QFrame { background-color: %1; border: 1px solid %2; border-radius: 4px; }")
+                .arg(popupPalette.color(QPalette::Window).name())
+                .arg(popupPalette.color(QPalette::Mid).name()));
 
         // Create layout with a label
         QVBoxLayout* layout = new QVBoxLayout(popupFrame);
@@ -1049,7 +1054,9 @@ void ViewDialog::onInfoButtonClicked(QToolButton* button, const std::string& sel
         infoLabel->setFont(font);
         infoLabel->setWordWrap(true);
         infoLabel->setMaximumWidth(300);
-        infoLabel->setStyleSheet("QLabel { color: #000000; font-size: 14px; }");
+        infoLabel->setStyleSheet(
+            QString("QLabel { color: %1; font-size: 14px; }")
+                .arg(popupPalette.color(QPalette::WindowText).name()));
         // infoLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
         layout->addWidget(infoLabel);

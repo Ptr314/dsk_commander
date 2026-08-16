@@ -49,6 +49,8 @@
         <file alias="config">resources/files/config.json</file>
         <file alias="diskdefs">libs/dsk_tools/src/diskdefs</file>
         <file alias="basic.css">resources/files/basic.css</file>
+        <file alias="basic_dark.css">resources/files/basic_dark.css</file>
         <file alias="stylesheet">resources/files/stylesheet.qss</file>
+        <file alias="stylesheet_dark">resources/files/stylesheet_dark.qss</file>
     </qresource>
 </RCC>

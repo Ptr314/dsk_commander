@@ -1,0 +1,70 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+/* Copyright (C) 2025-2026 Mikhail Revzin <p3.141592653589793238462643@gmail.com> */
+/* Dark counterpart of stylesheet.qss — keep both files in sync rule by rule */
+
+QLineEdit, QTextEdit, QComboBox {
+    background-color: #232629;
+    color: #e6e6e6;
+    border: 1px solid #4a4f55;
+    border-radius: 3px;
+    padding: 2px 6px;
+    selection-background-color: #2a82da;
+}
+
+QComboBox:focus, QToolButton:focus {
+    border: 1px solid #3498db;
+}
+
+QToolButton {
+    background-color: transparent;
+    color: #e6e6e6;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 2px;
+    text-align: left;
+}
+
+QToolButton#dirButton {
+    padding-right: 10px;
+}
+
+QToolButton:hover {
+    background-color: #3b4045;
+    border: 1px solid #4a4f55;
+}
+
+QToolButton:pressed,
+QToolButton:checked {
+    background-color: #2a82da;
+    color: #ffffff;
+    border: 1px solid #3498db;
+}
+
+QToolButton:disabled {
+    color: #6f757b;
+}
+
+QToolButton::menu-button {
+    subcontrol-position: right center;
+    subcontrol-origin: padding;
+    width: 10px;
+    background-color: transparent;
+}
+
+QToolButton#closeBtn, QToolButton#bottomBtn {
+    border: 1px solid #4a4f55;
+    border-radius: 3px;
+}
+
+QToolButton#closeBtn:hover, QToolButton#bottomBtn:hover {
+    background-color: #3b4045;
+    border: 1px solid #3498db;
+}
+
+QToolButton::menu-button:hover {
+    background-color: #4a4f55;
+}
+
+QFrame[frameShape="5"] {
+    color: #55595e;
+}

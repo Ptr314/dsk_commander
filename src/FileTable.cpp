@@ -15,6 +15,23 @@
 
 #include "FileTable.h"
 #include "definitions.h"
+#include "thememanager.h"
+
+// ============================================================================
+// Theme-dependent colours
+// ============================================================================
+
+// Background of the row under the cursor in the active panel.
+static QColor currentRowColor()
+{
+    return themeIsDark() ? QColor(0x2c, 0x52, 0x79) : QColor(204, 232, 255);
+}
+
+// Text colour of selected (marked) files — Norton Commander style.
+static QColor selectedFileColor()
+{
+    return themeIsDark() ? QColor(0xff, 0x7b, 0x72) : QColor(255, 0, 0);
+}
 
 // ============================================================================
 // Debug logging configuration
@@ -73,7 +90,7 @@ void CurrentRowDelegate::paint(QPainter* painter, const QStyleOptionViewItem& op
 
         // Background - only show blue highlight for current row if table is active
         if (isCurrentRow && isTableActive) {
-            painter->fillRect(option.rect, QColor(204, 232, 255));
+            painter->fillRect(option.rect, currentRowColor());
         } else {
             // Restore alternating row colors for even/odd rows
             QColor bgColor;
@@ -89,7 +106,7 @@ void CurrentRowDelegate::paint(QPainter* painter, const QStyleOptionViewItem& op
 
         // Text - selected items always show in red, regardless of active state
         if (isSelected)
-            painter->setPen(QColor(255, 0, 0, 255));
+            painter->setPen(selectedFileColor());
         else
             painter->setPen(option.palette.color(QPalette::Text));
 
@@ -167,25 +184,7 @@ FileTable::FileTable(QWidget* parent)
     // Disable the default focus frame completely
     setFocusPolicy(Qt::StrongFocus);
 
-    // Qt 6.10's Windows 11 style paints a selection accent (a narrow vertical bar
-    // in the system accent color) at the left of each cell of selected rows. The
-    // bar is drawn from QPalette::Accent and QPalette::Highlight, not from the
-    // QSS background rule, so QSS overrides alone don't suppress it. Zero out
-    // both palette roles on this widget so the native style has no accent color
-    // to paint with; the custom delegate is fully responsible for selection look.
-    {
-        QPalette pal = palette();
-        const QColor noColor(0, 0, 0, 0);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
-        pal.setColor(QPalette::Active,   QPalette::Accent, noColor);
-        pal.setColor(QPalette::Inactive, QPalette::Accent, noColor);
-        pal.setColor(QPalette::Disabled, QPalette::Accent, noColor);
-#endif
-        pal.setColor(QPalette::Active,   QPalette::Highlight, noColor);
-        pal.setColor(QPalette::Inactive, QPalette::Highlight, noColor);
-        pal.setColor(QPalette::Disabled, QPalette::Highlight, noColor);
-        setPalette(pal);
-    }
+    applyPaletteOverrides();
 
     setStyleSheet(
         // "QTableView { outline: none; }"
@@ -209,6 +208,41 @@ FileTable::FileTable(QWidget* parent)
 
     // Connect to current index changes to repaint affected rows
     reconnectSelectionModel();
+}
+
+void FileTable::applyPaletteOverrides() {
+    // Qt 6.10's Windows 11 style paints a selection accent (a narrow vertical bar
+    // in the system accent color) at the left of each cell of selected rows. The
+    // bar is drawn from QPalette::Accent and QPalette::Highlight, not from the
+    // QSS background rule, so QSS overrides alone don't suppress it. Zero out
+    // both palette roles on this widget so the native style has no accent color
+    // to paint with; the custom delegate is fully responsible for selection look.
+    //
+    // Start from palette(), never from QApplication::palette(): only the roles
+    // touched here must end up marked as explicitly set on the widget. A fully
+    // resolved palette would pin every role and freeze the table at the color
+    // scheme that was active when it was built.
+    QPalette pal = palette();
+    const QColor noColor(0, 0, 0, 0);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
+    pal.setColor(QPalette::Active,   QPalette::Accent, noColor);
+    pal.setColor(QPalette::Inactive, QPalette::Accent, noColor);
+    pal.setColor(QPalette::Disabled, QPalette::Accent, noColor);
+#endif
+    pal.setColor(QPalette::Active,   QPalette::Highlight, noColor);
+    pal.setColor(QPalette::Inactive, QPalette::Highlight, noColor);
+    pal.setColor(QPalette::Disabled, QPalette::Highlight, noColor);
+    setPalette(pal);
+}
+
+void FileTable::changeEvent(QEvent* ev) {
+    QTableView::changeEvent(ev);
+
+    // Qt re-resolves the unset roles from the new application palette by itself;
+    // the delegate colors, however, are picked in code and need a repaint.
+    if (ev->type() == QEvent::ApplicationPaletteChange || ev->type() == QEvent::PaletteChange) {
+        viewport()->update();
+    }
 }
 
 void FileTable::setupForHostMode() {

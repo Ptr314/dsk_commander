@@ -1894,6 +1894,31 @@ Warning: This action cannot be undone!</source>
         <translation>Языки</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="583"/>
+        <source>Theme</source>
+        <translation>Цветовая тема</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="584"/>
+        <source>Themes</source>
+        <translation>Темы</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="593"/>
+        <source>System</source>
+        <translation>Системная</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="594"/>
+        <source>Light</source>
+        <translation>Светлая</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="595"/>
+        <source>Dark</source>
+        <translation>Тёмная</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="569"/>
         <source>Русский</source>
         <translation>Русский</translation>

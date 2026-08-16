@@ -62,6 +62,9 @@ protected:
     // Override event filter to implement custom selection behavior
     bool eventFilter(QObject* obj, QEvent* ev) override;
 
+    // Re-applies the palette overrides when the application palette changes
+    void changeEvent(QEvent* ev) override;
+
 private slots:
     // Handle current index changes to repaint affected rows
     void onCurrentIndexChanged(const QModelIndex& current, const QModelIndex& previous);
@@ -89,6 +92,9 @@ private:
 
     // Helper to check if a row is the parent directory entry
     bool isParentDirEntry(int row) const;
+
+    // Suppresses the native selection accent, based on the current app palette
+    void applyPaletteOverrides();
 
     // Debug logging helper
     void logSelectionState(const QString& context);

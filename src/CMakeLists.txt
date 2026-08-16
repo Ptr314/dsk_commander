@@ -64,6 +64,7 @@ set(PROJECT_SOURCES
         formatdialog.h              formatdialog.cpp
         FilePanel.cpp               FilePanel.h
         FileTable.cpp               FileTable.h
+        thememanager.cpp            thememanager.h
         aboutdlg.ui
         fileinfodialog.ui
         resources/files/config.json
@@ -120,6 +121,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         ${PROJECT_RESOURCES}
         resources/files/basic.css
+        resources/files/basic_dark.css
+        resources/files/stylesheet.qss
+        resources/files/stylesheet_dark.qss
     )
 
     qt_add_translations(${PROJECT_NAME} TS_FILES

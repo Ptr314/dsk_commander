@@ -33,6 +33,7 @@
 #include "fileparamdialog.h"
 #include "formatdialog.h"
 #include "FileOperations.h"
+#include "thememanager.h"
 
 #include "./ui_aboutdlg.h"
 #include "./ui_fileinfodialog.h"
@@ -89,6 +90,10 @@ MainWindow::MainWindow(QWidget *parent)
     // Register callback for dsk_tools library to check recycle bin setting
     g_mainwindow_settings = settings.get();
     dsk_tools::fsHost::use_recycle_bin = check_use_recycle_bin;
+
+    // Colour theme has to be in place before any widget is created, so that
+    // they are built with the final palette.
+    ThemeManager::instance().initialize(settings.get());
 
     QString ini_lang = settings->value("interface/language", "").toString();
     if (ini_lang.length() == 0) {
@@ -170,6 +175,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Initialize new menu system
     initializeMainMenu();
+
+    // Repaint the panels when the colour scheme changes: their delegates pick
+    // colours per theme, and a stylesheet swap alone does not invalidate them.
+    connect(&ThemeManager::instance(), &ThemeManager::themeChanged, this, [this](bool) {
+        if (leftPanel) leftPanel->update();
+        if (rightPanel) rightPanel->update();
+        update();
+    });
 
     // Connect panel sorting signals to update menu checkmarks
     connect(leftPanel, &FilePanel::sortOrderChanged, this, [this]() {
@@ -578,6 +591,37 @@ void MainWindow::initializeMainMenu() {
 
     langAction->setMenu(langSubmenu);
 
+    // Theme submenu (only meaningful on Qt versions that can switch schemes)
+    if (ThemeManager::isSupported()) {
+        QAction *themeAction = optionsMenu->addAction(QIcon(":/icons/palette"), MainWindow::tr("Theme"));
+        QMenu *themeSubmenu = new QMenu(MainWindow::tr("Themes"), this);
+
+        QActionGroup *themeGroup = new QActionGroup(themeSubmenu);
+        themeGroup->setExclusive(true);
+
+        const ThemeManager::Mode currentTheme = ThemeManager::instance().mode();
+
+        struct ThemeEntry { ThemeManager::Mode mode; QString title; };
+        const std::vector<ThemeEntry> themes = {
+            { ThemeManager::Mode::System, MainWindow::tr("System") },
+            { ThemeManager::Mode::Light,  MainWindow::tr("Light")  },
+            { ThemeManager::Mode::Dark,   MainWindow::tr("Dark")   },
+        };
+
+        for (const auto &t : themes) {
+            QAction *act = themeSubmenu->addAction(t.title);
+            act->setCheckable(true);
+            act->setChecked(currentTheme == t.mode);
+            act->setActionGroup(themeGroup);
+            const ThemeManager::Mode mode = t.mode;
+            connect(act, &QAction::triggered, this, [mode]() {
+                ThemeManager::instance().setMode(mode);
+            });
+        }
+
+        themeAction->setMenu(themeSubmenu);
+    }
+
     optionsMenu->addSeparator();
 
     // Recycle bin / Trash option
@@ -811,8 +855,13 @@ void MainWindow::onAbout() {
     compilerInfo = "Unknown";
 #endif
 
+    // The .ui text hardcodes the classic blue for links, which is unreadable on
+    // a dark background — take the colour from the palette instead.
+    const QString linkColor = about.palette().color(QPalette::Link).name();
+
     aboutUi.info_label->setText(
         aboutUi.info_label->text()
+            .replace("color:#0000ff", "color:" + linkColor)
             .replace("{$PROJECT_VERSION}", PROJECT_VERSION)
             .replace("{$BUILD_ARCHITECTURE}", QSysInfo::buildCpuArchitecture())
             .replace("{$OS}", QSysInfo::productType())
