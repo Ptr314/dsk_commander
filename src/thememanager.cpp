@@ -170,12 +170,17 @@ void ThemeManager::refresh()
         return;
     }
 
-    // A switch at run time. This runs from inside colorSchemeChanged, while Qt
-    // is still propagating the new palette down the widget tree. Setting the
+    scheduleStyleSheetRefresh();
+}
+
+void ThemeManager::scheduleStyleSheetRefresh()
+{
+    // A switch at run time can run from inside colorSchemeChanged, while Qt is
+    // still propagating the new palette down the widget tree. Setting the
     // application stylesheet re-polishes every widget, and a widget polished at
     // that moment gets the *outgoing* palette pinned on it — which is why the
-    // panels kept showing the previous scheme. Let the event loop finish the
-    // propagation first.
+    // panels used to keep showing the previous scheme. Let the event loop
+    // finish the propagation first.
     if (m_pending) return;
     m_pending = true;
     QTimer::singleShot(0, this, [this]() {
@@ -202,19 +207,29 @@ void ThemeManager::enforceColorScheme()
     if (m_mode == Mode::System) {
         if (m_fallback_active) {
             m_fallback_active = false;
+            // Best effort: the desktop style and the palette as they were when
+            // the program started. A desktop theme changed in the meantime is
+            // only picked up again on the next run.
             if (!m_default_style.isEmpty()) {
                 if (QStyle * style = QStyleFactory::create(m_default_style))
                     QApplication::setStyle(style);
             }
             QApplication::setPalette(m_default_palette);
+            scheduleStyleSheetRefresh();
         }
+        // On desktops that report no scheme of their own, the palette is the
+        // only clue and it may only have settled by now.
         refresh();
         return;
     }
 
     const bool want_dark = (m_mode == Mode::Dark);
-    if (paletteIsDark() == want_dark) return;   // the platform honoured the request
+    if (!m_fallback_active && paletteIsDark() == want_dark)
+        return;                                 // the platform honoured the request
 
+    // The desktop kept its own scheme (KDE/Breeze and some GTK setups never
+    // accept the request). Fusion follows a plain QPalette faithfully, so drive
+    // the colours ourselves from here on.
     if (!m_fallback_active) {
         if (QStyle * fusion = QStyleFactory::create(QStringLiteral("Fusion")))
             QApplication::setStyle(fusion);
@@ -222,41 +237,87 @@ void ThemeManager::enforceColorScheme()
     }
     QApplication::setPalette(buildPalette(want_dark));
     refresh();
+    scheduleStyleSheetRefresh();
 #endif
 }
 
 QPalette ThemeManager::buildPalette(bool dark)
 {
-    if (!dark) {
-        // Fusion's own light palette is a good match for the light stylesheet.
-        return QApplication::style() ? QApplication::style()->standardPalette() : QPalette();
-    }
+    // Both schemes are spelled out here on purpose. QStyle::standardPalette()
+    // cannot be used for this: since Qt 6.8 Fusion derives it from the colour
+    // scheme *reported by the platform*, and this code only runs on platforms
+    // that refused our request in the first place — on a KDE desktop set to
+    // Breeze Dark it would hand back a dark palette for the light theme.
 
-    const QColor window(0x35, 0x35, 0x35);
-    const QColor base(0x2a, 0x2a, 0x2a);
-    const QColor text(0xe6, 0xe6, 0xe6);
-    const QColor disabled(0x80, 0x80, 0x80);
-    const QColor highlight(0x2a, 0x82, 0xda);
+    QColor window, windowText, base, alternateBase, text, button, buttonText;
+    QColor brightText, highlight, highlightedText, link, disabled;
+    QColor light, midlight, mid, darkc, shadow, toolTipBase, toolTipText;
+
+    if (dark) {
+        window          = QColor(0x35, 0x35, 0x35);
+        windowText      = QColor(0xe6, 0xe6, 0xe6);
+        base            = QColor(0x2a, 0x2a, 0x2a);
+        alternateBase   = QColor(0x35, 0x35, 0x35);
+        text            = QColor(0xe6, 0xe6, 0xe6);
+        button          = QColor(0x35, 0x35, 0x35);
+        buttonText      = QColor(0xe6, 0xe6, 0xe6);
+        brightText      = QColor(0xff, 0x6b, 0x6b);
+        highlight       = QColor(0x2a, 0x82, 0xda);
+        highlightedText = QColor(0x00, 0x00, 0x00);
+        link            = QColor(0x2a, 0x82, 0xda);
+        disabled        = QColor(0x80, 0x80, 0x80);
+        light           = QColor(0x4a, 0x4a, 0x4a);
+        midlight        = QColor(0x3f, 0x3f, 0x3f);
+        mid             = QColor(0x2f, 0x2f, 0x2f);
+        darkc           = QColor(0x20, 0x20, 0x20);
+        shadow          = QColor(0x00, 0x00, 0x00);
+        toolTipBase     = QColor(0x35, 0x35, 0x35);
+        toolTipText     = QColor(0xe6, 0xe6, 0xe6);
+    } else {
+        window          = QColor(0xef, 0xef, 0xef);
+        windowText      = QColor(0x00, 0x00, 0x00);
+        base            = QColor(0xff, 0xff, 0xff);
+        alternateBase   = QColor(0xf7, 0xf7, 0xf7);
+        text            = QColor(0x00, 0x00, 0x00);
+        button          = QColor(0xef, 0xef, 0xef);
+        buttonText      = QColor(0x00, 0x00, 0x00);
+        brightText      = QColor(0xff, 0xff, 0xff);
+        highlight       = QColor(0x30, 0x8c, 0xc6);
+        highlightedText = QColor(0xff, 0xff, 0xff);
+        link            = QColor(0x00, 0x00, 0xff);
+        disabled        = QColor(0xbe, 0xbe, 0xbe);
+        light           = QColor(0xff, 0xff, 0xff);
+        midlight        = QColor(0xca, 0xca, 0xca);
+        mid             = QColor(0xb8, 0xb8, 0xb8);
+        darkc           = QColor(0x9f, 0x9f, 0x9f);
+        shadow          = QColor(0x76, 0x76, 0x76);
+        toolTipBase     = QColor(0xff, 0xff, 0xdc);
+        toolTipText     = QColor(0x00, 0x00, 0x00);
+    }
 
     QPalette p;
     p.setColor(QPalette::Window, window);
-    p.setColor(QPalette::WindowText, text);
+    p.setColor(QPalette::WindowText, windowText);
     p.setColor(QPalette::Base, base);
-    p.setColor(QPalette::AlternateBase, window);
-    p.setColor(QPalette::ToolTipBase, window);
-    p.setColor(QPalette::ToolTipText, text);
+    p.setColor(QPalette::AlternateBase, alternateBase);
+    p.setColor(QPalette::ToolTipBase, toolTipBase);
+    p.setColor(QPalette::ToolTipText, toolTipText);
     p.setColor(QPalette::Text, text);
-    p.setColor(QPalette::Button, window);
-    p.setColor(QPalette::ButtonText, text);
-    p.setColor(QPalette::BrightText, QColor(0xff, 0x6b, 0x6b));
-    p.setColor(QPalette::Link, highlight);
+    p.setColor(QPalette::Button, button);
+    p.setColor(QPalette::ButtonText, buttonText);
+    p.setColor(QPalette::BrightText, brightText);
+    p.setColor(QPalette::Link, link);
     p.setColor(QPalette::Highlight, highlight);
-    p.setColor(QPalette::HighlightedText, Qt::black);
-    p.setColor(QPalette::Light, QColor(0x4a, 0x4a, 0x4a));
-    p.setColor(QPalette::Midlight, QColor(0x3f, 0x3f, 0x3f));
-    p.setColor(QPalette::Mid, QColor(0x2f, 0x2f, 0x2f));
-    p.setColor(QPalette::Dark, QColor(0x20, 0x20, 0x20));
-    p.setColor(QPalette::Shadow, Qt::black);
+    p.setColor(QPalette::HighlightedText, highlightedText);
+    p.setColor(QPalette::Light, light);
+    p.setColor(QPalette::Midlight, midlight);
+    p.setColor(QPalette::Mid, mid);
+    p.setColor(QPalette::Dark, darkc);
+    p.setColor(QPalette::Shadow, shadow);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
+    p.setColor(QPalette::Accent, highlight);
+#endif
+    p.setColor(QPalette::PlaceholderText, disabled);
 
     p.setColor(QPalette::Disabled, QPalette::WindowText, disabled);
     p.setColor(QPalette::Disabled, QPalette::Text, disabled);

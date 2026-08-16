@@ -66,6 +66,7 @@ private:
     void apply();               // pushes m_mode into the platform
     void refresh();             // re-resolves the effective scheme
     void applyStyleSheet();
+    void scheduleStyleSheetRefresh();
     void enforceColorScheme();  // fallback for platforms ignoring the request
     bool computeDark() const;
 
