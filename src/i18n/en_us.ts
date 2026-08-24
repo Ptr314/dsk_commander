@@ -6,12 +6,14 @@
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21,90 +23,105 @@
     <message>
         <location filename="../convertdialog.ui" line="24"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -166,6 +183,7 @@
     <message>
         <location filename="../explorerdialog.ui" line="14"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="212"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="212"/>
         <location filename="../explorerdialog.cpp" line="388"/>
         <source>Image Explorer</source>
         <translation type="unfinished"></translation>
@@ -173,54 +191,63 @@
     <message>
         <location filename="../explorerdialog.ui" line="72"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="215"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="215"/>
         <source>Sector order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="95"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="218"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="218"/>
         <source>Show each head on its own row (rows labeled TRACK:HEAD)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="98"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="220"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="220"/>
         <source>Split by heads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="105"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="222"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="222"/>
         <source>Show track and sector numbers in hexadecimal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="108"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="224"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="224"/>
         <source>HEX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="135"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="226"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="226"/>
         <source>Filesystem information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="155"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="230"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="230"/>
         <source>Image information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="251"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="235"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="235"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="278"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="237"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="237"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -356,6 +383,7 @@
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2401,42 +2429,49 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="75"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
         <source>View mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="123"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
         <source>Subtype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="186"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <source>File info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="232"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <source>Copy text to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="235"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2445,24 +2480,29 @@ Warning: This action cannot be undone!</source>
         <location filename="../viewdialog.ui" line="255"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <source>Save to file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="281"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="212"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="301"/>
         <location filename="../cmake-build-qt-6.11.1-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-qt-6.11.1-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3422,6 +3462,11 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../libs/dsk_tools/src/viewers/agat/agat_binary.h" line="16"/>
         <source>Agat Executable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/viewers/viewer_basic_iskra226.h" line="17"/>
+        <source>Iskra-226 BASIC</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
