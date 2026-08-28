@@ -303,7 +303,7 @@ void FileTable::setupForImageMode(dsk_tools::fileSystem & fs) {
         std::pair<std::string, std::string> capt = fs.exattr_caption();
         image_model->setColumnCount(const_columns + columns + 1);
         image_model->setHeaderData(columns, Qt::Horizontal, QString::fromStdString(capt.first));
-        image_model->horizontalHeaderItem(columns)->setToolTip(QString::fromStdString(capt.second));
+        image_model->horizontalHeaderItem(columns)->setToolTip(QApplication::translate("attributes", capt.second.c_str()));
         setColumnWidth(columns, 30);
         columns++;
     }

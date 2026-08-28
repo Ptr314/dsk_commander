@@ -23,7 +23,8 @@
 
                             "TYPE_CPM:KORVET",
                             "TYPE_CPM:ORION",
-                            "TYPE_CPM:VECTOR"
+                            "TYPE_CPM:VECTOR",
+                            "TYPE_OTHER:ISKRA-226"
             ]
         },
         "FILE_AIM": {
@@ -205,6 +206,11 @@
             "name": "Vector-06C 820 Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
+        },
+        "TYPE_OTHER:ISKRA-226": {
+            "name": "Iskra-226 8\" 256 Kb",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_ISKRA-226"]
         }
     },
     "file_systems": {
@@ -228,6 +234,9 @@
         },
         "FILESYSTEM_FAT": {
             "name": "MS-DOS (FAT12)"
+        },
+        "FILESYSTEM_ISKRA-226": {
+            "name": "Iskra-226"
         }
     }
 }
