@@ -317,7 +317,9 @@ QPalette ThemeManager::buildPalette(bool dark)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
     p.setColor(QPalette::Accent, highlight);
 #endif
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     p.setColor(QPalette::PlaceholderText, disabled);
+#endif
 
     p.setColor(QPalette::Disabled, QPalette::WindowText, disabled);
     p.setColor(QPalette::Disabled, QPalette::Text, disabled);
