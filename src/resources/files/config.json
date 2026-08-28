@@ -5,7 +5,7 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img;*.st",
+            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img;*.ima;*.st",
             "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840",
                             "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
                             "TYPE_CPM:GMD-7012",
