@@ -104,7 +104,7 @@ void FileOperations::viewFile(FilePanel* panel, QWidget* parent)
 
             const auto load_str_result = image->load_structured(*disk_struct);
             if (!load_str_result) {
-                QMessageBox::critical(parent, FilePanel::tr("Error"), decodeError(load_str_result));
+                infoDialog(parent, QString::fromStdString(image->file_info()));
                 return;
             }
 
