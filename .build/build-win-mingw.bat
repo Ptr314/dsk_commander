@@ -1,6 +1,23 @@
 @ECHO OFF
+SETLOCAL ENABLEEXTENSIONS
 
-call vars-mingw-latest.cmd
+REM ---------------------------------------------------------------------------
+REM Release build, x86_64, mingw.
+REM
+REM If vars-mingw-latest.cmd points at an existing static Qt prefix
+REM (_QT_PREFIX_STATIC), that kit is used and the result is a single exe with
+REM no DLLs beside it. Otherwise a shared build is produced and Qt6*.dll, the
+REM platform/style plugins and the mingw runtime are copied next to it.
+REM
+REM NOTE: in a shared build the mingw runtime (libstdc++-6.dll and friends)
+REM cannot be dropped -- the Qt6*.dll themselves import it, not just our exe.
+REM A static Qt is the only way to get a DLL-free build here.
+REM
+REM Pass "clean" to wipe the build directory first.
+REM ---------------------------------------------------------------------------
+
+cd /d "%~dp0"
+call "%~dp0vars-mingw-latest.cmd" || exit /b 1
 
 SET _ARCHITECTURE=x86_64
 SET _COMPILER=mingw
@@ -10,54 +27,51 @@ SET CC=%_ROOT_MINGW%\gcc.exe
 
 set /p _VERSION=<..\VERSION
 
-SET _RELEASE_NAME="disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%-%_COMPILER%"
-SET _RELEASE_DIR=".\release\%_RELEASE_NAME%"
-
-if not exist %_BUILD_DIR%\ (
-    call "%_ROOT_BIN%\qt-cmake" -S ../src -B "%_BUILD_DIR%" -G Ninja -DCMAKE_BUILD_TYPE=Release
-
-    cd "%_BUILD_DIR%"
-    ninja
-
-    cd ..\..\
+if exist "%_QT_PREFIX_STATIC%\bin\qt-cmake.bat" (
+    SET "_QT_KIT=%_QT_PREFIX_STATIC%"
+    SET _QT_STATIC=1
+) else (
+    SET "_QT_KIT=%_QT_PREFIX%"
+    SET _QT_STATIC=0
+    echo WARNING: no static Qt in "%_QT_PREFIX_STATIC%", falling back to a shared build.
 )
 
-mkdir "%_RELEASE_DIR%"
+SET _RELEASE_NAME=disk_commander-%_VERSION%-%_PLATFORM%-%_ARCHITECTURE%-%_COMPILER%
+SET _RELEASE_DIR=.\release\%_RELEASE_NAME%
 
-copy "%_BUILD_DIR%\DISKCommander.exe" "%_RELEASE_DIR%"
+if /I "%~1"=="clean" if exist "%_BUILD_DIR%" rmdir /s /q "%_BUILD_DIR%"
+call "%~dp0win-common.cmd" checkgen "%_BUILD_DIR%" Ninja || exit /b 1
 
-echo "Copying Qt6Core.dll, Qt6Gui.dll, Qt6Widgets.dll from %_ROOT_BIN%"
-copy "%_ROOT_BIN%\Qt6Core.dll" "%_RELEASE_DIR%"
-copy "%_ROOT_BIN%\Qt6Gui.dll" "%_RELEASE_DIR%"
-copy "%_ROOT_BIN%\Qt6Widgets.dll" "%_RELEASE_DIR%"
+REM Always reconfigure and rebuild: cmake and ninja work out what actually
+REM changed. Previously the whole build was skipped when the directory already
+REM existed, so a stale executable could be packaged into the release.
+call "%_QT_KIT%\bin\qt-cmake" -S ../src -B "%_BUILD_DIR%" -G Ninja -DCMAKE_BUILD_TYPE=Release || exit /b 1
+cmake --build "%_BUILD_DIR%" || exit /b 1
 
-mkdir "%_RELEASE_DIR%\platforms"
-echo "Copying platforms\qwindows.dll from %_QT_PLUGINS%"
-copy "%_QT_PLUGINS%\platforms\qwindows.dll" "%_RELEASE_DIR%\platforms"
+call "%~dp0win-common.cmd" reset "%_RELEASE_DIR%" || exit /b 1
+copy /y "%_BUILD_DIR%\DISKCommander.exe" "%_RELEASE_DIR%" >nul || exit /b 1
 
-mkdir "%_RELEASE_DIR%\styles"
-echo "Copying styles\qmodernwindowsstyle.dll from %_QT_PLUGINS%"
-copy "%_QT_PLUGINS%\styles\qmodernwindowsstyle.dll" "%_RELEASE_DIR%\styles"
+if "%_QT_STATIC%"=="1" (
+    echo Static Qt build: no runtime DLLs needed.
+) else (
+    echo Copying Qt runtime from "%_QT_KIT%"
+    copy /y "%_QT_KIT%\bin\Qt6Core.dll"    "%_RELEASE_DIR%" >nul || exit /b 1
+    copy /y "%_QT_KIT%\bin\Qt6Gui.dll"     "%_RELEASE_DIR%" >nul || exit /b 1
+    copy /y "%_QT_KIT%\bin\Qt6Widgets.dll" "%_RELEASE_DIR%" >nul || exit /b 1
 
-echo "Copying libgcc_s_seh-1.dll, libstdc++-6.dll, libwinpthread-1.dll from %_ROOT_MINGW%"
-copy "%_ROOT_MINGW%\libgcc_s_seh-1.dll" "%_RELEASE_DIR%"
-copy "%_ROOT_MINGW%\libstdc++-6.dll" "%_RELEASE_DIR%"
-copy "%_ROOT_MINGW%\libwinpthread-1.dll" "%_RELEASE_DIR%"
+    mkdir "%_RELEASE_DIR%\platforms"
+    copy /y "%_QT_KIT%\plugins\platforms\qwindows.dll" "%_RELEASE_DIR%\platforms\" >nul || exit /b 1
 
-set SEVENZIP="7z"
-%SEVENZIP% >nul 2>&1
-if errorlevel 9009 (
-    if exist "C:\Program Files\7-Zip\7z.exe" (
-        set SEVENZIP="C:\Program Files\7-Zip\7z.exe"
-    ) else if exist "C:\Program Files (x86)\7-Zip\7z.exe" (
-        set SEVENZIP="C:\Program Files (x86)\7-Zip\7z.exe"
-    ) else (
-        echo ERROR: 7z.exe not found. Please install 7-Zip or add it to PATH.
-        exit /b 1
-    )
+    mkdir "%_RELEASE_DIR%\styles"
+    copy /y "%_QT_KIT%\plugins\styles\qmodernwindowsstyle.dll" "%_RELEASE_DIR%\styles\" >nul || exit /b 1
+
+    echo Copying mingw runtime from "%_ROOT_MINGW%"
+    copy /y "%_ROOT_MINGW%\libgcc_s_seh-1.dll"  "%_RELEASE_DIR%" >nul || exit /b 1
+    copy /y "%_ROOT_MINGW%\libstdc++-6.dll"     "%_RELEASE_DIR%" >nul || exit /b 1
+    copy /y "%_ROOT_MINGW%\libwinpthread-1.dll" "%_RELEASE_DIR%" >nul || exit /b 1
 )
 
-pushd "%_RELEASE_DIR%"
-%SEVENZIP% a "..\%_RELEASE_NAME%.zip" * -mx9
-popd
+call "%~dp0win-common.cmd" report "%_RELEASE_DIR%"
+call "%~dp0win-common.cmd" zip "%_RELEASE_DIR%" "%_RELEASE_NAME%" || exit /b 1
 
+ENDLOCAL

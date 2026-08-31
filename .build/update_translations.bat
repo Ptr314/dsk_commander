@@ -10,7 +10,7 @@ rem   $layers = 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFla
 rem   New-Item -Path $layers -Force | Out-Null
 rem   Set-ItemProperty -Path $layers -Name "C:\DEV\Qt\6.10.2\mingw_64\bin\lupdate.exe"     -Value "~ RUNASINVOKER"
 rem   Set-ItemProperty -Path $layers -Name "C:\DEV\Qt\6.10.2\mingw_64\bin\lupdate-pro.exe" -Value "~ RUNASINVOKER"
-SET BUILD_DIR=cmake-build-qt-6.11.1-mingw_1310
+SET BUILD_DIR=cmake-build-qt-6.11.2-mingw_1310
 if exist "../src/%BUILD_DIR%" (
   cd ../src
   cmake.exe --build "./%BUILD_DIR%" --target update_translations

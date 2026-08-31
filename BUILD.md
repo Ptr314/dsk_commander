@@ -7,13 +7,36 @@
 * Windows XP+
     * Версия i386 на основе Qt 5.6.3 и mingw 4.9.2.
 * Windows 10+
-    * Версия х86_64. Актуальная версия Qt 6.8.3 и mingw 13.10.
+    * Версия х86_64, MSVC 2022 (основная сборка релиза). Актуальная версия Qt 6.11.2.
+    * Версия х86_64, mingw 13.1 (альтернативная сборка).
 * macOS 15 (возможна совместимость с более ранними версиями)
     * Универсальная версия х86_64+arm64. Qt 6.8.2, xcode 16
 * Linux Ubuntu 20.04+
     * Версия х86_64. Qt 6.8.2, gcc 9.4.0
 
-Версии х86_64 для Windows и х86_64+arm64 для macOS используют статическую сборку. Версия для Linux использует динамическую сборку в целях лучшей совместимости с разными дистрибутивами. Компиляция происходит в Ubuntu 20.04. 
+Версия х86_64+arm64 для macOS использует статическую сборку Qt. Для Windows статическая сборка используется, если соответствующий каталог Qt существует (см. ниже) -- тогда на выходе получается один exe без единой сопутствующей DLL. Версия для Linux использует динамическую сборку в целях лучшей совместимости с разными дистрибутивами, всё необходимое упаковывается в AppImage. Компиляция происходит в Ubuntu 20.04.
+
+---
+## Размер исполняемого файла
+
+Оптимизация размера включена в `src/CMakeLists.txt` и действует на все платформы в конфигурациях `Release` и `MinSizeRel`. Отдельных действий при сборке не требуется, но поведение можно поменять двумя опциями cmake:
+
+| Опция | По умолчанию | Что делает |
+|---|---|---|
+| `DC_OPTIMIZE_SIZE` | `ON` | `-O2` вместо `-O3`; `-ffunction-sections -fdata-sections` + `--gc-sections` (на macOS `-dead_strip`, на MSVC `/Gy /Gw` + `/OPT:REF /OPT:ICF`); удаление таблицы символов из релизного бинарника |
+| `DC_LTO` | `ON` | Межмодульная оптимизация (LTO/IPO). Автоматически отключается там, где тулчейн её не тянет -- в частности для gcc < 8, то есть для сборки i386 под Windows XP |
+
+Отключить, например, так: `cmake ... -DDC_LTO=OFF`.
+
+Порядок величин (Windows, версия 2.8.1):
+
+| Сборка | Было | Стало |
+|---|---|---|
+| x86_64 mingw, exe | 7.0 МБ | 2.0 МБ |
+| i386 Qt 5.6, exe | 6.9 МБ | 2.1 МБ |
+| x86_64 MSVC, zip релиза | 13.3 МБ (6 файлов) | 9.8 МБ (один exe) |
+
+Кроме того, при статической сборке Qt из exe исключаются ненужные плагины (форматы изображений, iconengines, SQL, сеть, TLS, печать) -- приложение работает только с PNG, поддержка которого встроена в QtGui.
 
 ---
 ## Windows
@@ -37,7 +60,45 @@
 
 #### 3. Компиляция статической версии Qt
 
-##### Qt6 (актуальная версия)
+Статическая сборка Qt -- единственный способ получить приложение без сопутствующих DLL. Причём убрать только рантайм компилятора (`libstdc++-6.dll` и т.п.) при динамической Qt нельзя: от него зависят не только наш exe, но и сами `Qt6*.dll`.
+
+Скрипты сборки сами определяют, есть ли статическая сборка Qt, и если есть -- используют её и не копируют рядом с exe ни одной DLL. Пути задаются в `vars-*.cmd`:
+
+* `vars-msvc-latest.cmd` -> `_ROOT_QT_STATIC` (по умолчанию `C:\DEV\Qt\X.X.X\msvc2022_64-static`)
+* `vars-mingw-latest.cmd` -> `_QT_PREFIX_STATIC` (по умолчанию `C:\DEV\Qt\X.X.X-static`)
+
+При переходе на новую версию Qt не забудьте поправить `_QT_VERSION` в этих же файлах, иначе скрипт не найдёт статическую сборку и молча соберёт динамическую.
+
+##### Qt6, MSVC (основная сборка релиза)
+
+```
+cd репозиторий-приложения\.build
+%SystemRoot%\system32\cmd.exe /E:ON /V:ON /k vars-msvc-latest.cmd
+cd C:\Temp
+mkdir qt-build-msvc
+cd qt-build-msvc
+C:\DEV\Qt\%_QT_VERSION%\Src\configure.bat -static -static-runtime -release -opensource -confirm-license -nomake examples -nomake tests -submodules qtbase,qttools,qttranslations -prefix C:\DEV\Qt\%_QT_VERSION%\msvc2022_64-static
+cmake --build . --parallel
+cmake --install .
+```
+
+`-static-runtime` линкует и рантайм MSVC, поэтому на целевой машине не нужен и распространяемый пакет Visual C++.
+
+`-submodules` ограничивает сборку тремя нужными модулями и их зависимостями вместо всего qt-everywhere. Помимо экономии времени это обходит и ошибку сборки: плагин SAPI из qtspeech требует ATL (`atlbase.h`), которого нет в портативной установке MSVC из `portable-msvc.py`:
+
+```
+sphelper.h(51): fatal error C1083: Cannot open include file: 'atlbase.h'
+```
+
+Зачем нужен каждый модуль:
+
+* `qtbase` -- Core, Gui, Widgets;
+* `qttools` -- `lrelease` и `lupdate`, без них падает `find_package(Qt6 ... LinguistTools)`;
+* `qttranslations` -- `qtbase_ru.qm` и `qtbase_en.qm`, без них `src/CMakeLists.txt` останавливается с `FATAL_ERROR`.
+
+Для смены набора модулей configure нужно запускать в пустом каталоге сборки.
+
+##### Qt6, mingw
 
 https://doc.qt.io/qt-6/windows-building.html
 
@@ -50,7 +111,7 @@ cd репозиторий-приложения\.build
 cd C:\Temp
 mkdir qt-build
 cd qt-build
-configure.bat -static -static-runtime -release -opensource -confirm-license -nomake examples -nomake tests -prefix c:\DEV\Qt\%_QT_VERSION%-static
+configure.bat -static -static-runtime -release -opensource -confirm-license -nomake examples -nomake tests -submodules qtbase,qttools,qttranslations -prefix c:\DEV\Qt\%_QT_VERSION%-static
 cmake --build . --parallel
 cmake --install .
 ```
@@ -96,9 +157,11 @@ update_translations.bat
 * Закоммитить изменения.
 * Откомпилировать приложение нужной версией Qt.
     * актуализировать значения переменных в `/build/vars-mingw-*.cmd`. 
-    * i386: `./build/build-win-i386.bat`.
-    * x86_64: `./build/build-win-latest.bat`.
-* Упаковать директории в `./build/release` в zip.
+    * i386 (Windows XP): `.build\build-win-i386.bat`
+    * x86_64, MSVC: `.build\build-win-msvc.bat`
+    * x86_64, mingw: `.build\build-win-mingw.bat`
+* Каждый скрипт конфигурирует, собирает, раскладывает релиз в `.build\release\<имя>\` и сам пакует его в `.build\release\<имя>.zip`.
+* Скрипты всегда пересобирают проект инкрементально. Чтобы собрать с нуля, добавьте аргумент `clean`, например `.build\build-win-msvc.bat clean`.
 * Загрузить как релиз на GitHub, добавив последнему коммиту тег с номером версии.
 
 

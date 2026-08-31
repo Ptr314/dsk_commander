@@ -8,6 +8,13 @@ list(GET VERSION_LIST 0 PROJECT_VERSION_MAJOR)
 list(GET VERSION_LIST 1 PROJECT_VERSION_MINOR)
 list(GET VERSION_LIST 2 PROJECT_VERSION_PATCH)
 
+# Настройки macOS должны быть заданы ДО project(): иначе они не попадут ни в
+# проверки компилятора, ни в подключаемую ниже библиотеку dsk_tools -- та
+# собиралась бы под архитектуру и минимальную версию системы по умолчанию.
+# Без FORCE, чтобы значения можно было переопределить из командной строки.
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15" CACHE STRING "Minimum macOS deployment version")
+set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal binary for macOS")
+
 # Enable OBJCXX on macOS for host_helpers.cpp Objective-C++ compilation
 if(APPLE)
     project(DISKCommander VERSION ${PROJECT_VERSION_STRING} LANGUAGES CXX OBJCXX)
@@ -22,8 +29,123 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# ---------------------------------------------------------------------------
+# Оптимизация размера исполняемого файла
+#
+#   DC_OPTIMIZE_SIZE  -- -O2 вместо -O3, раскладка кода и данных по отдельным
+#                        секциям и последующая вычистка неиспользуемого
+#                        линкером (--gc-sections / -dead_strip / /OPT:REF),
+#                        удаление таблицы символов из релизной сборки.
+#   DC_LTO            -- межмодульная оптимизация (LTO/IPO). Заметно
+#                        уменьшает размер, но требует больше памяти и времени
+#                        на линковке. Автоматически отключается там, где
+#                        тулчейн её не поддерживает.
+#
+# Флаги задаются на уровне директории, поэтому распространяются и на
+# подключаемую ниже библиотеку dsk_tools.
+# ---------------------------------------------------------------------------
+option(DC_OPTIMIZE_SIZE "Optimize the release binary for size" ON)
+option(DC_LTO           "Enable link-time optimization (LTO/IPO) for release builds" ON)
+
+# Для single-config генераторов без явно заданного типа сборки берём Release:
+# иначе молча собирается вариант вообще без оптимизации.
+get_property(_dc_multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+if(NOT _dc_multi_config AND NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif()
+
+# Конфигурации, для которых применяются оптимизации размера
+set(_dc_release_cfg "$<OR:$<CONFIG:Release>,$<CONFIG:MinSizeRel>>")
+
+if(DC_OPTIMIZE_SIZE)
+    if(MSVC)
+        # /Gy, /Gw -- отдельная COMDAT-секция на каждую функцию и на каждую
+        # глобальную переменную; /OPT:REF выбрасывает неиспользуемые,
+        # /OPT:ICF склеивает одинаковые.
+        add_compile_options(
+            $<${_dc_release_cfg}:/Gy>
+            $<${_dc_release_cfg}:/Gw>
+        )
+        add_link_options(
+            $<${_dc_release_cfg}:/OPT:REF>
+            $<${_dc_release_cfg}:/OPT:ICF>
+            $<${_dc_release_cfg}:/INCREMENTAL:NO>
+        )
+    else()
+        # -O3 разворачивает циклы и агрессивно инлайнит, что для этого
+        # приложения даёт лишние сотни килобайт без заметного выигрыша:
+        # тяжёлых вычислительных циклов здесь нет, всё упирается в ввод-вывод.
+        string(REPLACE "-O3" "-O2" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+        string(REPLACE "-O3" "-O2" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
+
+        add_compile_options(
+            $<${_dc_release_cfg}:-ffunction-sections>
+            $<${_dc_release_cfg}:-fdata-sections>
+        )
+        if(APPLE)
+            add_link_options(
+                $<${_dc_release_cfg}:LINKER:-dead_strip>
+                $<${_dc_release_cfg}:LINKER:-x>
+            )
+        else()
+            add_link_options(
+                $<${_dc_release_cfg}:LINKER:--gc-sections>
+                $<${_dc_release_cfg}:LINKER:-s>
+            )
+        endif()
+    endif()
+endif()
+
+if(DC_LTO)
+    include(CheckIPOSupported)
+    check_ipo_supported(RESULT _dc_lto_supported OUTPUT _dc_lto_error LANGUAGES CXX)
+    # LTO в mingw 4.9 (сборка под Windows XP) приводит к ошибкам линковки,
+    # поэтому для старых gcc её не включаем.
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 8)
+        set(_dc_lto_supported OFF)
+        set(_dc_lto_error "gcc < 8")
+    endif()
+    if(_dc_lto_supported)
+        set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE ON)
+        set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_MINSIZEREL ON)
+    else()
+        message(STATUS "DC: LTO disabled (${_dc_lto_error})")
+    endif()
+endif()
+
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
+
+# ---------------------------------------------------------------------------
+# Статическая сборка Qt
+#
+# При статической сборке плагины Qt линкуются внутрь исполняемого файла,
+# и рядом с ним не нужны ни Qt*.dll, ни каталоги platforms/ и styles/.
+#
+# Если Qt собран с -static-runtime, то рантайм компилятора тоже должен
+# линковаться статически. Qt выставляет это самостоятельно, но только для целей,
+# созданных через qt_add_executable()/qt_add_library(). Библиотека dsk_tools --
+# обычный add_library(), поэтому без явной установки ниже она собирается с /MD
+# и линковка падает на LNK2038 (RuntimeLibrary mismatch).
+#
+# Установка должна выполняться ДО создания целей, т.е. до add_subdirectory().
+# ---------------------------------------------------------------------------
+get_target_property(_dc_qt_core_type Qt${QT_VERSION_MAJOR}::Core TYPE)
+if(_dc_qt_core_type STREQUAL "STATIC_LIBRARY")
+    set(DC_QT_STATIC ON)
+    message(STATUS "DC: static Qt detected, no Qt runtime DLLs are required")
+else()
+    set(DC_QT_STATIC OFF)
+endif()
+
+if(DC_QT_STATIC AND QT_FEATURE_static_runtime)
+    if(MSVC)
+        set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    elseif(MINGW)
+        add_link_options(-static)
+    endif()
+endif()
 
 # Добавляем библиотеку, но отключаем компиляцию утилит командной строки
 set(ENABLE_DSK_TOOLS OFF CACHE BOOL "Disable command line tools from the library")
@@ -170,6 +292,22 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     dsk_tools
 )
 
+# При статической сборке в exe по умолчанию попадают ВСЕ плагины подключённых
+# модулей. Приложение работает только с PNG (поддержка встроена в QtGui, отдельный
+# плагин не нужен), в файлы картинки не сохраняются, сеть и SQL не
+# используются -- лишние группы плагинов исключаем.
+if(DC_QT_STATIC AND ${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_import_plugins(${PROJECT_NAME}
+        EXCLUDE_BY_TYPE imageformats
+        EXCLUDE_BY_TYPE iconengines
+        EXCLUDE_BY_TYPE sqldrivers
+        EXCLUDE_BY_TYPE networkinformation
+        EXCLUDE_BY_TYPE tls
+        EXCLUDE_BY_TYPE qmltooling
+        EXCLUDE_BY_TYPE printsupport
+    )
+endif()
+
 # Настройки для правильной генерации исполняемого файла под разные платформы
 
 if(APPLE)
@@ -177,8 +315,6 @@ if(APPLE)
       set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.${PROJECT_NAME})
     endif()
 
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15" CACHE STRING "Minimum macOS deployment version" FORCE)
-    set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal binary for macOS" FORCE)
     set(ICON_FILE "${CMAKE_CURRENT_SOURCE_DIR}/resources/files/DISKCommander.icns")
     set(PLIST_FILE "${CMAKE_CURRENT_SOURCE_DIR}/resources/files/Info.plist")
     set_target_properties(${PROJECT_NAME} PROPERTIES
