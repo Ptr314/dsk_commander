@@ -6,7 +6,7 @@
             "short_name":   "DSK",
             "source":       true,
             "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img;*.ima;*.st",
-            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840",
+            "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_AGAT_880",
                             "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
                             "TYPE_CPM:GMD-7012",
 
@@ -24,7 +24,8 @@
                             "TYPE_CPM:KORVET",
                             "TYPE_CPM:ORION",
                             "TYPE_CPM:VECTOR",
-                            "TYPE_OTHER:ISKRA-226"
+                            "TYPE_OTHER:ISKRA-226",
+                            "TYPE_OTHER:PRODOS-800"
             ]
         },
         "FILE_AIM": {
@@ -33,7 +34,7 @@
             "short_name":   "AIM",
             "source":       true,
             "extensions":   "*.aim",
-            "types":        ["TYPE_AGAT_840"]
+            "types":        ["TYPE_AGAT_840", "TYPE_AGAT_880"]
         },
         "FILE_HXC_MFM": {
             "order":        30,
@@ -49,7 +50,7 @@
             "short_name":   "HFE",
             "source":       true,
             "extensions":   "*.hfe",
-            "types":        ["TYPE_AGAT_840"]
+            "types":        ["TYPE_AGAT_840", "TYPE_AGAT_880"]
         },
         "FILE_MFM_NIB": {
             "order":        30,
@@ -122,10 +123,15 @@
             "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS"]
         },
+        "TYPE_AGAT_880": {
+            "name": "Agat::880K (Nippel OS)",
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
+            "filesystems": ["FILESYSTEM_PRODOS"]
+        },
         "TYPE_AGAT_140": {
             "name": "Agat::140K",
             "targets": ["FILE_RAW_MSB", "FILE_HXC_MFM", "FILE_MFM_NIB", "FILE_MFM_NIC"],
-            "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS", "FILESYSTEM_CPM_DOS", "FILESYSTEM_CPM_PRODOS", "FILESYSTEM_CPM_RAW"]
+            "filesystems": ["FILESYSTEM_DOS33", "FILESYSTEM_SPRITE_OS", "FILESYSTEM_CPM_DOS", "FILESYSTEM_CPM_PRODOS", "FILESYSTEM_CPM_RAW", "FILESYSTEM_PRODOS"]
         },
         "TYPE_FIL": {
             "name": "Agat::.FIL container",
@@ -211,6 +217,11 @@
             "name": "Iskra-226 8\" 256 Kb",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_ISKRA-226"]
+        },
+        "TYPE_OTHER:PRODOS-800": {
+            "name": "Apple II 3.5\" 800 Kb ProDOS",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_PRODOS"]
         }
     },
     "file_systems": {
@@ -219,6 +230,9 @@
         },
         "FILESYSTEM_SPRITE_OS": {
             "name": "Agat Sprite OS"
+        },
+        "FILESYSTEM_PRODOS": {
+            "name": "ProDOS (Nippel OS)"
         },
         "FILESYSTEM_FIL": {
             "name": "Single .FIL"
