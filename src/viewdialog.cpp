@@ -103,6 +103,10 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
         ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
         preferred_subtype = "MBASIC";
     } else
+    if (preferred_type == dsk_tools::PreferredType::BBCBasic) {
+        ui->modeCombo->setCurrentIndex(type_map["BASIC"]);
+        preferred_subtype = "BBC";
+    } else
     if (preferred_type == dsk_tools::PreferredType::AgatBFT) {
         ui->modeCombo->setCurrentIndex(type_map["PICTURE_AGAT"]);
         preferred_subtype = "AGAT_BFT";
@@ -137,6 +141,7 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
     ui->encodingCombo->addItem(ViewDialog::tr("Agat"), "agat");
     ui->encodingCombo->addItem(ViewDialog::tr("Apple II"), "apple2");
     ui->encodingCombo->addItem(ViewDialog::tr("Apple //c"), "apple2c");
+    ui->encodingCombo->addItem(ViewDialog::tr("Onix"), "onix");
     ui->encodingCombo->addItem(ViewDialog::tr("ASCII"), "ascii");
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ-7 Н0/Н1"), "koi7_n0_n1");
     ui->encodingCombo->addItem(ViewDialog::tr("КОИ-7 Н2"), "koi7_n2");
@@ -145,7 +150,17 @@ ViewDialog::ViewDialog(QWidget *parent, QSettings *settings, const QString file_
     ui->encodingCombo->addItem(ViewDialog::tr("CP866 (OEM)"), "cp866");
     ui->encodingCombo->addItem(ViewDialog::tr("CP1251 (Windows)"), "cp1251");
     ui->encodingCombo->addItem(ViewDialog::tr("ISO 8859-5"), "iso8859_5");
-    ui->encodingCombo->setCurrentIndex(settings->value("viewer/encoding", 0).toInt());
+    int encoding_index = settings->value("viewer/encoding", 0).toInt();
+    // A filesystem that knows the character set of its platform picks the default, so an
+    // Onix disk does not open in whatever was last used on an Agat one
+    if (filesystem) {
+        const auto fs_charmap = QString::fromStdString(filesystem->get_charmap());
+        if (!fs_charmap.isEmpty()) {
+            const int i = ui->encodingCombo->findData(fs_charmap);
+            if (i >= 0) encoding_index = i;
+        }
+    }
+    ui->encodingCombo->setCurrentIndex(encoding_index);
     adjustComboBoxWidth(ui->encodingCombo);
     ui->encodingCombo->blockSignals(false);
 

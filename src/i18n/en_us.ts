@@ -378,6 +378,7 @@
         <location filename="../FilePanel.cpp" line="63"/>
         <location filename="../FilePanel.cpp" line="536"/>
         <location filename="../placeholders.h" line="23"/>
+        <location filename="../placeholders.h" line="213"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -581,6 +582,7 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="22"/>
+        <location filename="../placeholders.h" line="212"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1052,6 +1054,7 @@
     <message>
         <location filename="../placeholders.h" line="126"/>
         <location filename="../placeholders.h" line="181"/>
+        <location filename="../placeholders.h" line="199"/>
         <source>Block size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1194,6 +1197,7 @@
     <message>
         <location filename="../placeholders.h" line="157"/>
         <location filename="../placeholders.h" line="180"/>
+        <location filename="../placeholders.h" line="198"/>
         <source>Volume layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1294,11 +1298,13 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="183"/>
+        <location filename="../placeholders.h" line="203"/>
         <source>Used blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="184"/>
+        <location filename="../placeholders.h" line="204"/>
         <source>Free blocks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1319,11 +1325,13 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="188"/>
+        <location filename="../placeholders.h" line="210"/>
         <source>Directory entry length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="189"/>
+        <location filename="../placeholders.h" line="211"/>
         <source>Directory entries per block</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1349,12 +1357,68 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="194"/>
+        <location filename="../placeholders.h" line="217"/>
         <source>File blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="195"/>
         <source>no date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="200"/>
+        <source>Blocks on the disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="201"/>
+        <source>Blocks in the allocation table</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="202"/>
+        <source>System blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="205"/>
+        <source>Allocation table</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="206"/>
+        <source>Table first block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="207"/>
+        <source>Table blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="208"/>
+        <source>Root directory block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="209"/>
+        <source>Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="214"/>
+        <source>First block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="215"/>
+        <source>Load address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="216"/>
+        <source>Execution address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2615,257 +2679,262 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="137"/>
+        <location filename="../viewdialog.cpp" line="141"/>
         <source>Agat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="138"/>
+        <location filename="../viewdialog.cpp" line="142"/>
         <source>Apple II</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="139"/>
+        <location filename="../viewdialog.cpp" line="143"/>
         <source>Apple //c</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="140"/>
-        <source>ASCII</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../viewdialog.cpp" line="141"/>
-        <source>КОИ-7 Н0/Н1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../viewdialog.cpp" line="142"/>
-        <source>КОИ-7 Н2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../viewdialog.cpp" line="143"/>
-        <source>КОИ8-R</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../viewdialog.cpp" line="144"/>
-        <source>КОИ8-M</source>
+        <source>Onix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="145"/>
-        <source>CP866 (OEM)</source>
+        <source>ASCII</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="146"/>
-        <source>CP1251 (Windows)</source>
+        <source>КОИ-7 Н0/Н1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="147"/>
+        <source>КОИ-7 Н2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="148"/>
+        <source>КОИ8-R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="149"/>
+        <source>КОИ8-M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="150"/>
+        <source>CP866 (OEM)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="151"/>
+        <source>CP1251 (Windows)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../viewdialog.cpp" line="152"/>
         <source>ISO 8859-5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="156"/>
+        <location filename="../viewdialog.cpp" line="171"/>
         <source>Square pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="157"/>
+        <location filename="../viewdialog.cpp" line="172"/>
         <source>Square screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="158"/>
+        <location filename="../viewdialog.cpp" line="173"/>
         <source>4:3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="198"/>
-        <location filename="../placeholders.h" line="217"/>
+        <location filename="../placeholders.h" line="220"/>
+        <location filename="../placeholders.h" line="239"/>
         <source>Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="199"/>
+        <location filename="../placeholders.h" line="221"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="200"/>
+        <location filename="../placeholders.h" line="222"/>
         <source>Monochrome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="201"/>
+        <location filename="../placeholders.h" line="223"/>
         <source>Custom palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="202"/>
+        <location filename="../placeholders.h" line="224"/>
         <source>b/w</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="203"/>
+        <location filename="../placeholders.h" line="225"/>
         <source>Custom font loading error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="204"/>
+        <location filename="../placeholders.h" line="226"/>
         <source>Agat Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="205"/>
+        <location filename="../placeholders.h" line="227"/>
         <source>Apple Improved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="206"/>
+        <location filename="../placeholders.h" line="228"/>
         <source>Apple NTSC Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="207"/>
+        <location filename="../placeholders.h" line="229"/>
         <source>Agat-7 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="208"/>
+        <location filename="../placeholders.h" line="230"/>
         <source>Agat-7 enhanced font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="215"/>
+        <location filename="../placeholders.h" line="237"/>
         <source>BFT Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="218"/>
+        <location filename="../placeholders.h" line="240"/>
         <source>Comment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="219"/>
+        <location filename="../placeholders.h" line="241"/>
         <source>Agat color mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="220"/>
+        <location filename="../placeholders.h" line="242"/>
         <source>Apple color mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="221"/>
+        <location filename="../placeholders.h" line="243"/>
         <source>Font type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="222"/>
+        <location filename="../placeholders.h" line="244"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="209"/>
+        <location filename="../placeholders.h" line="231"/>
         <source>Agat-9 classic font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="210"/>
+        <location filename="../placeholders.h" line="232"/>
         <source>GARNIZON custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="211"/>
+        <location filename="../placeholders.h" line="233"/>
         <source>Loaded custom font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="212"/>
+        <location filename="../placeholders.h" line="234"/>
         <source>Agat-9 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="213"/>
+        <location filename="../placeholders.h" line="235"/>
         <source>Agat-7 Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="214"/>
+        <location filename="../placeholders.h" line="236"/>
         <source>Font file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="416"/>
+        <location filename="../viewdialog.cpp" line="431"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="665"/>
+        <location filename="../viewdialog.cpp" line="680"/>
         <source>Add custom file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="695"/>
-        <location filename="../viewdialog.cpp" line="861"/>
+        <location filename="../viewdialog.cpp" line="710"/>
+        <location filename="../viewdialog.cpp" line="876"/>
         <source>Clear custom files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="756"/>
-        <location filename="../viewdialog.cpp" line="801"/>
+        <location filename="../viewdialog.cpp" line="771"/>
+        <location filename="../viewdialog.cpp" line="816"/>
         <source>From file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="822"/>
-        <location filename="../viewdialog.cpp" line="825"/>
+        <location filename="../viewdialog.cpp" line="837"/>
+        <location filename="../viewdialog.cpp" line="840"/>
         <source>FIL files (*.fil);;All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="823"/>
+        <location filename="../viewdialog.cpp" line="838"/>
         <source>Select custom palette file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="826"/>
+        <location filename="../viewdialog.cpp" line="841"/>
         <source>Select custom font file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="829"/>
+        <location filename="../viewdialog.cpp" line="844"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="830"/>
+        <location filename="../viewdialog.cpp" line="845"/>
         <source>Select custom file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="862"/>
+        <location filename="../viewdialog.cpp" line="877"/>
         <source>Are you sure you want to clear all custom files for this selector?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="984"/>
-        <location filename="../viewdialog.cpp" line="986"/>
+        <location filename="../viewdialog.cpp" line="999"/>
+        <location filename="../viewdialog.cpp" line="1001"/>
         <source>Save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="998"/>
+        <location filename="../viewdialog.cpp" line="1013"/>
         <source>File exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewdialog.cpp" line="998"/>
+        <location filename="../viewdialog.cpp" line="1013"/>
         <source>File already exists. Overwrite?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3062,51 +3131,56 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="config.qml" line="39"/>
-        <source>Single .FIL</source>
+        <source>Onix OS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="40"/>
-        <source>CP/M (DOS 3.3 skew)</source>
+        <source>Single .FIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="41"/>
-        <source>CP/M (ProDOS skew)</source>
+        <source>CP/M (DOS 3.3 skew)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="42"/>
-        <source>CP/M (No sector skew)</source>
+        <source>CP/M (ProDOS skew)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="43"/>
-        <source>MS-DOS (FAT12)</source>
+        <source>CP/M (No sector skew)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="44"/>
-        <source>Iskra-226</source>
+        <source>MS-DOS (FAT12)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="45"/>
-        <source>Agat</source>
+        <source>Iskra-226</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="46"/>
-        <source>Irisha</source>
+        <source>Agat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="config.qml" line="47"/>
+        <source>Irisha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="48"/>
         <source>PC</source>
         <translation>IBM PC</translation>
     </message>
     <message>
-        <location filename="config.qml" line="48"/>
+        <location filename="config.qml" line="49"/>
         <source>Atari ST</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3115,7 +3189,7 @@ Warning: This action cannot be undone!</source>
     <name>errors</name>
     <message>
         <location filename="../libs/dsk_tools/src/converters/converter.cpp" line="20"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="311"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="334"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="102"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_fil.cpp" line="23"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="56"/>
@@ -3148,82 +3222,82 @@ Warning: This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="363"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="411"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="386"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="434"/>
         <source>Invalid file size for DSK format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="475"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="493"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="501"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="522"/>
         <source>Failed to load AIM file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="483"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="600"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="509"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="632"/>
         <location filename="../libs/dsk_tools/src/filesystems/fs_prodos.cpp" line="138"/>
         <source>ProDOS volume header not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="503"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="532"/>
         <source>Invalid file size for NIB format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="536"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="565"/>
         <source>Unknown MFM format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="538"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="567"/>
         <source>Failed to load MFM file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="558"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="590"/>
         <source>Invalid filesystem signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="572"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="604"/>
         <source>Cannot open HFE file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="596"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="610"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="628"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="645"/>
         <source>Invalid HFE file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="631"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="666"/>
         <source>Unknown file format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="920"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="955"/>
         <source>Agat 840 track decode error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="933"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="968"/>
         <source>Failed to decode Agat 840 track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="940"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="975"/>
         <source>Decoded track size mismatch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="1013"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="1048"/>
         <source>Agat 140 track decode error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="1024"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="1059"/>
         <source>Failed to decode Agat 140 track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3575,6 +3649,18 @@ Warning: This action cannot be undone!</source>
         <source>ProDOS: unsupported file storage type</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_onix.cpp" line="202"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_onix.cpp" line="206"/>
+        <source>Onix: unsupported disk geometry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_onix.cpp" line="213"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_onix.cpp" line="218"/>
+        <source>Onix allocation table not found</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>viewer</name>
@@ -3611,6 +3697,11 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../libs/dsk_tools/src/viewers/viewer_basic_iskra226.h" line="17"/>
         <source>Iskra-226 BASIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/viewers/viewer_basic_bbc.h" line="17"/>
+        <source>BBC BASIC</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
