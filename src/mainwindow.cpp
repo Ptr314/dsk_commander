@@ -5,6 +5,7 @@
 
 #include <fstream>
 #include <set>
+#include <vector>
 
 #include <QTranslator>
 #include <QFileDialog>
@@ -14,6 +15,8 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
+#include <QLocale>
 #include <QUrl>
 #include <QStatusBar>
 #include <QDebug>
@@ -43,6 +46,16 @@
 
 #include "globals.h"
 
+#ifdef _WIN32
+    #ifndef WIN32_LEAN_AND_MEAN
+        #define WIN32_LEAN_AND_MEAN
+    #endif
+    #ifndef NOMINMAX
+        #define NOMINMAX
+    #endif
+    #include <windows.h>
+#endif
+
 #define INI_FILE_NAME "/dsk_com.ini"
 
 // Global settings reference and callback for dsk_tools library
@@ -53,6 +66,81 @@ static bool check_use_recycle_bin() {
         return g_mainwindow_settings->value("files/use_recycle_bin", true).toBool();
     }
     return true;  // Default to safe behavior
+}
+
+// Preferred *interface* (display) languages of the system, most preferred first.
+//
+// QLocale::system().uiLanguages() cannot be used here: what it returns depends
+// on how Qt itself was built. A Qt with C++/WinRT enabled (our MSVC kit) asks
+// WinRT's GlobalizationPreferences::Languages(), which is the list of preferred
+// *input* languages, while a Qt without it (our MinGW kit) calls the Win32
+// GetUserPreferredUILanguages(), i.e. the display language. On the same Russian
+// Windows the two builds of the same sources then picked different default
+// languages. Ask Windows for the display language explicitly.
+static QStringList system_ui_languages()
+{
+#ifdef _WIN32
+    // Resolved dynamically: the function is missing on Windows XP, which the
+    // i386 build still targets. Qt5 used there has no WinRT path anyway, so the
+    // fallback below gives exactly the same answer.
+    #ifndef MUI_LANGUAGE_NAME                   // not declared in a XP-targeted SDK
+        #define MUI_LANGUAGE_NAME 0x8
+    #endif
+    typedef BOOL (WINAPI *GetUserPreferredUILanguagesFn)(DWORD, PULONG, wchar_t *, PULONG);
+    static const GetUserPreferredUILanguagesFn get_languages =
+        reinterpret_cast<GetUserPreferredUILanguagesFn>(
+            reinterpret_cast<void*>(
+                GetProcAddress(GetModuleHandleW(L"kernel32.dll"), "GetUserPreferredUILanguages")));
+
+    if (get_languages) {
+        ULONG count = 0;
+        ULONG size = 0;
+        if (get_languages(MUI_LANGUAGE_NAME, &count, nullptr, &size) && size > 0) {
+            std::vector<wchar_t> buffer(size);
+            if (get_languages(MUI_LANGUAGE_NAME, &count, buffer.data(), &size)) {
+                QStringList result;
+                const wchar_t * str = buffer.data();
+                for (ULONG i = 0; i < count; i++) {
+                    const QString s = QString::fromWCharArray(str);
+                    if (s.isEmpty()) break;             // something is wrong
+                    result << s;
+                    str += s.length() + 1;              // strings are zero-separated
+                }
+                if (!result.isEmpty()) return result;
+            }
+        }
+    }
+#endif
+    return QLocale::system().uiLanguages();
+}
+
+// The first system interface language we actually ship a translation for,
+// e.g. "ru_ru". Empty if there is none.
+static QString detect_ui_language()
+{
+    QStringList shipped;
+    const QFileInfoList qm_files = QDir(":/i18n").entryInfoList(QStringList() << "*.qm", QDir::Files);
+    for (const QFileInfo & fi : qm_files) {
+        // Qt's own translations live in the same place, they are not ours
+        if (!fi.fileName().startsWith("qtbase_"))
+            shipped << fi.completeBaseName().toLower();
+    }
+
+    const QStringList ui_languages = system_ui_languages();
+    for (const QString & locale : ui_languages) {
+        const QLocale l(locale);
+        if (l.language() == QLocale::C) continue;
+
+        const QString name = l.name().toLower();                    // "ru-RU" -> "ru_ru"
+        if (shipped.contains(name)) return name;
+
+        // Another territory of the same language will do: "en_gb" -> "en_us"
+        const QString prefix = name.section('_', 0, 0) + "_";
+        for (const QString & s : shipped)
+            if (s.startsWith(prefix)) return s;
+    }
+
+    return QString();
 }
 
 MainWindow::MainWindow(QWidget *parent)
@@ -97,15 +185,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     QString ini_lang = settings->value("interface/language", "").toString();
     if (ini_lang.length() == 0) {
-        // Auto-detect: pick the first preferred UI language we actually ship a translation for.
-        const QStringList uiLanguages = QLocale::system().uiLanguages();
-        for (const QString &locale : uiLanguages) {
-            const QString baseName = QLocale(locale).name().toLower();
-            if (QFile::exists(":/i18n/" + baseName + ".qm")) {
-                switch_language(baseName, true);
-                settings->setValue("interface/language", baseName);
-                break;
-            }
+        // Auto-detect on the first run: follow the system interface language
+        const QString detected = detect_ui_language();
+        if (!detected.isEmpty()) {
+            switch_language(detected, true);
+            settings->setValue("interface/language", detected);
         }
     } else {
         switch_language(ini_lang, true);
