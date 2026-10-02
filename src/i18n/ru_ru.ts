@@ -457,7 +457,7 @@
         <location filename="../FilePanel.cpp" line="927"/>
         <location filename="../FilePanel.cpp" line="1082"/>
         <source>Unsaved Changes</source>
-        <translation>Несохранённые измнения</translation>
+        <translation>Несохранённые изменения</translation>
     </message>
     <message>
         <location filename="../FilePanel.cpp" line="928"/>
@@ -598,6 +598,11 @@
         <location filename="../placeholders.h" line="95"/>
         <source>Protected</source>
         <translation>Защита</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="96"/>
+        <source>Hidden</source>
+        <translation>Скрытый</translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="26"/>
@@ -1533,7 +1538,7 @@
     <message>
         <location filename="../FileOperations.cpp" line="776"/>
         <source>No error</source>
-        <translation>Нет ошибкт</translation>
+        <translation>Нет ошибок</translation>
     </message>
     <message>
         <location filename="../FileOperations.cpp" line="779"/>
@@ -2425,7 +2430,7 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../mainwindow.cpp" line="269"/>
         <source>Both panels have unsaved disk image changes. Close anyway?</source>
-        <translation>На обеих панелях есть несохранённые изменения. Закрыть без сохрарения?</translation>
+        <translation>На обеих панелях есть несохранённые изменения. Закрыть без сохранения?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="271"/>
@@ -2935,7 +2940,7 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../viewdialog.cpp" line="877"/>
         <source>Are you sure you want to clear all custom files for this selector?</source>
-        <translation>Вы действительно хотите полностью очистить дообавленные файлы для этого списка?</translation>
+        <translation>Вы действительно хотите полностью очистить добавленные файлы для этого списка?</translation>
     </message>
     <message>
         <location filename="../viewdialog.cpp" line="999"/>
@@ -3240,7 +3245,7 @@ Warning: This action cannot be undone!</source>
         <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="386"/>
         <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="434"/>
         <source>Invalid file size for DSK format</source>
-        <translation>Некорректный размер файла. Попробуйте отключить автоопределние и указать тип файла вручную</translation>
+        <translation>Некорректный размер файла. Попробуйте отключить автоопределение и указать тип файла вручную</translation>
     </message>
     <message>
         <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="501"/>
@@ -3498,7 +3503,7 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="222"/>
         <source>Incorrect track number for mapping</source>
-        <translation>Некоректный номер дорожки для мэппинга</translation>
+        <translation>Некорректный номер дорожки для мэппинга</translation>
     </message>
     <message>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="721"/>
@@ -3512,6 +3517,11 @@ Warning: This action cannot be undone!</source>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1059"/>
         <source>Sector is not free</source>
         <translation>Сектор уже занят</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="1172"/>
+        <source>Cannot find a free name</source>
+        <translation>Не удалось подобрать свободное имя</translation>
     </message>
     <message>
         <location filename="../libs/dsk_tools/src/filesystems/fs_spriteos.cpp" line="59"/>
@@ -3543,7 +3553,7 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="46"/>
         <source>CP/M disk definition: tracks is required</source>
-        <translation>Формат диска CP/M: параметр track является обязательным</translation>
+        <translation>Формат диска CP/M: параметр tracks является обязательным</translation>
     </message>
     <message>
         <location filename="../libs/dsk_tools/src/filesystems/fs_cpm.cpp" line="49"/>

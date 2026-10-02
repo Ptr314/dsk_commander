@@ -2,6 +2,6 @@
 
 #define PROJECT_NAME "DISKCommander"
 #define VERSION_MAJOR "2"
-#define VERSION_MINOR "9"
+#define VERSION_MINOR "10"
 #define VERSION_PATCH "0"
-#define PROJECT_VERSION "2.9.0"
+#define PROJECT_VERSION "2.10.0"

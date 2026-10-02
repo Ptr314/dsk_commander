@@ -599,6 +599,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../placeholders.h" line="96"/>
+        <source>Hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../placeholders.h" line="26"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
@@ -3496,6 +3501,11 @@ Warning: This action cannot be undone!</source>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1021"/>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1059"/>
         <source>Sector is not free</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="1172"/>
+        <source>Cannot find a free name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
