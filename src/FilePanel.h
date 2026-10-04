@@ -15,6 +15,9 @@
 #include <QDir>
 #include <QSettings>
 #include <QStandardItemModel>
+#include <QAbstractItemView>
+#include <QItemSelectionModel>
+#include <functional>
 
 #include "FileTable.h"
 #include "dsk_tools/dsk_tools.h"
@@ -34,9 +37,39 @@ class DrillDownComboBox : public QComboBox {
     Q_OBJECT
 public:
     using QComboBox::QComboBox;
+
+    // Marks the rows that only move between levels (the group rows and "Back"),
+    // whose activation reopens the popup instead of closing it for good.
+    void setNavigationPredicate(std::function<bool(int row)> fn) { m_isNavigationRow = std::move(fn); }
+
     void showPopup() override { emit popupAboutToBeShown(); QComboBox::showPopup(); }
+
+    // Styles that flash the triggered item before closing the popup (macOS does)
+    // make QComboBox::hidePopup() merely *schedule* the hide: it flashes the
+    // selected row across two queued timers and hides the popup ~60 ms later,
+    // long after activated() has been emitted. A popup reopened from that
+    // handler - which is exactly what a navigation row does - was therefore
+    // killed by the still pending hide, so the second level never stayed up on
+    // macOS. Dropping the selection first leaves nothing to flash, which keeps
+    // the hide synchronous; leaf rows keep their selection and with it the
+    // native effect. clearSelection() does not touch the view's current index,
+    // so the row being activated is still reported correctly.
+    void hidePopup() override {
+        if (m_isNavigationRow) {
+            QAbstractItemView* v = view();
+            QItemSelectionModel* sm = v ? v->selectionModel() : nullptr;
+            const int row = v ? v->currentIndex().row() : -1;
+            if (sm && row >= 0 && row < count() && m_isNavigationRow(row))
+                sm->clearSelection();
+        }
+        QComboBox::hidePopup();
+    }
+
 signals:
     void popupAboutToBeShown();
+
+private:
+    std::function<bool(int row)> m_isNavigationRow;
 };
 
 class HostModel : public QStandardItemModel {

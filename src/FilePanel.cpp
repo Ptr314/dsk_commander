@@ -465,6 +465,12 @@ void FilePanel::setupFilters()
 
     // Type & filesystem -----------------------------------------
     typeCombo = new DrillDownComboBox(this);
+    // Group and "Back" rows reopen the popup on the next level instead of
+    // closing it; the combo needs to know them (see DrillDownComboBox::hidePopup()).
+    typeCombo->setNavigationPredicate([this](int row) {
+        const int kind = typeCombo->itemData(row, kTypeKindRole).toInt();
+        return kind == KindGroup || kind == KindBack;
+    });
     typeCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     typeCombo->setMinimumWidth(30);
 
