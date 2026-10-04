@@ -43,6 +43,7 @@ public:
     // Setup methods for different display modes
     void setupForHostMode();
     void setupForImageMode(dsk_tools::fileSystem & fs);
+    void widenColumnToContents(int column);
 
     // Active state management
     void setActive(bool active);

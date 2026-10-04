@@ -273,6 +273,13 @@ void FileTable::setupForHostMode() {
     // setStyleSheet("");
 }
 
+// Makes a column wide enough for its contents, never narrower than it already is
+void FileTable::widenColumnToContents(int column)
+{
+    const int width = qMax(sizeHintForColumn(column), horizontalHeader()->sectionSizeHint(column));
+    if (width > columnWidth(column)) setColumnWidth(column, width);
+}
+
 void FileTable::setupForImageMode(dsk_tools::fileSystem & fs) {
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setSelectionMode(QAbstractItemView::ExtendedSelection);
@@ -311,6 +318,14 @@ void FileTable::setupForImageMode(dsk_tools::fileSystem & fs) {
     setColumnWidth(columns, 60);
     image_model->setHeaderData(columns, Qt::Horizontal, FileTable::tr("Size"));
     image_model->horizontalHeaderItem(columns++)->setToolTip(FileTable::tr("Size in bytes"));
+
+    if (dsk_tools::hasFlag(capabilities, dsk_tools::FSCaps::Date)) {
+        // Size is already counted in `columns`; one more for the date, Name stays last
+        image_model->setColumnCount(const_columns + columns);
+        setColumnWidth(columns, 80);
+        image_model->setHeaderData(columns, Qt::Horizontal, FileTable::tr("Date"));
+        image_model->horizontalHeaderItem(columns++)->setToolTip(FileTable::tr("Date of the file"));
+    }
 
     setColumnWidth(columns, 230);
     image_model->setHeaderData(columns, Qt::Horizontal, FileTable::tr("Name"));

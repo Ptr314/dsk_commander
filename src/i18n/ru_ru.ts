@@ -6,12 +6,14 @@
     <message>
         <location filename="../aboutdlg.ui" line="14"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="143"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
         <location filename="../aboutdlg.ui" line="90"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_aboutdlg.h" line="145"/>
         <source>Copyright</source>
         <translation>Копирайт</translation>
     </message>
@@ -21,90 +23,105 @@
     <message>
         <location filename="../convertdialog.ui" line="24"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="205"/>
         <source>Convert</source>
         <translation>Преобразовать</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="30"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="208"/>
         <source>Output file</source>
         <translation>Выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="42"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="210"/>
         <source>Output file format</source>
         <translation>Формат выходного файла</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="49"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="213"/>
         <source>Output file name</source>
         <translation>Имя выходного файла</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="59"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="216"/>
         <source>Set output file</source>
         <translation>Выбрать выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="62"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="218"/>
         <source>Choose directory</source>
         <translation>Выбрать директорию</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="128"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="219"/>
         <source>Track substitution</source>
         <translation>Подстановка треков</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="136"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="220"/>
         <source>Use</source>
         <translation>Использовать</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="149"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="222"/>
         <source>Tracks number</source>
         <translation>Количество треков</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="162"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="224"/>
         <source>tracks from a template</source>
         <translation>трек(ов) из файла-образца</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="183"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="229"/>
         <source>Set template file</source>
         <translation>Выбрать файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="186"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="231"/>
         <source>Choose a template</source>
         <translation>Выберите файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="214"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="206"/>
         <source>Choose Output</source>
         <translation>Выберите выходной файл</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="222"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="207"/>
         <source>Choose Template</source>
         <translation>Выберите файл-образец</translation>
     </message>
     <message>
         <location filename="../convertdialog.ui" line="173"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_convertdialog.h" line="226"/>
         <source>Template file name</source>
         <translation>Имя файла-образца</translation>
     </message>
@@ -166,6 +183,7 @@
     <message>
         <location filename="../explorerdialog.ui" line="14"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="212"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="212"/>
         <location filename="../explorerdialog.cpp" line="391"/>
         <source>Image Explorer</source>
         <translation>Просмотр образа</translation>
@@ -173,54 +191,63 @@
     <message>
         <location filename="../explorerdialog.ui" line="72"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="215"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="215"/>
         <source>Sector order</source>
         <translation>Порядок секторов</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="95"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="218"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="218"/>
         <source>Show each head on its own row (rows labeled TRACK:HEAD)</source>
         <translation>Показывать каждую сторону на отдельной строке (Строки обозначаются Дорожка:Сторона)</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="98"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="220"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="220"/>
         <source>Split by heads</source>
         <translation>Разбивать по сторонам</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="105"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="222"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="222"/>
         <source>Show track and sector numbers in hexadecimal</source>
         <translation>Показывать номер дорожки и сектора как HEX</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="108"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="224"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="224"/>
         <source>HEX</source>
         <translation>HEX</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="135"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="226"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="226"/>
         <source>Filesystem information</source>
         <translation>Информация о файловой системе</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="155"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="230"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="230"/>
         <source>Image information</source>
         <translation>Информация об образе</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="251"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="235"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="235"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
         <location filename="../explorerdialog.ui" line="278"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_explorerdialog.h" line="237"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_explorerdialog.h" line="237"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -356,6 +383,7 @@
     <message>
         <location filename="../fileinfodialog.ui" line="18"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_fileinfodialog.h" line="77"/>
         <source>File Info</source>
         <translation>Информация о файле</translation>
     </message>
@@ -378,7 +406,8 @@
         <location filename="../FilePanel.cpp" line="63"/>
         <location filename="../FilePanel.cpp" line="536"/>
         <location filename="../placeholders.h" line="23"/>
-        <location filename="../placeholders.h" line="213"/>
+        <location filename="../placeholders.h" line="214"/>
+        <location filename="../placeholders.h" line="241"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
@@ -521,7 +550,7 @@
         <location filename="../FilePanel.cpp" line="981"/>
         <location filename="../FilePanel.cpp" line="1257"/>
         <location filename="../FilePanel.cpp" line="1269"/>
-        <location filename="../FilePanel.cpp" line="1414"/>
+        <location filename="../FilePanel.cpp" line="1437"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -541,7 +570,7 @@
         <translation>(Не загружено)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1414"/>
+        <location filename="../FilePanel.cpp" line="1437"/>
         <source>Error reading files list!</source>
         <translation>Ошибка чтения списка файлов!</translation>
     </message>
@@ -583,13 +612,13 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="22"/>
-        <location filename="../placeholders.h" line="212"/>
+        <location filename="../placeholders.h" line="213"/>
         <source>Attributes</source>
         <translation>Атрибуты</translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="24"/>
-        <location filename="../placeholders.h" line="96"/>
+        <location filename="../placeholders.h" line="97"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
@@ -822,12 +851,13 @@
     <message>
         <location filename="../placeholders.h" line="73"/>
         <location filename="../placeholders.h" line="84"/>
+        <location filename="../placeholders.h" line="223"/>
         <source>Volume ID</source>
         <translation>Номер тома (Volume ID)</translation>
     </message>
     <message>
         <location filename="../placeholders.h" line="74"/>
-        <location filename="../placeholders.h" line="174"/>
+        <location filename="../placeholders.h" line="175"/>
         <source>Volume name</source>
         <translation>Метка тома</translation>
     </message>
@@ -858,7 +888,7 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="80"/>
-        <location filename="../placeholders.h" line="150"/>
+        <location filename="../placeholders.h" line="151"/>
         <source>Bytes per sector</source>
         <translation>Размер сектора в байтах</translation>
     </message>
@@ -923,509 +953,613 @@
         <translation>Свободных байт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="97"/>
+        <location filename="../placeholders.h" line="98"/>
         <source>Extended</source>
         <translation>Расш. атрибут</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="98"/>
+        <location filename="../placeholders.h" line="99"/>
         <source>Agat image VR block found</source>
         <translation>Найден VR-блок изображений Агат</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="99"/>
+        <location filename="../placeholders.h" line="100"/>
         <source>Video mode</source>
         <translation>Режим экрана</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="100"/>
+        <location filename="../placeholders.h" line="101"/>
         <source>Agat graphic</source>
         <translation>Графика Агат</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="101"/>
+        <location filename="../placeholders.h" line="102"/>
         <source>Agat text</source>
         <translation>Текст Агат</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="102"/>
+        <location filename="../placeholders.h" line="103"/>
         <source>Apple II modes</source>
         <translation>Режимы Apple II</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="103"/>
+        <location filename="../placeholders.h" line="104"/>
         <source>Agat GigaScreen</source>
         <translation>Агат GigaScreen</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="104"/>
+        <location filename="../placeholders.h" line="105"/>
         <source>Main palette</source>
         <translation>Основная палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="105"/>
+        <location filename="../placeholders.h" line="106"/>
         <source>Alternative palette</source>
         <translation>Дополнительная палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="106"/>
+        <location filename="../placeholders.h" line="107"/>
         <source>Custom palette</source>
         <translation>Загружаемая палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="107"/>
+        <location filename="../placeholders.h" line="108"/>
         <source>Comment block</source>
         <translation>Комментарий</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="108"/>
+        <location filename="../placeholders.h" line="109"/>
         <source>Font ID</source>
         <translation>Знакогенератор</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="109"/>
+        <location filename="../placeholders.h" line="110"/>
         <source>Custom font</source>
         <translation>Загружаемый шрифт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="110"/>
+        <location filename="../placeholders.h" line="111"/>
         <source>Comment</source>
         <translation>Комментарий</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="111"/>
+        <location filename="../placeholders.h" line="112"/>
         <source>Sector map</source>
         <translation>Таблица секторов</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="112"/>
+        <location filename="../placeholders.h" line="113"/>
         <source>Cylinder map</source>
         <translation>Таблица дорожек</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="113"/>
+        <location filename="../placeholders.h" line="114"/>
         <source>Head map</source>
         <translation>Таблица сторон</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="114"/>
+        <location filename="../placeholders.h" line="115"/>
         <source>Error: Unexpected end of file</source>
         <translation>Ошибка: Неожиданный конец файла</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="115"/>
+        <location filename="../placeholders.h" line="116"/>
         <source>Unavailable sector</source>
         <translation>ДАННЫЕ ОТСУТСТВУЮТ</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="116"/>
+        <location filename="../placeholders.h" line="117"/>
         <source>Normal data</source>
         <translation>Данные сектора</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="117"/>
+        <location filename="../placeholders.h" line="118"/>
         <source>Compressed</source>
         <translation>Сжатый</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="118"/>
+        <location filename="../placeholders.h" line="119"/>
         <source>Deleted</source>
         <translation>Удалённый</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="119"/>
+        <location filename="../placeholders.h" line="120"/>
         <source>DATA ERROR</source>
         <translation>ДАННЫЕ ОШИБОЧНЫ</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="120"/>
+        <location filename="../placeholders.h" line="121"/>
         <source>Unknown data marker</source>
         <translation>Неизвестный маркер данных</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="121"/>
+        <location filename="../placeholders.h" line="122"/>
         <source>The file contains corrupted data!</source>
         <translation>Файл содержит повреждённые данные!</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="122"/>
+        <location filename="../placeholders.h" line="123"/>
         <source>The file was read without errors.</source>
         <translation>Файл прочитан без ошибок.</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="125"/>
+        <location filename="../placeholders.h" line="126"/>
         <source>Sector size</source>
         <translation>Размер сектора</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="126"/>
-        <location filename="../placeholders.h" line="181"/>
-        <location filename="../placeholders.h" line="199"/>
+        <location filename="../placeholders.h" line="127"/>
+        <location filename="../placeholders.h" line="182"/>
+        <location filename="../placeholders.h" line="200"/>
         <source>Block size</source>
         <translation>Размер блока</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="127"/>
+        <location filename="../placeholders.h" line="128"/>
         <source>Sectors per block</source>
         <translation>Секторов в блоке</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="128"/>
+        <location filename="../placeholders.h" line="129"/>
         <source>Reserved tracks</source>
         <translation>Системные дорожки</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="129"/>
+        <location filename="../placeholders.h" line="130"/>
         <source>Block</source>
         <translation>Блок</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="130"/>
+        <location filename="../placeholders.h" line="131"/>
         <source>Sectors</source>
         <translation>Секторы</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="131"/>
+        <location filename="../placeholders.h" line="132"/>
         <source>Sectors per track</source>
         <translation>Секторов CP/M (128) на дорожке</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="132"/>
-        <location filename="../placeholders.h" line="182"/>
+        <location filename="../placeholders.h" line="133"/>
+        <location filename="../placeholders.h" line="183"/>
         <source>Total blocks</source>
         <translation>Всего блоков</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="133"/>
+        <location filename="../placeholders.h" line="134"/>
         <source>Directory entries</source>
         <translation>Размер каталога</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="134"/>
+        <location filename="../placeholders.h" line="135"/>
         <source>The disk contains bad sectors!</source>
         <translation>На диске есть повреждённые сектора!</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="135"/>
+        <location filename="../placeholders.h" line="136"/>
         <source>Bad sector in reserved track</source>
         <translation>Область загрузки содержит повреждённые сектора</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="136"/>
+        <location filename="../placeholders.h" line="137"/>
         <source>No bad sectors in reserved tracks</source>
         <translation>В области загрузки повреждённых секторов нет</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="137"/>
+        <location filename="../placeholders.h" line="138"/>
         <source>Bad sector in directory</source>
         <translation>Каталог содержит повреждённые сектора</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="138"/>
+        <location filename="../placeholders.h" line="139"/>
         <source>No bad sectors in directory</source>
         <translation>В корневом каталоге нет повреждённых секторов</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="139"/>
+        <location filename="../placeholders.h" line="140"/>
         <source>File has bad sectors</source>
         <translation>Файл повреждён</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="140"/>
+        <location filename="../placeholders.h" line="141"/>
         <source>No files with bad sectors</source>
         <translation>Файлов с повреждёнными секторами не найдено</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="141"/>
+        <location filename="../placeholders.h" line="142"/>
         <source>User number</source>
         <translation>User #</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="142"/>
+        <location filename="../placeholders.h" line="143"/>
         <source>System</source>
         <translation>Системный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="143"/>
+        <location filename="../placeholders.h" line="144"/>
         <source>Archive</source>
         <translation>Архивный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="146"/>
+        <location filename="../placeholders.h" line="147"/>
         <source>Filesystem type</source>
         <translation>Тип файловой системы</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="147"/>
+        <location filename="../placeholders.h" line="148"/>
         <source>OEM name</source>
         <translation>OEM-имя</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="148"/>
+        <location filename="../placeholders.h" line="149"/>
         <source>Media descriptor</source>
         <translation>Дескриптор носителя</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="149"/>
+        <location filename="../placeholders.h" line="150"/>
         <source>BPB geometry</source>
         <translation>Геометрия по BPB</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="151"/>
+        <location filename="../placeholders.h" line="152"/>
         <source>Sectors per cluster</source>
         <translation>Секторов в кластере</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="152"/>
+        <location filename="../placeholders.h" line="153"/>
         <source>Cluster size</source>
         <translation>Размер кластера</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="153"/>
+        <location filename="../placeholders.h" line="154"/>
         <source>Sectors per track (FAT)</source>
         <translation>Секторов на дорожке</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="154"/>
+        <location filename="../placeholders.h" line="155"/>
         <source>Number of heads</source>
         <translation>Количество сторон</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="155"/>
+        <location filename="../placeholders.h" line="156"/>
         <source>Total sectors</source>
         <translation>Всего секторов</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="156"/>
+        <location filename="../placeholders.h" line="157"/>
         <source>Hidden sectors</source>
         <translation>Скрытых секторов</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="157"/>
-        <location filename="../placeholders.h" line="180"/>
-        <location filename="../placeholders.h" line="198"/>
+        <location filename="../placeholders.h" line="158"/>
+        <location filename="../placeholders.h" line="181"/>
+        <location filename="../placeholders.h" line="199"/>
         <source>Volume layout</source>
         <translation>Разметка тома</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="158"/>
+        <location filename="../placeholders.h" line="159"/>
         <source>Reserved sectors</source>
         <translation>Резервных секторов</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="159"/>
+        <location filename="../placeholders.h" line="160"/>
         <source>Number of FATs</source>
         <translation>Количество таблиц FAT</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="160"/>
+        <location filename="../placeholders.h" line="161"/>
         <source>Sectors per FAT</source>
         <translation>Секторов в таблице FAT</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="161"/>
+        <location filename="../placeholders.h" line="162"/>
         <source>Root directory entries</source>
         <translation>Элементов в корневой директории</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="162"/>
+        <location filename="../placeholders.h" line="163"/>
         <source>Root directory sectors</source>
         <translation>Секторов для корневой директории</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="163"/>
+        <location filename="../placeholders.h" line="164"/>
         <source>Region LBAs</source>
         <translation>Адреса областей (LBA)</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="164"/>
+        <location filename="../placeholders.h" line="165"/>
         <source>FAT start LBA</source>
         <translation>LBA начала FAT</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="165"/>
+        <location filename="../placeholders.h" line="166"/>
         <source>Root directory start LBA</source>
         <translation>Первый LBA корневой директории</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="166"/>
+        <location filename="../placeholders.h" line="167"/>
         <source>Data region start LBA</source>
         <translation>Первый LBA области данных</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="167"/>
+        <location filename="../placeholders.h" line="168"/>
         <source>Cluster usage</source>
         <translation>Статистика по кластерам</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="168"/>
+        <location filename="../placeholders.h" line="169"/>
         <source>Total clusters</source>
         <translation>Кластеров всего</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="169"/>
+        <location filename="../placeholders.h" line="170"/>
         <source>Used clusters</source>
         <translation>Кластеров занято</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="170"/>
+        <location filename="../placeholders.h" line="171"/>
         <source>Free clusters</source>
         <translation>Кластеров свободно</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="171"/>
+        <location filename="../placeholders.h" line="172"/>
         <source>Bad clusters</source>
         <translation>Плохие кластеры</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="175"/>
+        <location filename="../placeholders.h" line="176"/>
         <source>Created</source>
         <translation>Создан</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="176"/>
+        <location filename="../placeholders.h" line="177"/>
         <source>Last modified</source>
         <translation>Последнее изменение</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="177"/>
+        <location filename="../placeholders.h" line="178"/>
         <source>Version</source>
         <translation>Версия</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="178"/>
+        <location filename="../placeholders.h" line="179"/>
         <source>Minimum version</source>
         <translation>Минимальная версия</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="179"/>
+        <location filename="../placeholders.h" line="180"/>
         <source>Access</source>
         <translation>Доступ</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="183"/>
-        <location filename="../placeholders.h" line="203"/>
+        <location filename="../placeholders.h" line="184"/>
+        <location filename="../placeholders.h" line="204"/>
+        <location filename="../placeholders.h" line="238"/>
         <source>Used blocks</source>
         <translation>Занято блоков</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="184"/>
-        <location filename="../placeholders.h" line="204"/>
+        <location filename="../placeholders.h" line="185"/>
+        <location filename="../placeholders.h" line="205"/>
+        <location filename="../placeholders.h" line="239"/>
         <source>Free blocks</source>
         <translation>Свободно блоков</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="185"/>
+        <location filename="../placeholders.h" line="186"/>
         <source>Bitmap first block</source>
         <translation>Первый блок карты занятости</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="186"/>
+        <location filename="../placeholders.h" line="187"/>
         <source>Volume directory</source>
         <translation>Каталог тома</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="187"/>
+        <location filename="../placeholders.h" line="188"/>
         <source>Files in the root directory</source>
         <translation>Файлов в корневом каталоге</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="188"/>
-        <location filename="../placeholders.h" line="210"/>
+        <location filename="../placeholders.h" line="189"/>
+        <location filename="../placeholders.h" line="211"/>
         <source>Directory entry length</source>
         <translation>Размер записи каталога</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="189"/>
-        <location filename="../placeholders.h" line="211"/>
+        <location filename="../placeholders.h" line="190"/>
+        <location filename="../placeholders.h" line="212"/>
         <source>Directory entries per block</source>
         <translation>Записей каталога в блоке</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="190"/>
+        <location filename="../placeholders.h" line="191"/>
         <source>Storage type</source>
         <translation>Тип хранения</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="191"/>
+        <location filename="../placeholders.h" line="192"/>
         <source>Blocks used</source>
         <translation>Блоков под файл</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="192"/>
+        <location filename="../placeholders.h" line="193"/>
         <source>Key block</source>
         <translation>Ключевой блок</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="193"/>
+        <location filename="../placeholders.h" line="194"/>
         <source>Auxiliary type</source>
         <translation>Дополнительный тип</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="194"/>
-        <location filename="../placeholders.h" line="217"/>
+        <location filename="../placeholders.h" line="195"/>
+        <location filename="../placeholders.h" line="218"/>
         <source>File blocks</source>
         <translation>Блоки файла</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="195"/>
+        <location filename="../placeholders.h" line="196"/>
         <source>no date</source>
         <translation>нет даты</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="200"/>
+        <location filename="../placeholders.h" line="201"/>
         <source>Blocks on the disk</source>
         <translation>Блоков на диске</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="201"/>
+        <location filename="../placeholders.h" line="202"/>
         <source>Blocks in the allocation table</source>
         <translation>Блоков в таблице размещения</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="202"/>
+        <location filename="../placeholders.h" line="203"/>
         <source>System blocks</source>
         <translation>Системных блоков</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="205"/>
+        <location filename="../placeholders.h" line="206"/>
         <source>Allocation table</source>
         <translation>Таблица размещения</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="206"/>
+        <location filename="../placeholders.h" line="207"/>
         <source>Table first block</source>
         <translation>Первый блок таблицы</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="207"/>
+        <location filename="../placeholders.h" line="208"/>
         <source>Table blocks</source>
         <translation>Блоков в таблице</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="208"/>
+        <location filename="../placeholders.h" line="209"/>
         <source>Root directory block</source>
         <translation>Блок корневого каталога</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="209"/>
+        <location filename="../placeholders.h" line="210"/>
+        <location filename="../placeholders.h" line="228"/>
         <source>Directory</source>
         <translation>Каталог</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="214"/>
+        <location filename="../placeholders.h" line="215"/>
+        <location filename="../placeholders.h" line="242"/>
         <source>First block</source>
         <translation>Первый блок</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="215"/>
+        <location filename="../placeholders.h" line="216"/>
         <source>Load address</source>
         <translation>Адрес загрузки</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="216"/>
+        <location filename="../placeholders.h" line="217"/>
         <source>Execution address</source>
         <translation>Адрес запуска</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="221"/>
+        <source>Date (DD.MM.YYYY)</source>
+        <translation>Дата (ДД.ММ.ГГГГ)</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="222"/>
+        <source>Home block</source>
+        <translation>Блок описания тома</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="224"/>
+        <source>Owner</source>
+        <translation>Владелец</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="225"/>
+        <source>System ID</source>
+        <translation>Идентификатор системы</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="226"/>
+        <source>System version</source>
+        <translation>Версия системы</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="227"/>
+        <source>Pack cluster size</source>
+        <translation>Размер кластера</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="229"/>
+        <source>First directory block</source>
+        <translation>Первый блок каталога</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="230"/>
+        <source>Directory segments</source>
+        <translation>Сегментов каталога</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="231"/>
+        <source>Segments in use</source>
+        <translation>Используется сегментов</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="232"/>
+        <source>Extra bytes per entry</source>
+        <translation>Дополнительных байт в записи</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="233"/>
+        <source>First data block</source>
+        <translation>Первый блок данных</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="234"/>
+        <source>Files</source>
+        <translation>Файлов</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="235"/>
+        <source>Blocks</source>
+        <translation>Блоки</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="236"/>
+        <source>Blocks in the image</source>
+        <translation>Блоков в образе</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="237"/>
+        <source>Blocks described by the directory</source>
+        <translation>Блоков по каталогу</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="240"/>
+        <source>Status</source>
+        <translation>Состояние</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="243"/>
+        <source>Length in blocks</source>
+        <translation>Длина в блоках</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="244"/>
+        <source>Job and channel</source>
+        <translation>Задание и канал</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="245"/>
+        <source>Directory segment</source>
+        <translation>Сегмент каталога</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="246"/>
+        <source>entry</source>
+        <translation>запись</translation>
     </message>
     <message>
         <location filename="../FileOperations.cpp" line="64"/>
@@ -1867,12 +2001,12 @@ Warning: This action cannot be undone!</source>
         <translation>Ошибка записи файла</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1736"/>
+        <location filename="../FilePanel.cpp" line="1759"/>
         <source>(No history)</source>
         <translation>(Нет истории)</translation>
     </message>
     <message>
-        <location filename="../FilePanel.cpp" line="1764"/>
+        <location filename="../FilePanel.cpp" line="1787"/>
         <source>Clear history</source>
         <translation>Очистить историю</translation>
     </message>
@@ -1903,42 +2037,52 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>FileTable</name>
     <message>
-        <location filename="../FileTable.cpp" line="290"/>
+        <location filename="../FileTable.cpp" line="297"/>
         <source>P</source>
         <translation>З</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="291"/>
+        <location filename="../FileTable.cpp" line="298"/>
         <source>Protection</source>
         <translation>Защита</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="297"/>
+        <location filename="../FileTable.cpp" line="304"/>
         <source>T</source>
         <translation>Т</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="298"/>
+        <location filename="../FileTable.cpp" line="305"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="312"/>
+        <location filename="../FileTable.cpp" line="319"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="313"/>
+        <location filename="../FileTable.cpp" line="320"/>
         <source>Size in bytes</source>
         <translation>Размер в байтах</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="316"/>
+        <location filename="../FileTable.cpp" line="326"/>
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="327"/>
+        <source>Date of the file</source>
+        <translation>Дата файла</translation>
+    </message>
+    <message>
+        <location filename="../FileTable.cpp" line="331"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../FileTable.cpp" line="317"/>
+        <location filename="../FileTable.cpp" line="332"/>
         <source>Name of the file</source>
         <translation>Имя файла</translation>
     </message>
@@ -1946,654 +2090,654 @@ Warning: This action cannot be undone!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="474"/>
+        <location filename="../mainwindow.cpp" line="558"/>
         <source>Sort by name</source>
         <translation>Сортировка по имени</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="542"/>
-        <location filename="../mainwindow.cpp" line="1156"/>
+        <location filename="../mainwindow.cpp" line="626"/>
+        <location filename="../mainwindow.cpp" line="1240"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="507"/>
-        <location filename="../mainwindow.cpp" line="912"/>
+        <location filename="../mainwindow.cpp" line="591"/>
+        <location filename="../mainwindow.cpp" line="996"/>
         <source>Image</source>
         <translation>Образ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="540"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>Files</source>
         <translation>Файлы</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="684"/>
+        <location filename="../mainwindow.cpp" line="768"/>
         <source>About...</source>
         <translation>О программе...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="576"/>
+        <location filename="../mainwindow.cpp" line="660"/>
         <source>Language</source>
         <translation>Переключить язык</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
-        <location filename="../mainwindow.cpp" line="297"/>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="320"/>
+        <location filename="../mainwindow.cpp" line="381"/>
+        <location filename="../mainwindow.cpp" line="425"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="297"/>
+        <location filename="../mainwindow.cpp" line="381"/>
         <source>Error reading config file</source>
         <translation>Ошибка чтения файла конфигурации</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>Failed to load language file for: </source>
         <translation>Не удалось переключить язык: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="577"/>
+        <location filename="../mainwindow.cpp" line="661"/>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="596"/>
+        <location filename="../mainwindow.cpp" line="680"/>
         <source>Theme</source>
         <translation>Цветовая тема</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="597"/>
+        <location filename="../mainwindow.cpp" line="681"/>
         <source>Themes</source>
         <translation>Темы</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="606"/>
+        <location filename="../mainwindow.cpp" line="690"/>
         <source>System</source>
         <translation>Системная</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="691"/>
         <source>Light</source>
         <translation>Светлая</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="608"/>
+        <location filename="../mainwindow.cpp" line="692"/>
         <source>Dark</source>
         <translation>Тёмная</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="582"/>
+        <location filename="../mainwindow.cpp" line="666"/>
         <source>Русский</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="587"/>
+        <location filename="../mainwindow.cpp" line="671"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="476"/>
         <source>F2 Save</source>
         <translation>F2 Сохранить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="480"/>
         <source>F6 Rename</source>
         <translation>F6 Переименовать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="491"/>
+        <location filename="../mainwindow.cpp" line="575"/>
         <source>Show deleted</source>
         <translation>Показывать удалённые</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="509"/>
+        <location filename="../mainwindow.cpp" line="593"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="513"/>
+        <location filename="../mainwindow.cpp" line="597"/>
         <source>Save as...</source>
         <translation>Сохранить как...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="528"/>
+        <location filename="../mainwindow.cpp" line="612"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
-        <location filename="../mainwindow.cpp" line="1150"/>
+        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="1234"/>
         <source>F3 View</source>
         <translation>F3 Просмотр</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="391"/>
+        <location filename="../mainwindow.cpp" line="475"/>
         <source>F1 Hotkeys</source>
         <translation>F1 Клавиатура</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="667"/>
-        <location filename="../mainwindow.cpp" line="668"/>
-        <location filename="../mainwindow.cpp" line="823"/>
+        <location filename="../mainwindow.cpp" line="751"/>
+        <location filename="../mainwindow.cpp" line="752"/>
+        <location filename="../mainwindow.cpp" line="907"/>
         <source>Viewer font</source>
         <translation>Шрифт для текста</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="670"/>
+        <location filename="../mainwindow.cpp" line="754"/>
         <source>Choose...</source>
         <translation>Выбрать...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="673"/>
+        <location filename="../mainwindow.cpp" line="757"/>
         <source>Default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="733"/>
+        <location filename="../mainwindow.cpp" line="817"/>
         <source>Selected files: %1, total size: %2</source>
         <translation>Выбрано файлов: %1, общий размер: %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="760"/>
+        <location filename="../mainwindow.cpp" line="844"/>
         <source>Image size</source>
         <translation>Размер образа</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="761"/>
+        <location filename="../mainwindow.cpp" line="845"/>
         <source>Total space</source>
         <translation>Пространство для файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="762"/>
+        <location filename="../mainwindow.cpp" line="846"/>
         <source>Occupied</source>
         <translation>Занято файлами</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="763"/>
+        <location filename="../mainwindow.cpp" line="847"/>
         <source>Available</source>
         <translation>Доступно для записи</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="881"/>
+        <location filename="../mainwindow.cpp" line="965"/>
         <source>File operations</source>
         <translation>Операции с файлами</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="882"/>
+        <location filename="../mainwindow.cpp" line="966"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="882"/>
+        <location filename="../mainwindow.cpp" line="966"/>
         <source>Save modified image</source>
         <translation>Сохранить изменённый образ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="883"/>
+        <location filename="../mainwindow.cpp" line="967"/>
         <source>Ctrl+Alt+F2</source>
         <translation>Ctrl+Alt+F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="883"/>
+        <location filename="../mainwindow.cpp" line="967"/>
         <source>Export image to another format</source>
         <translation>Экспортировать образ в другой формат</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="884"/>
+        <location filename="../mainwindow.cpp" line="968"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="885"/>
+        <location filename="../mainwindow.cpp" line="969"/>
         <source>Ctrl+F3</source>
         <translation>Ctrl+F3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="885"/>
+        <location filename="../mainwindow.cpp" line="969"/>
         <source>File info inside image</source>
         <translation>Информация о файле внутри образа</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="886"/>
+        <location filename="../mainwindow.cpp" line="970"/>
         <source>Ctrl+Alt+F3</source>
         <translation>Ctrl+Alt+F3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="886"/>
+        <location filename="../mainwindow.cpp" line="970"/>
         <source>Filesystem info</source>
         <translation>Информация о файловой системе</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
+        <location filename="../mainwindow.cpp" line="971"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
+        <location filename="../mainwindow.cpp" line="971"/>
         <source>Open image / edit metadata</source>
         <translation>Открыть образ / Редактировать метаданные</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="888"/>
+        <location filename="../mainwindow.cpp" line="972"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="889"/>
+        <location filename="../mainwindow.cpp" line="973"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="890"/>
+        <location filename="../mainwindow.cpp" line="974"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="890"/>
+        <location filename="../mainwindow.cpp" line="974"/>
         <source>Make directory</source>
         <translation>Создать директорию</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="891"/>
+        <location filename="../mainwindow.cpp" line="975"/>
         <source>F8, Del</source>
         <translation>F8, Del</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="891"/>
+        <location filename="../mainwindow.cpp" line="975"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="892"/>
+        <location filename="../mainwindow.cpp" line="976"/>
         <source>F9</source>
         <translation>F9</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="892"/>
+        <location filename="../mainwindow.cpp" line="976"/>
         <source>Restore deleted</source>
         <translation>Восстановить удалённый</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="893"/>
+        <location filename="../mainwindow.cpp" line="977"/>
         <source>F10</source>
         <translation>F10</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="893"/>
+        <location filename="../mainwindow.cpp" line="977"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="895"/>
+        <location filename="../mainwindow.cpp" line="979"/>
         <source>Navigation</source>
         <translation>Навигация</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="896"/>
+        <location filename="../mainwindow.cpp" line="980"/>
         <source>Tab</source>
         <translation>Tab</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="896"/>
+        <location filename="../mainwindow.cpp" line="980"/>
         <source>Switch panel</source>
         <translation>Перейти в другую панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="897"/>
+        <location filename="../mainwindow.cpp" line="981"/>
         <source>Enter</source>
         <translation>Enter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="897"/>
+        <location filename="../mainwindow.cpp" line="981"/>
         <source>Open file or directory</source>
         <translation>Открыть файл или войти в директорию</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="898"/>
+        <location filename="../mainwindow.cpp" line="982"/>
         <source>Backspace</source>
         <translation>Backspace</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="898"/>
+        <location filename="../mainwindow.cpp" line="982"/>
         <source>Go up one level / close image at root</source>
         <translation>Выйти из поддиректории / Закрыть образ (из корня)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="899"/>
+        <location filename="../mainwindow.cpp" line="983"/>
         <source>Esc</source>
         <translation>Esc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="899"/>
+        <location filename="../mainwindow.cpp" line="983"/>
         <source>Close image, return to folder</source>
         <translation>Закрыть образ, вернуться к его расположению</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="984"/>
         <source>Alt+F1, Alt+F2</source>
         <translation>Alt+F1, Alt+F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="984"/>
         <source>Choose directory for left/right panel</source>
         <translation>Выбрать директорию для левой/правой панели</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="901"/>
+        <location filename="../mainwindow.cpp" line="985"/>
         <source>Ctrl+F1, Ctrl+F2</source>
         <translation>Ctrl+F1, Ctrl+F2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="901"/>
+        <location filename="../mainwindow.cpp" line="985"/>
         <source>Directory history for left/right panel</source>
         <translation>Открыть историю для левой/правой панели</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="903"/>
+        <location filename="../mainwindow.cpp" line="987"/>
         <source>Selection</source>
         <translation>Выбор файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="904"/>
+        <location filename="../mainwindow.cpp" line="988"/>
         <source>Insert</source>
         <translation>Insert</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="904"/>
+        <location filename="../mainwindow.cpp" line="988"/>
         <source>Toggle selection, move to next</source>
         <translation>Переключить выделение, перейти на строку вниз</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="905"/>
+        <location filename="../mainwindow.cpp" line="989"/>
         <source>+</source>
         <translation>+</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="905"/>
+        <location filename="../mainwindow.cpp" line="989"/>
         <source>Select all</source>
         <translation>Выбрать все файлы</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="906"/>
+        <location filename="../mainwindow.cpp" line="990"/>
         <source>-</source>
         <translation>-</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="906"/>
+        <location filename="../mainwindow.cpp" line="990"/>
         <source>Deselect all</source>
         <translation>Снять выбор со всех файлов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="907"/>
+        <location filename="../mainwindow.cpp" line="991"/>
         <source>*</source>
         <translation>*</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="907"/>
+        <location filename="../mainwindow.cpp" line="991"/>
         <source>Invert selection</source>
         <translation>Инвертировать выделение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="908"/>
+        <location filename="../mainwindow.cpp" line="992"/>
         <source>Up / Down</source>
         <translation>Вверх / Вниз</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="908"/>
+        <location filename="../mainwindow.cpp" line="992"/>
         <source>Move cursor</source>
         <translation>Переместить курсор</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="909"/>
+        <location filename="../mainwindow.cpp" line="993"/>
         <source>Home / End</source>
         <translation>Home / End</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="909"/>
+        <location filename="../mainwindow.cpp" line="993"/>
         <source>Jump to first / last row</source>
         <translation>Перейти на первую/последнюю строку</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="910"/>
+        <location filename="../mainwindow.cpp" line="994"/>
         <source>PgUp / PgDn</source>
         <translation>PgUp / PgDn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="910"/>
+        <location filename="../mainwindow.cpp" line="994"/>
         <source>Scroll by page</source>
         <translation>Перейти на страницу вверх/вниз</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="913"/>
+        <location filename="../mainwindow.cpp" line="997"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="915"/>
+        <location filename="../mainwindow.cpp" line="999"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="916"/>
+        <location filename="../mainwindow.cpp" line="1000"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="916"/>
+        <location filename="../mainwindow.cpp" line="1000"/>
         <source>This window</source>
         <translation>Это окно</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="921"/>
+        <location filename="../mainwindow.cpp" line="1005"/>
         <source>Hotkeys</source>
         <translation>Горячие клавиши</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="927"/>
+        <location filename="../mainwindow.cpp" line="1011"/>
         <source>Key</source>
         <translation>Клавиша</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="927"/>
+        <location filename="../mainwindow.cpp" line="1011"/>
         <source>Action</source>
         <translation>Действие</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1145"/>
+        <location filename="../mainwindow.cpp" line="1229"/>
         <source>F3 Image Info</source>
         <translation>F3 Образ Инфо</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="712"/>
         <source>Use Recycle Bin for host</source>
         <translation>Удалять в корзину (для хост-системы)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="395"/>
+        <location filename="../mainwindow.cpp" line="479"/>
         <source>F5 Copy</source>
         <translation>F5 Копировать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="168"/>
+        <location filename="../mainwindow.cpp" line="252"/>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="243"/>
+        <location filename="../mainwindow.cpp" line="327"/>
         <source>DISK Commander</source>
         <translation>DISK Commander</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="269"/>
+        <location filename="../mainwindow.cpp" line="353"/>
         <source>Both panels have unsaved disk image changes. Close anyway?</source>
         <translation>На обеих панелях есть несохранённые изменения. Закрыть без сохранения?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="271"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>One panel has unsaved disk image changes. Close anyway?</source>
         <translation>На одной из панелей есть несохранённые изменения. Закрыть без сохранения?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="276"/>
+        <location filename="../mainwindow.cpp" line="360"/>
         <source>Unsaved Changes</source>
         <translation>Несохранённые изменения</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="481"/>
         <source>F7 MkDir</source>
         <translation>F7 Директория</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="398"/>
-        <location filename="../mainwindow.cpp" line="564"/>
+        <location filename="../mainwindow.cpp" line="482"/>
+        <location filename="../mainwindow.cpp" line="648"/>
         <source>F8 Delete</source>
         <translation>F8 Удалить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="399"/>
-        <location filename="../mainwindow.cpp" line="568"/>
+        <location filename="../mainwindow.cpp" line="483"/>
+        <location filename="../mainwindow.cpp" line="652"/>
         <source>F9 Restore</source>
         <translation>F9 Восстановить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="400"/>
+        <location filename="../mainwindow.cpp" line="484"/>
         <source>F10 Exit</source>
         <translation>F10 Выход</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="504"/>
+        <location filename="../mainwindow.cpp" line="588"/>
         <source>Left panel</source>
         <translation>Левая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="455"/>
+        <location filename="../mainwindow.cpp" line="539"/>
         <source>Go Up</source>
         <translation>Вверх</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="425"/>
         <source>Error reading diskdefs file</source>
         <translation>Ошибка чтения diskdefs</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="458"/>
+        <location filename="../mainwindow.cpp" line="542"/>
         <source>Open directory...</source>
         <translation>Выбрать директорию...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="462"/>
+        <location filename="../mainwindow.cpp" line="546"/>
         <source>Directory history</source>
         <translation>История переходов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="470"/>
+        <location filename="../mainwindow.cpp" line="554"/>
         <source>Sorting</source>
         <translation>Сортировка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="479"/>
+        <location filename="../mainwindow.cpp" line="563"/>
         <source>Sort by size</source>
         <translation>По размеру</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="568"/>
         <source>No sorting</source>
         <translation>Без сортировки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="603"/>
         <source>Container Info...</source>
         <translation>О контейнере...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="522"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Filesystem Info...</source>
         <translation>О файловой системе...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="531"/>
+        <location filename="../mainwindow.cpp" line="615"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="535"/>
+        <location filename="../mainwindow.cpp" line="619"/>
         <source>Reload</source>
         <translation>Перезагрузить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="545"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>File Info</source>
         <translation>Информация о файле</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="549"/>
+        <location filename="../mainwindow.cpp" line="633"/>
         <source>Edit Metadata</source>
         <translation>Редактировать метаданные</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="552"/>
-        <location filename="../mainwindow.cpp" line="888"/>
+        <location filename="../mainwindow.cpp" line="636"/>
+        <location filename="../mainwindow.cpp" line="972"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="556"/>
-        <location filename="../mainwindow.cpp" line="889"/>
+        <location filename="../mainwindow.cpp" line="640"/>
+        <location filename="../mainwindow.cpp" line="973"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="560"/>
+        <location filename="../mainwindow.cpp" line="644"/>
         <source>F7 Make dir</source>
         <translation>F7 Директория</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="573"/>
+        <location filename="../mainwindow.cpp" line="657"/>
         <source>Options</source>
         <translation>Параметры</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="640"/>
+        <location filename="../mainwindow.cpp" line="724"/>
         <source>Make backups on save</source>
         <translation>Резервные копии при сохранении</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="736"/>
         <source>Watch for external image changes</source>
         <translation>Отслеживать изменение образов</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="680"/>
+        <location filename="../mainwindow.cpp" line="764"/>
         <source>Hotkeys...</source>
         <translation>Горячие клавиши...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="688"/>
+        <location filename="../mainwindow.cpp" line="772"/>
         <source>Right panel</source>
         <translation>Правая панель</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="394"/>
-        <location filename="../mainwindow.cpp" line="1146"/>
+        <location filename="../mainwindow.cpp" line="478"/>
+        <location filename="../mainwindow.cpp" line="1230"/>
         <source>F4 Open</source>
         <translation>F4 Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="884"/>
+        <location filename="../mainwindow.cpp" line="968"/>
         <source>View file / Explore image in HEX mode</source>
         <translation>Просмотр файла / Просмотр образа по секторам</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="913"/>
+        <location filename="../mainwindow.cpp" line="997"/>
         <source>Reload current directory / opened image</source>
         <translation>Перезагрузить директорию / каталог образа</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1151"/>
+        <location filename="../mainwindow.cpp" line="1235"/>
         <source>F4 Meta</source>
         <translation>F4 Метаданные</translation>
     </message>
@@ -2603,42 +2747,49 @@ Warning: This action cannot be undone!</source>
     <message>
         <location filename="../viewdialog.ui" line="14"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="354"/>
         <source>View</source>
         <translation>Просмотр файла</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="75"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="357"/>
         <source>View mode</source>
         <translation>Режим просмотра</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="123"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="361"/>
         <source>Subtype</source>
         <translation>Вариант</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="186"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="364"/>
         <source>Encoding</source>
         <translation>Кодировка</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="209"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="367"/>
         <source>File info</source>
         <translation>О файле</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="232"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="371"/>
         <source>Copy text to clipboard</source>
         <translation>Копировать в буфер обмена</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="235"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="373"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
@@ -2647,24 +2798,29 @@ Warning: This action cannot be undone!</source>
         <location filename="../viewdialog.ui" line="255"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="375"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="377"/>
         <source>Save to file</source>
         <translation>Сохранить в файл</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="281"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="378"/>
         <source>Viewing a deleted file. The data may be incorrect.</source>
         <translation>Удаленный файл. Данные могут быть неверны.</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="212"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="369"/>
         <source>Info</source>
         <translation>Информация</translation>
     </message>
     <message>
         <location filename="../viewdialog.ui" line="301"/>
         <location filename="../cmake-build-qt-6.11.2-mingw_1310/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
+        <location filename="../cmake-build-qt-6.11.2-msvc/DISKCommander_autogen/include/ui_viewdialog.h" line="379"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -2774,118 +2930,118 @@ Warning: This action cannot be undone!</source>
         <translation>4:3</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="220"/>
-        <location filename="../placeholders.h" line="239"/>
+        <location filename="../placeholders.h" line="249"/>
+        <location filename="../placeholders.h" line="268"/>
         <source>Palette</source>
         <translation>Палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="221"/>
+        <location filename="../placeholders.h" line="250"/>
         <source>Color</source>
         <translation>Цветной</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="222"/>
+        <location filename="../placeholders.h" line="251"/>
         <source>Monochrome</source>
         <translation>Монохромный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="223"/>
+        <location filename="../placeholders.h" line="252"/>
         <source>Custom palette</source>
         <translation>Загружаемая палитра</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="224"/>
+        <location filename="../placeholders.h" line="253"/>
         <source>b/w</source>
         <translation>Чёрно-белый</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="225"/>
+        <location filename="../placeholders.h" line="254"/>
         <source>Custom font loading error</source>
         <translation>Загружаемый шрифт не найден</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="226"/>
+        <location filename="../placeholders.h" line="255"/>
         <source>Agat Improved</source>
         <translation>Агат исправленный</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="227"/>
+        <location filename="../placeholders.h" line="256"/>
         <source>Apple Improved</source>
         <translation>С заливкой</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="228"/>
+        <location filename="../placeholders.h" line="257"/>
         <source>Apple NTSC Original</source>
         <translation>NTSC без заливки</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="229"/>
+        <location filename="../placeholders.h" line="258"/>
         <source>Agat-7 classic font</source>
         <translation>ZG7 : Classic</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="230"/>
+        <location filename="../placeholders.h" line="259"/>
         <source>Agat-7 enhanced font</source>
         <translation>ZG7: 256</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="237"/>
+        <location filename="../placeholders.h" line="266"/>
         <source>BFT Font</source>
         <translation>Шрифт BFT</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="240"/>
+        <location filename="../placeholders.h" line="269"/>
         <source>Comment</source>
         <translation>Комментарий</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="241"/>
+        <location filename="../placeholders.h" line="270"/>
         <source>Agat color mode</source>
         <translation>Цветной режим Агат</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="242"/>
+        <location filename="../placeholders.h" line="271"/>
         <source>Apple color mode</source>
         <translation>Цветной режим Apple</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="243"/>
+        <location filename="../placeholders.h" line="272"/>
         <source>Font type</source>
         <translation>Тип шрифта</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="244"/>
+        <location filename="../placeholders.h" line="273"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="231"/>
+        <location filename="../placeholders.h" line="260"/>
         <source>Agat-9 classic font</source>
         <translation>ZG9 : Classic</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="232"/>
+        <location filename="../placeholders.h" line="261"/>
         <source>GARNIZON custom font</source>
         <translation>ZG9 : GARNIZON</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="233"/>
+        <location filename="../placeholders.h" line="262"/>
         <source>Loaded custom font</source>
         <translation>Загружаемый шрифт</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="234"/>
+        <location filename="../placeholders.h" line="263"/>
         <source>Agat-9 Font</source>
         <translation>Агат-9</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="235"/>
+        <location filename="../placeholders.h" line="264"/>
         <source>Agat-7 Font</source>
         <translation>Агат-7</translation>
     </message>
     <message>
-        <location filename="../placeholders.h" line="236"/>
+        <location filename="../placeholders.h" line="265"/>
         <source>Font file</source>
         <translation>Знакогенератор</translation>
     </message>
@@ -3110,22 +3266,58 @@ Warning: This action cannot be undone!</source>
         <translation>Apple II 800 Кб ProDOS (3,5&quot;)</translation>
     </message>
     <message>
+        <location filename="config.qml" line="36"/>
+        <source>RT-11::DX 8&quot; 250 Kb (DVK)</source>
+        <translation>RT-11: DX 8&quot; 250 Кб (ДВК)</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="37"/>
+        <source>RT-11::MX 220 Kb (DVK)</source>
+        <translation>RT-11: MX 220 Кб (ДВК)</translation>
+    </message>
+    <message>
         <location filename="config.qml" line="38"/>
+        <source>RT-11::MX 440 Kb (DVK)</source>
+        <translation>RT-11: MX 440 Кб (ДВК)</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="39"/>
+        <source>RT-11::MY 800 Kb (DVK)</source>
+        <translation>RT-11: MY 800 Кб (ДВК)</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="40"/>
+        <source>RT-11::MZ 400 Kb (UKNC, BK)</source>
+        <translation>RT-11: MZ 400 Кб (УКНЦ, БК)</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="41"/>
+        <source>RT-11::MZ 800 Kb (UKNC, BK)</source>
+        <translation>RT-11: MZ 800 Кб (УКНЦ, БК)</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="44"/>
         <source>ProDOS (Nippel OS)</source>
         <translation>ProDOS (ОС Nippel)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="39"/>
+        <location filename="config.qml" line="45"/>
         <source>Onix OS</source>
         <translation>Onix OS</translation>
     </message>
     <message>
-        <location filename="config.qml" line="45"/>
+        <location filename="config.qml" line="51"/>
         <source>Iskra-226</source>
         <translation>Искра-226</translation>
     </message>
     <message>
-        <location filename="config.qml" line="49"/>
+        <location filename="config.qml" line="52"/>
+        <location filename="config.qml" line="57"/>
+        <source>RT-11</source>
+        <translation>RT-11</translation>
+    </message>
+    <message>
+        <location filename="config.qml" line="56"/>
         <source>Atari ST</source>
         <translation>Atari ST</translation>
     </message>
@@ -3155,52 +3347,52 @@ Warning: This action cannot be undone!</source>
         <translation>Вектор-06Ц 820 Кб</translation>
     </message>
     <message>
-        <location filename="config.qml" line="36"/>
+        <location filename="config.qml" line="42"/>
         <source>Agat/Apple DOS33</source>
         <translation>Агат/Apple DOS 3.3</translation>
     </message>
     <message>
-        <location filename="config.qml" line="37"/>
+        <location filename="config.qml" line="43"/>
         <source>Agat Sprite OS</source>
         <translation>Агат ОС «Спрайт»</translation>
     </message>
     <message>
-        <location filename="config.qml" line="40"/>
+        <location filename="config.qml" line="46"/>
         <source>Single .FIL</source>
         <translation>Файл .FIL</translation>
     </message>
     <message>
-        <location filename="config.qml" line="41"/>
+        <location filename="config.qml" line="47"/>
         <source>CP/M (DOS 3.3 skew)</source>
         <translation>CP/M (Сектора DOS 3.3)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="42"/>
+        <location filename="config.qml" line="48"/>
         <source>CP/M (ProDOS skew)</source>
         <translation>CP/M (Сектора ProDOS)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="43"/>
+        <location filename="config.qml" line="49"/>
         <source>CP/M (No sector skew)</source>
         <translation>CP/M (Без сдвига секторов)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="44"/>
+        <location filename="config.qml" line="50"/>
         <source>MS-DOS (FAT12)</source>
         <translation>MS-DOS (FAT)</translation>
     </message>
     <message>
-        <location filename="config.qml" line="46"/>
+        <location filename="config.qml" line="53"/>
         <source>Agat</source>
         <translation>Агат</translation>
     </message>
     <message>
-        <location filename="config.qml" line="47"/>
+        <location filename="config.qml" line="54"/>
         <source>Irisha</source>
         <translation>Ириша</translation>
     </message>
     <message>
-        <location filename="config.qml" line="48"/>
+        <location filename="config.qml" line="55"/>
         <source>PC</source>
         <translation>IBM PC</translation>
     </message>
@@ -3209,7 +3401,7 @@ Warning: This action cannot be undone!</source>
     <name>errors</name>
     <message>
         <location filename="../libs/dsk_tools/src/converters/converter.cpp" line="20"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="334"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="192"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_aim.cpp" line="102"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_fil.cpp" line="23"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_hxc_hfe.cpp" line="56"/>
@@ -3242,88 +3434,89 @@ Warning: This action cannot be undone!</source>
         <translation>Не удалось записать файл</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="386"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="434"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="244"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="271"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="321"/>
         <source>Invalid file size for DSK format</source>
         <translation>Некорректный размер файла. Попробуйте отключить автоопределение и указать тип файла вручную</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="501"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="522"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="391"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="412"/>
         <source>Failed to load AIM file</source>
         <translation>Ошибка загрузки файла AIM</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="509"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="632"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="399"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="522"/>
         <location filename="../libs/dsk_tools/src/filesystems/fs_prodos.cpp" line="138"/>
         <source>ProDOS volume header not found</source>
         <translation>Не найден заголовок тома ProDOS</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="532"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="422"/>
         <source>Invalid file size for NIB format</source>
         <translation>Некорректный размер файла для формата NIB</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="565"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="455"/>
         <source>Unknown MFM format</source>
         <translation>Неизвестный формат MFM</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="567"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="457"/>
         <source>Failed to load MFM file</source>
         <translation>Не удалось загрузить MFM-файл</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="590"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="480"/>
         <source>Invalid filesystem signature</source>
         <translation>Некорректная сигнатура файловой системы</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="604"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="494"/>
         <source>Cannot open HFE file</source>
         <translation>Не удалось открыть файл HFE</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="628"/>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="645"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="518"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="535"/>
         <source>Invalid HFE file format</source>
         <translation>Некорректный формат файла HFE</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="666"/>
+        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="556"/>
         <source>Unknown file format</source>
         <translation>Неизвестный формат файла</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="955"/>
+        <location filename="../libs/dsk_tools/src/disk_codecs.cpp" line="301"/>
         <source>Agat 840 track decode error</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="968"/>
+        <location filename="../libs/dsk_tools/src/disk_codecs.cpp" line="314"/>
         <source>Failed to decode Agat 840 track</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 840 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="975"/>
+        <location filename="../libs/dsk_tools/src/disk_codecs.cpp" line="321"/>
         <source>Decoded track size mismatch</source>
         <translation>Некорректный размер дорожки после декодирования</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="1048"/>
+        <location filename="../libs/dsk_tools/src/disk_codecs.cpp" line="394"/>
         <source>Agat 140 track decode error</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/dsk_tools.cpp" line="1059"/>
+        <location filename="../libs/dsk_tools/src/disk_codecs.cpp" line="405"/>
         <source>Failed to decode Agat 140 track</source>
         <translation>Ошибка декодирования дорожки в формате диска Агат 140 Кб</translation>
     </message>
     <message>
         <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="37"/>
-        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="63"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="68"/>
         <source>Unknown disk type</source>
         <translation>Неизвестный тип диска</translation>
     </message>
@@ -3404,7 +3597,7 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../libs/dsk_tools/src/loaders/loader_imd.cpp" line="112"/>
-        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="108"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="113"/>
         <source>Data exceeds buffer size</source>
         <translation>Размер данных превышает размер буфера</translation>
     </message>
@@ -3415,8 +3608,8 @@ Warning: This action cannot be undone!</source>
     </message>
     <message>
         <location filename="../libs/dsk_tools/src/images/disk_image.cpp" line="29"/>
-        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="75"/>
         <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="80"/>
+        <location filename="../libs/dsk_tools/src/loaders/loader_raw.cpp" line="85"/>
         <source>Sector translation table has incorrect size</source>
         <translation>Таблица трансляции секторов имеет некорректную длину</translation>
     </message>
@@ -3515,6 +3708,7 @@ Warning: This action cannot be undone!</source>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1018"/>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1021"/>
         <location filename="../libs/dsk_tools/src/filesystems/fs_dos33.cpp" line="1059"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="1185"/>
         <source>Sector is not free</source>
         <translation>Сектор уже занят</translation>
     </message>
@@ -3599,48 +3793,48 @@ Warning: This action cannot be undone!</source>
         <translation>Размер файла меньше ожидаемого</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="213"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="217"/>
         <source>Cannot read FAT boot sector</source>
         <translation>Не удалось прочитать загрузочный сектор FAT</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="219"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="223"/>
         <source>FAT: invalid bytes per sector</source>
         <translation>FAT: некорректный размер сектора</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="221"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="225"/>
         <source>FAT: invalid sectors per cluster</source>
         <translation>FAT: некорректное кол-во секторов на кластер</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="223"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="227"/>
         <source>FAT: invalid FAT count</source>
         <translation>FAT: некорректное кол-во таблиц FAT</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="225"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="229"/>
         <source>FAT: invalid reserved sector count</source>
         <translation>FAT: некорректное кол-во резервных секторов</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="227"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="231"/>
         <source>FAT: sector size mismatch</source>
         <translation>FAT: несоответствие размера сектора</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="231"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="235"/>
         <source>FAT: zero total sectors</source>
         <translation>FAT: нулевое кол-во секторов</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="235"/>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="256"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="239"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="260"/>
         <source>FAT32 is not supported</source>
         <translation>FAT32 не поддерживается</translation>
     </message>
     <message>
-        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="245"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_fat.cpp" line="249"/>
         <source>FAT: data region beyond disk</source>
         <translation>FAT: область данных за пределами диска</translation>
     </message>
@@ -3685,6 +3879,17 @@ Warning: This action cannot be undone!</source>
         <location filename="../libs/dsk_tools/src/filesystems/fs_onix.cpp" line="218"/>
         <source>Onix allocation table not found</source>
         <translation>Таблица размещения Onix не найдена</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_rt11.cpp" line="592"/>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_rt11.cpp" line="599"/>
+        <source>RT-11: invalid directory</source>
+        <translation>RT-11: каталог повреждён</translation>
+    </message>
+    <message>
+        <location filename="../libs/dsk_tools/src/filesystems/fs_rt11.cpp" line="1035"/>
+        <source>Invalid date</source>
+        <translation>Неверная дата</translation>
     </message>
 </context>
 <context>

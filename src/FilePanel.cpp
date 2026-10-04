@@ -1363,6 +1363,20 @@ void FilePanel::updateTable()
         size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         items.append(size_item);
 
+        if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Date)) {
+            QString date_text;
+            if (f.date.valid()) {
+                const QDate date(f.date.year, f.date.month, f.date.day);
+                if (f.date.hour >= 0)
+                    date_text = HostModel::formatDate(QDateTime(date, QTime(f.date.hour, qMax(0, static_cast<int>(f.date.minute)))));
+                else
+                    date_text = QLocale().toString(date, QLocale::ShortFormat);
+            }
+            auto * date_item = new QStandardItem(date_text);
+            date_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+            items.append(date_item);
+        }
+
         QStandardItem *nameItem;
         if (f.is_dir) {
             nameItem = new QStandardItem("[" + file_name + "]");
@@ -1380,6 +1394,15 @@ void FilePanel::updateTable()
         }
         items.append(nameItem);
         image_model->appendRow( items );
+    }
+
+    // The date format follows the locale, so the column is fitted to what it got
+    if (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Date)) {
+        const int column = (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Protect) ? 1 : 0)
+                         + (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::Types) ? 1 : 0)
+                         + (dsk_tools::hasFlag(funcs, dsk_tools::FSCaps::ExAttr) ? 1 : 0)
+                         + 1;                                           // Size
+        tableView->widenColumnToContents(column);
     }
 
 

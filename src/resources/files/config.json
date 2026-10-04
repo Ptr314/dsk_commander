@@ -5,7 +5,7 @@
             "name":         "RAW image",
             "short_name":   "DSK",
             "source":       true,
-            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img;*.ima;*.st",
+            "extensions":   "*.dsk;*.do;*.po;*.cpm;*.gmd;*.kdi;*.odi;*.fdd;*.img;*.ima;*.st;*.bkd;*.rtd",
             "types":        ["TYPE_AGAT_140", "TYPE_AGAT_840", "TYPE_AGAT_880",
                             "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
                             "TYPE_CPM:GMD-7012",
@@ -20,6 +20,13 @@
                             "TYPE_FAT:ST-800",
                             "TYPE_FAT:ST-820",
                             "TYPE_FAT:ST-1440",
+
+                            "TYPE_RT11:DX",
+                            "TYPE_RT11:MX-220",
+                            "TYPE_RT11:MX-440",
+                            "TYPE_RT11:MY-800",
+                            "TYPE_RT11:MZ-400",
+                            "TYPE_RT11:MZ-800",
 
                             "TYPE_CPM:KORVET",
                             "TYPE_CPM:ORION",
@@ -222,6 +229,36 @@
             "name": "Apple II 3.5\" 800 Kb ProDOS",
             "targets": ["FILE_RAW_MSB"],
             "filesystems": ["FILESYSTEM_PRODOS"]
+        },
+        "TYPE_RT11:DX": {
+            "name": "RT-11::DX 8\" 250 Kb (DVK)",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_RT11"]
+        },
+        "TYPE_RT11:MX-220": {
+            "name": "RT-11::MX 220 Kb (DVK)",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_RT11"]
+        },
+        "TYPE_RT11:MX-440": {
+            "name": "RT-11::MX 440 Kb (DVK)",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_RT11"]
+        },
+        "TYPE_RT11:MY-800": {
+            "name": "RT-11::MY 800 Kb (DVK)",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_RT11"]
+        },
+        "TYPE_RT11:MZ-400": {
+            "name": "RT-11::MZ 400 Kb (UKNC, BK)",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_RT11"]
+        },
+        "TYPE_RT11:MZ-800": {
+            "name": "RT-11::MZ 800 Kb (UKNC, BK)",
+            "targets": ["FILE_RAW_MSB"],
+            "filesystems": ["FILESYSTEM_RT11"]
         }
     },
     "file_systems": {
@@ -254,6 +291,9 @@
         },
         "FILESYSTEM_ISKRA-226": {
             "name": "Iskra-226"
+        },
+        "FILESYSTEM_RT11": {
+            "name": "RT-11"
         }
     }
 }
