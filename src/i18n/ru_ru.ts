@@ -1074,6 +1074,21 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="122"/>
+        <source>Track layout</source>
+        <translation>Разметка дорожек</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="123"/>
+        <source>N</source>
+        <translation>N</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="124"/>
+        <source>No data field after the ID</source>
+        <translation>Нет поля данных после заголовка</translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="122"/>
         <source>The file contains corrupted data!</source>
         <translation>Файл содержит повреждённые данные!</translation>
     </message>

@@ -57,7 +57,32 @@
             "short_name":   "HFE",
             "source":       true,
             "extensions":   "*.hfe",
-            "types":        ["TYPE_AGAT_840", "TYPE_AGAT_880"]
+            "types":        ["TYPE_AGAT_840", "TYPE_AGAT_880",
+                            "TYPE_CPM:IRISHA-360-INT", "TYPE_CPM:IRISHA-360-SEQ",
+                            "TYPE_CPM:GMD-7012",
+
+                            "TYPE_FAT:PC-360",
+                            "TYPE_FAT:PC-720",
+                            "TYPE_FAT:PC-1200",
+                            "TYPE_FAT:PC-1440",
+
+                            "TYPE_FAT:ST-360",
+                            "TYPE_FAT:ST-720",
+                            "TYPE_FAT:ST-800",
+                            "TYPE_FAT:ST-820",
+                            "TYPE_FAT:ST-1440",
+
+                            "TYPE_RT11:DX",
+                            "TYPE_RT11:MX-220",
+                            "TYPE_RT11:MX-440",
+                            "TYPE_RT11:MY-800",
+                            "TYPE_RT11:MZ-400",
+                            "TYPE_RT11:MZ-800",
+
+                            "TYPE_CPM:KORVET",
+                            "TYPE_CPM:ORION",
+                            "TYPE_CPM:VECTOR"
+            ]
         },
         "FILE_MFM_NIB": {
             "order":        30,
@@ -147,77 +172,77 @@
         },
         "TYPE_CPM:IRISHA-360-INT": {
             "name": "Irisha::360K Interleaved",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:IRISHA-360-SEQ": {
             "name": "Irisha::360K Sequential",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:GMD-7012": {
             "name": "Irisha::GMD-7012 8\" 256 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_FAT:PC-360": {
             "name": "PC::360 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:PC-720": {
             "name": "PC::720 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:PC-1200": {
             "name": "PC::1.2 Mb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:PC-1440": {
             "name": "PC::1.44 Mb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:ST-360": {
             "name": "Atari ST::360 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:ST-720": {
             "name": "Atari ST::720 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:ST-800": {
             "name": "Atari ST::800 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:ST-820": {
             "name": "Atari ST::820 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_FAT:ST-1440": {
             "name": "Atari ST::1.44 Mb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_FAT"]
         },
         "TYPE_CPM:KORVET": {
             "name": "Korvet 800 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:ORION": {
             "name": "Orion-128/PK8000 800 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_CPM:VECTOR": {
             "name": "Vector-06C 820 Kb",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_CPM_RAW"]
         },
         "TYPE_OTHER:ISKRA-226": {
@@ -232,32 +257,32 @@
         },
         "TYPE_RT11:DX": {
             "name": "RT-11::DX 8\" 250 Kb (DVK)",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_RT11"]
         },
         "TYPE_RT11:MX-220": {
             "name": "RT-11::MX 220 Kb (DVK)",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_RT11"]
         },
         "TYPE_RT11:MX-440": {
             "name": "RT-11::MX 440 Kb (DVK)",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_RT11"]
         },
         "TYPE_RT11:MY-800": {
             "name": "RT-11::MY 800 Kb (DVK)",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_RT11"]
         },
         "TYPE_RT11:MZ-400": {
             "name": "RT-11::MZ 400 Kb (UKNC, BK)",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_RT11"]
         },
         "TYPE_RT11:MZ-800": {
             "name": "RT-11::MZ 800 Kb (UKNC, BK)",
-            "targets": ["FILE_RAW_MSB"],
+            "targets": ["FILE_RAW_MSB", "FILE_HXC_HFE"],
             "filesystems": ["FILESYSTEM_RT11"]
         }
     },

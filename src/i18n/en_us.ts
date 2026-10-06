@@ -1073,6 +1073,21 @@
     </message>
     <message>
         <location filename="../placeholders.h" line="122"/>
+        <source>Track layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="123"/>
+        <source>N</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="124"/>
+        <source>No data field after the ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../placeholders.h" line="122"/>
         <source>The file contains corrupted data!</source>
         <translation type="unfinished"></translation>
     </message>

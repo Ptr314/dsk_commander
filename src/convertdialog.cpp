@@ -122,7 +122,8 @@ void ConvertDialog::set_controls()
         ui->volumeIDGroup->setEnabled(true);
     } else
     if (target_id == "FILE_HXC_HFE") {
-        ui->volumeIDGroup->setEnabled(true);
+        // Only the Agat tracks carry a volume number; IBM and MX tracks have none
+        ui->volumeIDGroup->setEnabled(m_type_id.startsWith("TYPE_AGAT"));
     } else
     if (target_id == "FILE_MFM_NIB") {
         ui->volumeIDGroup->setEnabled(true);
