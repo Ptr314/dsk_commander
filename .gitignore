@@ -6,3 +6,4 @@ config.qml
 CLAUDE.md
 TESTING.md
 nul
+src/globals.h
