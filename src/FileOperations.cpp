@@ -705,7 +705,8 @@ void FileOperations::saveImageAs(FilePanel* panel, QWidget* parent)
         } else if (target_id == "FILE_HXC_HFE") {
             writer = dsk_tools::make_unique<dsk_tools::WriterHxCHFE>(target_id.toStdString(), image, volume_id);
         } else if (target_id == "FILE_RAW_MSB") {
-            writer = dsk_tools::make_unique<dsk_tools::WriterRAW>(target_id.toStdString(), image);
+            // The name tells the order of a 140 Kb image: ProDOS order for a .po
+            writer = dsk_tools::make_unique<dsk_tools::WriterRAW>(target_id.toStdString(), image, output_file.toStdString());
         } else {
             QMessageBox::critical(parent, FilePanel::tr("Error"), FilePanel::tr("Not implemented!"));
             return;
