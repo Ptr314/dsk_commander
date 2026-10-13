@@ -14,7 +14,7 @@ DISK Commander &ndash; программа для просмотра, редак�
 </p>
 
 На данный момент поддерживается просмотр дисков следующих форматов:
-* Агат / Apple II 140 Кб, (DSK, NIC, MFM, NIB).
+* Агат / Apple II 140 Кб, (DSK, NIC, MFM, NIB, HFE).
 * Агат 840 Кб (DSK, AIM, HFE, NIB).
 * Агат 880 Кб, ОС Nippel (DSK, AIM, HFE).
 * Apple II 3,5" 800 Кб ProDOS (PO, DSK).
